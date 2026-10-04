@@ -1,0 +1,675 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\an}{\mathrm{an}}
+\newcommand{\dd}{\mathrm d'\mathrm d''}
+\newcommand{\Psh}{\operatorname{Psh}}
+\newcommand{\Int}{\operatorname{Int}}
+\newcommand{\Pic}{\operatorname{Pic}}
+\newcommand{\trop}{\operatorname{trop}}
+\title{P02.4: Ordinary smooth decreasing regularization\\
+Verified sufficient curve sectors and an actual boundary obstruction}
+\author{Fresh public-source argument; unverified mathematical draft}
+\date{4 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+The original characterization is not solved. We give a stage-one ordinary
+Chambert--Loir--Ducros (CLD) construction for every arbitrary classical
+plurisubharmonic (psh) target on specified smooth curves over fields with a
+countable dense subset, and extend the germ statement through finite unibranch
+normalization. A quantitative shift makes independently smoothed lisse terms
+decrease on one fixed ordinary neighborhood. We also treat all targets on
+saturated products with proper projective fibres, without claiming this treats
+all sheaf germs on those higher-dimensional spaces. At an actual analytic
+boundary we construct a classical psh spike which cannot even be a local
+pointwise limit of a sequence of continuous functions when the residue field
+is uncountable. For this particular spike, countability of the residue field
+is also sufficient, by an explicit ordinary smooth psh sequence. None of these
+results gives the requested sharp characterization of all spaces.
+\end{abstract}
+
+\section{Scope, definitions, and checked published premises}
+Only P02.4 is addressed. The required target is a decreasing \emph{sequence}
+of finite ordinary CLD-smooth psh functions on one fixed ordinary open
+neighborhood, converging pointwise to an arbitrary classical psh function
+with values in $\mathbb R\cup\{-\infty\}$. Continuity, finiteness, or torus
+invariance of the starting function is not imposed in the curve theorems.
+The word classical has exactly the curve-test meaning in
+\cite[Definition 4.1]{GR}: for every analytic field extension and every
+analytic curve mapping into the extension of the space, the pullback is
+subharmonic. The subharmonic definition allows the identically
+$-\infty$ function; on a connected smooth strictly analytic boundaryless
+curve it agrees with Thuillier's definition or the identically $-\infty$
+case, by \cite[3.4.2 and 4.1.2]{GR}.
+
+Ordinary smooth functions are represented on \emph{ordinary open} charts by
+smooth functions of finitely many logarithms of invertible analytic functions.
+This is the ordinary-open assertion of the actual saved CD v2,
+\cite[Proposition 15.1.1(b), Corollary 15.1.2]{CD}. An ordinary smooth psh
+function has $\dd f\geq0$ as a smooth $(1,1)$-form. In that saved v2 the
+smooth stage is $\Psh_{X,0}$, the first decreasing-sequence stage is
+$\Psh_{X,1}$, and these are defined in Lemma 8.1.4; Definition 8.1.13 calls
+the latter locally approachable. Proposition 8.1.5 preserves stages under
+pullback. It does not collapse stage two to stage one. On boundaryless
+spaces these smooth functions also have positive $\dd[f]$ currents by
+\cite[\S8.3, Proposition 8.3.1]{CD}; the boundaryless hypothesis in that
+section is indispensable and is retained here.
+
+The following exact published inputs were read, with their literal proofs
+retained in the accompanying source extracts.
+\begin{enumerate}
+\item Thuillier's Theorem 3.4.2 \cite{Thu} gives a decreasing \emph{family/net}
+of finite lisse subharmonic functions on each relatively compact ordinary
+open subset of a smooth strictly analytic curve. Its proof uses finite
+subsets of the non-rigid locus and harmonic interpolation. It does not give
+the arbitrary-target sequence needed here.
+\item Wanner's standing field in \cite{Wan} is complete, algebraically
+closed, and nontrivially valued. Lemma 5.2 says: on a smooth proper algebraic
+curve $C$ satisfying $H_C\subset C^\infty$, a lisse function on a strictly
+affinoid $Y$ that is subharmonic on $Y\setminus\partial Y$ admits continuous
+approximants on $Y$, ordinary smooth and psh on that same interior, converging
+uniformly on $Y$. They can be chosen decreasing. Her Corollary 5.4 verifies
+the harmonic-smoothness premise if the residue field is algebraic over a
+finite field, or $C=\mathbb P^1$, or $C$ is a Mumford curve. The corollary's
+target itself is \emph{finite continuous}; our arbitrary-target claim below
+uses Lemma 5.2, not an unqualified invocation of that corollary.
+\item GJR Proposition 15.11 \cite{GJR} has the conclusion ``a decreasing net
+of weakly smooth psh functions'' on relatively compact opens of a rig-smooth
+boundaryless curve over a nontrivially valued field. The proof first reduces
+to one lisse term and constructs a sequence for that term. This does not
+extract a sequence from the original net. Harmonic neighborhoods in that
+proof provide weak, and not automatically ordinary, smoothness.
+\item \cite[Propositions 3.5 and 4.2]{GR} gives sheafiness, field extension,
+and analytic pullback of subharmonic and classical psh functions; finite
+surjective maps also detect these properties. In particular Proposition
+3.5(3) applies to a USC curve function subharmonic on the analytic interior,
+including its arbitrary boundary values. The proof explicitly treats the
+new interior components over a boundary point after scalar extension.
+Theorem 6.1 gives the local maximum principle at analytic interior points.
+The ordinary-smooth/classical comparison is the published argument in
+\cite[1.2]{GR}, reducing curve tests to Wanner's continuous comparison on
+smooth curve neighborhoods; it is not an unpublished book premise.
+\end{enumerate}
+
+Thuillier uses the all-domain site $X_G$ and the strictly analytic rigid
+site $X_R$ separately (\cite[2.1.7]{Thu}); Definition 3.2.1 extends lisse
+functions to $X_G$. His Proposition 3.2.4 gives the skeletal description
+on compact \emph{strict} domains. GJR 15.8--15.9 likewise imposes strict
+domains and the indicated vertex/value-group restrictions. We never infer
+strict real-PL membership for all-domain lisse functions. We never replace
+weakly smooth by ordinary smooth. No real-PL or Fubini--Study conclusion is
+needed in this argument.
+
+\section{Two elementary lemmas with quantitative bounds}
+\begin{lemma}[Countable extraction]
+Let $Z$ be second countable and let $(f_i)_{i\in I}$ be a decreasing net of
+continuous real functions on $Z$ with pointwise infimum
+$u:Z\to\mathbb R\cup\{-\infty\}$. There are indices $i_j$, increasing in
+the directed ordering, such that $f_{i_j}$ decreases pointwise to $u$.
+\end{lemma}
+\begin{proof}
+For every rational $q$, $\{u<q\}=\bigcup_i\{f_i<q\}$. A subspace of a
+second-countable space is second countable and hence Lindelof: choosing one
+covering open set for each basis element contained in a covering open set
+gives a countable subcover. Thus choose countably many indices for each
+$q$ covering $\{u<q\}$. List the union of all selected indices as $a_j$,
+padding a finite list if necessary. Recursively take $i_j$ dominating
+$i_{j-1}$ and $a_j$. Then $f_{i_j}\geq u$ and the sequence decreases.
+If $u(z)<q$, some selected $f_{a_k}(z)<q$, so eventually
+$f_{i_j}(z)<q$. All rational $q>u(z)$ show the limit is $u(z)$, and all
+rational $q$ handle $u(z)=-\infty$. If no indices need selecting, the
+conclusion is trivial. We did not claim the chosen indices are cofinal in
+the entire directed set.
+\end{proof}
+
+\begin{lemma}[Strict affinoids over separable fields]
+If $K$ has a countable dense subset, every strictly $K$-affinoid space is
+second countable.
+\end{lemma}
+\begin{proof}
+Choose a countable dense subring of $K$ by adjoining a countable dense
+subset to its prime ring. The polynomials with these coefficients are a
+countable dense subset of $K\langle T_1,\ldots,T_N\rangle$. Their images
+give a countable dense subset $A_0$ of any strict affinoid quotient $A$,
+with a submultiplicative quotient Banach norm. Every bounded multiplicative
+seminorm $x$ on $A$ satisfies $|a(x)|\leq\|a\|$: apply boundedness to
+$a^n$ and take $n$-th roots. The ultrametric inequality gives
+$\bigl||a(x)|-|b(x)|\bigr|\leq\|a-b\|$ uniformly in $x$.
+Every evaluation $|a|$ is consequently a uniform limit of evaluations
+$|b|$ for $b\in A_0$. The topology on $\mathcal M(A)$ is therefore induced
+by countably many real-valued evaluations. Rational intervals for those
+coordinates and their finite intersections give a countable base.
+\end{proof}
+
+\begin{lemma}[One-stage smoothing with a fixed interstage gap]
+Suppose $h_j:Y\to\mathbb R$ decreases pointwise to $u$, and for each
+$j\geq1$ a finite smooth psh $s_j$ on the same $V\subset Y$ satisfies
+$\|s_j-h_j\|_V\leq\epsilon_j$, where $\epsilon_j=2^{-j}$.
+Then
+\[
+ v_j=s_j+4\epsilon_j
+\]
+is smooth psh on $V$, tends pointwise to $u|_V$, and
+\begin{align*}
+ h_j+3\epsilon_j&\leq v_j\leq h_j+5\epsilon_j,\\
+ v_j-v_{j+1}&\geq(h_j-h_{j+1})+
+ 4(\epsilon_j-\epsilon_{j+1})-\epsilon_j-\epsilon_{j+1}
+ \geq\epsilon_j/2>0.
+\end{align*}
+\end{lemma}
+\begin{proof}
+Adding a constant preserves smoothness and $\dd$-positivity.
+The displayed bounds follow directly from the error inequalities and
+$\epsilon_{j+1}=\epsilon_j/2$. At a finite target value the error tends to
+zero, and at a $-\infty$ value the upper bound tends to $-\infty$.
+All inequalities are pointwise on one fixed $V$. In particular this directly
+produces stage-one approximants; no stage-two closure argument is used.
+\end{proof}
+
+\section{Arbitrary targets on a concrete curve sector}
+\begin{theorem}\label{thm:curves}
+Let $K$ be complete, algebraically closed and nontrivially valued, with a
+countable dense subset. Let $C$ be a smooth proper algebraic curve satisfying
+one of the following concrete sufficient conditions:
+\begin{enumerate}
+\item $\widetilde K$ is algebraic over a finite field;
+\item $C=\mathbb P^1_K$;
+\item $C$ is a Mumford curve.
+\end{enumerate}
+For every ordinary open $W\subset C^\an$, every arbitrary classical psh
+$u:W\to\mathbb R\cup\{-\infty\}$, and every $x\in W$, there is a strictly
+affinoid neighborhood $Y\subset W$ of $x$, with ordinary open interior
+$V=Y\setminus\partial Y$, and a sequence of finite ordinary CLD-smooth
+psh functions $v_j$ on $V$ decreasing pointwise to $u|_V$.
+The construction is compatible with restriction, ordinary chart overlaps,
+and pullback to every analytic extension field. If $u$ is finite continuous,
+convergence is locally uniform; that extra conclusion is not asserted for
+an arbitrary target.
+\end{theorem}
+\begin{proof}
+Work in a connected ordinary neighborhood of $x$ in $W$. If the target is
+identically $-\infty$ there, take $v_j=-j$. Otherwise it is subharmonic
+in Thuillier's sense by \cite[3.4.2 and 4.1.2]{GR}. Choose a relatively
+compact ordinary open $W'$ containing $x$ with closure in $W$.
+Thuillier's Theorem 3.4.2 gives a decreasing net of finite lisse
+subharmonic functions $f_i$ on $W'$ with infimum $u$.
+Choose one strictly affinoid neighborhood $Y$ of $x$ contained in $W'$.
+Such neighborhoods exist on these good strictly analytic algebraic curves;
+their boundaries are finite and their interiors are ordinary open.
+
+All $f_i|_Y$ are continuous. The second-countability and extraction lemmas
+produce one decreasing sequence $h_j=f_{i_j}|_Y$ with infimum $u|_Y$.
+This is the only countable extraction in the proof and its hypothesis has
+been proved from the field condition. No continuity of $u$ is used.
+
+For every $j$, $h_j$ is lisse on the strictly affinoid $Y$ and
+subharmonic on the \emph{same} $V=Y\setminus\partial Y$.
+The geometric conditions in the theorem give $H_C\subset C^\infty$ by
+the checked proof of Wanner Corollary 5.4 and Thuillier Theorem 2.3.21.
+Apply Wanner Lemma 5.2 to $h_j$ on $Y$. Select one of its continuous
+approximants $s_j$ with
+$\|s_j-h_j\|_Y\leq2^{-j}$. It is ordinary smooth and psh on $V$.
+Wanner's construction uses harmonic pieces, which are ordinary smooth
+under $H_C\subset C^\infty$, and convex regularized maxima on the connecting
+annuli; its equalities with the original term near the gluing boundaries
+establish ordinary-open gluing. Positivity is the positivity in Lemma 5.2,
+not an inference from the word smooth.
+
+Apply the fixed-gap lemma to obtain $v_j=s_j+4\cdot2^{-j}$. This is a
+single decreasing sequence of ordinary smooth psh functions on $V$, with
+gap at least $2^{-j-1}$ and pointwise limit $u$, including all permitted
+$-\infty$ values and discontinuities. On a compact subset where the target
+is finite continuous, Dini's theorem gives uniform convergence.
+
+Each $v_j$ is a globally defined function on $V$. Its ordinary chart
+representatives consequently agree as functions and as the induced
+forms on intersections. We did not construct unrelated sequences on
+different charts and then assume they agree. Restricting the sequence
+to any ordinary open subset preserves all inequalities and its limit.
+The field-extension and positivity details are supplied in the next
+section and apply to these particular globally defined terms.
+\end{proof}
+
+The field hypothesis is a sufficient hypothesis, not a claimed necessary
+one; the familiar field $\mathbb C_p$ is an example. The theorem treats all
+classical psh sheaf germs on ordinary opens of the specified curves, rather
+than only finite continuous global functions. Wanner's harmonic-smoothness
+conditions have not been proved necessary for approximation.
+
+\section{Ordinary pullbacks, scalar extension, and finite unibranch descent}
+The pullback assertion here concerns ordinary smooth functions with positive
+$\dd$ forms, and not arbitrary positive currents. If $g:Z\to V$ is analytic,
+an ordinary open chart
+\[
+ v_j=\phi_j(-\log|a_1|,\ldots,-\log|a_r|),\qquad a_i\in\mathcal O^\times,
+\]
+pulls back to the same smooth real function of the invertible functions
+$a_i\circ g$. Thus it is ordinary smooth. Differentials commute with
+pullback, and pullback preserves smooth $(1,1)$-positivity by the linear
+algebra of \cite[Lemma 1.2.11]{CD} and the ordinary tropical-chart
+construction; equivalently the smooth case of CD Proposition 8.1.5.
+This proves $\dd(g^*v_j)=g^*(\dd v_j)\geq0$. This is an application to
+forms; we do not invoke a pullback operation for arbitrary currents.
+
+For an analytic extension $L/K$ and $\pi:V_L\to V$, the charts pull back
+to invertible $a_{i,L}$ on the ordinary opens $\pi^{-1}(U)$ and the same
+$\phi_j$. To justify positivity without assuming that this particular
+representing Hessian is positive on all of the ambient real space, apply
+CD Lemma 6.5.1 to the positive ordinary form $\dd v_j$. It supplies an
+ordinary neighborhood $U$, a tropical chart $f$, and a positive form
+$\alpha$ on a paralin\'eaire set $P$ containing $f(U)$, with
+$\dd v_j=f^*\alpha$. Refining the chart by Proposition 15.1.1(b)
+expresses its coordinates as affine combinations of logarithms of
+analytic units. Those coordinates therefore pull back under scalar
+extension as well. The image of $f_L=f\circ\pi$ lies in the same $P$,
+and the positive-linear-pullback test gives $f_L^*\alpha\geq0$.
+Since differentials commute with this chart pullback,
+$\dd(v_j\circ\pi)=f_L^*\alpha$. This proves positivity even when $L$
+has new residue directions; it is not a harmonic-smoothness assertion
+about all functions over $L$.
+We obtain ordinary smooth psh $v_{j,L}=v_j\circ\pi$ and
+\[
+ v_{j,L}-v_{j+1,L}\geq2^{-j-1},\qquad
+ \lim_jv_{j,L}(y)=u(\pi(y)).
+\]
+No second countability of $V_L$ is needed. The comparison in \cite[1.2]{GR}
+makes these smooth psh functions classical; its field-compatible curve
+test agrees with the positive-form pullback argument. On boundaryless
+domains, CD \S8.3 also gives their positive currents. Successive analytic
+extensions give exactly the same composed functions. Equality on overlaps
+is preserved by taking preimages, so the scalar and overlap assertions
+are actual equalities, not new choices of approximants.
+This does \emph{not} prove that every new classical psh target over $L$
+comes by descent from $K$, or that ordinary smoothness descends along an
+arbitrary scalar extension.
+
+\begin{theorem}[A singular unibranch curve sector]\label{thm:unibranch}
+Let $K$ satisfy the field assumptions of Theorem \ref{thm:curves}.
+Let $D$ be an integral proper algebraic curve whose finite normalization
+$\nu:C\to D$ is bijective on geometric points and whose smooth proper
+normalization $C$ satisfies one of that theorem's three conditions.
+Then every arbitrary classical psh sheaf germ on $D^\an$ has a decreasing
+ordinary CLD-smooth psh sequence on one fixed ordinary neighborhood.
+The asserted sequences have the same restriction and scalar compatibility
+as above. In particular this applies to cuspidal proper curves with
+normalization $\mathbb P^1$.
+\end{theorem}
+\begin{proof}
+On the smooth locus use Theorem \ref{thm:curves} through the normalization
+isomorphism. The exceptional locus of a normalization of an integral
+proper algebraic curve is a finite set of closed points; over this $K$
+those are $K$-rational rigid points. Around a singular point $x$, remove
+the other exceptional points. There is exactly one point $x'$ over $x$,
+and $\nu$ is an isomorphism away from $x$. The analytic finite map is
+closed and surjective. It is now bijective on the underlying neighborhood,
+so it is a homeomorphism there. Indeed, outside $x$ it is an isomorphism,
+and the fibre over $x$ has just the one analytic point $x'$.
+
+Let $u$ be the target on an ordinary neighborhood $W$ of $x$.
+Then $\widetilde u=u\circ\nu$ is classical psh by GR Proposition 4.2(6).
+Construct the curve sequence $\widetilde v_j$ on an ordinary neighborhood
+$V'$ of $x'$ by Theorem \ref{thm:curves}. Finiteness and closedness of
+$\nu$ give an ordinary neighborhood $N\subset W$ of $x$ such that
+$\nu^{-1}(N)\subset V'$: remove the closed image of the complement of
+$V'$ in $\nu^{-1}(W)$. Descend the functions via the homeomorphism to
+finite continuous functions $v_j$ on this single fixed $N$.
+
+Every ordinary CLD-smooth function is locally constant at a $K$-rational
+rigid point. To see this, use an ordinary chart with finitely many local
+invertible functions $a_i$. On a sufficiently small neighborhood,
+$|a_i-a_i(x')|<|a_i(x')|$ for every $i$, by analytic continuity and
+$a_i(x')\ne0$. Hence all $|a_i|$ are constant there, so is the represented
+smooth function. Therefore $\widetilde v_j$ is constant on some open
+neighborhood of $x'$, whose image under the homeomorphism is open at $x$.
+Its descended $v_j$ is constant on that neighborhood, and is ordinary
+smooth elsewhere by the analytic isomorphism. This is ordinary-open
+descent, not general descent of smooth forms along a finite map.
+
+On the constant neighborhood $\dd v_j=0$; off $x$ its $\dd$ form is
+nonnegative by the isomorphism with the normalization. These opens cover
+$N$, so $v_j$ is smooth psh. For classical positivity one can also apply
+the finite-surjective detection statement GR Proposition 4.2(6) to
+$\nu^{-1}(N)\to N$. The functions agree on the intersections by their
+global definition. Their inequalities, interstage gaps and limits are
+those of $\widetilde v_j$, so $v_j\downarrow u|_N$. Their scalar pullbacks
+are ordinary smooth psh and converge to $u_L|_{N_L}$ by the preceding
+chart argument; this does not require a new assertion about normalization
+commuting with every scalar extension.
+\end{proof}
+
+The one-point fibre is essential to this proof. With several branches,
+separately chosen smooth sequences can have different constant values
+near the preimages of the node at every finite stage. Agreement only of
+their limits does not permit their descent. No claim is made for arbitrary
+multibranch singularities, general finite maps, or strict scalar descent
+over a non-algebraically-closed base field.
+
+\section{All targets on a noninvariant saturated higher-dimensional sector}
+\begin{proposition}\label{prop:saturated}
+Under the smooth curve hypotheses of Theorem \ref{thm:curves}, let
+$U\subset C^\an$ be ordinary open, $m\geq1$, and let
+$X=U\times_K(\mathbb P^m_K)^\an$ with projection $p$.
+For every arbitrary classical psh function $u$ defined on this entire
+saturated $X$, and each $z\in U$, there is an ordinary neighborhood
+$V$ of $z$ and a sequence of finite ordinary smooth psh functions on
+the single ordinary open $p^{-1}(V)$ decreasing to $u|_{p^{-1}(V)}$.
+There is no torus-invariance or continuity assumption on $u$.
+\end{proposition}
+\begin{proof}
+For $z\in U$, the analytic fibre is
+$(\mathbb P^m_{\mathcal H(z)})^\an$. Apply scalar extension and analytic
+pullback, GR Proposition 4.2(5,6), to see that $u$ restricts to a classical
+psh function on this fibre. Projective space analytification is compact,
+connected and boundaryless. A USC function into $\mathbb R\cup\{-\infty\}$
+on it is either identically $-\infty$ or has a finite attained maximum $M$:
+local finite upper bounds give a global bound by compactness, and nested
+closed upper-level sets give attainment. In the latter case its maximum
+locus is nonempty and closed. At every point of that locus GR Theorem 6.1
+applies, since the whole fibre is boundaryless, so the locus is open.
+Connectedness implies that the function is constant. Thus $u$ is constant
+on every proper fibre, including the entirely $-\infty$ fibres.
+
+Choose a $K$-rational point $o\in\mathbb P^m(K)$ and its analytic section
+$s:U\to X$. Set $w=u\circ s$. It is USC and classical psh by analytic
+pullback, hence subharmonic on the curve $U$. Fibrewise constancy gives
+the equality of functions $u=w\circ p$, including infinite values.
+Apply Theorem \ref{thm:curves} to $w$ at $z$ on a fixed $V$. Its smooth
+psh terms $w_j$ pull back to ordinary smooth psh $w_j\circ p$ by the
+ordinary pullback proof above, and
+\[
+ w_j\circ p-w_{j+1}\circ p\geq2^{-j-1},\qquad
+ w_j\circ p\downarrow w\circ p=u.
+\]
+The identically $-\infty$ case uses $-j$ instead. The entire inverse
+image $p^{-1}(V)$ is one ordinary open neighborhood of every point over
+$z$. The global formula establishes overlap agreement. After every
+analytic extension it remains the same formula with $p_L$ and the
+pulled-back $w_j$; its positivity and decreasing convergence remain valid.
+The products here are boundaryless, so the smooth current is positive as
+well.
+\end{proof}
+
+This is an assertion about \emph{all targets on saturated domains}.
+It is not the assertion that every sheaf germ on $X$ has been regularized.
+A target initially defined only on a nonsaturated affine chart cannot
+be restricted to a whole proper fibre, and the preceding maximum-principle
+argument is unavailable. No extension of that target to the saturated
+domain has been proved. Consequently this proposition does not establish
+the original P02.4 local sheaf property for these higher-dimensional
+spaces. It does give a noninvariant higher-dimensional sufficient sector
+with arbitrary, possibly discontinuous or $-\infty$-valued, targets in
+the specified domain of definition.
+
+\section{A sharp sequence obstruction at an actual analytic boundary}
+Let $K$ now be any complete algebraically closed nontrivially valued
+field; no dense-countability assumption is imposed. Write
+$D=\mathcal M(K\langle T\rangle)$, let $\eta$ be its Gauss point, and
+fix $A>0$. Define
+\[
+ u(\eta)=A,\qquad u(x)=0\quad(x\ne\eta).
+\]
+The singleton $\{\eta\}$ is closed in the Hausdorff disc, so $u$ is USC.
+The analytic boundary of this closed disc is exactly $\{\eta\}$ and
+$u=0$ on $\Int(D)$. GR Proposition 3.5(3), with its scalar-compatible
+boundary proof, says $u$ is subharmonic on $D$. GR 4.1.2 makes it
+classically psh. This step verifies the actual starting class, rather
+than just exhibiting a topological USC function.
+
+For each $\alpha\in\widetilde K$, choose a representative
+$a_\alpha\in K^\circ$ and set
+\[
+ D_\alpha=\{x\in D:|T-a_\alpha|(x)<1\}.
+\]
+These are nonempty pairwise disjoint ordinary open residue discs, and
+partition $D\setminus\{\eta\}$. One elementary verification of the last
+assertion is as follows. If every $|T-a_\alpha|(x)=1$, every nonzero
+polynomial, factored over the algebraically closed $K$, has its Gauss
+norm at $x$: roots in $K^\circ$ give factors of norm one and roots
+outside $K^\circ$ give their constant dominating absolute value.
+Approximate Tate series uniformly by polynomials to conclude that $x$
+is the Gauss seminorm. Conversely $|T-a_\alpha|(x)<1$ singles out exactly
+that residue class by the ultrametric inequality.
+
+Every ordinary neighborhood of $\eta$ contains all but finitely many
+\emph{whole} $D_\alpha$. Indeed a basic neighborhood uses finitely many
+evaluations of Tate series $f$. Normalize a nonzero $f$ by its Gauss norm;
+its reduction is a nonzero polynomial over $\widetilde K$, since its
+coefficients tend to zero. Outside the finitely many roots of that
+reduction, $|f|$ is its Gauss norm throughout the corresponding residue
+disc. For a direct verification, translate by $a_\alpha$: if its reduced
+value there is nonzero, the constant term has full norm, while all
+nonconstant terms times $(T-a_\alpha)^n$ have strictly smaller norm
+at every point of that open disc. Thus any finite collection of such
+evaluations agrees with its value at $\eta$ outside finitely many
+directions. This proves the neighborhood assertion.
+
+\begin{theorem}[Uncountable residual boundary obstruction]\label{thm:obstruction}
+If $\widetilde K$ is uncountable, the above classical psh $u$ is not a
+pointwise limit of \emph{any sequence of finite continuous functions}
+on any ordinary neighborhood of $\eta$ in $D$. In particular $D$ fails
+the original decreasing ordinary CLD-smooth psh property at $\eta$.
+\end{theorem}
+\begin{proof}
+Suppose continuous $v_j:N\to\mathbb R$ converge pointwise to $u|_N$,
+where $N$ is an ordinary neighborhood of $\eta$. Discard finitely many
+indices so that $v_j(\eta)>3A/4$. For each remaining $j$, continuity
+gives an ordinary neighborhood $N_j\subset N$ of $\eta$ on which
+$v_j>A/2$. By the preceding neighborhood assertion, there is a finite
+set $E_j\subset\widetilde K$ such that $D_\alpha\subset N_j$ for
+$\alpha\notin E_j$. Choose
+$\alpha\notin\bigcup_jE_j$, possible by uncountability, and its rigid
+point $a_\alpha$. All $v_j(a_\alpha)>A/2$, but $u(a_\alpha)=0$, a
+contradiction. Decreasingness and psh positivity were not even needed.
+\end{proof}
+
+\begin{corollary}[Higher-dimensional failures]
+For the same $K$ with uncountable residue field and any $m\geq1$,
+$D\times_K(\mathbb P^m_K)^\an$ fails P02.4 at
+$(\eta,o)$ for any $K$-rational $o$.
+\end{corollary}
+\begin{proof}
+The pullback $p^*u$ under projection is classical psh by GR Proposition
+4.2(6). If continuous, in particular ordinary smooth, approximants
+existed on a neighborhood $N$ of $(\eta,o)$, restrict them to the
+analytic section $D\times\{o\}$. Its inverse image of $N$ is an
+ordinary neighborhood of $\eta$, and its target is exactly $u$.
+Theorem \ref{thm:obstruction} forbids even a continuous sequence there.
+These are good strictly analytic spaces with a genuine analytic boundary;
+the obstruction is not a purported residue-Picard obstruction on a
+boundaryless curve.
+\end{proof}
+
+\begin{proposition}[Sharpness for this spike]\label{prop:countable-spike}
+If $\widetilde K$ is countable, the same spike admits a decreasing
+sequence of finite ordinary CLD-smooth functions with nonnegative $\dd$
+form on the \emph{entire fixed closed disc} $D$. Thus, for this target,
+countability of the residue field is both necessary and sufficient.
+These are the ordinary smooth stage-zero psh functions of CD.
+\end{proposition}
+\begin{proof}
+Enumerate $\widetilde K$ and choose representatives $a_1,a_2,\ldots$.
+(The residue field of an algebraically closed field is infinite, so no
+finite-list issue arises.) Choose a nonzero nonnegative smooth bump
+$\beta$ supported in $(-1,-1/2)$. Set
+\[
+ c=\frac{A}{\int_{-1}^{-1/2}(-t)\beta(t)\,dt},\qquad
+ \chi(s)=c\int_{-\infty}^s(s-t)\beta(t)\,dt.
+\]
+Then $\chi$ is finite smooth convex nondecreasing, $\chi(s)=0$ for
+$s\leq-1$, $\chi(0)=A$, and $0\leq\chi(s)\leq A$ for $s\leq0$.
+Put $P_j(T)=\prod_{i=1}^j(T-a_i)$ and
+\[
+ v_j(x)=\chi\bigl(j\log|P_j(x)|\bigr),
+ \quad\text{with }v_j(x)=0\text{ if }P_j(x)=0.
+\]
+On the ordinary open locus $P_j\ne0$, this is a smooth function of the
+logarithm of an invertible analytic function. Near a zero, the open
+set $|P_j|<e^{-1/j}$ has $v_j=0$, so this extension is ordinary smooth
+there as well. These ordinary open sets cover $D$ and their functions
+agree on intersections. On the nonzero locus, write $\ell=j\log|P_j|$;
+the logarithm of a unit is affine in an ordinary tropical chart, so
+\[
+ \dd v_j=\chi''(\ell)\,\mathrm d'\ell\wedge\mathrm d''\ell\geq0.
+\]
+It vanishes on the constant neighborhoods of zeros. Hence the functions
+are smooth psh in the CD stage-zero positive-form sense. Positive currents
+are also obtained on their analytic interiors, but CD \S8.3 is not cited
+to assert an unqualified current statement at the boundary.
+
+On $D$ every $\log|T-a_i|\leq0$. On the common nonzero locus,
+\[
+ (j+1)\log|P_{j+1}|-j\log|P_j|
+ =\sum_{i\leq j}\log|T-a_i|+(j+1)\log|T-a_{j+1}|\leq0.
+\]
+Monotonicity of $\chi$, together with the zero values when a factor
+vanishes, proves $v_{j+1}\leq v_j$. At $\eta$ every factor has norm
+one, so $v_j(\eta)=A$. If $x\ne\eta$, choose $i$ with
+$|T-a_i|(x)=r<1$. For $j\geq i$ with no vanishing factor,
+$j\log|P_j(x)|\leq j\log r\to-\infty$. Thus $v_j(x)$ is eventually
+exactly zero; a vanishing factor gives the same conclusion immediately.
+Therefore $v_j\downarrow u$ on this one fixed domain.
+
+After an arbitrary analytic extension $L/K$, the identical polynomials,
+cutoff neighborhoods and positive Hessian formula give ordinary smooth
+psh $v_{j,L}$. Pointwise composition gives
+$v_{j,L}\downarrow u\circ\pi_{L/K}$. If $\widetilde L$ is uncountable,
+this is not a contradiction: the target is the spike on the full
+inverse image $\pi_{L/K}^{-1}(\eta)$, not the singleton-Gauss spike
+on $D_L$. For example new residue directions over $L$ can map entirely
+to the old Gauss point. The two targets must not be identified.
+\end{proof}
+
+The ``if and only if'' just proved concerns this one spike, not all
+classical psh functions on all discs with countable residue field. In
+particular it does not supply a sharp characterization for the original
+arbitrary-target problem at analytic boundaries.
+
+\section{Residue Picard/genus effects do not prove a failure of approximation}
+In the precise semistable type-two setup of Thuillier Theorem 2.3.21 and
+Lemma 2.3.22, the latter identifies
+\[
+ H_{C,x}/F_{C,x}\simeq\Pic^0(C_x)\otimes_{\mathbb Z}\mathbb R,
+\]
+where $C_x$ is the proper geometrically connected residual component and
+$F$ is generated by logarithms of local analytic units. GJR Remark 15.10
+identifies $F$ with the ordinary smooth harmonic functions. Thus a nonzero
+quotient implies some harmonic germ is not ordinary smooth. It does not
+assert that the germ cannot be a decreasing limit of ordinary smooth
+\emph{psh}, nonharmonic functions. Wanner Remark 5.5 explicitly leaves
+ordinary approximation on such curves unknown in that paper.
+
+If the residual component is rational, $\Pic^0=0$. If the algebraically
+closed residue field is algebraic over a finite field, every Jacobian
+point is defined over some finite field and belongs to its finite group
+of rational points, hence is torsion. Thus its tensor with $\mathbb R$
+is zero even when the residual genus is positive. Positive residual genus
+alone is not an obstruction. The actual PDF at printed page 59 says
+``est de cardinal fini'' in the algebraic-finite-field bullet; we do not
+use that stronger sentence about the entire group, which need not be
+finite. The elementary pointwise torsion argument above is the needed
+justification. Direct PDF inspection confirmed the Picard quotient,
+the theorem's two conditions, and that GJR 15.11 really says a net.
+
+We have proved neither necessity of $H_C\subset C^\infty$ for
+approximation nor removal of it. In particular the genuine boundary
+counterexample in the preceding section must not be reinterpreted as
+a residue-genus counterexample on smooth boundaryless curves.
+
+\section{Remaining exact original obligations and reproducible evidence}
+The exact original P02.4 remains open in this draft. The results here do
+not characterize higher-dimensional good strict analytic spaces for all
+classical psh sheaf germs. Unresolved obligations include:
+\begin{enumerate}
+\item arbitrary noninvariant targets on nonsaturated higher-dimensional
+ordinary charts and a geometric criterion covering all such targets;
+\item a sharp positive/failure range beyond the displayed curve sector
+and the displayed residual-cardinality boundary spike;
+\item boundaryless curves with $H/F\ne0$, without turning one nonsmooth
+harmonic germ into an unproved approximation obstruction;
+\item arbitrary multibranch or nonalgebraic singular curves, and
+ordinary smooth descent and synchronization along general finite normalization;
+\item nonseparable fields in the arbitrary-target positive curve theorem,
+where its explicit net-to-sequence extraction no longer applies;
+\item non-algebraically-closed bases and strict scalar descent. Existing
+scalar compatibility here concerns pullbacks of the constructed sequence,
+not descent of independently constructed sequences;
+\item compatibility needed to glue approximants from unrelated local
+tropical charts. Here all asserted overlaps come from actual globally
+defined terms on one neighborhood, not from a general gluing theorem.
+\end{enumerate}
+
+This is a mathematical argument based on checked published premises,
+not an exhaustive finite search or computational proof. Executable
+checks only validate retained inputs, source bytes, arithmetic of the
+explicit interstage estimates, and document generation. They do not
+establish mathematical correctness of the new arguments.
+
+All files are in the fresh working directory. The original bytes are
+retained in \texttt{input.json} and \texttt{input-original.json}; the
+assignment and task are retained in \texttt{assignment-original.txt}
+and \texttt{task-original.json}. The full proof is in
+\texttt{P02.4-argument.md} and embedded in this standalone
+\texttt{P02.4-paper.tex}. The seven authorized source PDF/extract pairs,
+their supplied and actual hashes, selected literal statements and complete
+proofs, exact application checks, and direct PDF inspection records are
+listed in \texttt{source-extracts/source-provenance.json}.
+There was no reading of earlier campaign workspaces or unpublished book
+sources, no network use, no installation, no subagent or other-model
+invocation, and no runtime changes or heavy computation.
+
+Rerun from this directory with
+\begin{verbatim}
+python3 verify_sources.py
+python3 build_and_check.py
+\end{verbatim}
+The second script invokes the existing \texttt{pandoc} to render the same
+standalone proof into Markdown and the existing \texttt{pdflatex} twice,
+with \texttt{-interaction=nonstopmode}, \texttt{-halt-on-error}, and
+\texttt{-file-line-error}.
+Actual return codes, warnings, error lines and complete transcripts are
+retained in \texttt{checks.json}, \nolinkurl{build-diagnostics.json}, and
+\texttt{build/}. The environment versions are retained in
+\texttt{environment.json}. The PDF is a reading artifact; successful
+builds and matching hashes do not certify any theorem.
+
+\begin{thebibliography}{9}
+\bibitem{GR} W. Gubler and J. Rabinoff,
+\emph{Classically psh and pluriharmonic functions on Berkovich spaces},
+saved public arXiv:2506.13548v2, especially 3.4--3.5, 4.1--4.2, 6.1.
+\url{https://arxiv.org/pdf/2506.13548v2}.
+\bibitem{GRPL} W. Gubler and J. Rabinoff, public arXiv:2503.05513,
+saved supplied version; PL and piecewise smooth foundations checked,
+not used as arbitrary ordinary smooth regularization.
+\url{https://arxiv.org/pdf/2503.05513}.
+\bibitem{Thu} A. Thuillier, thesis, 2005, saved tel-00010990v1,
+especially 2.1.7, 2.3.21--2.3.22, 3.2.1--3.2.4, 3.4.2.
+\url{https://theses.hal.science/tel-00010990v1/document}.
+\bibitem{GJR} W. Gubler, P. Jell and J. Rabinoff,
+\emph{Forms on Berkovich spaces based on harmonic tropicalizations},
+saved public arXiv:2111.05741, 15.8--15.11.
+\url{https://arxiv.org/pdf/2111.05741}.
+\bibitem{Ber} V. G. Berkovich, \emph{Etale cohomology for non-Archimedean
+analytic spaces}, Publ. Math. IHES 78 (1993), 5--161, supplied public cache.
+\url{https://www.numdam.org/item/PMIHES_1993__78__5_0/}.
+\bibitem{CD} A. Chambert-Loir and A. Ducros,
+\emph{Formes differentielles reelles et courants sur les espaces de
+Berkovich}, actual saved public arXiv:1204.6277v2. Numbering here refers
+to that supplied v2, not the older numbering used in Wanner.
+\url{https://arxiv.org/pdf/1204.6277v2}.
+\bibitem{Wan} V. Wanner, \emph{Comparison of two notions of subharmonicity
+on non-Archimedean curves}, saved public arXiv:1801.04713v3;
+standing terminology, Lemma 5.2, Corollary 5.4, Remark 5.5.
+\url{https://arxiv.org/pdf/1801.04713v3}.
+\end{thebibliography}
+\end{document}

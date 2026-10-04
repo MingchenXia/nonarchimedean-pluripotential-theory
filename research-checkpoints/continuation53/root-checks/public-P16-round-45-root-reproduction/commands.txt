@@ -1,0 +1,27 @@
+Reproducible final workflow, run from this directory:
+bash rerun.sh
+
+Its program commands are:
+python3 init_workspace.py
+python3 provenance.py
+python3 build_and_check.py
+python3 make_notes.py
+pdftotext build/P16.1-paper.pdf build/P16.1-paper.txt
+
+build_and_check.py runs and records these exact commands (twice for pdflatex):
+python3 make_paper.py
+pdflatex -interaction=nonstopmode -halt-on-error -file-line-error -output-directory=build P16.1-paper.tex
+python3 curve_checks.py
+
+PDF inspection commands actually executed:
+pdftoppm -f 35 -l 35 -singlefile -scale-to 1600 -png /workspace/research/shared-sources/P16-arxiv-1801.08229-20261004.pdf source-extracts/BJ-page35
+pdftoppm -f 1 -l 1 -singlefile -scale-to 1500 -png build/P16.1-paper.pdf build/paper-page1
+
+PDF text re-extractions from the five selected source pages, including exact argv,
+are retained inside source-extracts/source-provenance.json. Source inventory retains
+pdfinfo output and byte-identity checks. Both TeX stdout/stderr streams and both
+actual TeX log files are retained in build/. Inspection of source page 35 confirmed
+the surjective-morphism nef reflection statement and its model proof. Inspection
+of the new paper's first page confirmed readable typesetting of the theorem and
+its raw mass/dual-energy condition. No compilation or arithmetic check establishes
+mathematical correctness.

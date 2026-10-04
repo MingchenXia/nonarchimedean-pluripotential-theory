@@ -1,0 +1,826 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  11pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{\textbf{#1}}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{amsmath,amssymb}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={P16.4: an all-support projective-line finite-energy theorem and the remaining arbitrary-field problem},
+  pdfauthor={Unverified research draft},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{P16.4: an all-support projective-line finite-energy theorem and
+the remaining arbitrary-field problem}
+\author{Unverified research draft}
+\date{4 October 2026}
+
+\begin{document}
+\maketitle
+
+\section{Result and scope}\label{result-and-scope}
+
+The original P16.4 is \textbf{not solved} here. A definition of
+\(\mathcal E^1\), a completion of a space of measures, and
+differentiation of continuous metric volumes do not identify a genuine
+Monge--Ampere operator on unbounded potentials. The verified source
+statements below do not supply that identification over arbitrary
+complete valued fields in general dimension.
+
+We prove a partial theorem on the entire Berkovich projective line, with
+arbitrary measure support. Its potentials can be unbounded, its operator
+agrees with the usual continuous Monge--Ampere measure, and its measure
+condition is exactly the dual finite-energy condition. This is a
+reconstruction of classical curve potential theory in a particularly
+explicit sector, not a claimed new higher-dimensional theorem. All
+arguments needed to identify its energy and operator are given below.
+
+\textbf{Retained hypotheses for the partial theorem.} Let \(K\) be
+algebraically closed and complete for a \textbf{nontrivial real-valued
+non-Archimedean absolute value}, with residue characteristic zero. Let
+\(X=\mathbf P^1_K\), let \(d\geq1\) be an integer, and let
+\(L=\mathcal O(d)\). Thus \(X\) is smooth, geometrically connected,
+algebraic, proper and projective, and \(L\) is ample. The additional
+restriction \(X=\mathbf P^1\) and the additional algebraic-closedness
+assumption are genuine restrictions. No discreteness, spherical
+completeness, countability, or function-field algebraizability is
+assumed. Residue characteristic zero is retained to keep this result on
+the assigned valuation axis, although the tree proof does not use that
+characteristic restriction. No descent to a non-algebraically-closed
+ground field is claimed.
+
+Write \(T=X^{\mathrm{an}}\) and let \(o\) be the Gauss point in the
+coordinate \(Z\). Fix the standard continuous semipositive metric
+\(h_0\) on \(L\), in additive weight notation. Its raw curvature measure
+is \[
+\theta=d\delta_o,\qquad V=(L^1)=d.
+\] The metric with relative weight \(u\) is \(h_0+u\); in norm notation
+this multiplies the reference norm by \(e^{-u}\). We use \textbf{raw
+energy}, so \(E(u+c)=E(u)+dc\). We exclude the identically \(-\infty\)
+weight from \(\operatorname{PSH}(L)\).
+
+\textbf{Theorem 1 (partial all-support finite-energy equation).} Under
+these hypotheses there is a genuine operator \[
+\operatorname{MA}:\mathcal E^1(L)\longrightarrow
+\{\mu\text{ positive Radon on }T:\mu(T)=d\}
+\] extending the continuous semipositive Monge--Ampere operator,
+continuous along decreasing nets of psh weights. For a positive Radon
+measure of \textbf{raw mass \(d\)}, define \[
+J_{h_0}(\mu)=\sup_{v\in C(T)\cap\operatorname{PSH}(L)}
+\left(E(v)-\int_T v\,d\mu\right).
+\] Here psh weights are relative to \(h_0\), and \[
+E(v)=\frac12\left(\int_T v\,\operatorname{MA}(v)+d v(o)\right)
+\] for continuous weights. Define the extended energy by the infimum of
+\(E(v)\) over continuous psh majorants \(v\geq u\), and define
+\(\mathcal E^1=\{u:E(u)>-\infty\}\).
+
+For every such \(\mu\) with \(J_{h_0}(\mu)<\infty\) there exists
+\(u\in\mathcal E^1(L)\) with \(\operatorname{MA}(u)=\mu\), unique modulo
+additive constants. There is \textbf{no support restriction}. In fact
+the operator gives a bijection
+\(\mathcal E^1/\mathbf R\simeq\{\mu:\mu(T)=d,J_{h_0}(\mu)<\infty\}\),
+and a homeomorphism for the strong topologies (weak topology refined by
+convergence of energy). It has a comparison principle, and energy
+differentiates along affine segments in \(\mathcal E^1\). Its definition
+and the finiteness conditions do not depend on the continuous
+semipositive reference metric.
+
+\section{Exact source versions and permitted
+background}\label{exact-source-versions-and-permitted-background}
+
+Only the ten supplied caches and fresh work were read. Hashes, literal
+extracts, their supplied-text line locations and PDF page locations are
+retained in \texttt{source-extracts/source-provenance.json}. Literal
+extracts preserve original OCR defects; selected original PDF pages were
+rendered and inspected to resolve signs and continuity hypotheses. None
+of these verification operations certifies a proof.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Boucksom--Favre--Jonsson, 1201.0187v2, \emph{Singular
+  semipositive metrics in non-Archimedean geometry}.} The standing
+  assumptions are a complete discrete valuation field of residue
+  characteristic zero and a smooth projective analytification. Its
+  Theorems A and B give compactness and decreasing model regularization
+  in that domain. They are not arbitrary-field statements in this saved
+  version.
+\item
+  \textbf{Boucksom--Favre--Jonsson, 1201.0188v1, \emph{Solution to a
+  non-Archimedean Monge--Ampere equation}.} Theorem A in the actual
+  saved v1 requires a complete discrete valuation field of residue
+  characteristic zero, smooth projective \(X\) defined over a
+  one-variable function field admitting \(K\) as a completion, ample
+  \(L\), and a positive Radon measure of raw mass \((L^n)\)
+  \textbf{supported on an SNC dual complex}. The introduction separately
+  records curve potential theory over any complete nontrivially valued
+  field. Later theorem statements removing algebraizability must not be
+  silently attributed to this v1. We make no higher-dimensional
+  application of it.
+\item
+  \textbf{Boucksom--Eriksson, 1805.01016v3, \emph{Spaces of norms,
+  determinant of cohomology and Fekete points in non-Archimedean
+  geometry}.} This is the spaces-of-norms paper. Theorem A identifies
+  continuous psh relative volume and energy over any complete valued
+  field for a geometrically reduced projective scheme and an ample line
+  bundle. Theorem 7.8 identifies continuous psh metrics with uniform
+  limits of nef model metrics when the valuation is nontrivial and \(L\)
+  is ample. Definition 7.2, Lemma 7.4 and Corollary 7.6 give the
+  decreasing-net definition and closure properties. Theorem 8.4 extends
+  the mixed operator to \textbf{continuous psh-regularizable metrics},
+  continuously for the uniform topology; Theorem 7.14 makes continuous
+  psh metrics in our ample setting psh-regularizable. Proposition 8.3
+  supplies mass and integration by parts, which extend by uniform
+  approximation. Definition 9.13 and Proposition 9.14 give continuous
+  energy and its cocycle rule. Every application below has \(K\)
+  complete, \(X=\mathbf P^1\) smooth projective/geometrically reduced,
+  and \(L=\mathcal O(d)\) ample; nontriviality is imposed where 7.8
+  needs it.
+\item
+  \textbf{Boucksom--Jonsson, 1801.08229v4, \emph{Global pluripotential
+  theory over a trivially valued field}.} Theorem A gives the
+  finite-energy operator and an embedding with dense image; surjectivity
+  holds for smooth \(X\) when the characteristic is zero or the
+  dimension is at most two. The ground field in this formulation is
+  algebraically closed and \textbf{trivially valued}. It cannot be
+  applied to our nontrivially valued field by changing that standing
+  assumption.
+\item
+  \textbf{Boucksom--Jonsson, 2307.01697v1, \emph{Measures of finite
+  energy in pluripotential theory: a synthetic approach}.} Theorem A and
+  Theorems 2.23--2.24 give density of test Monge--Ampere measures and a
+  complete Dirichlet quasi-metric on finite-energy \textbf{measures},
+  under orthogonality. Example 2.20 states orthogonality for the
+  projective Berkovich formalism over a non-Archimedean field, using
+  continuous volume results and a uniform differentiability estimate.
+  Remark 2.14 expressly leaves investigation of psh potentials aside.
+  The source does not identify each element of the measure completion
+  with an actual unbounded psh potential. Orthogonality in this
+  formalism must not be confused with continuity of all psh envelopes.
+  No cohomology-isomorphism assertion over an arbitrary field is needed
+  here.
+\item
+  \textbf{Pille--Schneider, 2209.04879v2, \emph{Global pluripotential
+  theory on hybrid spaces}.} Theorem 4.3 states the continuous-metric
+  extension over complete valued fields. Remark 4.4 says (with
+  typography normalized): ``While the class \(E^1(X,L)\) of
+  finite-energy psh metrics on \(L\) is defined over any non-archimedean
+  field \(K\), it is unclear in general how to extend the Monge-Ampere
+  operator on the latter.'' It then records the discrete
+  characteristic-zero and trivial endpoints. The BFJ standing assumption
+  is checked separately as \textbf{residue} characteristic zero; the
+  abbreviated phrase in this remark does not license
+  mixed-characteristic applications.
+\item
+  \textbf{Gubler--Rabinoff, 2506.13548v2, 17 September 2025,
+  \emph{Classically psh and pluriharmonic functions on Berkovich
+  spaces}.} The field is arbitrary complete non-Archimedean, possibly
+  trivially valued. It constructs classically psh functions and maximum
+  principles. The introduction explicitly excludes Monge--Ampere
+  construction from its subject. Appendix A describes the disk tree and
+  its weak topology. This is the tree background used below; coordinates
+  \(Z\) and \(1/Z\), with their overlap identified, give the
+  projective-line tree. The two closed coordinate disks do not intersect
+  only in the Gauss point.
+\item
+  \textbf{Thuillier, thesis tel-00010990v1.} Chapter 2 assumes a
+  complete nontrivially valued field, not a discrete valuation. The
+  curve is smooth and strictly analytic; Section 3.5 further assumes
+  connected and proper. These conditions hold for our \(T\). Theorem
+  3.3.13 solves the mass-zero Laplace equation for currents; Lemma
+  3.3.12 identifies the kernel with harmonic functions; Theorem 3.4.19
+  regularizes subharmonic line-bundle metrics; Proposition 3.5.7 equates
+  Green-potential integrability and Hilbert finite energy. These are
+  classical background compatible with the explicit proof below.
+  Original PDF page 117 (printed 103) confirms the term
+  \(\mu-\mu(T)\delta_x\), including raw mass. A displayed curvature sign
+  on printed page 97 is inconsistent with its local weight convention;
+  our convention is fixed independently by integration by parts and
+  \(dd^c(-k_z)=\delta_z-\delta_o\). We do not import an OCR sign or an
+  unproved model-descent identification.
+\item
+  \textbf{Berkovich, \emph{Etale cohomology for non-Archimedean analytic
+  spaces}, PMIHES 78 (1993).} This supplies general analytic
+  foundations, not a finite-energy equation theorem. No theorem from it
+  is an indispensable new application below.
+\item
+  \textbf{Chambert-Loir--Ducros, 1204.6277v2, July 2025, \emph{Formes
+  differentielles reelles et courants sur les espaces de Berkovich}.}
+  The expanded v2 has transfinite psh definitions in Section 8.1. Lemma
+  8.5.5 explicitly requires a \textbf{continuous} psh multiplier,
+  confirmed on original PDF page 207; Proposition 8.7.2 requires
+  continuous functions and local uniform convergence. The shorthand in
+  8.7.1 refers back to these product hypotheses. The audited statements
+  do not supply the global unbounded \(\mathcal E^1\) operator or an
+  all-support equation. Section numbers from the earlier v1 cannot be
+  transferred to this v2.
+\end{enumerate}
+
+The permitted background in the proof is the elementary Berkovich tree
+structure and the continuous-metric theory just specified. All new
+passages to unbounded weights and all energy and equation
+identifications in this sector are proved next.
+
+\section{The rooted kernel and finite
+trees}\label{the-rooted-kernel-and-finite-trees}
+
+The tree \(T\) has unique paths. On its nonrigid part these have their
+usual logarithmic length; paths ending at a rigid point have infinite
+length. For \(x,y\in T\) let \(x\wedge_o y\) be the last point common to
+their paths from \(o\), and put \[
+k(x,y)=\operatorname{length}([o,x]\cap[o,y])\in[0,+\infty].
+\] In particular \(k(o,y)=0\). All nonrigid points have finite depth
+\(\ell(x)=k(x,x)\); type IV endpoints have positive limiting disk
+radius, since \(K\) is complete. No spherical completeness is needed.
+
+Let \(F\) range over finite rooted subtrees whose vertices are type II
+points and which contain \(o\). The order is inclusion. Type II points
+are dense along every finite nondegenerate path because the nonzero
+divisible group \(\log|K^\times|\) is dense in \(\mathbf R\). Let
+\(r_F:T\to F\) be nearest rooted-path retraction and set \[
+k_F(x,y)=k(r_Fx,r_Fy).
+\] These kernels are bounded and continuous on \(T\times T\), increase
+with \(F\), and have supremum \(k\). Indeed \(k_F\) counts the common
+path inside \(F\); along every common path its finite segments are
+exhausted by type II cutoffs. Continuity follows from the disk weak
+topology: a finite-path retraction is constant on each attached open
+branch and continuous along its finitely many retained edges.
+
+Continuous functions factoring through finite-tree retractions form an
+algebra, contain constants, and separate points. For distinct points a
+type II cutoff along a distinguishing path separates their projections.
+Stone--Weierstrass therefore gives their uniform density in \(C(T)\). If
+\(g=g\circ r_F\) and \(G\supset F\), then \(g\circ r_G=g\).
+Approximation by such \(g\) proves \(f\circ r_G\to f\) uniformly for
+every \(f\in C(T)\), and hence \((r_F)_*\mu\to\mu\) weakly for any Radon
+measure. Piecewise affine functions with type II knots are likewise
+uniformly dense: approximate a continuous function on a finite compact
+graph by linear interpolation and move knots to nearby type II points.
+
+We will use the following Radon integration fact, including for
+nonmetrizable \(T\). If bounded continuous functions \(a_i\) on a
+compact Hausdorff space form an increasing directed family with supremum
+\(a\), then \[
+\int a\,d\rho=\sup_i\int a_i\,d\rho
+\] for a positive Radon measure, also when the supremum is unbounded and
+nonnegative. To prove this, first truncate the desired lower bound and
+approximate a lower semicontinuous function from below in integral using
+compact subsets of its superlevel sets. On each such compact subset the
+inequalities \(a_i>t\) give an open cover. A finite subcover and
+directedness provide one index meeting all finitely many inequalities.
+The layer-cake formula, followed by finer level partitions and
+truncation, proves the claim. The same argument on \(T\times T\) uses
+its Radon product measure. In particular the kernel integrals below can
+equivalently be defined by their finite-tree suprema; this avoids
+assuming a dominated-convergence theorem for arbitrary nets or a
+globally sigma-finite length measure on an uncountably branching tree.
+Fubini for these nonnegative lower semicontinuous kernels follows by
+this approximation: continuous functions on a compact product are
+uniformly approximable by finite sums of products of continuous
+functions.
+
+For a positive finite Radon measure \(\mu\) define \[
+p_\mu(x)=\int_T k(x,y)\,d\mu(y),\qquad
+I(\mu)=\int_{T\times T}k(x,y)\,d\mu(x)d\mu(y).
+\] Thus \(p_\mu=\sup_F p_{\mu,F}\), where
+\(p_{\mu,F}(x)=\int k_F(x,y)d\mu(y)=p_\mu(r_Fx)\). Also
+\(I(\mu)=\sup_F I_F(\mu)\) with \(I_F(\mu)=\iint k_F\,d\mu d\mu\). The
+function \(p_\mu\) is lower semicontinuous, finite at every nonrigid
+point, bounded there by \(\mu(T)\ell(x)\), and zero at \(o\).
+
+\section{Agreement with the genuine continuous
+operator}\label{agreement-with-the-genuine-continuous-operator}
+
+Here \(dd^c\) is the signed graph Laplacian for which \[
+\int f\,dd^c g=-D(f,g),\qquad
+D(f,g)=\sum_{e}\int_e f'g'\,dt.
+\] Finite-tree functions are extended constantly on attached branches.
+Endpoint contributions are the sum of outward slopes. Consequently, for
+a type II point \(z\), \(k_z=k(\cdot,z)\) is a continuous finite-tree
+piecewise affine function and \[
+dd^c k_z=\delta_o-\delta_z.
+\] This sign gives nonnegative curvature \(d\delta_z\) for \(h_0-dk_z\).
+
+To verify that this really is an algebraic semipositive metric, write
+\(z=\zeta_{a,r}\), where \(a\in K\) and \(r=|b|\) for \(b\in K^\times\).
+In the affine chart the function \[
+w_z(x)=d\left(\log\max(r,|Z-a|_x)-\log\max(1,|Z|_x)\right)-c_z
+\] with \(c_z\) the preceding expression at \(o\) is the relative weight
+of a transformed standard Fubini--Study metric. Nested disk computation
+shows \(w_z=-dk_z\): it has slope \(-d\) exactly on \([o,z]\) and is
+constant on every branch off that path. This computation also treats
+disks outside the unit disk by passing through their common ancestor
+with \(o\). Its curvature is \(d\delta_z\), either by the same slope
+computation or by the standard model's degree and the coordinate
+automorphism. Thus the elementary potentials are genuine semipositive
+metrics. Each \(k_z\) is a difference of continuous Fubini--Study
+metrics, divided by \(d\).
+
+If \(\nu=\sum_i a_i\delta_{z_i}\), \(a_i\geq0\), \(\sum a_i=d\), with
+type II \(z_i\), then \[
+h_0-p_\nu=\sum_i\frac{a_i}{d}(h_0-dk_{z_i})
+\] is continuous psh and its genuine raw measure is \(\nu\). Rational
+convex combinations follow by tensor powers, and real combinations by
+uniform limits. Multilinearity in dimension one makes curvature linear.
+
+For an arbitrary mass-\(d\) measure on a finite tree \(F\), approximate
+it by mass-preserving positive atomic measures at type II subdivision
+points, moving each point a graph distance at most \(\varepsilon\).
+Since \(|k(x,y)-k(x,z)|\leq\operatorname{dist}(y,z)\) on \(F\), the
+potentials differ uniformly by at most \(d\varepsilon\).
+Boucksom--Eriksson Theorem 8.4 applies to these continuous psh metrics
+and shows \[
+\operatorname{MA}(-p_{\mu,F})=(r_F)_*\mu=:\mu_F.
+\] This is a genuine continuous Monge--Ampere measure. We have not
+replaced it with a separately defined inverse measure.
+
+For any continuous psh relative weight \(v\), integration by parts from
+Proposition 8.3, extended by the uniform approximation of Theorem 8.4,
+gives \[
+\int_T k_z\,\operatorname{MA}(v)=v(o)-v(z).
+\] The reference contribution vanishes because \(k_z(o)=0\). Write
+\(\nu=\operatorname{MA}(v)\), of raw mass \(d\). This identity shows
+\(v(z)=v(o)-p_\nu(z)\) at every type II \(z\). Along a rooted path
+ending at any \(x\), choose an increasing sequence of type II cutoffs
+\(z_j\) tending to \(x\). The kernels \(k(z_j,\cdot)\) increase to
+\(k(x,\cdot)\); ordinary sequential monotone convergence and continuity
+of \(v\) give \[
+v(x)=v(o)-p_\nu(x).
+\] Thus every continuous psh metric has precisely the kernel
+representation, and in particular its normalized relative weight is
+nonpositive. Finite-tree piecewise affine functions are linear
+combinations of constants and the \(k_z\), as their finite graph
+Laplacians and root values determine them. The integration-by-parts
+tests consequently form a dense subspace of \(C(T)\).
+
+\section{All psh weights and the unbounded
+operator}\label{all-psh-weights-and-the-unbounded-operator}
+
+For every positive Radon \(\mu\) of mass \(d\), the continuous psh net
+\[
+u_F=c-p_{\mu,F}
+\] decreases to \(u=c-p_\mu\). It is not identically \(-\infty\) since
+\(u(o)=c\). Boucksom--Eriksson Lemma 7.4 makes this a psh metric under
+the Fubini--Study decreasing-net definition. Its approximating measures
+are the genuine measures \(\mu_F\), which converge weakly to \(\mu\) by
+the finite-retraction argument.
+
+Conversely let \(v_i\) be any decreasing net of continuous psh weights
+with nontrivial limit \(u\). Put \(c_i=v_i(o)\) and
+\(\nu_i=\operatorname{MA}(v_i)\). Since \(v_i\leq c_i\), a limit
+\(c_i\to-\infty\) would force \(u\equiv-\infty\). Hence \(c=\lim c_i\)
+is finite. At every type II \(z\), \[
+c_i-d\ell(z)\leq v_i(z)\leq c_i,
+\] so \(v_i(z)\) has a finite limit. The integrals of \(k_z\) against
+\(\nu_i\) therefore converge. Compactness of the mass-\(d\) Radon
+measures and density of the span of the \(k_z\) imply weak convergence
+to one uniquely determined measure \(\mu\), without a separability
+assumption. At type II points \(u(z)=c-p_\mu(z)\).
+
+For an arbitrary endpoint or nonrigid point \(x\), the continuous
+representations give
+\(v_i(x)=\inf_{z\in[o,x),\ z\text{ type II}}v_i(z)\). Both infima
+commute: \[
+u(x)=\inf_i\inf_z v_i(z)=\inf_z\inf_i v_i(z)=c-p_\mu(x).
+\] The root is dealt with separately. Thus the complete psh cone is
+exactly \[
+\operatorname{PSH}(L)=\{c-p_\mu:c\in\mathbf R,\ \mu\geq0,\ \mu(T)=d\}.
+\] The representation is unique, since \(\int k_zd\mu=c-u(z)\) and these
+test functions, together with constants, have dense span.
+
+Define \(\operatorname{MA}(c-p_\mu)=\mu\). The preceding argument proves
+independence of \textbf{every} decreasing continuous psh approximation,
+agreement with the genuine continuous operator, raw mass \(d\), and weak
+decreasing continuity. In fact the operator is defined on all psh
+weights in this one-dimensional sector. The same test argument proves
+decreasing continuity for a net of already singular psh weights with a
+nontrivial psh limit. This linear phenomenon is special to dimension
+one; it does not construct a wedge product in higher dimensions.
+
+\section{Dirichlet completion and the exact energy
+condition}\label{dirichlet-completion-and-the-exact-energy-condition}
+
+Let \(\mathcal A\) be the root-zero continuous finite-tree piecewise
+affine functions with type II knots. The form \(D\) is independent of
+enlarging the finite tree because the function is constant on added
+branches. It is positive definite on \(\mathcal A\). Let \(H\) be its
+Hilbert completion. Point evaluation at any finite-depth \(x\) extends
+continuously, since \[
+|f(x)|\leq\sqrt{\ell(x)}\sqrt{D(f,f)}.
+\] For finite \(F\), let \(H_F\) be the closed subspace of root-zero
+absolutely continuous functions on \(F\), with square-integrable edge
+derivatives, pulled back by \(r_F\). Linear interpolation approximates
+them in Dirichlet norm, so \(H_F\subset H\).
+
+On an oriented edge of \(F\), the derivative of \(p_{\mu,F}\) is the
+mass of \(\mu_F\) in the descendant subtree beyond the point of that
+edge. It lies in \([0,d]\). Integrating edge derivatives, or first
+checking atomic measures and then approximating them, gives \[
+D(p_{\mu,F},p_{\nu,F})=\iint k_F(x,y)\,d\mu(x)d\nu(y)=:I_F(\mu,\nu).
+\] This formula also proves the symmetry and nonnegativity of the
+finite-tree mutual energy. If \(G\supset F\), then
+\(p_{\mu,G}|_F=p_{\mu,F}|_F\), and the additional edge derivatives are
+disjoint from those of a function in \(H_F\). Therefore \(p_{\mu,F}\) is
+the orthogonal projection of \(p_{\mu,G}\) onto \(H_F\), and \[
+\|p_{\mu,G}-p_{\mu,F}\|_H^2=I_G(\mu)-I_F(\mu).
+\] If \(I(\mu)<\infty\), this net is Cauchy and defines \(p_\mu\in H\).
+Point evaluations agree with the actual kernel potential at all
+finite-depth points. Conversely, a bounded Dirichlet norm for these
+restrictions implies \(I(\mu)<\infty\). For finite-energy positive
+measures, \[
+I(\mu,\nu)=\iint k\,d\mu d\nu
+=D(p_\mu,p_\nu)\leq\sqrt{I(\mu)I(\nu)}.
+\] To obtain the equality, use the increasing finite kernels and the
+Radon integration fact, and then take limits in the Hilbert pairing. In
+particular \(p_\nu\) is integrable against \(\mu\). No infinite-energy
+endpoint value is silently assigned a finite Sobolev value.
+
+For continuous psh \(u=c-p_\mu\), the raw continuous energy formula
+gives \[
+E(u)=dc-\tfrac12 I(\mu).
+\] For an arbitrary psh \(u=c-p_\mu\), its finite-tree majorants have
+energies \(dc-\tfrac12 I_F(\mu)\). They show that the infimum over
+continuous majorants is at most \(dc-\tfrac12 I(\mu)\). For the reverse
+inequality, let \(v\geq u\) be any continuous psh weight and
+\(\varepsilon>0\). The increasing open sets \(\{u_F<v+\varepsilon\}\)
+cover the compact space \(T\); a finite subcover and directedness show
+\(u_F\leq v+\varepsilon\) eventually. Monotonicity of continuous energy,
+Proposition 9.14, gives \(E(u_F)\leq E(v)+d\varepsilon\). Taking the
+limit and then the infimum proves \[
+E(c-p_\mu)=dc-\tfrac12 I(\mu),\qquad
+\mathcal E^1(L)=\{c-p_\mu:I(\mu)<\infty\}.
+\] If \(I(\mu)=\infty\), the displayed identity means \(E(u)=-\infty\),
+and the upper bound from the finite-tree net already proves it.
+
+This argument also proves energy continuity along any decreasing psh
+net: for a fixed continuous majorant \(v\) of the limit, compactness and
+the open sets \(\{u_i<v+\varepsilon\}\) eventually give the energy upper
+bound \(E(u_i)\leq E(v)+d\varepsilon\); monotonicity supplies the lower
+bound. The argument uses upper semicontinuity of \(u_i\), not a
+dominated-convergence assertion for nets.
+
+For a positive mass-\(d\) measure \(\mu\), constants cancel in the dual
+functional. If \(I(\mu)<\infty\) and \(v=a-p_\nu\) is continuous psh,
+then \[
+E(v)-\int v\,d\mu=I(\mu,\nu)-\tfrac12 I(\nu)
+\leq\tfrac12 I(\mu),
+\] by completing the Hilbert square. Taking \(v=-p_{\mu,F}\) gives
+exactly \(\tfrac12 I_F(\mu)\), since \(I(\mu,\mu_F)=I_F(\mu)\). These
+tests also work when \(I(\mu)=\infty\), where their dual values tend to
+infinity. Thus \[
+J_{h_0}(\mu)=\tfrac12 I(\mu)\quad\text{in }[0,+\infty].
+\] This is the asserted raw-mass finite-energy condition. Taking the
+supremum over Fubini--Study metrics gives the same quantity by uniform
+density; taking it over all \(\mathcal E^1\) gives the same quantity by
+the mutual-energy bound and the same tests. For the normalized energy
+\(\overline E=E/d\) and probability measure \(\overline\mu=\mu/d\), the
+dual energy is \(J_{h_0}(\mu)/d=I(\mu)/(2d)\). This normalization never
+changes the original raw measure or renormalizes a restriction of it.
+
+\section{Existence, uniqueness, differentiation, comparison and
+compactness}\label{existence-uniqueness-differentiation-comparison-and-compactness}
+
+If \(J_{h_0}(\mu)<\infty\), the actual function \(u=-p_\mu\) is psh, has
+finite energy, and satisfies \(\operatorname{MA}(u)=\mu\). Uniqueness
+modulo constants follows from the unique kernel representation. More
+strongly, for any \(v=a-p_\nu\in\mathcal E^1\), \[
+E(v)-\int v\,d\mu
+=\tfrac12 I(\mu)-\tfrac12\|p_\nu-p_\mu\|_H^2.
+\] The maximum is attained precisely at \(u+\) constants. This proves
+the equation by a constructed unbounded potential, rather than by a
+conditional existence of a maximizer.
+
+For \(u,v\in\mathcal E^1\) and \(b=v-u\), their affine segment is psh
+and finite energy. Mutual integrability makes the actual integral of
+\(b\) against either measure finite; sets where an individual potential
+is \(-\infty\) have zero mass for both measures. The quadratic identity
+\(E(u)=du(o)-\tfrac12 D(u,u)\) gives \[
+\left.\frac{d}{dt}\right|_{t=0+}E(u+tb)
+=d b(o)-D(u,b)=\int_T b\,\operatorname{MA}(u).
+\] This is differentiation for the \textbf{actual unbounded operator}
+along \(\mathcal E^1\) directions, not merely continuous metric volume
+differentiation.
+
+For completeness, the global comparison principle is \[
+\operatorname{MA}(v)(\{u<v\})\leq
+\operatorname{MA}(u)(\{u<v\}),\qquad u,v\in\mathcal E^1.
+\] Here any points where both weights are \(-\infty\) may be omitted:
+mutual integrability makes them null for both measures. Put \(w=v-u\)
+and \(\eta_\varepsilon=\min(1,\max(0,w/\varepsilon))\). We justify the
+Sobolev test rather than presuming a distribution can be multiplied by
+an unbounded function. On finite trees \(w_F=w\circ r_F\) and
+\(\eta_\varepsilon(w_F)\) are absolutely continuous. Restrictions are
+consistent under enlargement, and their Dirichlet norms are bounded by
+\(\varepsilon^{-2}D(w,w)\). Their added-edge energies increase and are
+bounded, so they converge strongly in \(H\), with the fixed root value,
+to the contraction \(\eta_\varepsilon(w)\). On each finite tree \[
+D(\eta_\varepsilon(w_F),w_F)
+=\varepsilon^{-1}\sum_e\int_{\{0<w_F<\varepsilon\}\cap e}|w_F'|^2\,dt\geq0.
+\] Passing in the Hilbert pairing preserves nonnegativity.
+
+The pairing with \(\mu_u=\operatorname{MA}(u)\) and
+\(\mu_v=\operatorname{MA}(v)\) is the actual bounded-function integral.
+To check this point, choose increasing finite trees \(F_j\) whose
+projection energies approach those of \(p_{\mu_u}\) and \(p_{\mu_v}\).
+For each potential \(p\) and each of these measures \(\rho\), the
+nonnegative integral \(\int(p-p\circ r_{F_j})d\rho\) tends to zero by
+the mutual-energy identity and Cauchy--Schwarz. Hence the increasing
+potential approximations converge to the canonical potentials
+\(\rho\)-almost everywhere. Their contractions converge boundedly almost
+everywhere. Sequential dominated convergence identifies the integrals,
+while Hilbert convergence identifies the Dirichlet pairings. Integration
+by parts on the finite trees, equivalently the continuous test identity,
+therefore passes to \[
+\int\eta_\varepsilon(w)(\mu_v-\mu_u)
+=-D(\eta_\varepsilon(w),w)\leq0.
+\] As \(\varepsilon\downarrow0\), ordinary bounded convergence gives the
+claimed comparison inequality. The common reference measure cancels
+exactly; no subset measure is rescaled.
+
+The compactness replacement is also concrete. Positive mass-\(d\) Radon
+measures form a weakly compact space. The tests \(k_z\) show that
+normalized psh weights \(u(o)=0\), with the topology of pointwise
+convergence on type II points, are homeomorphic to this space. Thus the
+normalized psh cone is compact. Moreover \(I=\sup_F I_F\) is weakly
+lower semicontinuous, because each bounded continuous kernel gives a
+weakly continuous quadratic integral (use finite sums of products to
+check this). Hence each finite-energy sublevel \(I\leq C\) is weakly
+compact. For normalized finite-energy nets, pointwise convergence on
+type II points and convergence of \(E\) are precisely weak Hilbert
+convergence and convergence of squared norms; together they imply strong
+Hilbert convergence. Conversely these conditions follow from weak
+measure convergence and convergence of \(J=I/2\). This proves the
+strong-topology homeomorphism in Theorem 1, including for nets.
+
+\textbf{Envelope and regularization inputs.} The finite-tree net
+supplies actual decreasing continuous psh regularization. Continuity of
+psh envelopes for smooth projective curves over complete nontrivially
+valued fields is the curve background explicitly recorded by
+Boucksom--Eriksson in the introduction and after Conjecture 7.30, based
+on Thuillier. Our hypotheses are a special case of that stated domain.
+The equation proof does not need an envelope theorem or an unproved
+derivative of \(E\circ P\): the explicit Green potential and the Hilbert
+square replace that variational step. Compactness, approximation, the
+unbounded energy derivative and comparison used in the proof have all
+been proved above. This bypass is confined to a linear one-dimensional
+equation.
+
+\section{Reference dependence and an unbounded nonskeletal
+example}\label{reference-dependence-and-an-unbounded-nonskeletal-example}
+
+Let \(h_1=h_0+a\) be any other \textbf{continuous semipositive}
+reference metric on the same \(L\). Continuous energy satisfies the
+cocycle identity. The infimum definitions over absolute continuous psh
+majorant metrics extend it exactly: \[
+E_{h_1}(u-a)=E_{h_0}(u)-E_{h_0}(a).
+\] The rightmost term is finite, so the absolute space of finite-energy
+metrics is the same. The dual energies satisfy \[
+J_{h_1}(\mu)=J_{h_0}(\mu)-E_{h_0}(a)+\int_T a\,d\mu.
+\] The last integral is finite since \(a\) is continuous and
+\(\mu(T)=d\). Thus finiteness is reference-independent. The operator is
+intrinsic: it agrees on continuous metrics with the genuine curvature
+operator, and decreasing approximations are reference-independent
+absolute metrics. This argument changes neither \(L\) nor the raw mass.
+
+Here is an explicit solution outside the invariant,
+canonical-toric-skeleton-supported regime. Choose \(\pi\in K\) with
+\(0<|\pi|<1\), put \(\lambda=-\log|\pi|\), and let \[
+z_j=\zeta_{1,|\pi|^j},\qquad
+\mu=\sum_{j=1}^{\infty}\frac{d}{j(j+1)}\delta_{z_j}.
+\] All nodes lie on the ray from \(o\) towards the rigid point \(1\),
+off the standard toric skeleton in the coordinate \(Z\). The measure has
+mass \(d\), and its support also contains \(1\), with zero atom there.
+On the \(j\)th length-\(\lambda\) edge, its descendant mass is \(d/j\),
+so \[
+I(\mu)=\lambda d^2\sum_{j=1}^{\infty}j^{-2}<\infty,
+\qquad
+p_\mu(1)=\lambda d\sum_{j=1}^{\infty}(j+1)^{-1}=+\infty.
+\] Thus \(u=-p_\mu\) is a genuine finite-energy psh solution and
+\(u(1)=-\infty\). It is not continuous with finite real weights. No
+finite subtree contains its support. In particular this example cannot
+be obtained by restricting an arbitrary measure to one finite skeleton
+and normalizing that restriction. A toric metric has a toric skeletal
+Monge--Ampere measure, so this solution is noninvariant in the stated
+coordinate. The argument treats every admissible Radon measure, not just
+this example.
+
+Retraction onto \([o,z_N]\) gives exactly \[
+\mu_N=\sum_{j=1}^{N-1}\frac{d}{j(j+1)}\delta_{z_j}
++\frac dN\delta_{z_N},\quad
+I(\mu_N)=\lambda d^2\sum_{j=1}^N j^{-2},\quad
+u_N(z_N)=-\lambda d\sum_{j=1}^N j^{-1}.
+\] These identities also fix the mass and sign conventions independently
+of OCR.
+
+\section{Exact obligations still open in this
+deliverable}\label{exact-obligations-still-open-in-this-deliverable}
+
+For the original valuation axis, retain a smooth geometrically connected
+projective algebraic \(n\)-fold, an ample line bundle, and the other
+endpoint characteristic hypotheses (in particular residue characteristic
+zero in the nontrivial BFJ sector). Allow a complete real-valued
+non-Archimedean field with no discreteness assumption; impose no torus
+invariance and no measure-support restriction. The raw mass remains
+\(V=(L^n)>0\). With a fixed continuous semipositive reference metric,
+the continuous raw energy is \[
+E(u)=\frac1{n+1}\sum_{j=0}^n\int u\,
+c_1(L,h_0+u)^j\wedge c_1(L,h_0)^{n-j},
+\] and the intended admissibility condition for a positive Radon \(\mu\)
+of raw mass \(V\) is \[
+\sup_{v\in C\cap\operatorname{PSH}}
+\left(E(v)-\int v\,d\mu\right)<\infty.
+\] The infimum-majorant definition of extended energy and
+\(\mathcal E^1\) is available without solving the equation. A completion
+of finite-energy test measures is also available in the audited
+synthetic formalism. The remaining indispensable assertions have not
+been proved here:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Actual potential and mixed operator:} identify suitable
+  completions with actual upper semicontinuous psh metrics, and prove
+  that decreasing continuous/model approximants of every finite-energy
+  metric give unique, positive, full-raw-mass genuine mixed
+  Monge--Ampere measures. Rule out loss of mass and dependence on
+  approximants. Merely declaring the limiting inverse measure to be
+  \(\operatorname{MA}(u)\) without compatibility does not do this.
+\item
+  \textbf{Compactness for potentials:} prove the normalized psh
+  compactness and upper semicontinuity/strong compactness needed to
+  extract an actual finite-energy maximizing potential from test
+  metrics, in the nondiscrete field setting. Weak compactness or
+  quasi-metric completeness of measures alone does not produce that
+  potential.
+\item
+  \textbf{Envelope/obstacle replacement:} obtain the precise psh
+  envelope regularity, psh upper-envelope stability, and any
+  orthogonality needed in a potential-based proof, or supply a proved
+  alternative. The synthetic orthogonality already reported by the
+  source is useful; the missing step is its link to the actual unbounded
+  potential and operator, not a claim that all orthogonality is unknown.
+\item
+  \textbf{Unbounded energy differentiation:} for that actual operator
+  establish the integrability and approximation estimates justifying
+  energy differentiation in finite-energy directions, and, if using the
+  variational method, obstacle variations sufficient to infer equality
+  with the target against all continuous tests. Continuous volume
+  differentiation does not supply this step by itself.
+\item
+  \textbf{Comparison and injectivity:} prove comparison/domination or
+  equivalent finite-energy estimates for the actual unbounded mixed
+  operator over the new fields, sufficient for uniqueness modulo
+  constants. Continuous-metric uniqueness does not automatically extend
+  to singular weights.
+\item
+  \textbf{Ground-field passage, if used:} prove every proposed
+  pullback/descent assertion for psh metrics, raw intersection mass,
+  finite energy, derivatives and comparison. No passage from the
+  algebraically closed projective-line sector to arbitrary \(K\) or
+  arbitrary smooth \(X\) is supplied here; a normalization or resolution
+  cannot silently replace the ample polarization.
+\end{itemize}
+
+These are concrete gaps of this deliverable, not a theorem that the
+extensions are impossible, and not a comprehensive claim about all
+post-2020 literature. The dimension-one explicit construction neither
+constructs higher-dimensional wedge products nor removes the extra
+algebraic-closedness/geometric restriction. The whole original P16.4
+remains open in this submission; \texttt{candidate=false}.
+
+\section{Artifacts, commands and
+evidence}\label{artifacts-commands-and-evidence}
+
+The original bytes are retained as \texttt{input.json} and
+byte-identical \texttt{input-original.json}; decoded assignment and task
+are retained as \texttt{assignment-original.txt} and
+\texttt{task-original.json}. \texttt{audit\_sources.py} verifies the ten
+cache hashes and regenerates literal extracts and application checks.
+\texttt{finite\_tree\_checks.py} independently computes kernel matrices
+and a weighted graph Laplacian with rational arithmetic. Its output
+records checks of raw mass, sign, energy, projection and
+differentiation, plus finite truncations of the unbounded example. These
+are finite observations on specified inputs, not exhaustive verification
+of all trees or a proof of the theorem.
+
+\texttt{P16.4-paper.tex} is a standalone rendering of this argument;
+\texttt{P16.4-paper.pdf} is built twice with the existing TeX
+installation, without software installation or external compute. Actual
+stdout, stderr, return codes and first/second TeX logs are retained in
+\texttt{build/}. \texttt{status.json} has exactly the required five
+keys. \texttt{environment.json} records the runtime/tool versions;
+\texttt{checks.json} records byte identity, source checks, graph checks
+and build results. The source files, input files, programs, commands and
+diagnostics suffice to rerun this work.
+
+The actual exact-arithmetic run passed nine groups of checks on a
+five-node branched tree with \(d=2\) and five ray truncations
+\(N=1,2,3,10,100\). It returned \(I(\mu)=616699/198450\),
+\(E(u)=-616699/396900\), projected energy \(571619/198450\), directional
+derivative \(948301/793800\), and comparison cutoff integral
+\(-6313/302400\). The two actual pdfLaTeX runs both returned zero and
+produced a 12-page PDF; the second log had no LaTeX warning, error, or
+overfull box. The installed engine was pdfTeX 3.141592653-2.6-1.40.26
+(TeX Live 2025/dev/Debian), and the arithmetic program used Python
+3.12.14. These reported facts are observations, not mathematical
+verification of the infinite tree argument.
+
+Run from this directory:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{python3}\NormalTok{ audit\_sources.py}
+\ExtensionTok{python3}\NormalTok{ finite\_tree\_checks.py}
+\ExtensionTok{python3}\NormalTok{ build\_deliverable.py}
+\end{Highlighting}
+\end{Shaded}
+
+No resource-heavy computation was needed, and none was launched.
+Successful execution, source hashes and two successful TeX runs do not
+establish mathematical correctness. This is an unverified partial-proof
+draft.
+
+\end{document}

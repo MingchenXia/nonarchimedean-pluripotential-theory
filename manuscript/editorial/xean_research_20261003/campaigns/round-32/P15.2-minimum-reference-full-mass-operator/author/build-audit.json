@@ -1,0 +1,176 @@
+{
+  "recorded_utc": "2026-10-04T08:39:29.964416+00:00",
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+    "tools": {
+      "pandoc": "pandoc 3.1.11.1",
+      "pdflatex": "pdfTeX 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian)",
+      "pdftotext": "pdftotext version 25.03.0"
+    }
+  },
+  "commands": [
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "verify_sources.py"
+      ],
+      "cwd": "/workspace/research/campaigns/round-32/P15.2-minimum-reference-full-mass-operator/artifacts/codex-UNkbGs",
+      "returncode": 0,
+      "output_file": "verify-sources.log"
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "checks.py"
+      ],
+      "cwd": "/workspace/research/campaigns/round-32/P15.2-minimum-reference-full-mass-operator/artifacts/codex-UNkbGs",
+      "returncode": 0,
+      "output_file": "exact-checks.log"
+    },
+    {
+      "argv": [
+        "pandoc",
+        "P15.2-proof.md",
+        "--from=markdown+tex_math_dollars",
+        "--to=latex",
+        "--standalone",
+        "--variable=documentclass:article",
+        "--variable=fontsize:11pt",
+        "--variable=geometry:margin=1in",
+        "--variable=colorlinks:true",
+        "--output=P15.2-partial.tex"
+      ],
+      "cwd": "/workspace/research/campaigns/round-32/P15.2-minimum-reference-full-mass-operator/artifacts/codex-UNkbGs",
+      "returncode": 0,
+      "output_file": "pandoc-build.log"
+    },
+    {
+      "argv": [
+        "pdflatex",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-file-line-error",
+        "P15.2-partial.tex"
+      ],
+      "cwd": "/workspace/research/campaigns/round-32/P15.2-minimum-reference-full-mass-operator/artifacts/codex-UNkbGs",
+      "returncode": 0,
+      "output_file": "pdflatex-pass-1.log"
+    },
+    {
+      "argv": [
+        "pdflatex",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-file-line-error",
+        "P15.2-partial.tex"
+      ],
+      "cwd": "/workspace/research/campaigns/round-32/P15.2-minimum-reference-full-mass-operator/artifacts/codex-UNkbGs",
+      "returncode": 0,
+      "output_file": "pdflatex-pass-2.log"
+    },
+    {
+      "argv": [
+        "pdftotext",
+        "-layout",
+        "P15.2-partial.pdf",
+        "P15.2-partial-extracted.txt"
+      ],
+      "cwd": "/workspace/research/campaigns/round-32/P15.2-minimum-reference-full-mass-operator/artifacts/codex-UNkbGs",
+      "returncode": 0,
+      "output_file": "pdftotext.log"
+    },
+    {
+      "argv": [
+        "pdfinfo",
+        "P15.2-partial.pdf"
+      ],
+      "cwd": "/workspace/research/campaigns/round-32/P15.2-minimum-reference-full-mass-operator/artifacts/codex-UNkbGs",
+      "returncode": 0,
+      "output_file": "pdfinfo.log"
+    },
+    {
+      "argv": [
+        "pdftoppm",
+        "-f",
+        "1",
+        "-l",
+        "1",
+        "-scale-to",
+        "1400",
+        "-png",
+        "-singlefile",
+        "P15.2-partial.pdf",
+        "proof-first-page"
+      ],
+      "cwd": "/workspace/research/campaigns/round-32/P15.2-minimum-reference-full-mass-operator/artifacts/codex-UNkbGs",
+      "returncode": 0,
+      "output_file": "pdf-first-page-render.log"
+    }
+  ],
+  "pdf_twice_compiled": true,
+  "pdf_text_checks": {
+    "required_strings": [
+      "Common full-mass",
+      "Bare-current",
+      "Minimum full-form",
+      "Perturbation limits",
+      "infinite-dimensional",
+      "partial"
+    ],
+    "all_found": true
+  },
+  "pdflatex_overfull_boxes": 0,
+  "exact_finite_diagnostics": {
+    "normalization_cases": 465,
+    "surface_wedge_cases": 6,
+    "all_passed": true,
+    "surface_cases": [
+      {
+        "t": "1/10",
+        "epsilon": "1/2",
+        "rescaled_AB": "3/2",
+        "rescaled_AF": "3/20"
+      },
+      {
+        "t": "1/10",
+        "epsilon": "1/3",
+        "rescaled_AB": "4/3",
+        "rescaled_AF": "2/15"
+      },
+      {
+        "t": "1/10",
+        "epsilon": "1/7",
+        "rescaled_AB": "8/7",
+        "rescaled_AF": "4/35"
+      },
+      {
+        "t": "-1/10",
+        "epsilon": "1/2",
+        "rescaled_AB": "3/2",
+        "rescaled_AF": "-3/20"
+      },
+      {
+        "t": "-1/10",
+        "epsilon": "1/3",
+        "rescaled_AB": "4/3",
+        "rescaled_AF": "-2/15"
+      },
+      {
+        "t": "-1/10",
+        "epsilon": "1/7",
+        "rescaled_AB": "8/7",
+        "rescaled_AF": "-4/35"
+      }
+    ],
+    "scope": "Exhaustive only over stated finite inputs. The asymptotic, positivity, domain and continuity theorems are mathematical proofs in the argument, not computer-certified results."
+  },
+  "source_pins": {
+    "checked": 24,
+    "matching": 24
+  },
+  "proof_sha256": "9a30d5d090fbd19bdc75ac32f330934d13109c6a66e3953ed3a045f2918787b2",
+  "tex_sha256": "acf53110f1e934c0012e8351a3e518c30f12096d7fe316951efe985a82d66739",
+  "pdf_sha256": "939c1e12a220933121c09553621865990b14b5f6ef7b91dff152c74ab33ffe56",
+  "evidence_status": "Execution, extraction, pins and finite arithmetic are observations only; none certifies analytic correctness."
+}

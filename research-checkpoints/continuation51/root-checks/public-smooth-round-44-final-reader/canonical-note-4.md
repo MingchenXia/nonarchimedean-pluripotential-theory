@@ -1,0 +1,25 @@
+ID: n4
+
+SUMMARY:
+The requested proof artifacts and two clean TeX builds are complete. Exact source checks distinguish weakly smooth nets, ordinary stages, and residue-Picard effects. The full original P02.4 characterization remains open.
+
+DETAILED SUMMARY:
+The implementation retained the original input bytes and requested documents, verified all seven supplied PDF/extract hash pairs, saved 24 literal extracts with application checks, and directly inspected decisive primary-PDF pages. Both final TeX passes exited successfully without warnings or layout diagnostics. These are integrity and execution observations, not mathematical verification. The supplied GJR statement is a weakly smooth net; Wanner’s published corollary has finite-continuous and field/curve restrictions. The residue Picard quotient measures failure of harmonic ordinary smoothness but does not prove failure of decreasing psh approximation. The original remains unresolved for arbitrary nonsaturated higher-dimensional germs, sharp general geometry, general singularities, nonseparable fields, strict scalar descent, and general overlap gluing.
+
+SUPPORT:
+["n1", "n2", "n3"]
+
+TEXT:
+Implementation observations. The supplied input and its preserved original are byte-identical: 17,853 bytes, SHA-256 652325686be7e1d70fcf06d990bc0fda4e7990d7a79b2922f3176b411867898c. The assignment text is preserved exactly, and the separately retained task has identical JSON content. All seven authorized primary-source PDF/extract pairs matched their supplied hashes. Twenty-four selected literal extracts retain the pertinent statements and complete selected proofs, with precise application checks. Direct inspection of actual PDF pages confirmed that GJR Proposition 15.11 says a decreasing net of weakly smooth psh functions and confirmed Thuillier’s Picard quotient and exact theorem conditions.
+
+Residue-Picard limitation. In Thuillier’s proper geometrically connected semistable type-two setup, H_x/F_x≃Pic^0(C_x)⊗_Z R. GJR Remark 15.10 identifies F with ordinary smooth harmonic functions. A nonzero quotient establishes existence of a harmonic germ that is not ordinary smooth. It does not rule out decreasing ordinary smooth nonharmonic psh approximants. Positive residual genus alone does not imply a nonzero quotient: over an algebraic closure of a finite field, each Jacobian point is defined over some finite field and is torsion. The actual Thuillier PDF contains a stronger sentence asserting finiteness of the entire group; that sentence was not used. The elementary pointwise torsion argument gives the needed conclusion. Neither the positive hypotheses of n1 nor a proposed Picard failure range has been proved sharp.
+
+Artifacts. The requested files are input.json, byte-identical input-original.json, assignment-original.txt, task-original.json, P02.4-argument.md, standalone P02.4-paper.tex, and P02.4-paper.pdf. Source excerpts, PDF inspection images, hashes, and application checks are indexed in source-extracts/source-provenance.json. Environment details are in environment.json. Programs are verify_sources.py and build_and_check.py. Commands and outputs are retained in source-verification-output.txt, build-check-output.txt, checks.json, build-diagnostics.json, and build/. Rerun from the supplied workspace with python3 verify_sources.py followed by python3 build_and_check.py.
+
+Build evidence. The existing pdfTeX installation reports TeX Live 2025/dev/Debian. Each of the two final pdflatex passes used -interaction=nonstopmode -halt-on-error -file-line-error and exited 0. Both final logs report no warnings, no errors, and no overfull or underfull boxes. The resulting PDF has 10 pages and 340,845 bytes. Exact-rational diagnostic samples also verify the displayed interstage arithmetic; the general identity is proved algebraically in n1. None of these checks establishes mathematical correctness.
+
+Remaining original obligations. Results n1–n3 are partial. They do not regularize all arbitrary noninvariant classical psh sheaf germs on nonsaturated higher-dimensional charts. They do not establish a general sharp necessary-and-sufficient geometric range, settle boundaryless curves with nonzero harmonic Picard quotient, synchronize multibranch normalization, extract arbitrary-target sequences without the positive countability hypothesis, prove strict scalar descent over general bases, or glue independently constructed chart sequences. The saturated-domain assertion n2 must retain its domain-of-definition restriction. No unpublished book premise, preceding campaign work, additional model, subagent, installation, runtime change, network operation, or heavy computation was used.
+
+The retained status.json has exactly id, status, exact_result, proof_file, concrete_gaps, with status partial. The entire original P02.4 target and its sharp requested range are not solved; candidate remains false.
+
+Artifacts: /workspace/research/campaigns/round-44/P02.4-public-source-decreasing-ordinary-smooth/artifacts/codex-QKCSac

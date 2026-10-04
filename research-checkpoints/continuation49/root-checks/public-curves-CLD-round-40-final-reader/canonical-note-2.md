@@ -1,0 +1,29 @@
+ID: n2
+
+SUMMARY:
+Draft full-family continuity extends to actual analytic projective bundles and products of the curve sector with smooth geometrically connected proper projective varieties, for EVERY finite continuous obstacle. The envelope is the base envelope of the minimum over actual analytic fibers. Connected proper spaces, even singular, have constant envelopes, so normality is not necessary in the unrestricted domain class.
+
+DETAILED SUMMARY:
+Every full competitor is constant on each proper connected analytic fiber by the published interior maximum principle. Real-PL descent is proved using ordinary-local analytic sections for projective bundles, or a finite field extension supplying a closed point for a proper factor, followed by checked real-PL and semipositivity descent. Properness and relative smooth openness make the fiber-minimum obstacle continuous. Applying n1 gives continuity and exact raw-envelope compatibility for every scalar extension. The analytic fiber over x is over H(x), not a set of K-points. This does not cover arbitrary higher-dimensional normal spaces or nonprojective projections.
+
+SUPPORT:
+["n1"]
+
+TEXT:
+Assume the field and full exact competitor definitions of n1. Let X be its compact strict rig-smooth curve affinoid and let p:Y -> X be either the actual projectivization P_X(V) of an analytic locally free sheaf of positive rank, or the actual analytic product X x_K Q^an with Q a nonempty smooth geometrically connected proper projective K-variety. For every finite continuous obstacle f on Y put g(x)=min_{y in p^{-1}(x)}f(y). The draft conclusion is P_Y(f)=P_X(g) composed with p, finite continuous and equal to its usc regularization, with full families and every analytic scalar extension.
+
+First, every finite continuous classically psh function on a connected compact boundaryless space is constant. It attains a maximum; its maximum locus is closed and is open by GRa (arXiv:2506.13548v2, 17 September 2025) Theorem 6.1. Connectedness makes it the whole space. Therefore the full envelope on any connected good strict proper projective analytic space is the constant min f. Singularity does not change this proof, so normality cannot be necessary in the original unrestricted domain class.
+
+For a full competitor h on Y, its restriction to the ACTUAL fiber over x is a continuous classically psh function on P(V_x)^an or Q_{H(x)}^an. Algebraic geometric connectedness makes the scheme over H(x) connected; its analytification is connected by Berkovich, IHES 78 (1993), Theorem 7.1.1 applied in degree zero to the constant Z/2 sheaf. Properness identifies compact-support and ordinary degree-zero cohomology, and a nontrivial analytic clopen partition would supply more than the two algebraic constant sections. This use of the residue field is legitimate: the fiber maps analytically into Y_{H(x)}, and the classical psh definition permits the analytic extension H(x)/K. The fiber is proper connected and hence h is constant on it. Thus h=a composed with p. Properness makes p a closed surjection with compact fibers; quotient topology makes a continuous.
+
+Membership downstairs is established, not inferred from classical harmonicity. For a projective bundle, ordinary analytic trivializations of V provide local analytic sections x -> [1:0:...:0]. Restricting h along each section gives a as an R-PL semipositive function by GJR (arXiv:2111.05741v3, 7 March 2025) Proposition 7.6. The local definitions make a GLOBAL semipositive R-PL function. For a factor Q without a K-point, a closed point has finite residue extension L/K and gives an L-point of Q_L. Restrict h_L along its section of X_L x Q_L. This gives a pulled back as semipositive R-PL. GJR Corollary 5.12 gives real-PL descent along that finite scalar extension and Proposition 7.6(2') gives semipositivity descent. A K-rational point is not necessary. Conversely every global base semipositive R-PL function pulls back to a full competitor.
+
+The inequality h<=f is equivalent to a<=g. We have therefore identified the ENTIRE competitor families and proved P_Y(f)=P_X(g) composed with p. This identity works over any compact good separated strict base; only its continuity application uses n1.
+
+The fiber minimum exists by compactness. For a real c, {x:g(x)>c} is the complement of the closed image p({f<=c}); this proves lower semicontinuity. Also {x:g(x)<c}=p({f<c}) is open, because p is a smooth morphism with no relative boundary and Berkovich, IHES 78 (1993), Corollary 3.7.4 says such a morphism is open. Thus g is finite continuous. Invoke n1 for the full base envelope. Base relative-boundary vertices remain unrestricted in sign; the projective map contributes no relative boundary.
+
+For every analytic extension F/K and x' over x, the new fiber is the scalar extension Y_x tensor_{H(x)} H(x'). Its projection onto Y_x is surjective, so the minimum of the pulled obstacle is exactly g(x). The fiber-minimum obstacle upstairs is consequently g pulled back. The family identification holds over F, and n1 proves raw-envelope scalar compatibility and continuity. This does not assume openness of arbitrary scalar projections, nor confuse analytic products with products of sets of rational points.
+
+The complete proof is in P03.3-argument.md, Section 7, and standalone P03.3-paper.tex. Exact checked primary statements and literal pages are retained in source-extracts/source-provenance.json. Rerun with python prepare_sources.py and python verify_deliverable.py. These are unverified sufficient results on genuine proper-projective factors and bundles; they are not a classification of arbitrary normal/geometrically unibranch higher-dimensional geometry.
+
+Artifacts: /workspace/research/campaigns/round-40/P03.3-public-source-general-curve-continuity/artifacts/codex-y7aOMx

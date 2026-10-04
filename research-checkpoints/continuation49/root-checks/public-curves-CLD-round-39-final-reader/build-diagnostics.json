@@ -1,0 +1,49 @@
+{
+  "mathematical_certificate": false,
+  "steps": [
+    {
+      "command": [
+        "pandoc",
+        "P03.2-argument.md",
+        "--from=markdown+tex_math_dollars",
+        "--to=latex",
+        "--standalone",
+        "--variable=fontsize:11pt",
+        "--variable=geometry:margin=1in",
+        "--include-in-header=tex-header.tex",
+        "--output=P03.2-paper.tex"
+      ],
+      "exit_code": 0,
+      "stdout_file": "pandoc.stdout.txt"
+    },
+    {
+      "command": [
+        "pdflatex",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "P03.2-paper.tex"
+      ],
+      "exit_code": 0,
+      "stdout_file": "build-pass1.stdout.txt"
+    },
+    {
+      "command": [
+        "pdflatex",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "P03.2-paper.tex"
+      ],
+      "exit_code": 0,
+      "stdout_file": "build-pass2.stdout.txt"
+    }
+  ],
+  "actual_warning_lines": [
+    "Underfull \\hbox (badness 10000) in paragraph at lines 740--750",
+    "Underfull \\hbox (badness 1092) in paragraph at lines 740--750",
+    "Underfull \\hbox (badness 10000) in paragraph at lines 740--750",
+    "Underfull \\hbox (badness 1092) in paragraph at lines 740--750"
+  ],
+  "pdf_exists": true,
+  "all_steps_succeeded": true,
+  "proof_limit": "Source hashes and successful conversion/TeX compilation do not establish mathematical correctness."
+}

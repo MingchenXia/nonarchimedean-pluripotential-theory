@@ -1,0 +1,8504 @@
+# Fresh synthesis submitted for ORIGINAL-scope audit
+
+This memo proposes a resolution of the literal original target by the fully
+specified construction below. It is UNACCEPTED pending this new audit. The
+author's earlier partial labels and scoped PASS are historical statuses,
+neither grants of mathematical premises nor automatic proofs of an unmet
+original obligation. Independently reconstruct every essential proof below.
+No original statement or dossier wording is changed. No new geometric
+dimension theorem, numerical-dimension identification, or probability
+normalization is asserted. Determine whether any such further result is
+actually required by the exact original text, explaining the reason.
+
+For every smooth compact connected Kahler X of complex dimension n and every
+pseudoeffective alpha of volume zero, select an actual theta-psh reference psi.
+Retain its actual two-sided bounded comparison type. Theta is a smooth gauge;
+ddc=i partial barpartial/(2pi). Set P=theta+ddc psi, T_u=theta+ddc u,
+d=max{k: integral <P^k> Omega^(n-k)>0}, m=n-d. Then 0<=d<n independently of
+the fixed Kahler Omega; all more-singular mixed products of degree>d vanish.
+The reference uses actual nonpluripolar mass, not I-equivalence alone and not
+the class numerical dimension. In a disconnected setting one may apply the
+construction separately on each connected component; evaluate whether any
+additional compatibility is required by the book's standing hypotheses.
+
+All below data are explicitly selected and retained. Path independence is
+only asserted with these stated data fixed or converging in the stated
+topology. It does not mean equality after discarding necessary reference
+data. Decide if this is a valid construction at the literal original scope,
+or only a conditional theorem still missing a genuine original obligation.
+
+## Proposed P15.1 construction and completion claim
+
+The common relative full-mass domain consists of u<=psi+C with degree-d mass
+equal to P against one (hence every) smooth Kahler complementary power. Its
+natural genuine finite-energy domain F1 requires the finite joint linear
+mixed-weight integrals stated and proved in the full author proof. It
+contains bounded-type potentials and genuinely unbounded inputs; choosing a
+finite-energy domain is part of the theory rather than excluding ambient
+zero-volume classes.
+
+For u in F1 define
+ E_psi,lambda(u)=1/(d+1) sum_{a=0}^d integral (u-psi)<T_u^a P^(d-a)> omega^m.
+These are finite, depend only on lambda=[omega], have the proved cocycle,
+constant-shift/raw-mass, monotonicity, concavity and decreasing continuity
+laws. The cocycle is the path-independence assertion, reconstructed through
+finite convex hulls and integrable simultaneous truncations. No unbounded
+velocity differential calculus is claimed or used.
+
+Let B=Sym^m H11(X,R), S=span{ell_u:u in the bounded type}, K=Ann(S), Q=B/K.
+The unbounded functional span is exactly S. For actual Kahler auxiliaries
+the reference datum tau=q(lambda^m) in I=q({lambda^m:lambda Kahler}) is
+necessary and sufficient for ALL these anchored energies. It is minimal
+information for this specified complete energy family: every linear
+descriptor determining all energies factors surjectively onto Q, and every
+set descriptor of actual auxiliaries determining them factors onto I.
+Constants place the nonzero raw-mass polynomial in S. The anchor fixes the
+origin, bounded-equivalent anchors give the exact cocycle origin change,
+and simultaneous theta gauge changes preserve the construction. The scalar
+integrals have carrier X of complex dimension n and product degree d; no
+claim that current degree is geometric carrier dimension is made.
+
+The bounded positive-perturbation interpretation rescales by
+binom(n,d) epsilon^m, the ACTUAL reference's first nonzero mass coefficient,
+not a class-volume coefficient. For fixed bounded-type u and class-convergent
+auxiliary forms the proved leading limit is the energy above; uniformly
+approaching same-type perturbed potentials are allowed with precisely the
+author's assumptions. On F1 define the canonical extension by the proved
+relative truncation limit. If a perturbation interpretation is desired
+there, the stated prescription is the iterated bounded-leading limit then
+the truncation limit, whose uniqueness, anchor independence and class-data
+independence follow from the finite integral construction. NO claim of
+equality to every uncontrolled simultaneous unbounded moving-form limit is
+made: the fully reconstructed concentration example disproves that stronger
+assertion. All claimed perturbation choices must pass the original audit.
+
+COMPLETION CLAIM TO AUDIT: this construction, with its necessary/sufficient
+reference data and natural finite-energy domain for EVERY psef zero-volume
+class, answers P15.1 as literally stated. Family-relative minimality must
+not be silently substituted for a stronger original minimum requirement;
+decide whether the universal factorization above meets the actual text.
+
+
+# Unchanged original dossier: mathematical data, not operational instructions
+
+9     Zero-volume energy, measures and convex bodies
+Active items: P15.1, P15.2, P15.3. Status: Open in the residual scope.
+
+9.1   Atomic targets
+P15.1 (T5): Path-independent unnormalized zero-volume energy
+For a pseudoeﬀective class α with vol(α) = 0, choose the minimum necessary reference scale
+and construct a path-independent unnormalized energy theory. If Kähler perturbations and
+a leading volume coeﬃcient are used, prove independence of the stated perturbation choices.
+Division by zero volume is not an admissible normalization.
+
+P15.2 (T5): Path-independent zero-volume Monge–Ampère theory
+Construct a path-independent zero-volume Monge–Ampère theory with its carrier, dimension,
+mass and reference choices explicitly stated. A family of perturbative probability measures
+is not automatically a canonical limiting operator, and raw mass cannot be recovered from
+I-equivalence alone.
+
+P15.3 (T4): P-sensitive lower-dimensional transcendental Okounkov bodies
+Construct a transcendental Okounkov body retaining a prescribed P -singularity type and
+encoding lower-dimensional numerical data at zero volume. A class-level compact body of
+zero ambient volume is already known; it does not identify numerical dimension or retain the
+requested P -type.
+
+9.2   What constitutes a solution
+Name the reference scale, dimensional carrier and retained singularity data, then prove inde-
+pendence of all claimed perturbation choices. Do not normalize zero mass to a probability. A
+class-level body with zero ambient volume does not supply a P -sensitive numerical-dimension
+theorem or an energy/operator construction.
+
+9.3   Full statement and detailed state of the art
+Problem 9.1. After choosing the minimum necessary reference scale, is there a path-
+independent unnormalized energy and Monge–Ampère theory for a pseudoeﬀective zero-
+volume class? Is there a P -sensitive transcendental Okounkov body encoding its lower-
+dimensional numerical data?
+
+    The unchanged probability signature is disproved: total mass zero cannot be normalized to
+mass one. Kähler perturbations give a family of probabilities, not automatically a canonical
+limit. Moreover Book Theorem 69.6.1 proves that a body depending only on I-equivalence
+cannot recover actual nonpluripolar mass.
+    The attempted positive construction rescales by the ﬁrst nonzero coeﬃcient in vol(α + εω),
+then tests independence of the perturbation path and comparison with numerical dimension.
+Nef zero-volume classes and toric examples provide the ﬁrst nontrivial cases. Any surviving
+convex body must use P -type or richer data. No general path-independent construction is
+presently veriﬁed.
+    A distinct published class-level endpoint must be kept separate. Darvas–Reboulet–Witt
+Nyström–Xia–Zhang attach a natural compact convex set to a pseudoeﬀective transcendental
+cohomology class and a chosen ﬂag, and prove that its full n-dimensional volume equals
+
+
+                                             71
+
+vol(α)/n! [DRWN+ 26, pp. 135–136]. Hence a zero-volume class has such a canonical class-
+level body of zero n-volume. This does not identify its lower-dimensional volume or dimension
+with the numerical dimension, attach a body to a prescribed P -singularity type, or construct
+an unnormalized energy or Monge–Ampère operator. It therefore narrows the starting point
+for P15.3 but does not close any of the three zero-volume atoms.
+    Two source questions give sharper benchmarks. Xia conjectures that the dimension of the
+partial Okounkov body equals the numerical dimension even at zero mass [Xia25b, Conjec-
+ture 5.29], and the same source asks whether the Chebyshev transform is independent of its
+auxiliary positive form [Xia25b, p. 34]. These remain genuine published questions. The P -
+sensitive body requested above is a stronger construction formulated in this book and should
+not be attributed to that source.
+    The third conjecture of that source is the non-toric mixed-volume formula [Xia25b, Conjec-
+ture 8.8]. On 24 August 2026, the author supplied the TeX proof underlying the unpublished
+manuscript [Xia26a]. After repairs of its positive-Cao-volume reduction, convex sandwich,
+pointwise potential sandwich, rational analytic-resolution step, degenerate ﬁnite-level case,
+multigraded saturation step, and eﬀective-shift body inclusion, the exact repaired proof re-
+ceived a production gpt-5.6-sol/xhigh verdict of correct, with no critical error and no gap.
+Thus Book Theorem 55.5.1 proves Conjecture 8.8 for singular psh metrics on big line bundles
+over a smooth projective complex variety when every Cao (equivalently, ideal-model) volume
+is positive; Book Theorem 55.5.2 gives the movable-product specialization for big line bundles
+with minimal singularities. This is an author-supplied, repaired, and independently veriﬁed
+proof in an unpublished work in progress, not a claim that the result has appeared in the pub-
+lished literature. It asserts a supremum over surjective rank-n valuations, not attainment by
+one valuation. Zero volume, transcendental classes, singular varieties, and attainment remain
+outside the theorem; in particular, the genuinely diﬀerent problem Problem 9.1 remains open.
+This source-status item is not an additional problem environment in the literal count at the
+beginning of the chapter.
+
+
+
+
+                                             72
+
+
+
+# Complete author proof and all24 selected literal primary bodies
+
+# P15.1: minimum auxiliary references on a common genuine finite-energy domain
+
+Authoritative single-worker research draft, 4 October 2026. Status: partial; original atom remains open.
+
+# n1. Foundations and reconstruction of the bounded prescribed-type primitive
+
+This is an unverified mathematical draft addressing only P15.1. No prior review verdict or prior note is a hypothesis. The bounded construction is reconstructed here because it is indispensable to the new results in n2 and n3; reconstruction alone is not claimed as substantive progress on the original atom.
+
+Let X be a connected smooth compact Kähler manifold of complex dimension n>=1. In formulas we use
+\[
+d^c=\frac{i}{4\pi}(\bar\partial-\partial),\qquad dd^c=\frac{i}{2\pi}\partial\bar\partial.
+\]
+Fix a pseudoeffective class alpha with volume zero, a smooth closed real representative theta, and an actual theta-psh psi not identically minus infinity. Put P=T_psi and T_u=theta+dd^c u. The retained type is the two-sided, extended-valued comparison
+\[
+\mathcal C_\psi=\{u\in\operatorname{PSH}(X,\theta):\psi-C\leq u\leq\psi+C
+\text{ for some }C<\infty\}.
+\]
+The polar loci of these potentials agree. Differences on polar sets can be set arbitrarily when integrated against nonpluripolar measures. The empty current product is 1.
+
+## Exact external foundations and applicability
+
+**B (nonpluripolar products).** Boucksom--Eyssidieux--Guedj--Zeriahi, *Monge--Ampère equations in big cohomology classes*, Acta Math. 205 (2010), 199--262, arXiv:0812.3674v2, Definition 1.1, Propositions 1.4 and 1.6, and Theorem 1.8: on compact Kähler X the nonpluripolar product of k<=n closed positive (1,1) currents is finite, positive and closed, symmetric, multilinear under sums of positive currents, and plurifinely local. Its coefficient measures, equivalently its trace measures, do not charge pluripolar sets. Smooth positive factors are ordinary wedge factors. These statements concern actual currents. All factors used below are closed positive actual currents on compact Kähler X. No multilinearity of the positive product of classes is inferred.
+
+**D (scalar mixed mass theorems).** Darvas--Di Nezza--Lu, *Monotonicity of nonpluripolar products and complex Monge--Ampère equations with prescribed singularity*, Anal. PDE 11 (2018), 2049--2087, Proposition 2.1 and Theorem 2.4: if theta_j are n smooth closed real (1,1) forms with pseudoeffective classes and u_j,v_j are theta_j-psh, equal bounded singularity types in every slot imply equal integrals of the top mixed products. If u_j is less singular than v_j in every slot, the u-product integral is at least the v-product integral. These statements explicitly include pseudoeffective classes and impose neither bigness nor a small-unbounded-locus condition. In each application to k current slots the other n-k slots are the indicated smooth Kähler forms with zero potentials; those classes are Kähler and hence pseudoeffective. DDNL's operator is i partial bar-partial; potentials u/(2 pi) represent the same currents in that convention. Positive rescaling preserves all singularity comparisons.
+
+**V (boundary volume).** BEGZ Sections 1.3--1.4 and Definition 1.17: a big class admits minimal-singularity potentials, less singular than any potential in that class; its volume is their top nonpluripolar mass. For pseudoeffective alpha the positive product and volume are the decreasing limits along addition of any Kähler class. Thus vol(alpha+epsilon lambda) tends to vol(alpha) as epsilon decreases to zero. For nef classes the positive product is the ordinary cup product. D bounds the mass of any actual positive current in a big class by the minimal-singularity mass. We use only this bound and the boundary limit, never equality of arbitrary actual mass with class volume.
+
+**I (bounded admissible integration by parts).** D.-V. Vu, *Convexity of the class of currents with finite relative energy*, arXiv:2005.13241v3 (25 March 2022), Section 2, Lemmas 2.5--2.6, Theorem 2.7, with Proposition 2.1(iii): if R is closed positive of bidegree (n-1,n-1), and a,b are bounded R-admissible dsh functions, then the finite intrinsic Dirichlet products are defined, the diagonal one is positive, and
+\[
+\int b\langle dd^ca\mathbin{\dot\wedge}R\rangle
+=\int a\langle dd^cb\mathbin{\dot\wedge}R\rangle
+=-\int\langle db\wedge d^ca\mathbin{\dot\wedge}R\rangle.\tag{I}
+\]
+Here a dsh function is a difference of quasi-psh functions, and R-admissibility means that its two representation poles have zero R trace mass. For R formed from ordinary nonpluripolar factors times smooth positive factors, iterated relative products give exactly the signed difference of the two ordinary products with the varying slot inserted. A smooth R also has no polar mass. Accordingly all bounded differences and smooth test functions in our uses are admissible. Smooth functions are dsh by adding a sufficiently large common Kähler background to their Hessians. Finiteness of signed products follows from B. No unbounded IBP is used.
+
+Vu uses dd^c_V=i partial bar-partial/pi, twice our operator, as directly checked on the supplied page-4 image of arXiv:2004.11111v1. Source potentials u/2 represent our currents. Source gradient d(a/2) wedge d^c_V(a/2) is one half of our gradient; multiply source IBP by 2 to obtain (I). The intrinsic square identity is
+\[
+da\wedge d^ca\wedge R=\tfrac12dd^c(a^2)\wedge R-a\,dd^ca\wedge R.\tag{G}
+\]
+The source v3 Equation (2.3) has this factor, whereas its repeated page-6 and page-11 formulas omit it. Those defects remain literal in the annex. We use (G). For local nonnegative bounded psh A,B representing a=A-B the correct square coefficients are 1,1,-1/2:
+\[
+dd^c A^2R+dd^c B^2R-\tfrac12dd^c(A+B)^2R-a(dd^cA-dd^cB)R.
+\]
+For completeness the zero-cutoff application in source IBP still follows with these coefficients. Take negative representations phi_1,...,phi_4 of a,b, dd^c phi_j>=-Omega, and
+\[
+\zeta_k=1+k^{-1}\max(\textstyle\sum_j\phi_j,-k),\quad
+a_k=\max(\phi_1,-k)-\max(\phi_2,-k),
+\]
+and similarly b_k. The nonzero locus of zeta_k, not necessarily its closed support, lies in all four strict finite truncation loci. The differences a_k,b_k are uniformly bounded. Bounded Bedford--Taylor calculus with the intrinsic half-factor and distributional Stokes gives
+\[
+0\leq\int d\zeta_k\wedge d^c\zeta_k R
+=-\int\zeta_k dd^c\zeta_k R
+\leq \frac4k\int\Omega R,
+\qquad
+\int da_k\wedge d^ca_k R\leq2\|a_k\|_\infty\int\Omega R.
+\]
+The first inequality uses dd^c zeta_k+4 Omega/k>=0 and 0<=zeta_k<=1. The second uses dd^c max(phi_j,-k)+Omega>=0 and the equal cohomological masses of those two bounded products. Cauchy--Schwarz kills the IBP terms containing d zeta_k. On its nonzero locus locality identifies the intrinsic gradients and signed products with the truncations. The admissible gradient limits are finite by the cited lemmas; their poles, and the poles of all positive relative insertions, are uncharged. Dominated convergence and polarization give (I). This explains the precise repair needed in our applications; it does not silently alter the printed sources. The v1 Proposition 4.2 index and half-factor defects, and the printed Cauchy--Schwarz defect in v1 Theorem 3.7, are retained but those proofs are not used here.
+
+**H (smooth dd^c lemma).** Deligne--Griffiths--Morgan--Sullivan, *Real homotopy theory of Kähler manifolds*, Invent. Math. 29 (1975), 245--274, Lemma 5.11 and Remark 5.14: a smooth form closed under d and d^c and d-exact is dd^c-exact on a compact Kähler manifold, also over the reals. Applied to a smooth real closed cohomologically zero (1,1) form, its primitive has degree zero; the (1,1) type and real part give a smooth real function, with the operator scalar adjusted. These are precisely our hypotheses when comparing representatives. Complete selected proof and preceding Kähler identities from the supplied Stony Brook author-hosted copy are in the annex; no source-status verdict is assumed.
+
+**F (relative full mass and weighted convexity).** Vu v3 Section 3 defines E_P(R) for tuples (S_1,...,S_k) in the respective reference classes, more singular than (P_1,...,P_k), by equality of cohomology classes of their R-relative nonpluripolar products. For chi convex increasing on R with chi(-infinity)=-infinity, the joint chi-energy is the sum over all subsets J of
+\[
+\int -\chi\!\left(\sum_{j=1}^k(u_j-\varphi_j)\right)
+\left\langle\prod_{j\in J}S_j\prod_{j\notin J}P_j\mathbin{\dot\wedge}R\right\rangle.
+\]
+Theorem 3.4 says that the diagonal full-mass and diagonal weighted classes are convex. Corollary 3.2 says the weighted class is unchanged under a cohomologous bounded-equivalent change of the common reference P. The printed proofs refer to prior arguments; we use these as precisely scoped literature theorems, not as newly reconstructed results. Our applications have k=d>=1, all P_j=P, smooth closed positive R=omega^(n-d), and chi(t)=t. The product is top-degree. On connected compact X its cohomology equality is exactly scalar mass equality because integration identifies H^(2n)(X,R) with R. Source differences are halved, so source joint linear energy is
+\[
+\frac d2\sum_{a=0}^d\binom da
+\int(\psi-u)\langle T_u^aP^{d-a}\rangle\omega^{n-d}
+\]
+after normalizing u<=psi and source potentials negative. The positive factor does not affect finiteness. We never apply this k>=1 source statement with k=0.
+
+**C (capacity and bounded weighted convergence).** Guedj--Zeriahi, *Intrinsic capacities on compact Kähler manifolds*, J. Geom. Anal. 15 (2005), 607--639: for a Kähler background Omega, Proposition 3.6 bounds the capacity of a negative Omega-psh sublevel {f<-A} by a constant times (||f||_(L1)+n int Omega^n)/A. Proposition 3.7 gives capacity convergence for decreasing **bounded** Omega-psh potentials with bounded limit. Corollary 3.8 gives quasicontinuity; Proposition 3.10 compares local Bedford--Taylor and global Kähler capacities on a finite relatively compact chart cover. DDNL Proposition 2.2 states that uniformly bounded local psh factors converging in capacity in all n slots, with uniformly bounded quasicontinuous weights converging in capacity, have weakly convergent weighted Bedford--Taylor top products. All local applications below first truncate every product factor and insert the fixed smooth Kähler factors to reach n slots.
+
+We spell out the general decreasing-capacity deduction needed later. If f_j decreases to a nontrivial quasi-psh f in a common smooth lower-Hessian background, choose a dominating Kähler Omega and subtract a common upper-bound constant. The bounded truncations max(f_j,-A) decrease to max(f,-A), so Proposition 3.7 applies. Outside {f<=-A}, truncations and originals agree. Proposition 3.6, with for example {f<-A+1}, bounds the discarded set by O(1/A). First send j to infinity and then A to infinity. This proves general decreasing capacity convergence. It is a deduction using bounded Proposition 3.7 and the sublevel estimate, not the false attribution of unbounded hypotheses to that proposition. Proposition 3.10 and Corollary 3.8 justify the local capacity/quasicontinuity uses.
+
+**L (comparison-set locality with correct scope).** Vu v3 Theorem 3.3: if product factors are bounded local psh functions, equal on W=intersection {v_j>v'_j}, where the comparison potentials v_j,v'_j may be unbounded psh, their products relative to a fixed positive current agree on W. To use this with unbounded nonpluripolar factors below, first truncate every local product potential at -k. On W intersected with all original and replacement product potentials >-k, the bounded factors agree. Theorem 3.3 applies, adding these strict comparisons to W. B's defining finite-locus restrictions identify the bounded products with the nonpluripolar ones there. Exhaust the simultaneous finite loci; the remaining poles have zero mass. This proves exactly the comparison-set locality we use, without granting an unbounded-factor version of Theorem 3.3. For d=0 locality is simply equality of the fixed smooth measure.
+
+## Degree, scalar masses and mixed vanishing
+
+For a Kähler form omega define
+\[
+M_k(\psi,[\omega])=\int\langle P^k\rangle\omega^{n-k},\quad
+d=\max\{k:M_k>0\},\quad m=n-d.
+\]
+M_0=int omega^n>0. If omega' is Kähler, c omega<=omega'<=C omega for positive constants. Telescoping the differences of the positive powers gives
+\[
+c^{n-k}M_k(\psi,[\omega])\leq M_k(\psi,[\omega'])
+\leq C^{n-k}M_k(\psi,[\omega]).
+\]
+This applies to every positive product current; hence d is independent of the form. Since P+epsilon omega>=epsilon omega its class is big, and B,D,V give
+\[
+0\leq\sum_{k=0}^n\binom nk\varepsilon^{n-k}M_k
+=\int\langle(P+\varepsilon\omega)^n\rangle
+\leq\operatorname{vol}(\alpha+\varepsilon[\omega])\longrightarrow0.
+\]
+Thus M_n=0 and d<n. D, filled with n-k smooth slots, says that every k-fold mixed product from C_psi has trace mass M_k. If the factors are merely more singular than psi, its mass is at most M_k. For k>d this proves vanishing as a current: a positive current with zero strictly positive trace mass has all coefficient measures zero, since their absolute values are locally bounded by a fixed multiple of its trace. For bounded-equivalent anchors all M_k and d agree by D. Closedness from B and distributional Stokes imply that M_k depends only on the auxiliary class and is a homogeneous polynomial of degree n-k. None of these degrees is asserted to be class numerical dimension.
+
+## Bounded energy, cocycle and representative independence: full reconstruction
+
+Fix a smooth complementary product W=omega_1...omega_(n-q) of Kähler forms and 0<=q<=n. On the convex hull of finitely many bounded-type potentials u_0,...,u_N, put h_i=u_i-u_0 and u_t=u_0+sum t_i h_i. The coefficient integrals in
+\[
+A_i(t)=\int h_i\langle T_{u_t}^q\rangle W
+\]
+are finite because h_i is bounded and B gives finite uncharged measures. Multilinearity makes A_i a polynomial on the simplex. For q>=1, signed differentiation in a current slot and I, with R=<T_(u_t)^(q-1)>W of bidegree (n-1,n-1), give
+\[
+\partial_j A_i=q\int h_i\langle dd^ch_j\mathbin{\dot\wedge}R\rangle
+=q\int h_j\langle dd^ch_i\mathbin{\dot\wedge}R\rangle
+=\partial_i A_j.
+\]
+R is smooth if q=1 and otherwise nonpluripolar, so the bounded differences are admissible. For q=0 all A_i are constant. Ordinary Stokes for this closed polynomial one-form on each finite triangle gives the cocycle for its segment integrals. Polynomial extension and continuity include simplex boundaries. The binomial expansion and beta integral give the segment value
+\[
+E^q_{v,W}(u)=\int_0^1\int(u-v)
+\langle((1-t)T_v+tT_u)^q\rangle W\,dt
+=\frac1{q+1}\sum_{a=0}^q\int(u-v)\langle T_u^aT_v^{q-a}\rangle W.\tag{1}
+\]
+Indeed $\binom qa\int_0^1 t^a(1-t)^{q-a}dt=1/(q+1)$. At q=d and W=omega^m write E_(psi,lambda)(u), lambda=[omega]. The triangle identity proves
+\[
+E_{\psi,\lambda}(u)-E_{\psi,\lambda}(v)=E_{v,\lambda}(u).\tag{2}
+\]
+Along a segment $u_t=u+t h$ the derivative is $\int h\langle T_{u_t}^d\rangle\omega^m$. Its second derivative for d>=1 is
+\[
+-d\int\langle dh\wedge d^ch\mathbin{\dot\wedge}
+(\langle T_{u_t}^{d-1}\rangle\omega^m)\rangle\leq0.
+\]
+This uses the positive intrinsic diagonal in I. For d=0 energy is affine. Positivity of the first derivative for nonnegative directions proves monotonicity. D supplies every same-type mixed degree-d mass M_d, so constants give c M_d and pointwise sandwiches give the M_d Lipschitz estimate in bounded differences. These derivative claims are only for segments and finite-dimensional hulls.
+
+If one Kähler factor in W=omega_1...omega_m changes by dd^c g within its class, H supplies smooth real g. For each Q=<T_u^a P^(d-a)> set R=Q times the other m-1 factors. Its bidegree is (n-1,n-1), it is closed positive and has no polar mass. The bounded h=u-psi and g are admissible. I gives
+\[
+\int h\,dd^cg\,R
+=\int g\langle dd^ch\mathbin{\dot\wedge}R\rangle=0.\tag{3}
+\]
+The signed insertion is $(\langle T_u^{a+1}P^{d-a}\rangle-\langle T_u^a P^{d-a+1}\rangle)$ times the other factors. Both (d+1)-fold products vanish. This also works at d=0, where R is smooth and both one-fold nonpluripolar products vanish. Thus the bounded energy integral with m mixed Kähler factors is representative independent in every slot. It is symmetric multilinear in their classes. Decompose an arbitrary smooth closed real (1,1) form eta as (eta+A Omega)-A Omega, both Kähler for large A. This extends the integral multilinearly to arbitrary factors. Changing a representative inserts dd^c g; expanding the remaining differences of Kähler factors reduces to (3). Hence the extension is well-defined, independent of temporary decompositions, representatives and bases. Its diagonal is a homogeneous degree-m polynomial in V=H^(1,1)(X,R).
+
+Simultaneously replacing theta by theta+dd^c g and (u,psi) by (u-g,psi-g) preserves all currents and differences. This proves gauge invariance; a bounded-equivalent anchor change has (2), not absolute anchor independence.
+
+## Checked bounded perturbation prescription
+
+For u in C_psi and epsilon>0, the relative unnormalized top energy in theta+epsilon omega has the exact expansion
+\[
+E^{n,\varepsilon,\omega}_\psi(u)
+=\sum_{k=0}^d\binom nk\varepsilon^{n-k}E^k_{\psi,\omega^{n-k}}(u).\tag{4}
+\]
+One can expand (1) at degree n along the positive segment; the coefficient of its k-fold current mixed term is binom(n,k)/(k+1). Equivalently
+\[
+\sum_{j=0}^n\binom ja\binom{n-j}{k-a}=\binom{n+1}{k+1},
+\]
+by counting a (k+1)-subset of {0,...,n} by the location j of its (a+1)-st element. Invalid binomial indices mean zero. High-degree terms vanish by the preceding proof. Each lower coefficient is bounded by $\|u-\psi\|_\infty M_k$. The actual perturbed anchor mass is sum_(k<=d) binom(n,k)epsilon^(n-k)M_k, without equality to class volume being assumed.
+
+If [omega_epsilon] tends to a Kähler lambda, the cohomological M_k polynomials are bounded. The degree-d energy polynomial is continuous in class. Formula (4) therefore proves the leading energy limit after dividing by binom(n,d)epsilon^m, for this fixed bounded-type u. Moving perturbed psh potentials of the same type, uniformly within delta_epsilon of u with delta_epsilon->0, have energy error at most delta_epsilon times the actual anchor mass: apply the positive-background cocycle and monotonicity already proved at arbitrary q=n. This gives the same limit even without representative bounds. No division by vol(alpha)=0 occurs, and the lower coefficients themselves need not be representative independent. This bounded statement will not be extended to uncontrolled moving forms for unbounded potentials.
+
+Support: none. Full source bodies, hashes, inputs and rerun evidence are supplied in the assembled P15.1-argument.md and local audit artifacts. This note's analytic claims use the exactly stated external theorems, not their prior review status.
+
+
+# n2. One full-mass domain and one genuine finite-energy domain for all auxiliary forms
+
+This note uses n1, including its exactly scoped literature foundations B,D,F,C,L,I,H and reconstructed bounded energy. It proves the proposed common-domain statements and reconstructs the finite-energy extension required for n3. These are partial results for P15.1; the actual anchor type remains fixed.
+
+## The common full-mass domain: scalar proof in every mixed slot
+
+Set m=n-d>=1 and
+\[
+\mathcal E_\psi(\omega)=\left\{u\in\operatorname{PSH}(X,\theta):u\leq\psi+C,
+\ \int\langle T_u^d\rangle\omega^m=\int\langle P^d\rangle\omega^m\right\}.
+\]
+Assume first d>=1 and that the equality holds for omega_0. Given any Kähler omega_1, compactness allows a constant A>0 for which D_0=A omega_0-omega_1 is itself a smooth Kähler form: choose A above the maximum eigenvalue of omega_1 relative to omega_0. For 0<=j<=m put
+\[
+\Delta_j=\int\big(\langle P^d\rangle-\langle T_u^d\rangle\big)
+\omega_1^j D_0^{m-j}.
+\]
+These are scalar quantities, not claimed positive currents. Apply DDNL Theorem 2.4 with n slots: d copies of background theta and potentials psi versus u; j copies of background omega_1, with potential zero on both sides; and m-j copies of background D_0, also with potential zero. Every background class is pseudoeffective, each potential is psh in that background, and u<=psi+C means psi is less singular in the varying slots. The smooth slots have equal types. Consequently every Delta_j>=0. Ordinary smooth expansion gives
+\[
+0=A^m\int(\langle P^d\rangle-\langle T_u^d\rangle)\omega_0^m
+=\sum_{j=0}^m\binom mj\Delta_j.
+\]
+All coefficients are strictly positive; hence every Delta_j=0, in particular Delta_m=0. Reversing the roles gives equality of the domains. If d=0 both products are 1, each Delta_j is identically zero, and full mass is automatic. Thus a single domain E_psi works for every smooth Kähler form and every auxiliary Kähler class. This proves the unverified proposal without presuming positivity of a current difference.
+
+This also gives mixed complementary equalities. If omega_1,...,omega_m are arbitrary Kähler forms, apply the just proved equality to omega(t)=sum t_i omega_i for all t_i>0. Both sides are polynomials in t. Equality on the nonempty open orthant implies equality of every coefficient, including the coefficient of t_1...t_m. Therefore
+\[
+\int\langle T_u^d\rangle\omega_1\cdots\omega_m
+=\int\langle P^d\rangle\omega_1\cdots\omega_m.\tag{5}
+\]
+Only ordinary smooth-factor polynomial algebra is used here.
+
+## Common finite-energy domain and exact agreement with joint linear energy
+
+Define F^1_psi by u in E_psi and, for one Kähler omega,
+\[
+\sum_{a=0}^d\binom da\int|u-\psi|
+\langle T_u^aP^{d-a}\rangle\omega^m<\infty.\tag{6}
+\]
+For d=0 (6) means int |u-psi| omega^n<infinity. Quasi-psh functions are locally integrable against smooth volume; a finite chart cover gives this integral for every such u,psi. Thus in this case F^1_psi=E_psi, with no application of Vu's k>=1 weighted theorem.
+
+For any fixed omega_0,omega_1, choose c,C>0 with c omega_0<=omega_1<=C omega_0. Telescoping positive powers gives inequalities of complementary positive forms, and wedging each positive mixed d-current yields inequalities of measures
+\[
+c^m\langle T_u^aP^{d-a}\rangle\omega_0^m
+\leq\langle T_u^aP^{d-a}\rangle\omega_1^m
+\leq C^m\langle T_u^aP^{d-a}\rangle\omega_0^m.
+\]
+Integrate the nonnegative weight |u-psi|. Finiteness of each term is therefore equivalent for the two forms; common full mass was proved above. Hence F^1_psi is genuinely independent of the auxiliary class and representative, not merely independent within one class. A product of any m fixed Kähler forms is bounded above and below by positive multiples of omega_0^m by the same factorwise comparison, so all the corresponding mixed complementary weighted integrals are finite as well.
+
+Constants cause no problem: they do not change currents, and every mixed mass is finite, bounded by the reference mass by D. Thus (6) is invariant under shifting u or psi by finite constants. Normalize u<=psi and both source potentials negative. For d>=1, specialization of Vu's Definition (3.1) with k=d, diagonal S=T_u, common P and linear chi(t)=t gives exactly
+\[
+\frac d2\sum_{a=0}^d\binom da\int(\psi-u)
+\langle T_u^aP^{d-a}\rangle\omega^m.
+\]
+The factor 1/2 is the checked source-potential convention. All summands are nonnegative and their finitely many coefficients are positive, so finiteness is exactly (6), also exactly the unweighted sum's finiteness. Source full mass is top-cohomology equality and hence exactly the scalar equality in E_psi. The source's diagonal joint linear class and our F^1_psi therefore agree precisely after normalization. Vu Theorem 3.4 applies with smooth R=omega^m and chi(t)=t; it gives convexity of both common domains. For d=0 convexity follows directly from the more-singular comparison and smooth-volume integrability.
+
+## Mixed full mass and mixed weighted integrability on the whole domain
+
+For a finite family u_1,...,u_N in E_psi, subtract constants to make each <=psi and put w=(u_1+...+u_N)/N. At d>=1 source full-mass convexity makes w full mass. By B, the mass of <T_w^d> omega^m is the average of the N^d ordered mixed masses. Each is at most M_d by DDNL Theorem 2.4, using d theta slots (psi versus the chosen u_i in each) and m identical smooth omega slots. They are nonnegative, and their average equals M_d. Each must equal M_d. This proves every d-fold mixed mass from the family, with repetitions, for every omega. Polynomial extraction as in (5) proves the same equality with any m mixed complementary Kähler factors. d=0 has the fixed empty current product and is immediate. Adding back constants does not change these masses. In particular all mixed reference/current masses used in the following arguments have exactly the specified raw reference mass.
+
+If the family lies in F^1_psi, weighted convexity also puts w in F^1_psi. The term a=d of its energy says int (psi-w)<T_w^d> omega^m<infinity. Its positive expansion has finitely many terms, so psi-w is integrable against every ordered product from that expansion. Since
+\[
+0\leq\psi-u_i\leq N(\psi-w),
+\]
+psi-u_i is integrable against every d-fold mixed product formed from the family. In particular |u_i-u_j| is integrable against all of them. Mixed smooth complementary factors are controlled by the preceding pointwise comparison. For d=0 local L1 integrability against smooth volume proves everything directly. Adding constants preserves finiteness by the mixed mass equalities. These arguments include psi and all bounded-type anchors as members of the finite family. Higher-degree mixed products of more-singular factors vanish by n1's checked scalar DDNL application; no lower-degree weighted integrability is concluded.
+
+## Exact truncation identity and the finite-energy meaning
+
+For normalized u<=psi in E_psi, set z=psi-u>=0 off the poles, u_L=max(u,psi-L), L>0, and
+\[
+\mu_a=\langle T_u^aP^{d-a}\rangle\omega^m,\qquad
+\mu_{a,L}=\langle T_{u_L}^aP^{d-a}\rangle\omega^m.
+\]
+The maximum is theta-psh by the local maximum property; psi-L<=u_L<=psi, so u_L is in C_psi. Both measures have mass M_d by the preceding mixed full-mass proof (or by D's sandwich between u and psi). On the strict comparison set G_L={u>psi-L}, they agree by n1's fully checked finite-locus use of L and B. Explicitly local potentials rho+u and rho+psi-L are psh comparison potentials; product factors are first replaced by bounded local truncations, the simultaneous finite loci are exhausted, and only then are the nonpluripolar restrictions identified. Poles have zero mass, including when d=0. No unbounded product factors are put into the printed bounded-factor theorem.
+
+On B_L=X minus G_L, outside the uncharged poles, u_L-psi=-L. Equality of total masses and equality on G_L imply mu_(a,L)(B_L)=mu_a(B_L). Thus even without finite energy,
+\[
+\int(\psi-u_L)d\mu_{a,L}
+=\int_{G_L}z\,d\mu_a+L\mu_a(B_L)
+=\int\min(z,L)d\mu_a.\tag{7}
+\]
+The boundary {u=psi-L} is included in B_L and its weight is exactly L; locality is used only on the strict set. The argument works verbatim with a fixed mixed complementary product W and its common mass from (5).
+
+For u in F^1_psi define the finite real energy
+\[
+E_{\psi,\lambda}(u)=\frac1{d+1}\sum_{a=0}^d
+\int(u-\psi)\langle T_u^aP^{d-a}\rangle\omega^m,\quad\omega\in\lambda.\tag{8}
+\]
+Monotone convergence in (7) proves
+\[
+E_{\psi,\lambda}(u_L)\downarrow E_{\psi,\lambda}(u).\tag{9}
+\]
+It also proves the precise converse: on the full-mass domain, finiteness of the decreasing bounded truncation-energy limit is equivalent to (6). Indeed the negative of that limit is the sum of the nonnegative integrals int z dmu_a divided by d+1; a finite sum is finite exactly when every term is finite, equivalently when its positive binomial-weighted sum is finite. For d=0 this is the ordinary smooth L1 formula. Thus this is a genuine F^1 domain defined equally by a finite energy value, not an arbitrary renaming of a weighted class.
+
+Monotonicity follows by ordering the truncations and using the bounded result. Every mixed mass in (8) is M_d, so
+\[
+E_{\psi,\lambda}(u+c)=E_{\psi,\lambda}(u)+cM_d.\tag{10}
+\]
+For a general u<=psi+C use v=u-C: u_L=v_(L+C)+C for large L. Equation (10) and normalized (9) give (9) for general u. The same argument applies to mixed complementary W. No choice of real truncation levels tending to infinity changes the limit.
+
+## Bounded decreasing continuity with an unbounded reference: complete tail proof
+
+Suppose v_j decreases to v and all are uniformly bounded relative to psi: |v_j-psi|,|v-psi|<=B. For a fixed degree-q product formed from v_j and psi and fixed n-q smooth Kähler factors, denote the positive measures by nu_j,nu. D gives exactly the same total mass b for all of them. Shift psi to be negative and put
+\[
+\eta_A=\min(1,\max(\psi+A,0)).
+\]
+The nonzero locus {psi>-A} contains all places where this cutoff is used. Its closed support may meet the boundary; we do not claim otherwise. On a relatively compact chart with theta=dd^c rho, every local psh rho+v_j,rho+v,rho+psi on this nonzero locus has a uniform lower bound depending on A,B,rho, and a uniform upper bound because v_j<=v_1. Truncate all these local psh factors below a still lower constant. The resulting factors are uniformly bounded psh, converge in capacity by n1's C deduction, and give the same products wherever eta_A is nonzero. The fixed smooth factors have bounded smooth local psh potentials as well.
+
+The cutoff can be expressed using the bounded truncation of psi and smooth rho. Similarly eta_A(v_j-psi) equals eta_A times the difference of the bounded local psh truncations just chosen. Such weights are uniformly bounded quasicontinuous functions converging in capacity: max, min and products on bounded ranges preserve capacity convergence by their elementary Lipschitz estimates and a union bound on exceptional sets. A smooth partition of unity is an additional fixed bounded continuous weight. DDNL Proposition 2.2 therefore proves local, and then global, convergence of
+\[
+\int\eta_A d\nu_j\ \text{ and }\ \int\eta_A(v_j-\psi)d\nu_j
+\]
+to their limiting counterparts for every fixed A. Bounded-factor hypotheses hold in every product slot. This is not a direct application of a big-class convergence theorem in the pseudoeffective background.
+
+The tail weight is bounded by B. Hence its absolute integral is at most
+\[
+B\left(b-\int\eta_A d\nu_j\right).
+\]
+First let j tend to infinity at fixed A; then let A tend to infinity. The limiting tail mass tends to zero because nu gives no mass to psi's polar set. This proves convergence of every full weighted integral and hence bounded decreasing energy continuity. For q=0 the same conclusion follows by dominated convergence against smooth volume; the cutoff argument also applies with no varying product factors.
+
+## Decreasing continuity, concavity and the unbounded cocycle
+
+Let v_j decrease to u with v_j,u in F^1_psi. They have one upper bound psi+C because v_1 does. Monotonicity gives
+\[
+E(u)\leq E(v_j)\leq E(\max(v_j,\psi-L)).
+\]
+For fixed L the right-hand sequence decreases to u_L within a uniform bounded type, so the lemma proves limsup E(v_j)<=E(u_L). Sending L to infinity using (9) proves E(v_j)->E(u). This includes every decreasing bounded-type approximation with limit in F^1_psi. If w=(1-t)u+t v, source weighted convexity puts w in the domain. The bounded-type sequence (1-t)u_L+t v_L decreases to w; bounded concavity, (9) and decreasing continuity prove concavity on the entire domain. At d=0 it is directly affine.
+
+For normalized u,v<=psi take simultaneous truncations, nu_a=<T_u^a T_v^(d-a)>omega^m and nu_(a,L)=<T_(u_L)^a T_(v_L)^(d-a)>omega^m. They have mass M_d and agree on G_L={u>psi-L} intersection {v>psi-L} by the finite-locus comparison proof. Their complementary masses therefore agree. On B_L their truncated weight |u_L-v_L|<=L, and with z_u=psi-u,z_v=psi-v,
+\[
+L\nu_{a,L}(B_L)=L\nu_a(B_L)
+\leq\int_{B_L}(z_u+z_v)d\nu_a\longrightarrow0.
+\]
+The last limit is dominated convergence using the proved mixed weighted integrability; B_L decreases to uncharged polar sets. The original |u-v| tail also tends to zero. On G_L products and weights agree. Thus
+\[
+\frac1{d+1}\sum_a\int(u_L-v_L)d\nu_{a,L}
+\longrightarrow\frac1{d+1}\sum_a\int(u-v)d\nu_a.
+\]
+Taking limits in the reconstructed bounded cocycle yields the finite unbounded formula
+\[
+E_{\psi,\lambda}(u)-E_{\psi,\lambda}(v)
+=E_{v,\lambda}(u)
+:=\frac1{d+1}\sum_{a=0}^d\int(u-v)\langle T_u^aT_v^{d-a}\rangle\omega^m.\tag{11}
+\]
+Constants reduce the general case to this normalization: products do not change and every mixed mass is M_d. For d=0 this is the linear smooth-volume identity.
+
+## Anchors, representatives and theta gauge
+
+Let chi in C_psi. The more-singular relations to psi and chi are identical up to constants, and bounded mixed mass equality gives their identical reference mass and degree. Thus their full-mass domains agree for all forms. Every chi belongs to F^1_psi because its differences are bounded. For u in F^1_psi, the mixed-family integrability proof applied to (u,chi,psi) shows that |u-chi|<=|u-psi|+||psi-chi||_infinity is integrable against every product <T_u^a T_chi^(d-a)>omega^m. Hence u is in F^1_chi. Applying the same argument with the roles reversed proves equality of finite-energy domains. This is a direct anchor-domain proof, consistent with Vu Corollary 3.2, and does not depend on an unbounded IBP assertion.
+
+Taking v=chi in (11) gives exactly
+\[
+E_{\chi,\lambda}(u)=E_{\psi,\lambda}(u)-E_{\psi,\lambda}(\chi).\tag{12}
+\]
+The mixed-integral definition with anchor chi is the displayed E_v; all terms have just been proved finite. At d=0 smooth L1 integrability proves the same facts without source weighted theorems.
+
+For cohomologous Kähler representatives omega,omega', the domain is already common. Each u_L bounded energy is representative independent by n1. Equation (9), valid for both forms, proves representative independence of the whole finite-energy value. Simultaneous smooth theta gauge changes leave actual currents, relative differences, comparisons and truncations invariant, so all constructions are unchanged.
+
+## A genuinely unbounded member
+
+On $X=\mathbb P^1\times\mathbb P^1$ take normalized Fubini--Study $\kappa$ with $\int\kappa=1$, $\theta=p_1^*\kappa$, $\psi=0$ and $\omega=p_1^*\kappa+p_2^*\kappa$. The smooth semipositive theta makes its class nef; its square is zero, so B,V give volume zero. The actual degree is d=1 and M_1=1. Choose 0<a<1/2 and in a small disk at zero set
+\[
+v(z)=-b(-\log|z|)^a
+\]
+near zero. Continue by a smooth cutoff on a fixed annulus. On the punctured inner disk the radial second derivative with respect to t=log|z| is b a(1-a)(-t)^(a-2)>0. The annular negative Hessian is bounded by a constant times b, so small b>0 ensures S=kappa+dd^c v>=0 globally. Define v(0)=-infinity and subtract a constant to make v<=0. The locally integrable subharmonic extension has no atom at zero: its outward radial flux is proportional to b a(-log r)^(a-1), tending to zero. Distributional Stokes gives S(X)=1, and no mass is lost in its nonpluripolar part. It is smooth off zero.
+
+Smooth-volume integrability follows from exponential area decay in s=-log r. Its weighted singular-current integral is a positive constant times
+\[
+\int^\infty s^a s^{a-2}ds=\int^\infty s^{2a-2}ds<\infty.
+\]
+Thus $u=p_1^*v$ has full degree-one mass and both finite weighted terms in (6), but u-psi is unbounded. The construction is an example demonstrating genuine extension; no fibration hypothesis appears in the general theorem. This analytic proof, not a numerical test, establishes the example.
+
+Support: n1. These results remove the auxiliary dependence of the full-mass and finite-energy domains. They supply no unrestricted unbounded moving-auxiliary perturbation limit.
+
+
+# n3. Coefficientwise extension and the minimum reference for the entire energy family
+
+This note uses n1 and n2. It proves the coefficientwise unbounded extension and the exact necessary/sufficient finite-dimensional reference criterion in proposals 1--3. The minimum is for this specified anchored prescribed-type energy family. It is not an independent geometric classification or a claim that P15.1 is closed.
+
+## Intrinsic bounded functionals and an unisolvent Kähler set
+
+Let V=H^(1,1)(X,R), with its real Bott--Chern/de Rham interpretation on compact Kähler X, and B=Sym^m V, m=n-d>=1. V is finite-dimensional as a subspace of finite-dimensional de Rham cohomology; H identifies cohomologically equal smooth (1,1) representatives by a smooth dd^c gauge. For u in C_psi, define the symmetric functional ell_u^psi in B^* by
+\[
+\ell_u^\psi(\lambda_1\odot\cdots\odot\lambda_m)
+=\frac1{d+1}\sum_{a=0}^d\int(u-\psi)
+\langle T_u^aP^{d-a}\rangle\eta_1\cdots\eta_m,\qquad[\eta_i]=\lambda_i.\tag{13}
+\]
+Here eta_i are arbitrary smooth closed real representatives. The extension by differences of Kähler forms and the representative-change proof in n1 prove well-definedness in all slots; no temporary basis or chosen decomposition is data. It is a symmetric m-linear form and hence defines exactly a linear functional on Sym^m V. Its diagonal polynomial p_u(lambda)=ell_u^psi(lambda^odot m) equals E_(psi,lambda)(u) on the Kähler cone.
+
+Let h=dim V and N=dim B=binom(h+m-1,m). The tensors lambda^odot m with lambda Kähler span B. To prove this, if their span were proper, finite-dimensional duality would give a nonzero f in B^* annihilating them all. Its associated homogeneous polynomial f(lambda^odot m) would vanish on the nonempty open Kähler cone. A real polynomial vanishing on an open set is zero: in coordinates choose a small open rectangular box in that set, regard it as a polynomial in the first coordinate, and use the one-variable statement that a nonzero polynomial cannot have infinitely many roots; its coefficients vanish on the remaining box. Induct on the number of coordinates. Thus all polynomial coefficients vanish, and polarization forces f=0, a contradiction. This last implication is also explicit in the monomial basis: coefficient of x^beta is (m!/beta!)f(e_1^odot beta_1 ... e_h^odot beta_h).
+
+Consequently there exist N Kähler classes lambda_1,...,lambda_N whose powers form a basis of B: iteratively choose a power outside the span of those already chosen. The evaluation map
+\[
+\mathcal A:B^*\longrightarrow\mathbb R^N,\quad
+f\longmapsto(f(\lambda_i^{\odot m}))_{i=1}^N\tag{14}
+\]
+is a linear isomorphism. This is the promised unisolvent set. Its existence uses only openness and finite-dimensional polynomial algebra. Choosing a different such set changes coordinates, not the intrinsic functional.
+
+## Coefficientwise convergence on the common unbounded domain
+
+Fix u in F^1_psi and u_L=max(u,psi-L). n2 proves pointwise in every Kähler class
+\[
+\ell_{u_L}^\psi(\lambda^{\odot m})
+=E_{\psi,\lambda}(u_L)\longrightarrow E_{\psi,\lambda}(u)\in\mathbb R.
+\]
+In particular the N evaluations (14) converge. Apply the fixed inverse A^(-1). It follows that ell_(u_L)^psi converges in B^*, equivalently coefficientwise in any finite basis, to one ell_u^psi. Evaluating the limit at any Kähler lambda and using the same n2 limit proves
+\[
+E_{\psi,\lambda}(u)=\ell_u^\psi(\lambda^{\odot m}).\tag{15}
+\]
+Thus the entire unbounded finite-energy value is a homogeneous degree-m class polynomial. No nonuniform lower-epsilon coefficients enter this argument. For any other unisolvent set or basis, the resulting functional has the same diagonal values on the Kähler cone; the open-set polynomial proof gives uniqueness. n2 also gives the same pointwise limit for every decreasing bounded-type approximation with limit u, so all such approximations give exactly this coefficient limit. Arbitrary real truncation levels tending to infinity are covered by (9).
+
+The functionals have the explicit integral formula (13) on the unbounded domain as well. Here is a proof that also checks convergence of the mixed integrals. For a mixed product W of m Kähler representatives, n2 gives the full mass of every product <T_u^a P^(d-a)>W and its truncated counterpart, and their locality on G_L. Thus (7) holds with omega^m replaced by W. Each weight is integrable by n2, so each weighted integral for u_L converges to the integral for u. For arbitrary smooth real representatives eta_i, choose A_i large enough that eta_i+A_i Omega and A_i Omega are Kähler. Expand their product into its 2^m signed positive products W. Every weight integral is finite because W is bounded by a constant times Omega^m, and all 2^m truncation limits just proved exist. The bounded integral functionals converge to ell_u^psi coefficientwise. Taking those integral limits gives exactly (13). This also proves representative and decomposition independence for these explicit unbounded mixed integrals without using unbounded IBP. Equivalently they are obtained from (15) by the intrinsic polarization formula
+\[
+\ell_u^\psi(\lambda_1\odot\cdots\odot\lambda_m)
+=\frac1{m!}\sum_{J\subset\{1,\ldots,m\}}(-1)^{m-|J|}
+p_u\!\left(\sum_{j\in J}\lambda_j\right),\tag{16}
+\]
+where p_u is the unique polynomial on all V. The empty sum is 0. Formula (16) follows by expanding the polynomial and observing that the inclusion-exclusion sum kills every term missing a variable, leaving m! times the fully multilinear term. No meaning as a positive reference is assigned to a non-Kähler argument of this polynomial extension.
+
+## No extra reference directions appear at finite energy
+
+Define intrinsically
+\[
+S_\psi=\operatorname{span}\{\ell_u^\psi:u\in\mathcal C_\psi\}\subset B^*,
+\quad K_\psi=\operatorname{Ann}(S_\psi)\subset B,
+\quad Q_\psi=B/K_\psi,
+\]
+with quotient map q. Every ell_(u_L)^psi belongs to S_psi. This subspace is finite-dimensional and closed, so its coefficient limit ell_u^psi belongs to S_psi for every u in F^1_psi. Conversely C_psi is contained in F^1_psi by bounded masses and bounded weights. Therefore
+\[
+\operatorname{span}_{u\in\mathcal F^1_\psi}\ell_u^\psi=S_\psi,
+\qquad
+\bigcap_{u\in\mathcal F^1_\psi}\ker\ell_u^\psi=K_\psi.\tag{17}
+\]
+This equality is the substantive extension result, beyond defining a quotient on bounded potentials.
+
+For two Kähler classes lambda_0,lambda_1, equations (15)--(17) give the exact equivalence
+\[
+\big[E_{\psi,\lambda_0}(u)=E_{\psi,\lambda_1}(u)
+\text{ for every }u\in\mathcal F^1_\psi\big]
+\quad\Longleftrightarrow\quad
+q(\lambda_0^{\odot m})=q(\lambda_1^{\odot m}).\tag{18}
+\]
+For the forward direction restrict to bounded u; their functionals span S, so the tensor difference lies in K. For the backward direction every unbounded functional belongs to S and annihilates K. Hence the quotient criterion is both necessary and sufficient on the entire genuine domain.
+
+## Raw mass, constants, anchor change and gauge change
+
+Define the mass functional in B^* by
+\[
+\mathfrak M_\psi(\lambda_1\odot\cdots\odot\lambda_m)
+=\int\langle P^d\rangle\eta_1\cdots\eta_m.
+\]
+Closedness of <P^d> and ordinary smooth Stokes prove representative independence. Its diagonal M_d(psi,lambda)>0 on the Kähler cone, and its mixed Kähler values are positive because the strictly positive complementary product dominates a positive multiple of a Kähler trace power of the nonzero positive current <P^d>. At d=0 the current is 1 and the same statement is the positive smooth volume integral. The mass functional is retained in S:
+\[
+\ell_{\psi+c}^\psi=c\mathfrak M_\psi,\qquad
+\ell_{u+c}^\psi=\ell_u^\psi+c\mathfrak M_\psi.\tag{19}
+\]
+Indeed currents are unchanged by constants, and every degree-d mixed mass from (13) is exactly the reference mixed mass by n2. This proves (19) initially on mixed Kähler arguments and then on B by spanning/polarization. In particular psi+1 belongs to C_psi and supplies mathfrak M_psi. Thus Q retains the positive raw mass and a scale cannot be eliminated by forgetting constants. K is contained in ker mathfrak M_psi and Q has dimension at least one. There is no normalization of M_d or of zero volume to a probability.
+
+Let chi in C_psi. n2 gives the identical domains and the scalar anchor cocycle for every Kähler lambda and every u in the domain. Unique polarization gives the functional identity on B
+\[
+\ell_u^\chi=\ell_u^\psi-\ell_\chi^\psi.\tag{20}
+\]
+Every bounded ell_u^chi lies in S_psi. Conversely ell_psi^chi=-ell_chi^psi and
+ell_u^psi=ell_u^chi-ell_psi^chi, so S_chi=S_psi. Hence K_chi=K_psi and the quotient, its admissible image, and the minimum equivalence are anchor invariant within the bounded type. The origin of energy still requires an anchor, changing by (20). Mixed bounded mass equality shows mathfrak M_chi=mathfrak M_psi. This proves all anchor statements including d=0, without asserting that C_psi in that case consists only of constant translates.
+
+A simultaneous theta gauge change theta'=theta+dd^c g, u'=u-g, psi'=psi-g, with smooth real g, preserves every actual current, difference, truncation and integral in (13). It transports C_psi and F^1_psi bijectively to the new potential domains, preserves all functionals and identifies the same S,K,Q. Any two smooth real representatives of alpha differ in this way by H. Auxiliary representative independence was proved above by bounded reconstruction and truncation, not by a gauge applied to the auxiliary paths. Adding constants to g does not change the identification of anchored differences. Keeping theta as a convenient coordinate representative is permissible; its smooth gauge is not independently necessary reference data.
+
+## Exact universal minimum sense and admissible topology
+
+Each ell_u descends to a linear functional bar-ell_u on Q. The map
+\[
+\mathcal A_{\rm all}:B\longrightarrow\mathbb R^{\mathcal F^1_\psi},
+\quad t\longmapsto(\ell_u(t))_u
+\]
+has kernel K, by (17). It induces an injective linear map from Q onto this family's finite-dimensional output space. If r:B->R_0 is any linear reference descriptor and for every u there is a linear f_u on r(B) with ell_u=f_u composed with r, then ker r is contained in K. Thus there is one well-defined surjective linear map
+\[
+F:r(B)\longrightarrow Q,\qquad F(r(t))=q(t).
+\]
+Well-definedness is exactly ker r subset K; surjectivity follows from surjectivity of q, and uniqueness follows because r(B) is spanned by those images. This proves the coarsest linear descriptor property. It does not assert a geometric classification of K.
+
+For actual auxiliary choices, define the admissible image
+\[
+\mathcal I_\psi=\{q(\lambda^{\odot m}):\lambda\text{ Kähler}\}\subset Q.
+\]
+Every energy is determined by this descriptor. Among arbitrary set-valued descriptors r_0 on the Kähler cone, if equality of r_0(lambda)'s implies equality of all energy values, (18) yields a uniquely defined map from r_0's image onto I_psi sending r_0(lambda) to q(lambda^odot m). Conversely the latter descriptor suffices. This is minimum informational data for this family, not a proof that this image is a manifold, a geometric carrier, or all of Q. The map lambda->q(lambda^odot m) need not be injective, and I_psi need not be a vector space.
+
+Give Q its finite-dimensional quotient topology and I_psi the subspace topology. For fixed u every bar-ell_u is continuous; hence tau_j->tau in I implies convergence of its energy values even when the representing classes do not converge. Conversely choose bounded u_1,...,u_s whose ell's are a basis of S (s=dim Q). Then
+\[
+Q\longrightarrow\mathbb R^s,\quad
+\tau\longmapsto(\bar\ell_{u_i}(\tau))_i
+\]
+is a linear isomorphism: its kernel is zero by definition of K, and both sides have dimension s. Thus convergence of these finitely many bounded energy coordinates is equivalent to quotient convergence. This provides the weakest finite-dimensional topology making the whole energy family continuous.
+
+If u_j decreases to u with all in F^1_psi, n2 gives convergence at every unisolvent lambda_i; (14) then proves ell_(u_j)->ell_u in B^*. Accordingly their polynomials converge uniformly on every compact subset of V (bound the evaluation tensors there), and their descended functionals converge uniformly on bounded subsets of Q. If simultaneously tau_j->tau in I, the values bar-ell_(u_j)(tau_j) tend to bar-ell_u(tau), since convergent sequences of functionals and points are bounded and the evaluation pairing is continuous. These are admissible energy-polynomial/quotient statements. They make no assertion about a rescaled top energy with epsilon-dependent rough representatives, nor about variable unbounded integration weights outside the proved decreasing theory.
+
+## Scope and a nontrivial quotient computation
+
+The remaining reference data for this energy family are X, its complex structure and class alpha, the actual bounded comparison type (with its degree d), an anchor specifying the additive origin, and tau in I_psi. A smooth theta is only a gauge representative. The current integrals are carried by the actual n-dimensional X with product bidegree (d,d). A finite-dimensional quotient of reference tensors is not a geometric d-dimensional carrier. Actual type is not reduced to ideal equivalence or class numerical dimension.
+
+For clarity the whole auxiliary class need not be minimal. In n2's $X=\mathbb P^1_y\times\mathbb P^1_z$ example with $\theta=p_1^*\kappa$ and psi=0, V has basis $a=[p_1^*\kappa],b=[p_2^*\kappa]$. One direct computation is the product cell decomposition of the two spheres: there are two real 2-cells, no odd cells, and the two pullback classes evaluate independently on the two fibers; hence H^2 has precisely these two generators, both of type (1,1). A real class A a+B b is Kähler exactly when A,B>0: restriction to each fiber proves necessity, and the product form proves sufficiency. Any theta-psh potential restricts on each z-fiber to a psh function or the identically-minus-infinity function. A nontrivial psh function on a compact connected curve is constant by the maximum principle. Thus all fibers are constant and u(y,z)=v(y), extended-valuedly; a nontrivial restriction to a y-slice is kappa-psh and identifies v. For bounded u in C_0 it is a bounded v. Wedge calculation gives
+\[
+E_{0,Aa+Bb}(p_1^*v)=\frac B2\int_{\mathbb P^1}v\big((\kappa+dd^cv)+\kappa\big).
+\]
+All bounded ell_u therefore lie in the span of the functional B, and constants supply that functional itself. Hence S is exactly one-dimensional, K is the A-axis, Q is R with q(Aa+Bb)=B, and I=(0,infinity). By (17) this description holds for the entire genuine F^1 domain, including n2's unbounded example. This is a concrete geometric computation in one special case, not a universal geometric kernel formula.
+
+Support: n1, n2. The new conclusion is the common-domain, coefficientwise and minimum-family-reference theorem with exact scope, not an original-atom completion.
+
+
+# n4. Analytic limitation, original residuals, and reproducible execution evidence
+
+This note uses n1, n2 and n3. It reconstructs the supplied analytic concentration obstruction rather than treating the prior proof as a grant, and separates the substantive new theorem from the unchanged original P15.1. P15.2 and P15.3 are outside this assignment; no minimum operator-reference construction or result for those atoms is claimed.
+
+## Same-class concentration still prevents an unrestricted unbounded perturbation theorem
+
+Use the actual unbounded finite-energy potential $u=p_1^*v$ proved in n2 on $X=\mathbb P^1\times\mathbb P^1$, with $\theta=p_1^*\kappa$, psi=0, d=1,m=1, int kappa=1 and $v=-b(-\log|z|)^a-c$ near zero, 0<a<1/2, c>=0. Its actual current is $p_1^*S$, $S=\kappa+dd^c v$ of mass one without a pole atom. All ambient hypotheses, degree-one full mass and finite joint linear energy were proved there.
+
+For epsilon>0 sufficiently small put rho_epsilon=exp(-epsilon^(-2/a)). Choose a smooth nonnegative area form beta_epsilon of integral one supported in {|z|<rho_epsilon}; a disk bump rescaled and normalized gives it and extension by zero is smooth. Every real 2-form on this curve is closed and of type (1,1). Set
+\[
+\kappa_\varepsilon=\tfrac12\kappa+\tfrac12\beta_\varepsilon,
+\qquad \omega_\varepsilon=p_1^*\kappa_\varepsilon+p_2^*\kappa.
+\]
+These are smooth strictly positive Kähler forms. H^2(P^1,R) is one-dimensional and integration determines its class; hence [kappa_epsilon]=[kappa]. All auxiliary classes [omega_epsilon] equal the single Kähler $\lambda=[p_1^*\kappa+p_2^*\kappa]$. The potential is identical for every parameter, and T_u+epsilon omega_epsilon is positive. At each fixed parameter v is integrable against kappa_epsilon because it is locally L1 and this fixed smooth density is bounded, and against S and kappa by n2. Thus every weighted mixed top integral in the following formula is finite, with no uniform bound assumed in epsilon.
+
+Write $A=p_1^*\kappa$, $B=p_2^*\kappa$, $A_\varepsilon=p_1^*\kappa_\varepsilon$ and $U=p_1^*S$. Products of two horizontal (1,1) factors vanish off the pole, hence their nonpluripolar extensions vanish; mixed products below give no pole mass. Ordinary smooth multiplication, or the defining nonpluripolar finite-locus restrictions, therefore gives
+\[
+\begin{aligned}
+(T_0+\varepsilon\omega_\varepsilon)^2&=2\varepsilon(A+\varepsilon A_\varepsilon)B,\\
+\langle(T_u+\varepsilon\omega_\varepsilon)(T_0+\varepsilon\omega_\varepsilon)\rangle
+&=\varepsilon(U+A+2\varepsilon A_\varepsilon)B,\\
+\langle(T_u+\varepsilon\omega_\varepsilon)^2\rangle
+&=2\varepsilon(U+\varepsilon A_\varepsilon)B.
+\end{aligned}
+\]
+The actual top masses of the anchor and u are both 2 epsilon(1+epsilon), so this is a full relative top-mass potential for every positive perturbation. The joint linear-weight integrals of these three measures are finite at every fixed parameter by the integrability already checked. This obstruction uses neither lost perturbed mass nor infinite energy at a fixed parameter.
+
+Directly summing those three finite weighted terms, divided by 3, gives
+\[
+E^{2,\varepsilon,\omega_\varepsilon}_0(u)
+=2\varepsilon E_{0,\lambda}(u)+2\varepsilon^2\int v\kappa_\varepsilon,
+\qquad E_{0,\lambda}(u)=\tfrac12\int v(S+\kappa)\in\mathbb R.
+\]
+Consequently
+\[
+\frac{E^{2,\varepsilon,\omega_\varepsilon}_0(u)}{2\varepsilon}
+=E_{0,\lambda}(u)+\varepsilon\int v\kappa_\varepsilon.\tag{21}
+\]
+On the bump's support, -v>=b epsilon^(-2), and v<=0 globally. Therefore int v kappa_epsilon<=-(b/2)epsilon^(-2), so the last term tends to minus infinity. For the fixed smooth product omega instead, the same expansion has the fixed finite integral int v kappa, and the quotient tends to E_(0,lambda)(u). These two paths have exactly the same auxiliary class, exactly the same quotient descriptor from n3, and exactly the same potential at every parameter.
+
+This proves an analytic counterexample to extending n1's moving-representative leading-perturbation assertion to all F^1_psi without additional controls. It does not contradict n3's continuity on the energy quotient: that theorem concerns the degree-d energy polynomial, whereas (21) has an uncontrolled lower-degree weighted coefficient. A quotient reference, class convergence, and degree-d finite energy cannot provide a uniform estimate for that extra term. No positive probability normalization was used anywhere.
+
+## Actual degree and leading class-volume coefficients must remain distinct
+
+In the same class choose the actual logarithmic reference on the first factor
+\[
+g(z)=\log\frac{|z|^2}{1+|z|^2},\qquad\psi=p_1^*g.
+\]
+With kappa=dd^c log(1+|z|^2), int kappa=1, the distributional identity dd^c log|z|^2=delta_0 follows from the radial flux of log r^2: its Laplacian flux is 4 pi, and our dd^c is planar Laplacian times area divided by 4 pi. Thus kappa+dd^c g=delta_0, globally, and P is the integration current of the vertical divisor. Its nonpluripolar degree-one product is zero: it vanishes off the polar divisor and the defining extension puts no mass on that divisor. Hence d=0 for this actual reference, whereas the smooth reference has d=1. The nef class has nonzero first cup product and zero square, so its nef numerical dimension, defined by its largest nonzero cup-power trace, is one. Actual-current degree is therefore not class numerical dimension.
+
+For $\omega=A p_1^*\kappa+B p_2^*\kappa$, A,B>0, actual-current multilinearity gives the perturbed divisor-reference mass
+\[
+\int\langle(P+\varepsilon\omega)^2\rangle
+=2AB\varepsilon^2,
+\]
+while the nef perturbed class has volume by its cup product
+\[
+\operatorname{vol}(\alpha+\varepsilon[\omega])
+=2B\varepsilon+2AB\varepsilon^2.
+\]
+Both statements follow from n1's exact volume foundation and the explicitly computed products. The exponents differ. Constant anchor shifts have actual perturbed energy c times the first mass, so rescaling by the leading class-volume exponent would discard their positive actual degree-zero scale. This explicitly checks why class-volume coefficients cannot be substituted into the scoped theorem without another proof.
+
+## What is proved and what remains for the original atom
+
+Proposals 1--3 are proved, with the stipulated actual-type degree and every fixed smooth Kähler auxiliary choice. The full-mass domain is independent of all auxiliary classes/forms by scalar mixed deficits. Joint linear integrability is independent by positive pointwise comparison. On their common genuine F^1 domain the energy has finite mixed integrals, exact truncation meaning, cocycle, concavity, decreasing continuity, gauge invariance and same-type anchor transformation. Its polynomial coefficients are limits of the bounded coefficients, and the unbounded energies span exactly the same finite-dimensional S. The exact reference equivalence on the entire domain is (18); raw mass survives because constants supply the mass functional. These domain and coefficient-extension statements are the substantive progress. Defining an annihilator quotient by itself is not counted as a new geometric theorem.
+
+The construction retains a prescribed actual comparison type and uses an actual-current degree and scale. Its minimum quotient is a universal factorization for this specified family, not a theorem that this is the minimum independently geometric reference for every possible zero-volume energy theory. The carrier of its integrals is explicitly X of dimension n with current bidegree (d,d); no geometric d-dimensional carrier or universal geometric characterization of the kernel is supplied. The original catalogue's broader choice and path requirements are not thereby resolved.
+
+In particular a direct all-F^1, class-convergent moving-representative perturbation prescription is false by (21). Alternative controls, restrictions or an iterated truncation prescription would need to be stated and proved rather than silently added to the original atom. For example the already proved iterated prescription first takes the bounded leading limit at fixed L and then L to infinity; it gives (8), but is not asserted equal to every joint or reversed limit. General moving unbounded-potential perturbation limits, sufficient weighted lower-degree control even for all fixed forms in arbitrary reference types, and infinite-dimensional path/differential calculus with unbounded velocities have not been proved. Decreasing continuity is the precise sequence theorem here; no arbitrary increasing continuity is asserted. The leading coefficient used in n1 is the actual-reference polynomial's coefficient, not a general leading class-volume coefficient. No claim on the optional d=0 rigidity question is needed or made.
+
+Thus this is a new scoped partial theorem, not a complete solution or a counterexample to the whole original P15.1. No catalogue source-dependent published/unpublished claim, ideal-equivalence-only recovery, other worker result, literature-priority verdict, or earlier same-model review is assumed. Candidate is false.
+
+## Execution and artifact contract
+
+The authoritative proof is P15.1-argument.md, containing n1--n4 and all 24 complete selected primary-source LF bodies used or retained for the supplied source-defect audit. P15.1-partial.tex and its twice-compiled P15.1-partial.pdf contain the full new proof and all exactly stated foundation hypotheses/applicability checks; literal OCR annex bodies remain in Markdown. The original input.json is unchanged. Its SHA256 is 6939872a9d6907168bd4b224e7c6a964c68c7fd226eb33d05520e9774e8939a6. input-original.json is byte identical; assignment-original.txt preserves the decoded assignment exactly, and task-original.json preserves its task values. Old audits inside those preserved supplied strings are historical data, not this execution's evidence.
+
+Source reading is confined to the supplied read-only shared source directory. verify_sources.py checks literal LF joins without an added final LF. All 24 supplied pins match, and all 24 exact bodies are identified in the supplied assignment, including the JSON-escaped DGMS/GZ units. Raw OCR/form feeds and defects remain in source-annex.md and the authoritative argument. The three source images cited in n1 were visually inspected; image hashes are recorded. No whole primary PDF was copied or modified. Published foundations remain external theorems with precisely checked applications, not proofs certified by source-hash matching.
+
+coefficient_check.py performs exact finite rational/integer diagnostics for the subset coefficient identity, homogeneous polynomial interpolation/polarization, and a synthetic scalar-deficit expansion. Observed checks passed 2,925 coefficient cases (all 0<=n<=24, 0<=a<=k<=n), 40 interpolation cases, 8 polarization cases and 12 positive-expansion cases. These diagnostics illustrate the finite algebra, not analytic correctness. The general algebra proofs are in n1 and n3; the positivity and analytic domain proofs are in n2. build.py assembles the proof and canonical notes, generates standalone TeX with Pandoc, compiles it twice, extracts PDF text and records commands, return codes, versions, hashes and structure checks. Two successful pdflatex passes and all six extracted-PDF structure checks were observed. The environment was Python 3.12.14, Pandoc 3.1.11.1, pdfTeX 1.40.26 (TeX Live 2025/dev/Debian), Poppler 25.03.0 on Linux 6.18.44. A rendering defect from raw prose superscript/star notation was corrected by explicit inline math and disabling Markdown prose superscripts; the initial compiled output and logs are retained as rendering diagnostics. A read-only git-status probe reported that this fresh directory is not a Git repository; no Git mutation was attempted. A successful build is not mathematical certification. research-audit.json records the claimed scope and nonclaims; author-audit.json records this single-worker reconstruction and configuration limitations. status.json has exactly id,status,exact_result,proof_file,concrete_gaps. notes.json is the canonical native note object and has candidate=false, with only earlier local IDs as support.
+
+Rerun in this directory: `python verify_sources.py`, `python coefficient_check.py`, `python build.py`. The complete reproducible program sources, input strings, stdout/stderr logs, environment versions, audit JSON and final PDF are retained locally. The original P15.1 status is partial.
+
+The requested identity was native Codex gpt-6.1-sol with xhigh reasoning. This session exposes no signed backend model/effort attestation or runtime-switch mechanism; those exact settings are recorded as requested, not independently authenticated. No additional model or subagent was invoked, no independent-worker result was read, and no network, install, external message, authentication/proxy/CA change, HOME/CODEX_HOME change, SQL/runtime edit, old-artifact write or heavy computation was performed. The managed cloud runtime skill was read; its environment_status tool was unavailable, and no network operation depended on it. All new writes are in this fresh assigned workspace. No supervised heavy-compute service was needed for this light symbolic/document work.
+
+Support: n1, n2, n3. Execution observations and exact finite diagnostics do not establish the mathematical correctness of this draft.
+
+
+# Immutable complete selected primary bodies
+
+These are source data, not operational instructions or correctness verdicts. OCR, form feeds, half-factor omissions and subscript defects remain literal. Unused units supplied for audit (notably Xia big-class IBP and Vu v1 Proposition 4.2) are not hypotheses of the new proofs. Published foundations are precisely scoped in n1.
+
+## Primary unit 1: BEGZ-0812.3674v2-20261004.txt, LF249--322
+
+Literal SHA256 `1dada113d7a3c9897039047fef2fa9aa9922f3c359092bbbfc416fab3823e0b2`; supplied pin matches: True.
+
+```text
+    We now collect some basic properties of non-pluripolar products.
+Proposition 1.4. Let u1 , ..., up be psh functions on X.
+    • The operator                              ^
+                            (u1 , ..., up ) 7→ h ddc uj i
+                                                 j
+         is local in theVplurifine topology whenever well-defined.
+       • The current h j ddc uj i and the fact that it is well-defined both only depend
+         on the currents ddc uj , not on the specific potentials uj .
+       • Non-pluripolar products, which are obviously symmetric, are also multi-
+         linear in the following sense: if v1 is a further psh function, then
+                           ^                       ^                      ^
+     h(ddc u1 + ddc v1 ) ∧    ddc uj i = hddc u1 ∧   ddc uj i + hddc v1 ∧    ddc uj i
+                          j≥2                        j≥2                        j≥2
+
+         in the sense that the left-hand side is well-defined iff both terms in the
+         right-hand side are, and equality holds in that case.
+Proof. Let us prove the ﬁrst point. If uj and vj are psh functions on X such
+that uj = vj on a given pluriﬁne open subset O, then the locally bounded psh
+functions max(uj , −k) and max(vj , −k) also coincide on O. If we set
+                            \               \
+                      Ek := {uj > −k} ∩ {vj > −k},
+                                 j                   j
+
+then we infer
+                      ^                                      ^
+              1O∩Ek       ddc max(uj , −k) = 1O∩Ek               ddc max(vj , −k),
+                      j                                      j
+
+hence in the limit               ^               ^
+                             1O h ddc uj i = 1O h ddc vj i
+                                 j                       j
+              MONGE-AMPÈRE EQUATIONS IN BIG COHOMOLOGY CLASSES                               7
+
+as desired by Lemma 1.5 below.
+   We now prove the second point. Let wj be pluriharmonic on X, and let K be a
+compact subset. We can ﬁnd C > 0 such that wj ≤ C on an open neighborhood
+V of K. On the pluriﬁne open subset
+                  \                         \
+             Ok := {uj + wj > −k} ∩ V ⊂ {uj > −k − C} ∩ V
+                         j                               j
+
+the following locally bounded psh functions coincide:
+     max(uj + wj , −k) = max(uj , −wj − k) + wj = max(uj , −k − C) + wj .
+Since ddc wj = 0, it follows that
+   Z           ^                         Z                         ^
+         n−p          c
+       ω     ∧    dd max(uj + wj , −k) =                 ω n−p ∧       ddc max(uj , −k − C)
+    Ok           j                                  Ok             j
+                     Z                              ^
+                ≤    T                    ω n−p ∧       ddc max(uj , −k − C)
+                         j {uj >−k−C}∩V             j
+which is uniformly bounded in k by assumption, and the second point is proved.
+   The proof of the last point is similarly easy but tedious and will be left to the
+reader.                                                                           
+                                                          V
+Lemma 1.5. Assume that the non-pluripolar product h j ddc uj i is well-defined.
+Then for every sequence of Borel subsets Ek such that
+                                       \
+                                Ek ⊂ {ui > −k}
+                                             j
+          S
+and X −    k Ek is pluripolar, we have
+                                   ^                        ^
+                         lim 1Ek       ddc max(uj , −k)i = h ddc uj i
+                         k→∞
+                                   j                           j
+
+against all bounded measurable functions.
+Proof. This follows by dominated convergence from
+                             ^                               ^
+        (1∩j {uj >−k} − 1Ek ) ddc max(uj , −k)i ≤ (1 − 1Ek )h ddc uj i.
+                                   j                                        j
+
+                                                                                              
+```
+
+## Primary unit 2: BEGZ-0812.3674v2-20261004.txt, LF810--840
+
+Literal SHA256 `aa1c54651a97636414c96f9ae8d1815cfcfc49c8d8fbd8f02b7fd6f1a9306d3e`; supplied pin matches: True.
+
+```text
+Definition 1.17. Let α1 , ...αp ∈ H 1,1 (X, R) be big cohomology classes, and let
+Ti,min ∈ αi be a positive current with minimal singularities. Then the cohomology
+class of the non-pluripolar product hT1,min ∧ · · · ∧ Tp,min i is independent of the
+choice of Ti,min ∈ αi with minimal singularities. It will be denoted by
+                              hα1 · · · αp i ∈ H p,p (X, R)
+18                 S. BOUCKSOM, P. EYSSIDIEUX, V. GUEDJ, A.ZERIAHI
+
+and called the positive product of the αi . If α1 , ..., αn are merely psef, we set
+                      hα1 · · · αp i := lim h(α1 + εβ) · · · (αp + εβ)i
+                                      ε→0
+
+where β ∈ H 1,1 (X, R) is an arbitrary Kähler class.
+     As a special case, given a big class α the positive number
+                                      vol(α) := hαn i
+is called the volume of α
+   Some explanations are in order. The positive product hα1 · · · αp i is not multi-
+linear since the fact that T ∈ α and T ′ ∈ α′ both have minimal singularities
+(in their respective cohomology classes) doesn’t imply that T + T ′ has minimal
+singularities in α + α′ . Positive products are however homogeneous and non-
+decreasing in each variable αi thanks to Theorem 1.16 when the αi ’s is big (with
+respect to the partial order on cohomology induced by positive currents). These
+two properties imply in a completely formal way (cf. Proposition 2.9 in [14]) that
+hα1 · ... · αp i depends continuously on the p-tuple (α1 , ..., αp ) of big classes. We
+can thus extend positive products to psef classes αi as indicated, the existence
+of the limit and its independence on β being easy to check by monotonicity of
+positive products.
+   As an important special case, note that the positive product of nef classes αi
+coincides with their ordinary cup-product, that is
+                                 hα1 · · · αp i = α1 · · · αp .
+   The volume vol(α) considered here coincides (as it should!) with the one
+introduced in [11]. In fact:
+```
+
+## Primary unit 3: DDNL18-2049-2087-20261004.txt, LF319--347
+
+Literal SHA256 `e8359844609c8b19e21d4c36df028505fde5b80cc75e59f274dd4b5d282fa62e`; supplied pin matches: True.
+
+```text
+Proposition 2.1. Let θ j , j ∈ {1, . . . , n}, be smooth closed real (1, 1)-forms on X whose cohomology
+classes are pseudoeffective. Let u j , v j ∈ PSH(X, θ j ) be such that u j has the same singularity type as v j ,
+j ∈ {1, . . . , n}. Then
+                                  Z                           Z
+                                        θu 1 ∧ · · · ∧ θu n =
+                                          1             n
+                                                                θv11 ∧ · · · ∧ θvnn .
+                                            X                         X
+
+   The proof of this result uses the arguments in [Boucksom et al. 2010, Corollary 2.15].
+
+Proof. First we note that we can assume that the classes {θ j } are in fact big. Indeed, if this is not the
+case we can just replace each θ j with θ j + εω, and using the multilinearity of the nonpluripolar product
+[Boucksom et al. 2010, Proposition 1.4] we can let ε → 0 at the end of our argument to conclude the
+statement for pseudoeffective classes.
+   For each t ∈ 1 = {t = (t1 , . . . , tn ) ∈ Rn | t j > 0} consider u t := j t j u j , vt := j t j v j and θ t := j t j θ j.
+                                                                           P                 P                    P
+
+Clearly, {θ t } is big, and u t has the same singularities as vt . Hence it follows from [Witt Nyström 2017,
+Theorem 1.2] that X (θutt )n = X (θvtt )n for all t ∈ 1. On the other hand, using multilinearity of the
+                       R             R
+
+nonpluripolar product again [Boucksom et al. 2010, Proposition 1.4], we see that both t → X (θutt )n and
+                                                                                                             R
+
+t → X (θvtt )n are homogeneous polynomials of degree n. Our last identity forces all the coefficients of
+     R
+
+these polynomials to be equal, giving the statement of our result.                                                       
+```
+
+## Primary unit 4: DDNL18-2049-2087-20261004.txt, LF448--469
+
+Literal SHA256 `e4220e2892907b2d1d5b17de4aa57b3b1542060bda2e4dfcf8944f945cba0c20`; supplied pin matches: True.
+
+```text
+Theorem 2.4. Let θ j, j ∈ {1, . . . , n}, be smooth closed real (1, 1)-forms on X whose cohomology classes
+are pseudoeffective. Let u j , v j ∈ PSH(X, θ j ) be such that u j is less singular than v j for all j ∈ {1, . . . , n}.
+Then                                  Z                       Z
+                                        θu 1 ∧ · · · ∧ θu n ≥
+                                          1             n
+                                                                θv11 ∧ · · · ∧ θvnn .
+                                                   X                            X
+        MONOTONICITY OF NONPLURIPOLAR PRODUCTS AND COMPLEX MONGE–AMPÈRE EQUATIONS                                    2057
+
+
+Proof. By the same reason as in Proposition 2.1, we can assume that the classes {θ j } are in fact big. For
+each t > 0 we set v jt := max(u j − t, v j ) for j = 1, . . . , n. Observe that the v jt converge decreasingly to v j
+as t → ∞. In particular, by [Guedj and Zeriahi 2005, Proposition 3.7] the convergence holds in capacity.
+As v jt and u j have the same singularity type, it follows from Proposition 2.1 that
+                                   Z                          Z
+                                       θu 1 ∧ · · · ∧ θu n =
+                                          1            n
+                                                                  θv1t ∧ · · · ∧ θvnnt .
+                                                                           1
+                                        X                            X
+
+Letting t → ∞, the first part of Theorem 2.3 allows us to conclude the argument.                                       
+```
+
+## Primary unit 5: Xia-1907.06359v1-20261004.txt, LF250--265
+
+Literal SHA256 `ea927250996b0a51fa4f7aa3612fd7e300be9c3327b0776093caacb4cc9f97f3`; supplied pin matches: True.
+
+```text
+2.4. Integration by parts. In the sequel, for ϕ1 , ϕ2 ∈ PSH(X, θ), we write [ϕ1 ] =
+[ϕ2 ] if there is a constant C > 0, such that
+                                      ϕ2 − C ≤ ϕ1 ≤ ϕ2 + C.
+Theorem 2.7. Let γ1 , . . . , γn−1 ∈ PSH(X, θ). Let ϕj , ψj ∈ PSH(X, θ) (j = 1, 2).
+Let u = ϕ1 − ϕ2 , v = ψ1 − ψ2 . Assume that
+                                     [ϕ1 ] = [ϕ2 ],    [ψ1 ] = [ψ2 ].
+Then
+          Z                                                Z
+(2.8)           u ddc v ∧ θγ1 ∧ · · · ∧ · · · ∧ θγn−1 =         v ddc u ∧ θγ1 ∧ · · · ∧ · · · ∧ θγn−1 .
+            X                                               X
+
+Remark 2.2. Here
+ddc v ∧ θγ1 ∧ · · · ∧ · · · ∧ θγn−1 := θψ1 ∧ θγ1 ∧ · · · ∧ · · · ∧ θγn−1 − θψ2 ∧ θγ1 ∧ · · · ∧ · · · ∧ θγn−1
+is understood as a signed measure. This definition is independent of the choice of
+θψ1 and θψ2 by [BEGZ10] Proposition 1.4. Other similar expressions are understood
+in the same way.
+```
+
+## Primary unit 6: Xia-1907.06359v1-20261004.txt, LF780--829
+
+Literal SHA256 `fe693acf6a3033eb6bed734b0c9d194f4e59497e7aabf4c646bfbccf87bc72c8`; supplied pin matches: True.
+
+```text
+Corollary 2.15. Let αj (j = 0, . . . , n) be big cohomology classes on X. Let θj
+(j = 0, . . . , n) be smooth representatives in αj . Let γj ∈ PSH(X, θj ) (j = 2, . . . , n).
+Let ϕ1 , ϕ2 ∈ PSH(X, θ0 ), ψ1 , ψ2 ∈ PSH(X, θ1 ). Let u = ϕ1 − ϕ2 , v = ψ1 − ψ2 .
+Assume that
+                                 [ϕ1 ] = [ϕ2 ], [ψ1 ] = [ψ2 ].
+Then
+         Z                                                       Z
+(2.21)        u ddc v ∧ θ2,γ2 ∧ · · · ∧ · · · ∧ θn,γn =                  v ddc u ∧ θ2,γ2 ∧ · · · ∧ · · · ∧ θn,γn .
+          X                                                       X
+
+Proof. Take α = (a0 , . . . , an ) ∈ Rn+1
+                                      ≥0 . Let
+                                                     n
+                                                     X
+                                             θα =          aj θj .
+                                                     j=0
+
+Let
+                                  n
+                                  X
+                          γα =          aj γj ,   γ̃α = a0 ϕ1 + a1 ψ1 + γα .
+                                  j=2
+
+Note that
+                    a0 u = (a0 ϕ1 + a1 ψ1 + γα ) − (a0 ϕ2 + a1 ψ1 + γα ) ,
+                    a1 v = (a0 ϕ1 + a1 ψ1 + γα ) − (a0 ϕ1 + a1 ψ2 + γα ) .
+So by Theorem 2.7,
+                             Z                                       Z
+                     a0 a1       u ddc v ∧ θα,γ̃
+                                            n−1
+                                                 α
+                                                   = a0 a1                 v ddc u ∧ θα,γ̃
+                                                                                      n−1
+                                                                                           α
+                                                                                             .
+                             X                                        X
+So for a0 > 0, a1 > 0,
+                             Z                           Z
+                                 u ddc v ∧ θα,γ̃
+                                            n−1
+                                                 α
+                                                   =             v ddc u ∧ θα,γ̃
+                                                                            n−1
+                                                                                 α
+                                                                                   .
+                             X                             X
+Since both sides are polynomials in a0 , . . . , an , this means that all coefficients are
+equal. In particular, the coefficients of
+                                                  a 2 . . . an
+are equal, hence proving (2.21).                                                                                          
+```
+
+## Primary unit 7: Vu-2004.11111v1-20261004.txt, LF178--189
+
+Literal SHA256 `13226a964e640ebeb8283a6342682cdf2f98a328d37f5386efe3e2e844ca2cef`; supplied pin matches: True.
+
+```text
+supported by a postdoctoral fellowship of the Alexander von Humboldt Foundation.
+
+Notation and convention. For a closed positive current T on a compact complex man-
+ifold X, we denote by {T } the cohomology class of T and ν(T, x) denotes the Lelong
+number of T at x. Recall that the wedge product on closed smooth forms induces the
+cup-product on their de Rham cohomology classes. We use the same notation “ ∧ ” to
+denote these two products.
+    Recall dc = 2πi (∂ − ∂) and ddc = πi ∂∂. We use &, . to denote ≥, ≤ modulo some
+multiplicative constant independent of parameters in question. For a Borel set A ⊂ X,
+we denote by 1A the characteristic function of A, that means 1A is equal to 1 on A and 0
+elsewhere. For every current R of order 0 on X, we denote by kRkA the mass of R on A.
+
+```
+
+## Primary unit 8: Vu-2004.11111v1-20261004.txt, LF580--642
+
+Literal SHA256 `c097f459c8e4b862a8067519ab86b09613638b11af2d3e83b3766244458bf625`; supplied pin matches: True.
+
+```text
+Theorem 2.6. Let U ⊂ Cn be an open set. Let (Tk )k be a sequence of closed positive currents
+satisfying Condition (∗) so that Tk converges to a closed positive current T on U as k → ∞.
+Let uj be a locally bounded psh function on U for 1 ≤ j ≤ m. Let (ujk )k∈N be a sequence of
+locally bounded psh functions converging to uj in L1loc as k → ∞. Then, the convergence
+
+                u1k ddc u2k ∧ · · · ∧ ddc umk ∧ Tk → u1 ddc u2 ∧ · · · ∧ ddc um ∧ T    (2.10)
+
+as k → ∞ holds provided that one of the following conditions is fulfilled:
+    (i) ujk (x) ր uj (x) for every x ∈ U as k → ∞,
+    (ii) ujk (x) ր uj (x) for almost everywhere x ∈ U (with respect to the Lebesgue measure)
+and T has no mass on pluripolar sets,
+    (iii) ujk ≥ uj for every j, k.
+
+Proof. Given that we already have a uniform strong quasi-continuity for bounded psh
+functions, the desired result can be deduced without difficulty from proofs of classical
+results on the convergence of Monge-Ampère operators, for example, see [17].
+   We present here a proof of Theorem 2.6 for the readers’ convenience. First of all,
+observe that if ujk ր uj almost everywhere then, we have ujk ≤ uj(k+1) ≤ uj pointwise
+on U and the set {x ∈ U : uj (x) 6= limk→∞ ujk (x)} is pluripolar. By the localization
+
+
+
+
+                                                11
+principle ([17, Page 7]), we can assume that ujk , uj are all equal to some smooth psh
+function ψ outside some set K ⋐ U on U. We prove (i), (ii) simultaneously. Let
+
+            Sjk := ddc ujk ∧ · · · ∧ ddc umk ∧ Tk ,   Sj := ddc uj ∧ · · · ∧ ddc um ∧ T.
+
+We prove by induction in j that
+
+                                      u(j−1)k Sjk → u(j−1) Sj                              (2.11)
+
+k and for every 2 ≤ j ≤ m + 1 (by convention we put S(m+1)k := Tk and Sm+1 := T ). The
+claim is true for j = m + 1. Suppose that it holds for (j + 1). We need to prove it for
+j. Let Rj∞ be a limit current of u(j−1)k Sjk as k → ∞. By induction hypothesis (2.11) for
+(j + 1) instead of j, Sjk → Sj as k → ∞. This combined with the fact that the sequence
+(ujk )k converges in L1loc to uj gives
+
+                                          Rj∞ ≤ uj−1Sj                                     (2.12)
+
+(one can see [15, Proposition 3.2]). On the other hand, since (ujk )k is increasing, using
+Corollary 2.5, we obtain
+
+                       lim inf u(j−1)k Sjk ≥ lim inf u(j−1)s Sjk = u(j−1)s Sj
+                        k→∞                   k→∞
+
+for every s ∈ N. Letting s → ∞ in the last inequality gives
+
+                 Rj∞ ≥ ( lim u(j−1)s )Sj = uj−1Sj + ( lim u(j−1)s − uj−1)Sj .              (2.13)
+                          s→∞                             s→∞
+
+Recall that the set of x ∈ U with uj−1(x) > lims→∞ u(j−1)s (x) is empty in the setting of
+(i) and is a pluripolar set in the setting of (ii). Hence (2.11) follows from Lemma 2.1,
+(2.13) and (2.12). We have proved (i) and (ii). We prove (iii) by similar induction. The
+proof is finished.
+
+Remark 2.7. By the above proof and Lemma 2.1, Property (ii) of Theorem 2.6 still holds if
+instead of requiring T has no mass on pluripolar sets, we assume the following two condi-
+tions:
+    (i) T has no mass on Aj := {x ∈ U : uj (x) 6= limk→∞ ujk (x)} for every 1 ≤ j ≤ m and,
+    (ii) the set Aj is locally complete pluripolar for every j.
+    Just by replacing the usual quasi-continuity of psh functions by the stronger one given
+```
+
+## Primary unit 9: Vu-2004.11111v1-20261004.txt, LF945--1115
+
+Literal SHA256 `b344c4bd11aa3280719cd1b8a3f08d8fff48bb7600168dd303519fb16061142d`; supplied pin matches: True.
+
+```text
+Definition 3.3. We say that the non-pluripolar product relative to T of T1 , . . . , Tm is well-
+defined if (3.2) holds for every small enough local chart U of X, or equivalently, (3.7)
+holds. In this case, the non-pluripolar product relative to T of T1 , . . . , Tm , which is denoted
+                    ˙ i, is defined to be the current R̃ in Lemma 3.2.
+by hT1 ∧ · · · ∧ Tm ∧T
+   When T is the current of integration along X, we simply write hT1 ∧ · · · ∧ Tm i for the
+non-pluripolar product relative to T of T1 , . . . , Tm . One can see that this is exactly the
+usual non-pluripolar product of T1 , . . . , Tm defined in [2, 16, 4]. We note that in general
+                             ˙ i can have mass on pluripolar sets in ∩m
+the current hT1 ∧ · · · ∧ Tm ∧T                                              j=1 {uj > −∞},
+see, however, Property (iii) of Proposition 3.5 below. Arguing as in the proof of [4,
+Proposition 1.6], we obtain the following result.
+                                                                               ˙ i is
+Lemma 3.4. Assume that X is a compact Kähler manifold. Then, hT1 ∧ · · · ∧ Tm ∧T
+well-defined.
+    For a closed positive (1, 1)-current R, recall that the polar locus IR of R is the set of
+points where potentials of R are equal to −∞. Note that by Lemma 3.1, the current
+                 ˙ i has no mass on ∪m
+hT1 ∧ · · · ∧ Tm ∧T                   j=1 ITj . We collect here some more basic properties of
+relative non-pluripolar products.
+Proposition 3.5. (i) The product hT1 ∧ · · · ∧ Tm ∧T  ˙ i is symmetric with respect to T1 , . . . , Tm .
+      (ii) Given a positive real number λ, we have h(λT1 ) ∧ T2 ∧ · · · ∧ Tm ∧T˙ i = λhT1 ∧ T2 ∧
+             ˙
+· · · ∧ Tm ∧T i.
+      (iii) Given a complete pluripolar set A such that T has no mass on A, then hT1 ∧ T2 ∧
+· · · ∧ Tm ∧T˙ i also has no mass on A.
+      (iv) Let T1′ be a closed positive (1, 1)-current on X and Tj , T as above. Assume that
+h∧m         ˙       ′    m      ˙                                    ′     m      ˙
+     j=1 Tj ∧T i, hT1 ∧ ∧j=2 Tj ∧T i are well-defined. Then h(T1 + T1 ) ∧ ∧j=2 Tj ∧T i is also well-
+defined and satisfies
+
+                (T1 + T1′ ) ∧ ∧m      ˙           m      ˙        ′    m      ˙
+                               j=2 Tj ∧T ≤ hT1 ∧ ∧j=2 Tj ∧T i + hT1 ∧ ∧j=2 Tj ∧T i.             (3.12)
+
+The equality occurs if T has no mass on IT1 ∪ IT1′ .
+    (v) Let 1 ≤ l ≤ m be an integer. Let Tj′′ be a closed positive (1, 1)-current on X and Tj , T
+as above for 1 ≤ j ≤ l. Assume that Tj′′ ≥ Tj for every 1 ≤ j ≤ l and T has no mass on
+∪lj=1 ITj′′ −Tj . Then, we have
+
+                             h∧lj=1Tj′′ ∧ ∧m        ˙        m      ˙
+                                           j=l+1 Tj ∧T i ≥ h∧j=1 Tj ∧T i
+
+
+provided that the left-hand side is well-defined.
+   (vi) Let 1 ≤ l ≤ m be an integer. Assume R := h∧m               ˙          l      ˙
+                                                          j=l+1 Tj ∧T i and h∧j=1 Tj ∧Ri are
+                                m     ˙ i = h∧j=1 Tj ∧Ri.
+well-defined. Then, we have h∧j=1 Tj ∧T         l    ˙
+
+
+
+
+                                                  17
+                                                                           ˙ i is well-defined.
+   (vii) Let A be a complete pluripolar set. Assume that hT1 ∧T2 ∧· · ·∧Tm ∧T
+Then we have
+
+                                          ˙ i = T1 ∧ T2 ∧ · · · ∧ Tm ∧(1
+               1X\A hT1 ∧ T2 ∧ · · · ∧ Tm ∧T                         ˙ X\A T ) .
+
+In particular, the equality
+                                     h∧m      ˙        m      ˙ ′
+                                       j=1 Tj ∧T i = h∧j=1 Tj ∧T i
+
+holds, where T ′ := 1X\∪m
+                        j=1 ITj
+                                T.
+
+Proof. Properties (i), (ii) are clear from the definition and the proof of Lemma 3.1. We
+now check (iii). Let R := h∧m          ˙
+                                j=1 Tj ∧T i. Since T has no mass on the complete pluripolar
+set A, using Lemma 2.1 gives 1A ∧m            c
+                                       j=1 dd ujk ∧ T = 0 for every k. Using this and Lemma
+3.1, we deduce that
+
+                   1A 1∩m
+                        j=1 {uj >−k}
+                                     R = 1A 1∩m
+                                              j=1 {uj >−k}
+                                                           ∧m     c
+                                                            j=1 dd ujk ∧ T = 0.
+
+
+Hence R = 0 on A and (iii) follows.
+   We prove (iv). We work on a small local chart U. Write Tj′ = ddc u′j , u′jk := max{u′j , −k}.
+Recall Tj = ddc uj . We can assume uj , u′j ≤ 0. Let R′ := hT1′ ∧ ∧m           ˙
+                                                                      j=2 Tj ∧T i and R :=
+                                                                                           ′′
+
+h(T1 + T1′ ) ∧ ∧m      ˙
+                j=2 Tj ∧T i. We have
+
+
+                                max{u1 + u′1 , −k} = u1k + u′1k
+
+on {u1 + u′1 > −k} because the last set is contained in {u1 > −k} ∩ {u′1 > −k}. This
+combined with Lemma 3.1 yields
+
+                                      1Bk′′ R′′ = 1Bk′′ R + 1Bk′′ R′ ,
+
+where Bk′′ := {u1 + u′1 > −k} ∩ ∩m
+                                 j=2 {uj > −k}. Letting k → ∞ in the last equality gives
+(3.12). Observe that
+                              1U \Bk′′ R → 1IT1 ∪IT ′ ∪ ∪m
+                                                         j=2 ITj
+                                                                 R
+                                                            1
+
+as k → ∞. The last limit is equal to 1IT ′ R because R has no mass on ∪m      j=1 ITj . Moreover
+                                          1
+since IT1′ is complete pluripolar and T has no mass on IT1′ , by (iii), we have that 1IT ′ R = 0.
+                                                                                         1
+Consequently, 1U \Bk′′ R → 0 as k → ∞ and a similar property of R′ also holds. Thus we
+obtain the equality in (3.12) if T has no mass on IT1 ∪ IT1′ . To get (v), we just need to
+decompose Tj′′ = Tj + Tj′ for some closed positive current Tj′ and use similar arguments
+as in the proof of (iv).
+    We prove (vi). We can assume uj ≤ 0 for every 1 ≤ j ≤ m. Let
+                                                      m
+                                          −1
+                                                     X
+                               ψk := k         max          uj , −k + 1.
+                                                      j=1
+
+
+Observe that 0 ≤ ψk ≤ 1 and
+
+                                ψk = 0         on ∪m
+                                                   j=1 {uj ≤ −k}.
+
+
+
+
+                                                     18
+Note that R has no mass on ITj for l + 1 ≤ j ≤ m. This combined with (iii) yields
+               ˙
+that h∧lj=1 Tj ∧Ri   gives no mass on ITj for 1 ≤ j ≤ m. Using this and the fact that
+ψk ր 1X\∪m  j=1 ITj
+                    yields
+
+                h∧lj=1Tj ∧Ri
+                         ˙   = lim ψk h∧lj=1 Tj ∧Ri
+                                                ˙   = lim ψk ∧lj=1 ddc ujk ∧ R.            (3.13)
+                                 k→∞                     k→∞
+
+Now since ψk R = ψk ∧m       c
+                     j=l+1 dd ujk ∧ T (Lemma 3.1), we get
+
+
+                           ψk ∧lj=1 ddc ujk ∧ R = ψk ∧m     c
+                                                      j=1 dd ujk ∧ T.                      (3.14)
+
+To see why the last equality is true, notice that it is clear if ujk ’s are smooth and in
+general, we can use sequences of smooth psh functions decreasing to ujk for 1 ≤ j ≤ l
+and the convergences of Monge-Ampère operators to obtain (3.14). Combining (3.14)
+with (3.13) gives the desired assertion.
+   It remains to prove (vii). Let ψk be as above.   Let A = {ϕ = −∞}, where ϕ is a
+                                                  Pm
+negative psh function. Define ψk := k max ϕ + j=1 uj , −k + 1. Since 0 ≤ ψk′ ≤ ψk ,
+                                ′     −1
+                                             
+
+we get {ψk = 0} ⊂ {ψk′ = 0}. It follows that
+
+        ψk′ hT1 ∧ T2 ∧ · · · ∧ Tm ∧T
+                                  ˙ i = ψk′ ∧m     c           ′  m     c
+                                             j=1 dd ujk ∧ T = ψk ∧j=1 dd ujk ∧ (1X\A T )
+
+because T = 1X\A T on {ψk′ 6= 0} and the convergence of Monge-Ampère operators.
+Letting k → ∞ gives the desired assertion. The proof is finished.
+   The following result clarifies the relationship between the relative non-pluripolar
+product and some other known notions of intersection.
+```
+
+## Primary unit 10: Vu-2004.11111v1-20261004.txt, LF1200--1247
+
+Literal SHA256 `e12bdb4d6ebd643be2cf987df4ee89b060c1b8930c06b2bc8c8df732630376aa`; supplied pin matches: True.
+
+```text
+Theorem 3.7. Assume that hT1 ∧ · · · ∧ Tm ∧T                                         ˙ i is
+closed.
+
+Proof. The proof is based on ideas from [20, 4]. We work on a local chart U as above.
+By shrinking U and subtracting from uj a suitable constant, we can assume that uj ≤ 0.
+Let                                         m
+                                            X
+                            ψk := k −1 max{   uj , −k} + 1.
+                                                j=1
+
+Observe that ψk = 0 on ∪m
+                        j=1 {uj ≤ −k} and 0 ≤ ψk ≤ 1 increases to 1∩m
+                                                                    j=1 {uj >−∞}
+                                                                                 .
+                                                                                Let
+                                                              ′        ′
+g : R → R be a non-negative smooth function such that g(0) = g (0) = g (1) = 0 and
+g(1) = 1. Let Rk , R be as above. Since g(1) = 1 and g(0) = 0, we get g(ψk )R → R
+
+
+
+                                               20
+as k → ∞ (recall R has no mass on ∪m
+                                   j=1 {uj = −∞}). Thus the desired assertion is
+equivalent to proving that
+                                     dR = lim d(g(ψk )R) = 0.                                    (3.19)
+                                            k→∞
+
+Since g(ψk ) = g(0) = 0 on ∪m
+                            j=1 {uj ≤ −k}, we have
+
+                            d(g(ψk )R) = d(g(ψk )Rk ) = g ′ (ψk )dψk ∧ Rk
+(see [4, Lemma 1.9] or Corollary 2.5 for the second equality). Let U1 ⋐ U2 be relatively
+compact open subsets of U. By the Cauchy-Schwarz inequality, we have
+                  kg ′(ψk )dψk ∧ Rk kU1 . kdψk ∧ dc ψk ∧ Rk kU1 kg ′(ψk )2 Rk kU1 .
+Using dψk ∧ dc ψk = ddc ψk2 − ψk ddc ψk and the Chern-Levine-Nirenberg inequality, one get
+                 kdψk ∧ dc ψk ∧ Rk kU1 . kψk Rk kU2 ≤ kRk kU 2 ∩∩m
+                                                                 j=1 {uj >−k}
+                                                                              .1
+
+by (3.2). On the other hand, using the equality g ′ (ψk ) = g ′ (0) = 0 on {uj ≤ −k}, we
+obtain
+                    g ′(ψk )2 Rk = g ′(ψk )2 1∩m
+                                               j=1 {uj >−k}
+                                                            Rk = g ′(ψk )2 R
+converging to 0 as k → ∞ because g ′(ψk ) → g ′ (1) = 0 on ∩m
+                                                            j=1 {uj > −∞}. Thus (3.19)
+follows. This finishes the proof.
+```
+
+## Primary unit 11: Vu-2004.11111v1-20261004.txt, LF1259--1565
+
+Literal SHA256 `09034b5477c57c8812f3b677bf5ba3504db9a417938f90d7fb91fd28903246a8`; supplied pin matches: True.
+
+```text
+
+
+4     Monotonicity
+In this section, we present a monotonicity property for relative non-pluripolar products.
+We begin with the following simple lemma.
+Lemma 4.1. Let U be an open subset of Cn . Let (ulj )l be a sequence of psh functions on U
+and uj a psh function on U for 1 ≤ j ≤ m. Let (Tl )l be a sequence of closed positive currents
+satisfying Condition (∗) and Tl converges to a closed positive current T on U as l → ∞.
+Assume that one of the following conditions is satisfied:
+    (i) ulj ≥ uj and ulj converges to uj in L1loc as l → ∞.
+    (ii) ulj increases to uj as l → ∞ almost everywhere and T has no mass on pluripolar
+sets.
+    Then, for every smooth weakly positive form Φ with compact support in U, we have
+                           Z                            Z
+                    lim inf h∧j=1 dd uj ∧Tl i ∧ Φ ≥ h∧m
+                                 m    c l ˙                       c   ˙
+                                                            j=1 dd uj ∧T i ∧ Φ.
+                      l→∞     U                            U
+
+
+
+
+                                                  21
+    When T is the current of integration along X, a related statement in the compact
+setting was given in [8, Theorem 2.3].
+
+Proof. Let Φ be a smooth weakly positive form with compact support in U. Assume (i)
+holds. Let uljk := max{ulj , −k} which converges to ujk := max{uj , −k} in L1loc as l → ∞
+and uljk ≥ ujk . Put
+
+                        Rl := h∧m     c l ˙
+                                j=1 dd uj ∧Tl i,              Rkl := ∧m     c l
+                                                                      j=1 dd ujk ∧ T.
+
+
+Similarly, we define R, Rk by using the formula of Rl , Rkl respectively with ulj , uljk replaced
+by uj , ujk . Since ulj ≥ uj , we get
+                         Z                           Z
+                                             l
+                            1∩m      l
+                               j=1 {uj >−k}
+                                            Rk ∧ Φ ≥   1∩m
+                                                         j=1 {uj >−k}
+                                                                      Rkl ∧ Φ.              (4.1)
+                         U                                     U
+
+By Theorem 2.6, we get Rkl → Rk as l → ∞. Using this together with the fact that when
+k is fixed, uljk is uniformly bounded in l, we see that the strong uniform quasi-continuity
+for ujk with respect to (Tl )l (see Theorem 2.4) implies
+              Z                                    Z
+                                   l
+      lim inf     1∩mj=1 {uj >−k}
+                                  Rk ∧ Φ = lim inf     1∩m j=1 {ujk >−k}
+                                                                         Rkl ∧ Φ
+        l→∞     U                            l→∞     U
+                                           Z                                 Z
+                                         ≥     1∩m
+                                                 j=1 {ujk >−k}
+                                                                Rk ∧ Φ =        1∩m
+                                                                                  j=1 {uj >−k}
+                                                                                               Rk ∧ Φ
+                                           Z U                                U
+
+                                         =     1∩m
+                                                 j=1 {uj >−k}
+                                                               R ∧ Φ.
+                                                 U
+
+This combined with (4.1) yields
+        Z                                 Z
+           1∩m
+             j=1 {uj >−k}
+                          R ∧ Φ ≤ lim inf    1∩m     l
+                                               j=1 {uj >−k}
+                                                            Rkl ∧ Φ
+         U                          l→∞    U
+                                          Z                                 Z
+                                                              l
+                                ≤ lim inf    1∩m     l
+                                               j=1 {uj >−k}
+                                                            R ∧ Φ ≤ lim inf   Rl ∧ Φ
+                                           l→∞       U                             l→∞   U
+
+for every k. Letting k → ∞ in the last inequality and noticing that R has no mass on
+∪mj=1 {uj = −∞} give the desired assertion.
+    Now assume (ii). Note that
+                                     ulj ≤ ul+1
+                                            j   ≤ uj
+for every l, j. Thus, {ulj > −k} ⊂ {ul+1 j   > −k} ⊂ {uj > −k} and ũj := liml→∞ ulj ≤ uj .
+Using this and arguments similar to those in the previous paragraph, we have
+                           Z                         Z
+                                             l
+                   lim inf   1∩m     l
+                               j=1 {uj >−k}
+                                            Rk ∧ Φ ≥   1∩m
+                                                         j=1 {ũj >−k}
+                                                                       R ∧ Φ.
+                     l→∞       U                                   U
+
+Letting k → ∞ gives
+                                       Z                 Z
+                                           l
+                             lim inf       R ∧Φ≥              1∩m
+                                                                j=1 {ũj >−∞}
+                                                                              R ∧ Φ.
+                              l→∞      U                 U
+
+
+
+
+                                                         22
+Recall that {uj > ũj } is pluripolar. This coupled with the fact that T has no mass on
+pluripolar sets and Property (iii) of Proposition 3.5 yields
+                          Z            Z                        Z
+                              l
+                  lim inf    R ∧Φ≥       1∩j=1 {uj >−∞} R ∧ Φ =
+                                            m                     R ∧ Φ.
+                     l→∞     U                U                                 U
+
+This finishes the proof.
+
+    Recall that for closed positive (1, 1)-currents R1 , R2 on X, we say that R1 is less sin-
+gular than R2 if for every local chart U and psh function wj on U such that Rj = ddc wj
+on U for j = 1, 2, then w2 ≤ w1 + O(1) on compact subsets of U; and R1 , R2 are of the
+same singularity type if w1 ≤ w2 + O(1) and w2 ≤ w1 + O(1) on compact subsets of U. The
+following generalizes [8, Proposition 2.1], see also [21, 18].
+Proposition 4.2. Let X be a compact complex manifold of dimension n. Let m be an integer
+such that 1 ≤ m ≤ n. Let T be a closed positive current of bi-degree (p, p) on X. Let Tj , Tj′
+be closed positive (1, 1)-currents on X for 1 ≤ j ≤ m such that Tj , Tj′ are of the same
+singularity type and Tj = ddc uj + θj , Tj′ := ddc u′j + θj , where θj is a smooth form and
+u′j , uj are θj -psh functions, for every 1 ≤ j ≤ m. Assume that for every J, J ′ ⊂ {1, . . . , m}
+                                                             ˙ i is well-defined. Then, for every
+such that J ∩ J ′ = ∅, the product h∧j∈J Tj ∧ ∧j ′ ∈J ′ Tj′′ ∧T
+    c
+dd -closed smooth form Φ, we have
+                      Z                              Z
+                            ′           ′ ˙                             ˙ i ∧ Φ.
+                         hT1 ∧ · · · ∧ Tm ∧T i ∧ Φ =   hT1 ∧ · · · ∧ Tm ∧T                  (4.2)
+                     X                                     X
+
+Proof. By compactness of X, we can assume uj , u′j ≤ 0. By the hypothesis, {uj = −∞} =
+{u′j = −∞} and wj := uj − u′j is bounded outside {uj = −∞}. Without loss of generality,
+we can assume that
+
+                                                  |wj | ≤ 1                                  (4.3)
+
+outside {uj = −∞}. Let A := ∪m  j=1 {uj = −∞} which is a complete pluripolar set. Put
+ujk := max{uj , −k}, ujk := max{u′j , −k} and
+                      ′
+
+
+                                                   n
+                                                   X
+                              ψk := k −1 max{            (uj + u′j ), −k} + 1                (4.4)
+                                                   j=1
+
+
+which is quasi-psh and 0 ≤ ψk ≤ 1, ψk (x) increases to 1 for x 6∈ A. We have ψk (x) = 0 if
+uj (x) ≤ −k or u′j (x) ≤ −k for some j. Put wjk := ujk − u′jk . By (4.3), we have
+
+                                                  |wjk | ≤ 1                                 (4.5)
+
+on X. Let J, J ′ ⊂ {1, . . . , n} with J ∩ J ′ = ∅ and
+
+                    RJJ ′ k := ∧j∈J (ddc ujk + θj ) ∧ ∧j ′ ∈J ′ (ddc u′j ′ k + θj ′ ) ∧ T.
+
+The last current is the difference of two closed positive (|J| + |J ′ | + p, |J| + |J ′ | + p)-
+currents. Hence, RJJ ′ k might not be positive in general and it is not clear how to control
+
+
+
+                                                     23
+its mass as k → ∞. This is a subtle point which we need to pay attention to. The relative
+non-pluripolar product
+
+                           RJJ ′ := ∧j∈J (ddc uj + θj ) ∧ ∧j ′ ∈J ′ (ddc u′j ′ + θj ′ )∧T
+                                                                                       ˙
+
+exists by our assumption. Let
+
+                                  Bk := ∩j∈J {uj > −k} ∩ ∩j ′ ∈J ′ {u′j ′ > −k}.
+
+By Lemma 3.2, we get
+                                            0 ≤ 1Bk RJJ ′ = 1Bk RJJ ′ k
+for every J, J ′ , k. Put R̃JJ ′ := 1X\A RJJ ′ . The last current is closed (for example see [4,
+Remark 1.10]) and positive because RJJ ′ ≥ 0. Using the fact that {ψk 6= 0} ⊂ Bk \A, we
+get
+
+                                         ψk R̃JJ ′ = ψk RJJ ′ = ψk RJJ ′ k .                                        (4.6)
+
+Claim. Let j ′′ ∈ {1, . . . , m}\(J ∪J ′ ). Let Φ be ddc -closed smooth form of bi-degree (p′ , p′ )
+on X, where p′ := n − |J| − |J ′ | − p − 1. Then
+                                    Z
+                                lim     ψk ddc wj ′′k ∧ RJJ ′ k ∧ Φ = 0.                   (4.7)
+                                     k→∞       X
+                                                                              Pm
+We prove Claim. Let ω be a Hermitian metric on X. Let η :=                       j=1 2 θj . We have
+  c       −1
+dd ψk + k η ≥ 0 for every k. By integration by parts and (4.6),
+  Z                                Z                              Z
+          c                                   c
+     ψk dd wj ′′ k ∧ RJJ ′ k ∧ Φ =   wj ′′k dd (ψk RJJ ′ k ∧ Φ) =   wj ′′k ddc (ψk R̃JJ ′ ∧ Φ). (4.8)
+     X                                     X                                        X
+
+Observe that
+
+                      ddc (ψk R̃JJ ′ ∧ Φ) = ddc ψk ∧ Φ ∧ R̃JJ ′ + 2dψk ∧ dc Φ ∧ R̃JJ ′
+
+because ddc Φ = 0 and Φ is of bi-degree (p′ , p′ ). Write dc Φ locally as a complex linear
+combination of forms like τj ∧ Φj , where τj is a (0, 1)-form or a (1, 0)-form and Φj is a
+positive form. Hence, we can use the Cauchy-Schwarz inequality to obtain
+ Z                                       Z                                                  21  Z                      21
+                       c
+      wj ′′ k dψk ∧ d Φ ∧ R̃JJ ′ ≤                 |wj2′′k |dψk ∧ dc ψk ∧ R̃JJ ′ ∧ Φ0                  R̃JJ ′ ∧ Φ0 ∧ ω          ,
+  X                                            X                                                   X
+
+                              ′
+where Φ0 := ω n−|J|−|J |−1 . We deduce that
+             Z                                                       Z                                     21
+                                                                 1
+                                     c                                                  c
+                     wj ′′k dψk ∧ d Φ ∧ R̃JJ ′ . kR̃JJ ′ k       2            dψk ∧ d ψk ∧ R̃JJ ′ ∧ Φ0
+                 X                                                        X
+
+by (4.5). Recall that {limk→∞ ψk < 1} is equal to the complete pluripolar set A. Using
+this, Remark 2.7 and the fact that R̃JJ ′ has no mass on A, we get
+
+                      lim dψk ∧ dc ψk ∧ R̃JJ ′ = lim (ddc ψk2 − ψk ddc ψk ) ∧ R̃JJ ′ = 0
+                     k→∞                                 k→∞
+
+
+
+
+                                                            24
+(we recall that to get Remark 2.7 for R̃JJ ′ and ψk , we need to use the strong quasi-
+continuity of ψk with respect to the capacity associated to R̃JJ ′ ). Thus we obtain
+                                 Z
+                            lim     wj ′′ k dψk ∧ dc Φ ∧ R̃JJ ′ = 0.                 (4.9)
+                                k→∞   X
+
+On the other hand, since
+ Z                                  Z                               Z
+               c                                 c
+     wj ′′ k dd ψk ∧ Φ ∧ R̃JJ ′ = −   dwj ′′k ∧ d ψk ∧ Φ ∧ R̃JJ ′ +   wj ′′k dc ψk ∧ dΦ ∧ R̃JJ ′ ,
+    X                                 X                                        X
+
+using similar arguments, we get
+                                      Z
+                                lim           wj ′′k ddc ψk ∧ Φ ∧ R̃JJ ′ = 0
+                              k →∞
+                                ′
+                                          X
+
+Combining this with (4.9) and (4.8) yields (4.7). Claim follows.
+                               ˙ i − hT1′ ∧ · · · Tn′ ∧T
+   Now let S := hT1 ∧ · · · Tn ∧T                     ˙ i. Using Tjk = Tjk
+                                                                         ′
+                                                                           + ddc wjk , one can
+check that
+            Z               Z                             Z
+                                    m
+               ψk S ∧ Φ =       ψk ∧j=1 Tjk ∧ T ∧ Φ −        ψk ∧m    ′
+                                                                 j=1 Tjk ∧ T ∧ Φ
+                X                X                                 X
+                                m Z
+                                X
+                                              s−1 ′
+                            =             ψk ∧j=1 Tjk ∧ ddc wsk ∧ ∧m
+                                                                   j=s+1 Tjk ∧ T ∧ Φ.
+                                s=1   X
+
+
+This together with Claim yields hS, Φi = limk→∞ hψk S, Φi = 0 for every ddc -closed smooth
+Φ. This finishes the proof.
+Remark 4.3. Our proof of Proposition 4.2 still works if Tj′ , Tj are not in the same cohomol-
+ogy class. In this case, one just needs to modify (4.2) accordingly.
+  The following result is the monotonicity property of relative non-pluripolar products
+mentioned in Introduction.
+Theorem 4.4. Let X be a compact Kähler manifold of dimension n. Let Tj , Tj′ be closed
+positive (1, 1)-currents on X for 1 ≤ j ≤ m such that Tj , Tj′ are in the same cohomology
+class for every j and Tj′ is less singular than Tj for 1 ≤ j ≤ m. Let T be a closed positive
+current on X. Then, we have
+                                           ˙ i ≤ hT1′ ∧ · · · ∧ Tm′ ∧T
+                                                                    ˙ i .
+                                                
+                          hT1 ∧ · · · ∧ Tm ∧T                                        (4.10)
+
+Proof. Write Tj = ddc uj + θj , Tj′ = ddc u′j + θj . Without loss of generality, we can assume
+that u′j ≥ uj . For l ∈ N, put ulj := max{uj , u′j − l} which is of the same singularity type as
+u′j . Notice that ddc ulj + θj ≥ 0. Since X is Kähler, the current h∧m        c l       ˙
+                                                                        j=1 (dd uj + θj )∧T i is of
+                                                                  m      c l       ˙ i as l → ∞.
+mass uniformly bounded in l. Let S be a limit current of h∧j=1 (dd uj + θj )∧T
+         l
+Since uj decreases to uj as l → ∞, we can apply Lemma 4.1 to get
+
+                                              S ≥ h∧m      ˙
+                                                    j=1 Tj ∧T i.
+
+Consequently, {S} ≥ {h∧m          ˙
+                           j=1 Tj ∧T i}. Using Proposition 4.2, we see that {S} is equal to
+   m    ′˙
+{h∧j=1 Tj ∧T i}. The desired assertion, hence, follows. This finishes the proof.
+
+
+
+                                                      25
+```
+
+## Primary unit 12: Vu-2005.13241v3-20261004.txt, LF121--655
+
+Literal SHA256 `ac897767ca0a5f2aaccf93220b4393ba919af1d21d12d7f2a378207e1955b157`; supplied pin matches: True.
+
+```text
+fined in a way similar to that of the usual non-pluripolar product. The
+product h m        ˙
+          V
+            j=1 Tj ∧T i is a well-defined closed positive current of bi-degree
+(m + p, m + p); and h m           ˙
+                         V
+                           j=1 Tj ∧T i is symmetric with respect to T1 , . . . , Tm
+and is homogeneous.
+    For every closed positive (1, 1)-current P , we denote by IP the set of
+x ∈ X so that local potentials of P are equal to −∞ at x. Note that IP
+is a locally complete pluripolar set. The following is deduced from [14,
+Proposition 3.5].
+
+Proposition 2.1. (i) Given a locally complete pluripolar set A such that T
+has no mass on A, then h m         ˙
+                          V
+                            j=1 Tj ∧T i also has no mass on A.
+   (ii) Let T1′ be a closed positive (1, 1)-current on X and Tj , T as above.
+Assume that T has no mass on IT1 ∪ IT1′ . Then we have
+                            m
+                            ^                     m
+                                                  ^                       m
+                                                                          ^
+(2.1)       (T1 + T1′ ) ∧            ˙
+                                  Tj ∧T = hT1 ∧            ˙ i + hT1′ ∧
+                                                        Tj ∧T                      ˙ i.
+                                                                                Tj ∧T
+                            j=2                   j=2                     j=2
+4                                                                    Duc- Viet Vu
+
+                                                             Vm
+   (iii) Let 1 ≤ l ≤ m be an integer. Then for R := h                   ˙
+                                                               j=l+1 Tj ∧T i, there
+holds h m
+                         Vl
+                 ˙               ˙
+       V
+          j=1 Tj ∧T i = h j=1 Tj ∧Ri.
+   (iv) The equality
+                             m
+                             ^            m
+                                          ^
+                            h Tj ∧T           ˙ ′i
+                                   ˙ i = h Tj ∧T
+                             j=1           j=1
+               ′
+holds, where T := 1X\   Sm          T.
+                          j=1 ITj
+
+
+    We also need the following result.
+Theorem 2.2. ([14, Theorem 2.6, Remark 2.7]) Let uj be a locally bounded
+plurisubharmonic (psh) function on an open subset U of Cn for 1 ≤ j ≤ m.
+Let (ujk )k∈N be a sequence of locally bounded psh functions increasing to uj
+almost everywhere as k → ∞. Let T be a closed positive current on U. Then,
+the convergence
+
+(2.2)      u1k ddc u2k ∧ · · · ∧ ddc umk ∧ T → u1 ddc u2 ∧ · · · ∧ ddc um ∧ T
+
+as k → ∞ holds provided that T has no mass on Aj := {x ∈ U : uj (x) 6=
+limk→∞ ujk (x)} for every 1 ≤ j ≤ m and the set Aj is locally complete
+pluripolar for every j.
+    Recall that a dsh function on X is the difference of two quasiplurisub-
+harmonic (quasi-psh for short) functions on X (see [9]). These functions
+are well-defined outside pluripolar sets. Let v be a dsh function on X.
+Write v = ϕ1 − ϕ2 , where ϕ1 , ϕ2 are quasi-psh function. Hence v(x) is
+well-defined for x ∈ X\A, where A := {ϕ1 = −∞} ∪ {ϕ2 = −∞}. The
+function v is said to be bounded in X if there exists a constant C such that
+|v(x)| ≤ C for every x ∈ X\A.
+    We say that v is T -admissible (or admissible with respect to T ) if there
+exist quasi-psh functions ϕ1 , ϕ2 on X such that v = ϕ1 − ϕ2 and T has
+no mass on {ϕj = −∞} for j = 1, 2. In particular, if T has no mass on
+pluripolar sets, then every dsh function is T -admissible. Assume now that
+v is T -admissible. The following is a direct consequence of Proposition 2.1
+(i).
+Lemma 2.3. If v is T -admissible, then v is also admissible with respect to
+h m       ˙
+ V
+   j=1 Tj ∧T i.
+
+   Recall that if v = ϕ1 − ϕ2 for some bounded quasi-psh functions ϕ1 , ϕ2
+on X (note X is compact), the current dv ∧ dc v ∧ T is, by definition, equal
+to
+             1 c
+(2.3)          dd (ϕ1 − ϕ2 )2 ∧ T − (ϕ1 − ϕ2 )ddc (ϕ1 − ϕ2 ) ∧ T.
+             2
+Convexity of the class of currents with finite energy                      5
+
+We notice that in the above formula the function (ϕ1 − ϕ2 )2 is locally the
+difference of two bounded psh functions. More precisely, we can assume
+ϕj is ω-psh function for j = 1, 2, where ω is a Kähler form on X, and
+consider an open local chart U such that ω = ddc φ for some smooth psh
+function φ on U. By adding to φ a big constant, we can even assume that
+ϕj + φ ≥ 0 on U for j = 1, 2. Thus (ϕj + φ)2 and (ϕ1 + ϕ2 + 2φ)2 are psh
+on U for j = 1, 2, and
+
+(2.4)      (ϕ1 − ϕ2 )2 = (2(ϕ1 + φ)2 + 2(ϕ2 + φ)2 ) − (ϕ1 + ϕ2 + 2φ)2
+
+which is the difference of two bounded psh functions on U.
+   Consider another dsh function w which is equal to the difference of
+two locally bounded psh functions and T is of bi-degree (n − 1, n − 1), we
+have
+(2.5)
+2dv ∧ dc w ∧ T = d(v + w) ∧ dc (v + w) ∧ T − dv ∧ dc v ∧ T − dw ∧ dc w ∧ T.
+
+However, in general, even when v is bounded, v might not be the differ-
+ence of two bounded quasi-psh functions. Hence, the current “dv∧dc v∧T ”
+is not well-defined in the above sense. We will introduce below the cur-
+                ˙ i in the spirit of non-pluripolar products. Before going
+rent hdv ∧ dc v ∧T
+into details, we need the following auxiliary estimate.
+
+Lemma 2.4. Let ω be a Kähler form on X. Let ϕ1 , ϕ2 be bounded ω-psh
+functions on X and v := ϕ1 − ϕ2 . Let T be a closed positive current of bi-
+dimension (1, 1) on X. Then, there exists a constant C independent of ϕ1 , ϕ2
+such that
+                        Z
+(2.6)                     dv ∧ dc v ∧ T ≤ CkvkL∞ .
+                            X
+
+Proof. We have
+                   Z                             Z
+                                 c
+            I :=       dv ∧ d v ∧ T = −                  vddc v ∧ T
+                   X
+                   Z                                 X
+
+              =−    v(ddc ϕ1 − ddc ϕ2 ) ∧ T
+                 ZX                       Z
+                        c
+              =−    v(dd ϕ1 + ω) ∧ T +      v(ddc ϕ2 + ω) ∧ T
+                       X                                  X
+                           2 Z
+                           X
+              ≤ kvkL∞                    (ddc ϕj + ω) ∧ T
+                           j=1       X
+                           Z
+              = 2kvkL∞               T ∧ω
+                             X
+6                                                                      Duc- Viet Vu
+
+by Stokes’ theorem. The desired estimate follows. The proof is finished.
+
+
+    Assume now that v is T -admissible. Let ϕ1 , ϕ2 be quasi-psh functions
+such that v = ϕ1 − ϕ2 and T has no mass on {ϕj = −∞} for j = 1, 2. Let
+ϕj,k := max{ϕj , −k} for every j = 1, 2 and k ∈ N. Put vk := ϕ1,k − ϕ2,k .
+Since vk is the difference of two bounded quasi-psh functions, using (2.3),
+we obtain
+
+                Qk := dvk ∧ dc vk ∧ T = ddc vk2 ∧ T − vk ddc vk ∧ T.
+
+Let ω be a Kähler form so that ϕj is ω-psh for j = 1, 2. Let U be a local
+chart on X such that ω = ddc φ on U for some psh function φ such that
+ϕj,k + φ ≥ 0 on U for j = 1, 2 (we fix k). By (2.4) applied to ϕj,k + φ, we
+have
+
+Qk = 2ddc (ϕ1,k + φ)2 ∧ T + 2ddc (ϕ2,k + φ)2 ∧ T − ddc (ϕ1,k + ϕ2,k + 2φ)2 ∧ T
+        − (vk ddc ϕ1,k ∧ T − vk ddc ϕ2,k ∧ T )
+
+on U. By the plurifine locality with respect to T ([14, Theorem 2.9]) ap-
+plied to each term in the right-hand side of the last equality, we have
+
+(2.7)                   1T2j=1 {ϕj >−k} Qk = 1T2j=1 {ϕj >−k} Qk′
+
+for every k ′ ≥ k.
+                          ˙ i is well-defined if the mass of 1T2 {ϕ >−k} Qk
+   We say that hdv ∧ dc v ∧T                                   j=1  j
+
+on X is bounded uniformly in k. In this case, using (2.7) implies that there
+exists a positive current Q on X such that for every bounded Borel form
+Φ on X, we have
+
+                        hQ, Φi = lim h1T2j=1 {ϕj >−k} Qk , Φi.
+                                   k→∞
+
+                      ˙ i to be the current Q. This agrees with the classical
+We define hdv ∧ dc v ∧T
+definition if v is the difference of two bounded quasi-psh functions. This
+definition is independent of the choice of ϕ1 , ϕ2 by Lemma 2.5 below. If w
+is another T -admissible dsh function and T is of bi-dimension (1, 1) such
+                             ˙ i, hdw ∧ dcw ∧T
+that the currents hdv ∧ dc v ∧T             ˙ i, and hd(v + w) ∧ dc(v + w)∧T
+                                                                          ˙ i
+                                         c ˙
+are all well-defined, we define hdv ∧ d w ∧T i using (2.5) formally.
+Lemma 2.5. Let ϕ′1 , ϕ′2 be quasi-psh functions on X such that v = ϕ′1 − ϕ′2
+and T has no mass on {ϕ′j = −∞} for j = 1, 2. Let ϕ′j,k , Q′k be the func-
+tion and current associated to ϕ′j defined similarly as ϕj,k and Qk respec-
+tively. Then if 1T2j=1 {ϕj >−k} Qk is of mass bounded uniformly on k then so is
+Convexity of the class of currents with finite energy                                    7
+
+1T2j=1 {ϕ′j >−k} Q′k , and
+
+(2.8)                        Q = lim h1T2j=1 {ϕ′j >−k}Q′k , Φi
+                                  k→∞
+
+for every bounded Borel form Φ on X.
+
+Proof. Since v = ϕ′1 − ϕ′2 , we get
+
+                                  ϕ1 + ϕ′2 = ϕ′1 + ϕ2 .
+
+Put vk′ := ϕ′1,k − ϕ′2,k , A′k := 2j=1 {ϕ′j > −k}, and Ak := 2j=1 {ϕj > −k}.
+                                 T                            T
+
+We have Q′k = dvk′ ∧ dc vk′ ∧ T , and vk = vk′ on Ak ∩ A′k which is open in the
+plurifine topology. We claim that
+
+(2.9)                           1Ak ∩A′k Q′k = 1Ak ∩A′k Qk .
+
+This is a sort of plurifine locality statement and can be essentially de-
+duced from the plurifine locality for bounded psh functions (here we have
+vk = vk′ on Ak ∩ A′k but vk , vk′ are only dsh). We give details for readers’
+convenience. Before doing so, we will show that the desired assertion is a
+direct consequence of (2.9). First observe that 1A′k Q′k has no mass on the
+pluripolar set {ϕj = −∞} for j = 1, 2 by Proposition 2.1 (i) and the fact
+that T has no mass on {ϕj = −∞}. It follows that
+
+                    1A′k Q′k = lim 1A′k ∩As Q′k
+                                s→∞
+                             = lim 1A′k ∩As Q′s
+                                s→∞
+                             ≤ lim 1A′s ∩As Q′s
+                                s→∞
+                             = lim 1A′s ∩As Qs ≤ lim 1As Qs = Q,
+                                s→∞                 s→∞
+
+where we used (2.7) applied to Q′k in the second equality and (2.9) in the
+third equality. By exchanging the role of Q′k and Qk , we also obtain that
+
+                                      1Ak Qk ≤ R,
+
+for every limit current R of (1A′k Q′k )k as k → ∞. Hence (2.8) follows.
+   We go back to the proof of (2.9). Write
+
+dvk ∧ dc vk ∧ T = dvk ∧ dc (vk − vk′ ) ∧ T + d(vk − vk′ ) ∧ dc vk′ ∧ T + dvk′ ∧ dc vk′ ∧ T.
+
+Denote by R1 , R2 the first and second currents in the right-hand side of
+the last equality. In order to obtain (2.9), it suffices to check that Rj = 0
+8                                                                    Duc- Viet Vu
+
+on Ak ∩ A′k for j = 1, 2. Observe
+
+     R1 = dvk ∧ dc (ϕ1,k + ϕ′2,k − ϕ′1,k − ϕ2,k ) ∧ T
+        = dϕ1,k ∧ dc (ϕ1,k + ϕ′2,k ) ∧ T − dϕ1,k ∧ dc (ϕ′1,k + ϕ2,k ) ∧ T −
+                                                                         
+
+          dϕ2,k ∧ dc (ϕ1,k + ϕ′2,k ) ∧ T − dϕ2,k ∧ dc (ϕ′1,k + ϕ2,k ) ∧ T .
+                                                                        
+
+
+Each term in the right-hand side of the above equality is equal to 0 on
+Ak ∩ A′k thanks to the plurifine locality and the fact that
+
+               ϕ1,k + ϕ′2,k = ϕ1 + ϕ′2 = ϕ′1 + ϕ2 = ϕ′1,k + ϕ2,k
+
+on Ak ∩ A′k . Hence R1 = 0 on Ak ∩ A′k . Similarly we get R2 = 0 on Ak ∩ A′k .
+This finishes the proof.
+                                                                  ˙ i is
+Lemma 2.6. Assume that v is bounded. Then, the current hdv ∧ dc v ∧T
+well-defined.
+
+Proof. Let the notation be as in the proof of Lemma 2.4. Let ω be a Kähler
+form on X such that ϕ1 , ϕ2 are ω-psh. Note that ϕjk is also ω-psh for every
+j, k. Observe that since v is bounded, there exists a constant C such that
+ϕ2 − C ≤ ϕ1 ≤ ϕ2 + C. Thus, there exists a constant C so that
+
+                                 kvk kL∞ ≤ C
+
+for every k. Using this and Lemma 2.4, one gets
+
+                             kQk k . kvk kL∞ ≤ C
+
+for some constant C independent of k. Hence, the desired assertion fol-
+lows. This finishes the proof.
+
+      Let T1 , . . . , Tm be closed positive (1, 1)-currents on X and R := hT1 ∧
+           ˙ i. We define
+· · · ∧ Tm ∧T
+
+               hdv ∧ dc v ∧ T1 ∧ · · · ∧ Tm ∧T
+                                            ˙ i := hdv ∧ dc v ∧Ri.
+                                                              ˙
+
+When T ≡ 1, we write the left-hand side of the last equality simply as
+hdv ∧ dc v ∧ T1 ∧ · · · ∧ Tm i.
+                                            ˙ i is defined similarly if p + m =
+   The current hdv ∧ dc w ∧ T1 ∧ · · · ∧ Tm ∧T
+n − 1, where T is of bi-degree (p, p). We put
+
+                   hddc v ∧T
+                          ˙ i := hddc ϕ1 ∧T
+                                         ˙ i − hddcϕ2 ∧T
+                                                      ˙ i.
+
+Define
+                   hddc v ∧ T1 ∧ · · · ∧ Tm ∧T
+                                            ˙ i := hddc v ∧Ri.
+                                                          ˙
+Convexity of the class of currents with finite energy                            9
+
+   By Proposition 2.1 (iii), this definition agrees with the T -relative non-
+pluripolar product of ddc v, T1 , . . . , Tm if v is quasi-psh. When T ≡ 1, we
+                                                              ˙ i. In this case the
+write hddc v ∧ T1 ∧ · · · ∧ Tm i for hddc v ∧ T1 ∧ · · · ∧ Tm ∧T
+product hddc v ∧ T1 ∧ · · · ∧ Tm i is the one defined in the paragraph right
+after Theorem 1.2 in [12].
+   By admissibility and Proposition 2.1 (ii), we can check that if v, w are
+dsh functions which are admissible with respect to T , then
+
+                    hddc (v + w)∧T
+                                ˙ i = hddc v ∧T
+                                             ˙ i + hddcw ∧T
+                                                         ˙ i.
+
+   Here is an integration by parts formula for relative non-pluripolar prod-
+ucts.
+Theorem 2.7. Let T be a closed positive current of bi-degree (n − 1, n − 1)
+on X. Let v, w be bounded T -admissible dsh functions on X. Then, we have
+              Z                Z                   Z
+                     c ˙
+(2.10)           whdd v ∧T i =   vhdd w ∧T i = − hdw ∧ dc v ∧T
+                                       c ˙                     ˙ i.
+                X                  X                      X
+
+   The last result was proved in [4, Theorem 1.14] if v, w can be written
+as the differences of psh functions which are locally bounded outside a
+closed locally complete pluripolar set; see also [1, 13].
+
+Proof. We use ideas from the proof of [14, Proposition 4.2]. Let ϕ1 , ϕ2 , ϕ3 , ϕ4
+be negative quasi-psh functions on X such that v = ϕ1 −ϕ2 and w = ϕ3 −ϕ4
+and T has no mass on 4j=1 {ϕj = −∞}. Let ω be a Kähler form on X such
+                       S
+
+that ϕj is ω-psh for every 1 ≤ j ≤ 4. Put
+
+           ψ := ϕ1 + ϕ2 + ϕ3 + ϕ4 ,       ψk := k −1 max{ψ, −k} + 1.
+
+and ϕjk := max{ϕj , −k} for 1 ≤ j ≤ 4. Observe that 0 ≤ ψk ≤ 1. Let x ∈ X
+such that ψk (x) > 0. We have
+
+                ϕ1 (x) + ϕ2 (x) + ϕ3 (x) + ϕ4 (x) = ψ(x) > −k.
+
+This combined with the property that ϕj ≤ 0 for every 1 ≤ j ≤ 4 yields
+that ϕj (x) > −k for every 1 ≤ j ≤ 4. We infer that
+                                         4
+                                         \
+(2.11)                     {ψk 6= 0} ⊂       {ϕj > −k}.
+                                         j=1
+
+
+   Put vk := ϕ1k − ϕ2k and wk := ϕ3k − ϕ4k . Since v and w are bounded,
+the functions vk , wk are bounded uniformly in k.
+10                                                                      Duc- Viet Vu
+
+              S4
+   Let A :=    j=1 {ϕj = −∞}. By admissibility and Proposition 2.1 (i), we
+see that
+
+(2.12)                       1A h(ddcϕj + ω)∧T
+                                            ˙ i = 0.
+
+Using (2.12), we can consider w as a bounded function with respect to the
+                              ˙ i. Using (2.11), we have
+trace measure of h(ddc ϕj + ω)∧T
+
+      wψk ddc ϕjk ∧ T = w1{ϕj >−k} ψk hddc ϕj ∧T
+                                              ˙ i
+                         = whddc ϕj ∧T
+                                    ˙ i + w(1{ϕj >−k} ψk − 1)hddcϕj ∧T
+                                                                    ˙ i.
+
+The second term in the right-hand side of the last equality converges
+weakly to 0 as k → ∞ by the fact that ψk → 1 pointwise outside A as
+k → ∞ and Lebesgue’s dominated convergence theorem. Hence
+
+                       whddcϕj ∧T
+                               ˙ i = lim wψk ddc ϕjk ∧ T.
+                                          k→∞
+
+Applying the last equality to j = 1, 2, and using v = ϕ1 − ϕ2 , we obtain
+
+(2.13)        whddcv ∧T
+                     ˙ i = lim wψk ddc vk ∧ T = lim wk ψk ddc vk ∧ T.
+                               k→∞                            k→∞
+
+Here in the second equality we used the fact that w = wk on {ϕ3 > −k} ∩
+{ϕ4 > −k} which contains {ψk 6= 0}. We also have an analogous formula
+by exchanging the roles of v, w. Thus,
+
+(2.14)    whddcv ∧T
+                 ˙ i − vhddc w ∧T
+                               ˙ i = lim ψk (wk ddc vk − vk ddc wk ) ∧ T.
+                                                    k→∞
+
+By integration by parts for bounded psh functions, we have
+         Z                                     Z
+                      c          c
+(2.15)       ψk (wk dd vk − vk dd wk ) ∧ T = −    wk dψk ∧ dc vk ∧ T +
+           X                                    X
+                                                      Z
+                                                         vk dψk ∧ dc wk ∧ T.
+                                                                    X
+
+Denote by I1 , I2 the first and second term in the right-hand side of the
+last equality. We will check that Ij → 0 as k → ∞ for j = 1, 2. Using the
+Cauchy-Schwarz inequality, the boundedness of vk , wk and Lemma 2.4, we
+infer
+               Z                   21  Z                        21
+                            c                     2       c
+       |I1 | ≤      dψk ∧ d ψk ∧ T     ×     |wk | dvk ∧ d vk ∧ T
+                   X                                      X
+               Z                         21
+           .           dψk ∧ dc ψk ∧ T          .
+                   X
+Convexity of the class of currents with finite energy                       11
+
+Recall that {limk→∞ ψk < 1} is equal to the complete pluripolar set {ψ =
+−∞}. Using this, Theorem 2.2 and the fact that T has no mass on {ψ =
+−∞}, we get
+
+           lim dψk ∧ dc ψk ∧ T = lim (ddc ψk2 − ψk ddc ψk ) ∧ T = 0
+           k→∞                     k→∞
+
+Thus we obtain
+
+(2.16)                            lim I1 = 0.
+                                 k→∞
+
+By similarity, we also get I2 → 0 as k → ∞. Combining this with (2.15)
+and (2.13) gives the first desired equality of (2.10). We prove the second
+one similarly as follows. Put u := v + w, and
+
+               uk := max{ϕ1 + ϕ3 , −k} − max{ϕ2 + ϕ4 , −k}.
+
+By (2.11) observe that
+
+             1{ψk >0} max{ϕ1 + ϕ3 , −2k} = 1{ψk >0} (ϕ1k + ϕ3k )
+
+and a similar equality for ϕ2 , ϕ4 also holds. Thus, by plurifine locality, we
+get
+
+2hdv ∧ dc w ∧T
+            ˙ i = hdu ∧ dc u∧T
+                            ˙ i − hdv ∧ dc v ∧T
+                                             ˙ i − hdw ∧ dc w ∧T
+                                                              ˙ i
+                 = lim ψk hdu2k ∧ dc u2k ∧T
+                                         ˙ i − hdvk ∧ dc vk ∧T
+                                                            ˙ i−
+                   k→∞
+                  hdwk ∧ dc wk ∧T
+                               ˙ i
+                                   
+
+                 = lim ψk hd(vk + wk ) ∧ dc (vk + wk )∧T
+                                                      ˙ i − hdvk ∧ dc vk ∧T
+                                                                         ˙ i−
+                   k→∞
+                  hdwk ∧ dc wk ∧T
+                               ˙ i .
+                                  
+
+
+Consequently
+
+                  hdv ∧ dc w ∧T
+                             ˙ i = lim ψk hdvk ∧ dc wk ∧T
+                                                       ˙ i.
+                                    k→∞
+
+It follows that
+  Z                                      Z
+          c ˙              c ˙
+      vhdd w ∧T i + hdv ∧ d w ∧T i = lim    ψk (vk ddc wk + dvk ∧ dc wk ) ∧ T
+    X                                k→∞ X
+                                           Z
+                                   = − lim    vk dψk ∧ dc wk ∧ T
+                                         k→∞    X
+
+which is equal to 0 by analogous arguments as in the proof of (2.16). This
+finishes the proof.
+12                                                                                          Duc- Viet Vu
+
+Corollary 2.8. Let v, w be bounded dsh functions on X. Then, for every
+closed smooth form Φ of right bi-degree, we have
+            Z                  m
+                               ^                  Z                      m
+                                                                         ^
+                        c                                    c
+(2.17)              whdd v ∧         Tj i ∧ Φ =           vhdd w ∧             Tj i ∧ Φ =
+                X              j=1                    X                  j=1
+                                                                     Z                      m
+                                                                                            ^
+                                                                                    c
+                                                                 −        hdv ∧ d w ∧             Tj i ∧ Φ.
+                                                                     X                      j=1
+
+Proof. By writing Φ as the difference of two closed positive forms, we can
+assume that Φ is positive. The desired formula is a direct consequence of
+Theorem 2.7 applied to T := hT1 ∧ · · · ∧ Tm i ∧ Φ.
+
+    We recall that the first inequality of (2.17) was proved in [12, Theorem
+1.2] and [16] when m = n and the cohomology classes of Tj ’s are big.
+One should notice a crucial point that the integration by parts formulae
+obtained in [12, 16] contain no term involving dv ∧ dc w. Such a term is
+essential in applications, especially, in the pluricomplex energy theory. The
+following result is more general than Theorem 2.7. We will need it later.
+Theorem 2.9. Let T a closed positive current of bi-degree (n − 1, n − 1) on
+X. Let v, w be bounded T -admissible dsh functions on X. Let χ : R → R be
+a C 3 function. Then we have
+(2.18)
+   Z                   Z                        Z
+                           ′′
+             c ˙
+      χ(w)hdd v ∧T i =                c ˙
+                         vχ (w)hdw ∧ d w ∧T i +   vχ′ (w)hddcw ∧T
+                                                               ˙ i.
+        X                            X                                          X
+
+   A quick heuristic reason explaining why (2.18) should hold is because
+dd χ(w) = χ′′ (w)dw∧dc w+χ′ (w)ddcw if w is a bounded quasi-psh function.
+    c
+
+
+Proof. We first note that [14, Lemma 5.7] still holds for dsh functions
+which are the differences of two bounded quasi-psh functions. Now, to
+obtain the desired equality, we just follow the proof of Theorem 2.7 ver-
+batim with χ(w) in place of w. The only thing we need to clarify is the
+computation concerning ddc χ(wk ) ∧ T . To this end, it suffices to use [14,
+Lemma 5.7] because wk is the difference of two bounded quasi-psh func-
+tions. This finishes the proof.
+
+
+```
+
+## Primary unit 13: Vu-2005.13241v3-20261004.txt, LF656--827
+
+Literal SHA256 `7c4a6f848d72b6bc891d56b0cdf8b543bf9c1522324504029100073e1d6b9ba9`; supplied pin matches: True.
+
+```text
+3       Currents with finite relative energy
+Let X be a compact Kähler manifold. Let α1 , . . . , αm be pseudoeffective
+(1, 1)-classes of X and T a closed positive current on X. Let Pj be a closed
+Convexity of the class of currents with finite energy                                 13
+
+positive (1, 1)-current in the class αj for 1 ≤ j ≤ m. Put P := (P1 , . . . , Pm ).
+We define EP (T ) to be the set of m-tuple (T1 , . . . , Tm ) of closed positive
+(1, 1)-currents such that Tj ∈ αj and Tj is more singular than Pj and
+                                m
+                                ^                     m
+                                                      ^
+                           {h            ˙ i} = {h
+                                      Tj ∧T                    ˙ i}.
+                                                            Pj ∧T
+                                j=1                   j=1
+
+Notice that for every current Pj′ in αj such that Pj′ has the same singular-
+ities as Pj for 1 ≤ j ≤ m, by the monotonicity of relative non-pluripolar
+products (see (1.1)), we have
+
+                                       EP (T ) = EP′ (T ).
+
+Hence, when Pj has minimal singularities in αj for 1 ≤ j ≤ m, we recover
+the class E(α1 , . . . , αm , T ) of currents of full mass intersection introduced
+in [14, 4] because we have
+
+                             EP (T ) = E(α1 , . . . , αm , T )
+
+in this case.
+    Let χ ∈ W − . Write Pj = ddc ϕj + θj , where θj is a smooth form and ϕj is
+a negative θj -psh function. Let (T1 , . . . , Tm ) ∈ EP (T ). Let uj be a negative
+θj -psh function so that Tj = ddc uj + θj and uj ≤ ϕj for 1 ≤ j ≤ m. For a
+negative Borel function ξ, we put
+                                           XZ       ^         ^
+(3.1)       Eξ,P (T1 , . . . , Tm ; T ) :=     −ξ      Tj ∧         ˙ ,
+                                                                 Pj ∧T
+                                             J    X          j∈J       j6∈J
+
+where the sum is taken over every subset J of {1, . . . , m}. The (T, P)-
+relative joint χ-energy of T1 , . . . , Tm is, by definition, Eξ,P (T1 , . . . , Tm ; T ),
+where
+                                                             
+                    ξ := χ (u1 − ϕ1 ) + · · · + (um − ϕm ) .
+The last energy depends on the choice of uj , ϕj but its finiteness does not.
+That notion generalizes those in [4, 11, 14], see also [5] for the local
+setting.
+    For every closed positive (1, 1)-current P , let IP be the set of x ∈ X so
+that the potentials of P are equal to −∞ at x. Note that IP is a complete
+pluripolar set. By Proposition 2.1 (iv), the right-hand side of (3.1) remains
+unchanged if we replace T by 1X\ Sm         j=1 IPj
+                                                    T . Hence, in practice, we can
+                             Sm
+assume T has no mass on j=1 IPj . We denote by Eχ,P (T ) the subset of
+EP (T ) containing every (T1 , . . . , Tm ) such that their (T, P)-relative joint
+χ-energy is finite.
+14                                                                                   Duc- Viet Vu
+
+   Here is a monotonicity for the class Eχ,P (T ) when Pj = P for every
+1 ≤ j ≤ m. This generalizes [14, Theorem 5.8].
+Theorem 3.1. Let P = ddc ϕ + θ be a closed positive (1, 1)-current and P :=
+(P, . . . , P ) (m times P ). Let χ ∈ W − with |χ(0)| ≤ 1. Let (T1 , . . . , Tm ) ∈
+Eχ,P (T ) and (T1′ , . . . , Tm′ ) ∈ EP (T ) such that Tj = ddc uj + θ, Tj′ = ddc u′j + θ
+such that uj , u′j are θ-psh and uj ≤ u′j ≤ ϕ. Put
+                                                                
+                           ξ := χ (u1 − ϕ) + · · · + (um − ϕ) .
+
+Then we have
+
+                 Eξ (T1′ , . . . , Tm′ ; T ) ≤ c1 Eξ (T1 , . . . , Tm ; T ) + c2 ,
+
+for some constants c1 , c2 > 0 independent of χ. In particular, (T1′ , . . . , Tm′ ) ∈
+Eχ,P (T ).
+
+Proof. As mentioned above, we can assume that T has no mass on IP =
+{ϕ = −∞}. Note here that {ϕ = −∞} ⊂ {uj = −∞}. Put
+
+                               ujk := max{uj , ϕ − k} − ϕ
+
+which is a bounded dsh function and
+
+                                    Tjk := ddc ujk + P.
+
+Observe that ujk ’s are admissible with respect to T . Define u′jk , Tjk
+                                                                      ′
+                                                                         simi-
+larly. Put
+                    m
+                    X
+             v :=         (uj − ϕj ),    vk := max{v, −k},             ξk = χ(vk ).
+                    j=1
+
+Note that ξ = χ(v). With these notations and a suitable integration by
+parts ready in our hands (Theorem 2.9) replacing [14, Lemma 5.7]), the
+proof goes exactly as in the proof of [14, Theorem 5.8]. The only minor
+modifications are: the Kähler form ω is substituted by P and the wedge
+products appearing in the proof of [14, Theorem 5.8] need to be replaced
+by T -relative non-pluripolar products. This finishes the proof.
+
+     The following is a direct consequence of Theorem 3.1.
+Corollary 3.2. Let P, P be as in Theorem 3.1. Let P ′ be a current in {P }
+which is of the same singularity type as P . Then, for P′ = (P ′ , . . . , P ′) (m
+times P ′), we have
+                            Eχ,P′ (T ) = Eχ,P(T ).
+Convexity of the class of currents with finite energy                            15
+
+   For every closed positive (1, 1)-current P , we define the class Em,P (T )
+(resp. Eχ,m,P (T )) to be the set of currents T1 ∈ {P } such that (T1 , . . . , T1 )
+belongs to EP (T ) (resp. Eχ,P (T )), where P = (P, . . . , P ) (m times P ). The
+last space was introduced in [6] when T is the constant function equal
+to 1. As in the case of the usual class of currents of full mass intersection
+([11, Proposition 2.2]), notice that
+                                          [
+                           Em,P (T ) =           Eχ,m,P (T ).
+                                         χ∈W −
+
+
+Let α be a pseudoeffective (1, 1)-class. By Corollary 3.2, we see that the
+notion of the weighted class Eχ,m,P (T ) makes sense if we replace P by its
+equivalent class (in terms of singularity type) of (1, 1)-currents. Hence,
+we can define Em (α, T ) (resp. Eχ,m(α, T )) to be the set Em,P (T ) (resp.
+Eχ,m,P (T )), where P is a current with minimal singularities in α.
+Theorem 3.3. Let U be an open subset in Cn . Let T be a closed positive
+current on U and uj , u′j bounded psh functions on U for 1 ≤ j ≤ m, where
+m ∈ N. Let vj , vj′ be psh functions on U for 1 ≤ j ≤ q. Assume that uj = u′j
+on W := qj=1 {vj > vj′ } for 1 ≤ j ≤ m. Then we have
+         T
+
+
+(3.2)       1W ddc u1 ∧ · · · ∧ ddc um ∧ T = 1W ddc u′1 ∧ · · · ∧ ddc u′m ∧ T.
+
+Proof. If vj , vj′ are all bounded, then the desired assertion is Theorem 2.9
+in [14]. In general, observe that
+                                          ∞
+                                          [
+                          {vj > vj′ } =               ′
+                                              {vjk > vjk },
+                                          k=1
+
+                                             ′
+                                                . Let Wk := qj=1 {vjk > vjk
+                                                                         ′
+                                                           T
+where vjk := max{vj , −k} and similarly for vjk                             }.
+                    S∞             ′
+We have W = k=1 Wk and uj = uj on Wk . Applying [14, Theorem 2.9]
+to uj , u′j , Wk gives
+
+         1Wk ddc u1 ∧ · · · ∧ ddc um ∧ T = 1Wk ddc u′1 ∧ · · · ∧ ddc u′m ∧ T
+
+for every k. Hence, the desired assertion follows. This finishes the proof.
+
+
+   Now, using Theorems 3.1 and 3.3 instead of [14, Theorem 5.8] and
+[14, Theorem 2.9] respectively, and following arguments in the proof of
+[14, Theorems 5.9 and 5.1], we immediately obtain the following result.
+
+Theorem 3.4. For χ ∈ W − , the sets Eχ,m,P (T ) and Em,P (T ) are convex.
+16                                                              Duc- Viet Vu
+
+     Finally, we would like to make the following comment.
+                    +
+Remark 3.5. Let WM     be the class of weights introduced in [11, Page 462].
+Using arguments from the proof of [11, Lemma 3.5] and that of Theorem
+                                                        +
+3.4, we can prove the convexity of Eχ,m,P (T ) for χ ∈ WM .
+
+
+Acknowledgements
+The author would like to thank referees for their remarks improving the
+presentation of the paper.
+
+
+```
+
+## Primary unit 14: Vu-2005.13241v3-20261004.txt, LF828--884
+
+Literal SHA256 `d0915796895621146bb871da1cea5244607f9d37b9146f2d202a099a9eb96e7f`; supplied pin matches: True.
+
+```text
+References
+ [1] E. B EDFORD AND B. A. TAYLOR, A new capacity for plurisubharmonic
+     functions, Acta Math., 149 (1982), pp. 1–40.
+
+ [2]       , Fine topology, Šilov boundary, and (ddc )n , J. Funct. Anal., 72
+       (1987), pp. 225–251.
+
+ [3] R. J. B ERMAN , S. B OUCKSOM , V. G UEDJ , AND A. Z ERIAHI , A vari-
+     ational approach to complex Monge-Ampère equations, Publ. Math.
+     Inst. Hautes Études Sci., 117 (2013), pp. 179–245.
+
+ [4] S. B OUCKSOM , P. E YSSIDIEUX , V. G UEDJ , AND A. Z ERIAHI , Monge-
+     Ampère equations in big cohomology classes, Acta Math., 205 (2010),
+     pp. 199–262.
+
+ [5] U. C EGRELL, Pluricomplex energy, Acta Math., 180 (1998), pp. 187–
+     217.
+
+ [6] T. DARVAS , E. D I N EZZA , AND C. H. LU, Monotonicity of nonpluripo-
+     lar products and complex Monge-Ampère equations with prescribed sin-
+     gularity, Anal. PDE, 11 (2018), pp. 2049–2087.
+
+ [7]        , On the singularity type of full mass currents in big cohomology
+       classes, Compos. Math., 154 (2018), pp. 380–409.
+
+ [8] T. DARVAS , E. D I N EZZA , AND C. H. LU, Log-concavity of volume and
+     complex Monge-Ampère equations with prescribed singularity, Math.
+     Ann., 379 (2021), pp. 95–132.
+Convexity of the class of currents with finite energy                 17
+
+ [9] T.-C. D INH AND N. S IBONY, Distribution des valeurs de transforma-
+     tions méromorphes et applications, Comment. Math. Helv., 81 (2006),
+     pp. 221–258.
+
+[10] D. T. D O AND D.-V. V U, Complex Monge-Ampère equations with solu-
+     tions in finite energy classes. arXiv:2010.08619, 2020. to appear in
+     Math. Res. Lett.
+
+[11] V. G UEDJ AND A. Z ERIAHI, The weighted Monge-Ampère energy
+     of quasiplurisubharmonic functions, J. Funct. Anal., 250 (2007),
+     pp. 442–482.
+
+[12] C. H. LU, Comparison of Monge-Ampère capacities, Ann. Polon. Math.,
+     126 (2021), pp. 31–53.
+
+[13] N. S IBONY, Quelques problèmes de prolongement de courants en anal-
+     yse complexe, Duke Math. J., 52 (1985), pp. 157–197.
+
+[14] D.-V. V U, Relative non-pluripolar product of currents, Ann. Global
+     Anal. Geom., 60 (2021), pp. 269–311.
+
+[15] D. W ITT N YSTRÖM, Monotonicity of non-pluripolar Monge-Ampère
+     masses, Indiana Univ. Math. J., 68 (2019), pp. 579–591.
+
+[16] M. X IA, Integration by parts formula for non-pluripolar products.
+     arXiv:1907.06359, 2019.
+
+```
+
+## Primary unit 15: BEGZ-0812.3674v2-20261004.txt, LF180--248
+
+Literal SHA256 `a9817dcf1e66414e9b0e6754baddfda52b4dd76cef4a5e046e4d5ad390a3252e`; supplied pin matches: True.
+
+```text
+
+on X as a closed positive (p, p)-current. The wedge product only depends on
+the closed positive (1, 1)-currents ddc uj , and not on the speciﬁc choice of the
+potentials uj .
+   A very important property of this construction is that it is local in the plurifine
+topology, in the following sense. If uj , vj are locally bounded psh functions on X
+and uj = vj (pointwise) on a pluriﬁne open subset O of U , then
+                   1O ddc u1 ∧ ... ∧ ddc up = 1O ddc v1 ∧ ... ∧ ddc vp .
+This is indeed an obvious generalization of Corollary 4.3 of [4].
+   In the case of a possibly unbounded psh function u, Bedford-Taylor have ob-
+served (cf. p.236 of [4]) that it is always possible to deﬁne the non-pluripolar
+part of the would-be positive measure (ddc u)n as a Borel measure. The main
+issue however is that this measure is not going to be locally ﬁnite in general (see
+Example 1.3 below). More generally, suppose we are trying to associate to any
+p-tuple u1 , ..., up of psh functions on X a positive (a priori not necessarily closed)
+(p, p)-current
+                                   hddc u1 ∧ ... ∧ ddc up i
+putting no mass on pluripolar subsets, in such a way that the construction is
+local in the pluriﬁne topology in the above sense. Then we have no choice: since
+uj coincides with the locally bounded psh function max(uj , −k) on the pluriﬁne
+open subset                               \
+                                   Ok := {uj > −k},
+                                          j
+we must have              ^               ^
+                     1Ok h ddc uj i = 1Ok   ddc max(uj , −k),                    (1.1)
+                            j                  j
+Note that the
+            V right-hand side is non-decreasing in k. This equation completely
+determines h j ddc uj i since the latter is required not to put mass on the pluripolar
+        S
+set X − k Ok = {u = −∞}.
+Definition 1.1. If u1 , ..., up are psh functions
+                                             V on the complex manifold X, we
+shall say that the non-pluripolar product h j ddc uj i is well-defined on X if for
+each compact subset K of X we have
+                      Z                ^
+                  sup          ω n−p ∧   ddc max(uj , −k) < +∞               (1.2)
+                     k   K∩Ok            j
+for all k.
+   Here ω is an auxiliary (strictly) positive (1, 1)-form on X with respect to which
+masses are being measured, the condition being of course independent ofV   ω. When
+(1.2) is satisﬁed, equation (1.1) indeed deﬁnes a positive (p, p)-current h j ddc uj i
+on X. We will show below that it is automatically closed (Theorem 1.8).
+   Condition (1.2) is always satisﬁed when p = 1, and in fact it is not diﬃcult to
+show that
+                               hddc ui = 1{u>−∞} ddc u.
+There are however examples where non-pluripolar products are not well-deﬁned
+as soon as p ≥ 2. This is most easily understood in the following situation.
+6                 S. BOUCKSOM, P. EYSSIDIEUX, V. GUEDJ, A.ZERIAHI
+
+Definition 1.2. A psh function u on X will be said to have small unbounded
+locus if there exists a (locally) complete pluripolar closed subset A of X outside
+which u is locally bounded.
+   Assume that u1 , ..., up have small unbounded locus, and let A be closed com-
+plete pluripolar such that each uj is locally bounded outside A V
+                                                                (recall that com-
+plete pluripolar subsets are stable under ﬁnite unions). Then h j ddc uj i is well-
+                                          V
+deﬁned iﬀ the Bedford-Taylor product j ddc uj , which is deﬁned on the open
+                                                                        V
+subset X −A, has locally ﬁnite mass near each point of A. In that case h j ddc uj i
+                                        V
+is nothing but the trivial extension of j ddc uj to X.
+Example 1.3. Consider Kiselman’s example (see [32])
+                           u(x, y) := (1 − |x|2 )(− log |y|)1/2
+for (x, y) ∈ C2 near 0. The function u is psh near 0, it is smooth outside the y = 0
+axis, but the smooth measure (ddc u)2 , defined outside y = 0, is not locally finite
+near any point of y = 0. This means that the positive Borel measure h(ddc u)2 i is
+not locally finite.
+```
+
+## Primary unit 16: BEGZ-0812.3674v2-20261004.txt, LF323--477
+
+Literal SHA256 `462891277734fc5ab0efef31d1a327cb2de16257bfdc3ec5f24424db0e67909f`; supplied pin matches: True.
+
+```text
+  A crucial point for what follows is that non-pluripolar products of globally
+deﬁned currents are always well-deﬁned on compact Kähler manifolds:
+Proposition 1.6. Let T1 , ..., Tp be closed positive (1, 1)-currents on a compact
+Kähler manifold X. Then their non-pluripolar product hT1 ∧ ... ∧ Tp i is well-
+defined.
+Proof. Let ω be a Kähler form on X. In view of the third point of Proposi-
+tion 1.4, upon adding a large multiple of ω to the Tj ’s we may assume that their
+cohomology classes are Kähler classes. We can thus ﬁnd Kähler forms ωj and
+ωj -psh functions ϕj such that Tj = ωj + ddc ϕj . Let U be a small open subset of
+8                S. BOUCKSOM, P. EYSSIDIEUX, V. GUEDJ, A.ZERIAHI
+
+X on which ωj = ddc ψj , where ψj ≤ 0 is a smooth psh function on U , so that
+Tj = ddc uj on U with uj := ψj + ϕj . The bounded psh functions on U
+                                           ψj + max(ϕj , −k)
+and
+                                 max(uj , −k)
+coincide on the pluriﬁne open subset {uj > −k} ⊂ {ϕj > −k}, thus we have
+                     Z                  ^
+                                  n−p
+                       T        ω     ∧   ddc max(uj , −k)
+                               j {uj >−k}                       j
+                     Z                                  ^
+                 =       T                ω n−p ∧        (ωj + ddc max(ϕj , −k))
+                             j {uj >−k}                     j
+                              Z                 ^
+                         ≤            ω n−p ∧       (ωj + ddc max(ϕj , −k)).
+                                  X             j
+But the latter integral is computed in cohomology, hence independent of k, and
+this shows that (1.2) is satisﬁed on U , qed.                                
+Remark 1.7. The same property extends to the case where X is a compact com-
+plex manifold in the Fujiki class, that is bimeromorphic to a compact Kähler
+manifold. Indeed there exists in that case a modiﬁcation µ : X ′ → X with
+X ′ compact Kähler. Since µ is an isomorphism outside closed analytic (hence
+pluripolar) subsets, it is easy to deduce that hT1 ∧ ... ∧ Tp i is well-deﬁned on X
+from the fact that hµ∗ T1 ∧ ... ∧ µ∗ Tp i is well-deﬁned on X ′ , and in fact
+                         hT1 ∧ ... ∧ Tp i = µ∗ hµ∗ T1 ∧ ... ∧ µ∗ Tp i.
+On the other hand it seems to be unknown whether ﬁniteness of non-pluripolar
+products holds on arbitrary compact complex manifolds.
+  Building on the proof of the Skoda-El Mir extension theorem, we will now
+prove the less trivial closedness property of non-pluripolar products.
+Theorem 1.8. Let T1 , ..., Tp be closed positive (1, 1)-currents on a complex man-
+ifold X whose non-pluripolar product is well-defined. Then the positive (p, p)-
+current hT1 ∧ ... ∧ Tp i is closed.
+Proof. The result is of course local, and we can assume that X is a small neigh-
+borhood of 0 ∈ Cn . The proof will follow rather closely Sibony’s exposition of
+the Skoda-El Mir theorem [39], cf. also [18, pp. 159-161].
+   Let uj ≤ 0 be a local potential of Tj near 0 ∈ Cn , and for each k consider the
+closed positive current of bidimension (1, 1)
+                                      ^
+                           Θk := ρ ∧    ddc max(uj , −k)
+                                                    j
+
+and the pluriﬁne open subset
+                                                    \
+                                          Ok :=      {uj > −k}
+                                                        j
+            MONGE-AMPÈRE EQUATIONS IN BIG COHOMOLOGY CLASSES                          9
+
+so that 1Ok Θk converges towards
+                                  ρ ∧ hT1 ∧ ... ∧ Tp i
+by (1.1). Here ρ is a positive (n − p − 1, n − p − 1)-form with constant coeﬃcients,
+so that Θk has bidimension (1, 1). It is enough to show that
+                                  lim d (1Ok Θk ) = 0
+                                 k→∞
+for any choice ofP
+                 such a form ρ.
+   Let also u := j uj , so that u ≤ −k outside Ok , and set
+
+                                    wk := χ(eu/k ),
+where χ(t) is a smooth convex and non-decreasing function of t ∈ R such that
+χ(t) = 0 for t ≤ 1/2 and χ(1) = 1. We thus see that 0 ≤ wk ≤ 1 is a non-
+decreasing sequence of bounded psh functions deﬁned near 0 ∈ Cn with wk = 0
+outside Ok and wk → 1 pointwise outside the pluripolar set {u = −∞}. Finally
+let 0 ≤ θ(t) ≤ 1 be a smooth non-decreasing function of t ∈ R such that θ(t) = 0
+for t ≤ 1/2 and θ ≡ 1 near t = 1. The functions θ(wk ) are bounded, non-
+decreasing in k and we have
+                                 θ(wk ) ≤ 1Ok
+since θ(wk ) ≤ 1 vanishes outside Ok . Note also that θ ′ (wk ) vanishes outside Ok ,
+and converges to 0 pointwise outside {u = −∞}.
+   Our goal is to show that
+                                 lim d (1Ok Θk ) = 0.
+                                 k→∞
+But we have
+                0 ≤ (1Ok − θ(wk )) Θk ≤ (1 − θ(wk )) hT1 ∧ ... ∧ Tp i,
+and the latter converges to 0 by dominated convergence since θ(wk ) → 1 pointwise
+outside the polar set of u, which is negligible for hT1 ∧...∧Tp i. It is thus equivalent
+to show that
+                                lim d (θ(wk )Θk ) = 0.
+                                k→∞
+Since wk is a bounded psh function, Lemma 1.9 below shows that the chain rule
+applies, that is
+                       d (θ(wk )Θk ) = θ ′ (wk )dwk ∧ Θk .
+Recall that dwk ∧ Θk has order 0 by Bedford-Taylor, so that the right-hand side
+makes sense. Now let ψ be a given smooth 1-form compactly supported near 0
+and let τ ≥ 0 be a smooth cut-oﬀ function with τ ≡ 1 on the support of ψ. The
+Cauchy-Schwarz inequality implies
+  Z                     2   Z                      Z                    
+      ′                                   c               ′     2
+     θ (wk )ψ ∧ dwk ∧ Θk ≤       τ dwk ∧ d wk ∧ Θk       θ (wk ) ψ ∧ ψ ∧ Θk .
+
+But on the one hand we have
+                    Z                  Z
+                  2 τ dwk ∧ d wk ∧ Θk ≤ τ ddc wk2 ∧ Θk
+                             c
+10                  S. BOUCKSOM, P. EYSSIDIEUX, V. GUEDJ, A.ZERIAHI
+                               Z                      Z
+                           =       wk2 ddc τ ∧ Θk =        wk2 ddc τ ∧ Θk
+                                                      Ok
+since wk vanishes outside Ok , and the last integral is uniformly bounded since
+0 ≤ wk ≤ 1 and 1Ok Θk has uniformly bounded mass by (1.2). On the other hand
+we have
+                   θ ′ (wk )2 Θk = θ ′ (wk )2 1Ok Θk ≤ θ ′ (wk )2 hT1 ∧ ... ∧ Tp i
+since θ ′ (wk ) also vanishes outside Ok , and we conclude that
+                                       Z
+                                 lim      θ ′ (wk )2 ψ ∧ ψ ∧ Θk = 0
+                                   k→∞
+
+by dominated convergence since θ ′ (wk ) → 0 pointwise ouside the polar set of u,
+which is negligible for hT1 ∧ ... ∧ Tp i. The proof is thus complete.          
+Lemma 1.9. Let Θ be a closed positive (p, p)-current on a complex manifold X,
+f be a smooth function on R and v be a bounded psh function. Then we have
+                                     d(f (v)Θ) = f ′ (v)dv ∧ Θ.
+Proof. This is a local result, and we can thus assume that Θ has bidimension (1, 1)
+by multiplying it by constant forms as above. The result is of course true when
+v is smooth. As we shall see the result holds true in our case basically because v
+belongs to the Sobolev space L21 (Θ), in the sense that dv ∧ dc v ∧ Θ is well-deﬁned.
+Indeed the result is standard when Θ = [X], and proceeds by approximation.
+Here we let vk be a decreasing sequence of smooth psh functions converging
+pointwise to v. We then have f (vk )θ → f (v)Θ by dominated convergence, thus
+it suﬃces to show that
+                               lim f ′ (vk )dvk ∧ Θ = f ′ (v)dv ∧ Θ.
+                               k→∞
+We write
+                                                       
+ f ′ (vk )dvk ∧ Θ − f ′ (v)dv ∧ Θ = f ′ (vk ) − f ′ (v) dvk ∧ Θ + f ′ (v)(dvk − dv) ∧ Θ.
+Let ψ be a test 1-form and τ ≥ 0 be a smooth cut-oﬀ function with τ ≡ 1 on the
+support of ψ. Cauchy-Schwarz implies
+                        Z                                   2
+                                               
+                            f ′ (vk ) − f ′ (v) ψ ∧ dvk ∧ Θ
+               Z                                          Z                  
+                       ′
+                                    2
+                                     ′                                      c
+           ≤         f (vk ) − f (v) ψ ∧ ψ ∧ Θ                   τ dvk ∧ d vk ∧ Θ .
+The second factor is bounded since dvk ∧ dc vk ∧ Θ converges to dv ∧ dc v ∧ Θ by
+Bedford-Taylor’s monotone convergence theorem, and the ﬁrst one converges to
+0 by dominated convergence. We similarly have
+                          Z                            2
+                            f ′ (v)(dvk − dv) ∧ ψ ∧ Θ
+            Z                     Z                              
+                  ′   2                                c
+         ≤       f (v) ψ ∧ ψ ∧ Θ        τ d(vk − v) ∧ d (vk − v) ∧ Θ ,
+where now the ﬁrst factor is bounded while the second one tends to 0 by Bedford-
+Taylor once again, and the proof is complete.                                 
+```
+
+## Primary unit 17: BEGZ-0812.3674v2-20261004.txt, LF525--578
+
+Literal SHA256 `0acf2b360d001a14d0fcf47f784424a599506386e6e44bc4b968ddd9bb80dc7d`; supplied pin matches: True.
+
+```text
+
+1.3. Positive cohomology classes. Let X be a compact Kähler manifold and
+let α ∈ H 1,1 (X, R) be a real (1, 1)-cohomology class.
+   Recall that α is said to be pseudo-effective (psef for short) if it can be repre-
+sented by a closed positive (1, 1)-current T . If θ is a given smooth representative
+of α, then any such current can be written as T = θ + ddc ϕ, where ϕ is thus a θ-
+psh function by deﬁnition, and will sometimes be referred to as a global potential
+of T . Global potentials only depend on the choice of θ up to a smooth function
+on X.
+   On the other hand, α is nef if it lies in the closure of the Kähler cone. Such
+a class can thus be represented by smooth forms with arbitrarily small nega-
+tive parts, and a compactness argument then shows that α contains a positive
+current, i.e. nef implies psef. Note however that the negative part of smooth
+representatives cannot be taken to be 0 in general. In fact, Demailly, Peternell
+and Schneider have shown in [23] that a classical construction of Serre yields an
+example of a smooth curve C on a projective surface whose cohomology class is
+nef but contains only one positive current, to wit (the integration current on) C
+itself.
+   The set of all nef classes is by deﬁnition a closed convex cone in H 1,1 (X, R),
+whose interior is none but the Kähler cone. The set of all psef classes also forms a
+closed convex cone, and its interior is by deﬁnition the set of all big cohomology
+classes. In other words, a class α is big iﬀ it can be represented by a strictly
+positive current, i.e. a closed current T that dominates some (small enough)
+smooth strictly positive form on X.
+
+1.4. Comparison of singularities. If T and T ′ are two closed positive currents
+on X, then T is said to be more singular than T ′ if their global potentials satisfy
+ϕ ≤ ϕ′ + O(1). By the singularity type of T , we will mean its equivalence class
+with respect to the above notion of comparison of singularities.
+   A positive current T in a given psef class α is now said to have minimal
+singularities (inside its cohomology class) if it is less singular than any other
+positive current in α, and its θ-psh potentials ϕ will correspondingly be said
+to have minimal singularities. Such θ-psh functions with minimal singularities
+always exist, as was observed by Demailly. Indeed, the upper envelope
+                         Vθ := sup {ϕ θ-psh, ϕ ≤ 0 on X}
+of all non-positive θ-psh functions obviously yields a positive current
+                                     θ + ddc Vθ
+with minimal singularities (note that Vθ is usc since Vθ∗ is a candidate in the
+envelope).
+   We stress that currents with minimal singularities in a given class α are in
+general far from unique. Indeed currents with minimal singularities in a class
+α admitting a smooth non-negative representative θ ≥ 0 (for instance a Kähler
+class) are exactly those with bounded potentials.
+   Currents with minimal singularities are stable under pull-back:
+            MONGE-AMPÈRE EQUATIONS IN BIG COHOMOLOGY CLASSES                       13
+
+Proposition 1.12. Let π : Y → X be a surjective morphism between compact
+Kähler manifolds and θ be a smooth closed (1, 1)-form on X. If ϕ is a θ-psh
+function with minimal singularities on X, then the π ∗ θ-psh function ϕ ◦ π also
+has minimal singularities.
+Proof. Let ψ be a π ∗ θ-psh function. For x ∈ X a regular value of π we set
+                                τ (x) := sup ψ(y).
+                                         π(y)=x
+
+```
+
+## Primary unit 18: DDNL18-2049-2087-20261004.txt, LF350--369
+
+Literal SHA256 `0d34fd95c9beb603186a5ec408cb5b463d1bdda346042cdc66ac38b25fde6c71`; supplied pin matches: True.
+
+```text
+2017, Theorem 4.26] for a proof of this result, which is merely a slight generalization of [Xing 1996,
+Theorem 1].
+
+Proposition 2.2. Let  ⊂ Cn be an open set. Suppose { f j } j are uniformly bounded quasicontinuous func-
+                                                                                     j         j                  j
+tions which converge in capacity to another quasicontinuous function f on . Let {u 1 } j , {u 2 } j , . . . , {u n } j
+be uniformly bounded plurisubharmonic functions on , converging in capacity to u 1 , u 2 , . . . , u n respec-
+tively. Then we have the following weak convergence of measures:
+                                j            j
+                         f j i∂ ∂u
+                                ¯ ∧ i∂ ∂u
+                                   1
+                                       ¯ ∧ · · · ∧ i∂ ∂u
+                                          2
+                                                      ¯ nj → f i∂ ∂u
+                                                                  ¯ 1 ∧ i∂ ∂u
+                                                                           ¯ 2 ∧ · · · ∧ i∂ ∂u
+                                                                                            ¯ n.
+
+   The following lower-semicontinuity property of nonpluripolar products will be key in the sequel:
+```
+
+## Primary unit 19: Vu-2004.11111v1-20261004.txt, LF273--287
+
+Literal SHA256 `1ba50d3f123db57547622b7cecbab561eb1cfbe4c81617a290f80b1ec41af8ad`; supplied pin matches: True.
+
+```text
+    We now give a definition which will be crucial later. Let (Tk )k be a sequence of
+closed positive currents of bi-degree (m, m) on U. We say that (Tk )k satisfies Condition
+(∗) if (Tk )k is of uniformly bounded mass on compact subsets of U, and for every open
+set U ′ ⊂ U and every bounded psh function u on U ′ and every sequence (uk )k of psh
+functions on U ′ decreasing to u, we have
+
+                                   lim (uk − u)(ddc u)m ∧ Tk = 0                          (2.2)
+                                k→∞
+
+An obvious example for sequences satisfying Condition (∗) is constant sequences: Tk = T
+for every k. We can also take (Tk )k to be a sequence of suitable Monge-Ampère operators
+with decreasing potentials, see [1, 10, 15]. Concerning Condition (∗), we will use mostly
+the example of constant sequences and the one provided by the following result.
+Theorem 2.2. Let S be a closed positive current on U. Let v be a psh function on U such
+that v is locally integrable with respect to the trace measure of S and (vk )k a sequence of psh
+```
+
+## Primary unit 20: Vu-2005.13241v3-20261004.txt, LF53--78
+
+Literal SHA256 `f47dc8f2ccf80aa64ddf28d987eb8b2ee409d404a0d66a1cfcbced66fd1ed789`; supplied pin matches: True.
+
+```text
+(1.1)                             ˙ i} ≤ {hT1′ ∧ · · · ∧ Tm′ ∧T
+                {hT1 ∧ · · · ∧ Tm ∧T                         ˙ i}.
+
+The last inequality allows us to define the notion of T -relative full mass
+intersection, see [14, 4]. We say that T1 , . . . , Tm are of T -relative full mass
+intersection if          m              m
+                        ^               ^
+                              ˙
+                      {h Tj ∧T i} = {h Tj,min∧T       ˙ i},
+                         j=1               j=1
+
+where Tj,min is a current with minimal singularities in the class {Tj } for
+1 ≤ j ≤ m.
+   Let α be a pseudoeffective (1, 1)-class. Denote by Em (α, T ) the set of
+currents P ∈ α such that P, . . . , P (m times P ) are of T -relative full mass
+intersection.
+   Recall that W − is the set of convex increasing functions χ from R to
+R such that χ(−∞) = −∞. Let χ ∈ W − . We can define Eχ,m(α, T ) to be
+the subclass of Em (α, T ) consisting of P such that P has finite (T -relative)
+χ-energy. When T ≡ 1 and m = n, the class Eχ,m (α, T ) generalizes the
+usual class of currents with finite energy in [4, 11], see also [5] for the
+local setting. We refer to Section 3 for details. For the moment, we note
+here that                              [
+                         Em (α, T ) =      Eχ,m (α, T ).
+                                      χ∈W −
+
+```
+
+## Primary unit 21: DGMS-real-homotopy-1975-stonybrook-20261004.txt, LF1--46
+
+Literal SHA256 `01d1380988cf77b207bc11b0d87fb390f0a331100cbf538de071a64cacfbe3b8`; supplied pin matches: True.
+
+```text
+Inventiones math. 29, 2 4 5 - 2 7 4 (1975)
+9 by Springer-Verlag 1975
+
+
+
+
+           Real Homotopy Theory of K ihler Manifolds
+     Pierre Deligne (Bures-sur-Yvette), Phillip Griffiths* (Cambridge, Mass.),
+        John Morgan (NewYork) and Dennis Sullivan (Bures-sur-Yvette)
+
+
+                                         Table of Contents
+
+                1. Homotopy Theory of Differential Algebras . . . . . . . . . .   248
+                2. De Rham Homotopy Theory . . . . . . . . . . . . . . .          254
+                3. Relation between De Rham Homotopy Theory and Classical Homo-
+                   topy Theory . . . . . . . . . . . . . . . . . . . . . . . .    256
+                4. Formality of Differential Algebras . . . . . . . . . . . . . . 260
+                5. The De Rham Complex of a Compact K~ihler Manifold . . . . .    262
+                6. The Main Theorem and Two Proofs . . . . . . . . . . . . .      270
+                7. An Application . . . . . . . . . . . . . . . . . . . . . .     272
+
+
+    This paper brings together the strengthened de Rham theory of the last author
+[12, 13] and [14] concerning the homotopy information of a manifold contained
+in the algebra of its differential forms, and the classical results [15] about the
+forms on a compact K~ihler manifold to prove statements about the algebraic
+topology of compact K~ihler manifolds, and consequently about smooth, complex,
+projective algebraic varieties.
+    The nature of the results is that the homotopy type of a compact Kiihler manifold,
+over the real numbers, is a formal consequence of the real cohomology ring. For any
+manifold there is a differential graded algebra with rational structure constants
+whose isomorphism type is an invariant of the homotopy type of the space. The
+cohomology ring of this differential algebra is the rational cohomology ring of the
+space, but the algebra itself contains, for example, the higher order cohomology
+products. The isomorphism type of the differential algebra is equivalent to the
+"rational form of the nilpotent structure in the space". For a simply connected
+manifold this differential algebra is equivalent to the rational Postnikov tower of
+manifold. Our results here are that, for a compact K~ihler manifold, from the real
+cohomology ring one can produce the real form of this differential algebra. These
+ results complement the known structure of the cohomology ring of such a manifold.
+ We prove no new results about it.
+     The initial motivation for these results was the relation in a K~ihler manifold
+ between harmonic forms and holomorphic forms. In particular the (p, 0) harmonic
+ forms for any K~ihler metric are exactly the holomorphic forms. Consequently,
+ products of (p, 0) and (q, 0) harmonic forms are harmonic l, and thus there are no
+```
+
+## Primary unit 22: DGMS-real-homotopy-1975-stonybrook-20261004.txt, LF861--1064
+
+Literal SHA256 `0171c17a073557e342809af894852c1ba92ab5ebda68ee6606ae7371f1f3dc26`; supplied pin matches: True.
+
+```text
+                                    (02
+On any complex manifold there are positive definite Hermitian metrics
+         (~,tl)=S(~,q)+]f~A(~,tl)=(J~,J,)                 for ~ , q 6 T ( M ) .
+S and A determine one another. Because of the Hermitian symmetry, S is sym-
+metric and A is alternating. Thus S is a Riemannian metric and A is a (1, 1) form
+on M. The Hermitian metric is defined to be Kiihler if dA =0, and a Kfihler
+manifold is a complex manifold admitting a K~ihler metric. The existence of a
+Kiihler metric is a statement of close interaction between the complex structure
+and potential theory, and it has many deep consequences for the topology of the
+manifold [-15].
+    There are several equivalent statements to the definition of a K~ihler metric.
+The one given above, which is by now the usual one, has the advantage of making
+it obvious that a complex submanifold of a K~ihler manifold is again a K~ihler
+manifold. Thus, any smooth, complex projective algebraic variety is K~ihler.
+The one which we shall use below is the identity
+(5.1)                             Ad=2Ao=2A~=Anc
+between the Laplacians of the various operators d, O, ~, d c. It is perhaps worthwhile
+to give a few alternate forms of the K~ihler condition, and from these explain how
+the identity (5.1) may be proved.
+    We shall write an Hermitian metric in the two forms
+                            ds 2 = ~ hi, j dzi dS j = ~ col ~)i
+                                   i,j                i
+
+where (zl, ..., z,) are local holomorphic coordinates, h = (hi. ~)is a positive Hermitian
+matrix, and where col, ..., co, are differential forms of type (1, 0) constituting a C ~~
+unitary co-frame for the metric. The associated (1, 1) form is
+
+                              A _ t / ~ - I ~hi, jdzi/,,d~j '
+                                         2   L" J "
+and our basic definition is, as above:
+   (i) The metric is Kiihler if dA =0.
+   To give the second definition; we recall the basic theorem in local Hermitian
+geometry that there exist unique differential forms co~,j, zg satisfying
+
+                                dcoi= ~ coi, j A co j - t - T , i
+                                       J
+(5.2)                     co~.j+Nj, i=0,     zi has type (2, 0)
+264                                                              P. D e l i g n e   et al.
+
+
+
+(c.f. Chern [3]). The vector z =(z 1, ..., z,) is the torsion tensor, and m=(mi.j) gives
+the connection matrix for the unique connection Vn in the (1,0) tangent bundle
+T' (M) satisfying
+
+
+                                                        v~'~--~
+where ~, tl are C ~ sections of T'(M).
+    (Explanations. We are viewing connections as differential operators from
+sections to sections tensor l-forms; the connection matrix means relative to the
+basis of T ' ( M ) dual to ~oI ..... ~ , ; and finally V~' is the CO, I) component of VH.)
+    Our second definition is:
+    (ii) The metric is KShler if the torsion z = 0 .
+    For our third definition, we consider the standard connection VR in the real
+tangent bundle T ( M ) associated to the Riemannian metric underlying the given
+Hermitian metric.
+    (iii) The metric is KShler if VRJ=0; equivalently, parallel translation should
+preserve the almost complex structure.
+    Finally, we shall say that the metric is K/~hler in case it osculates to 2nd order
+to the flat metric on r More precisely,
+    (iv) The metric is KShler if, for each point x e M, there is a holomorphic coordinate
+system (zl, ..., z,) centered at x and such that
+
+(5.3)                                                    hi, j(z, -i) = 61. j + [2],
+
+where [2] means terms o f order two or more.
+   P r o o f of Equivalence of Definitions. ( i ) ~ (ii) Since A is real, dA = 0 ,=, 0A =0.
+Let the (0, 1)-component of o;i,j be ai, j. Then by the basic structure equations,
+( 5 . 2 ) , fit)i, j = ~i, j - - 0~j, i'
+
+
+
+
+                             _/2-1
+                             -         2   Z(~(--~J'iAOOjA~i)+TIA~I--~O'A(~IJA~i))
+                                               i    j
+
+                             _i/U-1
+                             -        2    Z'~iA~i--Z(~J'IAO)JAO)i+O)iA~i'J/X~-J)
+                                           i                     i,j
+
+
+                             _I//Z- 1 E zi^ ~//
+                                  2    i
+                             =0r
+    (ii) ~ (iii) Write z i = xi + ~ - lx,+ i, a~i = r + VrZ- 1tp,+ 1 where x~, r                  are real
+(using the index range 1 __<i, j _<_n and 1 < a, fl__<2 n). Then
+                                                   ds 2 = ~ g~, ~ dx~ dxp = ~ q~, q~,
+                                                         ol, ~                               Ot
+                         Real Homotopy Theory of Ktihler Manifolds                        265
+
+is the underlying Riemann metric, and by the basic theorem in local Riemannian
+geometry there exists a unique matrix tp = (r a) of 1-forms satisfying
+
+                                         dtp~ = Z tp~,t~/x (pp
+                                                  #
+(5.4)
+
+Here (p is the connection matrix for the Riemannian connection VRapplied to the
+dual frame to q01..... ~02,. Comparing the structure Eqs. (5.2) and (5.4), we see
+that if r = 0, then upon writing co = co' + ~ 1co" we get
+                                           (     co' co"~
+                                     tp=       -co" co'l"
+
+This says exactly that, on the complexification Tc(M) _~ T' (M) 9 T'(M), VR= Vn 9 fTn,
+which implies that VR commutes with J. (This proof may be given verbally by
+stating that the Riemannian and Hermitian connections coincide in the K~thler case.)
+     (iii) ~ (iv) First, we observe that (iv) is equivalent to saying that, for each
+x e M there is a C ~ coordinate system z = ( q , ..., z,) centered at x which is holo-
+morphic to 2nd order. This means that z maps a neighborhood U ofx differentially
+to ~", dzl(x) ..... dz,(x) span T~(M), and all ~(dzi)(x)=O, such that (5.3) holds.
+Assuming (iii), we let (Xl ..... x2,) be geodesic coordinates centered at x. We may
+arrange that at x, J(dxi)= dx,+ i, and then set zi = xl + I F - 1 x,+ i. Since (x~ .... , x2,)
+are geodesic coordinates, g,,a = 6,. e + [-2]. Thus the connection matrix for VR is
+zero at x, and VRJ=O implies (dJ)(x)=O. It follows that ~(dzi)(x)=O, and (iv)
+follows immediately.
+     (iv) ~ (i) This is the main point. Given an Hermitian metric satisfying (iv),
+we see that
+(5.5) Any identity involving the metric and only its first derivatives is valid on
+M r162it is valid for the fiat metric on C".
+Applying this to the identity dA = 0, which is obviously true on C", we conclude
+the equivalence of (i)-(iv).
+    We shall discuss how the principle (5.5) may be used to prove (5.1), as well as
+some other Ktihler identities. We first consider the commutation relations
+(5.6)                              [c5, c~*]= 0 = [O, c5"].
+On the face of it these involve second derivatives of the metric, but actually only
+first derivatives appear for the reason that mixed partials are equal (think of the
+Poisson bracket of vector fields). Thus, (5.6) is valid on a Ktihler manifold since
+it is obviously true in if;" (the metric has constant coefficients). Expanding out
+the definition of A a now gives
+                          & = (~ + 0)(~* + 0") + (~* + 0") (~ + ~)
+                             = (0 0* + c~*~3)+ (c~* + c5"0)                        (by (5.6));
+or
+
+(5.7)                     Aa = Ae+ A~.
+266                                               P. Deligne et al.
+
+From (5.7) we see that An preserves (p, q) type, since this is obviously true for A0
+and A~. Thus
+(5.8)                                       Ad = j - x Ad J = Ado.
+
+Writing O = 8 9        2- ldC), c3"= 89                                      we see that
+                         c3~* + c3"(3= 88(dd* + d * d + d C d ~* + d ~* d ~)
+                                           =89                                                     (by (5.8))
+Combining this with (5.7) gives (5.1).
+   In closing, it is worth noting that the most interesting properties of Kihler
+metrics, such as the fact that L(~)=A/x ~ takes harmonic forms to harmonic
+forms, are generally proved from the identity
+(5.9)                                              [A, d] = d~*
+or equivalently
+(5.10)                                      [A, 4] = - ~ -                   10*
+where A = * L* is the adjoint of L. Now (5.10) obviously involves only 1st derivatives
+of the metric and so by (5.5) it will suffice to prove it on ~". This is not too hard
+since dzl, ..., dz, gives a flat unitary co-frame; one uses the formulae
+                                                                 H
+
+
+
+
+                       cS(fdz I ^ d J ) -- ~ ( - 1)p ~                        dz I A dzj A d2 s,
+                                                  jCJ
+
+                      A ( f d z I A dr:J) =          ~     +_fdz I - {k}Adz J- {k}
+                                                  kelc~J
+
+
+                     O * ( f d z I A a S, )j=. L +~~ = - a0 zf       .   i
+                                                                             - Ill Aa~
+                                                                                     9 J
+
+                                                  i~I      OZi
+
+where I =(il , ..., ip), d z 1 = d z i , A ... A dzi~, etc. and just computes. Using (5.10),
+                    0c~* + 0* ~ = 1/~- I(0A~? - 0 2 A + A ~ 2 - c~A0)= 0,
+which is (5.6). Similarly, d A = O =~ d~A=O and d ~ * = [ A , d ] = 0 since A A is a
+constant. Thus A is harmonic for dc, and hence for d. Further discussion of the
+basic Kihler identities is given in Weil's book [15], p. 179-194.
+   The main fact we shall use about compact Kihler manifolds is the following
+lemma:
+(5.11) Lemma ( d d ~ Lemma). I f ~ is a differential form such that d~ = 0 and d~ct=0,
+and such that ct=dT, then ~=dd~ fl for some ft.
+   Proof If D is one of the operators d, c3, ~, d~ with Laplacian AD, the Hodge
+decomposition for the Laplacian gives
+(5.12)                      0 = ~eo(q,) + Ao ~o(~ )
+where o'r     the harmonic part of ~, is the projection of ~ on ~ o = k e r A o ,
+and where the Green's operator G o is AB ~ on Jgo• Suppose that c~=dT. Then by
+(5.12)
+(5.13)                           e = d d * GaOl.
+                          Real Homotopy Theory of K/ihler Manifolds                               267
+
+Since d~c~=0, e=Yfdc(e)+dCd~*Gdc~=d~d~*G,~oe                 because ~ o ( e ) = o ~ f d ( e ) = 0 by
+(5.1). Plugging this in (5.13) gives
+                                     =dd* Ga(d~d~*Gd~ c~)
+                                     =dd~(d * Gd d~*Ge~ ~)                            (using (5.6))
+                                     =dd~/~
+as required.
+(5.14) Remark. This l e m m a holds for real as well as complex forms, since the
+validity of a linear statement such as
+
+                              Ker(d) c~ Ker(d c) c~ Im(d) = I m ( d d c)
+
+is unchanged by a field extension.
+    F o r complex forms, being d and de-closed is the same as being 0 and ~-closed.
+Being ddC-exact is the s a m e as being c~-exact, since ddC= 2 i ~ .
+```
+
+## Primary unit 23: GZ-intrinsic-capacities-JGA05-20261004.txt, LF1--62
+
+Literal SHA256 `79017a5f9920f81033635b6acb4e07a15c13b88da6c7dcb986963b3bef36265f`; supplied pin matches: True.
+
+```text
+The Journal of Geometric Analysis
+Volume 15, Number 4, 2005
+
+
+
+
+     Intrinsic Capacities on Compact K ihler
+                   Manifolds
+                                       B y Vincent G u e d j a n d A h m e d Zeriahi
+
+
+
+
+       ABSTRACT. We study fine properties of quasiplurisubharmonic functions on compact Kiihler manifolds.
+       We define and study several intrinsic capacities which characterize pluripolar sets and show that locally
+       pluripolar sets are globally "quasi-pluripolar."
+
+
+
+                                                    1. I n t r o d u c t i o n
+
+      Since the fundamental work of Bedford and Taylor [4, 5], several authors have developed
+a "Pluripotential theory" in domains of C n (or of Stein manifolds). This theory is devoted to
+the fine study of plurisubharmonic (psh) functions and can be seen as a nonlinear generalization
+of the classical potential theory (in one complex variable), where subharmonic functions and
+the Laplace operator A are replaced by psh functions and the complex Monge-Amp~re operator
+                                                                                    i --
+(ddC) n. Here d, d c denote the real differential operators d := 0 + 0, d c := ~-[a      - a] so that
+dd c = i 0 ~ , the normalization being chosen so that the positive measure (dd c 89log[1 + Ilz112])n
+has total mass 1 in C n. We refer the reader to [3, 7, 26] for a survey of this local theory.
+      Our aim here is to develop a global Pluripotential theory in the context of compact Kahler
+manifolds. It follows from the maximum principle that there are no psh functions (except con-
+stants) on a compact complex manifold X. However, there are usually plenty of positive closed
+currents of bidegree (1, 1) (we refer the reader to [ 15, Ch. 3], for basic facts on positive currents).
+Given co a real closed smooth form of bidegree (1, 1) on X, we may consider every positive closed
+current co' of bidegree (1, 1) on X which is cohomologous to 09. When X is K~ihler, it follows
+from the "ddC-lemma '' that cot can be written as co' = co + ddC~o, where q9 is a function which
+is integrable with respect to any smooth volume form on X. Such a function ~0 will be called
+w-plurisubharmonic (w-psh for short). It is globally defined on X and locally given as the sum
+of a psh and a smooth function. We let P S H ( X , co) denote the set of w-psh functions. Such
+functions were introduced by Demailly, who call them quasiplurisubharmonic (qpsh). These are
+the main objects of study in this article.
+      There are several motivations to study qpsh functions on compact K~Jaler manifolds. First of
+all they arise naturally in complex analytic geometry as positive singular metrics of holomorphic
+
+
+
+       Math Subject Classifications. 32W20, 32U15, 32Q15.
+       Key Words and Phrases. Quasiplurisubharmonic functions, capacity, extremal functions, Kahler manifolds.
+
+9 2005TheJournalof GeometricAnalysis
+ISSN1050-6926
+608                                 Vincent Guedj and Ahmed Zeriahi
+
+line bundles (see Section 5) whose study is central to several questions of complex algebraic geom-
+etry. Solving Monge-Amp~re equations associated to og-psh functions has been used to produce
+metrics with prescribed singularities (see [13]). It is also related to the existence of canonical
+metrics in K~ihler geometry (see [37]). Important contributions have been made by Kolodziej
+in this direction [28] using techniques from local Pluripotential theory. Quasiplurisubharmonic
+functions have also been used in [21 ] to define a notion of og-polynomial convexity and study the
+fine approximation of positive currents by rational divisors. Last but not least, such functions are
+of constant use in complex dynamics in several variables (see [17, 18, 22, 23, 33]).
+```
+
+## Primary unit 24: GZ-intrinsic-capacities-JGA05-20261004.txt, LF347--680
+
+Literal SHA256 `f4b9152da337a5f66f0c15a40ce23cf259aafbbcaa2a3bffac8d0947dd1e81ff`; supplied pin matches: True.
+
+```text
+                                   3. Monge-Amp~re capacity
+     In this section we introduce the global Monge-Amp~re capacity (see Definition 3.4). The
+definition only makes sense when the cohomology class {w} has strong positivity properties. To
+simplify our exposition we assume throughout this section that o9 is a K~ihler form.
+     Let T be a positive closed current of bidegree (p, p) on X, 0 < p < n = d i m c X. It can be
+thought of as a closed differential form of bidegree (p, p) with measure coefficients whose total
+variation is controlled by                           /   1
+
+
+
+                                         IITII := . L T A o9n-p         o
+
+
+
+
+We refer the reader to [15, Ch. 3] for basic properties of positive currents. Given ~o E P S H ( X , o))
+we write ~o ~ L I ( T ) if ~o is integrable with respect to each (measure) coefficient of T. This is
+equivalent to ~0 being integrable with respect to the trace measure T A ogn-p. In this case, the
+current ~0T is well defined, hence so is
+
+                                    o9~0A T := o) A T + ddC(qgT) .
+
+This is again apositive closed current on X, of bidegree (p + 1, p + 1). Indeed, positivity is a
+local property which is stable under taking limits. One can locally regularize ~0 and approximate
+o9~ A T by the currents o9~ A T which are positive since o9,p~ are smooth positive forms.
+614                                            VincentGuedjand AhmedZeriahi
+
+     When q) ~ P S H ( X , o9) N L~176 then ~o ~ L I ( T ) for any positive closed current T of
+bidegree (p, p). One can thus inductively define o)j A T, 1 < j < n - p, for ~o e P S H ( X , co) O
+L~176 For T = 0 and j = n one obtains the complex Monge-Amp~re operator, O)~o.       n It follows
+from the local theory that the operator ~o ~ o)en is continuous under monotone sequences (see [5]).
+The proof of these continuity properties is simpler in our compact setting. We refer the reader
+to [24] where this is proved in a more general global context.
+
+Proposition 3.1 (Chern-Levine-Nirenberg inequalities).                            Let T be a positive closed current
+ofbidegree (p, p) on X andq) ~ P S H ( X , o9) n L ~ ( X ) .
+      Then IIo)~ A TII = IITII. Moreover, i f ~ ~ P S H ( X , o9) n L I ( T ) , then ~p ~ L I ( T A o)~)
+and
+                      II~Plltl(T^,o~) ___ II~llzl(T) + [2 sup~p + supq) --i~f q)] IlZll 9
+                                                           X       X
+
+Proof.       By Stokes theorem, f x ddC~~A T A o)n-p-1 = 0, hence
+
+                     IIo)~ A TII := f x W ~ A T A o)n-p-I = f x T A o)n-P := IITII .
+
+Consider now ap ~ L I ( T ) . Since T has measure coefficients, this simply means that ~p is
+integrable with respect to the total variation of these measures. Assume first ~ < 0, ~0 > 0 and
+~o, ~ are smooth. Then
+
+  [[~][LI(TA~o~) :~__-.f x ( - ~ ) T       A w~o A O)n - p - 1    =   II~PllLl(r~ +   fx(-*)z   A ddCq) A O)n-p-1 .
+
+NOW it follows from Stokes theorem that
+
+                                                        1                                        1
+
+
+
+                                                                 fx T on-,
+where the next to last inequality follows from q)T A o)n-p > 0 and - d d % p <_o9. This yields
+
+                                    II~PllL~(r^,o~) -< Ii~PlILI(r) + sup~011TII.
+                                                                      x
+The general case follows by regularizing ~0, ~, observing that o)e = w~o,where q)f = q) _ infx q) >
+0, and decomposing ~ = ~ ' + supx ~ with ~t = ~ _ suPx ~p < 0.                                   []
+
+R e m a r k 3.2. The fact that the L l_norm of ~p with respect to the probability measure T A o2~ A
+o)n-p-1 is controlled by its Ll-norm with respect to T A o)n-p is similar to the phenomenon
+already encountered in Example 2.8: One can write
+
+            T Ao)e /kO) n - p - 1      =    T Ao) n-p +ddCS, S = (q) - i.~f~0)T A O ) n - p - 1        > O.
+
+
+This type of estimates is usually referred to as "Chern-Levine-Nirenberg inequalities," in reference
+to [8] where simpler -but fundamental- L~-estimates were established (with ~ = constant).
+Estimates involving the L 1.norm of if/were first proved in the local context by Cegrell [6] and
+Demailly [12].
+
+      A straightforward induction yields the following.
+                                          Intrinsic Capacities on Compact Kiihler Manifolds                    615
+
+Corollary 3.3.              Let ~, ~o E P S H ( X , o9) with 0 < ~o < 1. Then
+
+                               o<_fx t 109 <_fx laP109n+ n [ 1 + 2sup@]
+                                                                   X
+                                                                        f 09n.
+                                                                        dX
+     Following Bedford-Taylor [5] and Kolodziej [29] we introduce the following Monge-Amp~re
+capacity.
+
+D e f i n i t i o n 3.4.    Let K be a Borel subset of X. We set
+
+                            Cap~o(K) := sup                09<.o/ ~0 ~ P S H ( X , 09), 0 <_ ~0 <_ 1       .
+                                                    IlK      n                                         }
+
+     Note that this definition only makes sense when the cohomology class {09} is big, i.e., when
+{09}n > 0, and when it admits locally bounded potentials ~0. This implies, by a regularization
+result of Demailly [12], that {09} is big and neff In order to avoid technicalities, we are assuming
+throughout this section that {09} is K~ihler.
+
+Proposition 3.5.
+       (1) I l K c K ~ c X are Borel subsets then
+
+                  Volvo(K) := f 09n < Capoj(K) < Capo' (K') < Cap,o(X) = Volo~(X).
+                              3K
+
+        (2) l f K j are Borel subsets o f X thenCap~o(UK j) < ~ Capw(Kj). Moreover, Capoj(UKj) =
+limCapo,(Kj) i f K j C Kj+I.
+     (3) If091 < 092 then Captor(.) < Capm(.). For all A > 1, Cap,o(.) < CaPao,(.) <
+A n Cap,o(.). In particular, if09, cot are two Kiihlerforms then there exists C > 1 such that
+                                            1
+                                                Cap,o(.) _< CaP,o,(.) _< C . CaP,o(.).
+
+        (4) I f f : X ~ X is holomorphic then for all Borel subset K o f X,
+                                                  Capco(f(K)) _< Capf.~o(K) 9
+In particular, Capon(f (K)) = Cap~o(K) for every 09-isometry f .
+
+Proof.       That Volvo(.) < Cap,o(.) is a straightforward consequence of the definition (since wo =
+09). It then follows from Stokes theorem that f x o~ = f x (-onfor every ~o ~ P S H (X, 09) ML~176
+                                                                                                 (X),
+thus Volvo(X) = Cap~o(X).
+        Property (2) is a straightforward consequence of the definitions.
+     Ifwl < 092 then P S H ( X , o91) C P S H ( X , o92) hence Cap~ol(.) < Cap~(.). Fix A > 1. If
+ap ~ P S H ( X , A09) is such that 0 < 7t < 1 then ~p/A ~ P S H ( X , w) with 0 < ~r/A < 1 / A < 1.
+Moreover, (A09 + ddC~r) n = An(09 -F ddC(~t/A)) n. This shows CapaoJ(. ) < A n Capco(.).
+    In particular, if 09, J are both K ~ l e r then A-109 < 09/ < A09 for some constant A > 1,
+hence C -1 Capon(. ) < Capco,(. ) < C 9Capon(.) with C = A n.
+      It remains to prove (4). It follows from the change of variables formula that if ~0
+P S H ( X , o9) with 0 < ~0 < 1 then
+
+
+                       f,         n <
+                            (K) 09~0 --         f o09,o=         ( f ' 0 9 + ddC(~o o f ) ) n < Capf,o~(K)
+616                                                Vincent Guedj and Ahmed Zeriahi
+
+since~pof 6 P S H ( X , f ' 0 9 ) w i t h 0 < q~of < 1. W e i n f e r C a p w ( f ( K ) ) < Capf.w(K). When f
+is a 09-isometry, i.e., f ~ Aut(X) with f ' 0 9 = w, then the mapping ~o w+ r o f is an isomorphism
+of {u ~ P S H ( X , o9) / 0 < u < 1}, whence Cap~o(f(K)) = Capf.~o(K ) = Cap~o(K ).                         []
+
+      Let P S H - (X, o9) denote the set of negative 09-psh functions. A set is said to be P S H ( X , 09)-
+polar if it is included in the - c ~ locus of some function r E P S H ( X , w), r ~ - o 0 . As we
+shall soon see, the sets of zero Monge-Amp&e capacity are precisely the P S H (X, 09)-polar sets.
+We start by establishing the following:
+
+Proposition 3.6.        I f P is a P S H ( X , w)-polar set, then CapofiP ) = O. More precisely, f f
+r E P S H - ( X , o9) then
+
+                      Capoj(r < - t ) < t
+                                                      1%     (_r
+                                                                                       ]
+                                                                        + n Volvo(X) , Yt > O.
+
+
+Proof.      Fix ~0 ~ P S H ( X , 09) such that 0 < ~0 < 1. Fix t > 0 and set Kt = {x E X / r                             <
+- t } . By Chebyshev's inequality,
+
+
+                      fK f~t
+                               09~o <        (_r            -< tl[fx(-r             + n Voloo(X) ]
+where the last inequality follows from Corollary 3.3. Taking supremum over all ~0's yields the
+claim.                                                                                                                   []
+
+                                                         * p
+      Observe that the previous proposition says that CaP,o( ) = 0, where
+
+                               Cap*(E) : = inf{CaP~o(G ) / G open with                 E C G},
+
+is the outer capacity associate to Cap~o.
+
+     Our aim is now to show that 09-psh functions are quasicontinuous with respect to Capo~
+(Corollary 3.8). We first need to show that decreasing sequences of 09-psh functions converge "in
+capacity."
+
+Proposition 3.7.          Let r Cj ~ P S H (X, 09) M L ~176
+                                                         (X) such that ( r                   decreases to r       Then for
+each ~ > O,
+                                               Cap~o({r j > r + 8}) ---> O.
+
+Proof.       We can assume w.l.o.g, that Volvo(X) = 1 and 0 < Cj - r < 1. Fix 3 > 0 and
+~0 ~ P S H ( X , 09), 0 < ~0 < 1. By Chebyshev inequality, it suffices to control f x ( r - r
+uniformly in r      It follows from Stokes theorem that
+
+               (r    - r            =        (r      - r      A 09~-1 -
+                                                                          fx  d(r     - r   A dCq9 A 09~o     9
+
+Now by Cauchy-Schwartz inequality,
+
+
+         dfjAd~gA                       <_          dfjmdCfjA09~o -I             .       dfAdC~oAw~o -1              ,
+
+where we set f j : = Cj - r >_ 0. Moreover,
+
+
+              fx      A           A4'          =               ddc ) A 4 -1 < fx            A 4 -1 < 1,
+                              Intrinsic Capacities on Compact Ktihler Manifolds                    617
+
+since ~0c@-1 > 0, -ddCq9 < ~o and ~0 < 1. Similarly
+
+
+             fx dfjAdCfjAo9~-l=               s     _fjddCfjAo9~     l<       fjoor   n-l .
+
+
+Altogether this yields
+
+
+        s       - ~)o~       <- f x O h - ~p)o>/x %n-1 _~_( f (1/fxj --) ~1)(.0~./ A2 r -1
+                             < ~
+                                        (Ix    (~/j -- ~)(0) + r    A 0)~-1
+                                                                              )'" ,
+
+where the last inequality follows from the elementary inequalities 0 < a < ~             _< 1 and V ~ +
+4~_<4~+b.
+     Going on replacing at each step a term w~0 by o) + w~, we end up with
+
+                                         n ( (~/rjf - - x
+                          (1/tj - - 1/t)O)~0 _< 2       r
+                                                          )Jr- 0 ) ~ ) n 1/2n .
+The majorant being independent of ~oand converging to 0 as j --~ + ~ (by dominated convergence
+theorem), this completes the proof.                                                         []
+
+C o r o l l a r y 3.8 (Quasicontinuity).  Let q9 ~ P S H ( X , ~o). For each e > 0 there exists an open
+subset O e o f X such that CaP ~o( O e ) < e and ~o is continuous on X \ 0 ~.
+
+Proof.     For t > 0 large enough, the set O1 = {~o < - t } has capacity < e / 2 by Proposi-
+tion 3.6. Working in X \ O1 we can thus replace ~0 by ~0t = max(cp, - t ) which is bounded on X.
+Regularizing ~0 (see Appendix), we can find a sequence apj of smooth Aco-psh functions which
+decrease to ~ot on X, for some A > 1. By Proposition 3.7, the set Oj = {7% > ~ot + 1/j} has
+capacity < e2 - j - 1 if kj is large enough. Now 7zkj uniformly converges to r = ~0t on X \ Oe,
+Oe = Uj>_I O j, SO ~0 is continuous on X \ Os and Cap~o(Os) < e.                              []
+
+E x a m p l e 3.9. The capacity Cap,o(-) does not distinguish between "big sets." Assume indeed
+there exists an ample divisor D such that [D] --~ kw, k 6 N. Then there exists ~o 6 P S H ( X , o~)
+such that ddC~o = k - l [ D ] - o). Note that q9 6 C~      \ D), e ~~ E C~    and {~p = -cx~} =
+D. Replacing ~o by ~o - suPx ~o if necessary, we may assume supx ~o = 0. Consider ~Oc =
+max(~o, - c ) E P S H ( X, w) N C~     Then qgc - ~o outside some neighborhood Vc = {q9 < - c }
+of D. Since 0 _< 1 + ~ol < 1 and ~o1+~ol = oJ~ = 0 in X \ V1, we get
+
+
+                     Capo/X)=fx(~Ol+~,)n=fv(o~l+~01)n -< Cap~o( V D ,
+                                                           1
+
+
+hence Cap~o(V1) = CapofiX).
+      As a concrete example take X = C ~ n and 09 = ~OFS, D being some hyperplane H ~ "at
+infinity" (k = 1). Set ~o[z : t] = log It[ - 1 log[[lz[[2 + [t[2] where z denotes the Euclidean
+coordinates in C n = C]Pn \ Hoo and H ~ = (t = 0). Observe that supcy. ~p = 0. One then
+computes
+                              Clan\v1 = [ z E C n / I z [      <   e2x/~--l] .
+
+Thus, the capacity of the complement of any Euclidean ball of radius smaller than 4 ~ e2 - 1 equals
+618                                      Vincent Guedj and Ahmed Zeriahi
+
+     The definition of Cap, o mimics the definition of the relative Monge-Amp~re capacity intro-
+duced by Bedford and Taylor in [5]. Fix/d = {Ha } a finite covering of X by strictly pseudoconvex
+open subsets of X, Ha = {x ~ X / O~(x) < 0}, where 06 is a strictly psh smooth function de-
+fined in a neighborhood of ~-~. Fix 3 > 0 such that L/~ = {Hi } is still a covering of X, where
+Lt~ = {x ~ X / • (x) < -3}. For a Borel subset K of X, we set
+
+                                CaPBT(K) := Z           CapsT (K N/.g~, b/~) ,
+                                                   c~
+
+
+
+where
+                CaPeT(E, f2) := sup { f~ (ddcu)n / u 6 PSH(~2), O < u < l }
+
+is the capacity studied by Bedford and Taylor. The next proposition is due to Kolodziej [29]. We
+include a slightly different proof.
+
+Proposition 3.10.       There exists C >_ 1 such that
+                                 1
+                                     Cap~(.) _< C a p s r ( . ) _< C . Cap~(.).
+
+
+Proof        Let E be aBorel subset of X. Since Cap~o(E N/d~) < CaPon(E) _< Y-~.aCapo~(E NL/~),
+it is sufficient to show that if f2 = {x ~ X / O(x) < 0} is a smooth hyperconvex subset of X, then
+there exists C _> 1 such that for all E C f26,
+
+                           1
+                                Capw(E ) < C a p n r ( E , g2) < C 9Cap,o(E),
+
+where ~2~ = {x ~ X / 0(x) < -6}.
+         It is an easy and well known fact in the local theory that the capacities Cap(., ~2) and
+Cap(., f2') are comparable when f2' c fl (see e.g., Theorem 6.5 in [12]). Therefore we can
+assume (passing to a finer covering if necessary) that co = ddC~l, near f2. Fix C1 > 0 such
+t h a t - C 1 < ~P < C l O n f2. Fix~o 6 P S H ( X , 09) such t h a t 0 < ~0 < 1 o n X a n d s e t u =
+(2C1)-1(~o + ~O + C1). Then u ~ PSH(~2) and 0 < u < 1, hence
+
+
+                     fe "--(2c,)"L
+                         09go                   (ddcu)n --< (2c1)nCapsT(E'g2) ,
+
+which yields Cap,o(E) < (2C1) n C a p n r ( E , fl). Observe that we have not used here that 09 is
+Kahler.
+      For the reverse inequality we consider X 6 C~176 such that X = 0 in X \ ~2 and X < 0
+in f~. Replacing X by eX if necessary, we can assume X e P S H ( X , 09). This is because 09 is
+K~thler (and this is the only place where we shall use this crucial assumption). Fix e > 0 so small
+that X < - e on ~2a. Let now u 6 PSH(f2) be such that 0 < u < 1 on f2. Consider
+
+                                                  u-•-]-Cl                 in   f28
+                                                    2+2C1
+                    ~0(x) =          max ~ 2~UCtt , zX
+                                         [ u - ~ + C     2 (x) + 1)        in   g2 \ f28
+                                                    1                      in   X\~
+
+Observe that 0 < u' := (u - ~ + C1)/(2 + 2C1) < (1 + 2C1)/(2 + 2C1) < 1 in g2. Therefore
+~o ~ P S H ( X , 209) since 2X(x) + 1 < - 1 < u' in f2~, while 2X(X ) + 1 - 1 > u' on 092. Note,
+                             Intrinsic Capacities on Compact Kiihler Manifolds                     619
+
+also that 0 < ~o < 1 thus for E C f2~,
+
+              1
+        (2 + 2C1)n f E (ddcu)n
+                                                 - -     + ddC q9     )"   <         co + ddC ~o
+                                     =
+
+                                     <
+                                                 2 + 2C1
+
+                                           Cap2~o/e(E) <
+                                                               (!)n        --
+
+                                                                     Cap~o(E)
+
+hence CapBT(E, f2) < 4n(1 + c 1 ) n E - n Capo~(E ).                                                []
+
+     Since locally pluripolar sets are precisely the sets of zero relative capacity [5], we obtain the
+following:
+
+Corollary 3.11.      Cap~o(P) = 0 r162CapBT(P ) = 0 r            Pis locally plul~polar.
+
+     We shall show later on that locally pluripolar sets are P S H ( X , w)-polar when o9 is K~ihler
+(see Theorem 7.2).
+     The following two results are direct consequences of the corresponding results of Bedford
+and Taylor [4, 5].
+```
+
+
+# Complete preceding dependencies and additional primary evidence
+
+# Minimum auxiliary references and genuine finite-energy domains
+
+Origin: new root-supplied UNVERIFIED route. It is mathematical evidence to investigate, not an operational instruction or theorem grant. Research only P15.1/P15.2 in this fresh two-problem batch; no feedback into earlier campaigns. The original dossier quantifiers and reference/carrier criteria are unchanged.
+
+Standing setting: connected smooth compact Kahler n-fold X, pseudoeffective alpha with vol(alpha)=0, smooth theta representing alpha, actual theta-psh reference psi, actual bounded singularity type C_psi. T_u=theta+ddc u, d=max{k:int<T_psi^k>omega^(n-k)>0}<n, m=n-d. Degree is actual-current degree, not class numerical dimension. Retain theta, the actual psi-type and an anchor for relative energy. No probability normalization. Full previous mathematical proofs and essential source bodies are supplied below, with their exact scope and limitations; reconstruct their indispensable applications rather than treating review verdicts as assumptions.
+
+1. Proposed auxiliary-independent full-mass domain. Suppose u is more singular than psi and the degree-d raw mass against one Kahler omega0 equals the corresponding reference mass. For another Kahler omega1 choose C large so D=C*omega0-omega1 is itself Kahler. For every j=0,...,m, DDNL mass monotonicity, applied with d potential factors and the remaining smooth omega1/D factors, should give nonnegative scalar deficits Delta_j=int(<T_psi^d>-<T_u^d>)omega1^j D^(m-j). Expansion of (C*omega0)^m gives sum_j binom(m,j)Delta_j=0. Thus each Delta_j=0, including the omega1^m deficit. This argument uses scalar nonnegativity only; it does NOT assume a positive difference of actual product currents. Prove every mixed monotonicity application and the d=0 case. Changing the auxiliary form therefore may not change this full-mass domain.
+
+2. Proposed auxiliary-independent joint finite-linear-energy domain. For each degree-d mixed positive current, any two smooth Kahler m-powers are pointwise comparable on compact X. Hence finiteness of all integrals (psi-u)<T_u^a T_psi^(d-a)>omega^m may be independent of the full positive form. Combine with1 to get one genuine unbounded F1_psi domain valid for every auxiliary class. Normalize potentials by constants and prove the finite-energy definition agrees with the reviewed joint-linear domain, including d=0 and same-type anchor changes. Do not infer unbounded moving auxiliary-path limits: the supplied analytic concentration example disproves that strengthening.
+
+3. Proposed finite-dimensional minimum energy reference, now on the entire F1 domain. V=H^(1,1)(X,R), with the usual finite-dimensional real Bott-Chern/deRham (1,1) interpretation on compact Kahler X. For each bounded-type u, the reviewed energy is a homogeneous degree-m polynomial p_u(lambda) on the open Kahler cone, with polarization ell_u in (Sym^m V)^*. Define S=span{ell_u:u in C_psi}, K=Ann(S), Q=Sym^m V/K. Give these functionals explicitly from mixed energy integrals and prove independence of all temporary bases/representatives. For unbounded u in F1, take u_L=max(u,psi-L), and p_uL(lambda)->E_psi,lambda(u) for every Kahler lambda by the reviewed exact truncation identity. Choose finitely many Kahler classes lambda_i whose degree-m powers give unisolvent evaluations on homogeneous polynomials; prove existence from the fact that a polynomial zero on a nonempty open set is zero. The values at those classes may force coefficientwise convergence ell_uL->ell_u. Since S is finite-dimensional and closed, ell_u belongs to S. Conversely bounded-type potentials lie in F1, so all unbounded energy functionals should generate exactly the same S and K.
+
+Prove the precise equivalence: two auxiliary classes induce the same anchored energy for EVERY u in F1 iff q(lambda0^m)=q(lambda1^m) in Q. Prove all raw-mass and anchor-change identities: psi+c generates c*M_d, so the positive mass polynomial is retained; a bounded-equivalent anchor chi has ell_u^chi=ell_u^psi-ell_chi^psi and the same S/K/domain. State the universal factorization/minimality sense rigorously for energy families; a quotient definition alone is not an independently geometric classification or a numerical-dimension theorem. Identify exactly what data remain necessary. Investigate representative/theta gauge invariance and admissible continuity on the quotient image, without extending the refuted auxiliary-path assertion. If original P15.1 is still not fully answered, list its actual remaining requirements rather than claiming this scoped theorem closes it.
+
+4. Proposed minimum full-form operator reference on a common unbounded full-mass domain. Work first in W=span_R{omega^m:omega any smooth Kahler form on X}, the actual algebraic span of admissible full-form reference powers (not an unproved identification with every closed (m,m) form). Define L_u(eta)=<T_u^d> wedge eta as a signed measure for eta in W; let N=intersection_(u in C_psi)ker L_u. Prove well-definedness and describe equality of all operators by q_W(omega^m) in W/N. This is generally infinite-dimensional and cannot simply be replaced by cohomology: the supplied P1xP1 same-class example changes the actual measure.
+
+To extend minimum data from bounded type to all more-singular degree-d full-mass u, prove bare-current convergence <T_uL^d>-><T_u^d> for u_L=max(u,psi-L), not merely convergence of one trace measure. Route: positive-current compactness from the fixed trace mass, the precise Vu constant-relative-background lower-semicontinuity lemma with complementary smooth positive tests (or relative current R=1), then every cluster current dominates the actual product while equal trace mass makes the positive difference vanish. Check all hypotheses, comparison-potential versus product-factor distinctions, bidegrees, polarity and normalization. If this works, L_uL(eta)->L_u(eta) for every fixed smooth eta, so N equals the intersection of kernels on the entire common full-mass domain. Prove minimum-data equivalence, raw mass and anchor/theta invariance and any claimed mixed/decreasing continuity. Do not infer convergence with arbitrary moving rough auxiliary forms or variable unbounded weights.
+
+The actual measure carrier remains X of dimension n, with product bidegree(d,d); a quotient of reference forms is not a geometric d-dimensional carrier. An independently geometric characterization, a genuine lower-dimensional carrier, or full original closure needs a separate proof. Do not label a purely definitional quotient a substantive new theorem: the domain independence, coefficientwise unbounded extension and bare-current reconstruction are the proposed new content. A quantitative/factorwise geometric kernel characterization is encouraged if provable.
+
+5. Optional degree-zero question: can C_psi differ only by constants when d=0? This would require a real Sobolev/Dirichlet identification, not formal current vanishing. Do not assume it, and do not turn this optional question into a blocker for substantive results1-4.
+
+Preserve source defects literally. GZ2005 Proposition3.7 is bounded; use truncations and Proposition3.6,3.10 and Corollary3.8 for general decreasing quasi-psh capacity. Vu2005.13241v3 Theorem3.3 has bounded product factors, possibly unbounded comparison potentials; first truncate local product factors and exhaust finite loci for NPP applications. Cutoff strict sets contain the nonzero locus, not necessarily the closed support. The full DGMS ddc-lemma proof was authenticated from a fresh StonyBrook author-hosted copy. Printed half-factor and Cauchy-Schwarz defects are retained; new arguments use correct intrinsic definitions. Existing proofs/reviews are same-model research evidence, not formal certification or literature-priority claims.
+
+# Complete prior scoped proof P15.1-prescribed-type-zero-volume-energy
+
+# P15.1: prescribed-type unnormalized energy — partial result
+
+Authoritative mathematical argument, independent investigation, 4 October 2026. Original atom remains open; no claim concerning P15.2 or P15.3.
+
+# A prescribed bounded-type energy without a fibration
+
+**Status: a partial result for P15.1.** The theorem below applies to every connected smooth compact Kähler manifold and every actual reference potential in every pseudoeffective zero-volume class. Its domain is the prescribed bounded singularity type. It does not assert a complete solution of the original atom, an identification with numerical dimension, or any solution of P15.2 or P15.3. All assertions are mathematical drafts, not independently certified results.
+
+## Conventions and the standard foundations used
+
+Let \(X\) be a connected smooth compact Kähler \(n\)-fold, \(n\geq1\). Set
+\[
+d^c=\frac{i}{4\pi}(\bar\partial-\partial),\qquad dd^c=\frac{i}{2\pi}\partial\bar\partial.
+\]
+A potential is never identically minus infinity. For a smooth closed real \((1,1)\)-form \(\theta\), put \(T_u=\theta+dd^cu\). Write \(u\sim\psi\) when \(\psi-C\leq u\leq\psi+C\) for some finite constant; differences are interpreted on the common finite locus and may be assigned any value on the common polar set. Define
+\[
+\mathcal C_\psi=\{u\in\operatorname{PSH}(X,\theta):u\sim\psi\}.
+\]
+The comparison inequalities, not an ideal equivalence, define the retained singularity data.
+
+The following scoped published foundations are used. Their complete supplied primary bodies, including defects, are reproduced in the authoritative argument's source annex.
+
+1. **Nonpluripolar products.** BEGZ, *Monge–Ampère equations in big cohomology classes*, Acta Math. 205 (2010), 199–262, arXiv:0812.3674v2, Definition 1.1, Proposition 1.4, Proposition 1.6 and Theorem 1.8: products of finitely many closed positive \((1,1)\)-currents on a compact Kähler manifold are well-defined finite closed positive currents, symmetric, multilinear on positive sums, and plurifinely local. Their trace measures put no mass on pluripolar sets. Smooth factors agree with ordinary multiplication. The empty product is 1. These statements apply to actual currents and do not assert multilinearity of the class positive product.
+2. **Bounded-type mixed masses and monotonicity.** Darvas–Di Nezza–Lu, *Monotonicity of nonpluripolar products and complex Monge–Ampère equations with prescribed singularity*, Anal. PDE 11 (2018), 2049–2087, Proposition 2.1: for \(n\) smooth closed real \((1,1)\)-forms \(\theta_j\) with pseudoeffective classes, and \(u_j,v_j\in\operatorname{PSH}(X,\theta_j)\) of the same bounded singularity type in every slot, the two top mixed nonpluripolar integrals are equal. Theorem 2.4: if every \(u_j\) is less singular than \(v_j\), the integral for the \(u_j\)'s is at least that for the \(v_j\)'s. There is no big-class or small-unbounded-locus hypothesis in these statements. Smooth Kähler factors are slots with potential zero.
+3. **Volume at the boundary.** BEGZ Definition 1.17 defines the volume of a big class by its minimal-singularity top mass and extends the positive product to pseudoeffective classes as the decreasing limit along addition of an arbitrary Kähler class. In particular \(\operatorname{vol}(\alpha+\varepsilon\lambda)\to\operatorname{vol}(\alpha)\) as \(\varepsilon\downarrow0\). For nef classes the positive product equals the ordinary cup product. To bound the mass of an arbitrary current in a big class we use foundation 2: a minimal-singularity potential is less singular than it, so its top mass is an upper bound. No equality with the arbitrary actual-current mass is assumed.
+4. **Admissible Dirichlet products and IBP.** Duc-Viet Vu, *Convexity of the class of currents with finite relative energy*, arXiv:2005.13241v3 (25 March 2022), §2, Lemmas 2.5–2.6 and Theorem 2.7: if \(R\) is a closed positive \((n-1,n-1)\)-current and (a,b) are bounded \(R\)-admissible dsh functions, then their intrinsic relative Dirichlet products exist; the diagonal product is positive, and
+\[
+\int b\langle dd^ca\dot\wedge R\rangle
+=\int a\langle dd^cb\dot\wedge R\rangle
+=-\int\langle db\wedge d^ca\dot\wedge R\rangle.
+\tag{F}
+\]
+A dsh function is a difference of two quasi-psh functions. Admissibility means that there is such a representation whose polar sets have zero \(R\)-mass. Vu's Proposition 2.1(iii) identifies iterated relative products; with \(R=\langle S_1\cdots S_m\rangle\wedge W\), \(W\) smooth closed positive, the signed product in (F) is the difference of the corresponding ordinary nonpluripolar products. Products in all our applications are finite by foundation 1. If (m=0), (R=W) is smooth. Otherwise its trace measure has no pluripolar mass. Thus every bounded difference used below is admissible, including smooth test functions.
+
+Vu's current convention is \(dd^c_V=i\partial\bar\partial/\pi=2dd^c\); the read-only page-4 image of arXiv:2004.11111v1 confirms it despite a defective text extraction. A source potential \(u/2\) represents the current \(T_u\), with the smooth background unchanged. Source differences are divided by 2; \(d^c_V=2d^c\). The signed source \(dd^c_V(a/2)\) equals \(dd^ca\), and the source Dirichlet current for (a/2) equals one half of ours. Multiplying the source IBP equality by 2 gives (F). Source bounded-type comparisons, full-mass conditions, and energy finiteness are unchanged by this positive scalar change. DDNL uses \(i\partial\bar\partial=2\pi dd^c\); its source potentials are \(u/(2\pi)\). Its mixed-mass theorems concern the same actual currents after that conversion. The locally psh BEGZ product statements are likewise independent of a positive convention change, by rescaling local potentials to represent the same currents. No application of Xia's big-class corollary to a merely pseudoeffective class is made here.
+
+The intrinsic diagonal definition is
+\[
+da\wedge d^ca\wedge R=\tfrac12dd^c(a^2)\wedge R-a\,dd^ca\wedge R
+\tag{G}
+\]
+for differences of bounded quasi-psh functions, followed by Vu's admissible nonpluripolar truncation construction. The factor (1/2) is mandatory. Vu v3 Eq. (2.3) prints it correctly, but the repeated page-6 expansion and page-11 cutoff identity omit it. We preserve those literal quotations and use (G), not those defective repetitions.
+
+For clarity, the defect does not introduce a gap in our use of (F). Here is a direct corrected cutoff check. For negative quasi-psh representations \(a=\phi_1-\phi_2\), \(b=\phi_3-\phi_4\), choose a Kähler form \(\Omega\) with \(dd^c\phi_j\geq-\Omega\). Put
+\[
+\chi_k=1+k^{-1}\max(\phi_1+\phi_2+\phi_3+\phi_4,-k),\quad
+a_k=\max(\phi_1,-k)-\max(\phi_2,-k),
+\]
+and define \(b_k\) similarly. Then \(0\leq\chi_k\leq1\), \(dd^c\chi_k\geq-4\Omega/k\), and the support of \(\chi_k\) is in the simultaneous finite truncation locus. Correct bounded Bedford–Taylor/Stokes calculus using (G) gives
+\[
+0\leq\int d\chi_k\wedge d^c\chi_k\wedge R
+=-\int\chi_kdd^c\chi_k\wedge R
+\leq\frac4k\int\Omega\wedge R.
+\tag{C}
+\]
+Indeed \(dd^c\chi_k+4\Omega/k\) is positive, so its negative contribution in the last expression can be discarded. The same calculation gives \(\int da_k\wedge d^ca_k\wedge R\leq2\|a_k\|_\infty\int\Omega R\); the sup norms are uniformly bounded by boundedness of \(a\). These formulae apply to bounded quasi-psh truncations by bounded Bedford–Taylor calculus. Cauchy–Schwarz and (C) make all cross terms containing \(d\chi_k\) tend to zero. On \(\{\chi_k>0\}\), plurifine locality identifies the signed products and the intrinsic gradients with their truncations. Dominated convergence is permissible because \(R\) has no mass on the representation poles, the relative positive products also have no mass there, and the admissible gradients have finite mass by Vu's Lemmas 2.5–2.6. Applying bounded IBP to
+\(\chi_k(b_kdd^ca_k-a_kdd^cb_k)R\) proves symmetry; applying it to \(\chi_k(a_kdd^ca_k+da_k\wedge d^ca_k)R\) proves the negative diagonal equality. Polarization gives (F). In the page-6 local square expansion, the correct coefficients of its three square terms are \(1,1,-1/2\), not \(2,2,-1\). Thus every Dirichlet calculation here has the correct intrinsic factor. This check uses the standard gradient construction, not the misprinted formula as a definition.
+
+## The bounded theorem
+
+Suppose \(\alpha=[\theta]\) is pseudoeffective with \(\operatorname{vol}(\alpha)=0\), and fix an actual \(\psi\in\operatorname{PSH}(X,\theta)\). For a Kähler form \(\omega\), set
+\[
+M_k(\psi,[\omega])=\int_X\langle T_\psi^k\rangle\wedge\omega^{n-k},\quad
+d=\max\{0\leq k\leq n:M_k>0\},\quad r=n-d.
+\tag{1}
+\]
+The convention is \(M_0=\int\omega^n>0\). Then \(d<n\), \(d\) is independent of the auxiliary Kähler form, and every degree (k>d) nonpluripolar mixed product of currents \(T_{u_i}\), \(u_i\in\mathcal C_\psi\), is zero as a current.
+
+For any Kähler class \(\lambda\), the following relative energy is independent of the Kähler representative \(\omega\in\lambda\):
+\[
+\mathcal E_{\psi,\lambda}(u)
+=\frac1{d+1}\sum_{a=0}^d\int_X(u-\psi)
+\langle T_u^aT_\psi^{d-a}\rangle\wedge\omega^r.
+\tag{2}
+\]
+For any \(u,v\in\mathcal C_\psi\), let \(\mathcal E_{v,\lambda}(u)\) denote the same formula with anchor \(v\). Then
+\[
+\mathcal E_{\psi,\lambda}(u)-\mathcal E_{\psi,\lambda}(v)
+=\mathcal E_{v,\lambda}(u).
+\tag{3}
+\]
+The energy is increasing, concave, \(\mathcal E_{\psi,\lambda}(\psi)=0\), and
+\[
+\mathcal E_{\psi,\lambda}(u+c)=\mathcal E_{\psi,\lambda}(u)+cM_d,
+\qquad
+|\mathcal E_{\psi,\lambda}(u)-\mathcal E_{\psi,\lambda}(v)|
+\leq M_d\|u-v\|_\infty.
+\tag{4}
+\]
+No division by zero volume, or division by \(M_d\), occurs. The carrier for these integrals is the actual \(n\)-dimensional manifold \(X\); the nonpluripolar current has bidegree \((d,d)\). A geometric \(d\)-dimensional quotient is not supplied or assumed.
+
+### Degree, mass, and vanishing
+
+The class \(\alpha+\varepsilon[\omega]\) is big for \(\varepsilon>0\): the actual current \(T_\psi+\varepsilon\omega\) is bounded below by \(\varepsilon\omega\). A minimal-singularity potential in this big class is less singular than \(\psi\), so foundation 2 gives
+\[
+0\leq M_n\leq\int\langle(T_\psi+\varepsilon\omega)^n\rangle
+\leq\operatorname{vol}(\alpha+\varepsilon[\omega]).
+\]
+The middle expression expands, using actual-current multilinearity, as
+\[
+P_\varepsilon(\omega)=\sum_{k=0}^n\binom nk\varepsilon^{n-k}M_k.
+\tag{5}
+\]
+The last bound tends to zero by foundation 3. Hence \(M_n=0\), \(d<n\), and (5) ends at \(k=d\). This does not identify \(P_\varepsilon\) with class volume.
+
+If \(\omega'\) is another Kähler form, compactness gives constants \(c,C>0\) such that \(c\omega\leq\omega'\leq C\omega\). For a positive \((k,k)\)-current \(S\), positivity of the power differences gives
+\[
+c^{n-k}\int S\omega^{n-k}\leq\int S(\omega')^{n-k}\leq C^{n-k}\int S\omega^{n-k}.
+\]
+Thus the positivity tests in (1) agree. Foundation 2, with \(k\) same-type current slots and (n-k) slots \((\omega,0)\), gives
+\[
+\int\langle T_{u_1}\cdots T_{u_k}\rangle\omega^{n-k}=M_k.
+\tag{6}
+\]
+For \(k>d\) the left current is positive and has zero trace mass against a strictly positive form. A positive current of zero trace mass is zero: on each coordinate chart its coefficient measures are dominated by its trace measure, by positivity. This proves the stated current vanishing. Each \(M_k\) depends only on \([\omega]\) because \(\langle T_\psi^k\rangle\) is closed and integration of an exact smooth complementary form against a closed current vanishes by distributional Stokes. It is a homogeneous polynomial of degree (n-k) in \([\omega]\).
+
+### Closed polynomial one-form and its primitive
+
+We first work at any degree \(0\leq q\leq n\), with a fixed smooth product \(W=\omega^{n-q}\). In this paragraph there is no zero-volume assumption. On the convex hull of a finite family \(u_0,\ldots,u_m\) of same-type \(\theta\)-psh potentials, set \(h_i=u_i-u_0\), \(u_t=u_0+\sum t_i h_i\), and
+\[
+A_i(t)=\int h_i\langle T_{u_t}^q\rangle W.
+\]
+Multilinearity makes these functions polynomials in the finite parameters. All coefficient integrals exist since \(h_i\) is bounded off a common polar set and the measures do not charge it. For \(q\geq1\),
+\[
+\partial_j A_i=q\int h_i\langle dd^ch_j\wedge T_{u_t}^{q-1}\rangle W
+=\partial_i A_j
+\tag{7}
+\]
+by (F), applied to the closed positive current \(R=\langle T_{u_t}^{q-1}\rangle W\). Its bidegree is \((n-1,n-1)\); it has no pluripolar mass, including when \(q=1\), in which case it is smooth. The signed expression is exactly the difference in one current slot, by the iterated-product property. Thus (7) is a checked application, not formal unsigned wedge calculus. For \(q=0\), the \(A_i\)'s are constant and closedness is immediate.
+
+The line integral of this closed one-form from \(v\) to \(u\) equals
+\[
+\int_0^1\int (u-v)\langle((1-t)T_v+tT_u)^q\rangle W\,dt
+=\frac1{q+1}\sum_{a=0}^q\int(u-v)\langle T_u^aT_v^{q-a}\rangle W.
+\tag{8}
+\]
+The last equality follows by the binomial expansion and
+\(\binom qa\int_0^1t^a(1-t)^{q-a}dt=1/(q+1)\). Closedness (7) implies zero integral around each triangle in the convex hull, by ordinary Stokes for a polynomial one-form on that finite simplex. The identity extends to its boundary by polynomial continuity. Taking the triangle with vertices \(\psi,v,u\) proves (3), for degree \(d\), and proves the corresponding cocycle at every other degree or positive perturbation used later.
+
+For a segment \(u_t=(1-t)u+tv\), \(h=v-u\), this also proves exact variation regularity:
+\[
+\frac d{dt}\mathcal E_{\psi,\lambda}(u_t)=\int h\langle T_{u_t}^d\rangle\omega^r,
+\tag{9}
+\]
+and, for \(d\geq1\),
+\[
+\frac {d^2}{dt^2}\mathcal E_{\psi,\lambda}(u_t)
+=d\int h\langle dd^ch\wedge T_{u_t}^{d-1}\rangle\omega^r
+=-d\int\langle dh\wedge d^ch\dot\wedge
+(\langle T_{u_t}^{d-1}\rangle\omega^r)\rangle\leq0.
+\tag{10}
+\]
+The last inequality is positivity of the intrinsic Dirichlet product (G); IBP symmetry alone would not give it. Equations (9)–(10) are polynomial identities with continuous endpoint derivatives. More generally the pullback to any finite simplex is polynomial and admits the ordinary chain rule along \(C^1\) parameter paths and second derivatives along \(C^2\) parameter paths. No derivative assertion for arbitrary discontinuous or unbounded velocities is made. When \(d=0\), the energy is affine and there is no gradient formula (10).
+
+If \(u\leq v\), (9) is nonnegative. A constant shift leaves the current fixed, and (6) makes (9) equal \(cM_d\). Finally, the pointwise sandwiches \(v-\delta\leq u\leq v+\delta\), \(\delta=\|u-v\|_\infty\), give (4). The same argument proves the corresponding Lipschitz estimate with the actual common-type mass in an arbitrary positive perturbation.
+
+### Representative independence and cohomological continuity
+
+If \(\omega_1,\omega_0\) are cohomologous Kähler forms, the compact Kähler \(dd^c\)-lemma gives a smooth real \(g\) with \(\omega_1-\omega_0=dd^cg\). We use exactly the degree-two consequence of this standard lemma: cohomologous smooth closed real \((1,1)\)-forms differ by \(dd^c\) of a smooth real function. A standard published reference is Deligne–Griffiths–Morgan–Sullivan, *Real homotopy theory of Kähler manifolds*, Invent. Math. 29 (1975), 245–274, §5, the principle of two types. The hypotheses here are precisely compact Kähler, smooth, closed, real, cohomologous, and of pure type \((1,1)\); taking the real part and rescaling the operator gives our stated convention. This is a standard foundation citation, not an independently reproduced source proof. For \(r\geq1\),
+\[
+\omega_1^r-\omega_0^r=dd^cg\wedge\sum_{b=0}^{r-1}\omega_1^b\omega_0^{r-1-b}.
+\]
+For any term in (2), write \(h=u-\psi\) and \(Q=\langle T_u^aT_\psi^{d-a}\rangle\). For each \(b\), the current \(R=Q\omega_1^b\omega_0^{r-1-b}\) is closed positive of bidegree \((n-1,n-1)\). It has no pluripolar mass; when \(d=0\), it is smooth. Thus \(h,g\) are bounded admissible dsh functions and (F) gives
+\[
+\int h\,dd^cg\,R=\int g\langle dd^ch\dot\wedge R\rangle=0.
+\tag{11}
+\]
+The signed current on the right is
+\((\langle T_uT_u^aT_\psi^{d-a}\rangle-
+\langle T_\psi T_u^aT_\psi^{d-a}\rangle)\omega_1^b\omega_0^{r-1-b}\); both terms vanish by degree \(d+1\) vanishing. All multiplication by bounded functions takes place against nonpluripolar measures. This proves representative independence, including the \(d=0\) case.
+
+The same proof applies to a mixed product of \(r\) smooth closed Kähler factors, changing any one factor within its class. It makes the energy a symmetric multilinear functional of their classes. To see its polynomial dependence without imposing convergence of representatives, choose a basis \(e_i\) of \(H^{1,1}(X,\mathbb R)\) and fixed smooth closed representatives \(\eta_i\). Near any fixed Kähler class \(\lambda_0\) represented by a positive \(\omega_0\), the linear choice \(\omega(\lambda)=\omega_0+\sum x_i\eta_i\) remains positive for small \(x_i\). The expression (2) is a polynomial in these coordinates. Alternatively decompose arbitrary smooth closed real factors as differences of Kähler forms by adding a large fixed Kähler form, and apply multilinearity. Representative independence ensures that these local polynomials agree on overlap and give one homogeneous polynomial of degree \(r\) on the Kähler cone. In particular the leading energy is continuous in the auxiliary class.
+
+Changing \(\theta\) to \(\theta+dd^cg\) and simultaneously replacing \(u,\psi\) by \(u-g,\psi-g\) leaves every actual current and difference unchanged. Changing the anchor within \(\mathcal C_\psi\) has exactly the cocycle (3), not absolute anchor independence.
+
+## Relative Kähler perturbation limits
+
+For \(\varepsilon>0\), an arbitrary Kähler form \(\omega\), and \(v\in\operatorname{PSH}(X,\theta+\varepsilon\omega)\) with \(v\sim\psi\), define the unnormalized relative top energy
+\[
+\mathcal E^{n,\varepsilon,\omega}_\psi(v)
+=\frac1{n+1}\sum_{a=0}^n\int(v-\psi)
+\langle(T_v+\varepsilon\omega)^a(T_\psi+\varepsilon\omega)^{n-a}\rangle.
+\tag{12}
+\]
+Here \(T_v\) alone need not be positive; the displayed currents \(T_v+\varepsilon\omega\) are positive. The degree-\(n\) version of (7)–(8), applied directly in the pseudoeffective (indeed big) class \(\alpha+\varepsilon[\omega]\), gives its cocycle, monotonicity and Lipschitz constant \(P_\varepsilon(\omega)\), the actual mass (5). It is not class volume in general.
+
+For fixed \(u\in\mathcal C_\psi\), put
+\[
+\mathcal E^{(k),\omega}_\psi(u)=\frac1{k+1}\sum_{a=0}^k
+\int(u-\psi)\langle T_u^aT_\psi^{k-a}\rangle\omega^{n-k}.
+\]
+Expanding the segment formula (8) gives the exact identity
+\[
+\mathcal E^{n,\varepsilon,\omega}_\psi(u)
+=\sum_{k=0}^d\binom nk\varepsilon^{n-k}\mathcal E^{(k),\omega}_\psi(u).
+\tag{13}
+\]
+In the original mixed sum, the coefficient for \(T_u^aT_\psi^{k-a}\omega^{n-k}\) is
+\(\sum_{j=0}^n\binom ja\binom{n-j}{k-a}/(n+1)
+=\binom n k/(k+1)\). The identity follows by marking the \((a+1)\)-st element of a \((k+1)\)-subset of \({0,\ldots,n}\) and summing over its location. This also proves it at \(k=0\). For all \(k\), (6) gives
+\[
+|\mathcal E^{(k),\omega}_\psi(u)|\leq\|u-\psi\|_\infty M_k(\psi,[\omega]).
+\tag{14}
+\]
+
+Now let **any** family of Kähler forms \(\omega_\varepsilon\) have \([\omega_\varepsilon]\to\lambda\), with \(\lambda\) Kähler. No smooth or pointwise convergence of these forms is assumed. Let \(u_\varepsilon\in\operatorname{PSH}(X,\theta+\varepsilon\omega_\varepsilon)\) have the same bounded type as \(\psi\), and let \(\delta_\varepsilon=\|u_\varepsilon-u\|_\infty\to0\) off their common polar set. Then
+\[
+\frac{\mathcal E^{n,\varepsilon,\omega_\varepsilon}_\psi(u_\varepsilon)}
+{\binom n d\varepsilon^{n-d}}
+\longrightarrow\mathcal E_{\psi,\lambda}(u).
+\tag{15}
+\]
+Indeed the positive-\(\varepsilon\) cocycle and monotonicity give
+\[
+|\mathcal E^{n,\varepsilon,\omega_\varepsilon}_\psi(u_\varepsilon)
+-\mathcal E^{n,\varepsilon,\omega_\varepsilon}_\psi(u)|
+\leq\delta_\varepsilon P_\varepsilon(\omega_\varepsilon).
+\]
+Each \(M_k\) is a cohomological polynomial and is bounded for classes in a compact neighborhood of \(\lambda\); hence \(P_\varepsilon=O(\varepsilon^r)\), uniformly without any bounds on representatives. The normalized error tends to zero. For fixed \(u\), (13)–(14) bound all normalized \(k<d\) terms by constants times \(\varepsilon^{d-k}\). The \(k=d\) term is \(\mathcal E_{\psi,[\omega_\varepsilon]}(u)\), converging by its class polynomial. This proves (15). Only the leading coefficient is representative independent. Formula (13) does not claim representative independence of the lower coefficients or of the full energy (12).
+
+For example, on \(X=\mathbb P^1\times\mathbb P^1\), take \(\theta=p_1^*\kappa\), \(\psi=0\), and a nonconstant smooth \(u=p_1^*v\) with \(\kappa+dd^cv>0\). Set \(\omega_0=p_1^*\kappa+p_2^*\kappa\), with \(\int\kappa=1\). Replacing \(\omega_0\) by \(\omega_0+tdd^cu\), for small nonzero \(t\), stays Kähler and in the same class. Here \(d=1\); the leading \(\mathcal E^{(1)}\) is unchanged, but
+\[
+\int u\big((\omega_0+tdd^cu)^2-\omega_0^2\big)
+=2t\int_{\mathbb P^1}vdd^cv
+=-2t\int_{\mathbb P^1}dv\wedge d^cv\ne0.
+\]
+Thus the \(\varepsilon^2\) coefficient \(\mathcal E^{(0)}\) changes. This explicitly rules out an unintended claim about the full positive-perturbation energy.
+
+## Auxiliary differential-measure check, only for the energy route
+
+No zero-volume operator theorem is claimed here. The following estimate checks the differential in (9) under a **fixed** Kähler form. For fixed \(u\in\mathcal C_\psi\), (5) as a measure expansion and degree vanishing give
+\[
+\frac{\langle(T_u+\varepsilon\omega)^n\rangle}
+{\binom n d\varepsilon^r}
+\rightharpoonup\langle T_u^d\rangle\omega^r.
+\tag{16}
+\]
+The limiting measure is on \(X\), has positive raw mass \(M_d\), and still depends on the full form in general.
+
+For \(u_\varepsilon\) as in (12), set \(A=T_{u_\varepsilon}+\varepsilon\omega\), \(B=T_u+\varepsilon\omega\), \(h=u_\varepsilon-u\), \(\delta=\|h\|_\infty\). Multilinearity factors the top difference as
+\(\sum_{j=0}^{n-1}\langle dd^ch\wedge A^jB^{n-1-j}\rangle\). For a smooth test \(f\), (F) transfers \(dd^c\) to \(f\), with admissible bounded \(h\), and \(-C_f\omega\leq dd^cf\leq C_f\omega\) bounds the result by
+\[
+\left|\int f(\langle A^n\rangle-\langle B^n\rangle)\right|
+\leq nC_f\delta\,Q_\varepsilon,
+\quad
+Q_\varepsilon=\sum_{k=0}^d\binom{n-1}k\varepsilon^{n-1-k}M_k
+=O(\varepsilon^{r-1}).
+\tag{17}
+\]
+For every \(j\), equality of the mixed mass with one smooth \(\omega\)-slot to \(Q_\varepsilon\) is exactly foundation 2 in class \(\alpha+\varepsilon[\omega]\), replacing the \(A,B\)-potentials by \(\psi\), followed by positive binomial expansion. Since \(d<n\), the sum has legal indices. At \(n=1,d=0\), the product with zero \(A,B\)-slots is 1 and \(Q_\varepsilon=M_0\), so the same calculation applies. The normalized error is \(O_f(\delta/\varepsilon)\). Therefore \(\delta=o(\varepsilon)\) suffices for (16) with moving potentials; this is a sufficient rate, not an optimality claim.
+
+If \(\omega_\varepsilon\to\omega\) smoothly and \(\omega\) is Kähler, the tests are uniformly bounded by these forms and the same constants can be taken uniformly; the fixed-current terms in (16) converge by smooth multiplication. For class-convergent forms alone, neither this test bound nor convergence of the final full-form measure is supplied. The rate-free energy result (15) is not transferred to (16).
+
+
+# A genuine relative finite-energy extension, with specified continuity
+
+This note uses the bounded theorem proved in local note **n1**. It retains the same actual reference type and auxiliary Kähler class. It proves a finite-energy extension of that theorem, with decreasing monotone continuity. It does not claim an unbounded perturbative limit or arbitrary monotone/path regularity.
+
+## The precise additional standard foundations
+
+Vu, arXiv:2005.13241v3, §3, with \(P=T_\psi\), \(m=d\), \(T=\omega^{n-d}\), and linear weight \(\chi(t)=t\), defines the following spaces. A current \(S\) in \([P]\), more singular than \(P\), has relative full mass if
+\[
+\{\langle S^d\dot\wedge T\rangle\}=
+\{\langle P^d\dot\wedge T\rangle\}.
+\]
+For negative potentials \(u\leq\psi\), its diagonal joint linear-weight energy is
+\[
+d\sum_{a=0}^d\binom da\int(\psi-u)
+\langle T_u^aT_\psi^{d-a}\rangle\omega^{n-d}.
+\tag{16a}
+\]
+This is the exact specialization of Vu's Eq. (3.1): there are \(\binom da\) subsets of size \(a\), and the weight is \(\chi(d(u-\psi))=d(u-\psi)\). Theorem 3.4 states that both the full-mass space \(\mathcal E_{d,P}(T)\) and its joint weighted subclass \(\mathcal E_{\chi,d,P}(T)\) are convex. Corollary 3.2 states that the weighted class is unchanged when \(P\) is replaced by a cohomologous current of the same bounded singularity type. Finiteness does not depend on additive potential constants. Here \(T\) is smooth closed positive, the relative products are ordinary nonpluripolar products with smooth factors, and the product has top degree. On connected \(X\), equality of its cohomology classes is equality of total masses. Thus all source hypotheses are satisfied, with no minimal-singularity or model-envelope assumption. The source proofs of convexity and reference-type invariance use cited arguments; they are used as scoped standard foundations, not as reconstructed new lemmas. The convention conversion in n1 preserves full mass and weighted finiteness, multiplying (16a) by a positive constant.
+
+We also use the following standard bounded convergence foundations solely to prove the continuity assertion below. A decreasing sequence of quasi-psh functions in a fixed smooth background, with a quasi-psh limit not identically minus infinity, converges in Kähler Monge–Ampère capacity. This is the decreasing-convergence statement cited as Guedj–Zeriahi 2005, Proposition 3.7, in DDNL's proof of Theorem 2.4, p. 2057. DDNL Proposition 2.2, pp. 2054–2055, states: on an open set in \(\mathbb C^n\), uniformly bounded local psh functions converging in capacity in every slot, multiplied by uniformly bounded quasicontinuous functions also converging in capacity, give weakly convergent weighted Bedford–Taylor top products. Quasi-psh functions and their bounded truncations are quasicontinuous. All applications below have a fixed background and uniformly bounded **local truncations**. We do not apply the big-class-only DDNL Theorem 2.3 directly to the pseudoeffective background. The complete primary body of Proposition 2.2 is included in the argument annex; the scalar capacity fact is a standard foundation cited through the supplied DDNL proof, not a new source-proven theorem here.
+
+## Domain and theorem
+
+Fix \(\omega\in\lambda\), \(r=n-d\), and \(M=M_d(\psi,\lambda)>0\). For \(d\geq1\), let \(\mathcal F^1_{\psi,\lambda}\) consist of \(\theta\)-psh \(u\) such that \(u\leq\psi+C\),
+\[
+\int\langle T_u^d\rangle\omega^r=M,
+\qquad
+\sum_{a=0}^d\binom da\int|u-\psi|
+\langle T_u^aT_\psi^{d-a}\rangle\omega^r<\infty.
+\tag{17a}
+\]
+For \(d=0\), use the same more-singular condition and \(\int|u-\psi|\omega^n<\infty\); degree-zero full mass is automatic. This integral is finite for quasi-psh \(u,\psi\) since both are locally integrable against smooth volume. Every bounded-type potential belongs to the domain.
+
+Define, for this domain,
+\[
+\mathcal E_{\psi,\lambda}(u)
+=\frac1{d+1}\sum_{a=0}^d\int(u-\psi)
+\langle T_u^aT_\psi^{d-a}\rangle\omega^r.
+\tag{18a}
+\]
+Then all these integrals are finite. The energy equals the decreasing limit of bounded-type truncation energies \(u_L=\max(u,\psi-L)\), is independent of the truncation levels tending to infinity, and is continuous under **every decreasing sequence in \(\mathcal F^1_{\psi,\lambda}\) with limit in that domain**. In particular, every decreasing sequence of bounded-type potentials converging to a point of this domain gives the same extension value. It is increasing and concave. Its constant shifts are \(cM\). For any two members \(u,v\) of the domain, all integrals
+\[
+\mathcal E_{v,\lambda}(u)
+=\frac1{d+1}\sum_{a=0}^d\int(u-v)
+\langle T_u^aT_v^{d-a}\rangle\omega^r
+\tag{19a}
+\]
+are finite and obey the exact cocycle
+\[
+\mathcal E_{\psi,\lambda}(u)-\mathcal E_{\psi,\lambda}(v)
+=\mathcal E_{v,\lambda}(u).
+\tag{20a}
+\]
+Changing the anchor within the original bounded type leaves the finite-energy domain unchanged and changes the energy by this cocycle. Both domain and energy are independent of the Kähler representative of the fixed class \(\lambda\). No identity of unbounded first or second variations is asserted.
+
+## Mixed full mass and mixed weight integrability
+
+First subtract constants from finitely many potentials so that all are \(\leq\psi\), and shift \(\psi\) to be negative if needed. This only translates energy by constants times finite masses, and will be reversed at the end. For \(d\geq1\), the definition (17a) is exactly the source joint linear-weight class (16a), so its convexity applies.
+
+Given \(u_1,\ldots,u_N\) in this domain, including any copies of \(\psi\), put \(w=N^{-1}\sum_i u_i\). Convexity gives \(\int\langle T_w^d\rangle\omega^r=M\). By expansion it is the mean of \(N^d\) ordered mixed masses. Each is at most \(M\), by DDNL Theorem 2.4 replacing every more-singular \(u_i\) by \(\psi\), with \(r\) smooth Kähler slots. They are nonnegative and their average is \(M\). Hence **every** such mixed mass equals \(M\). This proves all mixed full masses used below without inferring them from the diagonal by an unsupported polarization.
+
+The \(a=d\) term of the finite joint energy of \(w\) shows that
+\(\int(\psi-w)\langle T_w^d\rangle\omega^r<\infty\). Every summand in its positive expansion is therefore finite. Since
+\[
+0\leq\psi-u_i\leq N(\psi-w),
+\]
+each \(\psi-u_i\) is integrable against every degree-\(d\) mixed product formed from the finite family. In particular \(|u-v|\leq(\psi-u)+(\psi-v)\) is integrable against every product in (19a). All representation poles are pluripolar and have zero mass. For \(d=0\), these assertions follow directly from smooth-volume integrability and the common mass \(M_0\).
+
+For completeness, every degree \(k>d\) mixed product of such more-singular potentials also vanishes: DDNL mass monotonicity bounds its trace integral by the corresponding zero \(M_k(\psi,\lambda)\), and positivity implies vanishing as in n1. This assertion does not give weighted control of any degree \(k<d\).
+
+## The exact truncation identity
+
+Assume \(u\leq\psi\), write \(z=\psi-u\geq0\), and let
+\[
+\mu_a=\langle T_u^aT_\psi^{d-a}\rangle\omega^r,
+\qquad
+\mu_{a,L}=\langle T_{u_L}^aT_\psi^{d-a}\rangle\omega^r.
+\]
+All these measures have mass \(M\), by the preceding argument and bounded-type equality respectively. On the plurifine comparison set \(G_L=\{u>\psi-L\}\), locality gives \(\mu_{a,L}=\mu_a\). The comparison-set version with unbounded psh data is also exactly Vu v3 Theorem 3.3, applied in local charts to the potentials plus their smooth local backgrounds. On the complement \(B_L\), off the polar sets, \(u_L-\psi=-L\). Equality of total masses gives \(\mu_{a,L}(B_L)=\mu_a(B_L)\). Consequently
+\[
+\int(\psi-u_L)d\mu_{a,L}
+=\int_{G_L}z\,d\mu_a+L\mu_a(B_L)
+=\int\min(z,L)d\mu_a.
+\tag{21a}
+\]
+For \(a=0\), the measure is fixed and the identity is immediate. Boundary sets where \(u=\psi-L\) cause no issue: the weight is exactly \(L\) there, and locality is used only on the strict comparison set. Measures give no mass to infinite-value sets. Monotone convergence in the right side proves
+\[
+\mathcal E_{\psi,\lambda}(u_L)\downarrow\mathcal E_{\psi,\lambda}(u).
+\tag{22a}
+\]
+This proves existence and independence for all real truncation levels tending to infinity. Order of potentials is inherited by their truncations, so bounded monotonicity and (22a) prove monotonicity on the whole domain. The exact mixed masses prove the \(cM\) constant-shift law directly in (18a); normalization by constants in the proof is therefore harmless.
+
+## A bounded decreasing continuity lemma and its proof
+
+Suppose \(v_j\downarrow v\), all have the bounded type of \(\psi\), and \(|v_j-\psi|,|v-\psi|\leq B\) uniformly on their finite loci. For a fixed degree \(q\), each mixed measure formed from \(v_j\) and \(\psi\), with \(n-q\) fixed smooth Kähler factors, has the same mass as its limit, by bounded-type equality. Let \(\eta_L=\min(1,\max(\psi+L,0))\). Then \(0\leq\eta_L\leq1\), it vanishes on \(\{\psi\leq-L\}\), and tends to 1 outside the polar set of \(\psi\).
+
+On a coordinate chart with smooth local potential \(\rho\) for \(\theta\), the functions \(\rho+v_j\), \(\rho+v\), and \(\rho+\psi\) are psh. Where \(\eta_L\ne0\), they have a uniform lower bound depending only on \(L,B\) and the compact chart. Replace them by local bounded psh truncations below a still lower constant; locality preserves all products on that set. Their upper bounds are uniform from compactness and the fixed \(v_1\). Decreasing quasi-psh convergence gives convergence in capacity, and the local bounded truncations and their differences converge in capacity as well. The cutoff and the bounded weights can be expressed using these truncations on their support, so they are uniformly bounded quasicontinuous functions converging in capacity. DDNL Proposition 2.2 with the remaining fixed smooth slots and a smooth partition of unity therefore proves convergence of both
+\(\int\eta_Ld\nu_j\) and \(\int\eta_L(v_j-\psi)d\nu_j\) to their limiting counterparts. This is a local bounded application in every slot; no big-class convergence result is needed.
+
+If the common mass is \(m\), then \(\int(1-\eta_L)d\nu_j=m-\int\eta_Ld\nu_j\). The integrals of the omitted weights have absolute value at most \(B\) times this quantity. First let \(j\to\infty\), and then \(L\to\infty\); the limiting tail mass tends to zero because the limit has no polar mass. This proves convergence of each full weighted mixed integral and hence convergence of the bounded-type energy. The same proof allows a fixed same-type anchor in place of \(\psi\). It explicitly controls the unbounded reference's polar-locus tails.
+
+## Decreasing continuity and concavity of the extension
+
+Let \(v_j\downarrow u\) with all \(v_j,u\) in the finite-energy domain. The sequence has a common upper bound \(\psi+C\), since \(v_1\leq\psi+C\). By monotonicity,
+\[
+\mathcal E(u)\leq\mathcal E(v_j)\leq\mathcal E(\max(v_j,\psi-L)).
+\]
+For fixed \(L\), the potentials on the right decrease to \(\max(u,\psi-L)\) within a uniform bounded type. The lemma gives
+\(\limsup_j\mathcal E(v_j)\leq\mathcal E(u_L)\). Letting \(L\to\infty\) in (22a) proves \(\mathcal E(v_j)\to\mathcal E(u)\). This also proves independence from arbitrary decreasing bounded-type approximants, rather than merely renamed truncations.
+
+For \(u,v\) in the domain and \(t\in[0,1]\), Vu's convexity makes \(w=(1-t)u+tv\) a domain member. The bounded-type combinations \(w_L=(1-t)u_L+tv_L\) decrease to \(w\). Bounded concavity gives
+\(\mathcal E(w_L)\geq(1-t)\mathcal E(u_L)+t\mathcal E(v_L)\). Decreasing continuity and (22a) prove concavity of the extension. For \(d=0\) the formula is directly affine.
+
+## Cocycle and reference changes
+
+Take normalized \(u,v\leq\psi\) and their simultaneous truncations at level \(L\). Let
+\(\nu_a=\langle T_u^aT_v^{d-a}\rangle\omega^r\),
+\(\nu_{a,L}=\langle T_{u_L}^aT_{v_L}^{d-a}\rangle\omega^r\),
+and \(G_L=\{u>\psi-L\}\cap\{v>\psi-L\}\). These measures have the same mass \(M\) and agree on \(G_L\). Their complementary masses therefore agree as well. On the complement \(B_L\), \(|u_L-v_L|\leq L\). With \(z_u=\psi-u\), \(z_v=\psi-v\),
+\[
+L\nu_{a,L}(B_L)=L\nu_a(B_L)
+\leq\int_{B_L}(z_u+z_v)d\nu_a\longrightarrow0.
+\]
+The last limit follows from mixed weight integrability and the fact that \(B_L\) decreases to polar sets. The original tail of \(|u-v|\) also tends to zero. On \(G_L\), the weights agree exactly. Thus every term in \(\mathcal E_{v_L,\lambda}(u_L)\) converges to the corresponding finite term in (19a). Taking limits in the bounded cocycle proves (20a). Additive constants reduce the general case to this normalization.
+
+If \(\psi'\sim\psi\), Vu Corollary 3.2 identifies the finite-energy classes of currents, and bounded mixed mass equality gives the same \(d,M\). Representatives of a current differ only by constants on connected \(X\), so the potential domains agree as well. To check the energy value without using an unproved truncation interchange, use \(u_L\) truncated against \(\psi\), and the measure \(\langle T_u^aT_{\psi'}^{d-a}\rangle\omega^r\). Mixed mass and weight integrability hold by the preceding finite-family argument, since \(\psi'\) itself belongs to the domain. On \(\{u>\psi-L\}\) products agree with those of \(u_L\); the complement has equal mass. Its truncated weight \(|u_L-\psi'|\) is at most \(L+\|\psi-\psi'\|_\infty\), and its integral tends to zero by integrability of \(\psi-u\) against this mixed measure. The original tail also tends to zero. Thus
+\(\mathcal E_{\psi',\lambda}(u_L)\to\mathcal E_{\psi',\lambda}(u)\), and the bounded anchor cocycle passes to the limit:
+\[
+\mathcal E_{\psi',\lambda}(u)=\mathcal E_{\psi,\lambda}(u)-\mathcal E_{\psi,\lambda}(\psi').
+\]
+
+Finally let \(\omega'\) be any Kähler representative of the same \(\lambda\). Closedness and cohomology make each scalar full-mass condition in (17a) unchanged. Pointwise comparison of the two fixed Kähler forms makes every absolute-weight mixed integral finite for one exactly when it is finite for the other. Thus the domain is unchanged. The bounded energies of every \(u_L\) are representative independent by n1; (22a) proves representative independence of their finite-energy limit. A simultaneous smooth-background change as in n1 leaves the construction unchanged. This proves all reference-change assertions stated in this note.
+
+## A domain member with an actually unbounded difference
+
+Take \(X=\mathbb P^1\times\mathbb P^1\), normalized Fubini–Study \(\kappa\), \(\theta=p_1^*\kappa\), \(\psi=0\), and \(\omega=p_1^*\kappa+p_2^*\kappa\). Then \(d=1\), \(M=1\). In a disk about \(0\in\mathbb P^1\), choose \(0<a<1/2\) and
+\[
+v(z)=-b(-\log|z|)^a
+\]
+near zero, with \(b>0\) small. Continue it by a smooth cutoff away from the disk, and choose \(b\) sufficiently small that \(\kappa+dd^cv\geq0\); its singular radial Hessian is positive, and the cutoff contributes a bounded Hessian only on a fixed annulus. Subtract a constant to make \(v\leq0\). Near zero its positive Laplacian density is a constant times
+\(b a(1-a)|z|^{-2}(-\log|z|)^{a-2}\). The boundary flux is proportional to \((-\log|z|)^{a-1}\to0\), so there is no point atom. Therefore its nonpluripolar mass is 1. Moreover
+\[
+\int(-v)dd^cv\quad\text{has singular part proportional to}
+\quad\int^{\infty}t^{2a-2}dt<\infty,
+\]
+and \(\int(-v)\kappa<\infty\). For \(u=p_1^*v\), both weighted terms of (17a) are finite and the mass is \(M\), but \(u-\psi\) is unbounded. This is a genuine finite-energy extension, with no fibration assumed in the theorem; the product example only demonstrates its domain.
+
+
+# A fixed-class concentration counterexample for unbounded perturbative energies
+
+This note uses the bounded coefficient identity of **n1** and the finite-energy domain and example of **n2**, and proves the additional unbounded application directly. It refutes the proposed extension of the class-convergent auxiliary-path limit to all degree-\(d\) finite-energy potentials. It does not refute every possible unnormalized energy theory in P15.1.
+
+Use \(X=\mathbb P^1\times\mathbb P^1\), \(\theta=p_1^*\kappa\), \(\psi=0\), and the fixed unbounded \(u=p_1^*v\) constructed in n2, with \(0<a<1/2\), \(v\leq0\), and \(v(z)=-b(-\log|z|)^a\) near \(0\). Normalize \(\int\kappa=1\). The class \(\alpha=[\theta]\) is nef, pseudoeffective, and has volume zero because \(\theta^2=0\) and the positive product of nef classes equals the cup product. Its actual reference degree is \(d=1\), and \(u\) has finite degree-one relative joint energy and full degree-one mass.
+
+For each sufficiently small \(\varepsilon>0\), put
+\[
+\rho_\varepsilon=\exp(-\varepsilon^{-2/a}).
+\]
+Choose a nonnegative smooth two-form \(\beta_\varepsilon\), with total integral 1, supported in \(\{|z|<\rho_\varepsilon\}\). Such a form is obtained by rescaling and normalizing any fixed nonnegative smooth disk bump; it extends smoothly by zero. On a real surface every two-form is closed. Set
+\[
+\kappa_\varepsilon=\tfrac12\kappa+\tfrac12\beta_\varepsilon,
+\qquad
+\omega_\varepsilon=p_1^*\kappa_\varepsilon+p_2^*\kappa.
+\tag{23a}
+\]
+These are smooth Kähler forms. Each \([\kappa_\varepsilon]=[\kappa]\) on \(\mathbb P^1\), because top real cohomology is determined by the integral. Thus all \([\omega_\varepsilon]\) equal the single Kähler class \(\lambda=[p_1^*\kappa+p_2^*\kappa]\), although their representatives do not converge smoothly.
+
+Write \(S=\kappa+dd^cv\) on the base. It is positive of mass 1, with no polar atom. The current \(T_u=p_1^*S\) is positive; thus the fixed choice \(u_\varepsilon=u\) is \((\theta+\varepsilon\omega_\varepsilon)\)-psh and is uniformly identical to \(u\). For each fixed \(\varepsilon\), all relevant unbounded weighted integrals are finite: \(v\) is integrable against the smooth \(\kappa_\varepsilon\), and against both \(S\) and \(\kappa\) by n2. Each has a constant depending on that fixed form, which need not be uniform in \(\varepsilon\). Locality off \(z=0\) and the absence of polar mass give
+\[
+\langle(T_u+\varepsilon\omega_\varepsilon)^2\rangle
+=2\varepsilon\,p_1^*(S+\varepsilon\kappa_\varepsilon)\wedge p_2^*\kappa.
+\]
+Its total mass is \(2\varepsilon(1+\varepsilon)\), exactly the anchor's mass. Hence \(u\) is of full relative top mass for every positive perturbation, and its relative top joint linear-weight energy is finite for every \(\varepsilon>0\). This counterexample does not exploit lost positive-perturbation mass or infinite energy at a fixed parameter.
+
+Directly expand the three mixed terms in the unnormalized top energy with anchor zero:
+\[
+\begin{aligned}
+(T_0+\varepsilon\omega_\varepsilon)^2
+ &=2\varepsilon p_1^*(\kappa+\varepsilon\kappa_\varepsilon)p_2^*\kappa,\\
+\langle(T_u+\varepsilon\omega_\varepsilon)(T_0+\varepsilon\omega_\varepsilon)\rangle
+ &=\varepsilon p_1^*(S+\kappa+2\varepsilon\kappa_\varepsilon)p_2^*\kappa,\\
+\langle(T_u+\varepsilon\omega_\varepsilon)^2\rangle
+ &=2\varepsilon p_1^*(S+\varepsilon\kappa_\varepsilon)p_2^*\kappa.
+\end{aligned}
+\]
+All weighted terms are finite, so expansion under their integrals is legitimate. Consequently
+\[
+\mathcal E^{2,\varepsilon,\omega_\varepsilon}_0(u)
+=2\varepsilon\mathcal E_{0,\lambda}(u)
+ +2\varepsilon^2\int_{\mathbb P^1}v\kappa_\varepsilon,
+\qquad
+\mathcal E_{0,\lambda}(u)=\tfrac12\int v(S+\kappa)\in\mathbb R.
+\tag{24a}
+\]
+Thus the normalized relative energy is
+\[
+\frac{\mathcal E^{2,\varepsilon,\omega_\varepsilon}_0(u)}{2\varepsilon}
+=\mathcal E_{0,\lambda}(u)+\varepsilon\int v\kappa_\varepsilon.
+\tag{25a}
+\]
+On the support of \(\beta_\varepsilon\), one has \(-v\geq b\varepsilon^{-2}\), possibly strengthened by the harmless constant used to normalize \(v\). Therefore
+\[
+\int v\kappa_\varepsilon\leq-\tfrac b2\varepsilon^{-2},
+\qquad
+\varepsilon\int v\kappa_\varepsilon\longrightarrow-\infty.
+\]
+The expression (25a) diverges to minus infinity. For the fixed smooth auxiliary form \(\omega=p_1^*\kappa+p_2^*\kappa\), the same computation has the fixed finite \(\int v\kappa\), and the expression converges to \(\mathcal E_{0,\lambda}(u)\). Both paths have exactly the same auxiliary cohomology class and exactly the same potential for every parameter.
+
+This is an analytic counterexample, within all ambient hypotheses, to an **unbounded strengthening** of n1's class-convergent perturbation theorem. It is not a counterexample to n1, whose bounded-difference hypothesis supplies (14). It shows that degree-\(d\) finite energy, even together with finite full relative top energy at every positive perturbation, does not provide the uniform weighted lower-coefficient estimate needed for an auxiliary representative path. Here the lower weighted coefficient is finite at every parameter and still diverges faster than its suppressing power of \(\varepsilon\). Additional uniform integrability, a restriction on auxiliary forms, or a different iterated/truncated limiting prescription is necessary for such a path theorem. None is silently added to the original catalogue atom.
+
+
+# Reference data, exact residual scope, and execution evidence
+
+This note uses local **n1**, **n2**, and **n3**. It gives a bounded-family characterization of the necessary reference scale, explicit examples, and the remaining scope of P15.1. It does not claim original closure.
+
+## A proved characterization of scale equivalence on the bounded domain
+
+Fix the actual bounded singularity type \(\tau=[\psi]\), and its degree \(d\); let \(r=n-d\). Put \(V=H^{1,1}(X,\mathbb R)\). For \(u,v\in\mathcal C_\psi\), define a symmetric multilinear functional on \(r\) Kähler classes by
+\[
+L_{u,v}(\lambda_1,\ldots,\lambda_r)
+=\frac1{d+1}\sum_{a=0}^d\int(u-v)
+\langle T_u^aT_v^{d-a}\rangle\omega_1\cdots\omega_r,
+\quad\omega_i\in\lambda_i.
+\tag{26a}
+\]
+It is independent of each representative: changing one factor inserts \(dd^cg\), the other \(r-1\) factors are closed positive, and the admissible IBP and degree-\(d+1\) vanishing argument (11) applies verbatim. Extending factors as differences of Kähler forms gives a well-defined symmetric multilinear functional on all of \(V^r\). To justify well-definedness of this extension explicitly, represent a real class \(a\) by a smooth closed real form \(\eta\). Both \(\eta+C\Omega\) and \(C\Omega\) are Kähler for sufficiently large \(C\). The defining integral is multilinear in smooth factors; any two decompositions have the same difference form up to \(dd^c\) of a smooth function. Representative invariance for positive factors, then expansion by differences in all remaining factors, makes that change zero. Thus there is a linear functional \(\ell_{u,v}\) on \(\operatorname{Sym}^rV\) with value (26a). Constants in the potential are included among \(u,v\).
+
+Set
+\[
+K_\tau=\bigcap_{u,v\in\mathcal C_\psi}\ker\ell_{u,v}.
+\tag{27a}
+\]
+Then the bounded energy family needs only the image of the formal tensor \(\lambda^{\odot r}\) in the finite-dimensional quotient \(\operatorname{Sym}^rV/K_\tau\). Conversely two formal tensors give the same values for **every** bounded relative energy exactly when their difference belongs to \(K_\tau\), by definition of the intersection of kernels. This is a proved coarsest scale-equivalence characterization for this fixed bounded family, not a declaration that the entire auxiliary class is always minimal. Changing the anchor within \(\tau\) does not change \(K_\tau\), since all relative differences remain in the same family. The degree-zero case uses the same formula with the empty current product and \(r=n\).
+
+The characterization does not construct a geometric lower-dimensional carrier, nor a universal minimal scale for all singularity types or all unbounded domains. For the finite-energy extension n2, a fixed Kähler class is sufficient and its representatives are unnecessary, but no minimal quotient characterization across arbitrary classes is claimed.
+
+## Why a scale and actual type cannot be discarded
+
+On \(X=\mathbb P^1\times\mathbb P^1\), with normalized \(\kappa\), let \(\alpha=[p_1^*\kappa]\), \(\theta=p_1^*\kappa\), and \(\psi=0\). It is a nef zero-volume class by the nef cup-product statement. For \(\omega=A p_1^*\kappa+B p_2^*\kappa\), \(A,B>0\), one has \(d=1\), \(M_1=B\), and \(\mathcal E_{0,[\omega]}(c)=cB\). Varying \(B\) changes the raw energy of the same constant potential. Some scale is therefore necessary. Varying \(A\) alone does not change these energies; it illustrates why the entire Kähler class should not simply be declared minimal. Indeed all bounded \(\theta\)-psh potentials descend to the first factor: their restriction to each second-factor fiber is a psh function on a compact curve and is constant, and bounded potentials are finite on every fiber. Equivalently the constant-shift example alone already proves necessity of \(B\), without any descent theorem.
+
+Actual reference singularity data also affect the degree. On the first \(\mathbb P^1\), let
+\(g(z)=\log(|z|^2/(1+|z|^2))\), in the chart whose distinguished point is zero. In the chosen convention \(\kappa+dd^cg=\delta_0\): the elementary Poincaré–Lelong identity \(dd^c\log|z|^2=\delta_0\) follows by the distributional boundary flux around a disk, and \(dd^c\log(1+|z|^2)=\kappa\). Thus the actual reference \(\psi=p_1^*g\) represents the positive integration current of the vertical divisor. Its degree-one nonpluripolar current is zero, since it is supported entirely on its polar divisor; all higher products vanish as well. This reference has \(d=0\) in the same class whose smooth reference has \(d=1\). The numerical dimension of this nef class is 1 by its nonzero first cup product and zero square, but the actual prescribed reference can have degree zero. Hence the degree in n1 is not identified with the class numerical dimension.
+
+In this same example the actual perturbation mass is \(P_\varepsilon=2AB\varepsilon^2\), whereas the class is nef and its perturbation volume is the cup product \(\operatorname{vol}(\alpha+\varepsilon[\omega])=2B\varepsilon+2AB\varepsilon^2\). The first nonzero class-volume coefficient therefore has a different exponent from the actual-reference mass. An actual anchor constant shift has relative perturbed energy \(cP_\varepsilon\); rescaling by the class-volume leading exponent would make its limit zero. This is an explicit reason not to substitute a class-volume coefficient for the actual prescribed-type scale without proving an additional theorem.
+
+The actual carrier throughout is \(X\), of complex dimension \(n\); the integrals use a degree-\(d\) nonpluripolar current and complementary smooth factors. The full auxiliary form would remain data for its differential measure. The energy itself only uses the class, or the precise quotient (27a) within the bounded family. An actual anchor fixes the additive origin of energy; changing it has the stated cocycle. Gauge changes of the smooth background and potentials leave every current unchanged.
+
+## What remains open for the original P15.1
+
+The bounded theorem removes the supplied-fibration hypothesis completely: its ambient class and actual reference are arbitrary as in the question. The finite-energy extension is a genuine more-singular domain, not just bounded differences under another name. Nevertheless these are scoped partial results; they are not counted as original catalogue closure.
+
+The unbounded extension of the class-convergent auxiliary-path prescription is **false** without further conditions, by the analytic counterexample n3. Even within the finite-energy domain, lower weighted perturbation coefficients can lack uniform control along fixed-class smooth representatives. For general references and fixed auxiliary forms, integrability and uniform control of all lower-degree weighted terms, and relative limits for genuinely unbounded moving potentials, have not been proved here. Nor have continuity for arbitrary increasing sequences, differentiation with unbounded velocities, or all proposed path classes been established. Decreasing continuity, cocycles, fixed-class representative invariance, and concavity in n2 are the precise asserted extension properties.
+
+There is no numerical-dimension theorem, no general leading **class-volume** coefficient theorem, no complete universal minimum-reference construction for unbounded types, and no intrinsic geometric \(d\)-dimensional carrier. The degree and perturbation exponent use actual-current masses rather than an assumed equality with class volume. No fibration, ideal-equivalence-only recovery, zero-mass probability normalization, nonarchimedean translation, or independent worker verdict is used. P15.2 and P15.3 are outside this assignment. The original P15.1 remains open in the dossier's residual scope.
+
+## Audit and rerun contract
+
+The original `input.json` is retained byte-for-byte, with SHA256 `5950ca2b12dc2202093de059446f0076db58a9cc861e1e57ce8c82edc371753b`. Its decoded assignment string is also retained as `assignment-original.txt`; `task-original.json` preserves the task values. The authoritative deliverable is `P15.1-argument.md`, containing all four mathematical notes and the complete immutable source bodies. `P15.1-partial.tex` and its twice-compiled `P15.1-partial.pdf` contain the entire new proof, standard foundation statements and applicability checks. Literal source bodies remain in the Markdown annex to preserve their UTF-8 extraction and defects.
+
+The independent source audit reads only `/workspace/research/shared-sources`. All 14 supplied LF-range SHA256 pins match exactly when a range is joined by literal LF without appending an extra final LF. The audit additionally records three directly read foundation ranges. All source files are read-only and unchanged. Source text retains form feeds, the printed missing \(1/2\), the v1 Proposition 4.2 \(m/n\) and subscript defects, and the malformed extracted convention. The correct intrinsic formula and all new calculations are separate from these raw quotations. The page-4/page-6 Vu v3 images and page-4 Vu v1 convention image were inspected locally. Vu v1's finite-energy theorem is not the controlling finite-energy source. No source-dependent catalogue claim was treated as independently established by the catalogue description.
+
+The requested execution identity was native Codex `gpt-6.1-sol`, reasoning `xhigh`. This turn used the native available Codex runtime only; no additional model or subagent was invoked. The runtime does not expose a signed model/effort attestation here, so those exact backend identifiers are recorded as requested rather than independently verified. No network call, install, external message, auth/proxy/CA change, HOME/CODEX_HOME change, SQL/runtime edit, or old-artifact write was performed. All new files are in this assigned workspace. There was no resource-heavy computation and no need to invoke a supervised compute service.
+
+Rerun commands from this directory are:
+
+- `python verify_sources.py`
+- `python coefficient_check.py`
+- `python build.py`
+
+Observed checks report 14/14 matching supplied source pins, 968 passing exact finite Vandermonde coefficient cases, and two successful `pdflatex` passes followed by successful PDF text-extraction checks. The initial compilation encountered an authored inline-math delimiter error; `repair_math_markup.py` corrected the delimiters without changing mathematical content, and `pdflatex-initial-failed.log` preserves that diagnostic. The final document was then compiled successfully twice. The build records environment versions, commands, return codes, source hashes, twice-compiled PDF evidence, and diagnostic output in local JSON/log artifacts. Coefficient checks are exact finite arithmetic diagnostics, not analytic proofs. PDF compilation and artifact validation are observations, not mathematical correctness certification. `status.json` has exactly the five requested keys and records `status: partial`. `notes.json` is the canonical native note object with `candidate: false`; its support arrays contain only earlier local IDs. No literature-priority claim or external independent correctness verdict is made.
+
+
+# Immutable primary-source bodies
+
+The following are literal LF ranges from the read-only supplied sources. The supplied range hashes use LF joins without an added final LF. Form feeds, extraction defects and printed mathematical defects are retained.
+
+## BEGZ-0812.3674v2-20261004.txt, LF249--322
+
+SHA256 `1dada113d7a3c9897039047fef2fa9aa9922f3c359092bbbfc416fab3823e0b2`; supplied pin matches: True.
+
+```text
+
+    We now collect some basic properties of non-pluripolar products.
+Proposition 1.4. Let u1 , ..., up be psh functions on X.
+    • The operator                              ^
+                            (u1 , ..., up ) 7→ h ddc uj i
+                                                 j
+         is local in theVplurifine topology whenever well-defined.
+       • The current h j ddc uj i and the fact that it is well-defined both only depend
+         on the currents ddc uj , not on the specific potentials uj .
+       • Non-pluripolar products, which are obviously symmetric, are also multi-
+         linear in the following sense: if v1 is a further psh function, then
+                           ^                       ^                      ^
+     h(ddc u1 + ddc v1 ) ∧    ddc uj i = hddc u1 ∧   ddc uj i + hddc v1 ∧    ddc uj i
+                          j≥2                        j≥2                        j≥2
+
+         in the sense that the left-hand side is well-defined iff both terms in the
+         right-hand side are, and equality holds in that case.
+Proof. Let us prove the ﬁrst point. If uj and vj are psh functions on X such
+that uj = vj on a given pluriﬁne open subset O, then the locally bounded psh
+functions max(uj , −k) and max(vj , −k) also coincide on O. If we set
+                            \               \
+                      Ek := {uj > −k} ∩ {vj > −k},
+                                 j                   j
+
+then we infer
+                      ^                                      ^
+              1O∩Ek       ddc max(uj , −k) = 1O∩Ek               ddc max(vj , −k),
+                      j                                      j
+
+hence in the limit               ^               ^
+                             1O h ddc uj i = 1O h ddc vj i
+                                 j                       j
+              MONGE-AMPÈRE EQUATIONS IN BIG COHOMOLOGY CLASSES                               7
+
+as desired by Lemma 1.5 below.
+   We now prove the second point. Let wj be pluriharmonic on X, and let K be a
+compact subset. We can ﬁnd C > 0 such that wj ≤ C on an open neighborhood
+V of K. On the pluriﬁne open subset
+                  \                         \
+             Ok := {uj + wj > −k} ∩ V ⊂ {uj > −k − C} ∩ V
+                         j                               j
+
+the following locally bounded psh functions coincide:
+     max(uj + wj , −k) = max(uj , −wj − k) + wj = max(uj , −k − C) + wj .
+Since ddc wj = 0, it follows that
+   Z           ^                         Z                         ^
+         n−p          c
+       ω     ∧    dd max(uj + wj , −k) =                 ω n−p ∧       ddc max(uj , −k − C)
+    Ok           j                                  Ok             j
+                     Z                              ^
+                ≤    T                    ω n−p ∧       ddc max(uj , −k − C)
+                         j {uj >−k−C}∩V             j
+which is uniformly bounded in k by assumption, and the second point is proved.
+   The proof of the last point is similarly easy but tedious and will be left to the
+reader.                                                                           
+                                                          V
+Lemma 1.5. Assume that the non-pluripolar product h j ddc uj i is well-defined.
+Then for every sequence of Borel subsets Ek such that
+                                       \
+                                Ek ⊂ {ui > −k}
+                                             j
+          S
+and X −    k Ek is pluripolar, we have
+                                   ^                        ^
+                         lim 1Ek       ddc max(uj , −k)i = h ddc uj i
+                         k→∞
+                                   j                           j
+
+against all bounded measurable functions.
+Proof. This follows by dominated convergence from
+                             ^                               ^
+        (1∩j {uj >−k} − 1Ek ) ddc max(uj , −k)i ≤ (1 − 1Ek )h ddc uj i.
+                                   j                                        j
+
+                                                                                              
+
+```
+
+## BEGZ-0812.3674v2-20261004.txt, LF810--840
+
+SHA256 `aa1c54651a97636414c96f9ae8d1815cfcfc49c8d8fbd8f02b7fd6f1a9306d3e`; supplied pin matches: True.
+
+```text
+
+Definition 1.17. Let α1 , ...αp ∈ H 1,1 (X, R) be big cohomology classes, and let
+Ti,min ∈ αi be a positive current with minimal singularities. Then the cohomology
+class of the non-pluripolar product hT1,min ∧ · · · ∧ Tp,min i is independent of the
+choice of Ti,min ∈ αi with minimal singularities. It will be denoted by
+                              hα1 · · · αp i ∈ H p,p (X, R)
+18                 S. BOUCKSOM, P. EYSSIDIEUX, V. GUEDJ, A.ZERIAHI
+
+and called the positive product of the αi . If α1 , ..., αn are merely psef, we set
+                      hα1 · · · αp i := lim h(α1 + εβ) · · · (αp + εβ)i
+                                      ε→0
+
+where β ∈ H 1,1 (X, R) is an arbitrary Kähler class.
+     As a special case, given a big class α the positive number
+                                      vol(α) := hαn i
+is called the volume of α
+   Some explanations are in order. The positive product hα1 · · · αp i is not multi-
+linear since the fact that T ∈ α and T ′ ∈ α′ both have minimal singularities
+(in their respective cohomology classes) doesn’t imply that T + T ′ has minimal
+singularities in α + α′ . Positive products are however homogeneous and non-
+decreasing in each variable αi thanks to Theorem 1.16 when the αi ’s is big (with
+respect to the partial order on cohomology induced by positive currents). These
+two properties imply in a completely formal way (cf. Proposition 2.9 in [14]) that
+hα1 · ... · αp i depends continuously on the p-tuple (α1 , ..., αp ) of big classes. We
+can thus extend positive products to psef classes αi as indicated, the existence
+of the limit and its independence on β being easy to check by monotonicity of
+positive products.
+   As an important special case, note that the positive product of nef classes αi
+coincides with their ordinary cup-product, that is
+                                 hα1 · · · αp i = α1 · · · αp .
+   The volume vol(α) considered here coincides (as it should!) with the one
+introduced in [11]. In fact:
+
+```
+
+## DDNL18-2049-2087-20261004.txt, LF319--347
+
+SHA256 `e8359844609c8b19e21d4c36df028505fde5b80cc75e59f274dd4b5d282fa62e`; supplied pin matches: True.
+
+```text
+
+Proposition 2.1. Let θ j , j ∈ {1, . . . , n}, be smooth closed real (1, 1)-forms on X whose cohomology
+classes are pseudoeffective. Let u j , v j ∈ PSH(X, θ j ) be such that u j has the same singularity type as v j ,
+j ∈ {1, . . . , n}. Then
+                                  Z                           Z
+                                        θu 1 ∧ · · · ∧ θu n =
+                                          1             n
+                                                                θv11 ∧ · · · ∧ θvnn .
+                                            X                         X
+
+   The proof of this result uses the arguments in [Boucksom et al. 2010, Corollary 2.15].
+
+Proof. First we note that we can assume that the classes {θ j } are in fact big. Indeed, if this is not the
+case we can just replace each θ j with θ j + εω, and using the multilinearity of the nonpluripolar product
+[Boucksom et al. 2010, Proposition 1.4] we can let ε → 0 at the end of our argument to conclude the
+statement for pseudoeffective classes.
+   For each t ∈ 1 = {t = (t1 , . . . , tn ) ∈ Rn | t j > 0} consider u t := j t j u j , vt := j t j v j and θ t := j t j θ j.
+                                                                           P                 P                    P
+
+Clearly, {θ t } is big, and u t has the same singularities as vt . Hence it follows from [Witt Nyström 2017,
+Theorem 1.2] that X (θutt )n = X (θvtt )n for all t ∈ 1. On the other hand, using multilinearity of the
+                       R             R
+
+nonpluripolar product again [Boucksom et al. 2010, Proposition 1.4], we see that both t → X (θutt )n and
+                                                                                                             R
+
+t → X (θvtt )n are homogeneous polynomials of degree n. Our last identity forces all the coefficients of
+     R
+
+these polynomials to be equal, giving the statement of our result.                                                       
+
+```
+
+## DDNL18-2049-2087-20261004.txt, LF448--469
+
+SHA256 `e4220e2892907b2d1d5b17de4aa57b3b1542060bda2e4dfcf8944f945cba0c20`; supplied pin matches: True.
+
+```text
+
+Theorem 2.4. Let θ j, j ∈ {1, . . . , n}, be smooth closed real (1, 1)-forms on X whose cohomology classes
+are pseudoeffective. Let u j , v j ∈ PSH(X, θ j ) be such that u j is less singular than v j for all j ∈ {1, . . . , n}.
+Then                                  Z                       Z
+                                        θu 1 ∧ · · · ∧ θu n ≥
+                                          1             n
+                                                                θv11 ∧ · · · ∧ θvnn .
+                                                   X                            X
+        MONOTONICITY OF NONPLURIPOLAR PRODUCTS AND COMPLEX MONGE–AMPÈRE EQUATIONS                                    2057
+
+
+Proof. By the same reason as in Proposition 2.1, we can assume that the classes {θ j } are in fact big. For
+each t > 0 we set v jt := max(u j − t, v j ) for j = 1, . . . , n. Observe that the v jt converge decreasingly to v j
+as t → ∞. In particular, by [Guedj and Zeriahi 2005, Proposition 3.7] the convergence holds in capacity.
+As v jt and u j have the same singularity type, it follows from Proposition 2.1 that
+                                   Z                          Z
+                                       θu 1 ∧ · · · ∧ θu n =
+                                          1            n
+                                                                  θv1t ∧ · · · ∧ θvnnt .
+                                                                           1
+                                        X                            X
+
+Letting t → ∞, the first part of Theorem 2.3 allows us to conclude the argument.                                       
+
+```
+
+## Xia-1907.06359v1-20261004.txt, LF250--265
+
+SHA256 `ea927250996b0a51fa4f7aa3612fd7e300be9c3327b0776093caacb4cc9f97f3`; supplied pin matches: True.
+
+```text
+
+2.4. Integration by parts. In the sequel, for ϕ1 , ϕ2 ∈ PSH(X, θ), we write [ϕ1 ] =
+[ϕ2 ] if there is a constant C > 0, such that
+                                      ϕ2 − C ≤ ϕ1 ≤ ϕ2 + C.
+Theorem 2.7. Let γ1 , . . . , γn−1 ∈ PSH(X, θ). Let ϕj , ψj ∈ PSH(X, θ) (j = 1, 2).
+Let u = ϕ1 − ϕ2 , v = ψ1 − ψ2 . Assume that
+                                     [ϕ1 ] = [ϕ2 ],    [ψ1 ] = [ψ2 ].
+Then
+          Z                                                Z
+(2.8)           u ddc v ∧ θγ1 ∧ · · · ∧ · · · ∧ θγn−1 =         v ddc u ∧ θγ1 ∧ · · · ∧ · · · ∧ θγn−1 .
+            X                                               X
+
+Remark 2.2. Here
+ddc v ∧ θγ1 ∧ · · · ∧ · · · ∧ θγn−1 := θψ1 ∧ θγ1 ∧ · · · ∧ · · · ∧ θγn−1 − θψ2 ∧ θγ1 ∧ · · · ∧ · · · ∧ θγn−1
+is understood as a signed measure. This definition is independent of the choice of
+θψ1 and θψ2 by [BEGZ10] Proposition 1.4. Other similar expressions are understood
+in the same way.
+
+```
+
+## Xia-1907.06359v1-20261004.txt, LF780--829
+
+SHA256 `fe693acf6a3033eb6bed734b0c9d194f4e59497e7aabf4c646bfbccf87bc72c8`; supplied pin matches: True.
+
+```text
+
+Corollary 2.15. Let αj (j = 0, . . . , n) be big cohomology classes on X. Let θj
+(j = 0, . . . , n) be smooth representatives in αj . Let γj ∈ PSH(X, θj ) (j = 2, . . . , n).
+Let ϕ1 , ϕ2 ∈ PSH(X, θ0 ), ψ1 , ψ2 ∈ PSH(X, θ1 ). Let u = ϕ1 − ϕ2 , v = ψ1 − ψ2 .
+Assume that
+                                 [ϕ1 ] = [ϕ2 ], [ψ1 ] = [ψ2 ].
+Then
+         Z                                                       Z
+(2.21)        u ddc v ∧ θ2,γ2 ∧ · · · ∧ · · · ∧ θn,γn =                  v ddc u ∧ θ2,γ2 ∧ · · · ∧ · · · ∧ θn,γn .
+          X                                                       X
+
+Proof. Take α = (a0 , . . . , an ) ∈ Rn+1
+                                      ≥0 . Let
+                                                     n
+                                                     X
+                                             θα =          aj θj .
+                                                     j=0
+
+Let
+                                  n
+                                  X
+                          γα =          aj γj ,   γ̃α = a0 ϕ1 + a1 ψ1 + γα .
+                                  j=2
+
+Note that
+                    a0 u = (a0 ϕ1 + a1 ψ1 + γα ) − (a0 ϕ2 + a1 ψ1 + γα ) ,
+                    a1 v = (a0 ϕ1 + a1 ψ1 + γα ) − (a0 ϕ1 + a1 ψ2 + γα ) .
+So by Theorem 2.7,
+                             Z                                       Z
+                     a0 a1       u ddc v ∧ θα,γ̃
+                                            n−1
+                                                 α
+                                                   = a0 a1                 v ddc u ∧ θα,γ̃
+                                                                                      n−1
+                                                                                           α
+                                                                                             .
+                             X                                        X
+So for a0 > 0, a1 > 0,
+                             Z                           Z
+                                 u ddc v ∧ θα,γ̃
+                                            n−1
+                                                 α
+                                                   =             v ddc u ∧ θα,γ̃
+                                                                            n−1
+                                                                                 α
+                                                                                   .
+                             X                             X
+Since both sides are polynomials in a0 , . . . , an , this means that all coefficients are
+equal. In particular, the coefficients of
+                                                  a 2 . . . an
+are equal, hence proving (2.21).                                                                                          
+
+```
+
+## Vu-2004.11111v1-20261004.txt, LF178--189
+
+SHA256 `13226a964e640ebeb8283a6342682cdf2f98a328d37f5386efe3e2e844ca2cef`; supplied pin matches: True.
+
+```text
+
+supported by a postdoctoral fellowship of the Alexander von Humboldt Foundation.
+
+Notation and convention. For a closed positive current T on a compact complex man-
+ifold X, we denote by {T } the cohomology class of T and ν(T, x) denotes the Lelong
+number of T at x. Recall that the wedge product on closed smooth forms induces the
+cup-product on their de Rham cohomology classes. We use the same notation “ ∧ ” to
+denote these two products.
+    Recall dc = 2πi (∂ − ∂) and ddc = πi ∂∂. We use &, . to denote ≥, ≤ modulo some
+multiplicative constant independent of parameters in question. For a Borel set A ⊂ X,
+we denote by 1A the characteristic function of A, that means 1A is equal to 1 on A and 0
+elsewhere. For every current R of order 0 on X, we denote by kRkA the mass of R on A.
+
+
+```
+
+## Vu-2004.11111v1-20261004.txt, LF580--642
+
+SHA256 `c097f459c8e4b862a8067519ab86b09613638b11af2d3e83b3766244458bf625`; supplied pin matches: True.
+
+```text
+
+Theorem 2.6. Let U ⊂ Cn be an open set. Let (Tk )k be a sequence of closed positive currents
+satisfying Condition (∗) so that Tk converges to a closed positive current T on U as k → ∞.
+Let uj be a locally bounded psh function on U for 1 ≤ j ≤ m. Let (ujk )k∈N be a sequence of
+locally bounded psh functions converging to uj in L1loc as k → ∞. Then, the convergence
+
+                u1k ddc u2k ∧ · · · ∧ ddc umk ∧ Tk → u1 ddc u2 ∧ · · · ∧ ddc um ∧ T    (2.10)
+
+as k → ∞ holds provided that one of the following conditions is fulfilled:
+    (i) ujk (x) ր uj (x) for every x ∈ U as k → ∞,
+    (ii) ujk (x) ր uj (x) for almost everywhere x ∈ U (with respect to the Lebesgue measure)
+and T has no mass on pluripolar sets,
+    (iii) ujk ≥ uj for every j, k.
+
+Proof. Given that we already have a uniform strong quasi-continuity for bounded psh
+functions, the desired result can be deduced without difficulty from proofs of classical
+results on the convergence of Monge-Ampère operators, for example, see [17].
+   We present here a proof of Theorem 2.6 for the readers’ convenience. First of all,
+observe that if ujk ր uj almost everywhere then, we have ujk ≤ uj(k+1) ≤ uj pointwise
+on U and the set {x ∈ U : uj (x) 6= limk→∞ ujk (x)} is pluripolar. By the localization
+
+
+
+
+                                                11
+principle ([17, Page 7]), we can assume that ujk , uj are all equal to some smooth psh
+function ψ outside some set K ⋐ U on U. We prove (i), (ii) simultaneously. Let
+
+            Sjk := ddc ujk ∧ · · · ∧ ddc umk ∧ Tk ,   Sj := ddc uj ∧ · · · ∧ ddc um ∧ T.
+
+We prove by induction in j that
+
+                                      u(j−1)k Sjk → u(j−1) Sj                              (2.11)
+
+k and for every 2 ≤ j ≤ m + 1 (by convention we put S(m+1)k := Tk and Sm+1 := T ). The
+claim is true for j = m + 1. Suppose that it holds for (j + 1). We need to prove it for
+j. Let Rj∞ be a limit current of u(j−1)k Sjk as k → ∞. By induction hypothesis (2.11) for
+(j + 1) instead of j, Sjk → Sj as k → ∞. This combined with the fact that the sequence
+(ujk )k converges in L1loc to uj gives
+
+                                          Rj∞ ≤ uj−1Sj                                     (2.12)
+
+(one can see [15, Proposition 3.2]). On the other hand, since (ujk )k is increasing, using
+Corollary 2.5, we obtain
+
+                       lim inf u(j−1)k Sjk ≥ lim inf u(j−1)s Sjk = u(j−1)s Sj
+                        k→∞                   k→∞
+
+for every s ∈ N. Letting s → ∞ in the last inequality gives
+
+                 Rj∞ ≥ ( lim u(j−1)s )Sj = uj−1Sj + ( lim u(j−1)s − uj−1)Sj .              (2.13)
+                          s→∞                             s→∞
+
+Recall that the set of x ∈ U with uj−1(x) > lims→∞ u(j−1)s (x) is empty in the setting of
+(i) and is a pluripolar set in the setting of (ii). Hence (2.11) follows from Lemma 2.1,
+(2.13) and (2.12). We have proved (i) and (ii). We prove (iii) by similar induction. The
+proof is finished.
+
+Remark 2.7. By the above proof and Lemma 2.1, Property (ii) of Theorem 2.6 still holds if
+instead of requiring T has no mass on pluripolar sets, we assume the following two condi-
+tions:
+    (i) T has no mass on Aj := {x ∈ U : uj (x) 6= limk→∞ ujk (x)} for every 1 ≤ j ≤ m and,
+    (ii) the set Aj is locally complete pluripolar for every j.
+    Just by replacing the usual quasi-continuity of psh functions by the stronger one given
+
+```
+
+## Vu-2004.11111v1-20261004.txt, LF945--1115
+
+SHA256 `b344c4bd11aa3280719cd1b8a3f08d8fff48bb7600168dd303519fb16061142d`; supplied pin matches: True.
+
+```text
+
+Definition 3.3. We say that the non-pluripolar product relative to T of T1 , . . . , Tm is well-
+defined if (3.2) holds for every small enough local chart U of X, or equivalently, (3.7)
+holds. In this case, the non-pluripolar product relative to T of T1 , . . . , Tm , which is denoted
+                    ˙ i, is defined to be the current R̃ in Lemma 3.2.
+by hT1 ∧ · · · ∧ Tm ∧T
+   When T is the current of integration along X, we simply write hT1 ∧ · · · ∧ Tm i for the
+non-pluripolar product relative to T of T1 , . . . , Tm . One can see that this is exactly the
+usual non-pluripolar product of T1 , . . . , Tm defined in [2, 16, 4]. We note that in general
+                             ˙ i can have mass on pluripolar sets in ∩m
+the current hT1 ∧ · · · ∧ Tm ∧T                                              j=1 {uj > −∞},
+see, however, Property (iii) of Proposition 3.5 below. Arguing as in the proof of [4,
+Proposition 1.6], we obtain the following result.
+                                                                               ˙ i is
+Lemma 3.4. Assume that X is a compact Kähler manifold. Then, hT1 ∧ · · · ∧ Tm ∧T
+well-defined.
+    For a closed positive (1, 1)-current R, recall that the polar locus IR of R is the set of
+points where potentials of R are equal to −∞. Note that by Lemma 3.1, the current
+                 ˙ i has no mass on ∪m
+hT1 ∧ · · · ∧ Tm ∧T                   j=1 ITj . We collect here some more basic properties of
+relative non-pluripolar products.
+Proposition 3.5. (i) The product hT1 ∧ · · · ∧ Tm ∧T  ˙ i is symmetric with respect to T1 , . . . , Tm .
+      (ii) Given a positive real number λ, we have h(λT1 ) ∧ T2 ∧ · · · ∧ Tm ∧T˙ i = λhT1 ∧ T2 ∧
+             ˙
+· · · ∧ Tm ∧T i.
+      (iii) Given a complete pluripolar set A such that T has no mass on A, then hT1 ∧ T2 ∧
+· · · ∧ Tm ∧T˙ i also has no mass on A.
+      (iv) Let T1′ be a closed positive (1, 1)-current on X and Tj , T as above. Assume that
+h∧m         ˙       ′    m      ˙                                    ′     m      ˙
+     j=1 Tj ∧T i, hT1 ∧ ∧j=2 Tj ∧T i are well-defined. Then h(T1 + T1 ) ∧ ∧j=2 Tj ∧T i is also well-
+defined and satisfies
+
+                (T1 + T1′ ) ∧ ∧m      ˙           m      ˙        ′    m      ˙
+                               j=2 Tj ∧T ≤ hT1 ∧ ∧j=2 Tj ∧T i + hT1 ∧ ∧j=2 Tj ∧T i.             (3.12)
+
+The equality occurs if T has no mass on IT1 ∪ IT1′ .
+    (v) Let 1 ≤ l ≤ m be an integer. Let Tj′′ be a closed positive (1, 1)-current on X and Tj , T
+as above for 1 ≤ j ≤ l. Assume that Tj′′ ≥ Tj for every 1 ≤ j ≤ l and T has no mass on
+∪lj=1 ITj′′ −Tj . Then, we have
+
+                             h∧lj=1Tj′′ ∧ ∧m        ˙        m      ˙
+                                           j=l+1 Tj ∧T i ≥ h∧j=1 Tj ∧T i
+
+
+provided that the left-hand side is well-defined.
+   (vi) Let 1 ≤ l ≤ m be an integer. Assume R := h∧m               ˙          l      ˙
+                                                          j=l+1 Tj ∧T i and h∧j=1 Tj ∧Ri are
+                                m     ˙ i = h∧j=1 Tj ∧Ri.
+well-defined. Then, we have h∧j=1 Tj ∧T         l    ˙
+
+
+
+
+                                                  17
+                                                                           ˙ i is well-defined.
+   (vii) Let A be a complete pluripolar set. Assume that hT1 ∧T2 ∧· · ·∧Tm ∧T
+Then we have
+
+                                          ˙ i = T1 ∧ T2 ∧ · · · ∧ Tm ∧(1
+               1X\A hT1 ∧ T2 ∧ · · · ∧ Tm ∧T                         ˙ X\A T ) .
+
+In particular, the equality
+                                     h∧m      ˙        m      ˙ ′
+                                       j=1 Tj ∧T i = h∧j=1 Tj ∧T i
+
+holds, where T ′ := 1X\∪m
+                        j=1 ITj
+                                T.
+
+Proof. Properties (i), (ii) are clear from the definition and the proof of Lemma 3.1. We
+now check (iii). Let R := h∧m          ˙
+                                j=1 Tj ∧T i. Since T has no mass on the complete pluripolar
+set A, using Lemma 2.1 gives 1A ∧m            c
+                                       j=1 dd ujk ∧ T = 0 for every k. Using this and Lemma
+3.1, we deduce that
+
+                   1A 1∩m
+                        j=1 {uj >−k}
+                                     R = 1A 1∩m
+                                              j=1 {uj >−k}
+                                                           ∧m     c
+                                                            j=1 dd ujk ∧ T = 0.
+
+
+Hence R = 0 on A and (iii) follows.
+   We prove (iv). We work on a small local chart U. Write Tj′ = ddc u′j , u′jk := max{u′j , −k}.
+Recall Tj = ddc uj . We can assume uj , u′j ≤ 0. Let R′ := hT1′ ∧ ∧m           ˙
+                                                                      j=2 Tj ∧T i and R :=
+                                                                                           ′′
+
+h(T1 + T1′ ) ∧ ∧m      ˙
+                j=2 Tj ∧T i. We have
+
+
+                                max{u1 + u′1 , −k} = u1k + u′1k
+
+on {u1 + u′1 > −k} because the last set is contained in {u1 > −k} ∩ {u′1 > −k}. This
+combined with Lemma 3.1 yields
+
+                                      1Bk′′ R′′ = 1Bk′′ R + 1Bk′′ R′ ,
+
+where Bk′′ := {u1 + u′1 > −k} ∩ ∩m
+                                 j=2 {uj > −k}. Letting k → ∞ in the last equality gives
+(3.12). Observe that
+                              1U \Bk′′ R → 1IT1 ∪IT ′ ∪ ∪m
+                                                         j=2 ITj
+                                                                 R
+                                                            1
+
+as k → ∞. The last limit is equal to 1IT ′ R because R has no mass on ∪m      j=1 ITj . Moreover
+                                          1
+since IT1′ is complete pluripolar and T has no mass on IT1′ , by (iii), we have that 1IT ′ R = 0.
+                                                                                         1
+Consequently, 1U \Bk′′ R → 0 as k → ∞ and a similar property of R′ also holds. Thus we
+obtain the equality in (3.12) if T has no mass on IT1 ∪ IT1′ . To get (v), we just need to
+decompose Tj′′ = Tj + Tj′ for some closed positive current Tj′ and use similar arguments
+as in the proof of (iv).
+    We prove (vi). We can assume uj ≤ 0 for every 1 ≤ j ≤ m. Let
+                                                      m
+                                          −1
+                                                     X
+                               ψk := k         max          uj , −k + 1.
+                                                      j=1
+
+
+Observe that 0 ≤ ψk ≤ 1 and
+
+                                ψk = 0         on ∪m
+                                                   j=1 {uj ≤ −k}.
+
+
+
+
+                                                     18
+Note that R has no mass on ITj for l + 1 ≤ j ≤ m. This combined with (iii) yields
+               ˙
+that h∧lj=1 Tj ∧Ri   gives no mass on ITj for 1 ≤ j ≤ m. Using this and the fact that
+ψk ր 1X\∪m  j=1 ITj
+                    yields
+
+                h∧lj=1Tj ∧Ri
+                         ˙   = lim ψk h∧lj=1 Tj ∧Ri
+                                                ˙   = lim ψk ∧lj=1 ddc ujk ∧ R.            (3.13)
+                                 k→∞                     k→∞
+
+Now since ψk R = ψk ∧m       c
+                     j=l+1 dd ujk ∧ T (Lemma 3.1), we get
+
+
+                           ψk ∧lj=1 ddc ujk ∧ R = ψk ∧m     c
+                                                      j=1 dd ujk ∧ T.                      (3.14)
+
+To see why the last equality is true, notice that it is clear if ujk ’s are smooth and in
+general, we can use sequences of smooth psh functions decreasing to ujk for 1 ≤ j ≤ l
+and the convergences of Monge-Ampère operators to obtain (3.14). Combining (3.14)
+with (3.13) gives the desired assertion.
+   It remains to prove (vii). Let ψk be as above.   Let A = {ϕ = −∞}, where ϕ is a
+                                                  Pm
+negative psh function. Define ψk := k max ϕ + j=1 uj , −k + 1. Since 0 ≤ ψk′ ≤ ψk ,
+                                ′     −1
+                                             
+
+we get {ψk = 0} ⊂ {ψk′ = 0}. It follows that
+
+        ψk′ hT1 ∧ T2 ∧ · · · ∧ Tm ∧T
+                                  ˙ i = ψk′ ∧m     c           ′  m     c
+                                             j=1 dd ujk ∧ T = ψk ∧j=1 dd ujk ∧ (1X\A T )
+
+because T = 1X\A T on {ψk′ 6= 0} and the convergence of Monge-Ampère operators.
+Letting k → ∞ gives the desired assertion. The proof is finished.
+   The following result clarifies the relationship between the relative non-pluripolar
+product and some other known notions of intersection.
+
+```
+
+## Vu-2004.11111v1-20261004.txt, LF1200--1247
+
+SHA256 `e12bdb4d6ebd643be2cf987df4ee89b060c1b8930c06b2bc8c8df732630376aa`; supplied pin matches: True.
+
+```text
+
+Theorem 3.7. Assume that hT1 ∧ · · · ∧ Tm ∧T                                         ˙ i is
+closed.
+
+Proof. The proof is based on ideas from [20, 4]. We work on a local chart U as above.
+By shrinking U and subtracting from uj a suitable constant, we can assume that uj ≤ 0.
+Let                                         m
+                                            X
+                            ψk := k −1 max{   uj , −k} + 1.
+                                                j=1
+
+Observe that ψk = 0 on ∪m
+                        j=1 {uj ≤ −k} and 0 ≤ ψk ≤ 1 increases to 1∩m
+                                                                    j=1 {uj >−∞}
+                                                                                 .
+                                                                                Let
+                                                              ′        ′
+g : R → R be a non-negative smooth function such that g(0) = g (0) = g (1) = 0 and
+g(1) = 1. Let Rk , R be as above. Since g(1) = 1 and g(0) = 0, we get g(ψk )R → R
+
+
+
+                                               20
+as k → ∞ (recall R has no mass on ∪m
+                                   j=1 {uj = −∞}). Thus the desired assertion is
+equivalent to proving that
+                                     dR = lim d(g(ψk )R) = 0.                                    (3.19)
+                                            k→∞
+
+Since g(ψk ) = g(0) = 0 on ∪m
+                            j=1 {uj ≤ −k}, we have
+
+                            d(g(ψk )R) = d(g(ψk )Rk ) = g ′ (ψk )dψk ∧ Rk
+(see [4, Lemma 1.9] or Corollary 2.5 for the second equality). Let U1 ⋐ U2 be relatively
+compact open subsets of U. By the Cauchy-Schwarz inequality, we have
+                  kg ′(ψk )dψk ∧ Rk kU1 . kdψk ∧ dc ψk ∧ Rk kU1 kg ′(ψk )2 Rk kU1 .
+Using dψk ∧ dc ψk = ddc ψk2 − ψk ddc ψk and the Chern-Levine-Nirenberg inequality, one get
+                 kdψk ∧ dc ψk ∧ Rk kU1 . kψk Rk kU2 ≤ kRk kU 2 ∩∩m
+                                                                 j=1 {uj >−k}
+                                                                              .1
+
+by (3.2). On the other hand, using the equality g ′ (ψk ) = g ′ (0) = 0 on {uj ≤ −k}, we
+obtain
+                    g ′(ψk )2 Rk = g ′(ψk )2 1∩m
+                                               j=1 {uj >−k}
+                                                            Rk = g ′(ψk )2 R
+converging to 0 as k → ∞ because g ′(ψk ) → g ′ (1) = 0 on ∩m
+                                                            j=1 {uj > −∞}. Thus (3.19)
+follows. This finishes the proof.
+
+```
+
+## Vu-2004.11111v1-20261004.txt, LF1259--1565
+
+SHA256 `09034b5477c57c8812f3b677bf5ba3504db9a417938f90d7fb91fd28903246a8`; supplied pin matches: True.
+
+```text
+
+
+
+4     Monotonicity
+In this section, we present a monotonicity property for relative non-pluripolar products.
+We begin with the following simple lemma.
+Lemma 4.1. Let U be an open subset of Cn . Let (ulj )l be a sequence of psh functions on U
+and uj a psh function on U for 1 ≤ j ≤ m. Let (Tl )l be a sequence of closed positive currents
+satisfying Condition (∗) and Tl converges to a closed positive current T on U as l → ∞.
+Assume that one of the following conditions is satisfied:
+    (i) ulj ≥ uj and ulj converges to uj in L1loc as l → ∞.
+    (ii) ulj increases to uj as l → ∞ almost everywhere and T has no mass on pluripolar
+sets.
+    Then, for every smooth weakly positive form Φ with compact support in U, we have
+                           Z                            Z
+                    lim inf h∧j=1 dd uj ∧Tl i ∧ Φ ≥ h∧m
+                                 m    c l ˙                       c   ˙
+                                                            j=1 dd uj ∧T i ∧ Φ.
+                      l→∞     U                            U
+
+
+
+
+                                                  21
+    When T is the current of integration along X, a related statement in the compact
+setting was given in [8, Theorem 2.3].
+
+Proof. Let Φ be a smooth weakly positive form with compact support in U. Assume (i)
+holds. Let uljk := max{ulj , −k} which converges to ujk := max{uj , −k} in L1loc as l → ∞
+and uljk ≥ ujk . Put
+
+                        Rl := h∧m     c l ˙
+                                j=1 dd uj ∧Tl i,              Rkl := ∧m     c l
+                                                                      j=1 dd ujk ∧ T.
+
+
+Similarly, we define R, Rk by using the formula of Rl , Rkl respectively with ulj , uljk replaced
+by uj , ujk . Since ulj ≥ uj , we get
+                         Z                           Z
+                                             l
+                            1∩m      l
+                               j=1 {uj >−k}
+                                            Rk ∧ Φ ≥   1∩m
+                                                         j=1 {uj >−k}
+                                                                      Rkl ∧ Φ.              (4.1)
+                         U                                     U
+
+By Theorem 2.6, we get Rkl → Rk as l → ∞. Using this together with the fact that when
+k is fixed, uljk is uniformly bounded in l, we see that the strong uniform quasi-continuity
+for ujk with respect to (Tl )l (see Theorem 2.4) implies
+              Z                                    Z
+                                   l
+      lim inf     1∩mj=1 {uj >−k}
+                                  Rk ∧ Φ = lim inf     1∩m j=1 {ujk >−k}
+                                                                         Rkl ∧ Φ
+        l→∞     U                            l→∞     U
+                                           Z                                 Z
+                                         ≥     1∩m
+                                                 j=1 {ujk >−k}
+                                                                Rk ∧ Φ =        1∩m
+                                                                                  j=1 {uj >−k}
+                                                                                               Rk ∧ Φ
+                                           Z U                                U
+
+                                         =     1∩m
+                                                 j=1 {uj >−k}
+                                                               R ∧ Φ.
+                                                 U
+
+This combined with (4.1) yields
+        Z                                 Z
+           1∩m
+             j=1 {uj >−k}
+                          R ∧ Φ ≤ lim inf    1∩m     l
+                                               j=1 {uj >−k}
+                                                            Rkl ∧ Φ
+         U                          l→∞    U
+                                          Z                                 Z
+                                                              l
+                                ≤ lim inf    1∩m     l
+                                               j=1 {uj >−k}
+                                                            R ∧ Φ ≤ lim inf   Rl ∧ Φ
+                                           l→∞       U                             l→∞   U
+
+for every k. Letting k → ∞ in the last inequality and noticing that R has no mass on
+∪mj=1 {uj = −∞} give the desired assertion.
+    Now assume (ii). Note that
+                                     ulj ≤ ul+1
+                                            j   ≤ uj
+for every l, j. Thus, {ulj > −k} ⊂ {ul+1 j   > −k} ⊂ {uj > −k} and ũj := liml→∞ ulj ≤ uj .
+Using this and arguments similar to those in the previous paragraph, we have
+                           Z                         Z
+                                             l
+                   lim inf   1∩m     l
+                               j=1 {uj >−k}
+                                            Rk ∧ Φ ≥   1∩m
+                                                         j=1 {ũj >−k}
+                                                                       R ∧ Φ.
+                     l→∞       U                                   U
+
+Letting k → ∞ gives
+                                       Z                 Z
+                                           l
+                             lim inf       R ∧Φ≥              1∩m
+                                                                j=1 {ũj >−∞}
+                                                                              R ∧ Φ.
+                              l→∞      U                 U
+
+
+
+
+                                                         22
+Recall that {uj > ũj } is pluripolar. This coupled with the fact that T has no mass on
+pluripolar sets and Property (iii) of Proposition 3.5 yields
+                          Z            Z                        Z
+                              l
+                  lim inf    R ∧Φ≥       1∩j=1 {uj >−∞} R ∧ Φ =
+                                            m                     R ∧ Φ.
+                     l→∞     U                U                                 U
+
+This finishes the proof.
+
+    Recall that for closed positive (1, 1)-currents R1 , R2 on X, we say that R1 is less sin-
+gular than R2 if for every local chart U and psh function wj on U such that Rj = ddc wj
+on U for j = 1, 2, then w2 ≤ w1 + O(1) on compact subsets of U; and R1 , R2 are of the
+same singularity type if w1 ≤ w2 + O(1) and w2 ≤ w1 + O(1) on compact subsets of U. The
+following generalizes [8, Proposition 2.1], see also [21, 18].
+Proposition 4.2. Let X be a compact complex manifold of dimension n. Let m be an integer
+such that 1 ≤ m ≤ n. Let T be a closed positive current of bi-degree (p, p) on X. Let Tj , Tj′
+be closed positive (1, 1)-currents on X for 1 ≤ j ≤ m such that Tj , Tj′ are of the same
+singularity type and Tj = ddc uj + θj , Tj′ := ddc u′j + θj , where θj is a smooth form and
+u′j , uj are θj -psh functions, for every 1 ≤ j ≤ m. Assume that for every J, J ′ ⊂ {1, . . . , m}
+                                                             ˙ i is well-defined. Then, for every
+such that J ∩ J ′ = ∅, the product h∧j∈J Tj ∧ ∧j ′ ∈J ′ Tj′′ ∧T
+    c
+dd -closed smooth form Φ, we have
+                      Z                              Z
+                            ′           ′ ˙                             ˙ i ∧ Φ.
+                         hT1 ∧ · · · ∧ Tm ∧T i ∧ Φ =   hT1 ∧ · · · ∧ Tm ∧T                  (4.2)
+                     X                                     X
+
+Proof. By compactness of X, we can assume uj , u′j ≤ 0. By the hypothesis, {uj = −∞} =
+{u′j = −∞} and wj := uj − u′j is bounded outside {uj = −∞}. Without loss of generality,
+we can assume that
+
+                                                  |wj | ≤ 1                                  (4.3)
+
+outside {uj = −∞}. Let A := ∪m  j=1 {uj = −∞} which is a complete pluripolar set. Put
+ujk := max{uj , −k}, ujk := max{u′j , −k} and
+                      ′
+
+
+                                                   n
+                                                   X
+                              ψk := k −1 max{            (uj + u′j ), −k} + 1                (4.4)
+                                                   j=1
+
+
+which is quasi-psh and 0 ≤ ψk ≤ 1, ψk (x) increases to 1 for x 6∈ A. We have ψk (x) = 0 if
+uj (x) ≤ −k or u′j (x) ≤ −k for some j. Put wjk := ujk − u′jk . By (4.3), we have
+
+                                                  |wjk | ≤ 1                                 (4.5)
+
+on X. Let J, J ′ ⊂ {1, . . . , n} with J ∩ J ′ = ∅ and
+
+                    RJJ ′ k := ∧j∈J (ddc ujk + θj ) ∧ ∧j ′ ∈J ′ (ddc u′j ′ k + θj ′ ) ∧ T.
+
+The last current is the difference of two closed positive (|J| + |J ′ | + p, |J| + |J ′ | + p)-
+currents. Hence, RJJ ′ k might not be positive in general and it is not clear how to control
+
+
+
+                                                     23
+its mass as k → ∞. This is a subtle point which we need to pay attention to. The relative
+non-pluripolar product
+
+                           RJJ ′ := ∧j∈J (ddc uj + θj ) ∧ ∧j ′ ∈J ′ (ddc u′j ′ + θj ′ )∧T
+                                                                                       ˙
+
+exists by our assumption. Let
+
+                                  Bk := ∩j∈J {uj > −k} ∩ ∩j ′ ∈J ′ {u′j ′ > −k}.
+
+By Lemma 3.2, we get
+                                            0 ≤ 1Bk RJJ ′ = 1Bk RJJ ′ k
+for every J, J ′ , k. Put R̃JJ ′ := 1X\A RJJ ′ . The last current is closed (for example see [4,
+Remark 1.10]) and positive because RJJ ′ ≥ 0. Using the fact that {ψk 6= 0} ⊂ Bk \A, we
+get
+
+                                         ψk R̃JJ ′ = ψk RJJ ′ = ψk RJJ ′ k .                                        (4.6)
+
+Claim. Let j ′′ ∈ {1, . . . , m}\(J ∪J ′ ). Let Φ be ddc -closed smooth form of bi-degree (p′ , p′ )
+on X, where p′ := n − |J| − |J ′ | − p − 1. Then
+                                    Z
+                                lim     ψk ddc wj ′′k ∧ RJJ ′ k ∧ Φ = 0.                   (4.7)
+                                     k→∞       X
+                                                                              Pm
+We prove Claim. Let ω be a Hermitian metric on X. Let η :=                       j=1 2 θj . We have
+  c       −1
+dd ψk + k η ≥ 0 for every k. By integration by parts and (4.6),
+  Z                                Z                              Z
+          c                                   c
+     ψk dd wj ′′ k ∧ RJJ ′ k ∧ Φ =   wj ′′k dd (ψk RJJ ′ k ∧ Φ) =   wj ′′k ddc (ψk R̃JJ ′ ∧ Φ). (4.8)
+     X                                     X                                        X
+
+Observe that
+
+                      ddc (ψk R̃JJ ′ ∧ Φ) = ddc ψk ∧ Φ ∧ R̃JJ ′ + 2dψk ∧ dc Φ ∧ R̃JJ ′
+
+because ddc Φ = 0 and Φ is of bi-degree (p′ , p′ ). Write dc Φ locally as a complex linear
+combination of forms like τj ∧ Φj , where τj is a (0, 1)-form or a (1, 0)-form and Φj is a
+positive form. Hence, we can use the Cauchy-Schwarz inequality to obtain
+ Z                                       Z                                                  21  Z                      21
+                       c
+      wj ′′ k dψk ∧ d Φ ∧ R̃JJ ′ ≤                 |wj2′′k |dψk ∧ dc ψk ∧ R̃JJ ′ ∧ Φ0                  R̃JJ ′ ∧ Φ0 ∧ ω          ,
+  X                                            X                                                   X
+
+                              ′
+where Φ0 := ω n−|J|−|J |−1 . We deduce that
+             Z                                                       Z                                     21
+                                                                 1
+                                     c                                                  c
+                     wj ′′k dψk ∧ d Φ ∧ R̃JJ ′ . kR̃JJ ′ k       2            dψk ∧ d ψk ∧ R̃JJ ′ ∧ Φ0
+                 X                                                        X
+
+by (4.5). Recall that {limk→∞ ψk < 1} is equal to the complete pluripolar set A. Using
+this, Remark 2.7 and the fact that R̃JJ ′ has no mass on A, we get
+
+                      lim dψk ∧ dc ψk ∧ R̃JJ ′ = lim (ddc ψk2 − ψk ddc ψk ) ∧ R̃JJ ′ = 0
+                     k→∞                                 k→∞
+
+
+
+
+                                                            24
+(we recall that to get Remark 2.7 for R̃JJ ′ and ψk , we need to use the strong quasi-
+continuity of ψk with respect to the capacity associated to R̃JJ ′ ). Thus we obtain
+                                 Z
+                            lim     wj ′′ k dψk ∧ dc Φ ∧ R̃JJ ′ = 0.                 (4.9)
+                                k→∞   X
+
+On the other hand, since
+ Z                                  Z                               Z
+               c                                 c
+     wj ′′ k dd ψk ∧ Φ ∧ R̃JJ ′ = −   dwj ′′k ∧ d ψk ∧ Φ ∧ R̃JJ ′ +   wj ′′k dc ψk ∧ dΦ ∧ R̃JJ ′ ,
+    X                                 X                                        X
+
+using similar arguments, we get
+                                      Z
+                                lim           wj ′′k ddc ψk ∧ Φ ∧ R̃JJ ′ = 0
+                              k →∞
+                                ′
+                                          X
+
+Combining this with (4.9) and (4.8) yields (4.7). Claim follows.
+                               ˙ i − hT1′ ∧ · · · Tn′ ∧T
+   Now let S := hT1 ∧ · · · Tn ∧T                     ˙ i. Using Tjk = Tjk
+                                                                         ′
+                                                                           + ddc wjk , one can
+check that
+            Z               Z                             Z
+                                    m
+               ψk S ∧ Φ =       ψk ∧j=1 Tjk ∧ T ∧ Φ −        ψk ∧m    ′
+                                                                 j=1 Tjk ∧ T ∧ Φ
+                X                X                                 X
+                                m Z
+                                X
+                                              s−1 ′
+                            =             ψk ∧j=1 Tjk ∧ ddc wsk ∧ ∧m
+                                                                   j=s+1 Tjk ∧ T ∧ Φ.
+                                s=1   X
+
+
+This together with Claim yields hS, Φi = limk→∞ hψk S, Φi = 0 for every ddc -closed smooth
+Φ. This finishes the proof.
+Remark 4.3. Our proof of Proposition 4.2 still works if Tj′ , Tj are not in the same cohomol-
+ogy class. In this case, one just needs to modify (4.2) accordingly.
+  The following result is the monotonicity property of relative non-pluripolar products
+mentioned in Introduction.
+Theorem 4.4. Let X be a compact Kähler manifold of dimension n. Let Tj , Tj′ be closed
+positive (1, 1)-currents on X for 1 ≤ j ≤ m such that Tj , Tj′ are in the same cohomology
+class for every j and Tj′ is less singular than Tj for 1 ≤ j ≤ m. Let T be a closed positive
+current on X. Then, we have
+                                           ˙ i ≤ hT1′ ∧ · · · ∧ Tm′ ∧T
+                                                                    ˙ i .
+                                                
+                          hT1 ∧ · · · ∧ Tm ∧T                                        (4.10)
+
+Proof. Write Tj = ddc uj + θj , Tj′ = ddc u′j + θj . Without loss of generality, we can assume
+that u′j ≥ uj . For l ∈ N, put ulj := max{uj , u′j − l} which is of the same singularity type as
+u′j . Notice that ddc ulj + θj ≥ 0. Since X is Kähler, the current h∧m        c l       ˙
+                                                                        j=1 (dd uj + θj )∧T i is of
+                                                                  m      c l       ˙ i as l → ∞.
+mass uniformly bounded in l. Let S be a limit current of h∧j=1 (dd uj + θj )∧T
+         l
+Since uj decreases to uj as l → ∞, we can apply Lemma 4.1 to get
+
+                                              S ≥ h∧m      ˙
+                                                    j=1 Tj ∧T i.
+
+Consequently, {S} ≥ {h∧m          ˙
+                           j=1 Tj ∧T i}. Using Proposition 4.2, we see that {S} is equal to
+   m    ′˙
+{h∧j=1 Tj ∧T i}. The desired assertion, hence, follows. This finishes the proof.
+
+
+
+                                                      25
+
+```
+
+## Vu-2005.13241v3-20261004.txt, LF121--655
+
+SHA256 `ac897767ca0a5f2aaccf93220b4393ba919af1d21d12d7f2a378207e1955b157`; supplied pin matches: True.
+
+```text
+
+fined in a way similar to that of the usual non-pluripolar product. The
+product h m        ˙
+          V
+            j=1 Tj ∧T i is a well-defined closed positive current of bi-degree
+(m + p, m + p); and h m           ˙
+                         V
+                           j=1 Tj ∧T i is symmetric with respect to T1 , . . . , Tm
+and is homogeneous.
+    For every closed positive (1, 1)-current P , we denote by IP the set of
+x ∈ X so that local potentials of P are equal to −∞ at x. Note that IP
+is a locally complete pluripolar set. The following is deduced from [14,
+Proposition 3.5].
+
+Proposition 2.1. (i) Given a locally complete pluripolar set A such that T
+has no mass on A, then h m         ˙
+                          V
+                            j=1 Tj ∧T i also has no mass on A.
+   (ii) Let T1′ be a closed positive (1, 1)-current on X and Tj , T as above.
+Assume that T has no mass on IT1 ∪ IT1′ . Then we have
+                            m
+                            ^                     m
+                                                  ^                       m
+                                                                          ^
+(2.1)       (T1 + T1′ ) ∧            ˙
+                                  Tj ∧T = hT1 ∧            ˙ i + hT1′ ∧
+                                                        Tj ∧T                      ˙ i.
+                                                                                Tj ∧T
+                            j=2                   j=2                     j=2
+4                                                                    Duc- Viet Vu
+
+                                                             Vm
+   (iii) Let 1 ≤ l ≤ m be an integer. Then for R := h                   ˙
+                                                               j=l+1 Tj ∧T i, there
+holds h m
+                         Vl
+                 ˙               ˙
+       V
+          j=1 Tj ∧T i = h j=1 Tj ∧Ri.
+   (iv) The equality
+                             m
+                             ^            m
+                                          ^
+                            h Tj ∧T           ˙ ′i
+                                   ˙ i = h Tj ∧T
+                             j=1           j=1
+               ′
+holds, where T := 1X\   Sm          T.
+                          j=1 ITj
+
+
+    We also need the following result.
+Theorem 2.2. ([14, Theorem 2.6, Remark 2.7]) Let uj be a locally bounded
+plurisubharmonic (psh) function on an open subset U of Cn for 1 ≤ j ≤ m.
+Let (ujk )k∈N be a sequence of locally bounded psh functions increasing to uj
+almost everywhere as k → ∞. Let T be a closed positive current on U. Then,
+the convergence
+
+(2.2)      u1k ddc u2k ∧ · · · ∧ ddc umk ∧ T → u1 ddc u2 ∧ · · · ∧ ddc um ∧ T
+
+as k → ∞ holds provided that T has no mass on Aj := {x ∈ U : uj (x) 6=
+limk→∞ ujk (x)} for every 1 ≤ j ≤ m and the set Aj is locally complete
+pluripolar for every j.
+    Recall that a dsh function on X is the difference of two quasiplurisub-
+harmonic (quasi-psh for short) functions on X (see [9]). These functions
+are well-defined outside pluripolar sets. Let v be a dsh function on X.
+Write v = ϕ1 − ϕ2 , where ϕ1 , ϕ2 are quasi-psh function. Hence v(x) is
+well-defined for x ∈ X\A, where A := {ϕ1 = −∞} ∪ {ϕ2 = −∞}. The
+function v is said to be bounded in X if there exists a constant C such that
+|v(x)| ≤ C for every x ∈ X\A.
+    We say that v is T -admissible (or admissible with respect to T ) if there
+exist quasi-psh functions ϕ1 , ϕ2 on X such that v = ϕ1 − ϕ2 and T has
+no mass on {ϕj = −∞} for j = 1, 2. In particular, if T has no mass on
+pluripolar sets, then every dsh function is T -admissible. Assume now that
+v is T -admissible. The following is a direct consequence of Proposition 2.1
+(i).
+Lemma 2.3. If v is T -admissible, then v is also admissible with respect to
+h m       ˙
+ V
+   j=1 Tj ∧T i.
+
+   Recall that if v = ϕ1 − ϕ2 for some bounded quasi-psh functions ϕ1 , ϕ2
+on X (note X is compact), the current dv ∧ dc v ∧ T is, by definition, equal
+to
+             1 c
+(2.3)          dd (ϕ1 − ϕ2 )2 ∧ T − (ϕ1 − ϕ2 )ddc (ϕ1 − ϕ2 ) ∧ T.
+             2
+Convexity of the class of currents with finite energy                      5
+
+We notice that in the above formula the function (ϕ1 − ϕ2 )2 is locally the
+difference of two bounded psh functions. More precisely, we can assume
+ϕj is ω-psh function for j = 1, 2, where ω is a Kähler form on X, and
+consider an open local chart U such that ω = ddc φ for some smooth psh
+function φ on U. By adding to φ a big constant, we can even assume that
+ϕj + φ ≥ 0 on U for j = 1, 2. Thus (ϕj + φ)2 and (ϕ1 + ϕ2 + 2φ)2 are psh
+on U for j = 1, 2, and
+
+(2.4)      (ϕ1 − ϕ2 )2 = (2(ϕ1 + φ)2 + 2(ϕ2 + φ)2 ) − (ϕ1 + ϕ2 + 2φ)2
+
+which is the difference of two bounded psh functions on U.
+   Consider another dsh function w which is equal to the difference of
+two locally bounded psh functions and T is of bi-degree (n − 1, n − 1), we
+have
+(2.5)
+2dv ∧ dc w ∧ T = d(v + w) ∧ dc (v + w) ∧ T − dv ∧ dc v ∧ T − dw ∧ dc w ∧ T.
+
+However, in general, even when v is bounded, v might not be the differ-
+ence of two bounded quasi-psh functions. Hence, the current “dv∧dc v∧T ”
+is not well-defined in the above sense. We will introduce below the cur-
+                ˙ i in the spirit of non-pluripolar products. Before going
+rent hdv ∧ dc v ∧T
+into details, we need the following auxiliary estimate.
+
+Lemma 2.4. Let ω be a Kähler form on X. Let ϕ1 , ϕ2 be bounded ω-psh
+functions on X and v := ϕ1 − ϕ2 . Let T be a closed positive current of bi-
+dimension (1, 1) on X. Then, there exists a constant C independent of ϕ1 , ϕ2
+such that
+                        Z
+(2.6)                     dv ∧ dc v ∧ T ≤ CkvkL∞ .
+                            X
+
+Proof. We have
+                   Z                             Z
+                                 c
+            I :=       dv ∧ d v ∧ T = −                  vddc v ∧ T
+                   X
+                   Z                                 X
+
+              =−    v(ddc ϕ1 − ddc ϕ2 ) ∧ T
+                 ZX                       Z
+                        c
+              =−    v(dd ϕ1 + ω) ∧ T +      v(ddc ϕ2 + ω) ∧ T
+                       X                                  X
+                           2 Z
+                           X
+              ≤ kvkL∞                    (ddc ϕj + ω) ∧ T
+                           j=1       X
+                           Z
+              = 2kvkL∞               T ∧ω
+                             X
+6                                                                      Duc- Viet Vu
+
+by Stokes’ theorem. The desired estimate follows. The proof is finished.
+
+
+    Assume now that v is T -admissible. Let ϕ1 , ϕ2 be quasi-psh functions
+such that v = ϕ1 − ϕ2 and T has no mass on {ϕj = −∞} for j = 1, 2. Let
+ϕj,k := max{ϕj , −k} for every j = 1, 2 and k ∈ N. Put vk := ϕ1,k − ϕ2,k .
+Since vk is the difference of two bounded quasi-psh functions, using (2.3),
+we obtain
+
+                Qk := dvk ∧ dc vk ∧ T = ddc vk2 ∧ T − vk ddc vk ∧ T.
+
+Let ω be a Kähler form so that ϕj is ω-psh for j = 1, 2. Let U be a local
+chart on X such that ω = ddc φ on U for some psh function φ such that
+ϕj,k + φ ≥ 0 on U for j = 1, 2 (we fix k). By (2.4) applied to ϕj,k + φ, we
+have
+
+Qk = 2ddc (ϕ1,k + φ)2 ∧ T + 2ddc (ϕ2,k + φ)2 ∧ T − ddc (ϕ1,k + ϕ2,k + 2φ)2 ∧ T
+        − (vk ddc ϕ1,k ∧ T − vk ddc ϕ2,k ∧ T )
+
+on U. By the plurifine locality with respect to T ([14, Theorem 2.9]) ap-
+plied to each term in the right-hand side of the last equality, we have
+
+(2.7)                   1T2j=1 {ϕj >−k} Qk = 1T2j=1 {ϕj >−k} Qk′
+
+for every k ′ ≥ k.
+                          ˙ i is well-defined if the mass of 1T2 {ϕ >−k} Qk
+   We say that hdv ∧ dc v ∧T                                   j=1  j
+
+on X is bounded uniformly in k. In this case, using (2.7) implies that there
+exists a positive current Q on X such that for every bounded Borel form
+Φ on X, we have
+
+                        hQ, Φi = lim h1T2j=1 {ϕj >−k} Qk , Φi.
+                                   k→∞
+
+                      ˙ i to be the current Q. This agrees with the classical
+We define hdv ∧ dc v ∧T
+definition if v is the difference of two bounded quasi-psh functions. This
+definition is independent of the choice of ϕ1 , ϕ2 by Lemma 2.5 below. If w
+is another T -admissible dsh function and T is of bi-dimension (1, 1) such
+                             ˙ i, hdw ∧ dcw ∧T
+that the currents hdv ∧ dc v ∧T             ˙ i, and hd(v + w) ∧ dc(v + w)∧T
+                                                                          ˙ i
+                                         c ˙
+are all well-defined, we define hdv ∧ d w ∧T i using (2.5) formally.
+Lemma 2.5. Let ϕ′1 , ϕ′2 be quasi-psh functions on X such that v = ϕ′1 − ϕ′2
+and T has no mass on {ϕ′j = −∞} for j = 1, 2. Let ϕ′j,k , Q′k be the func-
+tion and current associated to ϕ′j defined similarly as ϕj,k and Qk respec-
+tively. Then if 1T2j=1 {ϕj >−k} Qk is of mass bounded uniformly on k then so is
+Convexity of the class of currents with finite energy                                    7
+
+1T2j=1 {ϕ′j >−k} Q′k , and
+
+(2.8)                        Q = lim h1T2j=1 {ϕ′j >−k}Q′k , Φi
+                                  k→∞
+
+for every bounded Borel form Φ on X.
+
+Proof. Since v = ϕ′1 − ϕ′2 , we get
+
+                                  ϕ1 + ϕ′2 = ϕ′1 + ϕ2 .
+
+Put vk′ := ϕ′1,k − ϕ′2,k , A′k := 2j=1 {ϕ′j > −k}, and Ak := 2j=1 {ϕj > −k}.
+                                 T                            T
+
+We have Q′k = dvk′ ∧ dc vk′ ∧ T , and vk = vk′ on Ak ∩ A′k which is open in the
+plurifine topology. We claim that
+
+(2.9)                           1Ak ∩A′k Q′k = 1Ak ∩A′k Qk .
+
+This is a sort of plurifine locality statement and can be essentially de-
+duced from the plurifine locality for bounded psh functions (here we have
+vk = vk′ on Ak ∩ A′k but vk , vk′ are only dsh). We give details for readers’
+convenience. Before doing so, we will show that the desired assertion is a
+direct consequence of (2.9). First observe that 1A′k Q′k has no mass on the
+pluripolar set {ϕj = −∞} for j = 1, 2 by Proposition 2.1 (i) and the fact
+that T has no mass on {ϕj = −∞}. It follows that
+
+                    1A′k Q′k = lim 1A′k ∩As Q′k
+                                s→∞
+                             = lim 1A′k ∩As Q′s
+                                s→∞
+                             ≤ lim 1A′s ∩As Q′s
+                                s→∞
+                             = lim 1A′s ∩As Qs ≤ lim 1As Qs = Q,
+                                s→∞                 s→∞
+
+where we used (2.7) applied to Q′k in the second equality and (2.9) in the
+third equality. By exchanging the role of Q′k and Qk , we also obtain that
+
+                                      1Ak Qk ≤ R,
+
+for every limit current R of (1A′k Q′k )k as k → ∞. Hence (2.8) follows.
+   We go back to the proof of (2.9). Write
+
+dvk ∧ dc vk ∧ T = dvk ∧ dc (vk − vk′ ) ∧ T + d(vk − vk′ ) ∧ dc vk′ ∧ T + dvk′ ∧ dc vk′ ∧ T.
+
+Denote by R1 , R2 the first and second currents in the right-hand side of
+the last equality. In order to obtain (2.9), it suffices to check that Rj = 0
+8                                                                    Duc- Viet Vu
+
+on Ak ∩ A′k for j = 1, 2. Observe
+
+     R1 = dvk ∧ dc (ϕ1,k + ϕ′2,k − ϕ′1,k − ϕ2,k ) ∧ T
+        = dϕ1,k ∧ dc (ϕ1,k + ϕ′2,k ) ∧ T − dϕ1,k ∧ dc (ϕ′1,k + ϕ2,k ) ∧ T −
+                                                                         
+
+          dϕ2,k ∧ dc (ϕ1,k + ϕ′2,k ) ∧ T − dϕ2,k ∧ dc (ϕ′1,k + ϕ2,k ) ∧ T .
+                                                                        
+
+
+Each term in the right-hand side of the above equality is equal to 0 on
+Ak ∩ A′k thanks to the plurifine locality and the fact that
+
+               ϕ1,k + ϕ′2,k = ϕ1 + ϕ′2 = ϕ′1 + ϕ2 = ϕ′1,k + ϕ2,k
+
+on Ak ∩ A′k . Hence R1 = 0 on Ak ∩ A′k . Similarly we get R2 = 0 on Ak ∩ A′k .
+This finishes the proof.
+                                                                  ˙ i is
+Lemma 2.6. Assume that v is bounded. Then, the current hdv ∧ dc v ∧T
+well-defined.
+
+Proof. Let the notation be as in the proof of Lemma 2.4. Let ω be a Kähler
+form on X such that ϕ1 , ϕ2 are ω-psh. Note that ϕjk is also ω-psh for every
+j, k. Observe that since v is bounded, there exists a constant C such that
+ϕ2 − C ≤ ϕ1 ≤ ϕ2 + C. Thus, there exists a constant C so that
+
+                                 kvk kL∞ ≤ C
+
+for every k. Using this and Lemma 2.4, one gets
+
+                             kQk k . kvk kL∞ ≤ C
+
+for some constant C independent of k. Hence, the desired assertion fol-
+lows. This finishes the proof.
+
+      Let T1 , . . . , Tm be closed positive (1, 1)-currents on X and R := hT1 ∧
+           ˙ i. We define
+· · · ∧ Tm ∧T
+
+               hdv ∧ dc v ∧ T1 ∧ · · · ∧ Tm ∧T
+                                            ˙ i := hdv ∧ dc v ∧Ri.
+                                                              ˙
+
+When T ≡ 1, we write the left-hand side of the last equality simply as
+hdv ∧ dc v ∧ T1 ∧ · · · ∧ Tm i.
+                                            ˙ i is defined similarly if p + m =
+   The current hdv ∧ dc w ∧ T1 ∧ · · · ∧ Tm ∧T
+n − 1, where T is of bi-degree (p, p). We put
+
+                   hddc v ∧T
+                          ˙ i := hddc ϕ1 ∧T
+                                         ˙ i − hddcϕ2 ∧T
+                                                      ˙ i.
+
+Define
+                   hddc v ∧ T1 ∧ · · · ∧ Tm ∧T
+                                            ˙ i := hddc v ∧Ri.
+                                                          ˙
+Convexity of the class of currents with finite energy                            9
+
+   By Proposition 2.1 (iii), this definition agrees with the T -relative non-
+pluripolar product of ddc v, T1 , . . . , Tm if v is quasi-psh. When T ≡ 1, we
+                                                              ˙ i. In this case the
+write hddc v ∧ T1 ∧ · · · ∧ Tm i for hddc v ∧ T1 ∧ · · · ∧ Tm ∧T
+product hddc v ∧ T1 ∧ · · · ∧ Tm i is the one defined in the paragraph right
+after Theorem 1.2 in [12].
+   By admissibility and Proposition 2.1 (ii), we can check that if v, w are
+dsh functions which are admissible with respect to T , then
+
+                    hddc (v + w)∧T
+                                ˙ i = hddc v ∧T
+                                             ˙ i + hddcw ∧T
+                                                         ˙ i.
+
+   Here is an integration by parts formula for relative non-pluripolar prod-
+ucts.
+Theorem 2.7. Let T be a closed positive current of bi-degree (n − 1, n − 1)
+on X. Let v, w be bounded T -admissible dsh functions on X. Then, we have
+              Z                Z                   Z
+                     c ˙
+(2.10)           whdd v ∧T i =   vhdd w ∧T i = − hdw ∧ dc v ∧T
+                                       c ˙                     ˙ i.
+                X                  X                      X
+
+   The last result was proved in [4, Theorem 1.14] if v, w can be written
+as the differences of psh functions which are locally bounded outside a
+closed locally complete pluripolar set; see also [1, 13].
+
+Proof. We use ideas from the proof of [14, Proposition 4.2]. Let ϕ1 , ϕ2 , ϕ3 , ϕ4
+be negative quasi-psh functions on X such that v = ϕ1 −ϕ2 and w = ϕ3 −ϕ4
+and T has no mass on 4j=1 {ϕj = −∞}. Let ω be a Kähler form on X such
+                       S
+
+that ϕj is ω-psh for every 1 ≤ j ≤ 4. Put
+
+           ψ := ϕ1 + ϕ2 + ϕ3 + ϕ4 ,       ψk := k −1 max{ψ, −k} + 1.
+
+and ϕjk := max{ϕj , −k} for 1 ≤ j ≤ 4. Observe that 0 ≤ ψk ≤ 1. Let x ∈ X
+such that ψk (x) > 0. We have
+
+                ϕ1 (x) + ϕ2 (x) + ϕ3 (x) + ϕ4 (x) = ψ(x) > −k.
+
+This combined with the property that ϕj ≤ 0 for every 1 ≤ j ≤ 4 yields
+that ϕj (x) > −k for every 1 ≤ j ≤ 4. We infer that
+                                         4
+                                         \
+(2.11)                     {ψk 6= 0} ⊂       {ϕj > −k}.
+                                         j=1
+
+
+   Put vk := ϕ1k − ϕ2k and wk := ϕ3k − ϕ4k . Since v and w are bounded,
+the functions vk , wk are bounded uniformly in k.
+10                                                                      Duc- Viet Vu
+
+              S4
+   Let A :=    j=1 {ϕj = −∞}. By admissibility and Proposition 2.1 (i), we
+see that
+
+(2.12)                       1A h(ddcϕj + ω)∧T
+                                            ˙ i = 0.
+
+Using (2.12), we can consider w as a bounded function with respect to the
+                              ˙ i. Using (2.11), we have
+trace measure of h(ddc ϕj + ω)∧T
+
+      wψk ddc ϕjk ∧ T = w1{ϕj >−k} ψk hddc ϕj ∧T
+                                              ˙ i
+                         = whddc ϕj ∧T
+                                    ˙ i + w(1{ϕj >−k} ψk − 1)hddcϕj ∧T
+                                                                    ˙ i.
+
+The second term in the right-hand side of the last equality converges
+weakly to 0 as k → ∞ by the fact that ψk → 1 pointwise outside A as
+k → ∞ and Lebesgue’s dominated convergence theorem. Hence
+
+                       whddcϕj ∧T
+                               ˙ i = lim wψk ddc ϕjk ∧ T.
+                                          k→∞
+
+Applying the last equality to j = 1, 2, and using v = ϕ1 − ϕ2 , we obtain
+
+(2.13)        whddcv ∧T
+                     ˙ i = lim wψk ddc vk ∧ T = lim wk ψk ddc vk ∧ T.
+                               k→∞                            k→∞
+
+Here in the second equality we used the fact that w = wk on {ϕ3 > −k} ∩
+{ϕ4 > −k} which contains {ψk 6= 0}. We also have an analogous formula
+by exchanging the roles of v, w. Thus,
+
+(2.14)    whddcv ∧T
+                 ˙ i − vhddc w ∧T
+                               ˙ i = lim ψk (wk ddc vk − vk ddc wk ) ∧ T.
+                                                    k→∞
+
+By integration by parts for bounded psh functions, we have
+         Z                                     Z
+                      c          c
+(2.15)       ψk (wk dd vk − vk dd wk ) ∧ T = −    wk dψk ∧ dc vk ∧ T +
+           X                                    X
+                                                      Z
+                                                         vk dψk ∧ dc wk ∧ T.
+                                                                    X
+
+Denote by I1 , I2 the first and second term in the right-hand side of the
+last equality. We will check that Ij → 0 as k → ∞ for j = 1, 2. Using the
+Cauchy-Schwarz inequality, the boundedness of vk , wk and Lemma 2.4, we
+infer
+               Z                   21  Z                        21
+                            c                     2       c
+       |I1 | ≤      dψk ∧ d ψk ∧ T     ×     |wk | dvk ∧ d vk ∧ T
+                   X                                      X
+               Z                         21
+           .           dψk ∧ dc ψk ∧ T          .
+                   X
+Convexity of the class of currents with finite energy                       11
+
+Recall that {limk→∞ ψk < 1} is equal to the complete pluripolar set {ψ =
+−∞}. Using this, Theorem 2.2 and the fact that T has no mass on {ψ =
+−∞}, we get
+
+           lim dψk ∧ dc ψk ∧ T = lim (ddc ψk2 − ψk ddc ψk ) ∧ T = 0
+           k→∞                     k→∞
+
+Thus we obtain
+
+(2.16)                            lim I1 = 0.
+                                 k→∞
+
+By similarity, we also get I2 → 0 as k → ∞. Combining this with (2.15)
+and (2.13) gives the first desired equality of (2.10). We prove the second
+one similarly as follows. Put u := v + w, and
+
+               uk := max{ϕ1 + ϕ3 , −k} − max{ϕ2 + ϕ4 , −k}.
+
+By (2.11) observe that
+
+             1{ψk >0} max{ϕ1 + ϕ3 , −2k} = 1{ψk >0} (ϕ1k + ϕ3k )
+
+and a similar equality for ϕ2 , ϕ4 also holds. Thus, by plurifine locality, we
+get
+
+2hdv ∧ dc w ∧T
+            ˙ i = hdu ∧ dc u∧T
+                            ˙ i − hdv ∧ dc v ∧T
+                                             ˙ i − hdw ∧ dc w ∧T
+                                                              ˙ i
+                 = lim ψk hdu2k ∧ dc u2k ∧T
+                                         ˙ i − hdvk ∧ dc vk ∧T
+                                                            ˙ i−
+                   k→∞
+                  hdwk ∧ dc wk ∧T
+                               ˙ i
+                                   
+
+                 = lim ψk hd(vk + wk ) ∧ dc (vk + wk )∧T
+                                                      ˙ i − hdvk ∧ dc vk ∧T
+                                                                         ˙ i−
+                   k→∞
+                  hdwk ∧ dc wk ∧T
+                               ˙ i .
+                                  
+
+
+Consequently
+
+                  hdv ∧ dc w ∧T
+                             ˙ i = lim ψk hdvk ∧ dc wk ∧T
+                                                       ˙ i.
+                                    k→∞
+
+It follows that
+  Z                                      Z
+          c ˙              c ˙
+      vhdd w ∧T i + hdv ∧ d w ∧T i = lim    ψk (vk ddc wk + dvk ∧ dc wk ) ∧ T
+    X                                k→∞ X
+                                           Z
+                                   = − lim    vk dψk ∧ dc wk ∧ T
+                                         k→∞    X
+
+which is equal to 0 by analogous arguments as in the proof of (2.16). This
+finishes the proof.
+12                                                                                          Duc- Viet Vu
+
+Corollary 2.8. Let v, w be bounded dsh functions on X. Then, for every
+closed smooth form Φ of right bi-degree, we have
+            Z                  m
+                               ^                  Z                      m
+                                                                         ^
+                        c                                    c
+(2.17)              whdd v ∧         Tj i ∧ Φ =           vhdd w ∧             Tj i ∧ Φ =
+                X              j=1                    X                  j=1
+                                                                     Z                      m
+                                                                                            ^
+                                                                                    c
+                                                                 −        hdv ∧ d w ∧             Tj i ∧ Φ.
+                                                                     X                      j=1
+
+Proof. By writing Φ as the difference of two closed positive forms, we can
+assume that Φ is positive. The desired formula is a direct consequence of
+Theorem 2.7 applied to T := hT1 ∧ · · · ∧ Tm i ∧ Φ.
+
+    We recall that the first inequality of (2.17) was proved in [12, Theorem
+1.2] and [16] when m = n and the cohomology classes of Tj ’s are big.
+One should notice a crucial point that the integration by parts formulae
+obtained in [12, 16] contain no term involving dv ∧ dc w. Such a term is
+essential in applications, especially, in the pluricomplex energy theory. The
+following result is more general than Theorem 2.7. We will need it later.
+Theorem 2.9. Let T a closed positive current of bi-degree (n − 1, n − 1) on
+X. Let v, w be bounded T -admissible dsh functions on X. Let χ : R → R be
+a C 3 function. Then we have
+(2.18)
+   Z                   Z                        Z
+                           ′′
+             c ˙
+      χ(w)hdd v ∧T i =                c ˙
+                         vχ (w)hdw ∧ d w ∧T i +   vχ′ (w)hddcw ∧T
+                                                               ˙ i.
+        X                            X                                          X
+
+   A quick heuristic reason explaining why (2.18) should hold is because
+dd χ(w) = χ′′ (w)dw∧dc w+χ′ (w)ddcw if w is a bounded quasi-psh function.
+    c
+
+
+Proof. We first note that [14, Lemma 5.7] still holds for dsh functions
+which are the differences of two bounded quasi-psh functions. Now, to
+obtain the desired equality, we just follow the proof of Theorem 2.7 ver-
+batim with χ(w) in place of w. The only thing we need to clarify is the
+computation concerning ddc χ(wk ) ∧ T . To this end, it suffices to use [14,
+Lemma 5.7] because wk is the difference of two bounded quasi-psh func-
+tions. This finishes the proof.
+
+
+
+```
+
+## Vu-2005.13241v3-20261004.txt, LF656--827
+
+SHA256 `7c4a6f848d72b6bc891d56b0cdf8b543bf9c1522324504029100073e1d6b9ba9`; supplied pin matches: True.
+
+```text
+
+3       Currents with finite relative energy
+Let X be a compact Kähler manifold. Let α1 , . . . , αm be pseudoeffective
+(1, 1)-classes of X and T a closed positive current on X. Let Pj be a closed
+Convexity of the class of currents with finite energy                                 13
+
+positive (1, 1)-current in the class αj for 1 ≤ j ≤ m. Put P := (P1 , . . . , Pm ).
+We define EP (T ) to be the set of m-tuple (T1 , . . . , Tm ) of closed positive
+(1, 1)-currents such that Tj ∈ αj and Tj is more singular than Pj and
+                                m
+                                ^                     m
+                                                      ^
+                           {h            ˙ i} = {h
+                                      Tj ∧T                    ˙ i}.
+                                                            Pj ∧T
+                                j=1                   j=1
+
+Notice that for every current Pj′ in αj such that Pj′ has the same singular-
+ities as Pj for 1 ≤ j ≤ m, by the monotonicity of relative non-pluripolar
+products (see (1.1)), we have
+
+                                       EP (T ) = EP′ (T ).
+
+Hence, when Pj has minimal singularities in αj for 1 ≤ j ≤ m, we recover
+the class E(α1 , . . . , αm , T ) of currents of full mass intersection introduced
+in [14, 4] because we have
+
+                             EP (T ) = E(α1 , . . . , αm , T )
+
+in this case.
+    Let χ ∈ W − . Write Pj = ddc ϕj + θj , where θj is a smooth form and ϕj is
+a negative θj -psh function. Let (T1 , . . . , Tm ) ∈ EP (T ). Let uj be a negative
+θj -psh function so that Tj = ddc uj + θj and uj ≤ ϕj for 1 ≤ j ≤ m. For a
+negative Borel function ξ, we put
+                                           XZ       ^         ^
+(3.1)       Eξ,P (T1 , . . . , Tm ; T ) :=     −ξ      Tj ∧         ˙ ,
+                                                                 Pj ∧T
+                                             J    X          j∈J       j6∈J
+
+where the sum is taken over every subset J of {1, . . . , m}. The (T, P)-
+relative joint χ-energy of T1 , . . . , Tm is, by definition, Eξ,P (T1 , . . . , Tm ; T ),
+where
+                                                             
+                    ξ := χ (u1 − ϕ1 ) + · · · + (um − ϕm ) .
+The last energy depends on the choice of uj , ϕj but its finiteness does not.
+That notion generalizes those in [4, 11, 14], see also [5] for the local
+setting.
+    For every closed positive (1, 1)-current P , let IP be the set of x ∈ X so
+that the potentials of P are equal to −∞ at x. Note that IP is a complete
+pluripolar set. By Proposition 2.1 (iv), the right-hand side of (3.1) remains
+unchanged if we replace T by 1X\ Sm         j=1 IPj
+                                                    T . Hence, in practice, we can
+                             Sm
+assume T has no mass on j=1 IPj . We denote by Eχ,P (T ) the subset of
+EP (T ) containing every (T1 , . . . , Tm ) such that their (T, P)-relative joint
+χ-energy is finite.
+14                                                                                   Duc- Viet Vu
+
+   Here is a monotonicity for the class Eχ,P (T ) when Pj = P for every
+1 ≤ j ≤ m. This generalizes [14, Theorem 5.8].
+Theorem 3.1. Let P = ddc ϕ + θ be a closed positive (1, 1)-current and P :=
+(P, . . . , P ) (m times P ). Let χ ∈ W − with |χ(0)| ≤ 1. Let (T1 , . . . , Tm ) ∈
+Eχ,P (T ) and (T1′ , . . . , Tm′ ) ∈ EP (T ) such that Tj = ddc uj + θ, Tj′ = ddc u′j + θ
+such that uj , u′j are θ-psh and uj ≤ u′j ≤ ϕ. Put
+                                                                
+                           ξ := χ (u1 − ϕ) + · · · + (um − ϕ) .
+
+Then we have
+
+                 Eξ (T1′ , . . . , Tm′ ; T ) ≤ c1 Eξ (T1 , . . . , Tm ; T ) + c2 ,
+
+for some constants c1 , c2 > 0 independent of χ. In particular, (T1′ , . . . , Tm′ ) ∈
+Eχ,P (T ).
+
+Proof. As mentioned above, we can assume that T has no mass on IP =
+{ϕ = −∞}. Note here that {ϕ = −∞} ⊂ {uj = −∞}. Put
+
+                               ujk := max{uj , ϕ − k} − ϕ
+
+which is a bounded dsh function and
+
+                                    Tjk := ddc ujk + P.
+
+Observe that ujk ’s are admissible with respect to T . Define u′jk , Tjk
+                                                                      ′
+                                                                         simi-
+larly. Put
+                    m
+                    X
+             v :=         (uj − ϕj ),    vk := max{v, −k},             ξk = χ(vk ).
+                    j=1
+
+Note that ξ = χ(v). With these notations and a suitable integration by
+parts ready in our hands (Theorem 2.9) replacing [14, Lemma 5.7]), the
+proof goes exactly as in the proof of [14, Theorem 5.8]. The only minor
+modifications are: the Kähler form ω is substituted by P and the wedge
+products appearing in the proof of [14, Theorem 5.8] need to be replaced
+by T -relative non-pluripolar products. This finishes the proof.
+
+     The following is a direct consequence of Theorem 3.1.
+Corollary 3.2. Let P, P be as in Theorem 3.1. Let P ′ be a current in {P }
+which is of the same singularity type as P . Then, for P′ = (P ′ , . . . , P ′) (m
+times P ′), we have
+                            Eχ,P′ (T ) = Eχ,P(T ).
+Convexity of the class of currents with finite energy                            15
+
+   For every closed positive (1, 1)-current P , we define the class Em,P (T )
+(resp. Eχ,m,P (T )) to be the set of currents T1 ∈ {P } such that (T1 , . . . , T1 )
+belongs to EP (T ) (resp. Eχ,P (T )), where P = (P, . . . , P ) (m times P ). The
+last space was introduced in [6] when T is the constant function equal
+to 1. As in the case of the usual class of currents of full mass intersection
+([11, Proposition 2.2]), notice that
+                                          [
+                           Em,P (T ) =           Eχ,m,P (T ).
+                                         χ∈W −
+
+
+Let α be a pseudoeffective (1, 1)-class. By Corollary 3.2, we see that the
+notion of the weighted class Eχ,m,P (T ) makes sense if we replace P by its
+equivalent class (in terms of singularity type) of (1, 1)-currents. Hence,
+we can define Em (α, T ) (resp. Eχ,m(α, T )) to be the set Em,P (T ) (resp.
+Eχ,m,P (T )), where P is a current with minimal singularities in α.
+Theorem 3.3. Let U be an open subset in Cn . Let T be a closed positive
+current on U and uj , u′j bounded psh functions on U for 1 ≤ j ≤ m, where
+m ∈ N. Let vj , vj′ be psh functions on U for 1 ≤ j ≤ q. Assume that uj = u′j
+on W := qj=1 {vj > vj′ } for 1 ≤ j ≤ m. Then we have
+         T
+
+
+(3.2)       1W ddc u1 ∧ · · · ∧ ddc um ∧ T = 1W ddc u′1 ∧ · · · ∧ ddc u′m ∧ T.
+
+Proof. If vj , vj′ are all bounded, then the desired assertion is Theorem 2.9
+in [14]. In general, observe that
+                                          ∞
+                                          [
+                          {vj > vj′ } =               ′
+                                              {vjk > vjk },
+                                          k=1
+
+                                             ′
+                                                . Let Wk := qj=1 {vjk > vjk
+                                                                         ′
+                                                           T
+where vjk := max{vj , −k} and similarly for vjk                             }.
+                    S∞             ′
+We have W = k=1 Wk and uj = uj on Wk . Applying [14, Theorem 2.9]
+to uj , u′j , Wk gives
+
+         1Wk ddc u1 ∧ · · · ∧ ddc um ∧ T = 1Wk ddc u′1 ∧ · · · ∧ ddc u′m ∧ T
+
+for every k. Hence, the desired assertion follows. This finishes the proof.
+
+
+   Now, using Theorems 3.1 and 3.3 instead of [14, Theorem 5.8] and
+[14, Theorem 2.9] respectively, and following arguments in the proof of
+[14, Theorems 5.9 and 5.1], we immediately obtain the following result.
+
+Theorem 3.4. For χ ∈ W − , the sets Eχ,m,P (T ) and Em,P (T ) are convex.
+16                                                              Duc- Viet Vu
+
+     Finally, we would like to make the following comment.
+                    +
+Remark 3.5. Let WM     be the class of weights introduced in [11, Page 462].
+Using arguments from the proof of [11, Lemma 3.5] and that of Theorem
+                                                        +
+3.4, we can prove the convexity of Eχ,m,P (T ) for χ ∈ WM .
+
+
+Acknowledgements
+The author would like to thank referees for their remarks improving the
+presentation of the paper.
+
+
+
+```
+
+## Vu-2005.13241v3-20261004.txt, LF828--884
+
+SHA256 `d0915796895621146bb871da1cea5244607f9d37b9146f2d202a099a9eb96e7f`; supplied pin matches: True.
+
+```text
+
+References
+ [1] E. B EDFORD AND B. A. TAYLOR, A new capacity for plurisubharmonic
+     functions, Acta Math., 149 (1982), pp. 1–40.
+
+ [2]       , Fine topology, Šilov boundary, and (ddc )n , J. Funct. Anal., 72
+       (1987), pp. 225–251.
+
+ [3] R. J. B ERMAN , S. B OUCKSOM , V. G UEDJ , AND A. Z ERIAHI , A vari-
+     ational approach to complex Monge-Ampère equations, Publ. Math.
+     Inst. Hautes Études Sci., 117 (2013), pp. 179–245.
+
+ [4] S. B OUCKSOM , P. E YSSIDIEUX , V. G UEDJ , AND A. Z ERIAHI , Monge-
+     Ampère equations in big cohomology classes, Acta Math., 205 (2010),
+     pp. 199–262.
+
+ [5] U. C EGRELL, Pluricomplex energy, Acta Math., 180 (1998), pp. 187–
+     217.
+
+ [6] T. DARVAS , E. D I N EZZA , AND C. H. LU, Monotonicity of nonpluripo-
+     lar products and complex Monge-Ampère equations with prescribed sin-
+     gularity, Anal. PDE, 11 (2018), pp. 2049–2087.
+
+ [7]        , On the singularity type of full mass currents in big cohomology
+       classes, Compos. Math., 154 (2018), pp. 380–409.
+
+ [8] T. DARVAS , E. D I N EZZA , AND C. H. LU, Log-concavity of volume and
+     complex Monge-Ampère equations with prescribed singularity, Math.
+     Ann., 379 (2021), pp. 95–132.
+Convexity of the class of currents with finite energy                 17
+
+ [9] T.-C. D INH AND N. S IBONY, Distribution des valeurs de transforma-
+     tions méromorphes et applications, Comment. Math. Helv., 81 (2006),
+     pp. 221–258.
+
+[10] D. T. D O AND D.-V. V U, Complex Monge-Ampère equations with solu-
+     tions in finite energy classes. arXiv:2010.08619, 2020. to appear in
+     Math. Res. Lett.
+
+[11] V. G UEDJ AND A. Z ERIAHI, The weighted Monge-Ampère energy
+     of quasiplurisubharmonic functions, J. Funct. Anal., 250 (2007),
+     pp. 442–482.
+
+[12] C. H. LU, Comparison of Monge-Ampère capacities, Ann. Polon. Math.,
+     126 (2021), pp. 31–53.
+
+[13] N. S IBONY, Quelques problèmes de prolongement de courants en anal-
+     yse complexe, Duke Math. J., 52 (1985), pp. 157–197.
+
+[14] D.-V. V U, Relative non-pluripolar product of currents, Ann. Global
+     Anal. Geom., 60 (2021), pp. 269–311.
+
+[15] D. W ITT N YSTRÖM, Monotonicity of non-pluripolar Monge-Ampère
+     masses, Indiana Univ. Math. J., 68 (2019), pp. 579–591.
+
+[16] M. X IA, Integration by parts formula for non-pluripolar products.
+     arXiv:1907.06359, 2019.
+
+
+```
+
+## Additional foundation: BEGZ-0812.3674v2-20261004.txt, LF323--477
+
+SHA256 `462891277734fc5ab0efef31d1a327cb2de16257bfdc3ec5f24424db0e67909f`.
+
+```text
+
+  A crucial point for what follows is that non-pluripolar products of globally
+deﬁned currents are always well-deﬁned on compact Kähler manifolds:
+Proposition 1.6. Let T1 , ..., Tp be closed positive (1, 1)-currents on a compact
+Kähler manifold X. Then their non-pluripolar product hT1 ∧ ... ∧ Tp i is well-
+defined.
+Proof. Let ω be a Kähler form on X. In view of the third point of Proposi-
+tion 1.4, upon adding a large multiple of ω to the Tj ’s we may assume that their
+cohomology classes are Kähler classes. We can thus ﬁnd Kähler forms ωj and
+ωj -psh functions ϕj such that Tj = ωj + ddc ϕj . Let U be a small open subset of
+8                S. BOUCKSOM, P. EYSSIDIEUX, V. GUEDJ, A.ZERIAHI
+
+X on which ωj = ddc ψj , where ψj ≤ 0 is a smooth psh function on U , so that
+Tj = ddc uj on U with uj := ψj + ϕj . The bounded psh functions on U
+                                           ψj + max(ϕj , −k)
+and
+                                 max(uj , −k)
+coincide on the pluriﬁne open subset {uj > −k} ⊂ {ϕj > −k}, thus we have
+                     Z                  ^
+                                  n−p
+                       T        ω     ∧   ddc max(uj , −k)
+                               j {uj >−k}                       j
+                     Z                                  ^
+                 =       T                ω n−p ∧        (ωj + ddc max(ϕj , −k))
+                             j {uj >−k}                     j
+                              Z                 ^
+                         ≤            ω n−p ∧       (ωj + ddc max(ϕj , −k)).
+                                  X             j
+But the latter integral is computed in cohomology, hence independent of k, and
+this shows that (1.2) is satisﬁed on U , qed.                                
+Remark 1.7. The same property extends to the case where X is a compact com-
+plex manifold in the Fujiki class, that is bimeromorphic to a compact Kähler
+manifold. Indeed there exists in that case a modiﬁcation µ : X ′ → X with
+X ′ compact Kähler. Since µ is an isomorphism outside closed analytic (hence
+pluripolar) subsets, it is easy to deduce that hT1 ∧ ... ∧ Tp i is well-deﬁned on X
+from the fact that hµ∗ T1 ∧ ... ∧ µ∗ Tp i is well-deﬁned on X ′ , and in fact
+                         hT1 ∧ ... ∧ Tp i = µ∗ hµ∗ T1 ∧ ... ∧ µ∗ Tp i.
+On the other hand it seems to be unknown whether ﬁniteness of non-pluripolar
+products holds on arbitrary compact complex manifolds.
+  Building on the proof of the Skoda-El Mir extension theorem, we will now
+prove the less trivial closedness property of non-pluripolar products.
+Theorem 1.8. Let T1 , ..., Tp be closed positive (1, 1)-currents on a complex man-
+ifold X whose non-pluripolar product is well-defined. Then the positive (p, p)-
+current hT1 ∧ ... ∧ Tp i is closed.
+Proof. The result is of course local, and we can assume that X is a small neigh-
+borhood of 0 ∈ Cn . The proof will follow rather closely Sibony’s exposition of
+the Skoda-El Mir theorem [39], cf. also [18, pp. 159-161].
+   Let uj ≤ 0 be a local potential of Tj near 0 ∈ Cn , and for each k consider the
+closed positive current of bidimension (1, 1)
+                                      ^
+                           Θk := ρ ∧    ddc max(uj , −k)
+                                                    j
+
+and the pluriﬁne open subset
+                                                    \
+                                          Ok :=      {uj > −k}
+                                                        j
+            MONGE-AMPÈRE EQUATIONS IN BIG COHOMOLOGY CLASSES                          9
+
+so that 1Ok Θk converges towards
+                                  ρ ∧ hT1 ∧ ... ∧ Tp i
+by (1.1). Here ρ is a positive (n − p − 1, n − p − 1)-form with constant coeﬃcients,
+so that Θk has bidimension (1, 1). It is enough to show that
+                                  lim d (1Ok Θk ) = 0
+                                 k→∞
+for any choice ofP
+                 such a form ρ.
+   Let also u := j uj , so that u ≤ −k outside Ok , and set
+
+                                    wk := χ(eu/k ),
+where χ(t) is a smooth convex and non-decreasing function of t ∈ R such that
+χ(t) = 0 for t ≤ 1/2 and χ(1) = 1. We thus see that 0 ≤ wk ≤ 1 is a non-
+decreasing sequence of bounded psh functions deﬁned near 0 ∈ Cn with wk = 0
+outside Ok and wk → 1 pointwise outside the pluripolar set {u = −∞}. Finally
+let 0 ≤ θ(t) ≤ 1 be a smooth non-decreasing function of t ∈ R such that θ(t) = 0
+for t ≤ 1/2 and θ ≡ 1 near t = 1. The functions θ(wk ) are bounded, non-
+decreasing in k and we have
+                                 θ(wk ) ≤ 1Ok
+since θ(wk ) ≤ 1 vanishes outside Ok . Note also that θ ′ (wk ) vanishes outside Ok ,
+and converges to 0 pointwise outside {u = −∞}.
+   Our goal is to show that
+                                 lim d (1Ok Θk ) = 0.
+                                 k→∞
+But we have
+                0 ≤ (1Ok − θ(wk )) Θk ≤ (1 − θ(wk )) hT1 ∧ ... ∧ Tp i,
+and the latter converges to 0 by dominated convergence since θ(wk ) → 1 pointwise
+outside the polar set of u, which is negligible for hT1 ∧...∧Tp i. It is thus equivalent
+to show that
+                                lim d (θ(wk )Θk ) = 0.
+                                k→∞
+Since wk is a bounded psh function, Lemma 1.9 below shows that the chain rule
+applies, that is
+                       d (θ(wk )Θk ) = θ ′ (wk )dwk ∧ Θk .
+Recall that dwk ∧ Θk has order 0 by Bedford-Taylor, so that the right-hand side
+makes sense. Now let ψ be a given smooth 1-form compactly supported near 0
+and let τ ≥ 0 be a smooth cut-oﬀ function with τ ≡ 1 on the support of ψ. The
+Cauchy-Schwarz inequality implies
+  Z                     2   Z                      Z                    
+      ′                                   c               ′     2
+     θ (wk )ψ ∧ dwk ∧ Θk ≤       τ dwk ∧ d wk ∧ Θk       θ (wk ) ψ ∧ ψ ∧ Θk .
+
+But on the one hand we have
+                    Z                  Z
+                  2 τ dwk ∧ d wk ∧ Θk ≤ τ ddc wk2 ∧ Θk
+                             c
+10                  S. BOUCKSOM, P. EYSSIDIEUX, V. GUEDJ, A.ZERIAHI
+                               Z                      Z
+                           =       wk2 ddc τ ∧ Θk =        wk2 ddc τ ∧ Θk
+                                                      Ok
+since wk vanishes outside Ok , and the last integral is uniformly bounded since
+0 ≤ wk ≤ 1 and 1Ok Θk has uniformly bounded mass by (1.2). On the other hand
+we have
+                   θ ′ (wk )2 Θk = θ ′ (wk )2 1Ok Θk ≤ θ ′ (wk )2 hT1 ∧ ... ∧ Tp i
+since θ ′ (wk ) also vanishes outside Ok , and we conclude that
+                                       Z
+                                 lim      θ ′ (wk )2 ψ ∧ ψ ∧ Θk = 0
+                                   k→∞
+
+by dominated convergence since θ ′ (wk ) → 0 pointwise ouside the polar set of u,
+which is negligible for hT1 ∧ ... ∧ Tp i. The proof is thus complete.          
+Lemma 1.9. Let Θ be a closed positive (p, p)-current on a complex manifold X,
+f be a smooth function on R and v be a bounded psh function. Then we have
+                                     d(f (v)Θ) = f ′ (v)dv ∧ Θ.
+Proof. This is a local result, and we can thus assume that Θ has bidimension (1, 1)
+by multiplying it by constant forms as above. The result is of course true when
+v is smooth. As we shall see the result holds true in our case basically because v
+belongs to the Sobolev space L21 (Θ), in the sense that dv ∧ dc v ∧ Θ is well-deﬁned.
+Indeed the result is standard when Θ = [X], and proceeds by approximation.
+Here we let vk be a decreasing sequence of smooth psh functions converging
+pointwise to v. We then have f (vk )θ → f (v)Θ by dominated convergence, thus
+it suﬃces to show that
+                               lim f ′ (vk )dvk ∧ Θ = f ′ (v)dv ∧ Θ.
+                               k→∞
+We write
+                                                       
+ f ′ (vk )dvk ∧ Θ − f ′ (v)dv ∧ Θ = f ′ (vk ) − f ′ (v) dvk ∧ Θ + f ′ (v)(dvk − dv) ∧ Θ.
+Let ψ be a test 1-form and τ ≥ 0 be a smooth cut-oﬀ function with τ ≡ 1 on the
+support of ψ. Cauchy-Schwarz implies
+                        Z                                   2
+                                               
+                            f ′ (vk ) − f ′ (v) ψ ∧ dvk ∧ Θ
+               Z                                          Z                  
+                       ′
+                                    2
+                                     ′                                      c
+           ≤         f (vk ) − f (v) ψ ∧ ψ ∧ Θ                   τ dvk ∧ d vk ∧ Θ .
+The second factor is bounded since dvk ∧ dc vk ∧ Θ converges to dv ∧ dc v ∧ Θ by
+Bedford-Taylor’s monotone convergence theorem, and the ﬁrst one converges to
+0 by dominated convergence. We similarly have
+                          Z                            2
+                            f ′ (v)(dvk − dv) ∧ ψ ∧ Θ
+            Z                     Z                              
+                  ′   2                                c
+         ≤       f (v) ψ ∧ ψ ∧ Θ        τ d(vk − v) ∧ d (vk − v) ∧ Θ ,
+where now the ﬁrst factor is bounded while the second one tends to 0 by Bedford-
+Taylor once again, and the proof is complete.                                 
+
+```
+
+## Additional foundation: DDNL18-2049-2087-20261004.txt, LF350--369
+
+SHA256 `0d34fd95c9beb603186a5ec408cb5b463d1bdda346042cdc66ac38b25fde6c71`.
+
+```text
+
+2017, Theorem 4.26] for a proof of this result, which is merely a slight generalization of [Xing 1996,
+Theorem 1].
+
+Proposition 2.2. Let  ⊂ Cn be an open set. Suppose { f j } j are uniformly bounded quasicontinuous func-
+                                                                                     j         j                  j
+tions which converge in capacity to another quasicontinuous function f on . Let {u 1 } j , {u 2 } j , . . . , {u n } j
+be uniformly bounded plurisubharmonic functions on , converging in capacity to u 1 , u 2 , . . . , u n respec-
+tively. Then we have the following weak convergence of measures:
+                                j            j
+                         f j i∂ ∂u
+                                ¯ ∧ i∂ ∂u
+                                   1
+                                       ¯ ∧ · · · ∧ i∂ ∂u
+                                          2
+                                                      ¯ nj → f i∂ ∂u
+                                                                  ¯ 1 ∧ i∂ ∂u
+                                                                           ¯ 2 ∧ · · · ∧ i∂ ∂u
+                                                                                            ¯ n.
+
+   The following lower-semicontinuity property of nonpluripolar products will be key in the sequel:
+
+```
+
+## Additional foundation: Vu-2005.13241v3-20261004.txt, LF64--87
+
+SHA256 `f2355af21c2c2cdd4f567398969baf6b565884c1ea2aa8229c4349aa085a5510`.
+
+```text
+
+where Tj,min is a current with minimal singularities in the class {Tj } for
+1 ≤ j ≤ m.
+   Let α be a pseudoeffective (1, 1)-class. Denote by Em (α, T ) the set of
+currents P ∈ α such that P, . . . , P (m times P ) are of T -relative full mass
+intersection.
+   Recall that W − is the set of convex increasing functions χ from R to
+R such that χ(−∞) = −∞. Let χ ∈ W − . We can define Eχ,m(α, T ) to be
+the subclass of Em (α, T ) consisting of P such that P has finite (T -relative)
+χ-energy. When T ≡ 1 and m = n, the class Eχ,m (α, T ) generalizes the
+usual class of currents with finite energy in [4, 11], see also [5] for the
+local setting. We refer to Section 3 for details. For the moment, we note
+here that                              [
+                         Em (α, T ) =      Eχ,m (α, T ).
+                                      χ∈W −
+
+Here is our main result.
+
+Theorem 1.1. The sets Eχ,m (α, T ) and Em (α, T ) are convex.
+
+   The last result was proved in [14, Theorem 1.3] in the case where α is
+Kähler. When m = n and T ≡ 1, the convexity Eχ,m (α, T ) was conjectured
+in [4]. It was later answered affirmatively in [7, Corollary 2.12] in this
+setting. The proof in [7] doesn’t extend directly to our setting because it
+uses, in a crucial way, Monge-Ampère equations in big classes.
+
+```
+
+
+# Exact prior status and gaps
+
+{
+  "id": "P15.1",
+  "status": "partial",
+  "exact_result": "For arbitrary pseudoeffective zero-volume classes and actual references, bounded-type degree-d raw energy has cocycle, concavity, fixed-class representative independence, and leading perturbative limits for uniformly convergent bounded-type potentials along any class-convergent K\u00e4hler representatives. A genuine joint-linear finite-energy extension has decreasing continuity and reference/cocycle properties. A fixed-class concentration example refutes the unbounded extension of the auxiliary-path limit.",
+  "proof_file": "P15.1-argument.md",
+  "concrete_gaps": [
+    "Original P15.1 is not claimed solved: the construction has explicitly scoped bounded and joint-finite-energy domains.",
+    "The unbounded class-convergent auxiliary-representative path limit is false without added control (explicit analytic counterexample).",
+    "General lower-degree weighted integrability/control and unbounded moving-potential perturbative limits are not established, even for fixed forms in the general reference setting.",
+    "Only decreasing monotone continuity and finite-dimensional bounded variation are proved; arbitrary increasing continuity and unbounded differential/path calculus remain unproved here.",
+    "No universal minimal scale for unbounded domains, geometric d-dimensional carrier, numerical-dimension identification, or general leading class-volume coefficient theorem is provided."
+  ]
+}
+
+# Complete prior scoped proof P15.2-prescribed-type-zero-volume-operator
+
+# P15.2: a prescribed actual-type operator on arbitrary zero-volume classes
+
+Author: native Codex execution in the fresh assigned workspace. Date: 2026-10-04.
+Status: **partial**. This is a research draft, not an independently certified theorem.
+Only P15.2 is addressed. Energy is included as a primitive and a perturbation diagnostic for this operator; no closure of P15.1 or P15.3 is claimed.
+
+## 1. Exact scope and result
+
+Let $X$ be a connected smooth compact Kähler manifold of complex dimension $n\geq1$. Let $\alpha$ be pseudoeffective with $\operatorname{vol}(\alpha)=0$, let $\theta$ be a smooth closed real representative, and fix an actual $\theta$-psh function $\psi\not\equiv-\infty$. Fix a Kähler form $\omega$. Write
+
+\[
+d^c=\frac{i}{4\pi}(\bar\partial-\partial),\qquad dd^c=\frac{i}{2\pi}\partial\bar\partial,
+\quad T_u=\theta+dd^cu,\quad P=T_\psi.
+\]
+
+The bounded-type domain is
+\[
+\mathcal C_\psi=\{u\in\operatorname{PSH}(X,\theta): |u-\psi|\leq C_u\text{ on }X\setminus\{\psi=-\infty\},\ [u]=[\psi]\}.
+\]
+Here $[u]=[\psi]$ means the actual two-sided bounded singularity type, i.e. $\psi-C\leq u\leq\psi+C$ as extended-valued functions. One must require this, rather than a vacuous comparison on an intersection of finite loci. In particular the polar loci agree. Bounded differences are extended arbitrarily on that common pluripolar set whenever integrated against a measure that does not charge it.
+
+Define
+\[
+M_k(\psi,[\omega])=\int_X\langle P^k\rangle\wedge\omega^{n-k},\quad
+\langle P^0\rangle=1,\quad
+d=\max\{0\leq k\leq n:M_k>0\}.
+\]
+
+**Theorem A (bounded actual type, no fibration hypothesis).** In this setting:
+
+1. $0\leq d<n$. The integer $d$ is independent of the Kähler form and of the anchor within $[\psi]$. Every mixed product of $k>d$ currents of this bounded type vanishes as a current. The same vanishing holds if each factor is more singular than $\psi$. No assertion that $d=\nu(\alpha)$ is made.
+2. The intrinsic product current $\mathcal A_\psi(u)=\langle T_u^d\rangle$ has bidegree $(d,d)$ on $X$. Pairing it with the full reference form defines
+   \[
+   \mu_{u,\omega}=\langle T_u^d\rangle\wedge\omega^{n-d}.
+   \]
+   This is a nonpluripolar positive measure on the geometric carrier $X$, of complex dimension $n$, with positive raw mass $M_d$. A $(d,d)$ current is not a proved geometric $d$-dimensional carrier.
+3. For fixed $u\in\mathcal C_\psi$,
+   \[
+   \frac{\varepsilon^{-(n-d)}}{\binom nd}\langle(T_u+\varepsilon\omega)^n\rangle\longrightarrow\mu_{u,\omega}.
+   \]
+   More generally, if $u_\varepsilon\in\operatorname{PSH}(X,\theta+\varepsilon\omega)$ has type $[\psi]$ and
+   \[
+   \delta_\varepsilon=\sup_{X\setminus\{\psi=-\infty\}}|u_\varepsilon-u|=o(\varepsilon),
+   \]
+   the same limit holds with $T_u+\varepsilon\omega$ replaced by $\theta+\varepsilon\omega+dd^cu_\varepsilon$. Against a fixed smooth test the difference between these two rescaled products is $O(\delta_\varepsilon/\varepsilon)$. This is a sufficient rate, with no optimality or rate-free claim. Smooth convergence $\omega_\varepsilon\to\omega>0$ also suffices, with this same rate.
+4. The bounded relative primitive
+   \[
+   E_{\psi,[\omega]}(u)=\frac1{d+1}\sum_{a=0}^d\int_X(u-\psi)\langle T_u^a\wedge P^{d-a}\rangle\wedge\omega^{n-d}
+   \]
+   depends only on the auxiliary class, has an exact anchor cocycle, is monotone, concave, $M_d$-Lipschitz in bounded difference, and satisfies $E_\psi(u+c)=E_\psi(u)+cM_d$. It is the segment primitive of $\dot u\mapsto\int\dot u\,\mu_{u,\omega}$. Variation assertions below concern segments and $C^1$ paths in a fixed finite-dimensional convex hull of bounded-type potentials; arbitrary unbounded or discontinuous velocities are not included.
+5. Let $E^{(n)}_{\psi,\theta+\varepsilon\omega}$ be the unnormalized relative $n$-energy. Then
+   \[
+   \frac{E^{(n)}_{\psi,\theta+\varepsilon\omega}(u)}{\binom nd\,\varepsilon^{n-d}}\longrightarrow E_{\psi,[\omega]}(u).
+   \]
+   For bounded-type $u_\varepsilon$ uniformly approaching $u$, only $\delta_\varepsilon\to0$ is needed for this energy limit. In this energy assertion one can even use arbitrary Kähler representatives $\omega_\varepsilon$ whose classes converge to a fixed Kähler class $\lambda$, without convergence or pointwise bounds on those forms. The limit is $E_{\psi,\lambda}(u)$. This last assertion concerns energy alone.
+
+**Theorem B (unbounded full-mass operator, not a claimed full energy extension).** Fix the full form $\omega$, and allow $u\leq\psi+C$ with
+\[
+\int_X\langle T_u^d\rangle\wedge\omega^{n-d}=M_d.
+\]
+The same actual-current operator is defined, has mass $M_d$, and is the weak limit of the operator of $\max(u,\psi-j)$. It is also continuous along every decreasing sequence in this relative full-mass domain whose limit is in the domain. More generally, decreasing bounded-type majorants of such a $u$, in this domain, give the same limit. This gives independence of those truncations for the **operator**, without assigning an energy cocycle to unbounded differences. The retained data are the actual current of $u$, a reference bounded type dominating $u$, the chosen auxiliary class for the full-mass condition, and the full form for the measure. The unbounded $u$ need not retain the identical bounded singularity type.
+
+Theorems A and B are new applications proved below using scoped standard foundations. They do not settle the unchanged atom: no intrinsic lower-dimensional geometric carrier, minimum-reference characterization, unrestricted perturbation-choice independence, or general unbounded finite-energy/path theory is established.
+
+## 2. Standard foundations and conventions actually used
+
+These are literature foundations, not new lemmas reconstructed from computational output.
+
+**F1: ordinary nonpluripolar products.** On a compact Kähler manifold the nonpluripolar product of any finite collection of closed positive $(1,1)$ currents, with at most $n$ factors, is well-defined, finite, positive, symmetric, multilinear in positive currents, local in the plurifine topology, does not charge pluripolar sets, and is closed. Source: Boucksom--Eyssidieux--Guedj--Zeriahi, *Monge--Ampère equations in big cohomology classes*, Acta Math. 205 (2010), 199--262, Propositions 1.4, 1.6 and Theorem 1.8, arXiv:0812.3674v2, together with their definition of the nonpluripolar extension. Wedging smooth closed positive forms commutes with the local cutoffs and their limits. Every current in our applications is closed positive on compact Kähler $X$. Only positive multilinearity is used before taking differences of two finite products; signed products are explicitly defined by such differences.
+
+**F2: bounded-type mixed masses and monotonicity.** If $\theta_j$ are smooth closed real $(1,1)$ forms with pseudoeffective classes, and $u_j,v_j\in\operatorname{PSH}(X,\theta_j)$, then
+\[
+[u_j]=[v_j]\ (1\leq j\leq n)\ \Longrightarrow\
+\int\langle T_{u_1}\cdots T_{u_n}\rangle=\int\langle T_{v_1}\cdots T_{v_n}\rangle.
+\]
+If $u_j$ is less singular than $v_j$ for every $j$, the first mass is at least the second. Source: Darvas--Di Nezza--Lu, *Monotonicity of nonpluripolar products and complex Monge--Ampère equations with prescribed singularity*, Anal. PDE 11 (2018), 2049--2087, Proposition 2.1 and Theorem 2.4. These statements explicitly include pseudoeffective classes. To apply them to a degree-$k$ product, fill the $n-k$ other slots with smooth Kähler forms and their zero potentials. For perturbed currents all slots of the varying currents lie in $\alpha+\varepsilon[\omega]$, and $\psi,u,u_\varepsilon$ are psh for that same background and bounded-equivalent. DDNL writes $i\partial\bar\partial$; its source potential corresponding to our $u$ is $u/(2\pi)$. Order, bounded equivalence and all actual currents are preserved by this positive rescaling.
+
+**F3: the volume upper bound needed here.** In a big class $\beta$, a current $Q_{\min}$ with minimal singularities exists, is less singular than every positive current $Q\in\beta$, and $\int\langle Q_{\min}^n\rangle=\operatorname{vol}(\beta)$. Thus F2 implies $\int\langle Q^n\rangle\leq\operatorname{vol}(\beta)$. Source for existence and the definition: BEGZ Section 1.4 and Definition 1.17. For a pseudoeffective $\alpha$, their Definition 1.17 defines $\operatorname{vol}(\alpha)=\lim_{\varepsilon\downarrow0}\operatorname{vol}(\alpha+\varepsilon\beta)$ for any Kähler $\beta$. We only need this defining boundary limit, not an unproved equality for an arbitrary current. The class $\alpha+\varepsilon[\omega]$ is big because $P+\varepsilon\omega\geq\varepsilon\omega$.
+
+**F4: admissible signed integration by parts and positive gradients.** A bounded dsh function $v=\varphi_1-\varphi_2$ is $R$-admissible if its quasi-psh representatives have polar loci not charged by $R$. If $R$ is closed positive of bidegree $(n-1,n-1)$, and $v,w$ are bounded $R$-admissible dsh functions, then the relative signed products and the polarized gradient are defined and
+\[
+\int_X w\langle dd^cv\mathbin{\dot\wedge}R\rangle
+=\int_X v\langle dd^cw\mathbin{\dot\wedge}R\rangle
+=-\int_X\langle dw\wedge d^cv\mathbin{\dot\wedge}R\rangle.
+\]
+For $w=v$ the gradient measure is positive and finite. Source: D.-V. Vu, *Convexity of the class of currents with finite relative energy*, arXiv:2005.13241v3, Section 2, in particular Lemmas 2.3, 2.5, 2.6 and Theorem 2.7; its relative product association is Proposition 2.1(iii). The relative-product foundations are Vu, *Relative non-pluripolar product of currents*, Ann. Global Anal. Geom. 60 (2021), 269--311, arXiv:2004.11111v1, Lemma 3.4, Proposition 3.5 and Theorem 3.7. We apply F4 only when $R$ is a nonpluripolar product times smooth positive forms, or is a smooth positive form. Its trace has no pluripolar mass by F1; every bounded difference we use is therefore admissible. Relative signed insertions then coincide, by local cutoffs and positive multilinearity, with the difference of the two ordinary nonpluripolar products in our formulas. Smooth test functions and smooth reference potentials are bounded dsh functions: on compact $X$, adding a sufficiently large Kähler background makes each quasi-psh. All signed integrals are absolutely bounded by the sum of two finite positive masses times the bounded weight.
+
+**F4 convention and defect check.** The controlling Vu source uses $d^c_s=i(\bar\partial-\partial)/(2\pi)$, $dd^c_s=i\partial\bar\partial/\pi$, twice our operators, as visually verified on page 4 of 2004.11111v1. The same actual current is represented by source potential $u/2$. Its gradient $d(v/2)\wedge d^c_s(v/2)$ equals half our $dv\wedge d^cv$. Both sides of source IBP for source differences $v/2,w/2$ are half the displayed formula, so multiplying by 2 gives our formula. This also preserves positivity and finiteness.
+
+The correct intrinsic identity, in either convention, is
+\[
+dv\wedge d^cv=\tfrac12 dd^c(v^2)-v\,dd^cv.
+\]
+Vu v3 Equation (2.3), page 4, prints the $1/2$ correctly. The repeated expansions on page 6 and the cutoff formula on page 11 omit it. We preserve these literal texts in the source appendix, and do not use their incorrect expansions. With $a=\varphi_{1,k}+\rho$, $b=\varphi_{2,k}+\rho$, the correct local expansion is
+\[
+Q_k=dd^c(a^2)\wedge R+dd^c(b^2)\wedge R-
+\tfrac12 dd^c((a+b)^2)\wedge R
+-v_k(dd^c\varphi_{1,k}-dd^c\varphi_{2,k})\wedge R.
+\]
+Here $a,b\geq0$ are bounded psh locally, so their squares and $(a+b)^2$ are psh. This expansion gives the same plurifine locality used in Lemma 2.5. The positivity is that of the intrinsic Bedford--Taylor gradient, not of the incorrectly printed right-hand side. Its global mass is bounded by $2\|v_k\|_\infty\int\kappa\wedge R$, by the correct identity and Stokes, for a common quasi-psh background $\kappa$. In the proof of Theorem 2.7 the cutoff tends to 1 off a locally complete pluripolar set not charged by $R$. Theorem 2.2, applied to bounded local psh representatives, gives separately $dd^c(\chi_k^2)\wedge R\to0$ and $\chi_k dd^c\chi_k\wedge R\to0$. To see the admissible local representatives, choose a fixed strictly psh $\rho$ so that $\chi_k+\rho$ is psh, add constants to make it positive, and use polarization of its square and of the fixed smooth $\rho$; $\chi_k+\rho$ increases to $1+\rho$ outside that polar set. Thus the **correct** half-factor formula still gives zero gradient cutoff limit. Cauchy--Schwarz then kills the same boundary terms. The omission is harmless for that zero-limit application, not a license to change the intrinsic gradient. The printed chain of IBP identities otherwise uses the intrinsic gradients. We use v3, not the deficient v1 of 2005.13241. The m/n and subscript defects of 2004.11111v1 Proposition 4.2 are kept in the appendix; that proposition and its cohomological monotonicity application are not needed in our proof.
+
+**F5: the precise local lower semicontinuity used for Theorem B.** On an open $U\subset\mathbb C^n$, let $p_j^{(l)},p_j$ be psh, $p_j^{(l)}\geq p_j$, $p_j^{(l)}\to p_j$ in $L^1_{\rm loc}$. Let $R_l\to R$ be closed positive currents satisfying Condition (*). Then for every compactly supported smooth weakly positive test form $\Phi$,
+\[
+\liminf_l\int_U\langle\bigwedge_{j=1}^m dd^cp_j^{(l)}\mathbin{\dot\wedge}R_l\rangle\wedge\Phi
+\geq\int_U\langle\bigwedge_{j=1}^m dd^cp_j\mathbin{\dot\wedge}R\rangle\wedge\Phi.
+\]
+Source: Vu 2004.11111v1, Lemma 4.1(i), whose full proof is supplied. Condition (*) means locally uniformly bounded masses and the vanishing of $(q_l-q)(dd^cq)^r\wedge R_l$ for bounded psh $q$ and psh $q_l\downarrow q$, where $r$ is the index in its printed definition. We use only a **constant smooth** sequence $R_l=R=\omega^{n-d}$. It satisfies (*) by the classical decreasing Bedford--Taylor convergence; the source explicitly lists constant sequences as examples. Its relative product is exactly the ordinary product times that smooth form. Local potentials of a decreasing sequence of $\theta$-psh functions are psh, decrease, and converge in $L^1_{\rm loc}$ to their given psh limit by dominated convergence: $0\leq p_l-p\leq p_1-p$ off the polar sets, with the last difference locally integrable. All F5 hypotheses are thus checked, with no inference from convergence of total masses alone.
+
+**F6: definitions and convexity of the finite-energy domain, used only in Section 9.** Vu v3 Section 3 defines $\mathcal E_{\mathbf P}(R)$ for a tuple of currents more singular than $\mathbf P$ with equality of the cohomology classes of their relative nonpluripolar products. For $\chi\in\mathcal W^-$ (convex increasing, $\chi(-\infty)=-\infty$), joint $\chi$-energy is the sum over every subset $J\subset\{1,\ldots,m\}$ of
+\[
+\int -\chi\!\left(\sum_{j=1}^m(u_j-\varphi_j)\right)
+\left\langle\bigwedge_{j\in J}T_j\wedge\bigwedge_{j\notin J}P_j\mathbin{\dot\wedge}R\right\rangle.
+\]
+Corollary 3.2 says finiteness is unchanged by replacing the common $P$ with a bounded-equivalent current. Theorem 3.4 says the diagonal full-mass and diagonal weighted finite-energy sets are convex. These are accepted as scoped standard foundations; the printed proofs invoke earlier proofs and are not independently reconstructed here. We do not infer weighted truncation continuity or a numerical cocycle from these two results. In our application $m=d\geq1$, every $P_j=P$, $R=\omega^{n-d}$ is smooth closed positive, and top-degree cohomology equality on connected compact oriented $X$ is equivalent to total-mass equality. The weight is the linear $\chi(t)=t$, with the potential rescaling described in F4. This positive rescaling does not change finiteness.
+
+## 3. Degree, mixed vanishing and exact actual-current mass
+
+For any Kähler form $\eta$ there are constants $0<c<C$ with $c\omega\leq\eta\leq C\omega$. Positive wedge powers give
+\[
+c^{n-k}M_k(\psi,[\omega])\leq M_k(\psi,[\eta])\leq C^{n-k}M_k(\psi,[\omega]).
+\]
+Thus positivity of each $M_k$, and hence $d$, is form-independent. $M_0=\int\omega^n>0$, so the defining set is nonempty. F1 and F3 give the positive polynomial
+\[
+0\leq\sum_{k=0}^n\binom nk\varepsilon^{n-k}M_k
+=\int_X\langle(P+\varepsilon\omega)^n\rangle
+\leq\operatorname{vol}(\alpha+\varepsilon[\omega])\longrightarrow0.
+\]
+In particular $M_n=0$, proving $d<n$. This is an upper bound, not equality of actual-current mass with class volume.
+
+Let $u_1,\ldots,u_k\in\mathcal C_\psi$. F2, with $n-k$ smooth slots, yields
+\[
+\int_X\langle T_{u_1}\wedge\cdots\wedge T_{u_k}\rangle\wedge\omega^{n-k}=M_k.
+\]
+When $k>d$ this is zero. A positive $(k,k)$ current with zero Kähler trace mass is zero: in local coordinates its positive matrix of measure coefficients is bounded in absolute value by a fixed constant times its trace, so every coefficient is zero. This proves vanishing as a current, not merely zero integrated mass. Replacing each factor by one more singular than $\psi$, F2 bounds its positive trace mass above by $M_k=0$; the same argument applies. For $k=d$, the mixed masses on $\mathcal C_\psi$ all equal $M_d>0$. These arguments also show anchor invariance of $d,M_k$ within the bounded type.
+
+The current $\langle P^k\rangle$ is closed. Consequently $M_k$ depends only on $[\omega]$: the difference of powers of cohomologous closed forms is exact, and a closed current pairs to zero with exact smooth forms on compact $X$. This concerns the mass, not the measure. For $k=0$ it is the ordinary cohomological volume of $\omega$.
+
+## 4. Operator convergence and its sufficient rate
+
+Put $A_\varepsilon=T_u+\varepsilon\omega$. By F1 and Section 3,
+\[
+\frac{\langle A_\varepsilon^n\rangle}{\binom nd\varepsilon^{n-d}}
+=\mu_{u,\omega}+\sum_{k<d}\frac{\binom nk}{\binom nd}\varepsilon^{d-k}
+\langle T_u^k\rangle\wedge\omega^{n-k}.
+\]
+This proves even convergence in total variation for fixed $u,\omega$; the positive remainder has mass $O(\varepsilon)$ if $d\geq1$. If $d=0$, the equality with $\omega^n$ is exact for every $\varepsilon>0$.
+
+For the varying potential put $S_\varepsilon=\theta+\varepsilon\omega+dd^cu_\varepsilon$, $h_\varepsilon=u_\varepsilon-u$, and
+\[
+R_{j,\varepsilon}=\langle S_\varepsilon^j\wedge A_\varepsilon^{n-1-j}\rangle,\qquad 0\leq j\leq n-1.
+\]
+If $n=1$ this current is 1. Otherwise F1 shows it is closed positive, nonpluripolar. F4 applies to its bounded admissible difference $h_\varepsilon$ and any real smooth $f$. Positive multilinearity and signed insertion give the exact factorization
+\[
+\int_X f(\langle S_\varepsilon^n\rangle-\langle A_\varepsilon^n\rangle)
+=\sum_{j=0}^{n-1}\int_X h_\varepsilon\,dd^cf\wedge R_{j,\varepsilon}.
+\]
+Choose $C_f$ with $-C_f\omega\leq dd^cf\leq C_f\omega$. F2 gives, for each $j$,
+\[
+\int_X R_{j,\varepsilon}\wedge\omega
+=\int_X\langle(P+\varepsilon\omega)^{n-1}\rangle\wedge\omega
+=\sum_{k=0}^{d}\binom{n-1}k\varepsilon^{n-1-k}M_k.
+\]
+The upper index $d\leq n-1$ makes this formula meaningful. For $0<\varepsilon\leq1$, this is at most $C\varepsilon^{n-d-1}$, with $C=\sum_{k=0}^d\binom{n-1}kM_k$. Thus
+\[
+\left|\int_X f\frac{\langle S_\varepsilon^n\rangle-\langle A_\varepsilon^n\rangle}{\binom nd\varepsilon^{n-d}}\right|
+\leq\frac{n C_f C}{\binom nd}\frac{\delta_\varepsilon}{\varepsilon}.
+\]
+The total masses of the rescaled positive measures are uniformly bounded, again by F2 and the degree-$d$ polynomial. Smooth tests are uniformly dense in continuous functions on compact $X$, so their convergence proves weak measure convergence. Neither $h_\varepsilon$ nor the potential is assumed smooth. The constant $C_f$ depends on the full fixed reference form; no universal $\theta$-bound on arbitrary $X$-tests is used.
+
+If $\omega_\varepsilon\to\omega$ smoothly with positive limit, these forms are uniformly comparable to $\omega$, so the test constants are uniform. Each mass in the last polynomial, with $\omega_\varepsilon$, remains bounded by pointwise comparison. The fixed-$u$ expansion has leading term $\langle T_u^d\rangle\wedge\omega_\varepsilon^{n-d}\to\mu_{u,\omega}$, by smooth multiplication of a finite current. The same estimate proves the stated variable-form extension. This proof supplies no operator limit when only the cohomology classes converge and the representatives are arbitrary.
+
+## 5. A closed bounded-type one-form and its primitive
+
+Fix finitely many $u_0,\ldots,u_N\in\mathcal C_\psi$ and work in their real affine span over their convex hull. Currents there are affine combinations on the hull, so all products are polynomials in the finite coordinates by F1. Bounded differences supply finite coefficient integrals even when the potentials are singular. Define
+\[
+\mathcal L_u(v)=\int_X v\langle T_u^d\rangle\wedge\omega^{n-d}
+\]
+for bounded directions in this affine span. For $d\geq1$, coefficientwise differentiation gives
+\[
+D_a\mathcal L_u(b)=d\int_X b\,\langle dd^ca\wedge T_u^{d-1}\rangle\wedge\omega^{n-d}
+=D_b\mathcal L_u(a)
+\]
+by F4 with $R=\langle T_u^{d-1}\rangle\wedge\omega^{n-d}$. $R$ has bidegree $(n-1,n-1)$ and no pluripolar mass; the bounded directions are differences of bounded-equivalent quasi-psh potentials, and are admissible. For $d=0$ the derivative is zero. Therefore this polynomial one-form is closed. The equality extends coefficientwise to its polynomial extension on the ambient finite affine space, so ordinary Stokes on a triangle in the hull shows that its segment integrals are path-independent. Piecewise $C^1$ paths in a fixed such hull are covered. No infinite-dimensional differential regularity is being presumed.
+
+Set $h=u-\psi$ and $u_t=\psi+th$. Positive expansion and the elementary beta integral give
+\[
+\begin{aligned}
+\int_0^1\mathcal L_{u_t}(h)\,dt
+&=\sum_{a=0}^d\binom da\int_0^1t^a(1-t)^{d-a}\,dt
+\int_Xh\langle T_u^aP^{d-a}\rangle\wedge\omega^{n-d}\\
+&=\frac1{d+1}\sum_{a=0}^d\int_Xh\langle T_u^aP^{d-a}\rangle\wedge\omega^{n-d}=E_{\psi,[\omega]}(u).
+\end{aligned}
+\]
+Closedness gives the exact cocycle
+\[
+E_{\psi,[\omega]}(v)-E_{\psi,[\omega]}(u)=E_{u,[\omega]}(v)
+\]
+for any three bounded-type potentials. It also gives the exact derivative along each segment $u_t=u+t(v-u)$, and along $C^1$ paths in the stated finite-dimensional hull:
+\[
+\frac d{dt}E_{\psi,[\omega]}(u_t)=\int_X\dot u_t\,\mu_{u_t,\omega}.
+\]
+In finite coordinates $E$ is a polynomial of degree at most $d+1$. Thus the variation is classical there and all segment derivatives, including endpoint one-sided derivatives, exist. By Section 3 every segment measure has mass $M_d$. Positivity implies monotonicity, and integration of the derivative implies
+\[
+|E_\psi(v)-E_\psi(u)|\leq M_d\|v-u\|_\infty,
+\qquad E_\psi(u+c)-E_\psi(u)=cM_d.
+\]
+The supremum norm here is off the common polar locus, and is unambiguous for bounded differences.
+
+Concavity requires positivity, not just symmetry. For a segment of difference $h$, F4 gives for $d\geq1$
+\[
+\frac{d^2}{dt^2}E_\psi(u_t)
+=d\int_Xh\langle dd^ch\wedge T_{u_t}^{d-1}\rangle\wedge\omega^{n-d}
+=-d\int_X\langle dh\wedge d^ch\mathbin{\dot\wedge}
+(\langle T_{u_t}^{d-1}\rangle\wedge\omega^{n-d})\rangle\leq0.
+\]
+The last measure is the finite positive admissible gradient with the correct half-factor convention of F4. For $d=0$, $E_\psi(u)=\int_X(u-\psi)\omega^n$ is affine, and there is no degree-$(-1)$ gradient formula.
+
+## 6. Why the leading primitive depends only on the auxiliary class
+
+Suppose $\omega'=\omega+dd^cg$ is another Kähler form in the same real $(1,1)$ class. The existence of a smooth real $g$ is the smooth $dd^c$-lemma on compact Kähler $X$. This standard lemma states that a smooth real closed cohomologically zero $(1,1)$ form is $dd^c$ of a smooth real function; no singular potential is required. This is the Kähler $dd^c$-lemma of Deligne--Griffiths--Morgan--Sullivan, *Real homotopy theory of Kähler manifolds*, Invent. Math. 29 (1975), 245--274, Section 5; the global-potential consequence is also used in BEGZ Section 1.3. Our manifold is compact Kähler and the difference is smooth, real, closed and cohomologically zero, so the hypotheses apply. Put $q=n-d\geq1$. For any one of the $d$-fold mixed currents $Q=\langle T_u^aP^{d-a}\rangle$,
+\[
+\omega'^q-\omega^q=dd^cg\wedge\sum_{r=0}^{q-1}\omega'^r\wedge\omega^{q-1-r}.
+\]
+Each current $R=Q\wedge\omega'^r\wedge\omega^{q-1-r}$ is closed positive of bidegree $(n-1,n-1)$, with no pluripolar mass. F4 applies to $u-\psi$ and $g$, giving
+\[
+\int_X(u-\psi)dd^cg\wedge R
+=\int_Xg\langle dd^c(u-\psi)\mathbin{\dot\wedge}R\rangle=0.
+\]
+Indeed the last signed insertion is the difference of two $(d+1)$-fold same-type products, each zero as a current by Section 3. For $d=0$ these are the two degree-one products and the same proof works; the preceding current $R$ is smooth. Sum these identities over $a,r$. This proves $E_{\psi,[\omega']}=E_{\psi,[\omega]}$.
+
+The operator $\mu_{u,\omega}$ does not have this invariance as a measure. Section 10 gives a direct counterexample. The primitive may be invariant on its restricted directions even when its measure-valued derivative, tested against arbitrary smooth functions on $X$, changes.
+
+Changing $\theta$ to $\theta+dd^cg$ and $u,\psi$ to $u-g,\psi-g$ preserves the currents, all their products, all differences, and hence every construction above. A bounded-equivalent change of anchor preserves $d,M_k$ and the domain, and changes $E$ by exactly the cocycle of Section 5. Changing auxiliary classes can change both mass and energy; no arbitrary-class independence is claimed.
+
+## 7. Positive-epsilon energy: exact coefficients and the distinct stability rate
+
+For $0\leq k\leq d$ define the bounded finite quantity
+\[
+E^{(k)}_{\psi,\omega}(u)=\frac1{k+1}\sum_{j=0}^k\int_X(u-\psi)
+\langle T_u^jP^{k-j}\rangle\wedge\omega^{n-k}.
+\]
+It satisfies $|E^{(k)}_{\psi,\omega}(u)|\leq\|u-\psi\|_\infty M_k$. Representative invariance is proved only for $k=d$.
+
+The relative $n$-energy at positive $\varepsilon$ is, with its actual mass and no normalization,
+\[
+E^{(n)}_{\psi,\theta+\varepsilon\omega}(u)
+=\frac1{n+1}\sum_{a=0}^n\int_X(u-\psi)
+\langle(T_u+\varepsilon\omega)^a(P+\varepsilon\omega)^{n-a}\rangle.
+\]
+For fixed $j,k$, $0\leq j\leq k\leq n$, expansion gives coefficient
+\[
+\frac1{n+1}\sum_{a=0}^n\binom aj\binom{n-a}{k-j}
+=\frac1{n+1}\binom{n+1}{k+1}
+=\frac{\binom nk}{k+1}.
+\]
+The middle identity counts a $(k+1)$-element subset of ${0,\ldots,n}$ by its $(j+1)$-st element $a$. Terms with invalid binomial indices are zero. Terms of $T$-degree $k>d$ vanish. Therefore the exact identity is
+\[
+E^{(n)}_{\psi,\theta+\varepsilon\omega}(u)
+=\sum_{k=0}^d\binom nk\varepsilon^{n-k}E^{(k)}_{\psi,\omega}(u).
+\]
+This proves the asserted leading coefficient, including $d=0$.
+
+For the positive background, the same finite-dimensional closed-one-form proof as in Section 5 applies with degree $n$, without using high-degree vanishing. F2 says its same-type top mixed masses all equal the **actual** anchor mass
+\[
+m_\varepsilon=\int_X\langle(P+\varepsilon\omega)^n\rangle
+=\sum_{k=0}^d\binom nk\varepsilon^{n-k}M_k.
+\]
+Consequently its cocycle and monotonicity give
+\[
+|E^{(n)}_{\psi,\theta+\varepsilon\omega}(u_\varepsilon)
+-E^{(n)}_{\psi,\theta+\varepsilon\omega}(u)|\leq\delta_\varepsilon m_\varepsilon.
+\]
+After dividing by $\binom nd\varepsilon^{n-d}$, the multiplier of $\delta_\varepsilon$ stays bounded and tends to $M_d$. Thus $\delta_\varepsilon\to0$ suffices for energy. The stronger operator hypothesis $o(\varepsilon)$ did not enter this argument. At no point is $m_\varepsilon$ replaced by class volume.
+
+## 8. Leading energy with arbitrary representatives of converging auxiliary classes
+
+Let $\omega_\varepsilon$ be any Kähler forms with $[\omega_\varepsilon]\to\lambda$, a Kähler class. There is no assumed smooth convergence or uniform pointwise bound. The degree $d$ remains the same by Section 3. The closed currents $\langle P^k\rangle$ imply
+\[
+M_k(\psi,[\omega_\varepsilon])=
+\{\langle P^k\rangle\}\cdot[\omega_\varepsilon]^{n-k},
+\]
+a continuous polynomial in the finite-dimensional cohomology coordinates. Hence these nonnegative masses are uniformly bounded for all sufficiently small $\varepsilon$. The exact energy expansion from Section 7 applies individually to each form, and its lower coefficients satisfy
+\[
+|E^{(k)}_{\psi,\omega_\varepsilon}(u)|\leq\|u-\psi\|_\infty M_k(\psi,[\omega_\varepsilon]).
+\]
+This uniform bound makes all terms with $k<d$ vanish after rescaling.
+
+For continuity of the leading coefficient, choose a Kähler representative $\sigma_0\in\lambda$ and smooth closed representatives $\beta_1,\ldots,\beta_N$ of a real basis of $H^{1,1}(X,\mathbb R)$. In a small neighborhood of $\lambda$, $\sigma_b=\sigma_0+\sum b_i\beta_i$ is Kähler, since strict positivity is open in the smooth topology. Section 6 identifies $E_{\psi,[\omega_\varepsilon]}(u)$ with $E_{\psi,\sigma_{b(\varepsilon)}}(u)$. The latter is a polynomial of degree at most $n-d$ in $b$, since the fixed finite weighted currents are multiplied only by $\sigma_b^{n-d}$. It therefore converges to $E_{\psi,\lambda}(u)$. Its coefficients are finite signed integrals of smooth forms against bounded weights and finite currents. Finally the error estimate for $u_\varepsilon$ from Section 7 has uniformly bounded rescaled actual anchor masses by the same class-polynomial argument. This proves the variable-class energy assertion in Theorem A. It proves neither representative independence of the entire positive-$\varepsilon$ energy nor a form-free operator limit.
+
+## 9. Unbounded full mass: what is proved, and the finite-energy gap
+
+Assume first $d\geq1$, normalize $u\leq\psi$, and suppose the degree-$d$ mass equals $M_d$. F2 and Section 3 imply all higher mixed products of more-singular potentials vanish. If $u_1,\ldots,u_d$ are intermediate potentials with $u\leq u_i\leq\psi$, F2 applied in the $d$ current slots and $n-d$ smooth slots gives
+\[
+M_d=\int\langle T_u^d\rangle\omega^{n-d}
+\leq\int\langle T_{u_1}\cdots T_{u_d}\rangle\omega^{n-d}
+\leq\int\langle P^d\rangle\omega^{n-d}=M_d.
+\]
+Thus every such mixed mass is exactly $M_d$, including those of $u_j=\max(u,\psi-j)$ and of mixtures with $P$. The truncations are $\theta$-psh by the local maximum property of psh functions, of type $[\psi]$, and decrease to $u$. They have the same common lower Hessian bound; their local psh potentials converge in $L^1_{\rm loc}$ by dominated convergence, using $0\leq p_j-p\leq p_1-p$ locally. F5 on local charts, using a partition of unity for nonnegative smooth global tests, implies that every weak cluster point of $\mu_{u_j,\omega}$ dominates $\mu_{u,\omega}$. Positive measures of uniformly bounded mass on compact $X$ have weak cluster points. Both the cluster point and $\mu_{u,\omega}$ have mass $M_d$, so their positive difference has mass zero and is zero. Every cluster point is therefore the same measure, proving convergence of the whole sequence.
+
+Exactly this argument applies to any decreasing full-mass sequence with a full-mass limit, and to any other decreasing bounded-type majorants of $u$ that are more singular than $\psi$: their masses lie between the two equal masses. An arbitrary additive constant in the ordering does not change the currents or their measures. For $d=0$, the operator is identically $\omega^n$, all degree-zero masses are $M_0$, and Theorem B is immediate without F5. This proves Theorem B in every case. Changing the bounded-equivalent reference preserves its dominance relation up to a constant and its degree/mass, so this operator domain is unchanged. Changing the representative inside the same auxiliary class preserves its full-mass **condition**, by closedness of $\langle T_u^d\rangle$, but can change the measure. We do not assert invariance of that condition under changing auxiliary classes.
+
+Here is the precise finite-energy domain investigated. For $d\geq1$, let
+\[
+\mathcal F^1_{\psi,\omega}=\left\{u\leq\psi+C:\ \mu_{u,\omega}(X)=M_d,\quad
+\sum_{a=0}^d\int_X|u-\psi|\langle T_u^aP^{d-a}\rangle\omega^{n-d}<\infty\right\}.
+\]
+Differences on polar sets are irrelevant to these nonpluripolar measures. After normalizing $u\leq\psi$, its joint linear energy in the chosen potential convention is
+\[
+d\sum_{a=0}^d\binom da\int_X(\psi-u)\langle T_u^aP^{d-a}\rangle\omega^{n-d}.
+\]
+Vu's unrescaled source potentials are $u/2,\psi/2$, so its literal source joint linear energy is one half of this expression. Multiplication by 2 is the explicit linear-weight homogeneity conversion; finiteness is unchanged. All summands are nonnegative and there are finitely many, so its finiteness is exactly the displayed condition. F6 supplies convexity and invariance of finiteness under bounded-equivalent changes of the reference current, with the same fixed smooth $R=\omega^{n-d}$. Our Theorem B supplies the unbounded operator and its decreasing/truncation continuity on this domain, indeed on the larger full-mass domain. It does not yet supply an unbounded energy cocycle.
+
+This domain can genuinely contain unbounded differences. On $\mathbb P^1_y\times\mathbb P^1_z$, take normalized Fubini--Study forms $\eta_y,\eta_z$, $\theta=\eta_y$, $\psi=0$, $\omega=\eta_y+\eta_z$. Near $y=0$, let $f(y)=-(-\log|y|)^a$, $0<a<1/2$, continue it with a smooth cutoff on an annulus, and multiply by a sufficiently small positive constant $c$. Outside the puncture its $dd^c$ is bounded below on the cutoff annulus; near the puncture it is positive since, for $t=\log|y|<0$,
+\[
+\frac{d^2}{dt^2}\bigl[-(-t)^a\bigr]=a(1-a)(-t)^{a-2}>0.
+\]
+Thus $\eta_y+dd^c(cf)\geq0$; subtract a constant to make $cf\leq0$. Its mass has no atom at zero because its radial derivative $ca(-t)^{a-1}\to0$. Stokes in the sense of currents gives total mass $\int\eta_y=1$, so the nonpluripolar degree-one mass is also 1. For $u(y,z)=cf(y)$, $d=1$, $M_1=1$, and the two linear-weight integrals are finite: the smooth-volume one is controlled by the exponential radial area, and the current one near the puncture by
+\[
+\int^{\infty}s^a s^{a-2}\,ds=\int^{\infty}s^{2a-2}\,ds<\infty.
+\]
+Their factors in the $z$-variable have finite mass. Yet $u-\psi$ is unbounded. This example verifies that the full-mass operator extension includes a real unbounded finite-energy case; the principal theorem itself does not assume a fibration.
+
+**Concrete unresolved extension steps.** For $u\in\mathcal F^1_{\psi,\omega}$, the bounded energies of $\max(u,\psi-j)$ decrease by Theorem A. Weak convergence of their measures does not by itself allow multiplication by the unbounded weight $u-\psi$. The supplied convexity and finiteness results do not alone prove the needed uniform weighted tail estimate. We do not claim that the decreasing energy limit is finite, equals the joint integral formula, is independent of more general approximations, has a cocycle under unbounded reference change, or is continuous along all finite-energy monotone sequences. Moreover, the positive-$\varepsilon$ energy expansion contains weighted degrees $k<d$; degree-$d$ joint finiteness has not here been shown to give integrability or uniform tail control for these lower terms. Nor does Theorem B identify a joint $(j,\varepsilon)$ limit or a rescaled operator limit for unbounded varying potentials. The $o(\varepsilon)$ norm argument applies to bounded differences only. These are gaps, not counterexamples to the proposed extension.
+
+## 10. Necessary reference data and carrier limitations: explicit tests
+
+**Full-form dependence within one class.** On $X=\mathbb P^1_y\times\mathbb P^1_z$ with normalized forms, $\theta=\eta_y$, $\psi=u=0$, $\alpha^2=0$ and $\alpha$ is nef, so BEGZ Definition 1.17 (positive product agrees with cup product for nef classes) gives volume zero. Here $d=1$ and
+\[
+\mu_{0,\eta_y+\eta_z}=\eta_y\wedge\eta_z.
+\]
+Choose a nonconstant smooth real $g(z)$ and a small nonzero $t$ so that $\eta_z+tdd^cg>0$. Then $\omega'=\eta_y+\eta_z+tdd^cg$ is Kähler in the same class, but
+\[
+\mu_{0,\omega'}-\mu_{0,\omega}=t\eta_y\wedge dd^cg\neq0.
+\]
+Nonzero $dd^cg$ follows because a real pluriharmonic function on compact connected $\mathbb P^1$ is constant; its pullback wedge with the positive area form on the other factor remains nonzero, as a local coefficient calculation shows. Both masses equal 1. Thus the exact actual measure on $X$ needs the full reference form, even after its class and mass are fixed. Scaling $\omega\mapsto c\omega$ scales its mass and energy by $c^{n-d}$, showing that even the auxiliary scale is not eliminated. We prove this necessity for this construction, not a universal theorem that these choices are minimal for every possible theory.
+
+**Actual degree can differ from class numerical dimension.** In the same class $\alpha=[\eta_y]$, the smooth reference $P=\eta_y$ has $d=1$. Instead let $D=\{y=0\}\times\mathbb P^1$, and choose the actual $\theta$-psh logarithmic potential with $T_\psi=[D]$ (the normalized Poincaré--Lelong formula $dd^c\log|s|_h^2=[D]-\theta$ for a metric of curvature $\theta$). In a local frame this formula follows from $dd^c\log|z|^2=\delta_0$: the outward normal derivative of $\log r^2$ has flux $4\pi$ on every circle, while our $dd^c$ on functions is $(\Delta/(4\pi))$ times planar area. Subtracting the local metric weight gives the smooth curvature term, and these identities patch over the divisor. Off $D$ this current is zero, so its nonpluripolar degree-one product is zero, and all higher products are zero. Its degree is $d=0$. The class is nef with $\alpha\cdot[\omega]>0$ and $\alpha^2=0$, so the usual nef numerical dimension is 1, directly from the intersection definition. Hence the actual-type degree is not the class numerical dimension. In this $d=0$ case the operator is $\omega^2$, retaining the type in its domain but not distinguishing potentials by its output. This degeneracy is explicitly part of the result.
+
+Our carrier is always $X$ of dimension $n$. Neither a rank-$d$ current nor its degree defines a quotient, a subvariety, or a geometric $d$-fold. The second example in particular prevents simply reading a carrier from class numerical dimension. We establish no general intrinsic lower-dimensional carrier.
+
+## 11. Catalogue comparison, proof status, and computational checks
+
+The original P15.2 asks for a path-independent zero-volume Monge--Ampère theory with carrier, dimension, mass and reference choices stated, with the minimum necessary reference scale, and independence of all claimed perturbation choices. Theorem A removes the supplied-fibration hypothesis for this specified bounded-type domain and proves exact actual degree, mixed current vanishing, positive raw mass, a sufficient operator perturbation theorem and a class-dependent leading primitive. Theorem B adds an actual unbounded relative full-mass operator with decreasing continuity. They name their actual $n$-dimensional carrier, and expose the form dependence. They impose narrower domain and perturbation hypotheses, do not prove a minimum-reference characterization, and leave the general unbounded energy and lower-dimensional-carrier problems open. Therefore the unchanged original P15.2 is **not claimed solved**; candidate is false. No result concerning the other two atoms, the unpublished mixed-volume theorem, or source-status verdicts is used.
+
+The finite coefficient identity in Section 7 is checked by an exact-integer program over a finite range as a diagnostic; its proof is the subset-counting argument, valid for all $n,k,j$. TeX compilation and file hashes check artifact consistency, not analysis. No heavy compute, external messages, network, install, other model, or subagent is used. The supplied input is preserved byte-for-byte and every primary quote is preserved below with its LF range and supplied/observed digest. Complete essential supporting source bodies are appended for review without filesystem tools. Supporting literature statements are distinguished from the new applications above; this document is an unverified mathematical draft.
+
+
+# Immutable primary evidence and source audit
+The supplied input strings remain unchanged in input.json and its byte-identical input-original.json copy. The source quotes below reproduce actual LF slices, without adding a final LF to the hashed slice. Form feeds and source defects are preserved. The supplied quotation strings are separately compared to those slices; the comparison outcome is recorded, rather than silently editing either source.
+
+## Primary unit 1: Bounded/nonpluripolar product properties
+
+Source: BEGZ-0812.3674v2-20261004.txt, LF249--322. Supplied and observed raw SHA256: 1dada113d7a3c9897039047fef2fa9aa9922f3c359092bbbfc416fab3823e0b2. Literal supplied quote equals LF slice: True.
+
+```text
+    We now collect some basic properties of non-pluripolar products.
+Proposition 1.4. Let u1 , ..., up be psh functions on X.
+    • The operator                              ^
+                            (u1 , ..., up ) 7→ h ddc uj i
+                                                 j
+         is local in theVplurifine topology whenever well-defined.
+       • The current h j ddc uj i and the fact that it is well-defined both only depend
+         on the currents ddc uj , not on the specific potentials uj .
+       • Non-pluripolar products, which are obviously symmetric, are also multi-
+         linear in the following sense: if v1 is a further psh function, then
+                           ^                       ^                      ^
+     h(ddc u1 + ddc v1 ) ∧    ddc uj i = hddc u1 ∧   ddc uj i + hddc v1 ∧    ddc uj i
+                          j≥2                        j≥2                        j≥2
+
+         in the sense that the left-hand side is well-defined iff both terms in the
+         right-hand side are, and equality holds in that case.
+Proof. Let us prove the ﬁrst point. If uj and vj are psh functions on X such
+that uj = vj on a given pluriﬁne open subset O, then the locally bounded psh
+functions max(uj , −k) and max(vj , −k) also coincide on O. If we set
+                            \               \
+                      Ek := {uj > −k} ∩ {vj > −k},
+                                 j                   j
+
+then we infer
+                      ^                                      ^
+              1O∩Ek       ddc max(uj , −k) = 1O∩Ek               ddc max(vj , −k),
+                      j                                      j
+
+hence in the limit               ^               ^
+                             1O h ddc uj i = 1O h ddc vj i
+                                 j                       j
+              MONGE-AMPÈRE EQUATIONS IN BIG COHOMOLOGY CLASSES                               7
+
+as desired by Lemma 1.5 below.
+   We now prove the second point. Let wj be pluriharmonic on X, and let K be a
+compact subset. We can ﬁnd C > 0 such that wj ≤ C on an open neighborhood
+V of K. On the pluriﬁne open subset
+                  \                         \
+             Ok := {uj + wj > −k} ∩ V ⊂ {uj > −k − C} ∩ V
+                         j                               j
+
+the following locally bounded psh functions coincide:
+     max(uj + wj , −k) = max(uj , −wj − k) + wj = max(uj , −k − C) + wj .
+Since ddc wj = 0, it follows that
+   Z           ^                         Z                         ^
+         n−p          c
+       ω     ∧    dd max(uj + wj , −k) =                 ω n−p ∧       ddc max(uj , −k − C)
+    Ok           j                                  Ok             j
+                     Z                              ^
+                ≤    T                    ω n−p ∧       ddc max(uj , −k − C)
+                         j {uj >−k−C}∩V             j
+which is uniformly bounded in k by assumption, and the second point is proved.
+   The proof of the last point is similarly easy but tedious and will be left to the
+reader.                                                                           
+                                                          V
+Lemma 1.5. Assume that the non-pluripolar product h j ddc uj i is well-defined.
+Then for every sequence of Borel subsets Ek such that
+                                       \
+                                Ek ⊂ {ui > −k}
+                                             j
+          S
+and X −    k Ek is pluripolar, we have
+                                   ^                        ^
+                         lim 1Ek       ddc max(uj , −k)i = h ddc uj i
+                         k→∞
+                                   j                           j
+
+against all bounded measurable functions.
+Proof. This follows by dominated convergence from
+                             ^                               ^
+        (1∩j {uj >−k} − 1Ek ) ddc max(uj , −k)i ≤ (1 − 1Ek )h ddc uj i.
+                                   j                                        j
+
+                                                                                              
+```
+
+## Primary unit 2: Class positive-product and volume definition
+
+Source: BEGZ-0812.3674v2-20261004.txt, LF810--840. Supplied and observed raw SHA256: aa1c54651a97636414c96f9ae8d1815cfcfc49c8d8fbd8f02b7fd6f1a9306d3e. Literal supplied quote equals LF slice: True.
+
+```text
+Definition 1.17. Let α1 , ...αp ∈ H 1,1 (X, R) be big cohomology classes, and let
+Ti,min ∈ αi be a positive current with minimal singularities. Then the cohomology
+class of the non-pluripolar product hT1,min ∧ · · · ∧ Tp,min i is independent of the
+choice of Ti,min ∈ αi with minimal singularities. It will be denoted by
+                              hα1 · · · αp i ∈ H p,p (X, R)
+18                 S. BOUCKSOM, P. EYSSIDIEUX, V. GUEDJ, A.ZERIAHI
+
+and called the positive product of the αi . If α1 , ..., αn are merely psef, we set
+                      hα1 · · · αp i := lim h(α1 + εβ) · · · (αp + εβ)i
+                                      ε→0
+
+where β ∈ H 1,1 (X, R) is an arbitrary Kähler class.
+     As a special case, given a big class α the positive number
+                                      vol(α) := hαn i
+is called the volume of α
+   Some explanations are in order. The positive product hα1 · · · αp i is not multi-
+linear since the fact that T ∈ α and T ′ ∈ α′ both have minimal singularities
+(in their respective cohomology classes) doesn’t imply that T + T ′ has minimal
+singularities in α + α′ . Positive products are however homogeneous and non-
+decreasing in each variable αi thanks to Theorem 1.16 when the αi ’s is big (with
+respect to the partial order on cohomology induced by positive currents). These
+two properties imply in a completely formal way (cf. Proposition 2.9 in [14]) that
+hα1 · ... · αp i depends continuously on the p-tuple (α1 , ..., αp ) of big classes. We
+can thus extend positive products to psef classes αi as indicated, the existence
+of the limit and its independence on β being easy to check by monotonicity of
+positive products.
+   As an important special case, note that the positive product of nef classes αi
+coincides with their ordinary cup-product, that is
+                                 hα1 · · · αp i = α1 · · · αp .
+   The volume vol(α) considered here coincides (as it should!) with the one
+introduced in [11]. In fact:
+```
+
+## Primary unit 3: Pseudoeffective bounded-type mixed mass equality, full proof
+
+Source: DDNL18-2049-2087-20261004.txt, LF319--347. Supplied and observed raw SHA256: e8359844609c8b19e21d4c36df028505fde5b80cc75e59f274dd4b5d282fa62e. Literal supplied quote equals LF slice: True.
+
+```text
+Proposition 2.1. Let θ j , j ∈ {1, . . . , n}, be smooth closed real (1, 1)-forms on X whose cohomology
+classes are pseudoeffective. Let u j , v j ∈ PSH(X, θ j ) be such that u j has the same singularity type as v j ,
+j ∈ {1, . . . , n}. Then
+                                  Z                           Z
+                                        θu 1 ∧ · · · ∧ θu n =
+                                          1             n
+                                                                θv11 ∧ · · · ∧ θvnn .
+                                            X                         X
+
+   The proof of this result uses the arguments in [Boucksom et al. 2010, Corollary 2.15].
+
+Proof. First we note that we can assume that the classes {θ j } are in fact big. Indeed, if this is not the
+case we can just replace each θ j with θ j + εω, and using the multilinearity of the nonpluripolar product
+[Boucksom et al. 2010, Proposition 1.4] we can let ε → 0 at the end of our argument to conclude the
+statement for pseudoeffective classes.
+   For each t ∈ 1 = {t = (t1 , . . . , tn ) ∈ Rn | t j > 0} consider u t := j t j u j , vt := j t j v j and θ t := j t j θ j.
+                                                                           P                 P                    P
+
+Clearly, {θ t } is big, and u t has the same singularities as vt . Hence it follows from [Witt Nyström 2017,
+Theorem 1.2] that X (θutt )n = X (θvtt )n for all t ∈ 1. On the other hand, using multilinearity of the
+                       R             R
+
+nonpluripolar product again [Boucksom et al. 2010, Proposition 1.4], we see that both t → X (θutt )n and
+                                                                                                             R
+
+t → X (θvtt )n are homogeneous polynomials of degree n. Our last identity forces all the coefficients of
+     R
+
+these polynomials to be equal, giving the statement of our result.                                                       
+```
+
+## Primary unit 4: Pseudoeffective mass monotonicity, full proof
+
+Source: DDNL18-2049-2087-20261004.txt, LF448--469. Supplied and observed raw SHA256: e4220e2892907b2d1d5b17de4aa57b3b1542060bda2e4dfcf8944f945cba0c20. Literal supplied quote equals LF slice: True.
+
+```text
+Theorem 2.4. Let θ j, j ∈ {1, . . . , n}, be smooth closed real (1, 1)-forms on X whose cohomology classes
+are pseudoeffective. Let u j , v j ∈ PSH(X, θ j ) be such that u j is less singular than v j for all j ∈ {1, . . . , n}.
+Then                                  Z                       Z
+                                        θu 1 ∧ · · · ∧ θu n ≥
+                                          1             n
+                                                                θv11 ∧ · · · ∧ θvnn .
+                                                   X                            X
+        MONOTONICITY OF NONPLURIPOLAR PRODUCTS AND COMPLEX MONGE–AMPÈRE EQUATIONS                                    2057
+
+
+Proof. By the same reason as in Proposition 2.1, we can assume that the classes {θ j } are in fact big. For
+each t > 0 we set v jt := max(u j − t, v j ) for j = 1, . . . , n. Observe that the v jt converge decreasingly to v j
+as t → ∞. In particular, by [Guedj and Zeriahi 2005, Proposition 3.7] the convergence holds in capacity.
+As v jt and u j have the same singularity type, it follows from Proposition 2.1 that
+                                   Z                          Z
+                                       θu 1 ∧ · · · ∧ θu n =
+                                          1            n
+                                                                  θv1t ∧ · · · ∧ θvnnt .
+                                                                           1
+                                        X                            X
+
+Letting t → ∞, the first part of Theorem 2.3 allows us to conclude the argument.                                       
+```
+
+## Primary unit 5: Bounded type and signed-product convention
+
+Source: Xia-1907.06359v1-20261004.txt, LF250--265. Supplied and observed raw SHA256: ea927250996b0a51fa4f7aa3612fd7e300be9c3327b0776093caacb4cc9f97f3. Literal supplied quote equals LF slice: True.
+
+```text
+2.4. Integration by parts. In the sequel, for ϕ1 , ϕ2 ∈ PSH(X, θ), we write [ϕ1 ] =
+[ϕ2 ] if there is a constant C > 0, such that
+                                      ϕ2 − C ≤ ϕ1 ≤ ϕ2 + C.
+Theorem 2.7. Let γ1 , . . . , γn−1 ∈ PSH(X, θ). Let ϕj , ψj ∈ PSH(X, θ) (j = 1, 2).
+Let u = ϕ1 − ϕ2 , v = ψ1 − ψ2 . Assume that
+                                     [ϕ1 ] = [ϕ2 ],    [ψ1 ] = [ψ2 ].
+Then
+          Z                                                Z
+(2.8)           u ddc v ∧ θγ1 ∧ · · · ∧ · · · ∧ θγn−1 =         v ddc u ∧ θγ1 ∧ · · · ∧ · · · ∧ θγn−1 .
+            X                                               X
+
+Remark 2.2. Here
+ddc v ∧ θγ1 ∧ · · · ∧ · · · ∧ θγn−1 := θψ1 ∧ θγ1 ∧ · · · ∧ · · · ∧ θγn−1 − θψ2 ∧ θγ1 ∧ · · · ∧ · · · ∧ θγn−1
+is understood as a signed measure. This definition is independent of the choice of
+θψ1 and θψ2 by [BEGZ10] Proposition 1.4. Other similar expressions are understood
+in the same way.
+```
+
+## Primary unit 6: Mixed big-class IBP Corollary2.15, full printed proof
+
+Source: Xia-1907.06359v1-20261004.txt, LF780--829. Supplied and observed raw SHA256: fe693acf6a3033eb6bed734b0c9d194f4e59497e7aabf4c646bfbccf87bc72c8. Literal supplied quote equals LF slice: True.
+
+```text
+Corollary 2.15. Let αj (j = 0, . . . , n) be big cohomology classes on X. Let θj
+(j = 0, . . . , n) be smooth representatives in αj . Let γj ∈ PSH(X, θj ) (j = 2, . . . , n).
+Let ϕ1 , ϕ2 ∈ PSH(X, θ0 ), ψ1 , ψ2 ∈ PSH(X, θ1 ). Let u = ϕ1 − ϕ2 , v = ψ1 − ψ2 .
+Assume that
+                                 [ϕ1 ] = [ϕ2 ], [ψ1 ] = [ψ2 ].
+Then
+         Z                                                       Z
+(2.21)        u ddc v ∧ θ2,γ2 ∧ · · · ∧ · · · ∧ θn,γn =                  v ddc u ∧ θ2,γ2 ∧ · · · ∧ · · · ∧ θn,γn .
+          X                                                       X
+
+Proof. Take α = (a0 , . . . , an ) ∈ Rn+1
+                                      ≥0 . Let
+                                                     n
+                                                     X
+                                             θα =          aj θj .
+                                                     j=0
+
+Let
+                                  n
+                                  X
+                          γα =          aj γj ,   γ̃α = a0 ϕ1 + a1 ψ1 + γα .
+                                  j=2
+
+Note that
+                    a0 u = (a0 ϕ1 + a1 ψ1 + γα ) − (a0 ϕ2 + a1 ψ1 + γα ) ,
+                    a1 v = (a0 ϕ1 + a1 ψ1 + γα ) − (a0 ϕ1 + a1 ψ2 + γα ) .
+So by Theorem 2.7,
+                             Z                                       Z
+                     a0 a1       u ddc v ∧ θα,γ̃
+                                            n−1
+                                                 α
+                                                   = a0 a1                 v ddc u ∧ θα,γ̃
+                                                                                      n−1
+                                                                                           α
+                                                                                             .
+                             X                                        X
+So for a0 > 0, a1 > 0,
+                             Z                           Z
+                                 u ddc v ∧ θα,γ̃
+                                            n−1
+                                                 α
+                                                   =             v ddc u ∧ θα,γ̃
+                                                                            n−1
+                                                                                 α
+                                                                                   .
+                             X                             X
+Since both sides are polynomials in a0 , . . . , an , this means that all coefficients are
+equal. In particular, the coefficients of
+                                                  a 2 . . . an
+are equal, hence proving (2.21).                                                                                          
+```
+
+## Primary unit 7: Literal operator convention
+
+Source: Vu-2004.11111v1-20261004.txt, LF178--189. Supplied and observed raw SHA256: 13226a964e640ebeb8283a6342682cdf2f98a328d37f5386efe3e2e844ca2cef. Literal supplied quote equals LF slice: True.
+
+```text
+supported by a postdoctoral fellowship of the Alexander von Humboldt Foundation.
+
+Notation and convention. For a closed positive current T on a compact complex man-
+ifold X, we denote by {T } the cohomology class of T and ν(T, x) denotes the Lelong
+number of T at x. Recall that the wedge product on closed smooth forms induces the
+cup-product on their de Rham cohomology classes. We use the same notation “ ∧ ” to
+denote these two products.
+    Recall dc = 2πi (∂ − ∂) and ddc = πi ∂∂. We use &, . to denote ≥, ≤ modulo some
+multiplicative constant independent of parameters in question. For a Borel set A ⊂ X,
+we denote by 1A the characteristic function of A, that means 1A is equal to 1 on A and 0
+elsewhere. For every current R of order 0 on X, we denote by kRkA the mass of R on A.
+
+```
+
+## Primary unit 8: Theorem2.6 and Remark2.7, full printed convergence proof
+
+Source: Vu-2004.11111v1-20261004.txt, LF580--642. Supplied and observed raw SHA256: c097f459c8e4b862a8067519ab86b09613638b11af2d3e83b3766244458bf625. Literal supplied quote equals LF slice: True.
+
+```text
+Theorem 2.6. Let U ⊂ Cn be an open set. Let (Tk )k be a sequence of closed positive currents
+satisfying Condition (∗) so that Tk converges to a closed positive current T on U as k → ∞.
+Let uj be a locally bounded psh function on U for 1 ≤ j ≤ m. Let (ujk )k∈N be a sequence of
+locally bounded psh functions converging to uj in L1loc as k → ∞. Then, the convergence
+
+                u1k ddc u2k ∧ · · · ∧ ddc umk ∧ Tk → u1 ddc u2 ∧ · · · ∧ ddc um ∧ T    (2.10)
+
+as k → ∞ holds provided that one of the following conditions is fulfilled:
+    (i) ujk (x) ր uj (x) for every x ∈ U as k → ∞,
+    (ii) ujk (x) ր uj (x) for almost everywhere x ∈ U (with respect to the Lebesgue measure)
+and T has no mass on pluripolar sets,
+    (iii) ujk ≥ uj for every j, k.
+
+Proof. Given that we already have a uniform strong quasi-continuity for bounded psh
+functions, the desired result can be deduced without difficulty from proofs of classical
+results on the convergence of Monge-Ampère operators, for example, see [17].
+   We present here a proof of Theorem 2.6 for the readers’ convenience. First of all,
+observe that if ujk ր uj almost everywhere then, we have ujk ≤ uj(k+1) ≤ uj pointwise
+on U and the set {x ∈ U : uj (x) 6= limk→∞ ujk (x)} is pluripolar. By the localization
+
+
+
+
+                                                11
+principle ([17, Page 7]), we can assume that ujk , uj are all equal to some smooth psh
+function ψ outside some set K ⋐ U on U. We prove (i), (ii) simultaneously. Let
+
+            Sjk := ddc ujk ∧ · · · ∧ ddc umk ∧ Tk ,   Sj := ddc uj ∧ · · · ∧ ddc um ∧ T.
+
+We prove by induction in j that
+
+                                      u(j−1)k Sjk → u(j−1) Sj                              (2.11)
+
+k and for every 2 ≤ j ≤ m + 1 (by convention we put S(m+1)k := Tk and Sm+1 := T ). The
+claim is true for j = m + 1. Suppose that it holds for (j + 1). We need to prove it for
+j. Let Rj∞ be a limit current of u(j−1)k Sjk as k → ∞. By induction hypothesis (2.11) for
+(j + 1) instead of j, Sjk → Sj as k → ∞. This combined with the fact that the sequence
+(ujk )k converges in L1loc to uj gives
+
+                                          Rj∞ ≤ uj−1Sj                                     (2.12)
+
+(one can see [15, Proposition 3.2]). On the other hand, since (ujk )k is increasing, using
+Corollary 2.5, we obtain
+
+                       lim inf u(j−1)k Sjk ≥ lim inf u(j−1)s Sjk = u(j−1)s Sj
+                        k→∞                   k→∞
+
+for every s ∈ N. Letting s → ∞ in the last inequality gives
+
+                 Rj∞ ≥ ( lim u(j−1)s )Sj = uj−1Sj + ( lim u(j−1)s − uj−1)Sj .              (2.13)
+                          s→∞                             s→∞
+
+Recall that the set of x ∈ U with uj−1(x) > lims→∞ u(j−1)s (x) is empty in the setting of
+(i) and is a pluripolar set in the setting of (ii). Hence (2.11) follows from Lemma 2.1,
+(2.13) and (2.12). We have proved (i) and (ii). We prove (iii) by similar induction. The
+proof is finished.
+
+Remark 2.7. By the above proof and Lemma 2.1, Property (ii) of Theorem 2.6 still holds if
+instead of requiring T has no mass on pluripolar sets, we assume the following two condi-
+tions:
+    (i) T has no mass on Aj := {x ∈ U : uj (x) 6= limk→∞ ujk (x)} for every 1 ≤ j ≤ m and,
+    (ii) the set Aj is locally complete pluripolar for every j.
+    Just by replacing the usual quasi-continuity of psh functions by the stronger one given
+```
+
+## Primary unit 9: Relative definitions and Proposition3.5 with full printed proof
+
+Source: Vu-2004.11111v1-20261004.txt, LF945--1115. Supplied and observed raw SHA256: b344c4bd11aa3280719cd1b8a3f08d8fff48bb7600168dd303519fb16061142d. Literal supplied quote equals LF slice: True.
+
+```text
+Definition 3.3. We say that the non-pluripolar product relative to T of T1 , . . . , Tm is well-
+defined if (3.2) holds for every small enough local chart U of X, or equivalently, (3.7)
+holds. In this case, the non-pluripolar product relative to T of T1 , . . . , Tm , which is denoted
+                    ˙ i, is defined to be the current R̃ in Lemma 3.2.
+by hT1 ∧ · · · ∧ Tm ∧T
+   When T is the current of integration along X, we simply write hT1 ∧ · · · ∧ Tm i for the
+non-pluripolar product relative to T of T1 , . . . , Tm . One can see that this is exactly the
+usual non-pluripolar product of T1 , . . . , Tm defined in [2, 16, 4]. We note that in general
+                             ˙ i can have mass on pluripolar sets in ∩m
+the current hT1 ∧ · · · ∧ Tm ∧T                                              j=1 {uj > −∞},
+see, however, Property (iii) of Proposition 3.5 below. Arguing as in the proof of [4,
+Proposition 1.6], we obtain the following result.
+                                                                               ˙ i is
+Lemma 3.4. Assume that X is a compact Kähler manifold. Then, hT1 ∧ · · · ∧ Tm ∧T
+well-defined.
+    For a closed positive (1, 1)-current R, recall that the polar locus IR of R is the set of
+points where potentials of R are equal to −∞. Note that by Lemma 3.1, the current
+                 ˙ i has no mass on ∪m
+hT1 ∧ · · · ∧ Tm ∧T                   j=1 ITj . We collect here some more basic properties of
+relative non-pluripolar products.
+Proposition 3.5. (i) The product hT1 ∧ · · · ∧ Tm ∧T  ˙ i is symmetric with respect to T1 , . . . , Tm .
+      (ii) Given a positive real number λ, we have h(λT1 ) ∧ T2 ∧ · · · ∧ Tm ∧T˙ i = λhT1 ∧ T2 ∧
+             ˙
+· · · ∧ Tm ∧T i.
+      (iii) Given a complete pluripolar set A such that T has no mass on A, then hT1 ∧ T2 ∧
+· · · ∧ Tm ∧T˙ i also has no mass on A.
+      (iv) Let T1′ be a closed positive (1, 1)-current on X and Tj , T as above. Assume that
+h∧m         ˙       ′    m      ˙                                    ′     m      ˙
+     j=1 Tj ∧T i, hT1 ∧ ∧j=2 Tj ∧T i are well-defined. Then h(T1 + T1 ) ∧ ∧j=2 Tj ∧T i is also well-
+defined and satisfies
+
+                (T1 + T1′ ) ∧ ∧m      ˙           m      ˙        ′    m      ˙
+                               j=2 Tj ∧T ≤ hT1 ∧ ∧j=2 Tj ∧T i + hT1 ∧ ∧j=2 Tj ∧T i.             (3.12)
+
+The equality occurs if T has no mass on IT1 ∪ IT1′ .
+    (v) Let 1 ≤ l ≤ m be an integer. Let Tj′′ be a closed positive (1, 1)-current on X and Tj , T
+as above for 1 ≤ j ≤ l. Assume that Tj′′ ≥ Tj for every 1 ≤ j ≤ l and T has no mass on
+∪lj=1 ITj′′ −Tj . Then, we have
+
+                             h∧lj=1Tj′′ ∧ ∧m        ˙        m      ˙
+                                           j=l+1 Tj ∧T i ≥ h∧j=1 Tj ∧T i
+
+
+provided that the left-hand side is well-defined.
+   (vi) Let 1 ≤ l ≤ m be an integer. Assume R := h∧m               ˙          l      ˙
+                                                          j=l+1 Tj ∧T i and h∧j=1 Tj ∧Ri are
+                                m     ˙ i = h∧j=1 Tj ∧Ri.
+well-defined. Then, we have h∧j=1 Tj ∧T         l    ˙
+
+
+
+
+                                                  17
+                                                                           ˙ i is well-defined.
+   (vii) Let A be a complete pluripolar set. Assume that hT1 ∧T2 ∧· · ·∧Tm ∧T
+Then we have
+
+                                          ˙ i = T1 ∧ T2 ∧ · · · ∧ Tm ∧(1
+               1X\A hT1 ∧ T2 ∧ · · · ∧ Tm ∧T                         ˙ X\A T ) .
+
+In particular, the equality
+                                     h∧m      ˙        m      ˙ ′
+                                       j=1 Tj ∧T i = h∧j=1 Tj ∧T i
+
+holds, where T ′ := 1X\∪m
+                        j=1 ITj
+                                T.
+
+Proof. Properties (i), (ii) are clear from the definition and the proof of Lemma 3.1. We
+now check (iii). Let R := h∧m          ˙
+                                j=1 Tj ∧T i. Since T has no mass on the complete pluripolar
+set A, using Lemma 2.1 gives 1A ∧m            c
+                                       j=1 dd ujk ∧ T = 0 for every k. Using this and Lemma
+3.1, we deduce that
+
+                   1A 1∩m
+                        j=1 {uj >−k}
+                                     R = 1A 1∩m
+                                              j=1 {uj >−k}
+                                                           ∧m     c
+                                                            j=1 dd ujk ∧ T = 0.
+
+
+Hence R = 0 on A and (iii) follows.
+   We prove (iv). We work on a small local chart U. Write Tj′ = ddc u′j , u′jk := max{u′j , −k}.
+Recall Tj = ddc uj . We can assume uj , u′j ≤ 0. Let R′ := hT1′ ∧ ∧m           ˙
+                                                                      j=2 Tj ∧T i and R :=
+                                                                                           ′′
+
+h(T1 + T1′ ) ∧ ∧m      ˙
+                j=2 Tj ∧T i. We have
+
+
+                                max{u1 + u′1 , −k} = u1k + u′1k
+
+on {u1 + u′1 > −k} because the last set is contained in {u1 > −k} ∩ {u′1 > −k}. This
+combined with Lemma 3.1 yields
+
+                                      1Bk′′ R′′ = 1Bk′′ R + 1Bk′′ R′ ,
+
+where Bk′′ := {u1 + u′1 > −k} ∩ ∩m
+                                 j=2 {uj > −k}. Letting k → ∞ in the last equality gives
+(3.12). Observe that
+                              1U \Bk′′ R → 1IT1 ∪IT ′ ∪ ∪m
+                                                         j=2 ITj
+                                                                 R
+                                                            1
+
+as k → ∞. The last limit is equal to 1IT ′ R because R has no mass on ∪m      j=1 ITj . Moreover
+                                          1
+since IT1′ is complete pluripolar and T has no mass on IT1′ , by (iii), we have that 1IT ′ R = 0.
+                                                                                         1
+Consequently, 1U \Bk′′ R → 0 as k → ∞ and a similar property of R′ also holds. Thus we
+obtain the equality in (3.12) if T has no mass on IT1 ∪ IT1′ . To get (v), we just need to
+decompose Tj′′ = Tj + Tj′ for some closed positive current Tj′ and use similar arguments
+as in the proof of (iv).
+    We prove (vi). We can assume uj ≤ 0 for every 1 ≤ j ≤ m. Let
+                                                      m
+                                          −1
+                                                     X
+                               ψk := k         max          uj , −k + 1.
+                                                      j=1
+
+
+Observe that 0 ≤ ψk ≤ 1 and
+
+                                ψk = 0         on ∪m
+                                                   j=1 {uj ≤ −k}.
+
+
+
+
+                                                     18
+Note that R has no mass on ITj for l + 1 ≤ j ≤ m. This combined with (iii) yields
+               ˙
+that h∧lj=1 Tj ∧Ri   gives no mass on ITj for 1 ≤ j ≤ m. Using this and the fact that
+ψk ր 1X\∪m  j=1 ITj
+                    yields
+
+                h∧lj=1Tj ∧Ri
+                         ˙   = lim ψk h∧lj=1 Tj ∧Ri
+                                                ˙   = lim ψk ∧lj=1 ddc ujk ∧ R.            (3.13)
+                                 k→∞                     k→∞
+
+Now since ψk R = ψk ∧m       c
+                     j=l+1 dd ujk ∧ T (Lemma 3.1), we get
+
+
+                           ψk ∧lj=1 ddc ujk ∧ R = ψk ∧m     c
+                                                      j=1 dd ujk ∧ T.                      (3.14)
+
+To see why the last equality is true, notice that it is clear if ujk ’s are smooth and in
+general, we can use sequences of smooth psh functions decreasing to ujk for 1 ≤ j ≤ l
+and the convergences of Monge-Ampère operators to obtain (3.14). Combining (3.14)
+with (3.13) gives the desired assertion.
+   It remains to prove (vii). Let ψk be as above.   Let A = {ϕ = −∞}, where ϕ is a
+                                                  Pm
+negative psh function. Define ψk := k max ϕ + j=1 uj , −k + 1. Since 0 ≤ ψk′ ≤ ψk ,
+                                ′     −1
+                                             
+
+we get {ψk = 0} ⊂ {ψk′ = 0}. It follows that
+
+        ψk′ hT1 ∧ T2 ∧ · · · ∧ Tm ∧T
+                                  ˙ i = ψk′ ∧m     c           ′  m     c
+                                             j=1 dd ujk ∧ T = ψk ∧j=1 dd ujk ∧ (1X\A T )
+
+because T = 1X\A T on {ψk′ 6= 0} and the convergence of Monge-Ampère operators.
+Letting k → ∞ gives the desired assertion. The proof is finished.
+   The following result clarifies the relationship between the relative non-pluripolar
+product and some other known notions of intersection.
+```
+
+## Primary unit 10: Theorem3.7 with full closedness proof
+
+Source: Vu-2004.11111v1-20261004.txt, LF1200--1247. Supplied and observed raw SHA256: e12bdb4d6ebd643be2cf987df4ee89b060c1b8930c06b2bc8c8df732630376aa. Literal supplied quote equals LF slice: True.
+
+```text
+Theorem 3.7. Assume that hT1 ∧ · · · ∧ Tm ∧T                                         ˙ i is
+closed.
+
+Proof. The proof is based on ideas from [20, 4]. We work on a local chart U as above.
+By shrinking U and subtracting from uj a suitable constant, we can assume that uj ≤ 0.
+Let                                         m
+                                            X
+                            ψk := k −1 max{   uj , −k} + 1.
+                                                j=1
+
+Observe that ψk = 0 on ∪m
+                        j=1 {uj ≤ −k} and 0 ≤ ψk ≤ 1 increases to 1∩m
+                                                                    j=1 {uj >−∞}
+                                                                                 .
+                                                                                Let
+                                                              ′        ′
+g : R → R be a non-negative smooth function such that g(0) = g (0) = g (1) = 0 and
+g(1) = 1. Let Rk , R be as above. Since g(1) = 1 and g(0) = 0, we get g(ψk )R → R
+
+
+
+                                               20
+as k → ∞ (recall R has no mass on ∪m
+                                   j=1 {uj = −∞}). Thus the desired assertion is
+equivalent to proving that
+                                     dR = lim d(g(ψk )R) = 0.                                    (3.19)
+                                            k→∞
+
+Since g(ψk ) = g(0) = 0 on ∪m
+                            j=1 {uj ≤ −k}, we have
+
+                            d(g(ψk )R) = d(g(ψk )Rk ) = g ′ (ψk )dψk ∧ Rk
+(see [4, Lemma 1.9] or Corollary 2.5 for the second equality). Let U1 ⋐ U2 be relatively
+compact open subsets of U. By the Cauchy-Schwarz inequality, we have
+                  kg ′(ψk )dψk ∧ Rk kU1 . kdψk ∧ dc ψk ∧ Rk kU1 kg ′(ψk )2 Rk kU1 .
+Using dψk ∧ dc ψk = ddc ψk2 − ψk ddc ψk and the Chern-Levine-Nirenberg inequality, one get
+                 kdψk ∧ dc ψk ∧ Rk kU1 . kψk Rk kU2 ≤ kRk kU 2 ∩∩m
+                                                                 j=1 {uj >−k}
+                                                                              .1
+
+by (3.2). On the other hand, using the equality g ′ (ψk ) = g ′ (0) = 0 on {uj ≤ −k}, we
+obtain
+                    g ′(ψk )2 Rk = g ′(ψk )2 1∩m
+                                               j=1 {uj >−k}
+                                                            Rk = g ′(ψk )2 R
+converging to 0 as k → ∞ because g ′(ψk ) → g ′ (1) = 0 on ∩m
+                                                            j=1 {uj > −∞}. Thus (3.19)
+follows. This finishes the proof.
+```
+
+## Primary unit 11: Lemma4.1, Proposition4.2 and Theorem4.4 with full printed proofs
+
+Source: Vu-2004.11111v1-20261004.txt, LF1259--1565. Supplied and observed raw SHA256: 09034b5477c57c8812f3b677bf5ba3504db9a417938f90d7fb91fd28903246a8. Literal supplied quote equals LF slice: True.
+
+```text
+
+
+4     Monotonicity
+In this section, we present a monotonicity property for relative non-pluripolar products.
+We begin with the following simple lemma.
+Lemma 4.1. Let U be an open subset of Cn . Let (ulj )l be a sequence of psh functions on U
+and uj a psh function on U for 1 ≤ j ≤ m. Let (Tl )l be a sequence of closed positive currents
+satisfying Condition (∗) and Tl converges to a closed positive current T on U as l → ∞.
+Assume that one of the following conditions is satisfied:
+    (i) ulj ≥ uj and ulj converges to uj in L1loc as l → ∞.
+    (ii) ulj increases to uj as l → ∞ almost everywhere and T has no mass on pluripolar
+sets.
+    Then, for every smooth weakly positive form Φ with compact support in U, we have
+                           Z                            Z
+                    lim inf h∧j=1 dd uj ∧Tl i ∧ Φ ≥ h∧m
+                                 m    c l ˙                       c   ˙
+                                                            j=1 dd uj ∧T i ∧ Φ.
+                      l→∞     U                            U
+
+
+
+
+                                                  21
+    When T is the current of integration along X, a related statement in the compact
+setting was given in [8, Theorem 2.3].
+
+Proof. Let Φ be a smooth weakly positive form with compact support in U. Assume (i)
+holds. Let uljk := max{ulj , −k} which converges to ujk := max{uj , −k} in L1loc as l → ∞
+and uljk ≥ ujk . Put
+
+                        Rl := h∧m     c l ˙
+                                j=1 dd uj ∧Tl i,              Rkl := ∧m     c l
+                                                                      j=1 dd ujk ∧ T.
+
+
+Similarly, we define R, Rk by using the formula of Rl , Rkl respectively with ulj , uljk replaced
+by uj , ujk . Since ulj ≥ uj , we get
+                         Z                           Z
+                                             l
+                            1∩m      l
+                               j=1 {uj >−k}
+                                            Rk ∧ Φ ≥   1∩m
+                                                         j=1 {uj >−k}
+                                                                      Rkl ∧ Φ.              (4.1)
+                         U                                     U
+
+By Theorem 2.6, we get Rkl → Rk as l → ∞. Using this together with the fact that when
+k is fixed, uljk is uniformly bounded in l, we see that the strong uniform quasi-continuity
+for ujk with respect to (Tl )l (see Theorem 2.4) implies
+              Z                                    Z
+                                   l
+      lim inf     1∩mj=1 {uj >−k}
+                                  Rk ∧ Φ = lim inf     1∩m j=1 {ujk >−k}
+                                                                         Rkl ∧ Φ
+        l→∞     U                            l→∞     U
+                                           Z                                 Z
+                                         ≥     1∩m
+                                                 j=1 {ujk >−k}
+                                                                Rk ∧ Φ =        1∩m
+                                                                                  j=1 {uj >−k}
+                                                                                               Rk ∧ Φ
+                                           Z U                                U
+
+                                         =     1∩m
+                                                 j=1 {uj >−k}
+                                                               R ∧ Φ.
+                                                 U
+
+This combined with (4.1) yields
+        Z                                 Z
+           1∩m
+             j=1 {uj >−k}
+                          R ∧ Φ ≤ lim inf    1∩m     l
+                                               j=1 {uj >−k}
+                                                            Rkl ∧ Φ
+         U                          l→∞    U
+                                          Z                                 Z
+                                                              l
+                                ≤ lim inf    1∩m     l
+                                               j=1 {uj >−k}
+                                                            R ∧ Φ ≤ lim inf   Rl ∧ Φ
+                                           l→∞       U                             l→∞   U
+
+for every k. Letting k → ∞ in the last inequality and noticing that R has no mass on
+∪mj=1 {uj = −∞} give the desired assertion.
+    Now assume (ii). Note that
+                                     ulj ≤ ul+1
+                                            j   ≤ uj
+for every l, j. Thus, {ulj > −k} ⊂ {ul+1 j   > −k} ⊂ {uj > −k} and ũj := liml→∞ ulj ≤ uj .
+Using this and arguments similar to those in the previous paragraph, we have
+                           Z                         Z
+                                             l
+                   lim inf   1∩m     l
+                               j=1 {uj >−k}
+                                            Rk ∧ Φ ≥   1∩m
+                                                         j=1 {ũj >−k}
+                                                                       R ∧ Φ.
+                     l→∞       U                                   U
+
+Letting k → ∞ gives
+                                       Z                 Z
+                                           l
+                             lim inf       R ∧Φ≥              1∩m
+                                                                j=1 {ũj >−∞}
+                                                                              R ∧ Φ.
+                              l→∞      U                 U
+
+
+
+
+                                                         22
+Recall that {uj > ũj } is pluripolar. This coupled with the fact that T has no mass on
+pluripolar sets and Property (iii) of Proposition 3.5 yields
+                          Z            Z                        Z
+                              l
+                  lim inf    R ∧Φ≥       1∩j=1 {uj >−∞} R ∧ Φ =
+                                            m                     R ∧ Φ.
+                     l→∞     U                U                                 U
+
+This finishes the proof.
+
+    Recall that for closed positive (1, 1)-currents R1 , R2 on X, we say that R1 is less sin-
+gular than R2 if for every local chart U and psh function wj on U such that Rj = ddc wj
+on U for j = 1, 2, then w2 ≤ w1 + O(1) on compact subsets of U; and R1 , R2 are of the
+same singularity type if w1 ≤ w2 + O(1) and w2 ≤ w1 + O(1) on compact subsets of U. The
+following generalizes [8, Proposition 2.1], see also [21, 18].
+Proposition 4.2. Let X be a compact complex manifold of dimension n. Let m be an integer
+such that 1 ≤ m ≤ n. Let T be a closed positive current of bi-degree (p, p) on X. Let Tj , Tj′
+be closed positive (1, 1)-currents on X for 1 ≤ j ≤ m such that Tj , Tj′ are of the same
+singularity type and Tj = ddc uj + θj , Tj′ := ddc u′j + θj , where θj is a smooth form and
+u′j , uj are θj -psh functions, for every 1 ≤ j ≤ m. Assume that for every J, J ′ ⊂ {1, . . . , m}
+                                                             ˙ i is well-defined. Then, for every
+such that J ∩ J ′ = ∅, the product h∧j∈J Tj ∧ ∧j ′ ∈J ′ Tj′′ ∧T
+    c
+dd -closed smooth form Φ, we have
+                      Z                              Z
+                            ′           ′ ˙                             ˙ i ∧ Φ.
+                         hT1 ∧ · · · ∧ Tm ∧T i ∧ Φ =   hT1 ∧ · · · ∧ Tm ∧T                  (4.2)
+                     X                                     X
+
+Proof. By compactness of X, we can assume uj , u′j ≤ 0. By the hypothesis, {uj = −∞} =
+{u′j = −∞} and wj := uj − u′j is bounded outside {uj = −∞}. Without loss of generality,
+we can assume that
+
+                                                  |wj | ≤ 1                                  (4.3)
+
+outside {uj = −∞}. Let A := ∪m  j=1 {uj = −∞} which is a complete pluripolar set. Put
+ujk := max{uj , −k}, ujk := max{u′j , −k} and
+                      ′
+
+
+                                                   n
+                                                   X
+                              ψk := k −1 max{            (uj + u′j ), −k} + 1                (4.4)
+                                                   j=1
+
+
+which is quasi-psh and 0 ≤ ψk ≤ 1, ψk (x) increases to 1 for x 6∈ A. We have ψk (x) = 0 if
+uj (x) ≤ −k or u′j (x) ≤ −k for some j. Put wjk := ujk − u′jk . By (4.3), we have
+
+                                                  |wjk | ≤ 1                                 (4.5)
+
+on X. Let J, J ′ ⊂ {1, . . . , n} with J ∩ J ′ = ∅ and
+
+                    RJJ ′ k := ∧j∈J (ddc ujk + θj ) ∧ ∧j ′ ∈J ′ (ddc u′j ′ k + θj ′ ) ∧ T.
+
+The last current is the difference of two closed positive (|J| + |J ′ | + p, |J| + |J ′ | + p)-
+currents. Hence, RJJ ′ k might not be positive in general and it is not clear how to control
+
+
+
+                                                     23
+its mass as k → ∞. This is a subtle point which we need to pay attention to. The relative
+non-pluripolar product
+
+                           RJJ ′ := ∧j∈J (ddc uj + θj ) ∧ ∧j ′ ∈J ′ (ddc u′j ′ + θj ′ )∧T
+                                                                                       ˙
+
+exists by our assumption. Let
+
+                                  Bk := ∩j∈J {uj > −k} ∩ ∩j ′ ∈J ′ {u′j ′ > −k}.
+
+By Lemma 3.2, we get
+                                            0 ≤ 1Bk RJJ ′ = 1Bk RJJ ′ k
+for every J, J ′ , k. Put R̃JJ ′ := 1X\A RJJ ′ . The last current is closed (for example see [4,
+Remark 1.10]) and positive because RJJ ′ ≥ 0. Using the fact that {ψk 6= 0} ⊂ Bk \A, we
+get
+
+                                         ψk R̃JJ ′ = ψk RJJ ′ = ψk RJJ ′ k .                                        (4.6)
+
+Claim. Let j ′′ ∈ {1, . . . , m}\(J ∪J ′ ). Let Φ be ddc -closed smooth form of bi-degree (p′ , p′ )
+on X, where p′ := n − |J| − |J ′ | − p − 1. Then
+                                    Z
+                                lim     ψk ddc wj ′′k ∧ RJJ ′ k ∧ Φ = 0.                   (4.7)
+                                     k→∞       X
+                                                                              Pm
+We prove Claim. Let ω be a Hermitian metric on X. Let η :=                       j=1 2 θj . We have
+  c       −1
+dd ψk + k η ≥ 0 for every k. By integration by parts and (4.6),
+  Z                                Z                              Z
+          c                                   c
+     ψk dd wj ′′ k ∧ RJJ ′ k ∧ Φ =   wj ′′k dd (ψk RJJ ′ k ∧ Φ) =   wj ′′k ddc (ψk R̃JJ ′ ∧ Φ). (4.8)
+     X                                     X                                        X
+
+Observe that
+
+                      ddc (ψk R̃JJ ′ ∧ Φ) = ddc ψk ∧ Φ ∧ R̃JJ ′ + 2dψk ∧ dc Φ ∧ R̃JJ ′
+
+because ddc Φ = 0 and Φ is of bi-degree (p′ , p′ ). Write dc Φ locally as a complex linear
+combination of forms like τj ∧ Φj , where τj is a (0, 1)-form or a (1, 0)-form and Φj is a
+positive form. Hence, we can use the Cauchy-Schwarz inequality to obtain
+ Z                                       Z                                                  21  Z                      21
+                       c
+      wj ′′ k dψk ∧ d Φ ∧ R̃JJ ′ ≤                 |wj2′′k |dψk ∧ dc ψk ∧ R̃JJ ′ ∧ Φ0                  R̃JJ ′ ∧ Φ0 ∧ ω          ,
+  X                                            X                                                   X
+
+                              ′
+where Φ0 := ω n−|J|−|J |−1 . We deduce that
+             Z                                                       Z                                     21
+                                                                 1
+                                     c                                                  c
+                     wj ′′k dψk ∧ d Φ ∧ R̃JJ ′ . kR̃JJ ′ k       2            dψk ∧ d ψk ∧ R̃JJ ′ ∧ Φ0
+                 X                                                        X
+
+by (4.5). Recall that {limk→∞ ψk < 1} is equal to the complete pluripolar set A. Using
+this, Remark 2.7 and the fact that R̃JJ ′ has no mass on A, we get
+
+                      lim dψk ∧ dc ψk ∧ R̃JJ ′ = lim (ddc ψk2 − ψk ddc ψk ) ∧ R̃JJ ′ = 0
+                     k→∞                                 k→∞
+
+
+
+
+                                                            24
+(we recall that to get Remark 2.7 for R̃JJ ′ and ψk , we need to use the strong quasi-
+continuity of ψk with respect to the capacity associated to R̃JJ ′ ). Thus we obtain
+                                 Z
+                            lim     wj ′′ k dψk ∧ dc Φ ∧ R̃JJ ′ = 0.                 (4.9)
+                                k→∞   X
+
+On the other hand, since
+ Z                                  Z                               Z
+               c                                 c
+     wj ′′ k dd ψk ∧ Φ ∧ R̃JJ ′ = −   dwj ′′k ∧ d ψk ∧ Φ ∧ R̃JJ ′ +   wj ′′k dc ψk ∧ dΦ ∧ R̃JJ ′ ,
+    X                                 X                                        X
+
+using similar arguments, we get
+                                      Z
+                                lim           wj ′′k ddc ψk ∧ Φ ∧ R̃JJ ′ = 0
+                              k →∞
+                                ′
+                                          X
+
+Combining this with (4.9) and (4.8) yields (4.7). Claim follows.
+                               ˙ i − hT1′ ∧ · · · Tn′ ∧T
+   Now let S := hT1 ∧ · · · Tn ∧T                     ˙ i. Using Tjk = Tjk
+                                                                         ′
+                                                                           + ddc wjk , one can
+check that
+            Z               Z                             Z
+                                    m
+               ψk S ∧ Φ =       ψk ∧j=1 Tjk ∧ T ∧ Φ −        ψk ∧m    ′
+                                                                 j=1 Tjk ∧ T ∧ Φ
+                X                X                                 X
+                                m Z
+                                X
+                                              s−1 ′
+                            =             ψk ∧j=1 Tjk ∧ ddc wsk ∧ ∧m
+                                                                   j=s+1 Tjk ∧ T ∧ Φ.
+                                s=1   X
+
+
+This together with Claim yields hS, Φi = limk→∞ hψk S, Φi = 0 for every ddc -closed smooth
+Φ. This finishes the proof.
+Remark 4.3. Our proof of Proposition 4.2 still works if Tj′ , Tj are not in the same cohomol-
+ogy class. In this case, one just needs to modify (4.2) accordingly.
+  The following result is the monotonicity property of relative non-pluripolar products
+mentioned in Introduction.
+Theorem 4.4. Let X be a compact Kähler manifold of dimension n. Let Tj , Tj′ be closed
+positive (1, 1)-currents on X for 1 ≤ j ≤ m such that Tj , Tj′ are in the same cohomology
+class for every j and Tj′ is less singular than Tj for 1 ≤ j ≤ m. Let T be a closed positive
+current on X. Then, we have
+                                           ˙ i ≤ hT1′ ∧ · · · ∧ Tm′ ∧T
+                                                                    ˙ i .
+                                                
+                          hT1 ∧ · · · ∧ Tm ∧T                                        (4.10)
+
+Proof. Write Tj = ddc uj + θj , Tj′ = ddc u′j + θj . Without loss of generality, we can assume
+that u′j ≥ uj . For l ∈ N, put ulj := max{uj , u′j − l} which is of the same singularity type as
+u′j . Notice that ddc ulj + θj ≥ 0. Since X is Kähler, the current h∧m        c l       ˙
+                                                                        j=1 (dd uj + θj )∧T i is of
+                                                                  m      c l       ˙ i as l → ∞.
+mass uniformly bounded in l. Let S be a limit current of h∧j=1 (dd uj + θj )∧T
+         l
+Since uj decreases to uj as l → ∞, we can apply Lemma 4.1 to get
+
+                                              S ≥ h∧m      ˙
+                                                    j=1 Tj ∧T i.
+
+Consequently, {S} ≥ {h∧m          ˙
+                           j=1 Tj ∧T i}. Using Proposition 4.2, we see that {S} is equal to
+   m    ′˙
+{h∧j=1 Tj ∧T i}. The desired assertion, hence, follows. This finishes the proof.
+
+
+
+                                                      25
+```
+
+## Primary unit 12: Full integration-by-parts section, admissibility, gradient construction and proofs
+
+Source: Vu-2005.13241v3-20261004.txt, LF121--655. Supplied and observed raw SHA256: ac897767ca0a5f2aaccf93220b4393ba919af1d21d12d7f2a378207e1955b157. Literal supplied quote equals LF slice: True.
+
+```text
+fined in a way similar to that of the usual non-pluripolar product. The
+product h m        ˙
+          V
+            j=1 Tj ∧T i is a well-defined closed positive current of bi-degree
+(m + p, m + p); and h m           ˙
+                         V
+                           j=1 Tj ∧T i is symmetric with respect to T1 , . . . , Tm
+and is homogeneous.
+    For every closed positive (1, 1)-current P , we denote by IP the set of
+x ∈ X so that local potentials of P are equal to −∞ at x. Note that IP
+is a locally complete pluripolar set. The following is deduced from [14,
+Proposition 3.5].
+
+Proposition 2.1. (i) Given a locally complete pluripolar set A such that T
+has no mass on A, then h m         ˙
+                          V
+                            j=1 Tj ∧T i also has no mass on A.
+   (ii) Let T1′ be a closed positive (1, 1)-current on X and Tj , T as above.
+Assume that T has no mass on IT1 ∪ IT1′ . Then we have
+                            m
+                            ^                     m
+                                                  ^                       m
+                                                                          ^
+(2.1)       (T1 + T1′ ) ∧            ˙
+                                  Tj ∧T = hT1 ∧            ˙ i + hT1′ ∧
+                                                        Tj ∧T                      ˙ i.
+                                                                                Tj ∧T
+                            j=2                   j=2                     j=2
+4                                                                    Duc- Viet Vu
+
+                                                             Vm
+   (iii) Let 1 ≤ l ≤ m be an integer. Then for R := h                   ˙
+                                                               j=l+1 Tj ∧T i, there
+holds h m
+                         Vl
+                 ˙               ˙
+       V
+          j=1 Tj ∧T i = h j=1 Tj ∧Ri.
+   (iv) The equality
+                             m
+                             ^            m
+                                          ^
+                            h Tj ∧T           ˙ ′i
+                                   ˙ i = h Tj ∧T
+                             j=1           j=1
+               ′
+holds, where T := 1X\   Sm          T.
+                          j=1 ITj
+
+
+    We also need the following result.
+Theorem 2.2. ([14, Theorem 2.6, Remark 2.7]) Let uj be a locally bounded
+plurisubharmonic (psh) function on an open subset U of Cn for 1 ≤ j ≤ m.
+Let (ujk )k∈N be a sequence of locally bounded psh functions increasing to uj
+almost everywhere as k → ∞. Let T be a closed positive current on U. Then,
+the convergence
+
+(2.2)      u1k ddc u2k ∧ · · · ∧ ddc umk ∧ T → u1 ddc u2 ∧ · · · ∧ ddc um ∧ T
+
+as k → ∞ holds provided that T has no mass on Aj := {x ∈ U : uj (x) 6=
+limk→∞ ujk (x)} for every 1 ≤ j ≤ m and the set Aj is locally complete
+pluripolar for every j.
+    Recall that a dsh function on X is the difference of two quasiplurisub-
+harmonic (quasi-psh for short) functions on X (see [9]). These functions
+are well-defined outside pluripolar sets. Let v be a dsh function on X.
+Write v = ϕ1 − ϕ2 , where ϕ1 , ϕ2 are quasi-psh function. Hence v(x) is
+well-defined for x ∈ X\A, where A := {ϕ1 = −∞} ∪ {ϕ2 = −∞}. The
+function v is said to be bounded in X if there exists a constant C such that
+|v(x)| ≤ C for every x ∈ X\A.
+    We say that v is T -admissible (or admissible with respect to T ) if there
+exist quasi-psh functions ϕ1 , ϕ2 on X such that v = ϕ1 − ϕ2 and T has
+no mass on {ϕj = −∞} for j = 1, 2. In particular, if T has no mass on
+pluripolar sets, then every dsh function is T -admissible. Assume now that
+v is T -admissible. The following is a direct consequence of Proposition 2.1
+(i).
+Lemma 2.3. If v is T -admissible, then v is also admissible with respect to
+h m       ˙
+ V
+   j=1 Tj ∧T i.
+
+   Recall that if v = ϕ1 − ϕ2 for some bounded quasi-psh functions ϕ1 , ϕ2
+on X (note X is compact), the current dv ∧ dc v ∧ T is, by definition, equal
+to
+             1 c
+(2.3)          dd (ϕ1 − ϕ2 )2 ∧ T − (ϕ1 − ϕ2 )ddc (ϕ1 − ϕ2 ) ∧ T.
+             2
+Convexity of the class of currents with finite energy                      5
+
+We notice that in the above formula the function (ϕ1 − ϕ2 )2 is locally the
+difference of two bounded psh functions. More precisely, we can assume
+ϕj is ω-psh function for j = 1, 2, where ω is a Kähler form on X, and
+consider an open local chart U such that ω = ddc φ for some smooth psh
+function φ on U. By adding to φ a big constant, we can even assume that
+ϕj + φ ≥ 0 on U for j = 1, 2. Thus (ϕj + φ)2 and (ϕ1 + ϕ2 + 2φ)2 are psh
+on U for j = 1, 2, and
+
+(2.4)      (ϕ1 − ϕ2 )2 = (2(ϕ1 + φ)2 + 2(ϕ2 + φ)2 ) − (ϕ1 + ϕ2 + 2φ)2
+
+which is the difference of two bounded psh functions on U.
+   Consider another dsh function w which is equal to the difference of
+two locally bounded psh functions and T is of bi-degree (n − 1, n − 1), we
+have
+(2.5)
+2dv ∧ dc w ∧ T = d(v + w) ∧ dc (v + w) ∧ T − dv ∧ dc v ∧ T − dw ∧ dc w ∧ T.
+
+However, in general, even when v is bounded, v might not be the differ-
+ence of two bounded quasi-psh functions. Hence, the current “dv∧dc v∧T ”
+is not well-defined in the above sense. We will introduce below the cur-
+                ˙ i in the spirit of non-pluripolar products. Before going
+rent hdv ∧ dc v ∧T
+into details, we need the following auxiliary estimate.
+
+Lemma 2.4. Let ω be a Kähler form on X. Let ϕ1 , ϕ2 be bounded ω-psh
+functions on X and v := ϕ1 − ϕ2 . Let T be a closed positive current of bi-
+dimension (1, 1) on X. Then, there exists a constant C independent of ϕ1 , ϕ2
+such that
+                        Z
+(2.6)                     dv ∧ dc v ∧ T ≤ CkvkL∞ .
+                            X
+
+Proof. We have
+                   Z                             Z
+                                 c
+            I :=       dv ∧ d v ∧ T = −                  vddc v ∧ T
+                   X
+                   Z                                 X
+
+              =−    v(ddc ϕ1 − ddc ϕ2 ) ∧ T
+                 ZX                       Z
+                        c
+              =−    v(dd ϕ1 + ω) ∧ T +      v(ddc ϕ2 + ω) ∧ T
+                       X                                  X
+                           2 Z
+                           X
+              ≤ kvkL∞                    (ddc ϕj + ω) ∧ T
+                           j=1       X
+                           Z
+              = 2kvkL∞               T ∧ω
+                             X
+6                                                                      Duc- Viet Vu
+
+by Stokes’ theorem. The desired estimate follows. The proof is finished.
+
+
+    Assume now that v is T -admissible. Let ϕ1 , ϕ2 be quasi-psh functions
+such that v = ϕ1 − ϕ2 and T has no mass on {ϕj = −∞} for j = 1, 2. Let
+ϕj,k := max{ϕj , −k} for every j = 1, 2 and k ∈ N. Put vk := ϕ1,k − ϕ2,k .
+Since vk is the difference of two bounded quasi-psh functions, using (2.3),
+we obtain
+
+                Qk := dvk ∧ dc vk ∧ T = ddc vk2 ∧ T − vk ddc vk ∧ T.
+
+Let ω be a Kähler form so that ϕj is ω-psh for j = 1, 2. Let U be a local
+chart on X such that ω = ddc φ on U for some psh function φ such that
+ϕj,k + φ ≥ 0 on U for j = 1, 2 (we fix k). By (2.4) applied to ϕj,k + φ, we
+have
+
+Qk = 2ddc (ϕ1,k + φ)2 ∧ T + 2ddc (ϕ2,k + φ)2 ∧ T − ddc (ϕ1,k + ϕ2,k + 2φ)2 ∧ T
+        − (vk ddc ϕ1,k ∧ T − vk ddc ϕ2,k ∧ T )
+
+on U. By the plurifine locality with respect to T ([14, Theorem 2.9]) ap-
+plied to each term in the right-hand side of the last equality, we have
+
+(2.7)                   1T2j=1 {ϕj >−k} Qk = 1T2j=1 {ϕj >−k} Qk′
+
+for every k ′ ≥ k.
+                          ˙ i is well-defined if the mass of 1T2 {ϕ >−k} Qk
+   We say that hdv ∧ dc v ∧T                                   j=1  j
+
+on X is bounded uniformly in k. In this case, using (2.7) implies that there
+exists a positive current Q on X such that for every bounded Borel form
+Φ on X, we have
+
+                        hQ, Φi = lim h1T2j=1 {ϕj >−k} Qk , Φi.
+                                   k→∞
+
+                      ˙ i to be the current Q. This agrees with the classical
+We define hdv ∧ dc v ∧T
+definition if v is the difference of two bounded quasi-psh functions. This
+definition is independent of the choice of ϕ1 , ϕ2 by Lemma 2.5 below. If w
+is another T -admissible dsh function and T is of bi-dimension (1, 1) such
+                             ˙ i, hdw ∧ dcw ∧T
+that the currents hdv ∧ dc v ∧T             ˙ i, and hd(v + w) ∧ dc(v + w)∧T
+                                                                          ˙ i
+                                         c ˙
+are all well-defined, we define hdv ∧ d w ∧T i using (2.5) formally.
+Lemma 2.5. Let ϕ′1 , ϕ′2 be quasi-psh functions on X such that v = ϕ′1 − ϕ′2
+and T has no mass on {ϕ′j = −∞} for j = 1, 2. Let ϕ′j,k , Q′k be the func-
+tion and current associated to ϕ′j defined similarly as ϕj,k and Qk respec-
+tively. Then if 1T2j=1 {ϕj >−k} Qk is of mass bounded uniformly on k then so is
+Convexity of the class of currents with finite energy                                    7
+
+1T2j=1 {ϕ′j >−k} Q′k , and
+
+(2.8)                        Q = lim h1T2j=1 {ϕ′j >−k}Q′k , Φi
+                                  k→∞
+
+for every bounded Borel form Φ on X.
+
+Proof. Since v = ϕ′1 − ϕ′2 , we get
+
+                                  ϕ1 + ϕ′2 = ϕ′1 + ϕ2 .
+
+Put vk′ := ϕ′1,k − ϕ′2,k , A′k := 2j=1 {ϕ′j > −k}, and Ak := 2j=1 {ϕj > −k}.
+                                 T                            T
+
+We have Q′k = dvk′ ∧ dc vk′ ∧ T , and vk = vk′ on Ak ∩ A′k which is open in the
+plurifine topology. We claim that
+
+(2.9)                           1Ak ∩A′k Q′k = 1Ak ∩A′k Qk .
+
+This is a sort of plurifine locality statement and can be essentially de-
+duced from the plurifine locality for bounded psh functions (here we have
+vk = vk′ on Ak ∩ A′k but vk , vk′ are only dsh). We give details for readers’
+convenience. Before doing so, we will show that the desired assertion is a
+direct consequence of (2.9). First observe that 1A′k Q′k has no mass on the
+pluripolar set {ϕj = −∞} for j = 1, 2 by Proposition 2.1 (i) and the fact
+that T has no mass on {ϕj = −∞}. It follows that
+
+                    1A′k Q′k = lim 1A′k ∩As Q′k
+                                s→∞
+                             = lim 1A′k ∩As Q′s
+                                s→∞
+                             ≤ lim 1A′s ∩As Q′s
+                                s→∞
+                             = lim 1A′s ∩As Qs ≤ lim 1As Qs = Q,
+                                s→∞                 s→∞
+
+where we used (2.7) applied to Q′k in the second equality and (2.9) in the
+third equality. By exchanging the role of Q′k and Qk , we also obtain that
+
+                                      1Ak Qk ≤ R,
+
+for every limit current R of (1A′k Q′k )k as k → ∞. Hence (2.8) follows.
+   We go back to the proof of (2.9). Write
+
+dvk ∧ dc vk ∧ T = dvk ∧ dc (vk − vk′ ) ∧ T + d(vk − vk′ ) ∧ dc vk′ ∧ T + dvk′ ∧ dc vk′ ∧ T.
+
+Denote by R1 , R2 the first and second currents in the right-hand side of
+the last equality. In order to obtain (2.9), it suffices to check that Rj = 0
+8                                                                    Duc- Viet Vu
+
+on Ak ∩ A′k for j = 1, 2. Observe
+
+     R1 = dvk ∧ dc (ϕ1,k + ϕ′2,k − ϕ′1,k − ϕ2,k ) ∧ T
+        = dϕ1,k ∧ dc (ϕ1,k + ϕ′2,k ) ∧ T − dϕ1,k ∧ dc (ϕ′1,k + ϕ2,k ) ∧ T −
+                                                                         
+
+          dϕ2,k ∧ dc (ϕ1,k + ϕ′2,k ) ∧ T − dϕ2,k ∧ dc (ϕ′1,k + ϕ2,k ) ∧ T .
+                                                                        
+
+
+Each term in the right-hand side of the above equality is equal to 0 on
+Ak ∩ A′k thanks to the plurifine locality and the fact that
+
+               ϕ1,k + ϕ′2,k = ϕ1 + ϕ′2 = ϕ′1 + ϕ2 = ϕ′1,k + ϕ2,k
+
+on Ak ∩ A′k . Hence R1 = 0 on Ak ∩ A′k . Similarly we get R2 = 0 on Ak ∩ A′k .
+This finishes the proof.
+                                                                  ˙ i is
+Lemma 2.6. Assume that v is bounded. Then, the current hdv ∧ dc v ∧T
+well-defined.
+
+Proof. Let the notation be as in the proof of Lemma 2.4. Let ω be a Kähler
+form on X such that ϕ1 , ϕ2 are ω-psh. Note that ϕjk is also ω-psh for every
+j, k. Observe that since v is bounded, there exists a constant C such that
+ϕ2 − C ≤ ϕ1 ≤ ϕ2 + C. Thus, there exists a constant C so that
+
+                                 kvk kL∞ ≤ C
+
+for every k. Using this and Lemma 2.4, one gets
+
+                             kQk k . kvk kL∞ ≤ C
+
+for some constant C independent of k. Hence, the desired assertion fol-
+lows. This finishes the proof.
+
+      Let T1 , . . . , Tm be closed positive (1, 1)-currents on X and R := hT1 ∧
+           ˙ i. We define
+· · · ∧ Tm ∧T
+
+               hdv ∧ dc v ∧ T1 ∧ · · · ∧ Tm ∧T
+                                            ˙ i := hdv ∧ dc v ∧Ri.
+                                                              ˙
+
+When T ≡ 1, we write the left-hand side of the last equality simply as
+hdv ∧ dc v ∧ T1 ∧ · · · ∧ Tm i.
+                                            ˙ i is defined similarly if p + m =
+   The current hdv ∧ dc w ∧ T1 ∧ · · · ∧ Tm ∧T
+n − 1, where T is of bi-degree (p, p). We put
+
+                   hddc v ∧T
+                          ˙ i := hddc ϕ1 ∧T
+                                         ˙ i − hddcϕ2 ∧T
+                                                      ˙ i.
+
+Define
+                   hddc v ∧ T1 ∧ · · · ∧ Tm ∧T
+                                            ˙ i := hddc v ∧Ri.
+                                                          ˙
+Convexity of the class of currents with finite energy                            9
+
+   By Proposition 2.1 (iii), this definition agrees with the T -relative non-
+pluripolar product of ddc v, T1 , . . . , Tm if v is quasi-psh. When T ≡ 1, we
+                                                              ˙ i. In this case the
+write hddc v ∧ T1 ∧ · · · ∧ Tm i for hddc v ∧ T1 ∧ · · · ∧ Tm ∧T
+product hddc v ∧ T1 ∧ · · · ∧ Tm i is the one defined in the paragraph right
+after Theorem 1.2 in [12].
+   By admissibility and Proposition 2.1 (ii), we can check that if v, w are
+dsh functions which are admissible with respect to T , then
+
+                    hddc (v + w)∧T
+                                ˙ i = hddc v ∧T
+                                             ˙ i + hddcw ∧T
+                                                         ˙ i.
+
+   Here is an integration by parts formula for relative non-pluripolar prod-
+ucts.
+Theorem 2.7. Let T be a closed positive current of bi-degree (n − 1, n − 1)
+on X. Let v, w be bounded T -admissible dsh functions on X. Then, we have
+              Z                Z                   Z
+                     c ˙
+(2.10)           whdd v ∧T i =   vhdd w ∧T i = − hdw ∧ dc v ∧T
+                                       c ˙                     ˙ i.
+                X                  X                      X
+
+   The last result was proved in [4, Theorem 1.14] if v, w can be written
+as the differences of psh functions which are locally bounded outside a
+closed locally complete pluripolar set; see also [1, 13].
+
+Proof. We use ideas from the proof of [14, Proposition 4.2]. Let ϕ1 , ϕ2 , ϕ3 , ϕ4
+be negative quasi-psh functions on X such that v = ϕ1 −ϕ2 and w = ϕ3 −ϕ4
+and T has no mass on 4j=1 {ϕj = −∞}. Let ω be a Kähler form on X such
+                       S
+
+that ϕj is ω-psh for every 1 ≤ j ≤ 4. Put
+
+           ψ := ϕ1 + ϕ2 + ϕ3 + ϕ4 ,       ψk := k −1 max{ψ, −k} + 1.
+
+and ϕjk := max{ϕj , −k} for 1 ≤ j ≤ 4. Observe that 0 ≤ ψk ≤ 1. Let x ∈ X
+such that ψk (x) > 0. We have
+
+                ϕ1 (x) + ϕ2 (x) + ϕ3 (x) + ϕ4 (x) = ψ(x) > −k.
+
+This combined with the property that ϕj ≤ 0 for every 1 ≤ j ≤ 4 yields
+that ϕj (x) > −k for every 1 ≤ j ≤ 4. We infer that
+                                         4
+                                         \
+(2.11)                     {ψk 6= 0} ⊂       {ϕj > −k}.
+                                         j=1
+
+
+   Put vk := ϕ1k − ϕ2k and wk := ϕ3k − ϕ4k . Since v and w are bounded,
+the functions vk , wk are bounded uniformly in k.
+10                                                                      Duc- Viet Vu
+
+              S4
+   Let A :=    j=1 {ϕj = −∞}. By admissibility and Proposition 2.1 (i), we
+see that
+
+(2.12)                       1A h(ddcϕj + ω)∧T
+                                            ˙ i = 0.
+
+Using (2.12), we can consider w as a bounded function with respect to the
+                              ˙ i. Using (2.11), we have
+trace measure of h(ddc ϕj + ω)∧T
+
+      wψk ddc ϕjk ∧ T = w1{ϕj >−k} ψk hddc ϕj ∧T
+                                              ˙ i
+                         = whddc ϕj ∧T
+                                    ˙ i + w(1{ϕj >−k} ψk − 1)hddcϕj ∧T
+                                                                    ˙ i.
+
+The second term in the right-hand side of the last equality converges
+weakly to 0 as k → ∞ by the fact that ψk → 1 pointwise outside A as
+k → ∞ and Lebesgue’s dominated convergence theorem. Hence
+
+                       whddcϕj ∧T
+                               ˙ i = lim wψk ddc ϕjk ∧ T.
+                                          k→∞
+
+Applying the last equality to j = 1, 2, and using v = ϕ1 − ϕ2 , we obtain
+
+(2.13)        whddcv ∧T
+                     ˙ i = lim wψk ddc vk ∧ T = lim wk ψk ddc vk ∧ T.
+                               k→∞                            k→∞
+
+Here in the second equality we used the fact that w = wk on {ϕ3 > −k} ∩
+{ϕ4 > −k} which contains {ψk 6= 0}. We also have an analogous formula
+by exchanging the roles of v, w. Thus,
+
+(2.14)    whddcv ∧T
+                 ˙ i − vhddc w ∧T
+                               ˙ i = lim ψk (wk ddc vk − vk ddc wk ) ∧ T.
+                                                    k→∞
+
+By integration by parts for bounded psh functions, we have
+         Z                                     Z
+                      c          c
+(2.15)       ψk (wk dd vk − vk dd wk ) ∧ T = −    wk dψk ∧ dc vk ∧ T +
+           X                                    X
+                                                      Z
+                                                         vk dψk ∧ dc wk ∧ T.
+                                                                    X
+
+Denote by I1 , I2 the first and second term in the right-hand side of the
+last equality. We will check that Ij → 0 as k → ∞ for j = 1, 2. Using the
+Cauchy-Schwarz inequality, the boundedness of vk , wk and Lemma 2.4, we
+infer
+               Z                   21  Z                        21
+                            c                     2       c
+       |I1 | ≤      dψk ∧ d ψk ∧ T     ×     |wk | dvk ∧ d vk ∧ T
+                   X                                      X
+               Z                         21
+           .           dψk ∧ dc ψk ∧ T          .
+                   X
+Convexity of the class of currents with finite energy                       11
+
+Recall that {limk→∞ ψk < 1} is equal to the complete pluripolar set {ψ =
+−∞}. Using this, Theorem 2.2 and the fact that T has no mass on {ψ =
+−∞}, we get
+
+           lim dψk ∧ dc ψk ∧ T = lim (ddc ψk2 − ψk ddc ψk ) ∧ T = 0
+           k→∞                     k→∞
+
+Thus we obtain
+
+(2.16)                            lim I1 = 0.
+                                 k→∞
+
+By similarity, we also get I2 → 0 as k → ∞. Combining this with (2.15)
+and (2.13) gives the first desired equality of (2.10). We prove the second
+one similarly as follows. Put u := v + w, and
+
+               uk := max{ϕ1 + ϕ3 , −k} − max{ϕ2 + ϕ4 , −k}.
+
+By (2.11) observe that
+
+             1{ψk >0} max{ϕ1 + ϕ3 , −2k} = 1{ψk >0} (ϕ1k + ϕ3k )
+
+and a similar equality for ϕ2 , ϕ4 also holds. Thus, by plurifine locality, we
+get
+
+2hdv ∧ dc w ∧T
+            ˙ i = hdu ∧ dc u∧T
+                            ˙ i − hdv ∧ dc v ∧T
+                                             ˙ i − hdw ∧ dc w ∧T
+                                                              ˙ i
+                 = lim ψk hdu2k ∧ dc u2k ∧T
+                                         ˙ i − hdvk ∧ dc vk ∧T
+                                                            ˙ i−
+                   k→∞
+                  hdwk ∧ dc wk ∧T
+                               ˙ i
+                                   
+
+                 = lim ψk hd(vk + wk ) ∧ dc (vk + wk )∧T
+                                                      ˙ i − hdvk ∧ dc vk ∧T
+                                                                         ˙ i−
+                   k→∞
+                  hdwk ∧ dc wk ∧T
+                               ˙ i .
+                                  
+
+
+Consequently
+
+                  hdv ∧ dc w ∧T
+                             ˙ i = lim ψk hdvk ∧ dc wk ∧T
+                                                       ˙ i.
+                                    k→∞
+
+It follows that
+  Z                                      Z
+          c ˙              c ˙
+      vhdd w ∧T i + hdv ∧ d w ∧T i = lim    ψk (vk ddc wk + dvk ∧ dc wk ) ∧ T
+    X                                k→∞ X
+                                           Z
+                                   = − lim    vk dψk ∧ dc wk ∧ T
+                                         k→∞    X
+
+which is equal to 0 by analogous arguments as in the proof of (2.16). This
+finishes the proof.
+12                                                                                          Duc- Viet Vu
+
+Corollary 2.8. Let v, w be bounded dsh functions on X. Then, for every
+closed smooth form Φ of right bi-degree, we have
+            Z                  m
+                               ^                  Z                      m
+                                                                         ^
+                        c                                    c
+(2.17)              whdd v ∧         Tj i ∧ Φ =           vhdd w ∧             Tj i ∧ Φ =
+                X              j=1                    X                  j=1
+                                                                     Z                      m
+                                                                                            ^
+                                                                                    c
+                                                                 −        hdv ∧ d w ∧             Tj i ∧ Φ.
+                                                                     X                      j=1
+
+Proof. By writing Φ as the difference of two closed positive forms, we can
+assume that Φ is positive. The desired formula is a direct consequence of
+Theorem 2.7 applied to T := hT1 ∧ · · · ∧ Tm i ∧ Φ.
+
+    We recall that the first inequality of (2.17) was proved in [12, Theorem
+1.2] and [16] when m = n and the cohomology classes of Tj ’s are big.
+One should notice a crucial point that the integration by parts formulae
+obtained in [12, 16] contain no term involving dv ∧ dc w. Such a term is
+essential in applications, especially, in the pluricomplex energy theory. The
+following result is more general than Theorem 2.7. We will need it later.
+Theorem 2.9. Let T a closed positive current of bi-degree (n − 1, n − 1) on
+X. Let v, w be bounded T -admissible dsh functions on X. Let χ : R → R be
+a C 3 function. Then we have
+(2.18)
+   Z                   Z                        Z
+                           ′′
+             c ˙
+      χ(w)hdd v ∧T i =                c ˙
+                         vχ (w)hdw ∧ d w ∧T i +   vχ′ (w)hddcw ∧T
+                                                               ˙ i.
+        X                            X                                          X
+
+   A quick heuristic reason explaining why (2.18) should hold is because
+dd χ(w) = χ′′ (w)dw∧dc w+χ′ (w)ddcw if w is a bounded quasi-psh function.
+    c
+
+
+Proof. We first note that [14, Lemma 5.7] still holds for dsh functions
+which are the differences of two bounded quasi-psh functions. Now, to
+obtain the desired equality, we just follow the proof of Theorem 2.7 ver-
+batim with χ(w) in place of w. The only thing we need to clarify is the
+computation concerning ddc χ(wk ) ∧ T . To this end, it suffices to use [14,
+Lemma 5.7] because wk is the difference of two bounded quasi-psh func-
+tions. This finishes the proof.
+
+
+```
+
+## Primary unit 13: Full relative finite-energy section with definitions and printed proofs
+
+Source: Vu-2005.13241v3-20261004.txt, LF656--827. Supplied and observed raw SHA256: 7c4a6f848d72b6bc891d56b0cdf8b543bf9c1522324504029100073e1d6b9ba9. Literal supplied quote equals LF slice: True.
+
+```text
+3       Currents with finite relative energy
+Let X be a compact Kähler manifold. Let α1 , . . . , αm be pseudoeffective
+(1, 1)-classes of X and T a closed positive current on X. Let Pj be a closed
+Convexity of the class of currents with finite energy                                 13
+
+positive (1, 1)-current in the class αj for 1 ≤ j ≤ m. Put P := (P1 , . . . , Pm ).
+We define EP (T ) to be the set of m-tuple (T1 , . . . , Tm ) of closed positive
+(1, 1)-currents such that Tj ∈ αj and Tj is more singular than Pj and
+                                m
+                                ^                     m
+                                                      ^
+                           {h            ˙ i} = {h
+                                      Tj ∧T                    ˙ i}.
+                                                            Pj ∧T
+                                j=1                   j=1
+
+Notice that for every current Pj′ in αj such that Pj′ has the same singular-
+ities as Pj for 1 ≤ j ≤ m, by the monotonicity of relative non-pluripolar
+products (see (1.1)), we have
+
+                                       EP (T ) = EP′ (T ).
+
+Hence, when Pj has minimal singularities in αj for 1 ≤ j ≤ m, we recover
+the class E(α1 , . . . , αm , T ) of currents of full mass intersection introduced
+in [14, 4] because we have
+
+                             EP (T ) = E(α1 , . . . , αm , T )
+
+in this case.
+    Let χ ∈ W − . Write Pj = ddc ϕj + θj , where θj is a smooth form and ϕj is
+a negative θj -psh function. Let (T1 , . . . , Tm ) ∈ EP (T ). Let uj be a negative
+θj -psh function so that Tj = ddc uj + θj and uj ≤ ϕj for 1 ≤ j ≤ m. For a
+negative Borel function ξ, we put
+                                           XZ       ^         ^
+(3.1)       Eξ,P (T1 , . . . , Tm ; T ) :=     −ξ      Tj ∧         ˙ ,
+                                                                 Pj ∧T
+                                             J    X          j∈J       j6∈J
+
+where the sum is taken over every subset J of {1, . . . , m}. The (T, P)-
+relative joint χ-energy of T1 , . . . , Tm is, by definition, Eξ,P (T1 , . . . , Tm ; T ),
+where
+                                                             
+                    ξ := χ (u1 − ϕ1 ) + · · · + (um − ϕm ) .
+The last energy depends on the choice of uj , ϕj but its finiteness does not.
+That notion generalizes those in [4, 11, 14], see also [5] for the local
+setting.
+    For every closed positive (1, 1)-current P , let IP be the set of x ∈ X so
+that the potentials of P are equal to −∞ at x. Note that IP is a complete
+pluripolar set. By Proposition 2.1 (iv), the right-hand side of (3.1) remains
+unchanged if we replace T by 1X\ Sm         j=1 IPj
+                                                    T . Hence, in practice, we can
+                             Sm
+assume T has no mass on j=1 IPj . We denote by Eχ,P (T ) the subset of
+EP (T ) containing every (T1 , . . . , Tm ) such that their (T, P)-relative joint
+χ-energy is finite.
+14                                                                                   Duc- Viet Vu
+
+   Here is a monotonicity for the class Eχ,P (T ) when Pj = P for every
+1 ≤ j ≤ m. This generalizes [14, Theorem 5.8].
+Theorem 3.1. Let P = ddc ϕ + θ be a closed positive (1, 1)-current and P :=
+(P, . . . , P ) (m times P ). Let χ ∈ W − with |χ(0)| ≤ 1. Let (T1 , . . . , Tm ) ∈
+Eχ,P (T ) and (T1′ , . . . , Tm′ ) ∈ EP (T ) such that Tj = ddc uj + θ, Tj′ = ddc u′j + θ
+such that uj , u′j are θ-psh and uj ≤ u′j ≤ ϕ. Put
+                                                                
+                           ξ := χ (u1 − ϕ) + · · · + (um − ϕ) .
+
+Then we have
+
+                 Eξ (T1′ , . . . , Tm′ ; T ) ≤ c1 Eξ (T1 , . . . , Tm ; T ) + c2 ,
+
+for some constants c1 , c2 > 0 independent of χ. In particular, (T1′ , . . . , Tm′ ) ∈
+Eχ,P (T ).
+
+Proof. As mentioned above, we can assume that T has no mass on IP =
+{ϕ = −∞}. Note here that {ϕ = −∞} ⊂ {uj = −∞}. Put
+
+                               ujk := max{uj , ϕ − k} − ϕ
+
+which is a bounded dsh function and
+
+                                    Tjk := ddc ujk + P.
+
+Observe that ujk ’s are admissible with respect to T . Define u′jk , Tjk
+                                                                      ′
+                                                                         simi-
+larly. Put
+                    m
+                    X
+             v :=         (uj − ϕj ),    vk := max{v, −k},             ξk = χ(vk ).
+                    j=1
+
+Note that ξ = χ(v). With these notations and a suitable integration by
+parts ready in our hands (Theorem 2.9) replacing [14, Lemma 5.7]), the
+proof goes exactly as in the proof of [14, Theorem 5.8]. The only minor
+modifications are: the Kähler form ω is substituted by P and the wedge
+products appearing in the proof of [14, Theorem 5.8] need to be replaced
+by T -relative non-pluripolar products. This finishes the proof.
+
+     The following is a direct consequence of Theorem 3.1.
+Corollary 3.2. Let P, P be as in Theorem 3.1. Let P ′ be a current in {P }
+which is of the same singularity type as P . Then, for P′ = (P ′ , . . . , P ′) (m
+times P ′), we have
+                            Eχ,P′ (T ) = Eχ,P(T ).
+Convexity of the class of currents with finite energy                            15
+
+   For every closed positive (1, 1)-current P , we define the class Em,P (T )
+(resp. Eχ,m,P (T )) to be the set of currents T1 ∈ {P } such that (T1 , . . . , T1 )
+belongs to EP (T ) (resp. Eχ,P (T )), where P = (P, . . . , P ) (m times P ). The
+last space was introduced in [6] when T is the constant function equal
+to 1. As in the case of the usual class of currents of full mass intersection
+([11, Proposition 2.2]), notice that
+                                          [
+                           Em,P (T ) =           Eχ,m,P (T ).
+                                         χ∈W −
+
+
+Let α be a pseudoeffective (1, 1)-class. By Corollary 3.2, we see that the
+notion of the weighted class Eχ,m,P (T ) makes sense if we replace P by its
+equivalent class (in terms of singularity type) of (1, 1)-currents. Hence,
+we can define Em (α, T ) (resp. Eχ,m(α, T )) to be the set Em,P (T ) (resp.
+Eχ,m,P (T )), where P is a current with minimal singularities in α.
+Theorem 3.3. Let U be an open subset in Cn . Let T be a closed positive
+current on U and uj , u′j bounded psh functions on U for 1 ≤ j ≤ m, where
+m ∈ N. Let vj , vj′ be psh functions on U for 1 ≤ j ≤ q. Assume that uj = u′j
+on W := qj=1 {vj > vj′ } for 1 ≤ j ≤ m. Then we have
+         T
+
+
+(3.2)       1W ddc u1 ∧ · · · ∧ ddc um ∧ T = 1W ddc u′1 ∧ · · · ∧ ddc u′m ∧ T.
+
+Proof. If vj , vj′ are all bounded, then the desired assertion is Theorem 2.9
+in [14]. In general, observe that
+                                          ∞
+                                          [
+                          {vj > vj′ } =               ′
+                                              {vjk > vjk },
+                                          k=1
+
+                                             ′
+                                                . Let Wk := qj=1 {vjk > vjk
+                                                                         ′
+                                                           T
+where vjk := max{vj , −k} and similarly for vjk                             }.
+                    S∞             ′
+We have W = k=1 Wk and uj = uj on Wk . Applying [14, Theorem 2.9]
+to uj , u′j , Wk gives
+
+         1Wk ddc u1 ∧ · · · ∧ ddc um ∧ T = 1Wk ddc u′1 ∧ · · · ∧ ddc u′m ∧ T
+
+for every k. Hence, the desired assertion follows. This finishes the proof.
+
+
+   Now, using Theorems 3.1 and 3.3 instead of [14, Theorem 5.8] and
+[14, Theorem 2.9] respectively, and following arguments in the proof of
+[14, Theorems 5.9 and 5.1], we immediately obtain the following result.
+
+Theorem 3.4. For χ ∈ W − , the sets Eχ,m,P (T ) and Em,P (T ) are convex.
+16                                                              Duc- Viet Vu
+
+     Finally, we would like to make the following comment.
+                    +
+Remark 3.5. Let WM     be the class of weights introduced in [11, Page 462].
+Using arguments from the proof of [11, Lemma 3.5] and that of Theorem
+                                                        +
+3.4, we can prove the convexity of Eχ,m,P (T ) for χ ∈ WM .
+
+
+Acknowledgements
+The author would like to thank referees for their remarks improving the
+presentation of the paper.
+
+
+```
+
+## Primary unit 14: Complete bibliography and precise reference bindings
+
+Source: Vu-2005.13241v3-20261004.txt, LF828--884. Supplied and observed raw SHA256: d0915796895621146bb871da1cea5244607f9d37b9146f2d202a099a9eb96e7f. Literal supplied quote equals LF slice: True.
+
+```text
+References
+ [1] E. B EDFORD AND B. A. TAYLOR, A new capacity for plurisubharmonic
+     functions, Acta Math., 149 (1982), pp. 1–40.
+
+ [2]       , Fine topology, Šilov boundary, and (ddc )n , J. Funct. Anal., 72
+       (1987), pp. 225–251.
+
+ [3] R. J. B ERMAN , S. B OUCKSOM , V. G UEDJ , AND A. Z ERIAHI , A vari-
+     ational approach to complex Monge-Ampère equations, Publ. Math.
+     Inst. Hautes Études Sci., 117 (2013), pp. 179–245.
+
+ [4] S. B OUCKSOM , P. E YSSIDIEUX , V. G UEDJ , AND A. Z ERIAHI , Monge-
+     Ampère equations in big cohomology classes, Acta Math., 205 (2010),
+     pp. 199–262.
+
+ [5] U. C EGRELL, Pluricomplex energy, Acta Math., 180 (1998), pp. 187–
+     217.
+
+ [6] T. DARVAS , E. D I N EZZA , AND C. H. LU, Monotonicity of nonpluripo-
+     lar products and complex Monge-Ampère equations with prescribed sin-
+     gularity, Anal. PDE, 11 (2018), pp. 2049–2087.
+
+ [7]        , On the singularity type of full mass currents in big cohomology
+       classes, Compos. Math., 154 (2018), pp. 380–409.
+
+ [8] T. DARVAS , E. D I N EZZA , AND C. H. LU, Log-concavity of volume and
+     complex Monge-Ampère equations with prescribed singularity, Math.
+     Ann., 379 (2021), pp. 95–132.
+Convexity of the class of currents with finite energy                 17
+
+ [9] T.-C. D INH AND N. S IBONY, Distribution des valeurs de transforma-
+     tions méromorphes et applications, Comment. Math. Helv., 81 (2006),
+     pp. 221–258.
+
+[10] D. T. D O AND D.-V. V U, Complex Monge-Ampère equations with solu-
+     tions in finite energy classes. arXiv:2010.08619, 2020. to appear in
+     Math. Res. Lett.
+
+[11] V. G UEDJ AND A. Z ERIAHI, The weighted Monge-Ampère energy
+     of quasiplurisubharmonic functions, J. Funct. Anal., 250 (2007),
+     pp. 442–482.
+
+[12] C. H. LU, Comparison of Monge-Ampère capacities, Ann. Polon. Math.,
+     126 (2021), pp. 31–53.
+
+[13] N. S IBONY, Quelques problèmes de prolongement de courants en anal-
+     yse complexe, Duke Math. J., 52 (1985), pp. 157–197.
+
+[14] D.-V. V U, Relative non-pluripolar product of currents, Ann. Global
+     Anal. Geom., 60 (2021), pp. 269–311.
+
+[15] D. W ITT N YSTRÖM, Monotonicity of non-pluripolar Monge-Ampère
+     masses, Indiana Univ. Math. J., 68 (2019), pp. 579–591.
+
+[16] M. X IA, Integration by parts formula for non-pluripolar products.
+     arXiv:1907.06359, 2019.
+
+```
+
+## Additional foundation: Local nonpluripolar definition, including no pluripolar mass
+
+Source: BEGZ-0812.3674v2-20261004.txt, LF180--248; observed raw SHA256: a9817dcf1e66414e9b0e6754baddfda52b4dd76cef4a5e046e4d5ad390a3252e.
+
+```text
+
+on X as a closed positive (p, p)-current. The wedge product only depends on
+the closed positive (1, 1)-currents ddc uj , and not on the speciﬁc choice of the
+potentials uj .
+   A very important property of this construction is that it is local in the plurifine
+topology, in the following sense. If uj , vj are locally bounded psh functions on X
+and uj = vj (pointwise) on a pluriﬁne open subset O of U , then
+                   1O ddc u1 ∧ ... ∧ ddc up = 1O ddc v1 ∧ ... ∧ ddc vp .
+This is indeed an obvious generalization of Corollary 4.3 of [4].
+   In the case of a possibly unbounded psh function u, Bedford-Taylor have ob-
+served (cf. p.236 of [4]) that it is always possible to deﬁne the non-pluripolar
+part of the would-be positive measure (ddc u)n as a Borel measure. The main
+issue however is that this measure is not going to be locally ﬁnite in general (see
+Example 1.3 below). More generally, suppose we are trying to associate to any
+p-tuple u1 , ..., up of psh functions on X a positive (a priori not necessarily closed)
+(p, p)-current
+                                   hddc u1 ∧ ... ∧ ddc up i
+putting no mass on pluripolar subsets, in such a way that the construction is
+local in the pluriﬁne topology in the above sense. Then we have no choice: since
+uj coincides with the locally bounded psh function max(uj , −k) on the pluriﬁne
+open subset                               \
+                                   Ok := {uj > −k},
+                                          j
+we must have              ^               ^
+                     1Ok h ddc uj i = 1Ok   ddc max(uj , −k),                    (1.1)
+                            j                  j
+Note that the
+            V right-hand side is non-decreasing in k. This equation completely
+determines h j ddc uj i since the latter is required not to put mass on the pluripolar
+        S
+set X − k Ok = {u = −∞}.
+Definition 1.1. If u1 , ..., up are psh functions
+                                             V on the complex manifold X, we
+shall say that the non-pluripolar product h j ddc uj i is well-defined on X if for
+each compact subset K of X we have
+                      Z                ^
+                  sup          ω n−p ∧   ddc max(uj , −k) < +∞               (1.2)
+                     k   K∩Ok            j
+for all k.
+   Here ω is an auxiliary (strictly) positive (1, 1)-form on X with respect to which
+masses are being measured, the condition being of course independent ofV   ω. When
+(1.2) is satisﬁed, equation (1.1) indeed deﬁnes a positive (p, p)-current h j ddc uj i
+on X. We will show below that it is automatically closed (Theorem 1.8).
+   Condition (1.2) is always satisﬁed when p = 1, and in fact it is not diﬃcult to
+show that
+                               hddc ui = 1{u>−∞} ddc u.
+There are however examples where non-pluripolar products are not well-deﬁned
+as soon as p ≥ 2. This is most easily understood in the following situation.
+6                 S. BOUCKSOM, P. EYSSIDIEUX, V. GUEDJ, A.ZERIAHI
+
+Definition 1.2. A psh function u on X will be said to have small unbounded
+locus if there exists a (locally) complete pluripolar closed subset A of X outside
+which u is locally bounded.
+   Assume that u1 , ..., up have small unbounded locus, and let A be closed com-
+plete pluripolar such that each uj is locally bounded outside A V
+                                                                (recall that com-
+plete pluripolar subsets are stable under ﬁnite unions). Then h j ddc uj i is well-
+                                          V
+deﬁned iﬀ the Bedford-Taylor product j ddc uj , which is deﬁned on the open
+                                                                        V
+subset X −A, has locally ﬁnite mass near each point of A. In that case h j ddc uj i
+                                        V
+is nothing but the trivial extension of j ddc uj to X.
+Example 1.3. Consider Kiselman’s example (see [32])
+                           u(x, y) := (1 − |x|2 )(− log |y|)1/2
+for (x, y) ∈ C2 near 0. The function u is psh near 0, it is smooth outside the y = 0
+axis, but the smooth measure (ddc u)2 , defined outside y = 0, is not locally finite
+near any point of y = 0. This means that the positive Borel measure h(ddc u)2 i is
+not locally finite.
+```
+
+## Additional foundation: Proposition 1.6 and full Theorem 1.8 closedness proof
+
+Source: BEGZ-0812.3674v2-20261004.txt, LF325--442; observed raw SHA256: 7cec06ceded37cd656fd87da31df28edb17479d3fa5f74a3d186b44381bbf866.
+
+```text
+Proposition 1.6. Let T1 , ..., Tp be closed positive (1, 1)-currents on a compact
+Kähler manifold X. Then their non-pluripolar product hT1 ∧ ... ∧ Tp i is well-
+defined.
+Proof. Let ω be a Kähler form on X. In view of the third point of Proposi-
+tion 1.4, upon adding a large multiple of ω to the Tj ’s we may assume that their
+cohomology classes are Kähler classes. We can thus ﬁnd Kähler forms ωj and
+ωj -psh functions ϕj such that Tj = ωj + ddc ϕj . Let U be a small open subset of
+8                S. BOUCKSOM, P. EYSSIDIEUX, V. GUEDJ, A.ZERIAHI
+
+X on which ωj = ddc ψj , where ψj ≤ 0 is a smooth psh function on U , so that
+Tj = ddc uj on U with uj := ψj + ϕj . The bounded psh functions on U
+                                           ψj + max(ϕj , −k)
+and
+                                 max(uj , −k)
+coincide on the pluriﬁne open subset {uj > −k} ⊂ {ϕj > −k}, thus we have
+                     Z                  ^
+                                  n−p
+                       T        ω     ∧   ddc max(uj , −k)
+                               j {uj >−k}                       j
+                     Z                                  ^
+                 =       T                ω n−p ∧        (ωj + ddc max(ϕj , −k))
+                             j {uj >−k}                     j
+                              Z                 ^
+                         ≤            ω n−p ∧       (ωj + ddc max(ϕj , −k)).
+                                  X             j
+But the latter integral is computed in cohomology, hence independent of k, and
+this shows that (1.2) is satisﬁed on U , qed.                                
+Remark 1.7. The same property extends to the case where X is a compact com-
+plex manifold in the Fujiki class, that is bimeromorphic to a compact Kähler
+manifold. Indeed there exists in that case a modiﬁcation µ : X ′ → X with
+X ′ compact Kähler. Since µ is an isomorphism outside closed analytic (hence
+pluripolar) subsets, it is easy to deduce that hT1 ∧ ... ∧ Tp i is well-deﬁned on X
+from the fact that hµ∗ T1 ∧ ... ∧ µ∗ Tp i is well-deﬁned on X ′ , and in fact
+                         hT1 ∧ ... ∧ Tp i = µ∗ hµ∗ T1 ∧ ... ∧ µ∗ Tp i.
+On the other hand it seems to be unknown whether ﬁniteness of non-pluripolar
+products holds on arbitrary compact complex manifolds.
+  Building on the proof of the Skoda-El Mir extension theorem, we will now
+prove the less trivial closedness property of non-pluripolar products.
+Theorem 1.8. Let T1 , ..., Tp be closed positive (1, 1)-currents on a complex man-
+ifold X whose non-pluripolar product is well-defined. Then the positive (p, p)-
+current hT1 ∧ ... ∧ Tp i is closed.
+Proof. The result is of course local, and we can assume that X is a small neigh-
+borhood of 0 ∈ Cn . The proof will follow rather closely Sibony’s exposition of
+the Skoda-El Mir theorem [39], cf. also [18, pp. 159-161].
+   Let uj ≤ 0 be a local potential of Tj near 0 ∈ Cn , and for each k consider the
+closed positive current of bidimension (1, 1)
+                                      ^
+                           Θk := ρ ∧    ddc max(uj , −k)
+                                                    j
+
+and the pluriﬁne open subset
+                                                    \
+                                          Ok :=      {uj > −k}
+                                                        j
+            MONGE-AMPÈRE EQUATIONS IN BIG COHOMOLOGY CLASSES                          9
+
+so that 1Ok Θk converges towards
+                                  ρ ∧ hT1 ∧ ... ∧ Tp i
+by (1.1). Here ρ is a positive (n − p − 1, n − p − 1)-form with constant coeﬃcients,
+so that Θk has bidimension (1, 1). It is enough to show that
+                                  lim d (1Ok Θk ) = 0
+                                 k→∞
+for any choice ofP
+                 such a form ρ.
+   Let also u := j uj , so that u ≤ −k outside Ok , and set
+
+                                    wk := χ(eu/k ),
+where χ(t) is a smooth convex and non-decreasing function of t ∈ R such that
+χ(t) = 0 for t ≤ 1/2 and χ(1) = 1. We thus see that 0 ≤ wk ≤ 1 is a non-
+decreasing sequence of bounded psh functions deﬁned near 0 ∈ Cn with wk = 0
+outside Ok and wk → 1 pointwise outside the pluripolar set {u = −∞}. Finally
+let 0 ≤ θ(t) ≤ 1 be a smooth non-decreasing function of t ∈ R such that θ(t) = 0
+for t ≤ 1/2 and θ ≡ 1 near t = 1. The functions θ(wk ) are bounded, non-
+decreasing in k and we have
+                                 θ(wk ) ≤ 1Ok
+since θ(wk ) ≤ 1 vanishes outside Ok . Note also that θ ′ (wk ) vanishes outside Ok ,
+and converges to 0 pointwise outside {u = −∞}.
+   Our goal is to show that
+                                 lim d (1Ok Θk ) = 0.
+                                 k→∞
+But we have
+                0 ≤ (1Ok − θ(wk )) Θk ≤ (1 − θ(wk )) hT1 ∧ ... ∧ Tp i,
+and the latter converges to 0 by dominated convergence since θ(wk ) → 1 pointwise
+outside the polar set of u, which is negligible for hT1 ∧...∧Tp i. It is thus equivalent
+to show that
+                                lim d (θ(wk )Θk ) = 0.
+                                k→∞
+Since wk is a bounded psh function, Lemma 1.9 below shows that the chain rule
+applies, that is
+                       d (θ(wk )Θk ) = θ ′ (wk )dwk ∧ Θk .
+Recall that dwk ∧ Θk has order 0 by Bedford-Taylor, so that the right-hand side
+makes sense. Now let ψ be a given smooth 1-form compactly supported near 0
+and let τ ≥ 0 be a smooth cut-oﬀ function with τ ≡ 1 on the support of ψ. The
+Cauchy-Schwarz inequality implies
+  Z                     2   Z                      Z                    
+      ′                                   c               ′     2
+     θ (wk )ψ ∧ dwk ∧ Θk ≤       τ dwk ∧ d wk ∧ Θk       θ (wk ) ψ ∧ ψ ∧ Θk .
+
+But on the one hand we have
+                    Z                  Z
+                  2 τ dwk ∧ d wk ∧ Θk ≤ τ ddc wk2 ∧ Θk
+                             c
+10                  S. BOUCKSOM, P. EYSSIDIEUX, V. GUEDJ, A.ZERIAHI
+                               Z                      Z
+                           =       wk2 ddc τ ∧ Θk =        wk2 ddc τ ∧ Θk
+                                                      Ok
+since wk vanishes outside Ok , and the last integral is uniformly bounded since
+0 ≤ wk ≤ 1 and 1Ok Θk has uniformly bounded mass by (1.2). On the other hand
+we have
+                   θ ′ (wk )2 Θk = θ ′ (wk )2 1Ok Θk ≤ θ ′ (wk )2 hT1 ∧ ... ∧ Tp i
+since θ ′ (wk ) also vanishes outside Ok , and we conclude that
+                                       Z
+                                 lim      θ ′ (wk )2 ψ ∧ ψ ∧ Θk = 0
+                                   k→∞
+
+by dominated convergence since θ ′ (wk ) → 0 pointwise ouside the polar set of u,
+which is negligible for hT1 ∧ ... ∧ Tp i. The proof is thus complete.          
+Lemma 1.9. Let Θ be a closed positive (p, p)-current on a complex manifold X,
+```
+
+## Additional foundation: Global potentials and minimal singularity reference
+
+Source: BEGZ-0812.3674v2-20261004.txt, LF525--578; observed raw SHA256: 0acf2b360d001a14d0fcf47f784424a599506386e6e44bc4b968ddd9bb80dc7d.
+
+```text
+
+1.3. Positive cohomology classes. Let X be a compact Kähler manifold and
+let α ∈ H 1,1 (X, R) be a real (1, 1)-cohomology class.
+   Recall that α is said to be pseudo-effective (psef for short) if it can be repre-
+sented by a closed positive (1, 1)-current T . If θ is a given smooth representative
+of α, then any such current can be written as T = θ + ddc ϕ, where ϕ is thus a θ-
+psh function by deﬁnition, and will sometimes be referred to as a global potential
+of T . Global potentials only depend on the choice of θ up to a smooth function
+on X.
+   On the other hand, α is nef if it lies in the closure of the Kähler cone. Such
+a class can thus be represented by smooth forms with arbitrarily small nega-
+tive parts, and a compactness argument then shows that α contains a positive
+current, i.e. nef implies psef. Note however that the negative part of smooth
+representatives cannot be taken to be 0 in general. In fact, Demailly, Peternell
+and Schneider have shown in [23] that a classical construction of Serre yields an
+example of a smooth curve C on a projective surface whose cohomology class is
+nef but contains only one positive current, to wit (the integration current on) C
+itself.
+   The set of all nef classes is by deﬁnition a closed convex cone in H 1,1 (X, R),
+whose interior is none but the Kähler cone. The set of all psef classes also forms a
+closed convex cone, and its interior is by deﬁnition the set of all big cohomology
+classes. In other words, a class α is big iﬀ it can be represented by a strictly
+positive current, i.e. a closed current T that dominates some (small enough)
+smooth strictly positive form on X.
+
+1.4. Comparison of singularities. If T and T ′ are two closed positive currents
+on X, then T is said to be more singular than T ′ if their global potentials satisfy
+ϕ ≤ ϕ′ + O(1). By the singularity type of T , we will mean its equivalence class
+with respect to the above notion of comparison of singularities.
+   A positive current T in a given psef class α is now said to have minimal
+singularities (inside its cohomology class) if it is less singular than any other
+positive current in α, and its θ-psh potentials ϕ will correspondingly be said
+to have minimal singularities. Such θ-psh functions with minimal singularities
+always exist, as was observed by Demailly. Indeed, the upper envelope
+                         Vθ := sup {ϕ θ-psh, ϕ ≤ 0 on X}
+of all non-positive θ-psh functions obviously yields a positive current
+                                     θ + ddc Vθ
+with minimal singularities (note that Vθ is usc since Vθ∗ is a candidate in the
+envelope).
+   We stress that currents with minimal singularities in a given class α are in
+general far from unique. Indeed currents with minimal singularities in a class
+α admitting a smooth non-negative representative θ ≥ 0 (for instance a Kähler
+class) are exactly those with bounded potentials.
+   Currents with minimal singularities are stable under pull-back:
+            MONGE-AMPÈRE EQUATIONS IN BIG COHOMOLOGY CLASSES                       13
+
+Proposition 1.12. Let π : Y → X be a surjective morphism between compact
+Kähler manifolds and θ be a smooth closed (1, 1)-form on X. If ϕ is a θ-psh
+function with minimal singularities on X, then the π ∗ θ-psh function ϕ ◦ π also
+has minimal singularities.
+Proof. Let ψ be a π ∗ θ-psh function. For x ∈ X a regular value of π we set
+                                τ (x) := sup ψ(y).
+                                         π(y)=x
+
+```
+
+## Additional foundation: Literal Condition (*) definition and constant-sequence example
+
+Source: Vu-2004.11111v1-20261004.txt, LF273--287; observed raw SHA256: 1ba50d3f123db57547622b7cecbab561eb1cfbe4c81617a290f80b1ec41af8ad.
+
+```text
+    We now give a definition which will be crucial later. Let (Tk )k be a sequence of
+closed positive currents of bi-degree (m, m) on U. We say that (Tk )k satisfies Condition
+(∗) if (Tk )k is of uniformly bounded mass on compact subsets of U, and for every open
+set U ′ ⊂ U and every bounded psh function u on U ′ and every sequence (uk )k of psh
+functions on U ′ decreasing to u, we have
+
+                                   lim (uk − u)(ddc u)m ∧ Tk = 0                          (2.2)
+                                k→∞
+
+An obvious example for sequences satisfying Condition (∗) is constant sequences: Tk = T
+for every k. We can also take (Tk )k to be a sequence of suitable Monge-Ampère operators
+with decreasing potentials, see [1, 10, 15]. Concerning Condition (∗), we will use mostly
+the example of constant sequences and the one provided by the following result.
+Theorem 2.2. Let S be a closed positive current on U. Let v be a psh function on U such
+that v is locally integrable with respect to the trace measure of S and (vk )k a sequence of psh
+```
+
+## Additional foundation: Definition of the weight family W-minus
+
+Source: Vu-2005.13241v3-20261004.txt, LF53--78; observed raw SHA256: f47dc8f2ccf80aa64ddf28d987eb8b2ee409d404a0d66a1cfcbced66fd1ed789.
+
+```text
+(1.1)                             ˙ i} ≤ {hT1′ ∧ · · · ∧ Tm′ ∧T
+                {hT1 ∧ · · · ∧ Tm ∧T                         ˙ i}.
+
+The last inequality allows us to define the notion of T -relative full mass
+intersection, see [14, 4]. We say that T1 , . . . , Tm are of T -relative full mass
+intersection if          m              m
+                        ^               ^
+                              ˙
+                      {h Tj ∧T i} = {h Tj,min∧T       ˙ i},
+                         j=1               j=1
+
+where Tj,min is a current with minimal singularities in the class {Tj } for
+1 ≤ j ≤ m.
+   Let α be a pseudoeffective (1, 1)-class. Denote by Em (α, T ) the set of
+currents P ∈ α such that P, . . . , P (m times P ) are of T -relative full mass
+intersection.
+   Recall that W − is the set of convex increasing functions χ from R to
+R such that χ(−∞) = −∞. Let χ ∈ W − . We can define Eχ,m(α, T ) to be
+the subclass of Em (α, T ) consisting of P such that P has finite (T -relative)
+χ-energy. When T ≡ 1 and m = n, the class Eχ,m (α, T ) generalizes the
+usual class of currents with finite energy in [4, 11], see also [5] for the
+local setting. We refer to Section 3 for details. For the moment, we note
+here that                              [
+                         Em (α, T ) =      Eχ,m (α, T ).
+                                      χ∈W −
+
+```
+
+
+# Exact prior status and gaps
+
+{
+  "id": "P15.2",
+  "status": "partial",
+  "exact_result": "For every connected smooth compact Kahler n-fold, pseudoeffective zero-volume class and actual theta-psh reference psi, the bounded singularity-type domain has an exact actual-current degree d<n, mixed current vanishing, the positive raw-mass operator <T_u^d> wedge omega^(n-d) on X, and sufficient rescaled perturbation convergence with sup-distance o(epsilon). Its bounded relative primitive has a cocycle and depends only on the auxiliary class; the leading energy limit holds for arbitrary representatives of converging Kahler classes and sup-distance tending to zero. The operator extends to more-singular degree-d relative full-mass currents and is continuous under decreasing full-mass sequences, including bounded-type truncations. This does not close the unchanged original P15.2.",
+  "proof_file": "P15.2-argument.md",
+  "concrete_gaps": [
+    "No general intrinsic geometric d-dimensional carrier or quotient is constructed; the carrier of the measure is the n-dimensional X.",
+    "No characterization of minimum necessary reference data is proved. This measure requires a full Kahler form, and a same-class analytic example proves its dependence.",
+    "Operator perturbation convergence requires bounded-type differences o(epsilon), with a fixed form or smooth positive limit; arbitrary perturbations are not covered.",
+    "General unbounded finite-energy truncation-value continuity, numerical cocycles and reference change are unproved; weak measure convergence gives no weighted tail estimate.",
+    "Degree-d finite joint energy has not been shown here to control weighted degrees k<d or joint unbounded perturbation limits.",
+    "The actual-type degree is not identified with the class numerical dimension."
+  ]
+}
+
+# Additional authenticated complete primary bodies and qualifications
+
+{
+  "recorded_utc": "2026-10-04T08:11:44.114335+00:00",
+  "units": [
+    {
+      "id": "DGMS-real-homotopy-1975-stonybrook-20261004-LF1-46",
+      "source_provenance": {
+        "retrieved_utc": "2026-10-04T08:01:48.891065+00:00",
+        "requested_url": "https://www.math.stonybrook.edu/~dennis/publications/PDF/DS-pub-0024.pdf",
+        "resolved_url": "https://www.math.stonybrook.edu/~dennis/publications/PDF/DS-pub-0024.pdf",
+        "content_type": "application/pdf",
+        "pdf_path": "/workspace/research/shared-sources/DGMS-real-homotopy-1975-stonybrook-20261004.pdf",
+        "pdf_bytes": 1651363,
+        "pdf_sha256": "75d32559e32f59ad17230fb66ab37404585a4e702f013ff175bd6e06b25414b7",
+        "text_path": "/workspace/research/shared-sources/DGMS-real-homotopy-1975-stonybrook-20261004.txt",
+        "text_sha256": "5481d97fdb0ae210d2affed7f7906f55f9c5c8f2f129197f05a5a035a2028db4",
+        "literal_LF_entries": 1433,
+        "use": "Authenticate precisely cited standard foundations of prescribed-type proof/review; whole primary paper local only."
+      },
+      "first_LF_entry": 1,
+      "last_LF_entry": 46,
+      "literal_body": "Inventiones math. 29, 2 4 5 - 2 7 4 (1975)\n9 by Springer-Verlag 1975\n\n\n\n\n           Real Homotopy Theory of K ihler Manifolds\n     Pierre Deligne (Bures-sur-Yvette), Phillip Griffiths* (Cambridge, Mass.),\n        John Morgan (NewYork) and Dennis Sullivan (Bures-sur-Yvette)\n\n\n                                         Table of Contents\n\n                1. Homotopy Theory of Differential Algebras . . . . . . . . . .   248\n                2. De Rham Homotopy Theory . . . . . . . . . . . . . . .          254\n                3. Relation between De Rham Homotopy Theory and Classical Homo-\n                   topy Theory . . . . . . . . . . . . . . . . . . . . . . . .    256\n                4. Formality of Differential Algebras . . . . . . . . . . . . . . 260\n                5. The De Rham Complex of a Compact K~ihler Manifold . . . . .    262\n                6. The Main Theorem and Two Proofs . . . . . . . . . . . . .      270\n                7. An Application . . . . . . . . . . . . . . . . . . . . . .     272\n\n\n    This paper brings together the strengthened de Rham theory of the last author\n[12, 13] and [14] concerning the homotopy information of a manifold contained\nin the algebra of its differential forms, and the classical results [15] about the\nforms on a compact K~ihler manifold to prove statements about the algebraic\ntopology of compact K~ihler manifolds, and consequently about smooth, complex,\nprojective algebraic varieties.\n    The nature of the results is that the homotopy type of a compact Kiihler manifold,\nover the real numbers, is a formal consequence of the real cohomology ring. For any\nmanifold there is a differential graded algebra with rational structure constants\nwhose isomorphism type is an invariant of the homotopy type of the space. The\ncohomology ring of this differential algebra is the rational cohomology ring of the\nspace, but the algebra itself contains, for example, the higher order cohomology\nproducts. The isomorphism type of the differential algebra is equivalent to the\n\"rational form of the nilpotent structure in the space\". For a simply connected\nmanifold this differential algebra is equivalent to the rational Postnikov tower of\nmanifold. Our results here are that, for a compact K~ihler manifold, from the real\ncohomology ring one can produce the real form of this differential algebra. These\n results complement the known structure of the cohomology ring of such a manifold.\n We prove no new results about it.\n     The initial motivation for these results was the relation in a K~ihler manifold\n between harmonic forms and holomorphic forms. In particular the (p, 0) harmonic\n forms for any K~ihler metric are exactly the holomorphic forms. Consequently,\n products of (p, 0) and (q, 0) harmonic forms are harmonic l, and thus there are no",
+      "literal_body_sha256": "01d1380988cf77b207bc11b0d87fb390f0a331100cbf538de071a64cacfbe3b8",
+      "complete_selected_body_directly_read": true,
+      "scope": "Compact Kahler hypotheses, complete identities leading to Lemma 5.11, its full printed proof, and real-form Remark 5.14. These bodies were directly read in full; source OCR is retained literally."
+    },
+    {
+      "id": "DGMS-real-homotopy-1975-stonybrook-20261004-LF861-1064",
+      "source_provenance": {
+        "retrieved_utc": "2026-10-04T08:01:48.891065+00:00",
+        "requested_url": "https://www.math.stonybrook.edu/~dennis/publications/PDF/DS-pub-0024.pdf",
+        "resolved_url": "https://www.math.stonybrook.edu/~dennis/publications/PDF/DS-pub-0024.pdf",
+        "content_type": "application/pdf",
+        "pdf_path": "/workspace/research/shared-sources/DGMS-real-homotopy-1975-stonybrook-20261004.pdf",
+        "pdf_bytes": 1651363,
+        "pdf_sha256": "75d32559e32f59ad17230fb66ab37404585a4e702f013ff175bd6e06b25414b7",
+        "text_path": "/workspace/research/shared-sources/DGMS-real-homotopy-1975-stonybrook-20261004.txt",
+        "text_sha256": "5481d97fdb0ae210d2affed7f7906f55f9c5c8f2f129197f05a5a035a2028db4",
+        "literal_LF_entries": 1433,
+        "use": "Authenticate precisely cited standard foundations of prescribed-type proof/review; whole primary paper local only."
+      },
+      "first_LF_entry": 861,
+      "last_LF_entry": 1064,
+      "literal_body": "                                    (02\nOn any complex manifold there are positive definite Hermitian metrics\n         (~,tl)=S(~,q)+]f~A(~,tl)=(J~,J,)                 for ~ , q 6 T ( M ) .\nS and A determine one another. Because of the Hermitian symmetry, S is sym-\nmetric and A is alternating. Thus S is a Riemannian metric and A is a (1, 1) form\non M. The Hermitian metric is defined to be Kiihler if dA =0, and a Kfihler\nmanifold is a complex manifold admitting a K~ihler metric. The existence of a\nKiihler metric is a statement of close interaction between the complex structure\nand potential theory, and it has many deep consequences for the topology of the\nmanifold [-15].\n    There are several equivalent statements to the definition of a K~ihler metric.\nThe one given above, which is by now the usual one, has the advantage of making\nit obvious that a complex submanifold of a K~ihler manifold is again a K~ihler\nmanifold. Thus, any smooth, complex projective algebraic variety is K~ihler.\nThe one which we shall use below is the identity\n(5.1)                             Ad=2Ao=2A~=Anc\nbetween the Laplacians of the various operators d, O, ~, d c. It is perhaps worthwhile\nto give a few alternate forms of the K~ihler condition, and from these explain how\nthe identity (5.1) may be proved.\n    We shall write an Hermitian metric in the two forms\n                            ds 2 = ~ hi, j dzi dS j = ~ col ~)i\n                                   i,j                i\n\nwhere (zl, ..., z,) are local holomorphic coordinates, h = (hi. ~)is a positive Hermitian\nmatrix, and where col, ..., co, are differential forms of type (1, 0) constituting a C ~~\nunitary co-frame for the metric. The associated (1, 1) form is\n\n                              A _ t / ~ - I ~hi, jdzi/,,d~j '\n                                         2   L\" J \"\nand our basic definition is, as above:\n   (i) The metric is Kiihler if dA =0.\n   To give the second definition; we recall the basic theorem in local Hermitian\ngeometry that there exist unique differential forms co~,j, zg satisfying\n\n                                dcoi= ~ coi, j A co j - t - T , i\n                                       J\n(5.2)                     co~.j+Nj, i=0,     zi has type (2, 0)\n\f264                                                              P. D e l i g n e   et al.\n\n\n\n(c.f. Chern [3]). The vector z =(z 1, ..., z,) is the torsion tensor, and m=(mi.j) gives\nthe connection matrix for the unique connection Vn in the (1,0) tangent bundle\nT' (M) satisfying\n\n\n                                                        v~'~--~\nwhere ~, tl are C ~ sections of T'(M).\n    (Explanations. We are viewing connections as differential operators from\nsections to sections tensor l-forms; the connection matrix means relative to the\nbasis of T ' ( M ) dual to ~oI ..... ~ , ; and finally V~' is the CO, I) component of VH.)\n    Our second definition is:\n    (ii) The metric is KShler if the torsion z = 0 .\n    For our third definition, we consider the standard connection VR in the real\ntangent bundle T ( M ) associated to the Riemannian metric underlying the given\nHermitian metric.\n    (iii) The metric is KShler if VRJ=0; equivalently, parallel translation should\npreserve the almost complex structure.\n    Finally, we shall say that the metric is K/~hler in case it osculates to 2nd order\nto the flat metric on r More precisely,\n    (iv) The metric is KShler if, for each point x e M, there is a holomorphic coordinate\nsystem (zl, ..., z,) centered at x and such that\n\n(5.3)                                                    hi, j(z, -i) = 61. j + [2],\n\nwhere [2] means terms o f order two or more.\n   P r o o f of Equivalence of Definitions. ( i ) ~ (ii) Since A is real, dA = 0 ,=, 0A =0.\nLet the (0, 1)-component of o;i,j be ai, j. Then by the basic structure equations,\n( 5 . 2 ) , fit)i, j = ~i, j - - 0~j, i'\n\n\n\n\n                             _/2-1\n                             -         2   Z(~(--~J'iAOOjA~i)+TIA~I--~O'A(~IJA~i))\n                                               i    j\n\n                             _i/U-1\n                             -        2    Z'~iA~i--Z(~J'IAO)JAO)i+O)iA~i'J/X~-J)\n                                           i                     i,j\n\n\n                             _I//Z- 1 E zi^ ~//\n                                  2    i\n                             =0r\n    (ii) ~ (iii) Write z i = xi + ~ - lx,+ i, a~i = r + VrZ- 1tp,+ 1 where x~, r                  are real\n(using the index range 1 __<i, j _<_n and 1 < a, fl__<2 n). Then\n                                                   ds 2 = ~ g~, ~ dx~ dxp = ~ q~, q~,\n                                                         ol, ~                               Ot\n\f                         Real Homotopy Theory of Ktihler Manifolds                        265\n\nis the underlying Riemann metric, and by the basic theorem in local Riemannian\ngeometry there exists a unique matrix tp = (r a) of 1-forms satisfying\n\n                                         dtp~ = Z tp~,t~/x (pp\n                                                  #\n(5.4)\n\nHere (p is the connection matrix for the Riemannian connection VRapplied to the\ndual frame to q01..... ~02,. Comparing the structure Eqs. (5.2) and (5.4), we see\nthat if r = 0, then upon writing co = co' + ~ 1co\" we get\n                                           (     co' co\"~\n                                     tp=       -co\" co'l\"\n\nThis says exactly that, on the complexification Tc(M) _~ T' (M) 9 T'(M), VR= Vn 9 fTn,\nwhich implies that VR commutes with J. (This proof may be given verbally by\nstating that the Riemannian and Hermitian connections coincide in the K~thler case.)\n     (iii) ~ (iv) First, we observe that (iv) is equivalent to saying that, for each\nx e M there is a C ~ coordinate system z = ( q , ..., z,) centered at x which is holo-\nmorphic to 2nd order. This means that z maps a neighborhood U ofx differentially\nto ~\", dzl(x) ..... dz,(x) span T~(M), and all ~(dzi)(x)=O, such that (5.3) holds.\nAssuming (iii), we let (Xl ..... x2,) be geodesic coordinates centered at x. We may\narrange that at x, J(dxi)= dx,+ i, and then set zi = xl + I F - 1 x,+ i. Since (x~ .... , x2,)\nare geodesic coordinates, g,,a = 6,. e + [-2]. Thus the connection matrix for VR is\nzero at x, and VRJ=O implies (dJ)(x)=O. It follows that ~(dzi)(x)=O, and (iv)\nfollows immediately.\n     (iv) ~ (i) This is the main point. Given an Hermitian metric satisfying (iv),\nwe see that\n(5.5) Any identity involving the metric and only its first derivatives is valid on\nM r162it is valid for the fiat metric on C\".\nApplying this to the identity dA = 0, which is obviously true on C\", we conclude\nthe equivalence of (i)-(iv).\n    We shall discuss how the principle (5.5) may be used to prove (5.1), as well as\nsome other Ktihler identities. We first consider the commutation relations\n(5.6)                              [c5, c~*]= 0 = [O, c5\"].\nOn the face of it these involve second derivatives of the metric, but actually only\nfirst derivatives appear for the reason that mixed partials are equal (think of the\nPoisson bracket of vector fields). Thus, (5.6) is valid on a Ktihler manifold since\nit is obviously true in if;\" (the metric has constant coefficients). Expanding out\nthe definition of A a now gives\n                          & = (~ + 0)(~* + 0\") + (~* + 0\") (~ + ~)\n                             = (0 0* + c~*~3)+ (c~* + c5\"0)                        (by (5.6));\nor\n\n(5.7)                     Aa = Ae+ A~.\n\f266                                               P. Deligne et al.\n\nFrom (5.7) we see that An preserves (p, q) type, since this is obviously true for A0\nand A~. Thus\n(5.8)                                       Ad = j - x Ad J = Ado.\n\nWriting O = 8 9        2- ldC), c3\"= 89                                      we see that\n                         c3~* + c3\"(3= 88(dd* + d * d + d C d ~* + d ~* d ~)\n                                           =89                                                     (by (5.8))\nCombining this with (5.7) gives (5.1).\n   In closing, it is worth noting that the most interesting properties of Kihler\nmetrics, such as the fact that L(~)=A/x ~ takes harmonic forms to harmonic\nforms, are generally proved from the identity\n(5.9)                                              [A, d] = d~*\nor equivalently\n(5.10)                                      [A, 4] = - ~ -                   10*\nwhere A = * L* is the adjoint of L. Now (5.10) obviously involves only 1st derivatives\nof the metric and so by (5.5) it will suffice to prove it on ~\". This is not too hard\nsince dzl, ..., dz, gives a flat unitary co-frame; one uses the formulae\n                                                                 H\n\n\n\n\n                       cS(fdz I ^ d J ) -- ~ ( - 1)p ~                        dz I A dzj A d2 s,\n                                                  jCJ\n\n                      A ( f d z I A dr:J) =          ~     +_fdz I - {k}Adz J- {k}\n                                                  kelc~J\n\n\n                     O * ( f d z I A a S, )j=. L +~~ = - a0 zf       .   i\n                                                                             - Ill Aa~\n                                                                                     9 J\n\n                                                  i~I      OZi\n\nwhere I =(il , ..., ip), d z 1 = d z i , A ... A dzi~, etc. and just computes. Using (5.10),\n                    0c~* + 0* ~ = 1/~- I(0A~? - 0 2 A + A ~ 2 - c~A0)= 0,\nwhich is (5.6). Similarly, d A = O =~ d~A=O and d ~ * = [ A , d ] = 0 since A A is a\nconstant. Thus A is harmonic for dc, and hence for d. Further discussion of the\nbasic Kihler identities is given in Weil's book [15], p. 179-194.\n   The main fact we shall use about compact Kihler manifolds is the following\nlemma:\n(5.11) Lemma ( d d ~ Lemma). I f ~ is a differential form such that d~ = 0 and d~ct=0,\nand such that ct=dT, then ~=dd~ fl for some ft.\n   Proof If D is one of the operators d, c3, ~, d~ with Laplacian AD, the Hodge\ndecomposition for the Laplacian gives\n(5.12)                      0 = ~eo(q,) + Ao ~o(~ )\nwhere o'r     the harmonic part of ~, is the projection of ~ on ~ o = k e r A o ,\nand where the Green's operator G o is AB ~ on Jgo• Suppose that c~=dT. Then by\n(5.12)\n(5.13)                           e = d d * GaOl.\n\f                          Real Homotopy Theory of K/ihler Manifolds                               267\n\nSince d~c~=0, e=Yfdc(e)+dCd~*Gdc~=d~d~*G,~oe                 because ~ o ( e ) = o ~ f d ( e ) = 0 by\n(5.1). Plugging this in (5.13) gives\n                                     =dd* Ga(d~d~*Gd~ c~)\n                                     =dd~(d * Gd d~*Ge~ ~)                            (using (5.6))\n                                     =dd~/~\nas required.\n(5.14) Remark. This l e m m a holds for real as well as complex forms, since the\nvalidity of a linear statement such as\n\n                              Ker(d) c~ Ker(d c) c~ Im(d) = I m ( d d c)\n\nis unchanged by a field extension.\n    F o r complex forms, being d and de-closed is the same as being 0 and ~-closed.\nBeing ddC-exact is the s a m e as being c~-exact, since ddC= 2 i ~ .",
+      "literal_body_sha256": "0171c17a073557e342809af894852c1ba92ab5ebda68ee6606ae7371f1f3dc26",
+      "complete_selected_body_directly_read": true,
+      "scope": "Compact Kahler hypotheses, complete identities leading to Lemma 5.11, its full printed proof, and real-form Remark 5.14. These bodies were directly read in full; source OCR is retained literally."
+    },
+    {
+      "id": "GZ-intrinsic-capacities-JGA05-20261004-LF1-62",
+      "source_provenance": {
+        "retrieved_utc": "2026-10-04T08:02:22.454018+00:00",
+        "requested_url": "https://www.math.univ-toulouse.fr/~guedj/fichierspdf/JGA05.pdf",
+        "resolved_url": "https://www.math.univ-toulouse.fr/~guedj/fichierspdf/JGA05.pdf",
+        "content_type": "application/pdf",
+        "pdf_path": "/workspace/research/shared-sources/GZ-intrinsic-capacities-JGA05-20261004.pdf",
+        "pdf_bytes": 1782845,
+        "pdf_sha256": "e9708f4c16f73a6ce2b948c8d345cb201c9899790ded166c108a4d8b67943bbb",
+        "text_path": "/workspace/research/shared-sources/GZ-intrinsic-capacities-JGA05-20261004.txt",
+        "text_sha256": "510152dd9c77adde026b0eea3cb3cf007301bc06c7b06046baf39d70ed8f8190",
+        "literal_LF_entries": 1825,
+        "use": "Authenticate precisely cited standard foundations of prescribed-type proof/review; whole primary paper local only."
+      },
+      "first_LF_entry": 1,
+      "last_LF_entry": 62,
+      "literal_body": "The Journal of Geometric Analysis\nVolume 15, Number 4, 2005\n\n\n\n\n     Intrinsic Capacities on Compact K ihler\n                   Manifolds\n                                       B y Vincent G u e d j a n d A h m e d Zeriahi\n\n\n\n\n       ABSTRACT. We study fine properties of quasiplurisubharmonic functions on compact Kiihler manifolds.\n       We define and study several intrinsic capacities which characterize pluripolar sets and show that locally\n       pluripolar sets are globally \"quasi-pluripolar.\"\n\n\n\n                                                    1. I n t r o d u c t i o n\n\n      Since the fundamental work of Bedford and Taylor [4, 5], several authors have developed\na \"Pluripotential theory\" in domains of C n (or of Stein manifolds). This theory is devoted to\nthe fine study of plurisubharmonic (psh) functions and can be seen as a nonlinear generalization\nof the classical potential theory (in one complex variable), where subharmonic functions and\nthe Laplace operator A are replaced by psh functions and the complex Monge-Amp~re operator\n                                                                                    i --\n(ddC) n. Here d, d c denote the real differential operators d := 0 + 0, d c := ~-[a      - a] so that\ndd c = i 0 ~ , the normalization being chosen so that the positive measure (dd c 89log[1 + Ilz112])n\nhas total mass 1 in C n. We refer the reader to [3, 7, 26] for a survey of this local theory.\n      Our aim here is to develop a global Pluripotential theory in the context of compact Kahler\nmanifolds. It follows from the maximum principle that there are no psh functions (except con-\nstants) on a compact complex manifold X. However, there are usually plenty of positive closed\ncurrents of bidegree (1, 1) (we refer the reader to [ 15, Ch. 3], for basic facts on positive currents).\nGiven co a real closed smooth form of bidegree (1, 1) on X, we may consider every positive closed\ncurrent co' of bidegree (1, 1) on X which is cohomologous to 09. When X is K~ihler, it follows\nfrom the \"ddC-lemma '' that cot can be written as co' = co + ddC~o, where q9 is a function which\nis integrable with respect to any smooth volume form on X. Such a function ~0 will be called\nw-plurisubharmonic (w-psh for short). It is globally defined on X and locally given as the sum\nof a psh and a smooth function. We let P S H ( X , co) denote the set of w-psh functions. Such\nfunctions were introduced by Demailly, who call them quasiplurisubharmonic (qpsh). These are\nthe main objects of study in this article.\n      There are several motivations to study qpsh functions on compact K~Jaler manifolds. First of\nall they arise naturally in complex analytic geometry as positive singular metrics of holomorphic\n\n\n\n       Math Subject Classifications. 32W20, 32U15, 32Q15.\n       Key Words and Phrases. Quasiplurisubharmonic functions, capacity, extremal functions, Kahler manifolds.\n\n9 2005TheJournalof GeometricAnalysis\nISSN1050-6926\n\f608                                 Vincent Guedj and Ahmed Zeriahi\n\nline bundles (see Section 5) whose study is central to several questions of complex algebraic geom-\netry. Solving Monge-Amp~re equations associated to og-psh functions has been used to produce\nmetrics with prescribed singularities (see [13]). It is also related to the existence of canonical\nmetrics in K~ihler geometry (see [37]). Important contributions have been made by Kolodziej\nin this direction [28] using techniques from local Pluripotential theory. Quasiplurisubharmonic\nfunctions have also been used in [21 ] to define a notion of og-polynomial convexity and study the\nfine approximation of positive currents by rational divisors. Last but not least, such functions are\nof constant use in complex dynamics in several variables (see [17, 18, 22, 23, 33]).",
+      "literal_body_sha256": "79017a5f9920f81033635b6acb4e07a15c13b88da6c7dcb986963b3bef36265f",
+      "complete_selected_body_directly_read": true,
+      "scope": "Kahler background and complete selected capacity section, including Proposition 3.6 sublevel estimate, bounded decreasing Proposition 3.7 with full proof, Corollary 3.8 quasicontinuity, and Proposition 3.10 local/global capacity comparison with full printed proof. References inside the source remain standard literature foundations, not newly reconstructed proofs."
+    },
+    {
+      "id": "GZ-intrinsic-capacities-JGA05-20261004-LF347-680",
+      "source_provenance": {
+        "retrieved_utc": "2026-10-04T08:02:22.454018+00:00",
+        "requested_url": "https://www.math.univ-toulouse.fr/~guedj/fichierspdf/JGA05.pdf",
+        "resolved_url": "https://www.math.univ-toulouse.fr/~guedj/fichierspdf/JGA05.pdf",
+        "content_type": "application/pdf",
+        "pdf_path": "/workspace/research/shared-sources/GZ-intrinsic-capacities-JGA05-20261004.pdf",
+        "pdf_bytes": 1782845,
+        "pdf_sha256": "e9708f4c16f73a6ce2b948c8d345cb201c9899790ded166c108a4d8b67943bbb",
+        "text_path": "/workspace/research/shared-sources/GZ-intrinsic-capacities-JGA05-20261004.txt",
+        "text_sha256": "510152dd9c77adde026b0eea3cb3cf007301bc06c7b06046baf39d70ed8f8190",
+        "literal_LF_entries": 1825,
+        "use": "Authenticate precisely cited standard foundations of prescribed-type proof/review; whole primary paper local only."
+      },
+      "first_LF_entry": 347,
+      "last_LF_entry": 680,
+      "literal_body": "                                   3. Monge-Amp~re capacity\n     In this section we introduce the global Monge-Amp~re capacity (see Definition 3.4). The\ndefinition only makes sense when the cohomology class {w} has strong positivity properties. To\nsimplify our exposition we assume throughout this section that o9 is a K~ihler form.\n     Let T be a positive closed current of bidegree (p, p) on X, 0 < p < n = d i m c X. It can be\nthought of as a closed differential form of bidegree (p, p) with measure coefficients whose total\nvariation is controlled by                           /   1\n\n\n\n                                         IITII := . L T A o9n-p         o\n\n\n\n\nWe refer the reader to [15, Ch. 3] for basic properties of positive currents. Given ~o E P S H ( X , o))\nwe write ~o ~ L I ( T ) if ~o is integrable with respect to each (measure) coefficient of T. This is\nequivalent to ~0 being integrable with respect to the trace measure T A ogn-p. In this case, the\ncurrent ~0T is well defined, hence so is\n\n                                    o9~0A T := o) A T + ddC(qgT) .\n\nThis is again apositive closed current on X, of bidegree (p + 1, p + 1). Indeed, positivity is a\nlocal property which is stable under taking limits. One can locally regularize ~0 and approximate\no9~ A T by the currents o9~ A T which are positive since o9,p~ are smooth positive forms.\n\f614                                            VincentGuedjand AhmedZeriahi\n\n     When q) ~ P S H ( X , o9) N L~176 then ~o ~ L I ( T ) for any positive closed current T of\nbidegree (p, p). One can thus inductively define o)j A T, 1 < j < n - p, for ~o e P S H ( X , co) O\nL~176 For T = 0 and j = n one obtains the complex Monge-Amp~re operator, O)~o.       n It follows\nfrom the local theory that the operator ~o ~ o)en is continuous under monotone sequences (see [5]).\nThe proof of these continuity properties is simpler in our compact setting. We refer the reader\nto [24] where this is proved in a more general global context.\n\nProposition 3.1 (Chern-Levine-Nirenberg inequalities).                            Let T be a positive closed current\nofbidegree (p, p) on X andq) ~ P S H ( X , o9) n L ~ ( X ) .\n      Then IIo)~ A TII = IITII. Moreover, i f ~ ~ P S H ( X , o9) n L I ( T ) , then ~p ~ L I ( T A o)~)\nand\n                      II~Plltl(T^,o~) ___ II~llzl(T) + [2 sup~p + supq) --i~f q)] IlZll 9\n                                                           X       X\n\nProof.       By Stokes theorem, f x ddC~~A T A o)n-p-1 = 0, hence\n\n                     IIo)~ A TII := f x W ~ A T A o)n-p-I = f x T A o)n-P := IITII .\n\nConsider now ap ~ L I ( T ) . Since T has measure coefficients, this simply means that ~p is\nintegrable with respect to the total variation of these measures. Assume first ~ < 0, ~0 > 0 and\n~o, ~ are smooth. Then\n\n  [[~][LI(TA~o~) :~__-.f x ( - ~ ) T       A w~o A O)n - p - 1    =   II~PllLl(r~ +   fx(-*)z   A ddCq) A O)n-p-1 .\n\nNOW it follows from Stokes theorem that\n\n                                                        1                                        1\n\n\n\n                                                                 fx T on-,\nwhere the next to last inequality follows from q)T A o)n-p > 0 and - d d % p <_o9. This yields\n\n                                    II~PllL~(r^,o~) -< Ii~PlILI(r) + sup~011TII.\n                                                                      x\nThe general case follows by regularizing ~0, ~, observing that o)e = w~o,where q)f = q) _ infx q) >\n0, and decomposing ~ = ~ ' + supx ~ with ~t = ~ _ suPx ~p < 0.                                   []\n\nR e m a r k 3.2. The fact that the L l_norm of ~p with respect to the probability measure T A o2~ A\no)n-p-1 is controlled by its Ll-norm with respect to T A o)n-p is similar to the phenomenon\nalready encountered in Example 2.8: One can write\n\n            T Ao)e /kO) n - p - 1      =    T Ao) n-p +ddCS, S = (q) - i.~f~0)T A O ) n - p - 1        > O.\n\n\nThis type of estimates is usually referred to as \"Chern-Levine-Nirenberg inequalities,\" in reference\nto [8] where simpler -but fundamental- L~-estimates were established (with ~ = constant).\nEstimates involving the L 1.norm of if/were first proved in the local context by Cegrell [6] and\nDemailly [12].\n\n      A straightforward induction yields the following.\n\f                                          Intrinsic Capacities on Compact Kiihler Manifolds                    615\n\nCorollary 3.3.              Let ~, ~o E P S H ( X , o9) with 0 < ~o < 1. Then\n\n                               o<_fx t 109 <_fx laP109n+ n [ 1 + 2sup@]\n                                                                   X\n                                                                        f 09n.\n                                                                        dX\n     Following Bedford-Taylor [5] and Kolodziej [29] we introduce the following Monge-Amp~re\ncapacity.\n\nD e f i n i t i o n 3.4.    Let K be a Borel subset of X. We set\n\n                            Cap~o(K) := sup                09<.o/ ~0 ~ P S H ( X , 09), 0 <_ ~0 <_ 1       .\n                                                    IlK      n                                         }\n\n     Note that this definition only makes sense when the cohomology class {09} is big, i.e., when\n{09}n > 0, and when it admits locally bounded potentials ~0. This implies, by a regularization\nresult of Demailly [12], that {09} is big and neff In order to avoid technicalities, we are assuming\nthroughout this section that {09} is K~ihler.\n\nProposition 3.5.\n       (1) I l K c K ~ c X are Borel subsets then\n\n                  Volvo(K) := f 09n < Capoj(K) < Capo' (K') < Cap,o(X) = Volo~(X).\n                              3K\n\n        (2) l f K j are Borel subsets o f X thenCap~o(UK j) < ~ Capw(Kj). Moreover, Capoj(UKj) =\nlimCapo,(Kj) i f K j C Kj+I.\n     (3) If091 < 092 then Captor(.) < Capm(.). For all A > 1, Cap,o(.) < CaPao,(.) <\nA n Cap,o(.). In particular, if09, cot are two Kiihlerforms then there exists C > 1 such that\n                                            1\n                                                Cap,o(.) _< CaP,o,(.) _< C . CaP,o(.).\n\n        (4) I f f : X ~ X is holomorphic then for all Borel subset K o f X,\n                                                  Capco(f(K)) _< Capf.~o(K) 9\nIn particular, Capon(f (K)) = Cap~o(K) for every 09-isometry f .\n\nProof.       That Volvo(.) < Cap,o(.) is a straightforward consequence of the definition (since wo =\n09). It then follows from Stokes theorem that f x o~ = f x (-onfor every ~o ~ P S H (X, 09) ML~176\n                                                                                                 (X),\nthus Volvo(X) = Cap~o(X).\n        Property (2) is a straightforward consequence of the definitions.\n     Ifwl < 092 then P S H ( X , o91) C P S H ( X , o92) hence Cap~ol(.) < Cap~(.). Fix A > 1. If\nap ~ P S H ( X , A09) is such that 0 < 7t < 1 then ~p/A ~ P S H ( X , w) with 0 < ~r/A < 1 / A < 1.\nMoreover, (A09 + ddC~r) n = An(09 -F ddC(~t/A)) n. This shows CapaoJ(. ) < A n Capco(.).\n    In particular, if 09, J are both K ~ l e r then A-109 < 09/ < A09 for some constant A > 1,\nhence C -1 Capon(. ) < Capco,(. ) < C 9Capon(.) with C = A n.\n      It remains to prove (4). It follows from the change of variables formula that if ~0\nP S H ( X , o9) with 0 < ~0 < 1 then\n\n\n                       f,         n <\n                            (K) 09~0 --         f o09,o=         ( f ' 0 9 + ddC(~o o f ) ) n < Capf,o~(K)\n\f616                                                Vincent Guedj and Ahmed Zeriahi\n\nsince~pof 6 P S H ( X , f ' 0 9 ) w i t h 0 < q~of < 1. W e i n f e r C a p w ( f ( K ) ) < Capf.w(K). When f\nis a 09-isometry, i.e., f ~ Aut(X) with f ' 0 9 = w, then the mapping ~o w+ r o f is an isomorphism\nof {u ~ P S H ( X , o9) / 0 < u < 1}, whence Cap~o(f(K)) = Capf.~o(K ) = Cap~o(K ).                         []\n\n      Let P S H - (X, o9) denote the set of negative 09-psh functions. A set is said to be P S H ( X , 09)-\npolar if it is included in the - c ~ locus of some function r E P S H ( X , w), r ~ - o 0 . As we\nshall soon see, the sets of zero Monge-Amp&e capacity are precisely the P S H (X, 09)-polar sets.\nWe start by establishing the following:\n\nProposition 3.6.        I f P is a P S H ( X , w)-polar set, then CapofiP ) = O. More precisely, f f\nr E P S H - ( X , o9) then\n\n                      Capoj(r < - t ) < t\n                                                      1%     (_r\n                                                                                       ]\n                                                                        + n Volvo(X) , Yt > O.\n\n\nProof.      Fix ~0 ~ P S H ( X , 09) such that 0 < ~0 < 1. Fix t > 0 and set Kt = {x E X / r                             <\n- t } . By Chebyshev's inequality,\n\n\n                      fK f~t\n                               09~o <        (_r            -< tl[fx(-r             + n Voloo(X) ]\nwhere the last inequality follows from Corollary 3.3. Taking supremum over all ~0's yields the\nclaim.                                                                                                                   []\n\n                                                         * p\n      Observe that the previous proposition says that CaP,o( ) = 0, where\n\n                               Cap*(E) : = inf{CaP~o(G ) / G open with                 E C G},\n\nis the outer capacity associate to Cap~o.\n\n     Our aim is now to show that 09-psh functions are quasicontinuous with respect to Capo~\n(Corollary 3.8). We first need to show that decreasing sequences of 09-psh functions converge \"in\ncapacity.\"\n\nProposition 3.7.          Let r Cj ~ P S H (X, 09) M L ~176\n                                                         (X) such that ( r                   decreases to r       Then for\neach ~ > O,\n                                               Cap~o({r j > r + 8}) ---> O.\n\nProof.       We can assume w.l.o.g, that Volvo(X) = 1 and 0 < Cj - r < 1. Fix 3 > 0 and\n~0 ~ P S H ( X , 09), 0 < ~0 < 1. By Chebyshev inequality, it suffices to control f x ( r - r\nuniformly in r      It follows from Stokes theorem that\n\n               (r    - r            =        (r      - r      A 09~-1 -\n                                                                          fx  d(r     - r   A dCq9 A 09~o     9\n\nNow by Cauchy-Schwartz inequality,\n\n\n         dfjAd~gA                       <_          dfjmdCfjA09~o -I             .       dfAdC~oAw~o -1              ,\n\nwhere we set f j : = Cj - r >_ 0. Moreover,\n\n\n              fx      A           A4'          =               ddc ) A 4 -1 < fx            A 4 -1 < 1,\n\f                              Intrinsic Capacities on Compact Ktihler Manifolds                    617\n\nsince ~0c@-1 > 0, -ddCq9 < ~o and ~0 < 1. Similarly\n\n\n             fx dfjAdCfjAo9~-l=               s     _fjddCfjAo9~     l<       fjoor   n-l .\n\n\nAltogether this yields\n\n\n        s       - ~)o~       <- f x O h - ~p)o>/x %n-1 _~_( f (1/fxj --) ~1)(.0~./ A2 r -1\n                             < ~\n                                        (Ix    (~/j -- ~)(0) + r    A 0)~-1\n                                                                              )'\" ,\n\nwhere the last inequality follows from the elementary inequalities 0 < a < ~             _< 1 and V ~ +\n4~_<4~+b.\n     Going on replacing at each step a term w~0 by o) + w~, we end up with\n\n                                         n ( (~/rjf - - x\n                          (1/tj - - 1/t)O)~0 _< 2       r\n                                                          )Jr- 0 ) ~ ) n 1/2n .\nThe majorant being independent of ~oand converging to 0 as j --~ + ~ (by dominated convergence\ntheorem), this completes the proof.                                                         []\n\nC o r o l l a r y 3.8 (Quasicontinuity).  Let q9 ~ P S H ( X , ~o). For each e > 0 there exists an open\nsubset O e o f X such that CaP ~o( O e ) < e and ~o is continuous on X \\ 0 ~.\n\nProof.     For t > 0 large enough, the set O1 = {~o < - t } has capacity < e / 2 by Proposi-\ntion 3.6. Working in X \\ O1 we can thus replace ~0 by ~0t = max(cp, - t ) which is bounded on X.\nRegularizing ~0 (see Appendix), we can find a sequence apj of smooth Aco-psh functions which\ndecrease to ~ot on X, for some A > 1. By Proposition 3.7, the set Oj = {7% > ~ot + 1/j} has\ncapacity < e2 - j - 1 if kj is large enough. Now 7zkj uniformly converges to r = ~0t on X \\ Oe,\nOe = Uj>_I O j, SO ~0 is continuous on X \\ Os and Cap~o(Os) < e.                              []\n\nE x a m p l e 3.9. The capacity Cap,o(-) does not distinguish between \"big sets.\" Assume indeed\nthere exists an ample divisor D such that [D] --~ kw, k 6 N. Then there exists ~o 6 P S H ( X , o~)\nsuch that ddC~o = k - l [ D ] - o). Note that q9 6 C~      \\ D), e ~~ E C~    and {~p = -cx~} =\nD. Replacing ~o by ~o - suPx ~o if necessary, we may assume supx ~o = 0. Consider ~Oc =\nmax(~o, - c ) E P S H ( X, w) N C~     Then qgc - ~o outside some neighborhood Vc = {q9 < - c }\nof D. Since 0 _< 1 + ~ol < 1 and ~o1+~ol = oJ~ = 0 in X \\ V1, we get\n\n\n                     Capo/X)=fx(~Ol+~,)n=fv(o~l+~01)n -< Cap~o( V D ,\n                                                           1\n\n\nhence Cap~o(V1) = CapofiX).\n      As a concrete example take X = C ~ n and 09 = ~OFS, D being some hyperplane H ~ \"at\ninfinity\" (k = 1). Set ~o[z : t] = log It[ - 1 log[[lz[[2 + [t[2] where z denotes the Euclidean\ncoordinates in C n = C]Pn \\ Hoo and H ~ = (t = 0). Observe that supcy. ~p = 0. One then\ncomputes\n                              Clan\\v1 = [ z E C n / I z [      <   e2x/~--l] .\n\nThus, the capacity of the complement of any Euclidean ball of radius smaller than 4 ~ e2 - 1 equals\n\f618                                      Vincent Guedj and Ahmed Zeriahi\n\n     The definition of Cap, o mimics the definition of the relative Monge-Amp~re capacity intro-\nduced by Bedford and Taylor in [5]. Fix/d = {Ha } a finite covering of X by strictly pseudoconvex\nopen subsets of X, Ha = {x ~ X / O~(x) < 0}, where 06 is a strictly psh smooth function de-\nfined in a neighborhood of ~-~. Fix 3 > 0 such that L/~ = {Hi } is still a covering of X, where\nLt~ = {x ~ X / • (x) < -3}. For a Borel subset K of X, we set\n\n                                CaPBT(K) := Z           CapsT (K N/.g~, b/~) ,\n                                                   c~\n\n\n\nwhere\n                CaPeT(E, f2) := sup { f~ (ddcu)n / u 6 PSH(~2), O < u < l }\n\nis the capacity studied by Bedford and Taylor. The next proposition is due to Kolodziej [29]. We\ninclude a slightly different proof.\n\nProposition 3.10.       There exists C >_ 1 such that\n                                 1\n                                     Cap~(.) _< C a p s r ( . ) _< C . Cap~(.).\n\n\nProof        Let E be aBorel subset of X. Since Cap~o(E N/d~) < CaPon(E) _< Y-~.aCapo~(E NL/~),\nit is sufficient to show that if f2 = {x ~ X / O(x) < 0} is a smooth hyperconvex subset of X, then\nthere exists C _> 1 such that for all E C f26,\n\n                           1\n                                Capw(E ) < C a p n r ( E , g2) < C 9Cap,o(E),\n\nwhere ~2~ = {x ~ X / 0(x) < -6}.\n         It is an easy and well known fact in the local theory that the capacities Cap(., ~2) and\nCap(., f2') are comparable when f2' c fl (see e.g., Theorem 6.5 in [12]). Therefore we can\nassume (passing to a finer covering if necessary) that co = ddC~l, near f2. Fix C1 > 0 such\nt h a t - C 1 < ~P < C l O n f2. Fix~o 6 P S H ( X , 09) such t h a t 0 < ~0 < 1 o n X a n d s e t u =\n(2C1)-1(~o + ~O + C1). Then u ~ PSH(~2) and 0 < u < 1, hence\n\n\n                     fe \"--(2c,)\"L\n                         09go                   (ddcu)n --< (2c1)nCapsT(E'g2) ,\n\nwhich yields Cap,o(E) < (2C1) n C a p n r ( E , fl). Observe that we have not used here that 09 is\nKahler.\n      For the reverse inequality we consider X 6 C~176 such that X = 0 in X \\ ~2 and X < 0\nin f~. Replacing X by eX if necessary, we can assume X e P S H ( X , 09). This is because 09 is\nK~thler (and this is the only place where we shall use this crucial assumption). Fix e > 0 so small\nthat X < - e on ~2a. Let now u 6 PSH(f2) be such that 0 < u < 1 on f2. Consider\n\n                                                  u-•-]-Cl                 in   f28\n                                                    2+2C1\n                    ~0(x) =          max ~ 2~UCtt , zX\n                                         [ u - ~ + C     2 (x) + 1)        in   g2 \\ f28\n                                                    1                      in   X\\~\n\nObserve that 0 < u' := (u - ~ + C1)/(2 + 2C1) < (1 + 2C1)/(2 + 2C1) < 1 in g2. Therefore\n~o ~ P S H ( X , 209) since 2X(x) + 1 < - 1 < u' in f2~, while 2X(X ) + 1 - 1 > u' on 092. Note,\n\f                             Intrinsic Capacities on Compact Kiihler Manifolds                     619\n\nalso that 0 < ~o < 1 thus for E C f2~,\n\n              1\n        (2 + 2C1)n f E (ddcu)n\n                                                 - -     + ddC q9     )\"   <         co + ddC ~o\n                                     =\n\n                                     <\n                                                 2 + 2C1\n\n                                           Cap2~o/e(E) <\n                                                               (!)n        --\n\n                                                                     Cap~o(E)\n\nhence CapBT(E, f2) < 4n(1 + c 1 ) n E - n Capo~(E ).                                                []\n\n     Since locally pluripolar sets are precisely the sets of zero relative capacity [5], we obtain the\nfollowing:\n\nCorollary 3.11.      Cap~o(P) = 0 r162CapBT(P ) = 0 r            Pis locally plul~polar.\n\n     We shall show later on that locally pluripolar sets are P S H ( X , w)-polar when o9 is K~ihler\n(see Theorem 7.2).\n     The following two results are direct consequences of the corresponding results of Bedford\nand Taylor [4, 5].",
+      "literal_body_sha256": "f4b9152da337a5f66f0c15a40ce23cf259aafbbcaa2a3bffac8d0947dd1e81ff",
+      "complete_selected_body_directly_read": true,
+      "scope": "Kahler background and complete selected capacity section, including Proposition 3.6 sublevel estimate, bounded decreasing Proposition 3.7 with full proof, Corollary 3.8 quasicontinuity, and Proposition 3.10 local/global capacity comparison with full printed proof. References inside the source remain standard literature foundations, not newly reconstructed proofs."
+    }
+  ],
+  "DGMS_authentication": "The earlier IAS HTTP403 was preserved. A fresh public Stony Brook author-hosted copy now authenticates Lemma5.11 and its complete printed proof. A smooth real cohomologically zero closed (1,1) form on compact Kahler X is d- and dc-closed and therefore ddc of a smooth real function, with the fixed scalar normalization adjusted.",
+  "GZ_qualification": "Proposition3.7 itself assumes bounded potentials. For general decreasing quasi-psh functions in one fixed smooth background, first choose a dominating Kahler form, use bounded truncations and Proposition3.7, then remove the sublevel set using Proposition3.6. Proposition3.10 compares local and global capacities; Corollary3.8 supplies quasicontinuity. This is the standard foundation used in the reviewed local bounded application.",
+  "Vu_qualification": "Vu2005.13241v3 Theorem3.3 has bounded product factors and possibly unbounded comparison potentials. The reviewed nonpluripolar applications first truncate all local product potentials and then exhaust their simultaneous finite loci. No unbounded-factor strengthening of that theorem is asserted.",
+  "cutoff_qualification": "The strict comparison locus contains the nonzero locus of the cutoff; the closed support can meet its zero boundary. Publication uses nonzero locus where that distinction matters.",
+  "scope_change": false,
+  "substantive_proof_repair": false,
+  "frozen_author_and_review_files_modified": false,
+  "whole_primary_PDFs_or_texts_for_GitHub": false,
+  "review_operations": [
+    "d1fe9a0a-23d5-4624-a3ae-1ac6be40bb3e",
+    "f4f996fa-eef0-43a2-bded-bcbfd96cd0b7"
+  ],
+  "full_original_atoms_solved": []
+}
+
+
+# Actual canonical notes: complete bodies, not granted assumptions
+
+{
+  "kind": "notes",
+  "notes": [
+    {
+      "id": "n1",
+      "summary": "Reconstructed bounded actual-type energy and exactly scoped foundations; no prior proof or review verdict is assumed.",
+      "detailedSummary": "For every connected compact Kähler n-fold, pseudoeffective zero-volume class and actual theta-psh reference, proves form-independent actual degree d<n, mixed degree>d vanishing, bounded cocycle/concavity, class-polynomial leading energy and representative/gauge invariance. Exact BEGZ, DDNL, Vu, DGMS and capacity hypotheses are stated, source convention and defects checked. This reconstruction is supporting material, not original-atom closure.",
+      "text": "Only P15.1 is addressed. Let X be a connected smooth compact Kähler n-fold, α=[θ] pseudoeffective with vol(α)=0, and ψ an actual θ-psh reference. Set T_u=θ+ddᶜu, P=T_ψ, and C_ψ={u:ψ−C≤u≤ψ+C for some finite C}, using extended-valued inequalities. Our convention is ddᶜ=i∂∂̄/(2π). The retained data are actual bounded singularity type and an energy anchor.\n\nThe precise external foundations used are these. BEGZ, Acta Math. 205 (2010), arXiv:0812.3674v2, Definition 1.1, Propositions 1.4,1.6 and Theorem 1.8 give finite closed positive nonpluripolar products of closed positive (1,1) currents on compact Kähler X, positive-sum multilinearity, symmetry, plurifine locality and no pluripolar trace mass; smooth factors are ordinary wedge factors. DDNL, Anal. PDE 11 (2018), Proposition 2.1 gives equality of top mixed masses for bounded-equivalent potentials in every slot; Theorem 2.4 gives scalar mass monotonicity when every reference potential is less singular. Their backgrounds are smooth real closed forms with pseudoeffective classes, without bigness or small-unbounded-locus assumptions. We fill unused current slots by smooth Kähler forms with zero potentials; every hypothesis is then satisfied. DDNL source potentials are u/(2π), so the actual currents and comparisons agree with our convention.\n\nBEGZ Sections 1.3–1.4 and Definition 1.17 give minimal-singularity potentials in big classes, define their top mass as volume, and give the boundary limit vol(α+ελ)→vol(α) for Kähler λ. Actual top mass is at most this volume by DDNL, not automatically equal to it. For nef classes the positive product equals cup product.\n\nVu, arXiv:2005.13241v3, Proposition 2.1(iii), Lemmas 2.5–2.6 and Theorem 2.7: for closed positive R of bidegree (n−1,n−1) and bounded R-admissible dsh a,b, the intrinsic finite gradients exist, the diagonal is positive, and ∫b⟨ddᶜa·∧R⟩=∫a⟨ddᶜb·∧R⟩=−∫⟨db∧dᶜa·∧R⟩. Admissibility means the two quasi-psh representation poles have zero R trace mass. All R below are smooth or nonpluripolar products times smooth positive factors, so our bounded differences and smooth tests are admissible. Iteration identifies each signed insertion with the difference of the ordinary positive products. Vu's operators are twice ours and its potentials are u/2. Its intrinsic gradient is half ours; multiplying source IBP by two gives the displayed identity. The mandatory intrinsic formula is da∧dᶜa R=(1/2)ddᶜ(a²)R−a ddᶜa R. Printed repeated half-factor omissions are preserved in the literal annex, not used as definitions. The full argument includes the corrected cutoff check: for ζ_k=1+k⁻¹max(Σφ_j,−k), negative representations with ddᶜφ_j≥−Ω, one has ∫dζ_k∧dᶜζ_k R≤(4/k)∫ΩR; uniformly bounded truncated differences have uniformly bounded gradient mass. Cauchy–Schwarz eliminates cutoff boundary terms. Only the nonzero cutoff locus, not its closed support, is asserted to lie in the strict truncation sets.\n\nDGMS, Invent. Math. 29 (1975), Lemma 5.11 and Remark 5.14, imply that cohomologous smooth real closed (1,1) forms on compact Kähler X differ by ddᶜ of a smooth real function. Pure type makes the form d- and dᶜ-closed; its degree-two exactness supplies a degree-zero real primitive. These are exactly our representative-change hypotheses.\n\nDefine M_k(ψ,[ω])=∫⟨P^k⟩ω^(n−k), with empty product 1, and d=max{k:M_k>0}, m=n−d. Fixed Kähler forms are pointwise comparable, and positive power differences imply c^(n−k)M_k(ω)≤M_k(ω′)≤C^(n−k)M_k(ω). Thus d is form independent. Since P+εω≥εω, its class is big and its actual top mass is Σ_k binom(n,k)ε^(n−k)M_k≤vol(α+ε[ω])→0. Hence M_n=0 and d<n. DDNL, with n−k smooth slots, gives every bounded-type k-fold mixed trace mass M_k and bounds the corresponding more-singular mass by M_k. For k>d it is zero; positivity and domination of coefficient measures by the strictly positive trace imply vanishing as a current. Closedness and distributional Stokes make each M_k a homogeneous class polynomial.\n\nFor u,v in C_ψ define E_v,λ(u)=(d+1)⁻¹Σ_(a=0)^d∫(u−v)⟨T_u^aT_v^(d−a)⟩ω^m. To prove the cocycle, on any finite convex hull of bounded-type potentials write u_t=u_0+Σt_i h_i and A_i(t)=∫h_i⟨T_(u_t)^d⟩ω^m. These are finite polynomials. Signed differentiation and the checked bounded IBP with R=⟨T_(u_t)^(d−1)⟩ω^m give ∂_jA_i=∂_iA_j; at d=0 they are constant. Ordinary Stokes on a finite triangle proves path independence. The segment integral is the displayed energy because binom(d,a)∫₀¹t^a(1−t)^(d−a)dt=1/(d+1). Therefore E_ψ(u)−E_ψ(v)=E_v(u). Segment derivatives are ∫h⟨T_(u_t)^d⟩ω^m and second derivatives are −d times the positive intrinsic gradient mass, proving monotonicity and concavity. Constants give cM_d and the pointwise sandwich gives the M_d supremum-norm Lipschitz estimate. These differential claims concern finite hulls, not unbounded velocities.\n\nChanging one of m complementary Kähler factors by ddᶜg, bounded IBP transfers ddᶜ from g to u−ψ. The resulting signed insertion is the difference of two (d+1)-fold products, both zero. Its preceding current has bidegree (n−1,n−1) and is admissible, also when d=0 and it is smooth. Thus energy is representative independent in every mixed factor. Decomposing any smooth closed real factor η as (η+AΩ)−AΩ, both Kähler, gives a well-defined symmetric functional ℓ_u on Sym^m H^(1,1)(X,R), independent of representatives, decompositions and bases. Its diagonal is the degree-m energy polynomial. A simultaneous θ→θ+ddᶜg, (u,ψ)→(u−g,ψ−g) leaves currents and differences unchanged.\n\nAt positive ε the exact bounded expansion is E_ψ^(n,ε,ω)(u)=Σ_(k≤d)binom(n,k)ε^(n−k)E_ψ^(k,ω)(u). The coefficient identity Σ_j binom(j,a)binom(n−j,k−a)=binom(n+1,k+1) counts subsets by their (a+1)-st element. Lower coefficients satisfy |E^(k)|≤‖u−ψ‖∞M_k. For arbitrary Kähler representatives whose classes converge to a Kähler λ, class-polynomial mass bounds suppress all k<d terms after division by binom(n,d)ε^m, leaving E_ψ,λ(u). Uniformly approaching bounded-type perturbed potentials have error at most their supremum error times the actual anchor mass, so the same limit holds. No class-volume equality or zero-volume probability normalization is used. This reconstructed bounded theorem is supporting material, not original-atom closure.\n\nThe expanded reconstruction and all indispensable literal source bodies are in P15.1-argument.md; standalone P15.1-partial.tex and PDF contain the full authored proof. Source auditing and rerun commands are recorded in n4.\n\nArtifacts: /workspace/research/campaigns/round-31/P15.1-minimum-reference-finite-energy/artifacts/codex-7YBaVo",
+      "support": []
+    },
+    {
+      "id": "n2",
+      "summary": "Proves auxiliary-independent full-mass and genuine F1 domains for a fixed actual type, with full finite-energy truncation/cocycle reconstruction.",
+      "detailedSummary": "Scalar DDNL deficits against omega1^j(A omega0-omega1)^(m-j) are nonnegative and sum to zero, proving common full mass across all auxiliary forms/classes, including d=0. Positive fixed-form comparison gives common joint linear finiteness. Convexity yields all mixed full masses and mixed-weight integrability; exact locality plus equal mass yields truncation identities, finite energy equivalence, decreasing continuity, concavity, unbounded cocycle, anchor and gauge invariance. The domain contains an explicit unbounded P1xP1 potential. No uncontrolled moving-form perturbation extension is made.",
+      "text": "Use n1's setting and checked foundations. The following proves common domains for every fixed smooth Kähler auxiliary form/class, including d=0.\n\nDefine E_ψ(ω)={u∈PSH(X,θ):u≤ψ+C and ∫⟨T_u^d⟩ω^m=∫⟨P^d⟩ω^m}. Suppose equality holds for ω₀. Given ω₁ choose A so D=Aω₀−ω₁ is Kähler. For j=0,…,m define scalar Δ_j=∫(⟨P^d⟩−⟨T_u^d⟩)ω₁^jD^(m−j). DDNL Theorem 2.4 applies with d θ-slots, ψ less singular than u, j smooth ω₁-slots and m−j smooth D-slots, zero potentials on both sides in the smooth slots. All backgrounds are pseudoeffective and all potentials are psh in their stated backgrounds. Thus Δ_j≥0. Expansion gives Σ_j binom(m,j)Δ_j=A^m∫(⟨P^d⟩−⟨T_u^d⟩)ω₀^m=0. Every Δ_j is zero, particularly Δ_m. Reversing forms proves a common E_ψ. No positivity of a difference current is assumed. At d=0 both products are 1 and all deficits vanish identically. Applying this equality to Σt_iω_i for t_i>0 and comparing polynomial coefficients also proves full-mass equality against every mixed product of m Kähler forms.\n\nDefine F¹_ψ by u∈E_ψ and Σ_(a=0)^d binom(d,a)∫|u−ψ|⟨T_u^aP^(d−a)⟩ω^m<∞ for one ω. For two fixed Kähler forms cω₀≤ω₁≤Cω₀, positive powers give measure inequalities c^mQω₀^m≤Qω₁^m≤C^mQω₀^m for every positive mixed d-current Q. Integrating the nonnegative weight proves equivalent finiteness for every auxiliary class/form, and likewise for mixed complementary Kähler factors. Constants change weights by bounded amounts against finite measures and do not affect membership. At d=0 this is ordinary quasi-psh L¹ integrability against smooth volume, and full mass is automatic.\n\nThe additional external theorem is Vu arXiv:2005.13241v3 Section 3, Theorem 3.4: diagonal relative full-mass and diagonal joint χ-energy classes are convex for a common positive reference P in a pseudoeffective class, a closed positive relative current R, and convex increasing χ with χ(−∞)=−∞. Our application has d≥1 product factors, R=ω^m smooth, χ(t)=t, and top degree; connectedness identifies cohomology equality with total-mass equality. Normalizing u≤ψ and source potentials negative, its Definition (3.1) is exactly (d/2)Σ_a binom(d,a)∫(ψ−u)⟨T_u^aP^(d−a)⟩ω^m, since Vu potentials are halved. Thus its finiteness is precisely our definition. At d=0 we use direct integrability, not that positive-factor theorem. Convexity holds in both cases.\n\nFor normalized u_i≤ψ in the full-mass domain, convexity makes w=N⁻¹Σu_i full mass. Its degree-d mass is the average of N^d ordered mixed masses, each nonnegative and at most M_d by DDNL with d current and m smooth slots. Equality of their average forces every mixed mass to equal M_d. This holds for all auxiliary powers and hence, by polynomial extraction, all mixed complementary factors. If u_i lie in F¹, weighted convexity makes w finite energy; the a=d weighted term of w and positive expansion make ψ−w integrable against each ordered mixed product. Since 0≤ψ−u_i≤N(ψ−w), all family differences are integrable against every such product. At d=0 use smooth L¹. This proves all mixed finiteness needed below.\n\nFor u≤ψ, put z=ψ−u, u_L=max(u,ψ−L), μ_a=⟨T_u^aP^(d−a)⟩ω^m and μ_a,L=⟨T_(u_L)^aP^(d−a)⟩ω^m. Both measures have mass M_d and agree on G_L={u>ψ−L}. The exact external locality used here is Vu v3 Theorem 3.3: bounded local psh product factors equal on intersections of strict comparisons of possibly unbounded psh comparison potentials give equal restricted products. Our applications FIRST truncate every local product potential and intersect G_L with their simultaneous strict finite truncation loci, apply the bounded-factor theorem, and exhaust those loci using the defining BEGZ restrictions. Poles are uncharged. We do not assert an unbounded-factor version. On B_L=X minus G_L the truncated weight is L. Equal mass and equality on G_L imply μ_a,L(B_L)=μ_a(B_L), hence\n∫(ψ−u_L)dμ_a,L=∫min(z,L)dμ_a.\nBoundary equality points have weight L and cause no problem. This identity also holds with fixed mixed complementary factors. Monotone convergence proves that E_ψ,λ(u_L) decreases to the finite mixed-integral energy E_ψ,λ(u). Conversely on E_ψ the truncation limit is finite exactly when every nonnegative ∫z dμ_a is finite, equivalently joint linear finiteness. This proves a genuine finite-energy definition. Mixed masses give E(u+c)=E(u)+cM_d; for u≤ψ+C, writing u_L=(u−C)_(L+C)+C proves the same truncation limit.\n\nHere is the complete continuity/tail argument. For bounded-type v_j↓v with |v_j−ψ|≤B uniformly, the mixed measures have exactly their limit's mass by DDNL. Use η_A=min(1,max(ψ+A,0)). On its nonzero locus truncate every local psh product factor below a uniform bound depending on A,B. Factors and the bounded weights η_A(v_j−ψ) are uniformly bounded, quasicontinuous, and converge in capacity. DDNL Proposition 2.2 applies to these bounded local factors in every slot, with smooth factors filling to n. The capacity facts are GZ, J. Geom. Anal. 15 (2005), Proposition 3.7 for BOUNDED decreasing potentials, Proposition 3.6's O(1/A) sublevel bound, Proposition 3.10 local/global capacity comparison and Corollary 3.8 quasicontinuity. For general decreasing quasi-psh functions choose a dominating Kähler background, apply bounded 3.7 to max(f_j,−A), discard {f<−A+1} using 3.6, and then send A→∞. Thus no unbounded hypothesis is falsely attributed to 3.7. Local bounded convergence and a partition of unity give convergence of the η_A-weighted integrals. The omitted absolute weight is at most B times the omitted mass. First send j→∞, then A→∞; the limit measure has no mass on ψ's poles. This proves bounded decreasing energy continuity.\n\nFor general F¹ v_j↓u with u in F¹, monotonicity sandwiches E(u)≤E(v_j)≤E(max(v_j,ψ−L)). At fixed L use the bounded lemma, then send L→∞ using the exact truncation identity. This proves all asserted decreasing continuity. Convexity and the decreasing bounded approximations (1−t)u_L+t v_L transfer bounded concavity to F¹.\n\nFor u,v≤ψ, their simultaneous mixed truncation measures have mass M_d and agree on G_L={u>ψ−L}∩{v>ψ−L}. Their complementary masses agree. On B_L, |u_L−v_L|≤L and L μ_L(B_L)=L μ(B_L)≤∫_(B_L)((ψ−u)+(ψ−v))dμ→0 by the mixed integrability proved above. The original |u−v| tail also tends to zero. Therefore the bounded cocycle passes termwise to the finite identity E_ψ(u)−E_ψ(v)=(d+1)⁻¹Σ_a∫(u−v)⟨T_u^aT_v^(d−a)⟩ω^m. Constants and d=0 are handled by the equal mixed masses and direct smooth integration.\n\nIf χ∈C_ψ, full mass and domination up to constants coincide. χ itself lies in F¹_ψ; the mixed-family integrability argument gives finiteness of |u−χ| against all products with χ. Reversing anchors proves F¹_χ=F¹_ψ. The cocycle gives E_χ(u)=E_ψ(u)−E_ψ(χ). Representative independence follows by applying n1 to every u_L and taking their exact limits; theta gauge invariance follows from unchanged currents and differences.\n\nThe domain truly contains unbounded differences: on P¹×P¹ take θ=p₁*κ, ψ=0, ∫κ=1, and v(z)=−b(−log|z|)^a near zero, 0<a<1/2. A smooth annular cutoff and sufficiently small b make κ+ddᶜv positive globally. Its singular radial Hessian is positive, its flux is proportional to (−log r)^(a−1)→0, so it has no point atom and has mass one by distributional Stokes. Smooth-volume integrability is exponential in −log r; weighted current integrability is ∫^∞s^(2a−2)ds<∞. Thus u=p₁*v has full degree-one mass and finite F¹ energy but is unbounded. No fibration is assumed in the theorem. No uncontrolled moving-form perturbation extension follows.\n\nArtifacts: /workspace/research/campaigns/round-31/P15.1-minimum-reference-finite-energy/artifacts/codex-7YBaVo",
+      "support": [
+        "n1"
+      ]
+    },
+    {
+      "id": "n3",
+      "summary": "Proves coefficientwise polynomial extension and the exact finite-dimensional minimum energy-family reference on the entire common F1 domain.",
+      "detailedSummary": "Finitely many Kähler powers span Sym^m H^(1,1), giving unisolvent evaluations. Finite truncation values at those classes force coefficientwise convergence for every F1 potential. Explicit mixed integral functionals are representative independent, and all unbounded functionals span exactly the bounded S. Two Kähler references give every anchored F1 energy equally iff their m-powers agree in Q=Sym^m V/Ann(S). Constants retain the positive raw-mass polynomial; bounded-equivalent anchors and theta gauges preserve S/K/domain. Universal factorization, quotient topology and decreasing coefficient continuity are proved. This is family-relative minimality, not a universal geometric classification or lower-dimensional carrier theorem.",
+      "text": "Use n1 and n2. Put V=H^(1,1)(X,R), B=Sym^mV, m=n−d≥1. For bounded-type u, define\nℓ_u^ψ(λ₁⊙⋯⊙λ_m)=(d+1)⁻¹Σ_a∫(u−ψ)⟨T_u^aP^(d−a)⟩η₁⋯η_m,\nwhere η_i are arbitrary smooth closed real representatives of λ_i. n1 proves representative independence with bounded admissible IBP and degree-(d+1) vanishing, then extends by differences of Kähler forms. Its diagonal polynomial is the anchored energy.\n\nThe powers λ^⊙m for Kähler λ span B. Otherwise a nonzero dual functional annihilating their span would define a homogeneous polynomial zero on the nonempty open Kähler cone. A polynomial zero on an open box is zero: apply one-variable coefficient uniqueness in each coordinate successively. In a basis e_i its x^β coefficient is (m!/β!)ℓ(e₁^⊙β₁⋯e_h^⊙β_h), so all coefficients zero imply the functional zero, a contradiction. Choose N=dim B powers forming a basis. Evaluation at these N Kähler classes is therefore a linear isomorphism B*→R^N; this proves existence of an unisolvent set without auxiliary choices entering the answer.\n\nFor every u∈F¹_ψ, n2 gives finite convergence E_ψ,λ_i(u_L)→E_ψ,λ_i(u) at those classes. Applying the inverse evaluation isomorphism forces coefficientwise ℓ_(u_L)→ℓ_u in B*. At every other Kähler λ, evaluation continuity and n2's truncation identity imply E_ψ,λ(u)=ℓ_u(λ^⊙m). Uniqueness on the open cone makes this independent of all bases, unisolvent sets and decreasing bounded-type approximations. Explicitly ℓ_u has the same mixed-integral formula above: with mixed complementary Kähler W, the equal-mass locality proof gives each weighted truncation identity and its integral convergence; decompose arbitrary η_i into differences of Kähler forms, expand finitely, and pass every integral to the limit. Each absolute integral is finite by domination by a multiple of a fixed Kähler m-power. This proves representative independence without unbounded IBP. Polarization is ℓ_u(λ₁⊙⋯⊙λ_m)=(m!)⁻¹Σ_J(−1)^(m−|J|)p_u(Σ_(j∈J)λ_j), where p_u is the unique polynomial on V. Expansion proves the formula by cancelling terms missing a variable. Non-Kähler polynomial arguments are algebraic extensions, not positive auxiliary references.\n\nDefine S=span{ℓ_u:u∈C_ψ}, K=Ann(S), Q=B/K and q:B→Q. Finite-dimensional S is closed, so every unbounded coefficient limit belongs to S. Conversely C_ψ⊂F¹_ψ. Hence the unbounded functional span is exactly S and its common kernel exactly K. Therefore two Kähler classes give the same anchored energy for EVERY u∈F¹_ψ if and only if q(λ₀^⊙m)=q(λ₁^⊙m): equality on bounded potentials annihilates S, and membership of all unbounded functionals in S proves the reverse implication. This is the necessary/sufficient whole-domain minimum-reference result.\n\nThe raw-mass functional M(λ₁⊙⋯⊙λ_m)=∫⟨P^d⟩η₁⋯η_m is representative independent by closedness and Stokes and positive on Kähler powers. Mixed mass equality proves ℓ_(ψ+c)=cM and ℓ_(u+c)=ℓ_u+cM. In particular M∈S and K⊂ker M, so the quotient retains raw mass and has positive dimension; there is no probability normalization. For χ∈C_ψ, n2 gives the same domain and anchored cocycle. Equality on the Kähler cone and polarization yield ℓ_u^χ=ℓ_u^ψ−ℓ_χ^ψ. Since ℓ_ψ^χ=−ℓ_χ^ψ, the two spans, kernels and quotients are identical. The anchor fixes the origin rather than disappearing. Simultaneous smooth theta gauge changes preserve every current, difference, truncation and functional; any smooth representative change of α has this gauge by the exact DGMS lemma in n1.\n\nThe precise universal factorization is as follows. The all-energy map t↦(ℓ_u(t))_(u∈F¹) has kernel K, so Q identifies with its finite-dimensional output space. If a linear descriptor r:B→R₀ lets every ℓ_u factor through r by a linear functional, then ker r⊂K and there is a unique surjective linear map r(B)→Q, r(t)↦q(t). For actual auxiliaries use I={q(λ^⊙m):λ Kähler}⊂Q. Any set-valued descriptor on the Kähler cone determining every energy must map onto I by the same equality criterion. Conversely I suffices. This is family-relative minimum information, not an independently geometric kernel theorem; I need not be a vector space, manifold, or all of Q.\n\nGive I the subspace topology from finite-dimensional Q. Each descended ℓ_u is continuous. Choosing bounded u₁,…,u_s whose ℓ's form a basis of S makes their energy coordinates Q→R^s a linear isomorphism; convergence of those finitely many energies is exactly quotient convergence. If u_j↓u in F¹, decreasing continuity at the unisolvent classes gives coefficient convergence ℓ_(u_j)→ℓ_u, hence uniform polynomial convergence on compact subsets of V and functional convergence on bounded subsets of Q. Simultaneously τ_j→τ in I therefore gives ℓ_(u_j)(τ_j)→ℓ_u(τ). This does not imply a rescaled top-energy limit for moving rough auxiliary forms.\n\nIn the P¹×P¹ smooth-reference example V has the two pullback generators a,b; the product cell structure has two real 2-cells and no odd cells, and fiber evaluations identify these generators. Kähler classes are Aa+Bb with A,B>0. Every θ-psh potential is constant on the second-factor fibers by the compact-curve psh maximum principle, or identically minus infinity on such a fiber, so u=p₁*v. For bounded u the energy is (B/2)∫v((κ+ddᶜv)+κ). Thus all functionals span precisely the B coordinate, constants supplying it. Q=R with q(Aa+Bb)=B, I=(0,∞); the span theorem extends this computation to the whole genuine F¹ domain.\n\nThe required retained data for this family are X, α, actual bounded comparison type and its actual degree, an anchor, and τ∈I. Theta is a smooth gauge coordinate. Integrals are carried by the n-dimensional X with current bidegree (d,d). The quotient does not supply a geometric d-dimensional carrier, a numerical-dimension theorem or universal classification. Original P15.1 is not claimed solved.\n\nArtifacts: /workspace/research/campaigns/round-31/P15.1-minimum-reference-finite-energy/artifacts/codex-7YBaVo",
+      "support": [
+        "n1",
+        "n2"
+      ]
+    },
+    {
+      "id": "n4",
+      "summary": "Reconstructs the same-class unbounded concentration counterexample, records actual-degree/class-volume mismatch, and leaves original P15.1 partial.",
+      "detailedSummary": "On P1xP1 a full degree-one F1 potential with radial exponent 0<a<1/2 has finite full relative top energy at every positive perturbation. Smooth fixed-class auxiliary bump forms at radius exp(-epsilon^(-2/a)) force the rescaled top energy to minus infinity, while a fixed form yields the finite degree-one value. Thus n3 quotient continuity cannot imply the refuted joint perturbation assertion. A divisor reference in the same nef class has actual d=0 although the numerical dimension is one, and actual versus class-volume leading exponents differ. Full original path/minimum-reference closure remains unproved. Audit records source pins, exact finite diagnostics and twice-compiled document as observations, not mathematical certification.",
+      "text": "Use n1–n3. The supplied concentration obstruction is reconstructed analytically rather than assumed. On X=P¹×P¹, θ=p₁*κ, ψ=0, take n2's u=p₁*v, v=−b(−log|z|)^a−c near zero, 0<a<1/2 and c≥0. It has degree-one full mass and finite F¹ energy. Its class is nef and has volume zero because θ²=0 and the nef positive product is cup product.\n\nFor small ε let ρ_ε=exp(−ε^(−2/a)) and choose a smooth nonnegative area bump β_ε of integral one supported in |z|<ρ_ε. Put κ_ε=(κ+β_ε)/2 and ω_ε=p₁*κ_ε+p₂*κ. These are smooth Kähler forms; all [κ_ε]=[κ] because integration identifies H²(P¹,R), so all [ω_ε] equal the same Kähler class. The potential is exactly u at every parameter. For each fixed ε, v is integrable against κ_ε (smooth bounded density), κ and S=κ+ddᶜv. All weighted top terms are finite.\n\nWriting U=p₁*S, A=p₁*κ, B=p₂*κ and A_ε=p₁*κ_ε, the three top products are respectively 2ε(A+εA_ε)B, ε(U+A+2εA_ε)B and 2ε(U+εA_ε)B. This follows off the polar fiber by wedge multiplication; horizontal squares vanish, and nonpluripolar extension adds no pole mass. Both actual top masses are 2ε(1+ε), so u has full perturbed top mass. Direct summation of the three finite weighted integrals gives\nE₀^(2,ε,ω_ε)(u)/(2ε)=E₀,λ(u)+ε∫vκ_ε,\nwhere E₀,λ(u)=(1/2)∫v(S+κ) is finite. On the bump support −v≥bε⁻², so ∫vκ_ε≤−(b/2)ε⁻² and the rescaled expression tends to minus infinity. The fixed smooth product form gives a fixed finite lower integral and limit E₀,λ(u). Thus even identical potential, class and quotient reference, with finite full perturbed top energy at every parameter, do not imply the unrestricted unbounded moving-representative assertion. This does not contradict the degree-d polynomial/quotient continuity theorem.\n\nActual degree is also distinct from class numerical dimension. In the same class the logarithmic reference g=log(|z|²/(1+|z|²)), pulled back to X, has current the vertical divisor: ddᶜlog|z|²=δ₀ follows from flux 4π and our normalization, while ddᶜlog(1+|z|²)=κ. Its nonpluripolar first product is zero, so d=0, although the nef class has numerical dimension one by its nonzero first cup trace and zero square. For ω=Ap₁*κ+Bp₂*κ, actual perturbed reference mass is 2ABε² but class volume is 2Bε+2ABε². Their leading exponents differ; constant-shift actual energy is c times actual mass. No replacement by a class-volume leading coefficient is justified.\n\nThe new results are proposals 1–3 in the stipulated actual-type scope: common auxiliary-independent full mass and genuine F¹, coefficientwise polynomial extension, and exact whole-domain minimum energy-family quotient retaining raw mass. Original P15.1 remains partial. The minimum is relative to this prescribed family, not an independently geometric universal minimum for every possible theory. The carrier remains X of dimension n, with no geometric d-dimensional carrier or general geometric kernel characterization. Unrestricted moving-form limits are refuted, while general moving unbounded-potential/joint limits, lower-degree weighted controls in arbitrary reference settings, increasing continuity and unbounded differential/path calculus remain unproved. An iterated bounded-leading-limit then truncation-limit prescription follows from the proved identities, but equality with every joint/reversed limit is not asserted. No optional d=0 rigidity claim is needed. P15.2 and P15.3 were not investigated.\n\nDeliverables in the assigned workspace are P15.1-argument.md with the expanded complete proofs and all 24 literal selected primary bodies, P15.1-partial.tex, its twice-compiled 17-page P15.1-partial.pdf, notes.json, exact five-key status.json, and source-audit.json, author-audit.json, research-audit.json, build-audit.json. The unchanged input.json SHA256 is 6939872a9d6907168bd4b224e7c6a964c68c7fd226eb33d05520e9774e8939a6; input-original.json is byte identical, assignment-original.txt preserves the decoded assignment and task-original.json its task values. Rerun commands are: python verify_sources.py; python coefficient_check.py; python build.py. Programs and stdout/stderr logs remain in this directory.\n\nObserved evidence: 24/24 supplied LF hashes matched and 24/24 exact supplied bodies were identified; source defects and form feeds remain literal. Three supplied Vu images were visually inspected. Exact finite checks passed 2,925 coefficient cases for all 0≤n≤24, 0≤a≤k≤n, 40 interpolation cases, 8 polarization cases and 12 positive expansions. Two pdflatex passes and all six PDF text structure checks passed. The final PDF has no overfull-box warning; an initial raw-prose superscript/star rendering defect and its corrected artifacts are retained as diagnostics. A read-only Git probe found no repository; no Git mutation occurred. Environment: Python 3.12.14, Pandoc 3.1.11.1, pdfTeX 1.40.26, Poppler 25.03.0, Linux 6.18.44. These are execution observations/exhaustive finite arithmetic diagnostics, not analytic correctness certification.\n\nRequested native Codex gpt-6.1-sol/xhigh settings are recorded, but no signed backend/effort attestation is exposed. No additional model, subagent, worker feedback, network, install, external message, auth/proxy/CA or HOME/CODEX_HOME change, SQL/runtime edit, old-artifact write or heavy computation occurred. All new writes are in the fresh assigned workspace. The managed-runtime skill was read; its environment-status tool was unavailable and no network operation relied on it. No heavy-compute facility was needed. These are unverified drafts, with no literature-priority claim. Candidate is false.\n\nArtifacts: /workspace/research/campaigns/round-31/P15.1-minimum-reference-finite-energy/artifacts/codex-7YBaVo",
+      "support": [
+        "n1",
+        "n2",
+        "n3"
+      ]
+    }
+  ],
+  "candidate": false,
+  "workspace": "/workspace/research/campaigns/round-31/P15.1-minimum-reference-finite-energy/artifacts/codex-7YBaVo"
+}
