@@ -631,6 +631,26 @@ The remaining general model/chamber/base-change and hybrid approximation
 gates are recorded; the active 4,244-page book stays unchanged. Cloud research
 continues, with normal work-branch publication and incoming-research fetches.
 
+### Finite chambers and dyadic-domain follow-up, 4 October 2026
+
+The [common-chamber derivation](research_dossiers/li_finite_chambers_and_formal_bases_20261004.md)
+now constructs formal orthogonal bases from faithful local Laurent
+expansions and a uniform Lipschitz bound. It includes integer-translated
+walls, rational-point discreteness, convergence of cancellation coefficients
+and vanishing of the residual. BFJ's exact author-copy Theorem 6.1 and
+Section 6 proof were checked in 733 scoped source lines and twelve actual
+pages; the publisher edition and all underlying imports are not newly
+certified. The [dyadic parent repair](research_dossiers/li_dyadic_parent_cover_repair_20261004.md)
+keeps full annular coverage, uses larger parents of bounded overlap, and
+checks generic mass, Poincaré/submean and Fourier remainder absorption
+under explicit geometric and analytic inputs. It avoids the source's
+literal noncontained “shrunken” annulus. The [audit](li_chamber_and_dyadic_followup_audit_20261004.md)
+and [manifest](li_chamber_and_dyadic_followup_manifest_20261004.json)
+record remaining module/model, measure/remainder, Skoda and hybrid gates.
+The active 4,244-page book and all 42 statuses stay unchanged. No new
+calculation or independent model verdict is claimed. The next research
+step is the uniform approximation and hybrid limit passage.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit
