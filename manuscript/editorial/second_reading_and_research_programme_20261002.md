@@ -881,6 +881,31 @@ The earlier 4,244-page artifacts remain historical. Continue cloud
 research on related recent papers and the remaining global model inputs,
 while fetching user research and publishing normally to work.
 
+### HNF height slices and the IDP boundary, 4 October 2026
+
+The [new dossier](research_dossiers/hnf_height_one_models_and_idp_boundary_20261004.md)
+checks the September HNF preprint's box criterion, coherent
+constant-coordinate construction and general finite tests. IDP
+is equivalent to coherent unimodular triangulability only in
+the specified constant-coordinate family. The controlling
+published Firla–Ziegler Example 10 gives the complementary
+height-one singular model with no smooth reduced toric subdivision
+over the same parameter. Its computational nonexistence conclusion
+is an explicit published import. One exact integer enumeration
+independently verifies IDP and the twelve-generator/161-candidate
+counts, without claiming a nonexistence certificate.
+See the [audit](hnf_height_one_source_audit_20261004.md),
+[manifest](hnf_height_one_source_manifest_20261004.json) and
+[finite witnesses](hnf_firla_ziegler_exact_enumeration_20261004.json).
+There are 2,048 conservative new text lines, in addition to the
+270 HNF lines retained at the earlier checkpoint, and 36 actual
+source-page views. The complete HNF extracted text and the complete
+published obstruction paper are now covered; only the latter
+received whole-PDF visual review. The 4,246-page book and all 42
+statuses stay fixed at this checkpoint. Continue with ordinary
+admission of the known local-model boundary, remaining global
+inputs, recent literature and incoming GitHub progress.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit
