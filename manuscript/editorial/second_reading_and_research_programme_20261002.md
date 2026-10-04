@@ -396,8 +396,12 @@ signatures were freshly read. Flattening has its open-set hypothesis; the
 0DSV citation boundary agrees with Chapter 17 and Appendix L. All eighteen
 appendix pages, both seams and the two changed source notes pass visual review.
 See the [Appendix I audit](second_reading_appI_audit_20261004.md).
-Appendix J is active; all 812 source lines have been freshly read and its
-normalization checks continue. No later appendix is marked complete in this pass.
+Appendix J's 812 original lines and its scoped normalization interfaces
+were freshly read. Pointwise psh representatives and precise Legendre
+domains agree with Chapters 51–52; all fourteen pages and both seams pass.
+See the [Appendix J audit](second_reading_appJ_audit_20261004.md).
+Appendix K is active; all 1,036 source lines have been freshly read and its
+notation checks continue. No later appendix is marked complete in this pass.
 
 The current catalogue incorporates the 4 October real-scalar Bergman repair;
 see its [latest correction audit](open_problem_catalogue_correction_audit_20261004.md).
