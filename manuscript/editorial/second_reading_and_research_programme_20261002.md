@@ -37,7 +37,7 @@ Compile and inspect the changed pages before closing each verified unit.
 Repeat the reference and relevant scope checks after rendering. Chapter
 checkpoints are milestones; the goal is the complete rereading pass.
 
-Current reading position: Chapters 1--62 pass the new source, build,
+Current reading position: Chapters 1--63 pass the new source, build,
 reference, and rendered-page gates; see the
 [Chapter 1 audit](second_reading_ch01_audit_20261002.md),
 [Chapter 2 audit](second_reading_ch02_audit_20261002.md),
@@ -102,7 +102,8 @@ reference, and rendered-page gates; see the
 [Chapter 59 audit](second_reading_ch59_audit_20261003.md), and
 [Chapter 60 audit](second_reading_ch60_audit_20261003.md), and
 [Chapter 61 audit](second_reading_ch61_audit_20261004.md), and
-[Chapter 62 audit](second_reading_ch62_audit_20261004.md).
+[Chapter 62 audit](second_reading_ch62_audit_20261004.md), and
+[Chapter 63 audit](second_reading_ch63_audit_20261004.md).
 Chapter 16's original 5,753-line source and all 83 direct inputs were freshly
 read. Its product construction, proof interfaces, examples, harmonic
 compatibility and source scopes were repaired; all 274 chapter pages and two
@@ -293,7 +294,12 @@ identical. Normalized model identities, fixed-measure class derivatives,
 finite weighted divisorial tests and closed-simplex contact formulas retain
 their stated domains. All 26 chapter physical pages and both seams passed
 visual review; see the [Chapter 62 audit](second_reading_ch62_audit_20261004.md).
-Chapter 63 is active; all 1,311 original lines freshly read, scoped primary
+Chapter 63's original 1,311 lines were freshly read and remain byte
+identical. The dictionary retains each arrow's domains, valuation units,
+mass conversion, approximation procedure and named analytic inputs.
+All 22 chapter physical pages and both seams passed visual review; see the
+[Chapter 63 audit](second_reading_ch63_audit_20261004.md).
+Chapter 64 is active; all 1,142 original lines freshly read, scoped primary
 checks continue. No later unit is marked complete.
 
 The 3 October revised catalogue is complete: [LaTeX source](../../output/open_problems_catalogue_2026-10-03.tex),

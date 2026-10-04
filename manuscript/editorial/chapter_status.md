@@ -3,7 +3,7 @@
 ## Active continuation: second reading and research
 
 On 2 October 2026 the user requested another complete reading pass from
-Chapter 1 for coherence and readability. Chapters 1--62 pass the new reading
+Chapter 1 for coherence and readability. Chapters 1--63 pass the new reading
 gates; see the [Chapter 23 audit](second_reading_ch23_audit_20261003.md) and its
 [rational-competitor follow-up](second_reading_ch23_rational_followup_audit_20261003.md).
 Chapter 17's original 4,813-line source and all seven direct inputs were
@@ -229,7 +229,12 @@ identical. Normalized model identities, fixed-measure class derivatives,
 finite weighted divisorial tests and closed-simplex contact formulas retain
 their stated domains. All 26 chapter physical pages and both seams passed
 visual review; see the [Chapter 62 audit](second_reading_ch62_audit_20261004.md).
-Chapter 63 is active; all 1,311 original lines freshly read, scoped primary
+Chapter 63's original 1,311 lines were freshly read and remain byte
+identical. The dictionary retains each arrow's domains, valuation units,
+mass conversion, approximation procedure and named analytic inputs.
+All 22 chapter physical pages and both seams passed visual review; see the
+[Chapter 63 audit](second_reading_ch63_audit_20261004.md).
+Chapter 64 is active; all 1,142 original lines freshly read, scoped primary
 checks continue. No later chapter is marked complete.
 The requested standalone open-problem catalogue is complete: all 42 active
 items, twelve full family statements, source-dated state of the art and
