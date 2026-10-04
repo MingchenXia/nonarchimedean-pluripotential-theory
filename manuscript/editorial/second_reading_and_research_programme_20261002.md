@@ -1066,6 +1066,29 @@ PDFs, and all 42 statuses are unchanged. Continue testing noncircular
 horizontal approximation or local descent; do not infer psh membership
 from fiber constancy alone.
 
+### Finite orbit-coefficient descent candidate, 4 October 2026
+
+The [candidate](finite_galois_psh_descent_candidate_20261004.md)
+tests a finite-cover route after `c5f7bf7`. A Galois function average is
+encoded by products in an orbit tensor line; a norm-line identification
+would make that line an exact pullback. Orbit-polynomial coefficients
+would then descend the invariant section maximum. A separate purely
+inseparable norm argument is outlined. The proposed numerical-class
+control uses injective finite pullback, not unrestricted proper Cartier
+pushforward. This potentially extends the first fixed-ample test to real
+classes, but remains an unadmitted candidate pending independent review.
+
+Stacks Section 31.18 and Tag 00H7 target statements/proofs were freshly
+acquired and read; cached Tag 0BD3 was reread. Fourteen exact polynomial
+identities and the recorded finite valuation, support and weight cases
+pass. The nonflat cone vertex has fiber length three versus generic
+degree two. The calculation supplements the candidate argument and is
+not an independent verifier. The
+[manifest](finite_galois_psh_descent_candidate_manifest_20261004.json)
+pins its scope. No `(SD)_k` assumption, active TeX input, PDF or problem
+status changes. Continue the norm-line, class-limit and support-stratum
+checks; even verified finite descent would leave the birational gap open.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit
