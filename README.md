@@ -6,7 +6,7 @@ left blank in this release.
 
 **Active continuation, 2 October 2026:** a new full reading pass continues
 from Chapter 1 for coherence and readability; Chapters 1--72 pass its gates.
-Appendices A--K also pass; Appendix L is active.
+Appendices A--L also pass; Appendix M is active.
 All current execution remains in the cloud, and Xean setup is suspended by
 the latest user instruction. The standalone catalogue of all 42 active
 open-problem items is complete: [LaTeX source](output/open_problems_catalogue_2026-10-03.tex)

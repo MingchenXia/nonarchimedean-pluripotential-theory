@@ -405,9 +405,14 @@ freshly read. Integral local equations, real-linear extension, pointwise
 psh representatives and reflected toric subgradient containment agree with
 the closed chapter gates; all sixteen pages and both seams pass.
 See the [Appendix K audit](second_reading_appK_audit_20261004.md).
-Appendix L is active; all 2,768 source lines have been freshly read and its
-historical/current provenance checks continue. No later appendix is marked
-complete in this pass.
+Appendix L's 2,768 original lines and its scoped chapter interfaces were
+freshly read. Historical problem counts and residual scopes are explicitly
+dated; all 148 record titles/source anchors, forty labels, four formal
+remarks and six tagged displays are preserved. All forty-eight pages and
+both seams pass. See the [Appendix L audit](second_reading_appL_audit_20261004.md).
+Appendix M is active; all 4,474 main-source lines have been freshly read.
+Its 104 direct inputs (9,331 lines) are being read and checked individually.
+No later appendix is marked complete in this pass.
 
 The current catalogue incorporates the 4 October real-scalar Bergman repair;
 see its [latest correction audit](open_problem_catalogue_correction_audit_20261004.md).
