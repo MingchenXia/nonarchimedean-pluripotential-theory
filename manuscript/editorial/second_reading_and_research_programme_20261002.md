@@ -37,7 +37,7 @@ Compile and inspect the changed pages before closing each verified unit.
 Repeat the reference and relevant scope checks after rendering. Chapter
 checkpoints are milestones; the goal is the complete rereading pass.
 
-Current reading position: Chapters 1--69 pass the new source, build,
+Current reading position: Chapters 1--70 pass the new source, build,
 reference, and rendered-page gates; see the
 [Chapter 1 audit](second_reading_ch01_audit_20261002.md),
 [Chapter 2 audit](second_reading_ch02_audit_20261002.md),
@@ -109,7 +109,8 @@ reference, and rendered-page gates; see the
 [Chapter 66 audit](second_reading_ch66_audit_20261004.md), and
 [Chapter 67 audit](second_reading_ch67_audit_20261004.md), and
 [Chapter 68 audit](second_reading_ch68_audit_20261004.md), and
-[Chapter 69 audit](second_reading_ch69_audit_20261004.md).
+[Chapter 69 audit](second_reading_ch69_audit_20261004.md), and
+[Chapter 70 audit](second_reading_ch70_audit_20261004.md).
 Chapter 16's original 5,753-line source and all 83 direct inputs were freshly
 read. Its product construction, proof interfaces, examples, harmonic
 compatibility and source scopes were repaired; all 274 chapter pages and two
@@ -338,9 +339,14 @@ The analytic cross, fixed-complex topology, trace, numerical-dimension and
 PL/slicing results retain their exact scopes; all five protected blocks keep
 their historical pins. All 26 chapter pages and both seams passed visual review;
 see the [Chapter 69 audit](second_reading_ch69_audit_20261004.md).
-Chapter 70 is active; all 2,268 main-source lines freshly read; eight direct inputs
-and scoped primary
-checks continue. No later unit is marked complete.
+Chapter 70's 2,268 main-source lines and all eight inputs were freshly read;
+all 4,802 expanded lines remain byte-identical. Excellent links, conductor
+descent, curve functoriality, generalized Lelong numbers, the Gauss core and
+invariant Reeb theory retain their distinct domains and historical pins.
+All 68 chapter pages and both seams passed visual review; see the
+[Chapter 70 audit](second_reading_ch70_audit_20261004.md).
+Chapter 71 is active; all 2,639 original lines freshly read; no direct inputs;
+scoped primary checks continue. No later unit is marked complete.
 
 The 3 October revised catalogue is complete: [LaTeX source](../../output/open_problems_catalogue_2026-10-03.tex),
 [85-page PDF](../../output/open_problems_catalogue_2026-10-03.pdf), and
