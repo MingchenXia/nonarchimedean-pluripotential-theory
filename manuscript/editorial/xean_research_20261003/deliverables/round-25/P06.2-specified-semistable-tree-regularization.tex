@@ -1,0 +1,734 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newcommand{\ddc}{\mathrm{d}'\mathrm{d}''}
+\newcommand{\Int}{\operatorname{Int}}
+\newcommand{\ord}{\operatorname{ord}}
+\newcommand{\Div}{\operatorname{Div}}
+\newcommand{\supp}{\operatorname{supp}}
+\title{Ordinary smooth two-sign regularization on a supplied semistable tree}
+\author{Xean research manuscript}
+\date{4 October 2026}
+\begin{document}
+\maketitle
+
+\noindent\textbf{Status and scope.}
+This is a conditional construction on an actual supplied smooth affinoid
+and actual supplied semistable tree. It does not solve original P06.2 or
+the all-curve regularization gate. No current transport, model existence,
+normalization, or recognition from a continuous current equation is proved
+or assumed. Source extraction and compilation are not mathematical
+certification. The exact conditional construction passed an independent Xean review;
+the full frozen argument and review accompany this manuscript.
+
+\begin{theorem}\label{thm:main}
+Let $C$ be algebraically closed, complete, and nontrivially valued, in any
+characteristic. Let $Z$ be a connected rig-smooth strict affinoid
+$C$-analytic curve, with a supplied simply semistable formal model
+$\mathfrak Z$, finite metric tree $\Gamma$, actual Shilov boundary $B$,
+and retraction $\tau:Z\to\Gamma$. Let $F$ be finite, real, continuous,
+affine on the edges, and harmonic on $\Gamma\setminus B$.
+Put $h=F\circ\tau$ and $\Omega=\Int(Z)$, the absolute analytic interior.
+For each sign $\sigma\in\{1,-1\}$ there are functions
+$u_n^\sigma\in C(Z,\mathbb{R})$ such that their restrictions to $\Omega$
+are ordinary CLD-smooth and psh, $u_{n+1}^\sigma\leq u_n^\sigma$ on $Z$,
+and $u_n^\sigma\to\sigma h$ uniformly on $Z$.
+Consequently, for every supplied compact strict affinoid
+$Y\subset\Omega$, both sequences restrict to decreasing uniformly
+convergent sequences on that same $Y$. Every approximant is ordinary
+smooth on the actual ordinary open neighborhood $\Omega$ of $Y$.
+For every nonnegative compactly supported ordinary smooth scalar test
+$\varphi$ on $\Omega$,
+\[
+ \langle\ddc[u_n^\sigma],\varphi\rangle
+ =\int_\Omega u_n^\sigma\ddc\varphi
+ =\int_\Omega\varphi\ddc u_n^\sigma\ \geq 0.
+\]
+No harmonic ordinary-smooth approximants are asserted.
+\end{theorem}
+
+\paragraph{Foundations, with their scopes and uses.}
+We use the following standard analytic and algebraic foundations.
+These are precisely stated inputs; the new constructions and their
+applications are proved below. The authoritative companion
+\texttt{P06.2-argument.md} includes the selected complete primary proof
+units, literal LF ranges, hashes, and the full body of this paper.
+
+\begin{enumerate}
+\item A strict affinoid algebra is Noetherian, and a maximal-ideal
+residue field is finite over the ground field (Tate affinoid
+Noetherianity and Nullstellensatz; \cite[\S6.1.2]{BGR}). A rig-smooth
+affinoid over an algebraically closed field is regular. In dimension
+one, a connected such algebra is an integral normal ring: distinct
+irreducible components of a regular Noetherian ring cannot meet, and
+its finitely many components would otherwise give a disconnected
+spectrum. For a nonzero element $a$ its zero locus is a finite set of
+rigid points. Indeed, in the dimension-one integral ring $A$, $A/(a)$
+is Noetherian of dimension zero, hence Artinian with finitely many
+maximal ideals; their residue fields are $C$. These are the only
+affinoid-algebra facts needed for finiteness of exceptional directions.
+For $x\in\mathcal{M}(A)$, $\mathcal{H}(x)$ is by definition the completion
+of $\operatorname{Frac}(A/\ker x)$; see
+\cite[\S2.1.1, immediately before Proposition 2.1.1]{Thu}.
+
+\item For a supplied simply semistable formal curve, its vertices are
+the generic points of the reduced special-fibre components, and its
+edges are the nodes. A vertex outside the actual analytic boundary has
+a proper smooth residual component. For a smooth strict affinoid curve
+the analytic boundary is its Shilov boundary, so $\Omega=Z\setminus B$.
+The residual component at a type-2 vertex $v$, completed if necessary,
+has function field $\widetilde{\mathcal{H}(v)}$.
+The components of $Z\setminus\Gamma$ retract to single points of
+$\Gamma$. At a model vertex, the directions are the residual closed
+points: nodes give the graph directions; the other points give full
+open residue discs. The node tube, with its two endpoints omitted,
+is a full ordinary open annulus and retracts to that edge interior.
+Sources are \cite[Proposition 2.1.2, Proposition 2.1.12,
+\S2.2.2--2.2.3, and the proper-component criterion in the proof of
+Proposition 2.2.24]{Thu} and \cite[15.2]{GJR}.
+Their hypotheses hold for the actual $\mathfrak Z$; no model is being
+manufactured for a different affinoid.
+
+To check the ambient hypothesis of the cited boundary identity
+explicitly, the rigid affinoid of $Z$ is normal, connected, and
+one-dimensional over complete algebraically closed $C$.
+\cite[Theorem 1.1]{VdP}, with precisely those hypotheses, embeds
+it as an affinoid domain of a nonsingular complete algebraic curve.
+\cite[Theorem 1.6.1 and Lemma 1.6.2(i)]{Ber}, over a nontrivially
+valued field and for Hausdorff strict analytic spaces, identifies
+this same affinoid with a Berkovich affinoid domain in that curve's
+boundaryless analytification. The image is the same affinoid
+algebra, not a substituted neighborhood. Thus Thuillier
+Propositions 2.1.10 and 2.1.12 apply with that boundaryless ambient
+curve: $B=\partial Z$ and its complement is an actual ordinary
+open interior. This use of a published algebraization foundation
+only checks the boundary identity. It supplies no new formal model,
+tree, factorization, or regularization theorem, and no later
+argument uses an algebraic presentation of $Z$.
+
+For clarity, the disc/annulus coordinate assertion used here follows
+from the given formal charts. At a smooth closed point the chart is
+formally etale over a formal line. At a node it is formally etale over
+$\operatorname{Spf}(C^\circ\{X,Y\}/(XY-a))$.
+The residue field of the selected point is $\widetilde C$. Here is
+the actual tube application, including its ordinary domain. The
+etale Jacobian-presentation criterion
+(\cite[IV, 17.6]{EGA}; \cite[I.5.3.11]{FK};
+\cite[Tags 00UE and 0ALI]{Stacks}, applied to the finite-presentation
+formal charts) gives, after localization at the selected point, finitely
+many equations in auxiliary variables with a square Jacobian
+invertible at its residual solution. All localizing denominators
+are nonzero at that solution. Choose constant lifts of its residual
+coordinates. On any strict closed subdisc $|T|\leq r<1$, or strict
+closed subannulus inside $|a|<|T|<1$, the equations evaluated at
+these lifts have Banach norm at most some $q<1$. Their Jacobian
+has inverse of norm at most one: its residual matrix is invertible,
+and the inverse is obtained from its adjugate and the geometric
+series for a determinant of the form a unit constant plus an error
+of norm less than one. Localization denominators similarly have
+norm-one inverses throughout the chosen branch. The base variables
+have norm less than one on these strict subdomains; the constant
+residual errors have norm less than one. Thus the asserted $q<1$
+follows directly from the bounded convergent formal coefficients.
+
+Banach Newton iteration now gives analytic auxiliary coordinates
+on that entire subdomain: the first correction has norm at most
+$q$, the next error at most $q^2$, and at step $j$ the error is
+at most $q^{2^j}$. The coefficients are bounded by one, so the
+Taylor remainder has this quadratic bound without dividing by
+factorials, in any characteristic. The limit is unique among
+solutions having the selected residual coordinates. To check this
+last point even for a solution initially farther than $q$ from
+the chosen constant lifts, the linear term has the norm of that
+distance while the quadratic remainder has strictly smaller norm;
+the equation therefore first forces distance at most $q$.
+For two such solutions the same invertible linear-term estimate
+forces equality. The argument also holds after evaluation in any
+completed residue field. Hence the analytic inverse constructed by
+Newton is both a left and right inverse on the selected tube,
+including nonrigid analytic points, rather than just a bijection
+on $C$-points. On overlapping subdomains these inverses agree by
+uniqueness. Their ordinary interiors exhaust the disc or annulus,
+because the value group of $C$ is dense. This gives respectively
+the full ordinary opens $|T|<1$ and $|a|<|T|<1$, with their
+entire analytic fibres, as claimed. This proof uses neither an
+adic completion at the non-finitely-generated maximal ideal of
+$C^\circ$ nor an assertion about the entire etale chart.
+The smooth residual point has the parameter $T$ supplied by that
+formal chart, normalized so the disc is $|T|<1$ and its added
+boundary point is $v$.
+
+\item If $f$ is analytic on the generic fibre of a simply semistable
+formal curve and is generically invertible, then its skeletal
+$\log|f|$ is integral piecewise affine; on each full retraction fibre
+it is an upper bound, with equality if there are no zeros on that
+fibre. Its graph Laplacian in the interior is the divisor degree in
+that fibre. This is \cite[Proposition 2.2.24]{Thu}. In particular,
+for a unit on a standard closed annulus the logarithm is affine on
+its skeleton and equals that affine function on every full fibre.
+For a connected simply semistable formal curve with exactly one node,
+and a unit on its entire generic fibre, the outgoing slope at a
+vertex is
+\[
+                 d_p\log|f|(v)=-\ord_p(\widetilde f),
+\]
+where $|f(v)|=1$ and $\widetilde f$ is its meromorphic residual
+function. This is \cite[Lemma 2.2.25]{Thu}. We apply the lemma only
+to actual one-node formal open subcurves on whose generic fibres
+the chosen quotient is a unit; that application is constructed below.
+The full Proposition 2.2.24 and Lemma 2.2.25 proofs are supplied in
+the companion argument, not just their statements.
+
+\item Type-2 cuts in the supplied model are available by admissible
+blowups (\cite[Lemma 2.2.22]{Thu}). The construction needed here is
+the explicit one in that proof: in a disc direction with formal
+parameter $T$, blow up $(T,c)$, $0<|c|<1$; at a node subdivide by
+the corresponding $(X,c)$ blowup. The new adjacent node tube is
+$|c|<|T|<1$. The strict transform of the original residual component
+is unchanged; the new node is its original point $p$. Finitely many
+such cuts may be made successively. These are all type-2 cuts.
+Any finite extension appearing in that lemma is trivial over $C$.
+Retraction compatibility is \cite[Proposition 2.2.26]{Thu}; the
+original $\tau$ is retained in the approximation.
+
+\item For a smooth projective connected curve $R$ of genus $g$ over an
+algebraically closed field, Riemann--Roch states
+$\ell(D)-\ell(K_R-D)=\deg D+1-g$, with $\deg K_R=2g-2$
+(\cite[IV, Theorem 1.3 and Example 1.3.3]{Hart}). In particular,
+when $\deg D\geq2g$, evaluation
+$H^0(R,\mathcal{O}(D))\to\mathcal{O}(D)|_p$ is onto for every closed
+point $p$. The application and exact-order avoidance are proved below.
+No assertion that every degree-zero divisor is principal is used.
+The residual component at the interior vertex meets the projective
+hypothesis as well as the proper one: an abstract nonsingular curve
+is an open subcurve of a nonsingular projective curve
+(\cite[I, Corollary 6.10, following Theorem 6.9]{Hart}); if the original curve is proper,
+its image is also closed in that separated projective curve, and
+connectedness makes the image the whole curve. Thus the actual
+smooth proper component $R_v$ is itself projective. This check
+does not require projectivity of the supplied analytic affinoid.
+
+\item Ordinary smooth functions are locally smooth functions of the
+logarithms of a finite tuple of actual analytic units on an ordinary
+open neighborhood (\cite[Proposition 15.1.1(b) and Corollary 15.1.2]{CLD}).
+Pullback commutes with $\mathrm{d}',\mathrm{d}''$, and a positive
+top-degree smooth form integrates nonnegatively for the canonical
+analytic calibration (\cite[\S7.3.1--7.3.4]{CLD}). On an analytic
+interior the calibrated space is harmonious
+(\cite[Theorem 15.6.1]{CLD}); the compact-support Stokes and Green
+formula, including the case where only the intersection of the
+supports is compact, is \cite[Proposition 5.11.1]{CLD}.
+These foundations apply to the good, Hausdorff, pure-dimensional,
+boundaryless ordinary open $\Omega$ of our affinoid. They imply that
+for a smooth $g$ and a compact scalar test $\varphi$ there,
+$\int g\ddc\varphi=\int\varphi\ddc g$.
+We prove positivity by calculating $\ddc g$ in the actual unit charts,
+not by a recognition theorem, weak smoothness, or a curve pullback.
+\end{enumerate}
+
+\paragraph{Field and multiplicity checks.}
+The residue field $k=\widetilde C$ is algebraically closed: lift a monic
+polynomial over $k$ to a monic polynomial over $C^\circ$, factor over
+$C$, and use leading-term dominance to see that every root has norm
+at most one. Reduction of the factorization proves the assertion.
+It is consequently infinite, even if it is the algebraic closure of
+a finite field. Taking roots in $C$ makes $|C^\times|$ divisible;
+the logarithms of the rational powers of one nontrivial value are
+dense in $\mathbb{R}$. Thus arbitrarily short strict type-2 cuts exist.
+The model is simply semistable, so its special fibre is reduced.
+The edge weight is $[\kappa(p):k]$ at the corresponding node
+(\cite[\S2.2.3]{Thu}, \cite[15.2]{GJR}), which is $1$ here.
+The generic integration cycle of $Z$ has length $1$, since $Z$ is
+smooth and reduced. These are computed actual multiplicities, not
+an imposed normalization. In a non-coordinate unit moment there can
+still be higher tropical multiplicities or inseparable degrees;
+they are retained in the canonical calibration in the positivity
+calculation below. No prime-to-characteristic assumption occurs.
+
+\begin{lemma}[Exact residual movement]\label{lem:rr}
+Let $R$ be a smooth projective connected curve of genus $g$ over an
+infinite algebraically closed field $k$. Let $p_1,\ldots,p_d$ be distinct
+closed points and $q_i\in\mathbb{Q}$ with $D_0=\sum_i q_i>0$.
+For any finite forbidden set $M$ containing those points there is
+an integer $N>0$ clearing all denominators and a rational function
+$\bar f\in k(R)^\times$ such that
+\[
+ \ord_{p_i}(\bar f)=-Nq_i,
+ \qquad
+ \operatorname{div}(\bar f)=A-\sum_i Nq_i[p_i],
+\]
+where $A$ is effective, supported outside $M$, and $\deg A=ND_0$.
+In particular every additional nonzero order is positive.
+\end{lemma}
+\begin{proof}
+Choose a sufficiently large multiple $N$ of a common denominator with
+$ND_0\geq\max\{1,2g\}$, and put $E=\sum_iNq_i[p_i]$.
+For any $p$, both $K_R-E$ and $K_R-E+p$ have negative degree.
+A negative-degree line bundle has no nonzero section, since the
+divisor of a nonzero section would be effective of the same degree.
+Riemann--Roch therefore gives $\ell(E)-\ell(E-p)=1$.
+The kernel of evaluation at $p$ is precisely $H^0(R,\mathcal{O}(E-p))$,
+so the evaluation kernel is a proper linear subspace.
+Over an infinite field, a finite union of proper subspaces of a finite
+dimensional vector space is not the whole space: take the product of
+nonzero linear forms vanishing on those subspaces, and use induction
+on the number of variables to see that a nonzero polynomial cannot
+vanish at every $k$-point. Choose a section $s$ outside all kernels
+for $p\in M$. The space is nonzero by Riemann--Roch and the degree
+bound. Regard $s$ as a rational function $\bar f$ in the definition
+of $\mathcal{O}(E)$. Then $A=\operatorname{div}(\bar f)+E$ is effective
+and has coefficient zero at every point of $M$. This proves exact
+orders, not just lower bounds. Its degree is $\deg E=ND_0$ because
+a principal divisor has degree zero. All zeros not prescribed by
+negative $q_i$ are precisely the finite effective divisor $A$.
+\end{proof}
+
+\begin{lemma}[Actual unit and a common ordinary star]\label{lem:star}
+Let $v$ be an interior model vertex of the supplied $Z$, and let
+$\bar f\in k(R_v)^\times$ be any nonzero residual rational function.
+There is a quotient $f=a/b$ with $a,b\in\mathcal{O}(Z)$, an actual
+ordinary open neighborhood $W$ of $v$ on which $f$ is an analytic
+unit, and finitely many exceptional residual directions $E$, with
+the following properties. We have $|f(v)|=1$ and reduction $\bar f$.
+Every graph direction has a full open annular collar in $W$ on
+which $\log|f|$ is its exact affine outgoing germ, of slope
+$-\ord_p\bar f$. Every direction in $E$ that is not a graph
+direction has such a collar in its full residue disc. In every
+other residue disc $f$ is a unit on the entire disc and $|f|=1$.
+The set $E$ may contain zero-order directions. In those directions
+the collar logarithm is exactly zero, and may be replaced farther
+in the disc by that same constant.
+\end{lemma}
+\begin{proof}
+Write $Z=\mathcal{M}(A)$. At $v$, the residual function field of the
+given component is $\widetilde{\mathcal{H}(v)}$, by the reduced model
+and Proposition 2.1.2 of Thuillier. Lift $\bar f$ to
+$z\in\mathcal{H}(v)^\circ$ of norm one. By the definition of
+$\mathcal{H}(v)$, choose $a/b\in\operatorname{Frac}(A)$ with
+$|a(v)/b(v)-z|<1$. The quotient has norm one and exactly the same
+residue, not an approximate residue. Here $v$ has zero kernel on
+$A$: it is not a rigid zero of any nonzero element of the integral
+dimension-one ring $A$, as also explained in Thuillier's proof of
+Proposition 2.2.24. Thus the fraction genuinely uses global analytic
+functions $a,b$, both nonzero at $v$.
+
+Let $P$ be the union of their zero sets. It is finite, consists of
+rigid points, and does not contain $v$. On the ordinary open
+$Z\setminus P$, $f$ is an analytic unit. Indeed, around a point
+where $|a|,|b|>0$, lower bounds on both absolute values give rational
+affinoid neighborhoods on which their inverses are analytic, and
+the strict lower-bound loci are ordinary open.
+The functions $a,b$ can be scaled by the same scalar so that both
+have norm one at $v$; this is possible since a model vertex has
+$|\mathcal{H}(v)^\times|=|C^\times|$. Their quotient reduction is
+still exactly $\bar f$.
+
+Choose an open metric star $S$ in $\Gamma$ about $v$, containing
+no other model vertex or boundary point. Make every graph arm so
+short that it avoids $\tau(P)\setminus\{v\}$. This is possible
+because that set is finite. The ordinary open $U=\tau^{-1}(S)$
+contains the entire residue disc $D_p$ at each non-graph direction
+$p$ of $v$. It also contains full edge collars: it is not just a
+union of paths in the skeleton.
+Let $E$ contain the graph directions, $\supp\operatorname{div}(\bar f)$,
+and the directions of all points in $P\cap\tau^{-1}(v)$.
+This set is finite. For each non-graph $p\in E$, write $D_p$ as
+$|T_p|<1$, as in the formal-chart foundation. Choose
+$r_p\in|C^\times|$, $r_p<1$, larger than the norms of all points
+of $P\cap D_p$, and let $K_p=\{|T_p|\leq r_p\}$.
+It is an actual compact strict closed disc inside $D_p$, hence
+closed in the Hausdorff compact $Z$. Set
+\[
+                     W_0=\tau^{-1}(S)\setminus\bigcup_{p\in E\text{ non-graph}}K_p.
+\]
+This is an ordinary open neighborhood of $v$, contained in
+$\Omega$, disjoint from $P$. Thus $f$ is one actual unit on $W_0$.
+
+We verify all outgoing slopes with their correct formal hypotheses.
+On each graph arm choose a strict type-2 cut inside $S$, before
+any point of $P$ in that arm. In each exceptional residue disc
+use the cut $|T_p|=r_p$, increasing $r_p$ toward $1$ if needed.
+The explicit admissible blowups $(T_p,c_p)$ and the node subdivisions
+in Thuillier Lemma 2.2.22 create these finitely many adjacent edges.
+For a smooth residual point, the charts $T_p=c_pU$ and $T_pV=c_p$
+show directly that the strict transform of $R_v$ is isomorphic to
+$R_v$, that the new node on it is $p$, and that the tube of that
+node is $r_p<|T_p|<1$. At an existing graph node the analogous
+subdivision gives the short original edge collar. None of these
+node tubes meets $P$, by the cuts just chosen.
+
+In this single refined formal model, fix one adjacent node. Its
+special-fibre node point is not the reduction of a point of $P$,
+because its entire tube is disjoint from $P$. Remove the reductions
+of the finitely many points in $P$ and all other nodes, and retain
+a connected formal open neighborhood of the selected node with
+exactly this one singular point. Both components through it are
+retained at their generic points. The quotient $f$ is a unit on
+its entire generic fibre; its reduction at the $v$ component is
+the restriction of the same $\bar f$, and the order at $p$ is
+unchanged. Lemma 2.2.25 now applies with all its actual hypotheses
+and gives $d_p\log|f|(v)=-\ord_p\bar f$.
+This use of a formal open is solely a slope computation; it is
+not an assertion that its generic fibre is the ordinary star.
+The actual ordinary neighborhood is the explicitly open $W_0$.
+Repeating the calculation for the finitely many adjacent nodes
+does not change $f$ or that neighborhood.
+
+The equality on whole collars, rather than just skeletal traces,
+is also exact. Exhaust each selected open annulus by strict closed
+subannuli. The quotient is a unit there. Proposition 2.2.24(ii),(iii)
+on the standard annulus gives equality on every full fibre and
+zero Laplacian at every interior skeletal point. Its piecewise
+integer-affine trace is therefore affine. Overlapping subannuli
+identify one affine function on the entire connected collar. Its
+intercept is $\log|f(v)|=0$ by continuity toward $v$, and its slope
+is the just computed $-\ord_p\bar f$. In a graph arm this uses
+the original edge coordinate and its original distance from $v$.
+For a residue disc it says, with $t_p=-\log|T_p|$,
+\[
+                    \log|f|=-\ord_p(\bar f)\,t_p
+                   \quad (0<t_p<-\log r_p).
+\]
+The strict subannuli exhaust because $\log|C^\times|$ is dense.
+
+Finally, if $p\notin E$ is a non-graph direction, neither $a$ nor
+$b$ vanishes anywhere in $D_p$. Exhaust $D_p$ by nested concentric
+strict closed discs. On each such disc both $f$ and $f^{-1}$ have
+their maximum at the unique Gauss Shilov point. The two inequalities
+force $|f|$ to be constant on that entire closed disc. The nested
+constants agree, hence $|f|$ is constant on $D_p$; its value is
+one by continuity to $v$. This proves all remaining directional
+claims simultaneously. If an exceptional direction has order zero,
+the exact collar formula gives $\log|f|=0$ there even if $a$ or
+$b$ has zeros deeper in the disc. A zero-order lift exception is
+therefore handled without a fictitious all-disc unit assertion.
+One may further shorten each of the finitely many cuts to obtain
+any smaller common ordinary star. The same $f$ works throughout.
+\end{proof}
+
+\begin{lemma}[An analytic cap with exact open overlaps]\label{lem:cap}
+On a full residue disc $D=\{|T|<1\}$ attached at $v$, suppose
+an actual unit germ on a common ordinary neighborhood has potential
+$c-a t$, $a>0$, on the full collar $0<t=-\log|T|<\ell$.
+Given any $\epsilon>0$, this potential can be continued as an
+ordinary smooth psh function on $D$ which agrees with that potential
+on a smaller full collar, is constant on an ordinary inner open
+disc, and differs everywhere from $c$ by less than $\epsilon$.
+It can be glued to the original unit germ using genuine ordinary
+open overlaps; $v$ does not belong to the cap annulus.
+\end{lemma}
+\begin{proof}
+Let $\rho$ be an even nonnegative $C^\infty$ probability density
+supported in $(-1,1)$, and set
+\[
+ \chi_\eta(x)=\int |x-\eta s|\rho(s)\,ds,
+ \qquad M_\eta(x,y)=\frac{x+y+\chi_\eta(x-y)}2.
+\]
+The convolution is smooth and convex, $|\chi_\eta'|\leq1$,
+and $\chi_\eta''\geq0$. Jensen's inequality and the triangle
+inequality give
+$|x|\leq\chi_\eta(x)\leq|x|+\eta$.
+Evenness gives zero first moment, so $\chi_\eta(x)=|x|$ if
+$|x|\geq\eta$. Its Hessian is
+$\chi_\eta''(x-y)(1,-1)^{\mathsf t}(1,-1)/2$ and its first
+partials are nonnegative. Thus $M_\eta$ is smooth convex,
+equals $\max(x,y)$ when $|x-y|\geq\eta$, and lies between
+that maximum and that maximum plus $\eta/2$.
+
+Choose $r>0$ and then $\eta>0$ such that
+\[
+ 0<\eta<ar/2,\qquad r+\eta/a<\ell,
+ \qquad ar+\eta/2<\epsilon.
+\]
+These are strict inequalities. On the full ordinary open annulus
+$A=\{e^{-\ell}<|T|<1\}$ put
+\[
+                 q(t)=M_\eta(c-at,c-ar).
+\]
+It equals $c-at$ for $0<t<r-\eta/a$ and the \emph{new}
+constant $c-ar$ for $t>r+\eta/a$.
+Take $s$ strictly between $r+\eta/a$ and $\ell$, and continue
+by $c-ar$ on the ordinary open inner disc $E=\{|T|<e^{-s}\}$.
+The two opens cover $D$ and agree exactly on the full open annulus
+$s<t<\ell$. To glue at $v$, shorten the star cut to any
+$t_0\in(0,r-\eta/a)$. On its overlap with $A$ there is the
+entire annulus $0<t<t_0$, with identical values. No partition
+gluing is involved. The omitted interface Gauss points are
+included in one or the other of these open sets.
+
+The coordinate $T$ is a unit on $A$, and $t=-\log|T|$ is
+an actual ordinary moment coordinate. The function $q$ is
+smooth convex in $t$, so on $A$
+\[
+                    \ddc q=q''(t)\,\mathrm{d}'t\wedge\mathrm{d}''t,
+                    \qquad q''(t)\geq0.
+\]
+On $E$ the Hessian is zero. Hence these are ordinary smooth
+functions with positive Hessian form. Their current positivity
+against arbitrary compact tests is proved below using the actual
+analytic calibration. The bound from the regularized maximum is
+$|q-c|\leq ar+\eta/2<\epsilon$, and the constant continuation
+has the same bound. In particular we never restore the old
+constant $c$. No annular chart containing the positive-genus
+vertex was claimed; it is covered by the unchanged unit germ.
+\end{proof}
+
+\begin{proposition}[Uniform ordinary approximation on the supplied domain]\label{prop:raw}
+Under the geometric hypotheses of Theorem \ref{thm:main}, let $H$
+be a finite real continuous edge-affine function on $\Gamma$ with
+nonnegative outgoing-slope sum at every model vertex outside $B$.
+For every $\epsilon>0$ there is $g\in C(Z,\mathbb{R})$, ordinary
+CLD-smooth and psh on $\Omega$, with
+$\|g-H\circ\tau\|_{C(Z)}<\epsilon$.
+\end{proposition}
+\begin{proof}
+If $\Gamma$ is a point, $H\circ\tau$ is constant and already
+works. Otherwise let $V$ be the original model vertices and
+$I=V\setminus B$. We use no type-3 model vertices. Redundant
+metric subdivisions at which $H$ is harmonic may be removed;
+in Theorem \ref{thm:main} the slopes on their two arms are equal.
+Choose a root $b\in B$, which is nonempty for a nonempty
+affinoid. Set $\mu=1$ on $I$, $\mu(b)=-|I|$, and zero on
+$B\setminus\{b\}$. Root the tree at $b$. For each child $x$
+let $m_x$ be the sum of $\mu$ over the child subtree; prescribe
+slope $m_x$ from $x$ to its parent and integrate with root value
+zero to get $\psi$. At $x\ne b$ the outgoing sum is
+$m_x-\sum_{y\text{ child of }x}m_y=\mu(x)$; at $b$ the same
+identity follows from $\sum\mu=0$. Thus $\Delta\psi=1$ on $I$.
+
+For $\delta>0$ small, $H+\delta\psi$ is within $\epsilon/4$
+of $H$ and has outgoing-sum margin at least $\delta$ on $I$.
+Round its oriented slopes to rationals with error less than
+$\eta_0$, and integrate them from the root's original value to
+get $G$. Path uniqueness on the tree gives consistency, and if
+$L$ is total length and $d$ maximum valency,
+\[
+ \|G-(H+\delta\psi)\|_\infty\leq L\eta_0,
+ \qquad |\Delta G-\Delta(H+\delta\psi)|\leq d\eta_0.
+\]
+Choose $L\eta_0<\epsilon/4$ and, if $I$ is nonempty,
+$d\eta_0<\delta/2$. Then
+$\|G-H\|_\infty<\epsilon/2$ and $\Delta G(v)>0$ on $I$.
+When $I$ is empty the outgoing-sum condition is empty.
+This elementary tree step is reproved here for use, not presented
+as a new analytic result or as a fixed-cycle rounding procedure.
+
+Fix $v\in I$. Its graph directions correspond to the distinct
+node points $p_i$ of the smooth proper residual component $R_v$;
+there are no self-nodes since the model is simply semistable.
+Let $q_i$ be the outgoing slopes of $G$. Their sum is positive.
+Apply Lemma \ref{lem:rr}, forbidding every graph direction.
+It produces $N_v$ and
+$\operatorname{div}(\bar f_v)=A_v-\sum_i N_vq_i[p_i]$,
+where $A_v=\sum_{p\in S_v}m_p[p]$ is effective and all its
+points are fresh non-graph smooth points. Every such direction
+is a full available residue disc of this actual $Z$.
+Apply Lemma \ref{lem:star} to obtain one actual unit $f_v$.
+The ordinary smooth potential
+\[
+                   H_v=G(v)+N_v^{-1}\log|f_v|
+\]
+has exactly the graph slopes $q_i$, exactly the fresh slopes
+$-m_p/N_v<0$, and zero slopes in all other directions, including
+finite additional lift exceptions. It is an affine function of
+an actual unit moment on the entire common star, so its Hessian
+form is identically zero there. It is not being inferred smooth
+from a weak harmonic tropicalization or from a germ exact sequence.
+
+Choose the metric graph stars at the finitely many $v\in I$ so
+short that they are pairwise disjoint and miss $B$. Lemma
+\ref{lem:star} allows further shrinking without changing $f_v$.
+On every graph collar $H_v=G\circ\tau$ exactly on the whole
+annular fibre: intercept and slope agree. In zero-order exceptional
+residue directions glue $H_v$ to the constant $G(v)$ on the
+whole disc, using the exact constant collar. On every other
+non-fresh direction the full-disc potential is already $G(v)$.
+For each fresh $p\in S_v$, apply Lemma \ref{lem:cap} with
+$c=G(v)$, $a=m_p/N_v$, and error $\epsilon/2$. There are only
+finitely many such directions. Make the finitely many star cuts
+shorter than their exact affine overlap lengths, while leaving
+each cap annulus long enough for its transition and constant
+overlap. The common star remains ordinary open because it is
+an inverse image of an open graph star minus finitely many
+compact closed inner discs. The unchanged central unit germ,
+caps, and constant disc continuations therefore agree on all
+ordinary open overlaps.
+
+On the full annulus attached to each original open edge put the
+original affine value of $G\circ\tau$ in its annulus coordinate.
+This is ordinary smooth with zero Hessian. On every residue
+disc at a model vertex, use the constant or capped function
+just specified; at a boundary vertex use the constant $G(b)$
+on its residue discs and $G\circ\tau$ on a small graph star
+to check continuity. No smoothness at a boundary vertex is
+required. Graph collars at interior vertices agree with the
+edge formula on full ordinary open annuli. Residue discs
+attached at points in an edge interior are already included
+in that edge's full annulus; their values are the same affine
+edge value. This accounts for all analytic points, including
+the type-3 and type-4 points in the annuli and discs.
+
+The preceding sets give an actual ordinary open cover of
+$\Omega$: central stars at interior model vertices, full
+edge annuli, and full residue discs (a fresh disc itself is
+covered by its cap annulus and inner disc). Exact agreement
+on every overlap defines a single ordinary smooth function
+there. It extends continuously to $Z$, with $g(b)=G(b)$:
+there are finitely many interior stars, they avoid $B$, and
+near a boundary vertex the function is just $G\circ\tau$.
+The replacement regions are disjoint apart from their exact
+overlaps. Outside a fresh residue disc the value is exactly
+$G\circ\tau$; inside it the latter is the constant $G(v)$
+and the error is less than $\epsilon/2$. Therefore
+\[
+ \|g-G\circ\tau\|_{C(Z)}<\epsilon/2,
+ \qquad \|g-H\circ\tau\|_{C(Z)}<\epsilon.
+\]
+
+Here is the positivity check with unrestricted ordinary tests.
+In a central star, $g=G(v)+N_v^{-1}\log|f_v|$, so
+$\ddc g=0$ as a smooth form. In an edge annulus it is affine
+in $-\log|T|$, so again the form is zero. In constant regions
+it is zero, and in cap charts it is
+$q''(t)\mathrm{d}'t\wedge\mathrm{d}''t$ with $q''\geq0$.
+There are no interface distributions, since these smooth
+formulas agree on ordinary open overlaps. To see the sign
+in an arbitrary common unit chart for a test and the cap,
+on each one-dimensional calibrated cell let $\xi$ be a
+primitive tangent coordinate, $m_\alpha>0$ its actual
+canonical multiplicity, and $t=A_\alpha\xi+c_\alpha$.
+Its contribution is
+\[
+            m_\alpha\varphi\,q''(t)A_\alpha^2\,d\xi\geq0.
+\]
+Cells with $A_\alpha=0$ contribute zero, including the
+residual directions collapsed by this coordinate. We neither
+discard those directions nor replace $m_\alpha$ by one.
+The coordinate annulus itself has calibration one, but
+refined moment charts can have other multiplicities.
+Equivalently, $\ddc g$ is a positive ordinary top-degree
+form everywhere, and canonical integration preserves its
+positivity (CLD \S7.3.4). For every compact nonnegative
+ordinary scalar test $\varphi$ on $\Omega$, Green's formula
+with $g$ and $\varphi$ applies because their support
+intersection is compact and $\Omega$ is boundaryless:
+\[
+        \langle\ddc[g],\varphi\rangle
+        =\int_\Omega g\ddc\varphi
+        =\int_\Omega\varphi\ddc g\geq0.
+\]
+This proves ordinary current positivity for every test, and
+thus psh of the smooth approximant in the ordinary CLD
+sense. Only tests, not psh potentials, may be localized by
+partitions; the construction did not use partition gluing.
+\end{proof}
+
+\begin{proof}[Proof of Theorem \ref{thm:main}]
+Both $F$ and $-F$ meet Proposition \ref{prop:raw}'s outgoing-sum
+hypothesis with sum zero. For each sign and $b_n=4^{-n}$,
+choose $g_n^\sigma$ on the same entire $Z$ with
+$\|g_n^\sigma-\sigma h\|_{C(Z)}<b_n$.
+Set
+\[
+ c_n=\sum_{j\geq n}(b_j+b_{j+1})=\tfrac53 b_n,
+ \qquad u_n^\sigma=g_n^\sigma+c_n.
+\]
+Then $c_n-c_{n+1}=b_n+b_{n+1}$, so
+$u_n^\sigma-u_{n+1}^\sigma\geq0$ on $Z$.
+Furthermore
+\[
+             0\leq u_n^\sigma-\sigma h\leq\tfrac83 b_n
+\]
+on $Z$. Thus each sequence decreases uniformly from above.
+Constants preserve ordinary smoothness and current positivity.
+No domain shrinks with $n$ or with the sign. Restricting to
+the supplied $Y\subset\Omega$ proves the required assertion
+on precisely that $Y$, with the ordinary neighborhood
+$\Omega$ available for every approximant. The functions are
+continuous up to $B$, but their boundary values need not
+equal $\sigma F|_B$ at any finite stage.
+\end{proof}
+
+\paragraph{Comparison with original P06.2.}
+The input here already provides smooth reduction, an actual
+semistable model with tree skeleton, and harmonic skeletal
+factorization over an algebraically closed ground field.
+The theorem establishes the ordinary two-sign regularization
+construction under those inputs, including positive residual
+genus, real slopes, all full annular fibres, and finite lift
+exceptions. It does not derive any of those inputs from an
+arbitrary continuous zero-current function. It does not prove
+the all-curve gate, scalar-current ascent, or the unchanged
+good separated strict boundaryless arbitrary-dimensional
+recognition atom. No strict analytic counterexample is given.
+The catalogue's claimed book regularization result was read
+as fallible mathematical source material, not used as a theorem
+grant. The tree and cap calculations already present in the
+predecessor are reproved as supporting steps, not counted as
+new analytic results. The substantive construction is
+the explicit residual lift, finite exceptional-direction
+control, and the resulting actual whole-overlap analytic
+construction. The original arbitrary-dimensional P06.2 remains open.
+
+\section*{Review and supporting evidence}
+The independent Xean native Codex review used \texttt{gpt-6.1-sol}
+with \texttt{xhigh} reasoning and accepted precisely this conditional
+construction. Its full report, sixteen premises and twenty-six source
+passages were read and bound to the unchanged argument, source and status.
+The new proof, all three canonical native notes and all seventeen selected
+primary bodies were read. A fresh-copy reproduction preserved the argument
+and source bytes and compiled successfully. These checks support reviewability;
+they are not formal verification or priority certification.
+
+The source quotations and full mathematical argument accompany the paper.
+In Thuillier's normalized residual-function statement, the residual divisor
+and its orders are independent of the normalizing scalar; the residual
+function can change by a nonzero residue-field scalar. This distinction
+does not alter any slope or divisor calculation above. The supplied model,
+tree and harmonic factorization remain hypotheses throughout.
+
+\begin{thebibliography}{99}
+\raggedright
+\bibitem{BGR} S. Bosch, U. G\"untzer, R. Remmert,
+\emph{Non-Archimedean Analysis}, Springer, 1984, \S6.1.2
+(affinoid Noetherianity and Nullstellensatz); regular affinoid
+algebras and the Jacobian criterion in \S7.3.
+\bibitem{EGA} A. Grothendieck and J. Dieudonn\'e,
+\emph{\'El\'ements de g\'eom\'etrie alg\'ebrique IV},
+Publ. Math. IH\'ES 32 (1967), \S17.1 and \S17.6
+(formal etaleness and etale morphisms).
+\bibitem{FK} K. Fujiwara and F. Kato,
+\emph{Foundations of Rigid Geometry I}, arXiv:1308.4734,
+Proposition I.5.3.11 (formal etale reduction criterion).
+\bibitem{Stacks} The Stacks Project, Tags 00UE and 0ALI,
+\url{https://stacks.math.columbia.edu/tag/00UE},
+\url{https://stacks.math.columbia.edu/tag/0ALI}.
+\bibitem{Hart} R. Hartshorne, \emph{Algebraic Geometry},
+Springer, 1977, Chapter IV, Theorem 1.3 and Example 1.3.3.
+Chapter I, Corollary 6.10 following Theorem 6.9, for the open projective completion.
+\bibitem{Thu} A. Thuillier, \emph{Th\'eorie du potentiel sur
+les courbes en g\'eom\'etrie analytique non archim\'edienne.
+Applications \`a la th\'eorie d'Arakelov}, thesis, 2005,
+HAL tel-00010990v1. Exact installed version, not a later
+transcription.
+\bibitem{CLD} A. Chambert-Loir and A. Ducros,
+\emph{Formes diff\'erentielles r\'eelles et courants sur les
+espaces de Berkovich}, arXiv:1204.6277v2, 25 July 2025.
+The cited numbering is that of the installed v2 PDF, SHA-256
+\nolinkurl{5690f999523017d184ab751bb55857ab1637b197d1186ad4fd2edba7e1bda719}.
+\bibitem{GJR} W. Gubler, P. Jell, J. Rabinoff,
+\emph{Forms on Berkovich spaces based on harmonic tropicalizations},
+arXiv:2111.05741v3, exact installed version, \S15.2.
+\bibitem{VdP} M. van der Put, \emph{The class group of a
+one-dimensional affinoid space}, Ann. Inst. Fourier 30(4) (1980),
+155--164, Theorem 1.1. Its ground field is complete and
+algebraically closed.
+\bibitem{Ber} V. Berkovich, \emph{\'Etale cohomology for
+non-Archimedean analytic spaces}, Publ. Math. IH\'ES 78 (1993),
+5--161, Theorem 1.6.1 and Lemma 1.6.2,
+DOI 10.1007/BF02712916.
+\end{thebibliography}
+\end{document}
