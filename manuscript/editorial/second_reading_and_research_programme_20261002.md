@@ -532,7 +532,9 @@ infrastructure history: Codex is ChatGPT-subscription authenticated, but its
 native model smoke failed before inference on the read-only managed state
 path, and Pi roles do not automatically inherit native CLI login. No
 API-key substitution or further local-machine setup is being pursued.
-The authorized whole-book reading and polishing pass continues in the cloud.
+The authorized whole-book reading and polishing pass completed on 4 October.
+Related-direction literature and source checking now continue in the cloud;
+see the [first arXiv scouting audit](recent_arxiv_scouting_audit_20261004.md).
 
 P02.1 has been initialized with frozen task and settings, zero admitted model
 calls, and no generated mathematical notes. No Xean mathematical campaign
