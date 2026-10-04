@@ -807,6 +807,30 @@ independent verifier, book admission or status change is claimed.
 Continue checking coherent face-compatible dilation and the related
 recent literature; the active 4,244-page book and all 42 statuses stay fixed.
 
+### Compatible dilation and the semistable category, 4 October 2026
+
+The [source-supported reduction](research_dossiers/li_face_compatible_dilation_and_semistable_scope_20261004.md)
+specializes ALT's finite conical-complex resolution to compatible
+positive height slices. Surjectivity on every ray, rather than only
+on maximal cones, gives height-one generators; regular cone bases
+then give simultaneous ambient-unimodular simplices. Coherence is
+an explicit source import, and global scheme realization remains
+conditional. Fresh reading covers 1,182 scoped HPPS lines, 386
+scoped Liu lines, the complete 517-line May 2026 symmetric-counting
+paper and all 1,103 ALT lines, with 33 selected actual pages viewed.
+Liu's regularity enhancement is not proved in its displayed paper;
+ALT's compatible height-function check is left to the reader.
+Actual-PDF auxiliary diagnostics are recorded without declaring
+the principal resolution/counting claims false. The recent counting
+capacity is distinct from pluripotential capacity and does not supply
+a general coherent-model theorem. See the [audit](li_face_compatible_dilation_and_semistable_audit_20261004.md)
+and [manifest](li_face_compatible_dilation_and_semistable_manifest_20261004.json).
+No independent verifier, reproduced enumeration, active-book admission
+or status change is claimed. Continue with current relative-
+desingularization dependencies and the trait/root-stack/vertical-
+presentation checks. The 4,244-page book and all 42 statuses stay fixed;
+normal GitHub publication and incoming-progress fetches continue.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit
