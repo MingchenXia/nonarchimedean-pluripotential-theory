@@ -906,6 +906,32 @@ statuses stay fixed at this checkpoint. Continue with ordinary
 admission of the known local-model boundary, remaining global
 inputs, recent literature and incoming GitHub progress.
 
+### Height-one obstruction book integration, 4 October 2026
+
+Chapter 5 now adds the complementary known-source obstruction after
+the Sylvester construction. A height-one normal toric cone gives a
+reduced central fibre and a smooth generic torus, but its index-39
+singularity cannot be removed by a smooth reduced toric subdivision
+over the same parameter: that would give the unimodular triangulation
+excluded by published Firla–Ziegler Example 10. The integral
+identification and ray-prime ideal calculation are explicit. The
+September HNF comparison retains its constant-coordinate hypothesis,
+version and earlier two-parameter provenance. Appendix L and two
+bibliography entries record the precise imports.
+See the [integration audit](hnf_height_one_integration_audit_20261004.md),
+[manifest](hnf_height_one_integration_manifest_20261004.json) and
+[source ledger](hnf_height_one_integration_source_closure_20261004.sha256).
+The 4,249-page full build passes with zero errors, warnings, overflow
+or unresolved references. All 70 selected actual pages in eighteen
+sheets were viewed, including the full index and references and scoped
+seams. Post-render references and inventory pass. All old formal blocks
+and 423 other active TeX inputs, including 108 protected M–N inputs,
+remain unchanged. No new independent verifier, general theorem,
+triangulation-nonexistence certificate or change to the 42 statuses is
+claimed. The 4,246-page artifacts remain historical. Continue checking
+related recent papers and the global model inputs, fetching incoming
+research and publishing verified cloud milestones normally to work.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit
