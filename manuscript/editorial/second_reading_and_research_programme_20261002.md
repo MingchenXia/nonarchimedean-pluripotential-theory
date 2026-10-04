@@ -975,6 +975,29 @@ See the [audit](fujiki_oka_height_one_integration_audit_20261004.md),
 Continue related-paper reading and noncircular Siu-repair attempts in the
 cloud, with normal work-branch publication and incoming-research checks.
 
+### Siu repair-route follow-up, 4 October 2026
+
+The [research dossier](bj22_siu_repair_routes_dossier_20261004.md)
+records six attempted routes with their precise missing inputs. A
+two-branch approximation on `P^1` is realized by sections of the same
+ample `O(2)` and admits no divisor coefficients tending to one that
+make its residuals decreasing. Finite additive constants also fail
+along divisorial rescalings. For the canonical coefficient choice,
+the raw global residual limit has a non-usc proper-support value,
+although its divisorial trace has the correct zero psh extension.
+This diagnoses proof repairs and does not disprove Siu division.
+
+Fourteen selected actual BJ22 pages and the relevant extracted proofs
+were read; the earlier same-byte Green-function proposition page is
+explicitly reused. Exact arithmetic checks the section degrees, branch
+values, classes and finite witnesses. The dossier and
+[manifest](bj22_siu_repair_routes_manifest_20261004.json) remain outside
+the active TeX closure, with no independent production receipt or theorem
+promotion. All 425 active book sources, the 86-page catalogue and 42
+atomic statuses stay fixed. Continue by checking alternative
+approximations and more recent primary literature for a noncircular
+endpoint argument.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit
