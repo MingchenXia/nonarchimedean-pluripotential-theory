@@ -719,7 +719,7 @@ counterexample are verified.  The positive-at-infinity Bergman-fan
 obstruction \(\texttt{prop:frontier-polyhedral-bergman-positive-infinity-obstruction}\)
 now strengthens the source's \(U_{3,4}\) example: for a polyhedrally convex
 reference with the required growth, the constructed envelope agrees with
-the source reference near its mass-four origin.  The bounded PA reference
+the source reference near its mass-four origin.  The bounded real-PA reference
 shift identifies its envelope problem and regularization class with those
 for a conical reference, but it does not prove that this particular envelope
 is regularizable.  The rigorous conclusion is the following dichotomy:

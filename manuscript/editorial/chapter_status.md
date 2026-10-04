@@ -3,7 +3,7 @@
 ## Active continuation: second reading and research
 
 On 2 October 2026 the user requested another complete reading pass from
-Chapter 1 for coherence and readability. Chapters 1--71 pass the new reading
+Chapter 1 for coherence and readability. Chapters 1--72 pass the new reading
 gates; see the [Chapter 23 audit](second_reading_ch23_audit_20261003.md) and its
 [rational-competitor follow-up](second_reading_ch23_rational_followup_audit_20261003.md).
 Chapter 17's original 4,813-line source and all seven direct inputs were
@@ -279,8 +279,17 @@ filtration maximality and zero-volume boundary retain their exact domains;
 all 28 protected blocks keep their historical pins. All 36 chapter pages and
 both seams passed visual review; see the
 [Chapter 71 audit](second_reading_ch71_audit_20261004.md).
-Chapter 72 is active; its 6,550 main-source lines and 39 direct inputs are
-being read. No later chapter is marked complete.
+Chapter 72's 6,550 original main-source lines and all 3,326 input lines were
+freshly read. The Bergman growth-corrected obstruction now explicitly uses
+real coefficients; its unsupported literal clause is removed and its prior
+protected payload is archived. All 42 atoms retain their statuses. All 144
+chapter pages and both seams passed visual review; see the
+[Chapter 72 audit](second_reading_ch72_audit_20261004.md).
+Appendix A is active; all 556 source lines have been freshly read and scoped
+primary checks continue. No appendix is marked complete in this pass.
+The current catalogue incorporates the real-scalar Bergman correction; its
+[4 October audit](open_problem_catalogue_correction_audit_20261004.md) records
+the preserved twelve full problems, unchanged 42 statuses and fresh checks.
 The requested standalone open-problem catalogue is complete: all 42 active
 items, twelve full family statements, source-dated state of the art and
 completion criteria in an 85-page independent LaTeX document. See its

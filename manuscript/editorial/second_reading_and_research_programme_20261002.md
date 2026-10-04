@@ -37,7 +37,7 @@ Compile and inspect the changed pages before closing each verified unit.
 Repeat the reference and relevant scope checks after rendering. Chapter
 checkpoints are milestones; the goal is the complete rereading pass.
 
-Current reading position: Chapters 1--71 pass the new source, build,
+Current reading position: Chapters 1--72 pass the new source, build,
 reference, and rendered-page gates; see the
 [Chapter 1 audit](second_reading_ch01_audit_20261002.md),
 [Chapter 2 audit](second_reading_ch02_audit_20261002.md),
@@ -111,7 +111,8 @@ reference, and rendered-page gates; see the
 [Chapter 68 audit](second_reading_ch68_audit_20261004.md), and
 [Chapter 69 audit](second_reading_ch69_audit_20261004.md), and
 [Chapter 70 audit](second_reading_ch70_audit_20261004.md), and
-[Chapter 71 audit](second_reading_ch71_audit_20261004.md).
+[Chapter 71 audit](second_reading_ch71_audit_20261004.md), and
+[Chapter 72 audit](second_reading_ch72_audit_20261004.md).
 Chapter 16's original 5,753-line source and all 83 direct inputs were freshly
 read. Its product construction, proof interfaces, examples, harmonic
 compatibility and source scopes were repaired; all 274 chapter pages and two
@@ -352,10 +353,22 @@ filtration maximality and zero-volume boundary retain their exact domains;
 all 28 protected blocks keep their historical pins. All 36 chapter pages and
 both seams passed visual review; see the
 [Chapter 71 audit](second_reading_ch71_audit_20261004.md).
-Chapter 72 is active; its 6,550 main-source lines and 39 direct inputs are
-being read. No later unit is marked complete.
+Chapter 72's 6,550 original main-source lines and all 3,326 input lines were
+freshly read. The Bergman growth-corrected obstruction now explicitly uses
+real coefficients; its unsupported literal clause is removed and its prior
+protected payload is archived. All 42 atoms retain their statuses. All 144
+chapter pages and both seams passed visual review; see the
+[Chapter 72 audit](second_reading_ch72_audit_20261004.md).
+Appendix A is active; all 556 source lines have been freshly read and scoped
+primary checks continue. No appendix is marked complete in this pass.
 
-The 3 October revised catalogue is complete: [LaTeX source](../../output/open_problems_catalogue_2026-10-03.tex),
+The current catalogue incorporates the 4 October real-scalar Bergman repair;
+see its [latest correction audit](open_problem_catalogue_correction_audit_20261004.md).
+Only pages 35–36 changed from the 3 October PDF; these and pages 34/37 were
+actually viewed. The other 83 pages are pixel-identical and reuse the earlier
+visual review. All twelve full problems and 42 atomic statuses are preserved.
+
+The 3 October catalogue revision was complete: [LaTeX source](../../output/open_problems_catalogue_2026-10-03.tex),
 [85-page PDF](../../output/open_problems_catalogue_2026-10-03.pdf), and
 [correction audit](open_problem_catalogue_correction_audit_20261003.md).
 It preserves all 42 atoms and corrects the positive-volume Chebyshev question.
