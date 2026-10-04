@@ -27,6 +27,12 @@ without a unimodular triangulation to distinguish a reduced toric fibre
 from a smooth reduced toric subdivision over the same parameter. The
 published obstruction and September 2026 special-family comparison are
 recorded in the [height-one integration audit](manuscript/editorial/hnf_height_one_integration_audit_20261004.md).
+Example 5.5.6 adds a complementary positive cyclic case:
+the known quotient `1/15(1,2,4,8)` has an explicit regular, coherent
+height-one subdivision and local charts with `tau=z1*z2*z3*z4`.
+All fifteen cone determinants and 120 lifting inequalities are checked
+exactly. See the [cyclic-model audit](manuscript/editorial/fujiki_oka_height_one_integration_audit_20261004.md)
+and its [primary-source check](manuscript/editorial/fujiki_oka_and_two_parameter_source_audit_20261004.md).
 Chapter 19's
 checked Lin face-restriction example is retained. Chapter 66 now includes
 the specialized intermediate Calabi--Yau potential limit and recent generic

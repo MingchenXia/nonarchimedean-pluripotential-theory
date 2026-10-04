@@ -22,8 +22,13 @@ the strict division argument and the independent Chapter 40 smooth proof
 are distinguished. See the [Siu proof-boundary audit](bj22_siu_proof_boundary_audit_20261004.md).
 The corrected full build has 4,253 pages and the standalone catalogue has
 86 pages. All 42 atomic statuses remain fixed. Related-paper reading,
-including the pending primary checks of the earlier two-parameter toric
+including targeted primary checks of the earlier two-parameter toric
 classification, resumes after this correction's normal work-branch checkpoint.
+That targeted reading is now recorded in the
+[cyclic and two-parameter source audit](fujiki_oka_and_two_parameter_source_audit_20261004.md):
+the exact toric scope and unclosed antecedents remain explicit. The known
+cyclic positive example is admitted separately by a complete finite fan
+and lifting calculation; see the [integration audit](fujiki_oka_height_one_integration_audit_20261004.md).
 On 3 October the user additionally authorized a subsequent literature and
 research phase: after the whole-book polishing pass, explore directions
 related to the existing material and recent relevant arXiv papers. Suitable
@@ -941,6 +946,34 @@ triangulation-nonexistence certificate or change to the 42 statuses is
 claimed. The 4,246-page artifacts remain historical. Continue checking
 related recent papers and the global model inputs, fetching incoming
 research and publishing verified cloud milestones normally to work.
+
+### Cyclic height-one positive model, 4 October 2026
+
+Example 5.5.6 follows the Sylvester construction and the published IDP
+obstruction. It works out the known cyclic quotient `1/15(1,2,4,8)`
+of Sato--Sato, arXiv:2004.03522v4, Example 3.10. Four specified stars
+produce fifteen regular cones. A rational concave lifting has all 120
+support inequalities checked exactly, and all ray heights are one.
+The resulting projective local model has charts `tau=z1*z2*z3*z4`
+over the original parameter. Appendix L and the version-pinned citation
+state this local scope. It supplies no global gluing or nontoric
+obstruction, new general theorem, open-problem solution or model receipt.
+
+The full build has 4,253 pages, 425 active TeX inputs and 12,591 unique
+labels. There are no TeX errors, package warnings, unresolved references,
+overfull boxes or rerun requests; 954 underfull diagnostics are recorded.
+All 64 selected actual pages in sixteen sheets were viewed, including
+the new example and adjacent comparisons, scoped contents, source notes,
+the retained Siu-conditional provenance, and the complete index and
+references. Post-render reference and inventory checks pass. All old
+formal blocks and 423 other active TeX inputs, including 108 protected
+M--N inputs, remain unchanged. The 42 statuses and the 86-page standalone
+catalogue stay fixed. The preceding Siu edition remains a dated artifact.
+See the [audit](fujiki_oka_height_one_integration_audit_20261004.md),
+[manifest](fujiki_oka_height_one_integration_manifest_20261004.json) and
+[source ledger](fujiki_oka_height_one_integration_source_closure_20261004.sha256).
+Continue related-paper reading and noncircular Siu-repair attempts in the
+cloud, with normal work-branch publication and incoming-research checks.
 
 ## Cloud execution record
 
