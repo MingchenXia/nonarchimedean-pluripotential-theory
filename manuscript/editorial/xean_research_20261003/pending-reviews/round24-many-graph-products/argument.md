@@ -1,0 +1,2806 @@
+---
+title: "Envelope contact on products of finitely many balanced graphs"
+author: "P05.2 unverified partial proof draft"
+date: "4 October 2026"
+---
+
+## Statement, coefficient convention, and scope
+
+Let \(d\geq2\), and let \(G_j\subset N_{j,\mathbb{R}}\) be nonempty finite
+embedded rational pure graphs with strictly positive actual **real** balanced
+edge weights. Use the direct product ambient lattice, the actual saturated
+tangent lattices, and product weights on \(X=\prod_{j=1}^dG_j\).
+Bounded edges, cycles, full lines, ends and disconnected components are allowed.
+At a vertex use its actual primitive outgoing vectors \(q_e\), and set
+\[
+ K_v=\{c\geq0:\sum_e c_eq_e=0\}.
+\]
+Rank means \(\dim\operatorname{span}_{\mathbb{R}}K_v\). Branched means that
+some carrier junction has valence at least three; rational bivalent subdivision
+does not count as branching. A graph presented without vertices is treated by
+inserting rational bivalent points.
+
+Real PA throughout means continuous real-affine pieces on a **finite rational
+spatial complex**. This is the real scalar extension of the literal PA convention
+on each fixed complex. Cycles, including local testing cycles, have real weights.
+We retain the source's genuine PCCs: rational endpoints, real nonnegative
+coefficients summing to one, and their actual, possibly irrational, barycentre;
+on some allowed rational structure a common face containing that centre is a
+face of every endpoint coface. Raw PC means every such Jensen inequality.
+Raw competitors are finite functions; their continuity is never presumed.
+
+Fix any prescribed continuous rational-domain real-PA actual-PC \(\gamma\)
+positive at infinity: on every affine reference cell its slope is positive on
+every nonzero recession vector. For bounded continuous rational-domain real-PA
+\(u\), set \(f=\gamma+u\), and use exactly the raw envelope
+\[
+ P_\gamma(u)(x)=\sup\{h(x):h\in\mathrm{PC}(X),\ h\leq f,
+                                      h\leq\gamma+C_h\}.
+ \tag{E}
+\]
+The growth restriction here is only an upper bound. PAPC tests the divisor
+against every nonnegative real balanced local cycle, in each dimension
+\(1,\ldots,d\), on every ordinary open subset. The operator is the complete
+recursive zero-cycle \(P^d\cdot[X]\), with no division by \(d!\).
+
+**Theorem (unverified finite-product classification).** For this fixed
+\((X,\gamma)\), every bounded continuous rational-domain real-PA obstacle has
+a finite continuous rational-domain actual-PAPC raw envelope in
+\(\gamma+O(1)\), a uniform decreasing PAPC regularization, and
+\[
+       \int_X(P_\gamma(u)-\gamma-u)\,
+                  \mathrm{MA}_{\mathrm{poly},\mathbb{R}}(P_\gamma(u))=0
+ \tag{C}
+\]
+if and only if every local cone in every factor has rank one and **at most
+one factor is branched**.
+
+When a cone in one factor has higher rank, for each prescribed reference we
+construct a compactly supported nonnegative obstacle with exact PAPC raw
+envelope \(P\), with \(P=\gamma\) outside a compact subset of the entire
+original product, and complete integral
+\[
+ -d!\,(\delta\varepsilon M)\prod_{j=2}^d(2\delta b_jw_j)<0.
+ \tag{H}
+\]
+When all cones have rank one and two factors branch, the complete integral is
+\[
+ -\frac{d!}{2!}\,8\kappa^2ab\prod_{j=3}^d(2\kappa b_jw_j)<0.
+ \tag{T}
+\]
+Empty products in these formulas equal one. Every scalar is defined below from
+actual weights and actual primitive directions, rather than imposed as a mass
+assumption. Both failures have explicit regularization \(P+1/n\).
+
+This closes only the specified finite-product family in the declared real
+category. Original P05.2's classification on arbitrary balanced carriers remains
+open; status is partial and candidate is false. No literal coefficient result,
+analytic realization, general singular-fan contact theorem, or P06.2 conclusion
+is claimed. The exact original problem and completion criteria are retained in
+`task.json` and `original-scope.txt`, and the complete current assignment in
+`assignment.txt`. The predecessor arguments and all five canonical native notes
+were read and preserved unchanged. They are fallible evidence, not premises.
+
+## Recursive intersection in every dimension, with saturated quotients
+
+Here and below \(N_\sigma=N\cap\operatorname{span}_{\mathbb{R}}(\sigma-\sigma)\).
+For a facet \(\tau\prec\sigma\), choose an integral lift of the primitive
+inward generator of \(N_\sigma/N_\tau\). For a real PA \(h\) and a balanced
+real \(k\)-cycle \(z\) define
+\[
+ (h\cdot z)(\tau)=\sum_{\sigma\succ\tau}z(\sigma)h_\sigma^{\rm lin}(n_{\sigma/\tau})
+       -h_\tau^{\rm lin}\left(\sum_{\sigma\succ\tau}z(\sigma)n_{\sigma/\tau}\right).
+ \tag{D}
+\]
+The sum in parentheses is tangential. Lift changes cancel by agreement of linear
+parts on \(\tau\). Thus (D) is bilinear, local on ordinary opens, and zero for
+ambient affine functions, including real ones.
+
+For refinement examine the minimal old face of a tested new \((k-1)\)-face.
+If its dimension is above \(k\), all incident inherited \(k\)-weights vanish.
+If it has dimension \(k\), exactly two pieces in that inherited \(k\)-plane
+have possibly nonzero weights; they have equal weight and linear part and
+opposite primitive quotient classes. All other incident pieces have weight zero.
+Their contributions cancel. If it has dimension \(k-1\), its tangent span is
+unchanged, and locally there is one inherited incident \(k\)-piece for each old
+incident \(k\)-face. The saturated lattices and normal classes are unchanged,
+so the coefficient is the old coefficient. These cases also show inherited
+balancing. They exhaust the possibilities since the old face contains the new
+tested face. The proof applies to signed and real weights and at every recursive
+stage. A newly inserted zero-face therefore inherits zero top coefficient unless
+it was already an old zero-face.
+
+For balancing of a new divisor, fix a \((k-2)\)-face \(\theta\) for \(k\geq2\).
+Translate its germ, subtract an ambient real linear extension of the common
+tangential linear part, and quotient by its tangent lattice. Saturation of
+\(N_\theta\) follows from its definition. The image \(N_\sigma/N_\theta\)
+is saturated in \(N/N_\theta\): if \(m[n]\) belongs to it then
+\(mn+t\in N_\sigma\) for \(t\in N_\theta\subset N_\sigma\), hence
+\(mn\in N_\sigma\), and saturation implies \(n\in N_\sigma\).
+Consequently all primitive normals are precisely those of the actual quotient.
+The incident cycle becomes a balanced two-dimensional fan, possibly in a larger
+ambient quotient. Rational homogeneous cuts make its two-cones pointed. Such
+cuts do not change the divisor by the refinement argument.
+
+For an unordered two-cone bounded by primitive rays \(r,s\), put
+\(\chi_{rs}=[N_{C_{rs}}:\mathbb{Z}r+\mathbb{Z}s]\) and
+\(\omega_{rs}=z(C_{rs})\). Extending \(r\) to a basis of the saturated plane
+lattice gives the primitive normal class represented over the reals by
+\(s/\chi_{rs}\). The discrepancy from an integral lift is tangential and
+cancels in (D). Balancing at a ray and the first divisor say
+\[
+ \sum_s\frac{\omega_{rs}}{\chi_{rs}}s=t_rr,
+ \qquad D_h(r)=\sum_s\frac{\omega_{rs}}{\chi_{rs}}h(s)-t_rh(r).
+ \tag{F}
+\]
+Here the function is homogeneous after subtraction. In
+\(\sum_rD_h(r)r\), interchange \(r,s\) in the double first sum; it becomes
+\(\sum_r h(r)\sum_s(\omega_{rs}/\chi_{rs})s\), exactly the subtracted sum.
+Thus the new divisor is balanced at \(\theta\). For \(k=1\), the new
+zero-cycle has no balancing condition. This proves balancing in all dimensions.
+
+For a second function also subtract its ambient tangential affine extension.
+The full coefficient of its divisor on this balanced first divisor is
+\[
+ \sum_{\{r,s\}}\frac{\omega_{rs}}{\chi_{rs}}
+                     [h(s)g(r)+h(r)g(s)]
+                     -\sum_r t_rh(r)g(r).
+ \tag{S}
+\]
+Both terms are symmetric. In particular the tangential term is retained.
+This proves mixed commutativity at every \((k-2)\)-face, hence globally by
+refinement and locality. Adjacent transpositions give every order of a mixed
+product. Since every intermediate cycle is balanced, an ambient real affine
+term in any slot changes no product.
+
+These arguments prove the real coefficient extension directly. Alternatively,
+on a fixed rational complex both affine continuity and cycle balancing are
+rational homogeneous linear systems: rational bases, with denominators cleared,
+span their real solution spaces by integral data. Bilinearity extends identities
+from those data. Positivity does **not** follow from a signed-basis expansion;
+the full real positivity tests are proved in the next section. The source
+Allermann--Rau, arXiv:0709.3705v3, Definition 3.1 through Proposition 3.7, uses
+integral functions and integral cycle weights. Its full selected body is included
+below for comparison. Its printed short commutativity formula is not used in
+place of (S); no extension or dropped tangential term is presumed.
+
+Products of balanced cycles are balanced: their facets lower exactly one
+factor, and their actual quotient normal belongs to that factor, multiplied by
+the other factor weight. On a product cell,
+\(N_{\sigma\times\eta}=N_\sigma\oplus N_\eta\), because the ambient lattice
+is a direct sum. For a pulled-back function \(h\) from the first factor,
+\[
+             h\cdot(z\times z')=(h\cdot z)\times z'.
+ \tag{P}
+\]
+Indeed at \(\tau\times\eta\) both sums in (D) are \(z'(\eta)\) times the
+first-factor sums, with primitive class \((n_{\sigma/\tau},0)\). At
+\(\sigma\times\tau'\), normals \((0,n_{\eta/\tau'})\) give zero linear
+parts and zero correction for \(h\). These are all facets. This remains true
+for zero-dimensional factors: then every facet lowers another factor, while the
+restricted function is constant, so it contributes zero. This proves the
+zero-repeat-factor assertion, without a transversality hypothesis or an index
+replacement. The same proof works for every intermediate tensor cycle and
+for a two-dimensional first factor.
+
+For any continuous rational-domain real-PA PAPC \(P\), its successive divisors
+are balanced and nonnegative; its top measure is the finite zero-cycle on its
+domain vertices. Constants have zero linear parts. Thus \(P+1/n\) decreases
+uniformly in \(\gamma+O(1)\) and has exactly the same full measures. This
+constructs the regularized PA operator used here directly; no general
+continuity theorem is required. There is no diffuse mass or point at infinity.
+
+For completeness, bounded reference shifts preserve the total top mass in every
+dimension. Mixed commutativity gives
+\[
+ P^d\cdot[X]-\gamma^d\cdot[X]
+ =(P-\gamma)\cdot\sum_{i=0}^{d-1}P^i\gamma^{d-1-i}\cdot[X].
+ \tag{M}
+\]
+The inner cycle is a finite balanced real one-cycle. On a common affine
+structure each bounded edge contributes opposite outgoing slopes at its two
+endpoints, and each end has zero slope for the bounded affine function
+\(P-\gamma\). Full lines can be split rationally and cancel. The total
+difference is zero. This mass identity is separate from contact.
+
+## Finite PC cones, real-centre equivalence, and all local positivity tests
+
+The elementary finite-polyhedron proof, all-centre/all-structure finite-PC cone
+proof, exact active-face rational-box reference decomposition, intrinsic graph
+criterion, and rank-one normalization proofs are supplied in full immediately
+after the new theorem proof below. They use neither the two-graph theorem nor
+the source's continuity/locality conclusions. Their formulas (FC1)--(FC6),
+(G1) and the vertex/recession formula (8) apply in **any** finite embedded
+rational complex: none uses dimension two. We explicitly prove the remaining
+dimension and coefficient points here.
+
+If a continuous finite rational-domain real-PA \(h\) is actual PC, take any
+nonnegative local real \(k\)-cycle on an ordinary open \(U\), for any
+\(1\leq k\leq d\). Refine its global rational structure and that of \(h\).
+At a tested facet choose rational \(x\in U\cap\operatorname{relint}\tau\).
+Possible nonnegative incident weight vectors balanced modulo the saturated
+tangent space form a rational polyhedral cone. The supplied finite-generation
+proof gives rational generators, so it suffices to test a rational vector
+\(c_\sigma\). Write \(S=\sum c_\sigma>0\) and
+\(T=\sum c_\sigma n_{\sigma/\tau}\), which is rational and tangential.
+For small rational \(\epsilon>0\), the endpoints
+\[
+              x_\sigma=x+\epsilon(n_{\sigma/\tau}-T/S)
+\]
+are in their incident cells and \(U\). They are rational and have barycentre
+\(x\) with coefficients \(c_\sigma/S\). PC Jensen multiplied by
+\(S/\epsilon\) is exactly the nonnegativity of (D). The zero vector gives
+zero. Linearity in weights proves every real test. This uses every dimension
+and every ordinary open. The multiplier is \(S/\epsilon\).
+
+Conversely, PAPC for continuous PA implies the finite tangent tests (FC3).
+For a rational generator \((d_\sigma)\) of the sum-zero tangent-family cone
+at a face \(\tau\), choose rational \(y\in\operatorname{relint}\tau\).
+Discard zero directions and write each nonzero rational vector
+\(d_\sigma=a_\sigma n_\sigma\), with \(a_\sigma>0\) rational and
+\(n_\sigma\) a primitive integral vector on its ray. Small initial segments
+are inside the corresponding cofaces by (FC1). On a sufficiently small ordinary
+ball around \(y\), put weight \(a_\sigma\) on those rays, adding weights
+when rays coincide. Extend the segments to rational endpoints outside that
+ball. Their local one-cycle is balanced because \(\sum d_\sigma=0\).
+Every other subdivision point is bivalent, with equal opposite weights. This
+is an allowed local cycle: a finite common ambient rational hyperplane
+refinement includes each rational segment and \(y\), and all outer endpoints
+are outside the chosen open. PAPC at \(y\) is
+\(\sum h_\sigma^{\rm lin}(d_\sigma)\geq0\). If there are no nonzero
+directions the assertion is zero. The finite-cone sufficiency proof gives
+genuine PC at every real centre and every permitted structure. No irrational
+centre is inserted as a rational vertex. This repairs precisely that issue in
+a literal reading of the source's Lemma 3.4 proof.
+
+For any number of graph factors, product-face tangent cones are products:
+each projected direction has a sufficiently small feasible positive step, and
+the minimum of finitely many such step sizes works simultaneously. Given a
+sum-zero product tangent family, group its projection by each factor coface.
+These grouped vectors belong to convex factor tangent cones and sum to zero.
+Each factor PC gives a nonnegative derivative sum. Adding gives (FC3) on the
+product. Its all-structure sufficiency proves that a sum of pulled-back
+factor-PC functions is actual PC. Zero projected displacements give zero;
+no assertion that projected remote cofaces form a factor structure is needed.
+The argument works for any finite number of factors, for all real centres,
+all allowed cofaces and all real coefficients.
+
+## Positive direction: component reduction with actual real weights
+
+At a rank-one vertex the strictly positive actual weight vector spans the full
+kernel of its rational direction matrix: small positive and negative
+perturbations of it realize every kernel vector in the span of \(K_v\).
+Its sole relation has a positive primitive integer generator. Incident actual
+weight ratios are consequently rational. On each connected graph component,
+fix one actual edge weight as scale and propagate ratios along finite paths.
+Given actual balancing makes these ratios consistent around every cycle.
+Thus \(w_e=c r_e\) with \(c>0\) real and \(r_e>0\) rational. At a bivalent
+vertex directions are opposite primitive vectors and weights equal. A
+rank-one branching vertex has no opposite pair, since that would be another
+nonnegative relation.
+
+Each unbranched component is a whole rational affine line: bivalent propagation
+stays on one line, a finite endpoint would be one-valent and unbalanced, and a
+closed bounded cycle cannot embed in that line. Full-line components already
+have this property. When at most one factor branches, every product component
+is \(G\times E\), where \(E\) is a complete rational affine space of dimension
+\(m=d-1\) with saturated lattice equal to the direct sum of the actual primitive
+line lattices. If none branches, choose any one line as \(G\).
+Its actual cycle is a single positive scalar
+\(c\prod_{j\ne G}w_j\) times the rationally normalized cylinder cycle.
+The divisor formula is linear in its initial cycle. Induction shows that this
+scalar multiplies the **entire** recursively defined measure once; it is not
+raised to the \(d\)-th power. PC competitors and envelopes do not depend on
+that scalar.
+
+The complete multivariate cylinder reconstruction is supplied directly below.
+It proves the following for connected rank-one rationally weighted \(G\):
+for every nonseparable real rational-domain reference and obstacle, the raw
+envelope on \(G\times E\) is finite rational-domain PAPC in \(\gamma+O(1)\)
+and all noncontact top coefficients vanish. We use its proof, not its previous
+review. The proof uses the compact **multivariate** dual polyhedron
+\[
+ D=\{p\in E^*:p(r_E)\leq\gamma^{\rm lin}(r)
+                 \text{ for every vertical reference recession generator}\},
+\]
+all projected spatial vertices, the greatest assignment in the full graph
+incidence system (including every cycle), and rational supergradient polytopes.
+Dual chamber vertices may be real. The spatial maximization domains remain
+rational because the gradients of the node assignments are rational, not
+because of rationality of those dual vertices. These domains have zero-faces
+only over graph nodes.
+
+At each possible noncontact atom \((v,z_0)\), its exposed dual face \(C_x\)
+has rational affine-hull direction because \(z_0\) is rational and all defining
+normals are rational. If \(\dim C_x<m\), the full germ has a common rational
+lineality after affine subtraction, and the entire top divisor is zero.
+If \(\dim C_x=m\), interior covectors uniquely expose \(z_0\). Noncontact
+makes the corresponding node cap strict. Raising only that LP coordinate shows
+its graph Laplacian is zero; positivity and concavity then make every outgoing
+slope affine in \(p\). The sole star relation factors those slopes through a
+real form \(A\) and a rational map \(B\), giving the complete germ
+\(A(s)+\operatorname{supp}_{C_x}(z+B(s))\). It factors after affine subtraction
+through an \(m\)-dimensional complete rational fan. The full recursive quotient
+vanishing proof below makes its \((m+1)\)-st divisor zero. This covers all
+junctions, inserted bivalent nodes, tail bases, fibre walls and open-edge strata.
+The supplied all-dimensional algebra (D)--(S) validates each affine subtraction
+and every intermediate cycle. There is no interpolation or separability
+substitute for this multivariate argument.
+
+Restoring each actual scalar proves contact on each component. There are
+finitely many components; they are relatively open and closed, and a PCC or
+local incident test stays in the component of its common face. The finite
+structures, growth constants and measures combine componentwise. This proves
+the positive implication of the theorem.
+
+## A localization lemma for every fixed real reference
+
+Use the full finite-PC-cone and active-face box proof below to write exactly
+\[
+          \gamma=\sum_{a=1}^J\lambda_a\gamma_a,
+                \lambda_a>0,\quad\sum_a\lambda_a=1,
+ \tag{R}
+\]
+where every \(\gamma_a\) has rational affine coefficients, is actual PC on
+the same finite rational complex, and retains every strict recession inequality.
+Choose rational product centre \(o\), ambient lattice bases, and
+\(\rho(x)=\sum_j\|x_j-o_j\|_1\), with homogeneous recession norm \(\rho_0\).
+For each \(a\), pointed-cell vertex/recession decomposition gives rational
+\(m_a>0,Q_a\geq0\) such that \(\gamma_a\geq m_a\rho-Q_a\) everywhere.
+Indeed choose \(m_a\) below all positive rational ratios of reference recession
+slope to \(\rho_0\); affinity bounds the vertex term below and the triangle
+inequality bounds the norm above. Finitely many rational vertex bounds provide
+\(Q_a\). No component or end is omitted. This also handles bounded cells.
+
+Suppose a global rational-coefficient rational-domain actual-PC \(F\) satisfies
+\(F\leq L\rho+A\) for rational \(L>0,A\). Choose rational
+\(0<\delta_a<m_a/L\) and rational \(C_a\) sufficiently large that
+\(C_a+\delta_a F(o)>\gamma_a(o)+2\). Define
+\[
+ P_a=\max\{\gamma_a,C_a+\delta_a F\},\qquad
+ P=\sum_a\lambda_a P_a,\qquad \delta=\sum_a\lambda_a\delta_a>0.
+ \tag{L}
+\]
+Maxima preserve all Jensen inequalities by selecting an active function at the
+centre; positive sums also preserve them. Each maximum has rational comparison
+walls because both operands have rational coefficients. Their common rational
+refinement supports the real sum, without any maximum with the original real
+\(\gamma\). The estimate
+\[
+ \gamma_a-(C_a+\delta_aF)
+ \geq(m_a-\delta_aL)\rho-Q_a-C_a-\delta_aA
+\]
+proves \(P=\gamma\) outside a compact subset of the **entire** product and
+\(P\geq\gamma\). Thus \(P\in\gamma+O(1)\) is actual PAPC with the
+constant-shift regularization and retains each strict recession slope. Its
+global compact localization has not modified the given reference.
+
+We can take a common function structure \(\Pi\) by finitely many ambient
+rational hyperplanes extending all rational cell walls. Insert the rational
+centre as an original product vertex (using bivalent subdivisions in extra
+factors). Where all localizers dominate, the germ is a finite homogeneous
+rational-domain germ plus a constant. Choose a sufficiently small rational
+radius \(r_0>0\) such that \(\rho<r_0\) lies in that germ, encounters no
+other factor endpoint, cap bend or nonincident cell, and avoids every cutting
+hyperplane not through \(o\). Every retained constraint is homogeneous about
+\(o\). A nonzero point has a short radial contraction and expansion within
+its minimal face, so is not a vertex. Hence
+\[
+                    \Pi^{(0)}\cap\{\rho<r_0\}=\{o\}.
+ \tag{V}
+\]
+All inherited homogeneous cuts from the prescribed nonseparable reference are
+retained. The norm ball is intersected with the carrier, not identified with
+a product star.
+
+## Higher-relation obstruction in any number of factors
+
+Suppose \(G_1\) has rank at least two at \(v\). Choose rational interior
+points \(y_j\) of any edges of the other nonempty pure graphs, with actual
+primitive tangents \(r_j\) and weights \(w_j>0\), for \(2\leq j\leq d\).
+Their small germs are straight intervals even if the graphs branch elsewhere.
+Set \(o=(v,y_2,\ldots,y_d)\). Let \(q_i,w_i\) be the first star's actual
+directions and weights.
+
+The rational pointed cone \(K_v\) has a rational extreme generator \(c\ne0\)
+with nonempty proper support \(I\). If it were strictly positive, an independent
+kernel vector would give two small opposite perturbations of \(c\) in the
+cone, contradicting extremality. The full kernel equals \(\operatorname{span}K_v\)
+by perturbing the strictly positive actual weight vector. Put \(s_i=0\) on
+\(I\) and \(s_i=1\) outside; then
+\[
+       c\cdot s=0,\qquad b\cdot s\geq0\ (b\in K_v),
+                  M=\sum_iw_is_i>0.
+\]
+This is intrinsic graph data; it need not extend to an ambient convex slope.
+
+Set \(\rho_1=\|x_1-v\|_1\), \(\rho_j=\|x_j-y_j\|_1\).
+Along the first ray \(\rho_1(v+tq_i)=a_it\), where \(a_i=\|q_i\|_1>0\).
+Choose rational \(0<\varepsilon<\min_i a_i\), short rational star lengths
+\(L_i\) before every existing endpoint or norm breakpoint, and rational
+\(0<A<\min_iL_i(a_i-\varepsilon s_i)\). Replace the norm on this star by
+\[
+       F_1(v+tq_i)=\max\{a_it,A+\varepsilon s_it\},
+\]
+and keep the norm elsewhere on every graph component. The comparison points
+\(A/(a_i-\varepsilon s_i)\) are rational and before \(L_i\). At the
+centre the slopes are \(\varepsilon s_i\); at each new edge bend they
+increase to \(a_i\). Values agree at the centre and at the outer gluing
+boundary. The intrinsic criterion (G1) proves global actual PC, including
+opposite-pair relations and all real centres. It has rational coefficients and
+domains, and \(0\leq F_1-\rho_1\leq A\).
+
+Set \(F=F_1+\sum_{j=2}^d\rho_j\). The product tangent-family proof gives
+global actual PC and PAPC in every dimension; \(\rho\leq F\leq\rho+A\).
+Apply (L) with \(L=1\). On the central germ it gives
+\[
+ P(v+tq_i,y_2+z_2r_2,\ldots,y_d+z_dr_d)
+       =C+\delta\varepsilon s_it+\sum_{j=2}^d\delta b_j|z_j|,
+       \qquad b_j=\|r_j\|_1>0,
+ \tag{G}
+\]
+where \(C=\sum_a\lambda_a(C_a+\delta_a A)\). The reference is unchanged
+at infinity on all components. Choose the homogeneous rational structure and
+radius of (V).
+
+Choose rational \(B,T,D_j>0\), with \(B<T\), so small that
+\(\max_i a_iT+\sum_{j=2}^d b_jD_j<r_0\). On this short product star put
+\[
+ \beta(v+tq_i,y_2+z_2r_2,\ldots)=
+            (1-t/B-\sum_{j=2}^d|z_j|/D_j)_+,
+ \tag{B}
+\]
+and extend by zero. It vanishes before each outer boundary and has the same
+value on the common first-vertex fibre. Thus it is continuous compactly
+supported rational-domain rational-PA, equals one at \(o\), and has support
+inside \(\rho<r_0\). Put \(u=P-\gamma+\beta\).
+
+For any raw competitor \(q\leq P+\beta\), first fix a rational tuple
+\(z\) with \(|z_j|\leq D_j\). The rational endpoints
+\((v+Tq_i,y_2+z_2r_2,\ldots)\), \(i\in I\), with coefficients
+\(c_i/\sum c_i\), form a genuine PCC centred on the entire apex fibre:
+the supported relation cancels the first displacement and all other
+displacements are zero. A permitted coarse rational product structure has the
+closed fibre face over \(v\) in each incident strip; refine extra sign
+coordinates if desired. The ceiling at these endpoints equals \(P\) because
+\(T>B\). Equation (G) and \(c\cdot s=0\) give
+\(q(v,z)\leq P(v,z)\). For any rational \(t\in[0,B]\), combine the
+rational pinned apex and the endpoint at \(T\) in the same incident strip;
+\(P\) is affine in \(t\). Hence \(q\leq P\) there. Outside the bump,
+the ceiling gives the same bound directly. We have bounded every rational point
+of the whole product, not just the central point.
+
+For a real point with positive bump, choose its minimal face of the local
+rational ray/sign-orthant structure, with \(t=0\) and all zero \(z_j\)
+as faces. Arbitrarily small rational boxes in rational affine coordinates
+enclose it within that face and the germ. Their real barycentric coefficients
+give a same-face PCC. Every rational endpoint satisfies the preceding bound,
+and (G) is affine on that face, so \(q(x)\leq P(x)\) exactly. Zero-faces
+are rational; all boundary cases with zero displacements are thus included.
+Elsewhere \(\beta=0\). Conversely \(P\) is an actual-PC upper-growth
+competitor below \(P+\beta\). Therefore (E) equals \(P\) on all of \(X\),
+without assuming continuity or lower growth for \(q\).
+
+The local cycle is \(Z_1\times\cdots\times Z_d\), where \(Z_1\) is the
+actual star and \(Z_j\), \(j\geq2\), is the whole primitive line germ of
+weight \(w_j\). Write \(h_1(tq_i)=\delta\varepsilon s_it\) and
+\(h_j(z_jr_j)=\delta b_j|z_j|\). Their one-factor divisors are exactly
+\[
+ h_1\cdot Z_1=(\delta\varepsilon M)[0],\qquad
+ h_j\cdot Z_j=(2\delta b_jw_j)[0].
+ \tag{A1}
+\]
+In the first formula the primitive outgoing directions are \(q_i\), and
+in the second they are \(r_j,-r_j\). The tangential correction at the
+point is zero; these are the complete one-cycles' divisors.
+
+At every product stratum the saturated lattice is the direct sum of the
+remaining primitive factor-line lattices. Lowering one factor therefore uses
+its actual primitive vector, with index one in that split quotient. This does
+not require the whole first-star span to be generated saturately by its rays.
+For each \(0\leq r\leq d\), (P) and multilinearity give the complete
+intermediate cycle
+\[
+ (\sum_jh_j)^r\cdot\prod_jZ_j
+ =r!\sum_{\substack{I'\subset\{1,\ldots,d\}\\|I'|=r}}
+       \prod_{j\in I'}(h_j\cdot Z_j)\times\prod_{j\notin I'}Z_j.
+ \tag{A2}
+\]
+This follows by induction: words with a repeated factor give zero on its
+zero-cycle, while every ordering of distinct factors has the same tensor
+weights and primitive normals by (P); each subset has \(r!\) such words.
+The formula lists every intermediate product stratum, not only its eventual
+atom. All cycles are balanced and nonnegative. At \(r=d\) it gives
+exactly the positive mass in (H). Additional homogeneous cuts preserve it by
+(D)'s refinement proof at **all** stages. This proves the coefficient, including
+every order and the factorial.
+
+## Two rank-one branched factors: fibrewise pinning and all stages
+
+Suppose every cone has rank one but \(G_1,G_2\) branch at \(v_1,v_2\).
+At their stars write the actual weights as \(a\ell_i\) and \(b m_j\),
+where \(\ell,m\) are primitive positive integer relations and \(a,b>0\)
+are actual real scales. Choose three nonempty groups \(I_k,J_k\), with
+\(S_k=\sum_{i\in I_k}\ell_i\), \(T_k=\sum_{j\in J_k}m_j\), and
+tripod vectors \(\nu_1=(1,0),\nu_2=(0,1),\nu_3=(-1,-1)\).
+The assignments \(L_1(q_i)=\nu_k/S_k\), \(L_2(r_j)=\nu_k/T_k\)
+annihilate their **entire** kernels. They therefore extend to rational
+ambient maps by rational linear algebra, without altering the original star
+lattices. Set
+\[
+ H(x_1,x_2)=\|L_1(x_1-v_1)-L_2(x_2-v_2)\|_1.
+\]
+It is ambient convex rational PA. Choose rational edge-interior \(y_j\)
+in every remaining factor, with primitive \(r_j\), actual weight \(w_j\),
+and \(b_j=\|r_j\|_1\). Let \(F=H+\sum_{j=3}^d\rho_j\).
+Ambient map matrix bounds give \(F\leq L\rho\) for some rational \(L>0\).
+Apply (L), denoting its positive sum scale by \(\kappa\). In a full
+product germ around \(o=(v_1,v_2,y_3,\ldots,y_d)\),
+\[
+                    P=C+\kappa H+\sum_{j=3}^d\kappa b_j|z_j|.
+ \tag{J}
+\]
+Choose a homogeneous structure and \(r_0\) satisfying (V). This preserves
+\(\gamma\) outside a compact set on the entire original product.
+
+Here is the fibrewise repair of single-point pinning. Let
+\(n(x_1,x_2)=\|x_1-v_1\|_1+\|x_2-v_2\|_1\).
+Choose rational \(\tau>0\) so all finitely many endpoints
+\[
+ e_{ij}=(v_1+\tau S_kq_i,v_2+\tau T_kr_j),\quad
+ \alpha_{ij}=\ell_i m_j/(3S_kT_k),\quad i\in I_k,j\in J_k
+ \tag{Q}
+\]
+are in their original short cofaces and \(n(e_{ij})<r_0/4\).
+They are nonzero, rational, and have \(H(e_{ij})=0\).
+Coefficients sum to one and both projected barycentres are the star origins,
+by the original relations. Choose rational extra-coordinate widths \(D_j>0\)
+with \(\sum_{j=3}^db_jD_j<r_0/4\), and rational \(R\in(0,r_0/4)\).
+Choose rational \(B>0\) smaller than \(R\) and every \(n(e_{ij})\).
+Put on the whole product
+\[
+        \beta=(1-n/B-\sum_{j=3}^d\rho_j/(b_jD_j))_+,
+                    u=P-\gamma+\beta.
+ \tag{K}
+\]
+For \(d=2\) the sum is empty. Its support is contained in the chosen local
+product germ: positive bump implies \(n<B\) and \(|z_j|<D_j\), hence
+\(\rho<r_0/2\). This is a continuous compact rational norm tent, with
+rational walls and coefficients and \(\beta(o)=1\).
+
+Fix any rational tuple \(z\), \(|z_j|\leq D_j\). Tensor (Q) with those
+fixed extra coordinates. It is a genuine PCC whose common face is the whole
+bad-pair apex fibre, on the original product structure subdivided rationally
+at the extra points. Its endpoints are in (J), and their bump is zero since
+\(n(e_{ij})>B\). The ceiling bound and \(H(e_{ij})=0\) pin
+\[
+                  q(v_1,v_2,z)\leq C+\sum_{j=3}^d\kappa b_j|z_j|
+                         =P(v_1,v_2,z).
+ \tag{AP}
+\]
+This pins the full apex fibre, not merely \(o\).
+
+For a rational bad-pair point \(x\ne(v_1,v_2)\) with \(n(x)<B\), choose
+one closed homogeneous rational \(H\)-affine cone containing it in the
+product of the two short stars. Its closure contains the apex. Define the
+rational outer point \(y=(R/n(x))x\) in displacement coordinates. Then
+\(n(y)=R>B\), and \(y\), together with each fixed \(z\) under consideration,
+is in the exact germ (J): \(R+\sum b_jD_j<r_0/2\).
+Both points lie before all original bounded endpoints by the choice of germ.
+The tent vanishes there. The point \((x,z)\) is the same-coface PCC of
+\((v_1,v_2,z)\) and \((y,z)\), with coefficients
+\(1-n(x)/R,n(x)/R\). A rational local subdivision retaining the closed
+\(H\)-affine cone and the extra sign faces, extended by ambient rational cuts,
+is permitted. We may take that cone cell as common face for a same-cell PCC;
+both endpoints lie in it. Affinity of (J), (AP), and the outer ceiling give
+\(q(x,z)\leq P(x,z)\). If the bad-pair displacement is zero use (AP),
+and if the bump is zero use the ceiling directly. This covers every rational
+point, including all cone boundaries and zero extra displacements.
+
+At a real point with positive bump use a small rational enclosing box or
+simplex in its minimal face of the homogeneous \(H\)-affine/sign structure.
+It stays in the germ; all endpoints are rational and already pinned, and
+\(P\) is affine on that face. The real-centre same-face PCC gives
+\(q\leq P\) exactly. At zero-faces the point is rational. Elsewhere the
+bump vanishes. Since \(P\) itself is an allowed global competitor, this proves
+the true equality \(P_\gamma(u)=P\) on the entire product. It requires
+neither raw continuity nor a stronger growth condition nor irrational endpoints.
+
+We supply the complete original bad-pair mass calculation below, without a
+tripod pushforward. In quadrant \((sq_i,tr_j)\), write
+\(q'_i=1/S_k,p'_j=1/T_l,c_k=(1,1,2)_k\). Then
+\(H=c_kq'_is+c_lp'_jt\) off-group and
+\(H=c_k|q'_is-p'_jt|\) in-group. Actual saturated planes have primitive
+axes \(a_i=(q_i,0),b_j=(0,r_j)\). For a common denominator \(D\),
+\(Q=Dq'_i,U=Dp'_j,g=\gcd(Q,U)\), the kink ray is the primitive
+\(d_{ij}=(U/g)a_i+(Q/g)b_j\), with cone indices \(Q/g,U/g\).
+Its first weight is \(2c_kab\ell_i m_jg/D\) and its value is zero.
+At an axis the in-group quotient representative is
+\(b_j+(p'_j/q'_i)a_i\). The full tangential correction gives first
+axis weights \(ab\ell_i(4-2c_k)\), \(ab m_j(4-2c_l)\).
+Axis plus kink first contributions have projections
+\(4ab\ell_iq_i\), \(4ab m_jr_j\), so their first cycle is balanced.
+The second coefficient is \(4ab\) from each axis family and zero from all
+kinks, namely \(8ab\). All normals and indices are directly derived in
+the included detailed calculation. No shortened version of (S) is used.
+
+Let \(Z\) denote this actual bad-pair two-cycle, \(Z_j\) the extra primitive
+line germs, \(h_0=\kappa H\), and \(h_j=\kappa b_j|z_j|\).
+For **every** \(0\leq r\leq d\), the entire intermediate cycle is
+\[
+ (h_0+\sum_{j=3}^dh_j)^r\cdot(Z\times\prod_{j=3}^dZ_j)
+ =\sum_{\substack{0\leq n_0\leq2,\ n_j\in\{0,1\}\\n_0+\sum n_j=r}}
+       \frac{r!}{n_0!}\,(h_0^{n_0}\cdot Z)
+                              \times\prod_{j=3}^d(h_j^{n_j}\cdot Z_j).
+ \tag{A3}
+\]
+The factorial denominator accounts for the two identical bad-pair slots.
+Prove this by expansion into words and (P): lowering an extra factor twice is
+zero, lowering the bad pair a third time is zero on its zero-cycle, and every
+surviving order is the displayed tensor with inherited weights. Product
+saturated lattices split; the bad-pair primitive kink quotient normals and
+indices remain exactly \(Q/g,U/g\) when extra line lattices are added or
+removed. Other quotient normals are the primitive extra tangents. Thus (A3)
+retains all axis, kink, multiple-order and zero-repeat contributions. At
+\(r=d\) only \(n_0=2,n_j=1\) survives, giving exactly the mass in (T).
+This derives its coefficient from all stages rather than guessing a tensor mass.
+
+## Complete integrals and exhaustion of the criterion
+
+In both failures the common old structure \(\Pi\) has only \(o\) as a
+zero-face where the bump can be positive, by (V). The actual envelope has
+exact gap \(-\beta\), equal to \(-1\) there and zero at every other old
+measure vertex. Its measure is the finite nonnegative complete \(d\)-stage
+PA zero-cycle. Refining for the obstacle can introduce vertices with positive
+bump, but at every stage refinement gives the inherited cycle; any zero-face
+that was not an old zero-face inherits zero top coefficient. There is no mass
+on open positive-dimensional strata, no diffuse term, and no point at infinity.
+The full measures of \(P+1/n\) are identical, so regularization adds no
+escaped or boundary mass. Consequently the **entire** contact integrals are
+exactly (H) and (T), not merely negative contributions at an isolated atom.
+All remote components, cycles, bounded edges and ends have zero gap at their
+possible measure atoms. Formula (M) also preserves total reference mass.
+
+If a cone has higher rank the first construction works with arbitrary other
+factor graphs, by their rational edge interiors. If every cone has rank one
+but two factors branch, the second construction applies with all remaining
+factors tested at edge interiors. Otherwise at most one factor branches and
+the positive cylinder reduction applies. These alternatives exhaust the
+proposed geometric criterion, including failures occurring in different
+components of different factors. The localizations are global, so any failed
+component tuple suffices against the originally prescribed reference.
+
+There is no intentionally unresolved step within this claimed finite-product
+theorem. It is an unverified author proof draft requiring independent mathematical
+assessment. The arbitrary-balanced-carrier original atom remains open. The
+following complete elementary and cylinder proofs and primary source bodies are
+part of this argument; receipts, hashes, diagnostics and compilation do not
+grant their correctness.
+
+
+
+# Complete elementary supporting proofs, reconstructed in this argument
+
+These proof bodies are included directly rather than invoked as prior results. Formula references are internal to each reproduced proof unit. The arbitrary-dimensional algebra and scalar normalization required by their applications are proved in the main text. In the rank-one coface discussion, replacing the complete one-dimensional affine factor by E does not change the graph projection; all affine E terms cancel by the full vector barycentre.
+
+## Elementary finite-dimensional facts used in the reconstruction
+
+A polyhedral cone has finitely many generators; for rational inequalities these can be rational. Remove its lineality (a rational subspace for rational data) and work in the pointed quotient. The sum of its nonnegative defining forms is strictly positive away from zero: otherwise all forms vanish on a nonzero vector and its negative. The section of value one is bounded, since an unbounded sequence, normalized to the unit sphere, would yield a nonzero cone vector of value zero. A bounded polyhedron is the convex hull of its vertices: in the minimal face of any nonvertex, a line ends on smaller faces, and induction reduces dimension. Its vertices are the finitely many full-rank active-system solutions, rational for rational data. Lift back and add both signs of a lineality basis. Homogenizing a nonempty pointed rational polyhedron therefore proves
+\[
+ \sigma=\operatorname{conv}\{v_1,\ldots,v_l\}
+                    +\operatorname{cone}\{r_1,\ldots,r_m\},     \tag{8}
+\]
+with rational vertices and recession vectors and at least one vertex: the height-one slice needs a positive-height extreme ray, whose extremality gives an original vertex. The homogenized cone is pointed because any line has height zero and would give original lineality. The same proof holds over real data without rational coordinates.
+
+Eliminating a variable from finitely many nonstrict linear inequalities compares every lower bound with every upper bound and retains variable-independent conditions. A one-sided family imposes no further conditions. Repetition proves that projections of polyhedra are polyhedra; variable coefficients stay rational if originally rational, even with real constants. It also proves closedness of finite convex-hull-plus-cone sets by projecting their coefficient representation.
+
+Needed separations can be proved by nearest points. A point outside a nonempty closed convex set has a nearest point after restriction to a sufficiently large compact ball. Differentiating squared distance along segments gives a separating normal. A compact convex set disjoint from a closed convex set has positive attained distance, with the same compact restriction for the second set; differentiating in both sets strictly separates them. If the latter is a cone, a finite supremum of the separating functional on it is zero. This proves the cone/polytope separations used here.
+
+If the pointed cone quotient is zero-dimensional, only its zero vector and the lifted lineality basis are needed. The elementary fact about a bounded polyhedron used above also covers its
+zero-dimensional case. Pointedness ensures the homogenized cone has no lineality;
+its zero-height extreme rays give recession generators and its positive-height
+extreme rays give exactly the normalized vertices. This proves (8) without an
+unstated decomposition theorem.
+
+A finite rationally convex function on \(\mathbb{Q}\) has a unique continuous convex extension on any interval interior. Rational endpoint values bound it above on a rational compact interval. Reflection about a rational centre bounds it below on a smaller interval. Bounds \(L\leq F\leq M\) on a larger rational interval imply a Lipschitz bound on a smaller one: extend the rational segment from \(y\) through \(z\) by a rational factor \(R/|z-y|\) staying in the larger interval and use Jensen, then reverse \(y,z\). Density gives the completion and convexity. A finite convex function on \(\mathbb{R}\) is continuous by this argument, and has a touching affine support at each point: its left and right secant limits are finite, ordered, and any slope between them gives the support.
+
+For \(b(p)=\min_j(c_j+g_jp)\), the supergradient interval at \(p_0\) is the convex hull of the active \(g_j\). Its directional derivative is the minimum of their products with the direction. Separating a candidate outside that interval disproves its supergradient property. Expanding sums of finite minima proves that supergradients of nonnegative sums are the corresponding weighted Minkowski sums, also when coefficients vanish. The outward normal cone of a polytope is generated by active inequality normals: an alleged normal outside their finitely generated closed cone can be separated to give a direction satisfying the active inequalities and increasing the alleged normal; a sufficiently small step also satisfies inactive inequalities, a contradiction. These proofs retain rational normal generators whenever inequality coefficients are rational, even if constants are real.
+
+## A finite rational cone for actual PC on a fixed complex
+
+This lemma concerns a **fixed** finite embedded rational complex \(\Sigma\).
+It does not assert regularity on its carrier. Let \(A(\Sigma)\) be the real
+vector space of continuous functions affine on each cell, with real affine
+coefficients. Choose rational affine coordinates on each cell's affine span.
+Agreement on each common face is a finite rational homogeneous linear system:
+test agreement on a rational affine basis of that face. These tests suffice
+because the difference is affine. Thus \(A(\Sigma)\) has a rational basis,
+including when cells have lineality or are lower dimensional. Clearing slope
+denominators in a rational basis element puts it in the literal PA class.
+This proves that the declared function space is its real scalar extension.
+
+For every nonempty face \(\tau\), every coface \(\sigma\succeq\tau\), and
+\(y\in\operatorname{relint}(\tau)\), define
+\[
+ T_{\tau\sigma}=\operatorname{cone}(\sigma-y).                 \tag{FC1}
+\]
+Here cone means nonnegative scalar multiples; this set is already a closed
+convex polyhedral cone. To prove this, write \(\sigma\) using rational affine
+equalities and inequalities \(a_k(z)+b_k\geq0\). At \(y\), an inequality is
+active if and only if it vanishes identically on \(\tau\): a nonnegative affine
+function on \(\tau\) cannot vanish at a relative-interior point unless its
+restriction is zero, by taking short steps in both tangent directions. A vector
+\(d\) is in (FC1) exactly when it satisfies the homogeneous equalities and
+\(a_k(d)\geq0\) for all active inequalities. Necessity follows by substitution.
+For sufficiency, every inactive inequality has positive slack at \(y\); there
+are finitely many, so a sufficiently small positive step \(y+t d\) satisfies
+all of them, as well as the active constraints. Therefore \(y+t d\in\sigma\).
+This also proves that each such direction stays in \(\sigma\) for every
+sufficiently small positive step. The same active constraints hold at every
+real point in \(\operatorname{relint}(\tau)\), proving independence of the
+chosen centre, rationality, and inclusion of the whole tangent space of
+\(\tau\) as lineality. No boundedness, pointedness, or full dimension was used.
+
+Form the cone of vector families, indexed by **all** cofaces including \(\tau\),
+\[
+ B_\tau=\{(d_\sigma):d_\sigma\in T_{\tau\sigma},\quad
+                              \sum_{\sigma\succeq\tau}d_\sigma=0\}.
+                                                               \tag{FC2}
+\]
+It is a rational polyhedral cone and has finitely many rational generators,
+with both signs of a rational lineality basis retained. The finite-generation
+proof above applies to the product of the tangent cones and the rational
+sum-zero equations. Impose, for every generator and every \(\tau\),
+\[
+                \sum_{\sigma\succeq\tau}h_\sigma^{\rm lin}(d_\sigma)
+                                  \geq0.                       \tag{FC3}
+\]
+These are rational homogeneous linear inequalities in \(A(\Sigma)\).
+
+**Claim.** Their solution cone \(C(\Sigma)\) equals
+\(A(\Sigma)\cap\mathrm{PC}(X)\), with actual PC tested against all allowed
+rational structures, all real centres, and remote rational endpoints.
+
+For necessity choose a rational \(y\in\operatorname{relint}(\tau)\).
+Such a point exists: rational affine coordinates identify the relative
+interior with a nonempty open subset cut out by rational constraints, and
+rational points are dense in its affine span. Given a rational generator of
+\(B_\tau\), let \(m\) be the number of cofaces. A sufficiently small rational
+\(t>0\) puts all rational endpoints \(y+mt d_\sigma\) in their cofaces.
+Their equal coefficients \(1/m\) give a genuine \(\Sigma\)-PCC centred at
+\(y\). Since every piece agrees at \(y\), Jensen is precisely (FC3) after
+division by \(t\). The zero family causes no difficulty. Linear combination
+extends the inequalities from generators to every real family in \(B_\tau\).
+
+For sufficiency first take any straight segment contained in the carrier,
+with endpoints allowed to be real. Each cell intersects it in an interval,
+so a finite subdivision makes \(h\) affine on each subinterval. At an interior
+breakpoint \(x\in\operatorname{relint}(\tau)\), let \(d\) be the forward
+direction. Its incoming \(-d\) and outgoing \(d\) lie in the tangent cones of
+their respective initial cells, which contain \(\tau\) as a face. Put them
+in the corresponding slots of (FC2). If the slots coincide, sum them in that
+slot; both derivatives then come from the same affine piece and agree. In
+all cases (FC3) gives
+\(h'_+(x;d)-h'_-(x;d)\geq0\). A continuous PA function with nondecreasing
+successive slopes is convex: the secant slope over an interval is a weighted
+average of its piece slopes, so left secants do not exceed right secants.
+Thus \(h\) is convex on every contained straight segment.
+
+Now take any genuine PCC \((x,(x_i),(\alpha_i))\) on **another** permitted
+structure. Each segment \([x,x_i]\) lies in its permitted convex coface and
+hence in \(X\). If \(d_i=x_i-x\ne0\), its initial short segment lies in some
+\(\Sigma\)-cell containing \(x\); finiteness of the segment subdivision
+ensures such a cell exists. The minimal \(\Sigma\)-face \(\tau\) of \(x\)
+is a face of that cell, and \(d_i\in T_{\tau\sigma_i}\) by (FC1).
+Continuity and affine agreement make the initial derivative unambiguous.
+Convexity along the segment gives
+\(h(x_i)-h(x)\geq h'_{x}(d_i)\). Group
+\(D_\sigma=\sum_{i:\sigma_i=\sigma}\alpha_i d_i\).
+Each group stays in its convex tangent cone, and
+\(\sum D_\sigma=\sum\alpha_i(x_i-x)=0\). Therefore (FC3) gives
+\[
+ \sum_i\alpha_i(h(x_i)-h(x))\geq
+ \sum_\sigma h_\sigma^{\rm lin}(D_\sigma)\geq0.              \tag{FC4}
+\]
+Zero displacements and zero coefficients contribute zero. This proves the
+claim at **every real centre**, with no insertion of irrational endpoints
+or cycles into the source definitions.
+
+## Exact positive-growth decomposition of the prescribed real reference
+
+Choose a common finite rational affine structure \(\Sigma\) for the product
+and the prescribed real \(\gamma\). Since \(\gamma\) is positive at infinity,
+each cell is pointed: nonzero lineality would put both \(r\) and \(-r\) in
+its recession cone, requiring opposite affine slopes both positive.
+By (8), each recession cone has finitely many nonzero rational generators.
+Its positive-growth conditions are exactly the finite strict inequalities
+\[
+       h_\sigma^{\rm lin}(r)>0\quad
+       \text{for all chosen nonzero recession generators}.     \tag{FC5}
+\]
+A nonzero recession vector is a nonnegative combination with at least one
+positive coefficient, so these inequalities suffice as well as being necessary.
+Bounded cells impose none.
+
+Write \(C(\Sigma)\) by its finite inequalities \(L_i\geq0\) in the rational
+space \(A(\Sigma)\), and let
+\(I=\{i:L_i(\gamma)=0\}\), \(S=\bigcap_{i\in I}\ker L_i\).
+Then \(F=C(\Sigma)\cap S\) is the minimal face containing \(\gamma\).
+Indeed it is a face by nonnegativity of the \(L_i\). In \(S\), all other
+inequalities are strictly positive at \(\gamma\), so a small relative ball
+about \(\gamma\) lies in \(F\). Hence \(\operatorname{span}F=S\) and
+\(\gamma\in\operatorname{relint}F\). Any face containing \(\gamma\)
+contains that ball: for \(z\in F\) a short step from \(\gamma\) opposite
+\(z-\gamma\) stays in the ball, expressing \(\gamma\) as a strict convex
+combination of \(z\) and another point of \(F\); the defining face property
+then includes \(z\). This proves minimality without a face theorem.
+The subspace \(S\) is rational, even when the cone has lineality.
+
+Choose a rational basis of \(S\), and use it as coordinates. If its dimension
+is \(d>0\), choose rational endpoints \(a_k<t_k<b_k\) about the real
+coordinates \(t_k\) of \(\gamma\), so close that their entire box lies
+in the preceding relative ball and satisfies every strict inequality (FC5).
+Density of the rationals and finiteness of all constraints give such a box.
+All its \(2^d\) vertices \(\gamma_j\) have rational affine coefficients,
+belong to \(C(\Sigma)\), and retain every strict recession slope. Put
+\(\theta_k=(t_k-a_k)/(b_k-a_k)\in(0,1)\). The product weights obtained by
+choosing \(\theta_k\) at an upper endpoint and \(1-\theta_k\) at a lower
+endpoint are strictly positive and sum to one. Their coordinate averages
+are exactly \(t_k\). Thus, **as functions on the entire unchanged carrier**,
+\[
+                 \gamma=\sum_{j=1}^{J}\lambda_j\gamma_j,
+                 \lambda_j>0,\qquad\sum_j\lambda_j=1.        \tag{FC6}
+\]
+Each \(\gamma_j\) is actual PC against every structure by (FC4), not just
+feasible in a nodal relaxation. If \(d=0\), then \(\gamma=0\) in this
+space; use the single rational reference \(0\) with weight one. In that
+case (FC5), if nonempty, would exclude \(0\), so this case can occur only
+when there are no nonzero recession directions. This handles the degenerate
+case without claiming growth where it is impossible. No approximation,
+reference replacement, or lost strict recession inequality occurs in (FC6).
+
+
+## Intrinsic graph convexity and product projection, without rank assumptions
+
+This section supplies the graph and projection lemmas used in the new
+higher-relation case. It does not invoke the existing one-dimensional
+classification.
+
+For a continuous finite PA function \(h\) on a finite rational graph structure,
+actual PC is equivalent to edgewise convexity and
+\[
+             c\mathbin{\cdot}s_v(h)\geq0\quad(c\in K_v)       \tag{G1}
+\]
+at every vertex, including function breakpoints. To prove this equivalence,
+use (FC1)--(FC4) on that graph structure. At an edge interior the only
+coface tangent cone is its full line, so a tangent family of sum zero has
+zero affine derivative sum. At a vertex the one-face tangent cones are the
+nonnegative primitive rays; every family is \((t_eq_e)_e\), \(t_e\geq0\),
+with \(t\in K_v\), and the zero-face contributes zero. Thus its tests are
+exactly (G1). At a bivalent affine breakpoint \(K_v\) is generated by
+\((1,1)\), and (G1) says the right derivative is at least the left derivative.
+These inequalities imply edgewise convexity by monotone successive slopes.
+Conversely all such tests imply (FC3), which proves PC for every real centre,
+remote rational endpoint and allowed coface structure. At original vertices
+one need not replace the cone \(K_v\) by the single actual weight relation.
+All its real members are tested.
+
+For completeness this also proves convexity on any contained straight segment
+passing through a higher-rank branching vertex: its incoming and outgoing
+opposite primitive directions give a member of \(K_v\), so its successive
+slopes cannot decrease. No ambient affine extension of \(s_v(h)\) is asserted.
+
+If \(h_i\) are continuous actual-PC rational-domain PA functions on the two
+graphs, then
+\[
+                  h(x,y)=h_1(x)+h_2(y)                       \tag{G2}
+\]
+is actual PC on their full product. Here is the precise projection argument,
+which does not assume that arbitrary projected cofaces themselves form a
+graph structure. Choose fixed rational function structures \(\Sigma_i\).
+For a product face \(\tau_1\times\tau_2\) and a product coface
+\(\sigma_1\times\sigma_2\), the tangent cone (FC1) is the direct product
+\(T_{\tau_1\sigma_1}\times T_{\tau_2\sigma_2}\). Indeed each projected
+direction admits a sufficiently small positive feasible step, so both admit
+a common small step; the reverse inclusion follows by projection.
+
+For a product tangent family of sum zero, project its vectors and group them
+over \(\sigma_1\). The grouped first-factor vectors stay in their convex
+tangent cones and sum to zero. Factor PC and (FC3) give a nonnegative
+first-factor derivative sum. Grouping over \(\sigma_2\) gives a nonnegative
+second-factor sum. Their sum is the product test. Consequently (FC4) proves
+(G2) against every genuine product PCC on every other allowed structure.
+More explicitly, project the segments of such a PCC, use factor convexity
+along each projected segment, and group their initial directions in the fixed
+factor tangent cones. The projected barycentre equations give precisely
+these sum-zero families. A zero projected displacement has derivative zero;
+all projected distances and all real coefficients are retained. This explains
+why projection is valid even when a projected distant segment crosses a
+vertex. It does not make an unsupported assertion about projected faces.
+
+By the all-ordinary-open PC-to-PAPC proof above, (G2) and every PC function
+constructed below are PAPC against every nonnegative real local one- or
+two-cycle. Product balancing and the actual saturated primitive-normal
+recursion, refinement and locality have already been reconstructed.
+
+Every balanced graph has a strictly positive vector \(w\in K_v\). Hence
+\(\operatorname{span}K_v=\ker Q_v\), where \(Q_v\) has columns \(q_e\):
+any kernel vector can be added to and subtracted from \(w\) after a sufficiently
+small scaling while preserving nonnegativity. This proves the equality and
+shows that a rank-one cone is precisely the sole positive kernel relation.
+It also shows that higher rank cannot be hidden by irrational actual weights.
+Rational bivalent subdivisions have rank one and do not change any original
+relation cone or the carrier branching property. These are local geometric
+conditions independent of the chosen finite refinement.
+
+
+
+## Rank-one supporting graph geometry, real weights, and genuine cofaces
+
+From this point through the two-branch reconstruction, assume all local relation cones in both graphs have rank one. This is a supporting case, not a new hypothesis in the broader theorem. At a vertex the full kernel of the rational direction matrix is one-dimensional. Otherwise perturb its strictly positive actual weight vector by a sufficiently small nonproportional kernel vector; positivity persists, contradicting the rank-one condition. The kernel therefore has a primitive positive integer generator \(\lambda_v\), and the actual incident vector is \(a_v\lambda_v\), \(a_v>0\). At a bivalent vertex the directions are opposite primitive vectors and weights equal. At a branched vertex there is no opposite pair, since that pair would give another nonnegative relation. No one-valent vertex can balance.
+
+On a connected graph all edge weights are a single positive real scalar times positive rational weights. Fix one edge weight. At each adjacent vertex the ratios of incident weights equal ratios of positive integers in \(\lambda_v\); propagate along paths through the finite graph. Existing actual weights ensure consistency around every cycle. This yields rational normalized weights \(r_e\) with \(w_e=c r_e\). Full-line components have one arbitrary positive scalar weight. Rational subdivision preserves these statements. This reduction is essential: it makes the incidence elimination below have rational variable coefficients, without supposing the given real scale rational.
+
+Every connected unbranched component is a complete rational affine line. Propagating through bivalent vertices keeps every edge on the same affine line with equal weight. The component is a connected finite closed union of intervals/rays on that line. Any finite endpoint of its union would be one-valent, contrary to balancing. It therefore covers the whole line; a bounded cycle cannot be embedded into this line as a pure polyhedral graph. A component supplied already as a full line has the same conclusion. Its tangent lattice is the saturated primitive line lattice \(\mathbb{Z}v\), independently of the ambient lattice's complementary directions.
+
+For the all-coface PCC tests on a cylinder \(G\times\mathbb{R}\), any convex cell projects to a convex subset of the graph. A segment cannot pass a branched vertex since it would need an opposite pair there. Thus its graph projection is in a single straight chain through bivalent subdivisions or in a vertex. If the centre's graph coordinate is in a straight-chain interior, all cofaces containing the common face remain in that chain and the graph test is ordinary one-variable convexity. At a branched centre \(v\), each coface projects into one incident straight chain; every endpoint displacement has the form \(t_i v_e\), \(t_i\geq0\), up to the next branched vertex. Grouping the barycentric displacements gives
+\[
+ b_e=\sum_{i\text{ in }e}\alpha_i t_i,
+ \qquad\sum_e b_ev_e=0,\qquad b_e=c r_e,\ c\geq0.           \tag{9}
+\]
+This argument uses actual cofaces on arbitrary rational structures, not merely a prescribed product subdivision. Distant endpoints and inserted bivalent vertices are included. Zero graph displacements cause no contribution.
+
+## Auxiliary rational-reference localization: whole-space growth
+
+In this auxiliary construction only, write \(\eta\) for any rational-coefficient positive-growth actual-PC reference. Its elementary construction will be applied separately to every component \(\gamma_j\) of (FC6); it is not a replacement of the prescribed real reference.
+
+The following whole-space growth estimate applies to every product, with no rank condition. Choose any rational centre \(A,B\); in the rank-one two-branch construction these will be original branched vertices.
+All objects in this construction remain on the **entire original product**.
+Choose ambient lattice bases and put
+\[
+\rho(p,q)=\|p-A\|_1+\|q-B\|_1,\qquad
+\rho_0(r)=\|r_1\|_1+\|r_2\|_1.                               \tag{28}
+\]
+The second is the **homogeneous recession norm**, not the translated function
+\(\rho\). Refine the original product and \(\eta\) into a common finite
+rational structure \(\Sigma\), splitting any full-line carrier pieces if needed.
+Each nonempty cell is pointed. Indeed a lineality vector \(r\ne0\) and \(-r\)
+would both be recession vectors of an affine reference cell, and its affine
+slopes on them are opposite; they cannot both be strictly positive. Any subcell
+inherits positive slopes on its nonzero recession vectors.
+
+By (8), write every cell as the convex hull of finitely many rational vertices
+\(v_i\) plus the cone of finitely many nonzero rational recession generators
+\(r_j\). Its affine slope \(\eta_\sigma^{\mathrm{lin}}(r_j)\) is a positive
+rational number. Select one rational \(m>0\) no larger than any of the finitely
+many ratios
+\[
+       \eta_\sigma^{\mathrm{lin}}(r_j)/\rho_0(r_j).            \tag{29}
+\]
+If there are no recession generators, choose any rational \(m>0\). For
+\(x=\sum_i\beta_iv_i+\sum_jt_jr_j\), \(\beta_i,t_j\geq0\),
+\(\sum_i\beta_i=1\), affinity and the norm triangle inequality give
+\[
+\begin{split}
+\eta(x)&\geq\min_i\eta(v_i)+m\sum_jt_j\rho_0(r_j),\\
+\rho(x)&\leq\max_i\rho(v_i)+\sum_jt_j\rho_0(r_j).
+\end{split}                                                        \tag{30}
+\]
+Choose rational
+\[
+B=\max\bigl(0,\ \max_{\sigma\in\Sigma}
+                 [m\max_{v\in\operatorname{Vert}\sigma}\rho(v)
+                        -\min_{v\in\operatorname{Vert}\sigma}\eta(v)]\bigr).
+\]
+The finite vertex sets are nonempty, and all values in this expression are
+rational. Equations (30) prove on **all** components, bounded cells and ends that
+\[
+                         \eta\geq m\rho-B.                 \tag{31}
+\]
+This derives the needed coercivity from the exact recession hypothesis, rather
+than assuming a global growth theorem or using a conveniently chosen reference.
+
+
+
+# Complete multivariate cylinder reconstruction
+
+In this unit graph weights are the positive rational normalized weights. The main text proves the componentwise real-weight normalization and restores the entire operator scalar. The divisor referred to as (5) here is the actual formula (D) proved in every dimension above. All primitive-normal, locality, balancing, refinement and commutativity uses in this unit refer to that reconstructed algebra. This full multivariate proof is mathematical evidence assessed here, not a theorem grant from its predecessor.
+
+## Elementary polyhedral and convex facts
+
+We record proofs of the finite-dimensional facts used subsequently. A cone defined by finitely many rational inequalities has finitely many rational generators. Remove its rational lineality first. In the pointed quotient the sum of the defining nonnegative forms is positive away from zero; its section of value one is bounded, since an unbounded sequence normalized on the sphere would give a nonzero vector of value zero. A bounded polyhedron is the convex hull of its finitely many vertices: within the minimal face of any nonvertex point, a line through the point ends on smaller-dimensional faces, and induction reduces to vertices. Vertices solve full-rank subsystems, hence are rational for rational data. Lift back and add both signs of a rational lineality basis.
+
+Homogenization applies this assertion to a pointed rational polyhedron and gives a nonempty finite point set and a finite ray set with
+\[
+ \sigma=\operatorname{conv}(A_\sigma)+\operatorname{cone}(R_\sigma),
+                    \qquad A_\sigma,R_\sigma\text{ rational}.       \tag{4}
+\]
+The same assertions, without rationality of coordinates, hold for real inequality data. Eliminating one variable from nonstrict finite inequalities compares every lower bound with every upper bound, retaining conditions independent of the variable; a one-sided family imposes no further condition. Induction proves that projections of polyhedra are polyhedra. Coefficients of variables remain rational if they start rational, even if the constant terms are real. In particular finitely generated convex-hull-plus-cone sets are closed. These arguments prove the finite-polyhedron and elimination facts used here rather than invoking an external polyhedral theorem.
+
+All separations used below follow from nearest points in finite-dimensional Euclidean space. A point outside a nonempty closed convex set has a nearest point by restricting to a sufficiently large compact ball. Differentiating squared distance along a segment in the set gives a separating normal. For a disjoint compact convex set and closed convex set, distance is positive and attained by the same compact restriction; differentiation in both sets strictly separates them by their nearest-point difference. For a cone the finite supremum of the separating functional is zero. This proves the point/cone and compact-polytope/cone separations used below, without importing a separation theorem.
+
+A finite rationally convex function on \(\mathbb{Q}^n\) has a unique continuous convex completion to \(\mathbb{R}^n\). Corner values bound it above on rational boxes. Reflection about a rational centre gives a lower bound on a smaller box: \(F(y)\geq2F(c)-F(2c-y)\). Choose bounds \(L\leq F\leq M\) on a rational box \(c+[-2R,2R]^n\). For rational \(y,z\in c+[-R/2,R/2]^n\), set \(\delta=\|z-y\|_\infty\). If \(\delta>0\), the rational factor \(T=R/\delta\geq1\) puts \(y+T(z-y)\) in the larger box. Jensen gives \(F(z)-F(y)\leq(M-L)\delta/R\); reversing the pair gives the opposite bound. This proves local Lipschitz completion; density proves convexity and uniqueness. A finite convex function on all of \(\mathbb{R}^n\) is continuous by the same box argument.
+
+It has an affine support at each point. Separate a point just below its closed epigraph by the normal at a nearest epigraph point; nearest points exist by compact restriction, and the separating inequality follows by differentiating squared distance along line segments. The vertical normal coefficient is positive, since a nonzero horizontal normal cannot bound all of \(\mathbb{R}^n\). Normalize it. Evaluating the resulting affine minorants at \(x\pm Re_i\) bounds their slopes as the below-epigraph point approaches \((x,F(x))\). A convergent subsequence yields a support touching at \(x\). This also covers \(n=0\).
+
+For a compact polyhedron \(D\), its outward normal cone at \(p\) is the cone of the active defining inequality normals. Indeed membership in this cone implies the normal inequality. If a normal were outside that closed finitely generated cone, separation would provide a direction satisfying the active inequalities and increasing the proposed normal; a sufficiently small step satisfies all inactive inequalities too, a contradiction. This proves both the assertion and its rational-generator version when inequality normals are rational, irrespective of real constants.
+
+Finally, if \(a(p)=\min_i(c_i+g_i(p))\) is concave polyhedral, its supergradient set at \(p\) is the convex hull of the active \(g_i\). The directional derivative is their minimum. Separation proves the supergradient assertion: an alleged supergradient outside that convex hull gives a violating direction. For a finite sum of such functions with nonnegative coefficients, the supergradient set is the corresponding Minkowski sum, directly by expanding the finite minima. These facts hold also at zero coefficients.
+
+## Scalar graph facts proved without PC locality
+
+The strictly positive vector in (1) implies that the full kernel of the direction map is one-dimensional. Otherwise a small perturbation of that vector by another kernel vector stays positive and contradicts (1). At a bivalent vertex the actual primitive directions are opposite and the weights equal. At any vertex of larger valence there is no opposite pair: such a pair would give a second nonnegative relation. Subdivision at rational edge points therefore preserves (1).
+
+A convex polyhedron contained in \(G\times E\) projects to a convex subset of \(G\). A straight segment cannot pass a branching vertex, since there is no opposite pair there. Thus the graph projection is in a single straight edge chain through bivalent vertices, or is a vertex. This applies to every permitted rational structure, not just our chosen subdivision.
+
+**Scalar lemma.** Suppose \(k\) is finite on rational graph points and satisfies rational graph PCC inequalities with rational coefficients. It has a continuous completion, is convex on every edge, has finite outgoing derivatives \(s_{v,e}\), and satisfies \(\sum_e w_es_{v,e}\geq0\). Conversely a continuous function convex on the edges with these inequalities, when added to any affine function of \(E\), satisfies every actual cylinder PCC, with real coefficients and all real centres.
+
+For the first assertion, complete the rational Jensen function on each edge interior. A one-sided limit at an endpoint is finite and at most the specified endpoint value: an endpoint secant bounds it above and an interior secant bounds it below. For rational small \(t>0\), the points \(v+t v_{v,e}\) with coefficients \(w_e/\sum w_e\) are an actual vertex PCC. Its inequality and the endpoint upper bounds force all limits to equal \(k(v)\). Every outgoing derivative is bounded above by a finite secant. Dividing the same PCC inequality by \(t\) prevents any derivative being \(-\infty\), and gives the weighted derivative inequality.
+
+For the converse, edgewise convexity and the bivalent inequalities give ordinary convexity on every straight chain. At a branching centre \(v\), group the graph displacements of any cylinder PCC as \(t_i v_{v,e}\), with \(t_i\geq0\), using the preceding structural observation. Their weighted sum is zero, so the group coefficients \(b_e=\sum_{i\text{ in }e}\alpha_it_i\) equal \(cw_e\), \(c\geq0\). Convexity gives \(k(q_i)-k(v)\geq t_i s_{v,e}\). Summing gives a nonnegative result. At a centre in a straight chain the assertion is ordinary convexity. Terms with zero graph displacement and the affine \(E\) terms are handled by the barycentre identity. This proves every actual PCC directly, including remote endpoints, irrational centres, and structures crossing bivalent subdivision points. No open-cover locality theorem is used.
+
+For a raw cylinder competitor \(h\), its rational slice at a rational graph point \(q\) has the finite convex completion just proved. For a real dual covector \(p\in E^*\), put
+\[
+ k_{h,p}(q)=\inf_{z\in E_{\mathbb{Q}}}(h(q,z)-p(z))\in[-\infty,\infty).             \tag{7}
+\]
+It satisfies rational graph PCC inequalities: choose rational \(z_i\) approaching the endpoint infima, apply the actual cylinder PCC at \((q,\sum_i\alpha_i z_i)\), subtract \(p\), and take the infimum. Rational coefficients ensure that this last affine coordinate is rational. If one endpoint has infimum \(-\infty\), vary that endpoint alone.
+
+If (7) is finite at one rational graph point, it is finite at every rational point in that connected component. From an edge-interior finite centre, any other rational point on that edge can be an endpoint in a rational combination by choosing the other endpoint on the opposite side. At a finite vertex, any rational remote point \(v+t_ev_{v,e}\) on a chosen incident edge belongs to a vertex PCC with positive rational coefficients proportional to \(w_e/t_e\), choosing positive rational distances within all other incident edges. No endpoint can have value \(-\infty\). Propagate across the finite connected graph. This works through cycles and all unbounded ends. The scalar lemma then applies to (7).
+
+## Finite partial-infimum data, with tails and recession constraints
+
+Work in one connected component, identify \(E\) rationally with its lattice vector space, and take a common finite rational affine structure for \(f=\gamma+u\) and \(\gamma\), refined by the original edge strips. Each cell is pointed: a nonzero lineality direction would give two opposite reference recession slopes, incompatible with positivity at infinity. Formula (4) therefore applies.
+
+For each cell ray with zero graph coordinate, write its affine obstacle slope as \(s_r\) and its \(E\)-coordinate as \(r_E\), and define
+\[
+ D=\{p\in E^*:p(r_E)\leq s_r\text{ for every such ray}\}.                    \tag{8}
+\]
+All inequality normals are rational; constants may be real. On every recession ray \(u\) has zero slope, by boundedness, so (8) is the same for \(f\) and \(\gamma\). It contains 0 in its interior, because every nonzero vertical ray has strictly positive reference slope. For \(m=0\), \(D=\{0\}\) in the zero-dimensional dual space.
+
+Set \(F_p(q)=\inf_{z\in E}(f(q,z)-p(z))\). For \(p\in D\) this is finite at every \(q\) and its infimum is attained at a vertex of some cell fibre. Indeed, the fibre is pointed and its recession cone is generated by the zero-graph cell rays: graph recession is zero on bounded strips and nonnegative on unbounded strips, so a zero-graph combination cannot use any positive-graph ray. The objective is nonnegative on this recession cone, and (4) for the fibre gives a minimizing vertex. There are finitely many cells. If \(p\notin D\), a violating rational ray based at a rational point gives \(F_p(q)=-\infty\) at a rational graph point. Thus (8) is precisely the common finite domain required here.
+
+The set \(D\) is compact. At any fixed rational graph vertex, the finite-PA function \(f(q,z)\) is bounded above by \(M\|z\|+B\), for some finite \(M,B\) (use finitely many affine pieces and the dual norm). If \(\|p\|>M\), a direction with \(p(z)>M\|z\|\) makes the infimum \(-\infty\). Finiteness for \(p\in D\) bounds \(D\). This proof does not require \(f\) convex.
+
+Subdivide each bounded edge at the graph coordinates of all its spatial cell vertices, and each end at those coordinates and its original base. This is finite and rational. Between consecutive coordinates a fibre vertex lies on a spatial one-face: the minimal face containing it loses one dimension under the slicing hyperplane, so has dimension at most one. A one-face traversing the interval has rational form \(z(t)=z_i+t b_i\), and obstacle height real-affine in \(t\). Its feasibility across that open interval is constant, because changes occur only at projected spatial vertices. Therefore on each such interval
+\[
+ F_p(t)=\min_i\{A_i(p)+t B_i(p)\},                      \tag{9}
+\]
+where the finite index set is independent of \(p\); \(A_i,B_i\) are affine in \(p\), with rational linear coefficients and real constants. At a node \(v\), slicing the cells directly gives \(F_p(v)\) as a finite minimum of affine functions of \(p\), again with rational gradients and real constants.
+
+For clarity, (9) extends concavely and continuously to each finite interval endpoint. Its candidate fibre vertices have finite limits there, so their limiting objective values are at least \(F_p(v)\). Conversely, fixing any finite \(z\) and using continuity of \(f(t,z)\) gives \(\limsup_{t\to v}F_p(t)\leq f(v,z)-p(z)\); then take its infimum over \(z\). This proves equality of the limits. It also proves branchwise continuity at a graph vertex. The possibility of a different endpoint fibre type is not discarded.
+
+After the last projected vertex on an end, translate its primitive parameter to start at 0. Formula (9) holds for all \(t\geq0\), and
+\[
+ \theta_e(p):=\lim_{t\to\infty}F_p(t)/t=\min_i B_i(p),\qquad
+ F_p(t)-\theta_e(p)t\text{ is nondecreasing}.             \tag{10}
+\]
+Every \(B_i-\theta_e\geq0\) proves the monotonicity term by term. In particular the line from any value at most \(F_p(0)\) with slope \(\theta_e(p)\) lies below the entire tail obstacle. All recession constraints and finite endpoints have now been retained.
+
+## The graph incidence polyhedron and its greatest assignment
+
+Let \(V\) be the finite node set just obtained. For fixed \(p\in D\), introduce node values \(a_v\), and impose
+\[
+ a_v\leq F_p(v),\qquad
+ L_v(a,p):=\sum_{e=vw\text{ bounded}}\frac{w_e}{\ell_e}(a_w-a_v)
+                +\sum_{e\text{ tail at }v}w_e\theta_e(p)\geq0.             \tag{11}
+\]
+Here \(\ell_e>0\) is the actual rational primitive length. All bounded edges are present in this one system, including each edge of every cycle. Do not integrate a graph direction into a larger lift or unwind the graph.
+
+There is a feasible assignment. The raw PC function \(\gamma-C\), \(C=\|u\|_\infty\), lies below \(f\). Its partial infimum is finite for \(p\in D\), by (8) applied to \(\gamma\), and the scalar lemma applies. Replace its restriction on each bounded interval by its endpoint chord, and on each tail by the line of slope \(\theta_e(p)\) from its endpoint value. Convexity and the upper bound \(F_p\) show that the chords lie below the concave data (9); the tail bound follows from (10). The chord outgoing slopes at both endpoints are at least the old outgoing derivatives. On a tail the asymptotic upper bound by (9) forces every secant slope of the old convex function to be at most \(\theta_e(p)\), so the new outgoing slope is also at least the old one. Thus all inequalities in (11) hold.
+
+The componentwise maximum of two feasible assignments is feasible. At a node attaining its value from one assignment, each neighboring value has only increased, so \(L_v\) has not decreased; the caps also persist. Choose a feasible witness \(b\). Maximizing \(\sum_v a_v\) after taking componentwise maximum with \(b\) restricts to the compact box \(b_v\leq a_v\leq F_p(v)\), and hence attains a maximum. A feasible assignment exceeding that maximum in any coordinate would increase this objective by taking componentwise maximum. Consequently there is a unique componentwise greatest assignment, denoted \(a_v(p)\).
+
+It also dominates every scalar function \(k\) obtained from (7) that lies below \(F_p\). The chord-and-tail replacement just used dominates \(k\) everywhere by convexity and the tail slope bound, and its node vector is feasible for (11). Therefore it is at most the interpolation of the greatest assignment. Define that interpolation as \(k_p(q)\): endpoint-linear on every bounded interval and \(a_v(p)+t\theta_e(p)\) on every tail. It is continuous, scalar PC by the scalar lemma, and \(k_p\leq F_p\) everywhere.
+
+Every \(a_v(p)\) is a finite concave piecewise-affine function on \(D\), with rational gradients and real constants. To see this without an unproved parametric-LP assertion, expand all caps \(F_p(v)\) into their finite affine minima. Expand each tail minimum \(\theta_e\) in the last inequalities of (11): the weighted sum of minima is the minimum over all choices of tail pieces. Thus (11) is one finite linear system in \((a,p)\) with rational variable coefficients and real constants, together with (8). Eliminate all \(a_w\), \(w\ne v\), by the elementary elimination procedure. For fixed \(p\in D\), its section in \(a_v\) is exactly \((-\infty,a_v(p)]\), because simultaneously lowering all node values preserves the Laplacians and caps. Projected inequalities involving \(a_v\) must therefore be upper bounds; zero-coefficient inequalities concern \(D\). There is at least one upper bound from the original cap. Dividing positive rational coefficients gives
+\[
+ a_v(p)=\min_j(c_{v,j}+g_{v,j}(p)),\qquad g_{v,j}\text{ rational}.             \tag{12}
+\]
+This also proves continuity on all of \(D\), including its boundary. Tail slopes already have the same property. No assertion that the dual vertices are rational is made.
+
+## Actual raw envelope and finite rational spatial domains
+
+Define
+\[
+ Q(q,z)=\sup_{p\in D}\{k_p(q)+p(z)\}.                                    \tag{13}
+\]
+It is finite: \(D\) is compact and all node values and tail slopes are continuous. For each fixed \(p\), \(k_p(q)+p(z)\) satisfies every actual PCC by the scalar lemma, so its supremum does too \(take the supremum of each Jensen inequality\). Since \(k_p\leq F_p\), \(Q\leq f\).
+
+For every raw competitor \(h\leq f\), and every rational \((q,z)\), take a touching affine support of the convex completion of the rational slice \(h(q,\cdot)\). Its covector \(p\) makes (7) finite and \(h(q,z)=k_{h,p}(q)+p(z)\). Propagation proves finiteness throughout the component; a violating ray would contradict \(h\leq f\), so \(p\in D\). The preceding greatest-assignment argument gives \(k_{h,p}\leq k_p\). Hence \(h(q,z)\leq Q(q,z)\) at all rational carrier points.
+
+The function \(Q\) is continuous. Partition \(D\) into the common finite polyhedral chambers of all affine minima in (12) and (10). Each chamber is compact. On it \(k_p(q)+p(z)\) is affine in \(p\) on a fixed graph interval, so its maximum is attained at a chamber vertex. Let \(J\) be the finite union of all these vertices, with no rationality assumption on their coordinates. Formula (13) on each edge strip is the maximum of the corresponding finitely many real-affine functions of \((q,z)\). At graph nodes the formulas agree. This proves continuity on all of \(X\).
+
+To extend the raw upper bound to a real point \(x\), choose any finite rational structure and its minimal cell containing \(x\). In a positive-dimensional cell, shrinking simplices with rational vertices in its relative interior enclose \(x\); they can be obtained by rationally perturbing the vertices of a small enclosing simplex in the rational affine hull. Their real barycentric coefficients give actual same-cell PCCs. Raw Jensen and continuity of \(Q\) imply \(h(x)\leq Q(x)\). A zero-dimensional cell point is already rational. No raw-competitor continuity has been used.
+
+Apply this to \(h=\gamma-C\). Together with \(Q\leq f\leq\gamma+C\), it gives the two-sided growth bound. Consequently \(Q\) itself belongs to the competitor set (3), and all its competitors are at most \(Q\). Thus
+\[
+                        P_\gamma(u)=Q.                                  \tag{14}
+\]
+Both the global lower competitor and global upper comparison are exact, and no local raising or unproved growth gluing is invoked.
+
+Real-affine maxima alone would not prove rational spatial domains. Here there is an additional rational-gradient mechanism. Fix \(p_0\in J\). Let \(A_v(p_0)\) be the supergradient polytope of \(a_v\) there, and let \(B_e(p_0)\) be that of \(\theta_e\). Their vertices are rational by (12). Let \(N_D(p_0)\) be the outward normal cone of \(D\), generated by rational normals by (8).
+
+For any finite concave polyhedral \(b\), the condition that \(p_0\) maximize \(b(p)+p(z)\) over \(D\) is
+\[
+                    z\in-\partial^+b(p_0)+N_D(p_0).                      \tag{15}
+\]
+For sufficiency, a supergradient \(g\) with \(g+z\in N_D\) gives the global maximum inequality. For necessity, if \((z+\partial^+b)\cap N_D\) is empty, separate the compact polytope from the closed polyhedral cone. The separating direction \(r\) has \((g+z)(r)>0\) for every supergradient and has \(n(r)\leq0\) for every normal. It is a feasible tangent direction to \(D\); a sufficiently small step is feasible. The directional derivative, the minimum of these positive quantities, increases the objective, a contradiction. This supplies the exact optimality argument, including boundary faces.
+
+On a bounded interval \(t\in[0,\ell]\), \(b=(1-t/\ell)a_v+(t/\ell)a_w\), so (15) describes the full maximization domain of the affine plane indexed by \(p_0\) as
+\[
+ z\in-(1-t/\ell)A_v(p_0)-(t/\ell)A_w(p_0)+N_D(p_0).                       \tag{16}
+\]
+It is the convex hull of the rational endpoint point sets \((0,-\operatorname{Vert}A_v)\), \((\ell,-\operatorname{Vert}A_w)\), plus the cone of \((0,n)\) for rational generators of \(N_D\). On a tail its domain is
+\[
+ t\geq0,\qquad z\in-A_v(p_0)-tB_e(p_0)+N_D(p_0),                         \tag{17}
+\]
+generated by the rational points \((0,-\operatorname{Vert}A_v)\) and rational rays \((1,-\operatorname{Vert}B_e)\), \((0,n)\). These descriptions remain exact at \(t=0,\ell\), at zero coefficients, and at degenerate chambers. They prove that every maximization domain is a rational spatial polyhedron, though its affine value has real coefficients.
+
+The maximization domains of a finite affine maximum, including all their faces and removing duplicates, form a complex: intersections are equality faces of the respective maxima regions. Its faces are rational because these regions are rational polyhedra. At a graph node (16)--(17) have exactly the same fibre domain for each \(p_0\), independent of the neighboring interval, so the strip complexes glue. This gives a finite rational spatial complex for \(P\) on the actual carrier. Moreover (16) has vertices only at its two graph endpoints, and (17) only at its base; faces introduce no new vertices. Thus every possible zero-dimensional domain face of this complex lies over a node of \(V\). Edge interiors cannot carry a recursive zero-cycle coefficient. This conclusion includes all bounded-edge interiors and all tails, rather than omitting their lower-face terms.
+
+## PAPC against all local real cycles and actual regularization
+
+Let \(z\geq0\) be any local real balanced cycle of any positive dimension on an ordinary open \(U\subset X\), and refine to make \(P\) affine. At a tested facet \(\tau\), choose a rational \(x\in U\cap\operatorname{relint}\tau\). The cone of possible nonnegative incident weights balanced modulo \(N_\tau\) is a rational polyhedral cone, so is generated by rational vectors, by the elementary cone proof above. The divisor coefficient is linear in those weights. It suffices to test a nonnegative rational incident vector \(c_\sigma\).
+
+Write \(S=\sum c_\sigma>0\), \(B=\sum c_\sigma n_{\sigma/\tau}\in N_{\tau,\mathbb{Q}}\), and use the rational inward vectors \(n_{\sigma/\tau}-B/S\). They need not be integral normals; they have the same positive quotient directions. For sufficiently small rational \(\varepsilon>0\), the rational points \(x_\sigma=x+\varepsilon(n_{\sigma/\tau}-B/S)\) belong to \(\sigma\cap U\). With coefficients \(c_\sigma/S\) their barycentre is \(x\), giving an actual PCC. Its Jensen inequality is
+\[
+ 0\leq\sum c_\sigma[P(x_\sigma)-P(x)]
+       =\varepsilon\left(\sum c_\sigma P_\sigma(n_{\sigma/\tau})-P_\tau(B)\right).
+\]
+This is exactly (5). The zero-weight case is zero. Rational-generation then proves the inequality for every nonnegative real incident vector, and hence for every real local cycle. Thus \(P\) is PAPC in the full required sense. Balancing proved above permits recursion, and every successive divisor is nonnegative. Its full top cycle is a finite nonnegative atomic measure on the rational domain vertices. The sequence \(P+1/j\) is PAPC in the same two-sided growth class and decreases uniformly to \(P\); its divisors agree with those of \(P\). This establishes the actual operator domain and regularization without invoking source regularity assertions.
+
+## Two complete recursive vanishing lemmas
+
+**Quotient vanishing.** On a local \(d\)-cycle, suppose that after subtracting an ambient affine function the PA germ is pulled back by a rational linear map to a function on a complete rational fan in a space of dimension \(q<d\). Its full top divisor is zero. Let \(T_j\) be the union of quotient fan faces of codimension at least \(j\). The first divisor vanishes off the preimage of \(T_1\), since the function is ambient affine there. Inductively, near the relative interior of a quotient face of codimension \(j-1\), the preceding cycle is supported in that face's preimage, where the function is affine on the entire supporting subspace. Extend this affine function to the ambient space; balancing makes its next divisor zero. Thus the \(j\)-th divisor is supported in the preimage of \(T_j\). Since \(T_{q+1}\) is empty, the top divisor vanishes. Rational common refinements and the local formula (5) justify this argument on every lower face, without transversality or a top-face-only measure formula.
+
+**Lineality vanishing.** If the local carrier fan and residual function-domain fan have common nonzero rational lineality, choose their common generalized fan retaining that lineality. Every face contains it; there is no zero-dimensional face. Every recursive divisor lives on that fan, so the top zero-cycle is zero. Refinement cannot change this by the proved refinement identity. Ambient affine terms can be removed first.
+
+## Full contact at cyclic junction fibres
+
+Let \(x=(v,z_0)\) be any possible atom of the finite rational spatial complex for \(P\). By (16)--(17), \(v\in V\) and \(z_0\) is rational. Suppose \(P(x)<f(x)\). Define its compact exposed dual face
+\[
+ C_x=\{p\in D:a_v(p)+p(z_0)=P(v,z_0)\}.                                  \tag{18}
+\]
+It is nonempty and convex. Indeed \(a_v\) is concave, and the displayed quantity never exceeds its maximum. Formula (12) describes (18) by inequalities with rational normals \(g_{v,j}+z_0\) and real constants, together with (8). Its affine-hull direction is therefore rational: the affine hull is cut out by the inequalities that are equalities throughout the polyhedron, as seen by choosing a relative-interior point and varying in its remaining feasible directions. Their homogeneous coefficients are rational. On \(C_x\), \(a_v(p)=P(x)-p(z_0)\) is affine.
+
+For each incident bounded edge \(e=vw\), directed away from \(v\), and each tail, put
+\[
+ s_e(p)=\frac{a_w(p)-a_v(p)}{\ell_e}\quad\text{or}\quad s_e(p)=\theta_e(p).
+                                                                         \tag{19}
+\]
+On \(C_x\) these are concave continuous polyhedral functions: \(a_v\) is affine there. The vertex inequality says
+\[
+                           \sum_e w_es_e(p)\geq0.                         \tag{20}
+\]
+The local germ of \(P-P(x)\) in the outgoing strip with coordinates \(t\geq0, \zeta=z-z_0\) is exactly
+\[
+                  h_e(t,\zeta)=\max_{p\in C_x}\{p(\zeta)+t s_e(p)\}.       \tag{21}
+\]
+To justify this, use the fixed finite set \(J\) of common dual chamber vertices. All inactive planes at \(x\) have strictly positive gap, and therefore stay inactive in a sufficiently small neighbourhood. Active planes have their dual points in \(C_x\). Conversely every point of \(C_x\) belongs to a chamber and is a convex combination of its vertices; equality in the exposed maximum forces those vertices to be active, and on that chamber all terms in (19) are affine. Thus (21) follows exactly. This is a local finite-germ identity, not an assumption of raw continuity or joint-convex reconstruction.
+
+If \(\dim C_x<m\), let \(T\subset E\) annihilate the rational direction of \(C_x\). It is nonzero and rational. Subtract the ambient affine \(p_0(z)\), with \(p_0\in C_x\). Formula (21) is invariant under \(T\) in every strip; the carrier star has \(E\), hence \(T\), as lineality. A rational function-domain fan retaining \(T\) exists: each coarsest linearity region is a convex union of finitely many rational tangent cones of the already constructed spatial complex, and hence is a rational cone; its equations are invariant under \(T\). Quotient these cones by \(T\) and lift their common rational refinement. The lineality lemma proves that the full coefficient at \(x\) is zero. This case includes all lower-dimensional exposed faces.
+
+Now suppose \(\dim C_x=m\). For \(p\in\operatorname{int}C_x\), choose \(\eta>0\) with \(p+\eta\overline B^*\subset C_x\). Formula (18) and (13) give, for every \(y\in E\),
+\[
+ P(v,y)-p(y)\geq P(v,z_0)-p(z_0)+\eta\|y-z_0\|.                           \tag{22}
+\]
+Since \(f(v,\cdot)\geq P(v,\cdot)\) is continuous, \(f(v,y)-p(y)\) is coercive and attains its infimum. If \(a_v(p)=F_p(v)\), that infimum equals the first term on the right of (22). The strict inequality away from \(z_0\) then forces the minimum at \(z_0\) and \(f(v,z_0)=P(v,z_0)\), a contradiction. Therefore
+\[
+                         a_v(p)<F_p(v)\quad(p\in\operatorname{int}C_x).    \tag{23}
+\]
+
+The greatest-assignment property now implies \(L_v(a(p),p)=0\). If this Laplacian were positive, raise **only its scalar LP coordinate** \(a_v\) by a sufficiently small \(\delta>0\). The cap persists by (23). At \(v\) the Laplacian decreases by \(\delta\sum_{e=vw}w_e/\ell_e\), and at every neighboring node it increases; tail slopes are fixed. Thus feasibility persists, contradicting coordinatewise maximality. If there are no bounded incident edges, raising the coordinate does not change any Laplacian and gives the contradiction even without a positive Laplacian; in that case (23) itself is impossible. This is a finite scalar feasibility argument; it is not a local perturbation of \(P\) requiring global PC gluing.
+
+Continuity extends the equality to all of \(C_x\):
+\[
+                              \sum_e w_es_e=0\quad\text{on }C_x.           \tag{24}
+\]
+Since each \(s_e\) is concave and all weights are strictly positive, every \(s_e\) is affine on \(C_x\). Indeed the nonnegative Jensen deficits of the individual concave functions have weighted sum zero and must each vanish. On the full-dimensional \(C_x\), choose an interior point off the finitely many affine-piece walls. Formula (12) and the rational lengths show that these affine expressions have rational \(p\)-gradients. Write
+\[
+                    s_e(p)=\alpha_e+p(\beta_e),\qquad\beta_e\in E_{\mathbb{Q}}.
+                                                                         \tag{25}
+\]
+The constants \(\alpha_e\) may be real. Equation (24) says \(\sum w_e\alpha_e=0\) and \(\sum w_e\beta_e=0\).
+
+Let \(S_v\) be the actual rational span of the primitive star directions. Its only relation is (1). Consequently there is a real linear form \(A:S_v\to\mathbb{R}\) with \(A(v_{v,e})=\alpha_e\), and a rational linear map \(B:S_v\to E\) with \(B(v_{v,e})=\beta_e\). Rationality follows by solving the rational direction matrix for the rational values, not by assuming ray-generated lattice saturation. Formula (21) is therefore the restriction to the entire star of
+\[
+                       A(s)+\operatorname{supp}_{C_x}(\zeta+B(s)).        \tag{26}
+\]
+After removing \(A+p_0\circ(\zeta+B(s))\), it factors through the rational map \((s,\zeta)\mapsto\zeta+B(s)\) to the \(m\)-dimensional complete space \(E\). The support function of \(C_x-p_0\) has a complete rational normal fan, because (18) has rational inequality normals; its normal cones are generated by active normals as proved above. Apply quotient vanishing with \(q=m<d=m+1\). The entire recursive coefficient at \(x\) is zero, with actual primitive indices and every intermediate lower-face contribution retained.
+
+The proof covers every possible atom: original cyclic junctions, inserted bivalent nodes, all fibre domain faces, and tail bases. Non-node edge interiors have already been excluded by the rational-domain generator argument. No tree branch decomposition, cycle cutting, globally affine lift, or independent support extension is used. For \(m=0\) the same argument reduces to the known graph contact mechanism; the new assertion is every \(m>0\) with arbitrary nonseparable data and cycles. Since the measure is finite nonnegative and every noncontact coefficient is zero, (2) follows. The integrand is bounded by the two-sided growth inequalities, and no boundary atom is introduced: the PA operator is the finite zero-cycle on \(X\), and its explicit constant-shift regularization has exactly the same measure. Infinity and all ends have been handled in (8)--(11).
+
+For finitely many connected components, construct \(D\), the LP, and \(P\) separately. A PCC and a local cycle stay in the component of their incident cell; the finitely many measures add and a uniform growth constant is available. This finishes the stated graph-cylinder theorem.
+
+
+
+# Detailed original-lattice bad-pair mass computation
+
+This computation is reconstructed at the original singular product star. Its positive scale called epsilon in the final two paragraphs is kappa in the main theorem. The all-stage tensor formula (A3), supplied above, is an additional proof and is not inferred merely from this two-stage computation.
+
+## Complete primitive-normal junction computation
+
+In the original product quadrant \((s v_i,t w_j)\), \(s,t\geq0\), put \(q_i=1/S_k\) if \(i\in I_k\), \(p_j=1/T_l\) if \(j\in J_l\). Directly from the three specified tripod directions,
+\[
+ H=c_kq_i s+c_lp_j t\quad(k\ne l),\qquad
+ H=c_k|q_i s-p_jt|\quad(k=l).                              \tag{40}
+\]
+Let \(a_i=(v_i,0)\), \(b_j=(0,w_j)\). The actual saturated plane lattice is \(\mathbb{Z}a_i\oplus\mathbb{Z}b_j\): a vector in this plane belongs to the direct product ambient lattice exactly when its two primitive factor-line coefficients are integral. Factor star spans may be nonsaturated in their ray generators; this does not alter these actual plane lattices.
+
+Off-group quadrants are affine and have index-one axis cones. For a same-group pair take a positive integer denominator \(D\), \(Q=Dq_i\), \(P=Dp_j\), \(g=\gcd(Q,P)\). Its zero kink ray has actual primitive vector
+\[
+                            d_{ij}=(P/g)a_i+(Q/g)b_j.        \tag{41}
+\]
+The integer coefficients are coprime; primitiveness follows also in the whole ambient lattice because both factor vectors are primitive. The two actual saturated cone indices are
+\[
+                    \chi_{a_i,d_{ij}}=Q/g,\qquad
+                    \chi_{b_j,d_{ij}}=P/g.                 \tag{42}
+\]
+All top cone weights are \(\Omega_{ij}=ab\lambda_i\mu_j\), inherited from the original graph product. At a kink, (6) and \(H(d_{ij})=0\) give the full first weight
+\[
+ D_H(d_{ij})=\Omega_{ij}\left(\frac gQ c_kq_i+\frac gP c_kp_j\right)
+                             =2c_k\Omega_{ij}g/D.           \tag{43}
+\]
+No denominator or index has been suppressed.
+
+At an axis \(a_i\), the off-group neighbours are \(b_j\). For same-group neighbours the representative quotient normal is
+\(d_{ij}/(Q/g)=b_j+(p_j/q_i)a_i\). Therefore top balancing gives
+\[
+ \sum\frac{\Omega_{ij}}{\chi}r_{ij}
+       =ab\lambda_i\left(\sum_j\mu_jb_j+
+                    \sum_{j\in J_k}\mu_j(p_j/q_i)a_i\right)
+       =ab\lambda_i S_k a_i.                               \tag{44}
+\]
+Since \(H(a_i)=c_k/S_k\), the off-group first term is
+\(ab\lambda_i(4-c_k)\), and the tangential correction in (5)--(6), with (44), subtracts \(ab\lambda_i c_k\). Thus
+\[
+ D_H(a_i)=ab\lambda_i(4-2c_k),\qquad
+ D_H(b_j)=ab\mu_j(4-2c_l).                                 \tag{45}
+\]
+These axis rays and the kink rays (41) are all rays in the local function fan and all are nonnegative. Its balancing can be checked directly: kink contributions in the first projection for a fixed \(i\in I_k\) sum to \(2c_kab\lambda_i v_i\), adding its axis contribution gives \(4ab\lambda_i v_i\). The second projection similarly gives \(4ab\mu_jw_j\). Both total sums vanish by the original relations. This check retains every same-group pair even when multiple original rays share a projected direction.
+
+Apply the second divisor (7). Kink rays have zero value. The entire first-axis contribution is
+\[
+ ab\sum_k(4-2c_k)c_k\sum_{i\in I_k}\lambda_i/S_k=4ab,
+\]
+and the second-axis contribution is \(4ab\). Hence the **complete** coefficient at the chosen junction is
+\[
+                          (H^2\cdot[X])\{(A,B)\}=8ab.              \tag{46}
+\]
+This is the two-stage computation at the original singular product junction, not a pushed-forward tripod calculation or a one apparent atom claim.
+
+
+By (35) the local germ of \(P-P(o)\) is \(\varepsilon H\). Constants have
+zero divisor, and both stages of (5) are real linear in the function, so the
+complete original-junction coefficient for \(P\) is
+\[
+                    \mathrm{MA}_{\mathrm{poly},\mathbb{R}}(P)\{o\}
+                                  =8\varepsilon^2ab.          \tag{47}
+\]
+Other homogeneous cuts introduced by \(\gamma\) or the carrier/refinement
+do not change this coefficient, by the proved two-stage refinement compatibility.
+The calculation uses no pushforward to a tripod, no missing-axis convention and
+no singular-face Alexandrov substitution.
+
+
+
+# Essential primary source definitions and complete selected proof bodies
+
+The originals are preserved byte for byte in sources. Extraction uses explicit LF newline ranges, never splitlines on PDF formfeeds. For display only formfeeds become newlines, nonprinting extraction controls are omitted, private parenthesis fragments are ordinary parentheses, the face-order glyph is written as preceq, and script ell is written as ell. The cited theorem bodies are comparison evidence, not external theorem premises. The literal integral coefficients, the real extension, all-cycle positivity and the full tangential term are explicitly separated above.
+
+
+Primary BMPS2603.08664v1.txt, LF lines 1--43.
+
+```text
+                                             MONGE–AMPÈRE MEASURES ON BALANCED POLYHEDRAL SPACES
+
+                                                       ANA MARÍA BOTERO, ENRICA MAZZON, AND LÉONARD PILLE–SCHNEIDER
+
+
+
+
+arXiv:2603.08664v1 [math.AG] 9 Mar 2026
+                                                  Abstract. We study classes of convex functions on balanced polyhedral spaces and establish
+                                                  various structural properties, including a compactness theorem for polyhedrally plurisubharmonic
+                                                  functions. Using tropical intersection theory, we construct Monge–Ampère measures, first
+                                                  associated with piecewise affine functions, and then we extend it to polyhedrally plurisubharmonic
+                                                  functions.
+                                                     We investigate polyhedral Monge–Ampère equations on balanced polyhedral spaces via a
+                                                  variational approach, providing sufficient conditions for the existence of solutions as well as explicit
+                                                  counterexamples. Finally, we relate our framework to non-archimedean pluripotential theory and
+                                                  explore its connection with the non-archimedean Monge–Ampère equation.
+
+
+                                                                                               Contents
+
+                                            1.   Introduction                                                                                                 1
+                                            2.   Preliminaries on polyhedral spaces                                                                           6
+                                            3.   Spaces of convex functions                                                                                  14
+                                            4.   The polyhedral Monge–Ampère operator                                                                       26
+                                            5.   Energy and capacity                                                                                         37
+                                            6.   The polyhedral Monge–Ampère equation                                                                       44
+                                            7.   Connection with the non-archimedean Monge-Ampère equation                                                  53
+                                            References                                                                                                       59
+
+
+
+                                                                                          1. Introduction
+
+                                             Pluripotential theory is a branch of complex analysis in several variables that studies
+                                          plurisubharmonic functions and their properties. It extends classical potential theory, which deals
+                                          with harmonic and subharmonic functions in the setting of one complex variable. It has proven to
+                                          be a strong tool in complex geometry with several applications, notably to the study of the complex
+                                          Monge–Ampère equations in relation to the Calabi–Yau problem, but also in other areas of research
+                                          of complex algebraic geometry (see for instance [Bou+10; BHJ17; BHJ19]), non-archimedean and
+                                          Arakelov theory (see [BGK24; CLD25; YZ17]), and mirror symmetry [Li23].
+                                             Date: March 10, 2026.
+                                             The authors gratefully acknowledge the hospitality of the Mathematisches Forschungsinstitut Oberwolfach, where
+```
+
+Primary BMPS2603.08664v1.txt, LF lines 257--295.
+
+```text
+Definition 2.1 (Rational polyhedron). A rational polyhedron in NR is a subset σ ⊆ NR defined
+by finitely many affine integral equalities and inequalities, i.e.,
+                           
+                      σ = n ∈ NR | f1 (n) + b1 = . . . = fr (n) + br = 0,
+                                      fr+1 (n) + br+1 ≥ 0, . . . , fN (n) + bN ≥ 0
+for some linear forms f1 , . . . , fN ∈ M and bi ∈ Z.
+    We define
+      • Nσ,R the linear space spanned by all x − y for x, y ∈ σ;
+      • Nσ = Nσ,R ∩ N the induced sublattice, and Mσ its dual lattice;
+      • Vσ,R = x + Nσ,R , x ∈ σ, the smallest affine subspace of NR containing σ;
+      • the relative interior of σ, denoted by relint(σ) is the interior of σ as a subset of Vσ,R ;
+      • the dimension of σ as the dimension of Nσ,R .
+Definition 2.2 (Rational polyhedral complex). A rational polyhedral complex is a finite
+collection Π of rational polyhedra satisfying two conditions:
+      • if σ is in Π, then so is any face of σ;
+      • if σ and σ ′ are in Π, then σ ∩ σ ′ is either empty or a face of both σ and σ ′ .
+   The polyhedra of Π are called faces and we write τ ≺ σ whenever τ is a face of σ. We denote
+the set of all k-dimensional faces of Π by Π(k) . The union of all faces in Π is denoted |Π| ⊆ NR
+and called the support of Π.
+  The dimension of Π is defined as the maximum of the dimensions of the faces of Π, and Π is
+pure dimensional if every inclusion-maximal face in Π has the same dimension.
+Definition 2.3 (Refinement). A refinement Π′ of a rational polyhedral complex Π is a rational
+polyhedral complex such that
+      • |Π′ | = |Π|
+      • for every σ ′ ∈ Π′ , there exists σ ∈ Π such that σ ′ ⊆ σ;
+we write Π′ ≥ Π. Two rational polyhedral complexes are equivalent if they admit a common
+refinement.
+Definition 2.4 (Rational polyhedral space).
+      • Let X ⊆ NR be a topological space. A rational polyhedral complex Π is a rational polyhedral
+        structure on X if |Π| = X.
+      • A polyhedral space X ⊆ NR is a topological space together with an equivalence class of
+        rational polyhedral structures on X.
+      • A polyhedral space X is of dimension d (respectively of pure dimension d) if some (and
+        hence any) representative of the equivalence class of rational polyhedral structures on X has
+        dimension d (respectively pure dimension d).
+
+                   MONGE–AMPÈRE MEASURES ON BALANCED POLYHEDRAL SPACES                                  7
+
+
+Remark 2.5. From now on, we will only consider rational polyhedral complexes, so that we will
+```
+
+Primary BMPS2603.08664v1.txt, LF lines 420--629.
+
+```text
+Definition 2.18 (Normal vectors). Let τ ≺ σ be faces of Π with dim(τ ) = dim(σ) − 1. This
+implies that there exists f ∈ M and b ∈ Q such that f + b is zero on τ , non-negative on σ and
+not-identically zero on σ. A normal vector of σ relative to τ is an element
+                                                 nσ/τ ∈ Nσ ⊆ N
+such that nσ/τ = vσ/τ − v is a primitive generator of Nσ /Nτ and f (vσ/τ ) > 0, when we pick v ∈ τ
+and write Vτ,R = v + Nτ,R , Vσ,R = v + Nσ,R .
+Definition 2.19 (Weights). A k-weight on Π is a map
+
+                                                   ω : Π(k) → Q
+and the number ω(σ) is called the weight of σ ∈ Π(k) . We say that
+
+      • ω is non-negative if ω(σ) ≥ 0 for all σ ∈ Π(k) ; write ω ≥ 0,
+      • ω is strictly positive if ω(σ) > 0 for all σ ∈ Π(k) ; write ω > 0.
+
+10                             BOTERO, MAZZON, AND PILLE-SCHNEIDER
+
+
+Definition 2.20 (Cycles). A k-cycle on Π is a k-weight c : Π(k) → Q such that for any τ ∈ Π(k−1)
+the following balancing condition holds:
+                                    X
+(2.21)                                   c(σ)nσ/τ = 0 ∈ N/Nτ ,
+                                    σ∈Π(k)
+                                     τ ≺σ
+
+equivalently this sum is an element in Nτ .
+
+     Denote by
+       - Wk (Π) the abelian group of k-weights on Π,
+       - Zk (Π) the subgroup of k-cycles,
+       - Wk (Π)≥0 , Zk (Π)≥0 , Wk (Π)>0 and Zk (Π)>0 the subsets of non-negative and of strictly
+         positive weights and cycles on Π.
+Definition 2.22 (Local cones). Let τ ≺ σ be faces of Π, the normal cone of σ relative to τ is
+the polyhedral cone
+                      Cσ/τ := {λ(x − y) | λ ≥ 0, x ∈ σ, y ∈ τ } ⊂ Nσ,R ;
+it satisfies NCσ/τ = Nσ and hence dim(Cσ/τ ) = dim(σ).
+     Let x ∈ X and τ ∈ Π the unique face such that x ∈ relint(τ ). We define the star of Π at x as
+                                       Starx (Π) := {Cσ/τ }τ ≺σ .
+For a face δ of Π we write Starδ (Π) := Starx (Π) for any x ∈ relint(δ).
+
+   The set Starx (Π) has the structure of a polyhedral complex whose faces are (not necessarily
+strictly convex) cones; such structure is also known as generalized fan; see [CLS11, Definition
+6.2.2].
+Definition 2.23. Let τ ∈ Π and x ∈ relint(τ ). For any k-weight ω on Π, with k ≥ dim(τ ), the
+k-weight ωx on Starx (Π) is
+                                    ωx (Cσ/τ ) := ω(σ).
+Lemma 2.24. The weight ω is a cycle if and only if ωx is a cycle for all x ∈ X.
+
+Proof. For any ell ≥ dim(τ ), ell-faces of Π containing τ are in bijection with the ell-faces of Starx (Π)
+containing Cτ /τ = Nτ,R , and this bijection preserves ell-weights by definition. It remains to see that
+it preserves normal vectors, i.e. if τ ≺ σ ′ ≺ σ with dim(σ ′ ) = dim(σ) − 1 and nσ/σ′ ∈ Nσ is a
+normal vector, then nσ/σ′ is also a normal vector of Cσ/τ relative to Cσ′ /τ . This follows directly
+from the fact that NCσ/τ = Nσ and similarly for σ ′ .                                               □
+
+Definition 2.25 (Pullback along refinements). Let Π′ be a refinement of Π and ω ∈ Wk (Π).
+The pullback of ω to Π′ , still denoted by ω, is the k-weight on Π′ defined by
+                               (
+                         ′       ω(σ) if there exists σ ∈ Π(k) such that σ ′ ⊆ σ
+                    ω(σ ) :=
+                                 0      otherwise.
+
+  Moreover, if c is a k-cycle on Π, then the pullback of c to Π′ is a k-cycle on Π′ (see for instance
+[GKM09, Example 2.11(iv)]).
+
+                  MONGE–AMPÈRE MEASURES ON BALANCED POLYHEDRAL SPACES                            11
+
+
+Definition 2.26. The space of k-weights (respectively k-cycles) on X is the direct limit
+                     Wk (X) = lim Wk (Π)     (respectively    Zk (X) = lim Zk (Π))
+                              −→                                       −→
+                                  Π                                     Π
+over the set of polyhedral structures on X ordered by refinements, with pullback maps Wk (Π) →
+Wk (Π′ ) (respectively for Zk ) for any refinement Π′ ≥ Π.
+   Similarly,
+                Wk (X)≥0 = lim Wk (Π)≥0      (respectively    Zk (X)≥0 = lim Zk (Π)≥0 )
+                           −→                                            −→
+                              Π                                             Π
+are the spaces of non-negative k-weights (respectively k-cycles) on X.
+
+    Note that, if X is of dimension d, then Wd (X)>0 and Zd (X)>0 are well-defined too, while
+for k < d the notion of strictly positive k-weights or cycles is not stable under pullback along
+refinements.
+Definition 2.27 (Balanced polyhedral space). Let X ⊆ NR be a polyhedral space of pure
+dimension d.
+     • A balancing condition on X is a strictly positive d-cycle [X] on X, i.e., for some (or
+       equivalently, any) polyhedral complex Π on which [X] is defined we have [X](σ) > 0 for any
+       σ ∈ Π(d) .
+     • A balanced polyhedral space is a pair (X, [X]), where X is a polyhedral complex of pure
+       dimension and [X] is a balancing condition on X (which will be frequently omitted from
+       notation).
+
+2.4. Intersection product. Let X be a polyhedral space.
+Definition 2.28 (Piecewise affine functions on Π). Let Π be a polyhedral structure on X. A
+continuous function ϕ : X → R is piecewise affine on Π if for any σ ∈ Π we have
+                                           ϕ|Vσ,R = ϕσ + bσ
+where ϕσ ∈ Mσ is an integral linear function, and bσ ∈ Q. In particular, if x ∈ σ and if we write
+Vσ,R = x + Nσ,R , then bσ = ϕσ (0) and ϕ(z) = ϕσ (z − x) + bσ .
+   We denote by PA(Π) the set of piecewise affine functions on Π.
+Definition 2.29 (Piecewise affine functions on X). A continuous function ϕ : X → R is
+piecewise affine if it is piecewise affine on some polyhedral structure on X. The set of piecewise
+affine functions on X is denote by PA(X). In other words, we have
+                                        PA(X) = lim PA(Π),
+                                                −→
+                                                   Π
+where the direct limit is over the set of all polyhedral structures on X ordered by refinements, and
+with respect to the inclusion PA(Π) ⊆ PA(Π′ ) for any Π′ ≥ Π.
+Definition 2.30. Let ϕ ∈ PA(Π), τ ∈ Π, and x ∈ relint(τ ). We denote by ϕx the (conical)
+piecewise affine function on Starx (Π) such that for any σ ≻ τ
+                                        (ϕx )|Cσ/τ = ϕσ − ϕτ ,
+where we write VCσ/τ ,R = x + NCσ/τ ,R , Vσ,R = x + Nσ,R , and Vτ,R = x + Nτ,R .
+   We have ϕx (λ(z − y)) = λ(ϕσ (z − x) − ϕτ (y − x)) whenever z ∈ σ and y ∈ τ , and in particular
+ϕx = 0 on Cτ /τ .
+
+12                                         BOTERO, MAZZON, AND PILLE-SCHNEIDER
+
+
+Definition 2.31. Let ϕ ∈ PA(Π) and c ∈ Zk (Π). The intersection product ϕ · c is the (k − 1)-cycle
+on Π defined by
+                                                                                         (                               )
+                                               X                                              X
+(2.32)               (ϕ · c)(τ ) :=                         c(σ)ϕσ (nσ/τ ) − ϕτ (                            c(σ)nσ/τ )
+                                          σ∈Π(k) : τ ≺σ                                   σ∈Π(k) : τ ≺σ
+
+
+where τ ∈ Π(k−1) and nσ/τ are normal vectors relative to τ .
+
+Remark 2.33. Note that (2.32) is well-defined. Indeed, let n′σ/τ be another choice of normal
+vectors. We have
+                                  (                )
+        X                           X
+              c(σ)ϕσ (nσ/τ ) − ϕτ (       c(σ)nσ/τ )
+     σ∈Π(k) : τ ≺σ                                    σ∈Π(k) : τ ≺σ
+                                                                      (                              )
+                             X                                                X
+                     −                   c(σ)ϕσ (n′σ/τ ) + ϕτ (                           c(σ)n′σ/τ )
+                         σ∈Π(k) : τ ≺σ                                    σ∈Π(k) : τ ≺σ
+                                                                                (                                                    )
+                             X                                                            X
+                     =                 c(σ)ϕσ (nσ/τ − n′σ/τ ) − ϕτ (              c(σ)nσ/τ − c(σ)n′σ/τ )
+                         σ∈Π(k) : τ ≺σ                              σ∈Π(k) : τ ≺σ
+                                               |    {z    }
+                                                             ∈Nτ
+                                                                                (                                                    )
+                             X                                                            X
+                     =                   c(σ)ϕτ (nσ/τ − n′σ/τ ) − ϕτ (                             c(σ)nσ/τ − c(σ)n′σ/τ ) = 0.
+                         σ∈Π(k) : τ ≺σ                                             σ∈Π(k) : τ ≺σ
+
+Lemma 2.34. Let ϕ ∈ PA(Π) and c ∈ Zk (Π). Let Π′ be a refinement of Π, denote by c′ and (ϕ · c)′
+the pullbacks to Π′ of c and ϕ · c respectively. The equality
+
+                                                               (ϕ · c)′ = ϕ · c′
+
+holds in Zk−1 (Π′ ).
+
+
+Proof. Let τ ′ ∈ Π′(k−1) and recall that
+                                                                                   (                                         )
+                                    X                                                        X
+                ϕ · c′ :=                            c′ (σ ′ )ϕσ′ (nσ′ /τ ′ ) − ϕτ ′ (                       c′ (σ ′ )nσ′ /τ ′ ) .
+                             σ ′ ∈Π′(k) : σ ′ ≻τ ′                                   σ ′ ∈Π′(k) ; σ ′ ≻τ ′
+
+
+Let τ be the minimal face of Π such that τ ′ ⊆ τ . If dim(τ ) ≥ k + 1, then for any σ ′ ≻ τ ′ , the
+faces σ such that σ ′ ⊆ σ have dimension at least k + 1 as they contain τ . This implies that
+(ϕ · c′ )(τ ′ ) = 0 = (ϕ · c)′ (τ ′ ).
+    If dim(τ ) = k, then there are precisely two faces σ ′ , σ ′′ ∈ Π′(k) containing τ ′ . We have that
+σ ′ ∩ σ ′′ = τ ′ , c′ (σ ′ ) = c′ (σ ′′ ), Nσ′ = Nσ′′ , nσ′ /τ ′ = −nσ′′ /τ ′ , and ϕσ′ = ϕσ′′ . This implies
+
+         (ϕ · c′ )(τ ′ ) = c′ (σ ′ ) ϕσ′ (nσ′ /τ ′ ) − ϕσ′ (nσ′ /τ ′ ) − ϕτ ′ (nσ′ /τ ′ − nσ′ /τ ′ = 0 = (ϕ · c)′ (τ ′ ).
+                                                                                                  
+
+                      MONGE–AMPÈRE MEASURES ON BALANCED POLYHEDRAL SPACES                                                    13
+
+
+   If dim(τ ) = k − 1, then we denote by σ the minimal face of Π such that σ ′ ⊆ σ, for any σ ′ ∈ Π′(k)
+with σ ′ ≻ τ ′ . As c′ (σ ′ ) = 0 unless dim(σ ′ ) = dim(σ) = k, we have
+                                                                  (                        )
+                                    X                                                        X
+         (ϕ · c′ )(τ ′ ) =                        c′ (σ ′ )ϕσ′ (nσ′ /τ ′ ) − ϕτ ′ (                     c′ (σ ′ )nσ′ /τ ′ )
+                                                                                  (                                       )
+                                                                                  (                                       )
+                                     σ ′ ≻τ ′                                              σ ′ ≻τ ′
+                             dim(σ ′ )=dim(σ)=k                                    dim(σ ′ )=dim(σ)=k
+                                                                      (                          )
+                                 X                                           X
+                       =                    c(σ)ϕσ (nσ/τ ) − ϕτ (                      c(σ)nσ/τ )
+                             σ∈Π(k) : σ≻τ                               σ∈Π(k) ; σ≻τ
+                                                     ′   ′
+                       = (ϕ · c)(τ ) = (ϕ · c) (τ ),
+which concludes the proof.                                                                                                    □
+Lemma 2.35. Let c ∈ Zk (Π), ϕ, ψ ∈ PA(Π), and λ, µ ∈ Q. We have
+    (i) (linearity) (λϕ + µψ) · c = λ(ϕ · c) + µ(ψ · c),
+   (ii) (balancing condition) ϕ · c ∈ Zk−1 (Π),
+  (iii) (commutativity) ψ · (ϕ · c) = ϕ · (ψ · c).
+
+Proof. The linearity of the intersection pairing follows from the definition. For the other two
+properties, we reduce to the local fans. Indeed, given any x ∈ X, the equality (ϕ · c)x = ϕx · cx
+holds in Zk−1 (Starx (Π)). The image of Starx (Π) along the projection map NR → NR /(x + Nτ,R ) is
+a fan in the sense of [AR10, Definition 2.2]. Then the statements follow from [AR10, Proposition
+3.7] and Lemma 2.24.                                                                            □
+
+   It follows from Lemmas 2.34 and 2.35 that (2.32) induces intersection pairings
+                                               PA(X) × Zk (X) → Zk−1 (X)
+where, for ϕ ∈ PA(Π1 ) and c ∈ Zk (Π2 ), the pairing is given by ϕ · c′ for any common refinement Π′
+of Π1 and Π2 . For any ϕ1 , . . . , ϕell ∈ PA(X) and any cycle c ∈ Zk (X), we define inductively
+(2.36)                                      ϕ1 · . . . · ϕell · c := ϕ1 · (. . . (ϕell · c)) .
+In particular, for ϕ = ϕ1 = . . . = ϕell , we simply write ϕ1 · . . . ϕell · c = ϕell · c.
+Remark 2.37. Let Π be a polyhedral structure on X and U an open subset of X. We can define
+the notions of weight and non-negative weight, cycle, pullback of cycles, piecewise affine function,
+and intersection product by replacing Π with Π|U in the above definitions. We then denote
+               Wk (U ) = lim Wk (Π|U ),             Zk (U ) = lim Zk (Π|U ),           PA(U ) = lim PA(Π|U )
+                         −→                                   −→                                −→
+                               Π                                  Π                               Π
+
+where again the limits are over the set of polyhedral structures on X ordered by refinements.
+```
+
+Primary BMPS2603.08664v1.txt, LF lines 691--786.
+
+```text
+Definition 3.1 (PAPC functions). A piecewise affine function ϕ on X is polyhedrally convex
+(in short PAPC) if
+                                      ϕ·c≥0
+for any c ∈ Zk (U )≥0 an on open U ⊆ X and any k. The space of piecewise affine polyhedrally
+convex functions is denoted PAPC(X) and is endowed with the topology of pointwise convergence.
+
+  The property of being PAPC does not depend on the choice of a polyhedral structure on X, by
+Lemma 2.34. If we want to specify the polyhedral complex Π, we write
+                                          PAPC(Π) := PAPC(X) ∩ PA(Π).
+
+                   MONGE–AMPÈRE MEASURES ON BALANCED POLYHEDRAL SPACES                                      15
+
+
+Definition 3.2. A convex combination in X is a triple
+                                               (x, (xi )i∈I , (αi )i∈I )
+where I is a finite set, xi ∈ X ∩ NQ , αi ∈ [0, 1] such that
+                                   X                       X
+                                       αi = 1 and x =        αi xi .
+                                        i∈I                          i∈I
+A convex combination is polyhedral on Π for a polyhedral structure Π on X if there are faces τ
+and σi in Π such that x ∈ τ , xi ∈ σi and τ preceq σi ; it is polyhedral on X if it is polyhedral for some
+polyhedral structure Π on X. We will abbreviate polyhedral convex combination with PCC.
+Definition 3.3 (PC functions). A function ϕ : X → R is polyhedrally convex (in short PC) if
+                                          X
+                                   ϕ(x) ≤      αi ϕ(xi )
+                                                           i∈I
+for any polyhedral convex combination (x, (xi )i∈I , (αi )i∈I ) in X. The space of polyhedrally convex
+functions on X is denoted PC(X) and is endowed with the topology of pointwise convergence.
+
+   Note that PC functions are automatically continuous on X by [BBGS22, Theorem 6.2]; moreover,
+the restriction of any usual convex function in NR to X is PC. The following lemma is analog to
+[BBGS22, Proposition 5.7]. We include a proof since in loc. cit. the authors work with an eucledean
+structure, instead of an integral structure.
+Lemma 3.4. The two definitions of PAPC functions are equivalent, i.e.,
+                                        PAPC(X) = PA(X) ∩ PC(X).
+
+Proof. We argue by double inclusion. Let ϕ ∈ PAPC(X) and (x, (xi )i∈I , (αi )i∈I ) a polyhedral
+convex combination in X. Let Π be a polyhedral complex such that ϕ ∈ PA(Π), and Π′ a refinement
+of Π such that x ∈ Π′(0) and xi ∈ ρi ∈ Π′(1) for some ρi ≻ x. Let nρ/x be normal vectors relative to
+x for each ρ ∈ Π′(1) with x ≻ ρ. Then there exist βi ∈ Q≥0 such that xi − x = βi nρi /x . Consider
+the weight                  (P
+                                i∈I : xi ∈ρ αi βi if there exists i such that xi ∈ ρ
+                    c(ρ) :=
+                             0                    otherwise,
+and an open U ⊆ X such that U ∩ Π′(0) = {x}. Then c is a non-negative cycle in Z1 (Π′ |U ) as
+                     X                   X                 X
+                             c(ρ)nρ/x =     αi βi nρi /x =   αi (xi − x) = 0.
+                     ρ∈Π′(1) |U : x≺ρ               i∈I                    i∈I
+
+By Definition 3.1 we have
+                                              X                               X
+                   0 ≤ (ϕ · c)(x) =                        c(ρ)ϕρ (nρ/x ) =            αi βi ϕρi (nρi /x )
+                                        ρ∈Π′(1) |U : x≻ρ                         i∈I
+                                        X                         X
+                                    =         αi ϕρi (xi − x) =          αi ϕ(xi ) − ϕ(x)
+                                        i∈I                        i∈I
+which implies that ϕ is polyhedrally convex in the sense of Definition 3.3.
+   Let ϕ ∈ PA(X) ∩ PC(X). Let c ∈ Zk (Π|U ) be a non-negative cycle on an open U ⊆ X.
+Up to taking a refinement of Π we can assume that ϕ ∈ PA(Π). Let τ ∈ Π(k−1) |U and pick
+x ∈ U ∩ relint(τ ) ∩ NQ . Let nσ/τ be normal vectors relative to τ for each σ ∈ Π(k) |U with τ ≺ σ. By
+
+16                                   BOTERO, MAZZON, AND PILLE-SCHNEIDER
+              P
+                        σ/τ = vτ ∈ Nτ . Up to rescaling c, we can assume that gcd(c(σ))σ≻τ = 1
+(2.21) we have σ≻τ c(σ)nP
+and write gcd(c(σ))σ≻τ = σ≻τ ασ c(σ) for some ασ ∈ Z. We set
+                    eσ/τ := nσ/τ − ασ vτ another normal vector of σ relative to τ ,
+                    n
+                                 nσ/τ ∈ σ ∩ U for some ε ∈ Q>0 sufficiently small,
+                      xσ := x + εe
+                            X
+                       S :=     c(σ) ≥ 0.
+                              σ≺τ
+
+If S = 0, then (ϕ · c)(τ ) = 0, hence ϕ · c has non-negative weight at τ . If S ̸= 0, then
+                                        (                            )
+                                           x, (xσ )σ≻τ , ( c(σ)
+                                                            S   )σ≻τ
+
+
+is a polyhedral convex combination as c(σ)                                 c(σ)
+                                                                  P
+                                       S ∈ [0, 1],                  σ≻τ     S = 1 and
+                                                                                                       !
+          X c(σ)                     X                             X                     X
+                S   xσ = x + Sε               nσ/τ = x + Sε
+                                          c(σ)e                          c(σ)nσ/τ − vτ         ασ c(σ)     = x.
+          σ≻τ                       σ≻τ                            σ≻τ                   σ≻τ
+
+By Definition 3.3 we have
+                                                          !
+                               X c(σ)                             X
+                     0 ≤ Sε           S   ϕ(xσ ) − ϕ(x)       =                 nσ/τ ) = (ϕ · c)(τ )
+                                                                        c(σ)ϕσ (e
+                               σ≻τ                                σ≻τ
+
+which implies that ϕ · c is a non-negative cycle in Zk−1 (Π|U ), hence ϕ is polyhedrally convex in the
+sense of Definition 3.1.                                                                            □
+```
+
+Primary BMPS2603.08664v1.txt, LF lines 886--892.
+
+```text
+Definition 3.14. The space of γ-bounded PA/PC/PAPC functions are defined as
+                              PA(X, γ) := {ϕ ∈ PA(X)| ϕ = γ + O(1)}
+                              PC(X, γ) := {ϕ ∈ PC(X)| ϕ = γ + O(1)}
+                              PAPC(X, γ) := PA(X, γ) ∩ PC(X, γ)
+
+   The non-emptiness of the space PAPC(X, γ) does not imply that the function γ itself is
+polyhedrally convex. Nevertheless, whenever this space is non-empty, there exists a polyhedrally
+```
+
+Primary BMPS2603.08664v1.txt, LF lines 985--989.
+
+```text
+Definition 3.20 (PSH functions). A function ϕ : X → R is γ-PSH functions if there exists a
+decreasing sequence (ϕj )j in PAPC(X, γ) converging pointwise to ϕ.
+   The space of γ-PSH functions is denoted PSH(X, γ) and is endowed with the topology of pointwise
+convergence, which agrees with the topology of uniform convergence on compact sets by [BBGS22,
+Theorem 6.24].
+```
+
+Primary BMPS2603.08664v1.txt, LF lines 1005--1030.
+
+```text
+Proposition 3.22. Let ϕ be a continuous function on X. Then the following conditions are
+equivalent:
+     (1) ϕ ∈ PC(X, γ) ∩ PSH(X, γ);
+
+                  MONGE–AMPÈRE MEASURES ON BALANCED POLYHEDRAL SPACES                             21
+
+
+   (2) ϕ is the uniform limit on X of a sequence of functions in PAPC(X, γ). One can moreover
+       take the sequence to be decreasing.
+Definition 3.23 (PC-regularizable functions). The space of PC-regularizable functions on X
+is the set of continuous functions on X satisfying one of the equivalent conditions (1) or (2) above.
+We denote it by PCreg (X, γ), and endow this space with the topology of uniform convergence.
+
+Proof. (1) =⇒ (2). Assume ϕ ∈ PC(X, γ) ∩ PSH(X, γ) and let (ϕj )j be a decreasing sequence
+in PAPC(X, γ) converging pointwise to ϕ. By Lemma 3.16, both ψ := ϕ − γ and ψj := ϕj − γ
+extend continuously to the closure of X in NΣ , for a fan Σ containing rec(Π). We denote by ψ,
+respectively ψ j those continuous extensions. We claim that if x lies on the boundary on X, then
+(ψ j (x))j decreases to ψ(x). Indeed, it follows from the proof of Lemma 3.16 that there exists a
+sequence (xl )l in X converging to x, and such that ψ(x) = inf l ψ(xl ) and similarly for ψ j . Since
+ψ(xl ) = inf j ψj (xl ), we infer ψ(x) = inf (l,j) ψj (xl ) = inf j ψ j (x) and the claim follows.
+As a result, by Dini’s lemma (ψ j )j converges uniformly to ψ on the compactification of X, thus
+(ϕj )j converges uniformly to ϕ on X.
+   (2) =⇒ (1). Let (ϕj )j be a sequence in PAPC(X, γ) converging uniformly to ϕ on X. For an
+index j sufficiently large, we have
+                            |ϕ − γ| ≤ |ϕ − ϕj | + |ϕj − γ| ≤ ε + C ≤ C ′ ,
+which implies that ϕ ∈ PC(X, γ).                                                                   □
+
+```
+
+Primary BMPS2603.08664v1.txt, LF lines 1354--1391.
+
+```text
+Definition 4.4. Let ϕ ∈ PA(X), and let Π be a polyhedral structure on X on which ϕ and [X] are
+defined. We write
+                                      λi := (ϕd · [X])(vi )
+for vi ∈ Π(0) . The polyhedral Monge-Ampère measure of ϕ is the finite atomic measure
+                                                   X
+                                   MApoly (ϕ) :=        λi δvi .
+                                                    vi ∈Π(0)
+
+   It follows from Lemma 2.34 that this is indeed independent of Π.
+Definition 4.5. Let c ∈ Z0 (X) be a 0-cycle. The degree of c is the number
+                                                X
+                                      deg(c) =       c(v)
+                                                   v∈Π(0)
+whenever c ∈ Z0 (Π). For ϕ ∈ PA(X), the degree of ϕ is the rational number
+                                      Z
+                            deg(ϕ) :=   MApoly (ϕ) = deg(ϕd · [X]).
+                                            X
+Lemma 4.6. For any ϕ, ψ ∈ PA(X) such that (ϕ − ψ) is a bounded function on X, we have
+deg(ϕ) = deg(ψ). In particular, if ϕ ∈ PA(X, γ) for some γ ∈ PA(X), then deg(ϕ) = deg(γ).
+
+Proof. Let Π be a polyhedral complex on X on which ϕ and ψ are defined. Let
+                                   Xd−1
+                                c=(     ϕj · ψ d−j−1 · [X]) ∈ Z1 (Π),
+                                      j=0
+
+then by multilinearity and commutativity we have the following equality of 0-cycles:
+                                (ϕ − ψ) · c = (ϕd · [X]) − (ψ d · [X]).
+We are thus left to prove the following: if η ∈ PAb (Π) and c ∈ Z1 (Π), then deg(η · c) = 0, for which
+we argue as in [AR10, Lemma 8.3]. The quantity deg(η · c) is the sum over vertices v of Π of the
+sum of outgoing slopes of η at v, weighted by c; each bounded edge appears twice, once for each
+of its endpoints which have opposite normal vectors, so that the two corresponding slopes cancel
+
+28                                     BOTERO, MAZZON, AND PILLE-SCHNEIDER
+
+
+out. Since η has slope zero along each unbounded edge - being a bounded affine function - we get
+deg(η · c) = 0.                                                                               □
+
+     One can define the mixed Monge–Ampère operator of tuples of piecewise affine functions on X.
+```
+
+Primary BMPS2603.08664v1.txt, LF lines 1741--1743.
+
+```text
+Definition 4.15. Let Π be a polyhedral structure on X and γ ∈ PA(Π). We say that γ is positive
+at infinity if for any face σ ∈ Π and non-zero v ∈ rec(σ), the slope of γσ in the direction v is strictly
+positive.
+```
+
+Primary BMPS2603.08664v1.txt, LF lines 2261--2293.
+
+```text
+Definition 6.2. Let u be a continuous function on X. The envelope Pγ (u) is defined as
+                   Pγ (u)(x) := sup{ψ(x) | ψ ≤ (γ + u), ψ ∈ PC(X), ψ ≤ γ + O(1)},
+with the convention that Pγ (u) ≡ −∞ if the set of functions {ψ ∈ PC(X)|ψ ≤ γ + u, ψ ≤ γ + O(1)}
+is empty.
+
+   If (γ + u) is quasi-γ-PSH, then Pγ (u) ̸≡ −∞. Indeed, let γ + u = ϕ + g with ϕ ∈ PSH(X, γ) and
+g ∈ Cb0 (X), then ψ := ϕ + inf X g is a competitor in the supremum defining the envelope.
+     The envelope satisfies the following basic properties.
+Proposition 6.3. Let notations as above and let c ∈ R. The following hold true:
+     (1) if Pγ (u) ̸≡ −∞, then Pγ (u) ∈ PC(X),
+     (2) Pγ (u) ≤ γ + u,
+     (3) if u is bounded, then Pγ (u) ∈ PC(X, γ),
+     (4) if (γ + u) ∈ PSH(X, γ) or (γ + u) ∈ PC(X, γ), then Pγ (u) = γ + u,
+     (5) if u ≤ v then Pγ (u) ≤ Pγ (v),
+     (6) Pγ (u + c) = Pγ (u) + c,
+     (7) Pγ (u) is concave in both arguments in the following sense:
+                         Ptγ+(1−t)γ ′ (tu + (1 − t)u′ ) ≥ tPγ (u) + (1 − t)Pγ ′ (u′ ),
+     (8) supX |Pγ (u) − Pγ (v)|≤ supX |u − v|.
+
+Proof. If Pγ (u) ̸≡ −∞, then the subset {ψ ∈ PC(X)|ψ ≤ γ + u, ψ ≤ γ + O(1)} ⊂ PC(X) is
+non-empty and uniformly bounded from above, so that its pointwise sup defines a PC function by
+[BBGS22, Theorem 6.24], and Part (1) follows. Part (2) is clear, and Part (3) follows from the
+inequalities:
+                            γ + inf u ≤ Pγ (u) ≤ γ + u ≤ γ + sup u.
+                                      X                                 X
+
+                   MONGE–AMPÈRE MEASURES ON BALANCED POLYHEDRAL SPACES                                45
+
+
+Finally, (4)-(6) are clear from the definitions. Part (7) follows from the fact that if ψ ∈ PC(X),
+ψ ′ ∈ PC(X) with ψ ≤ γ + u and ψ ′ ≤ γ ′ + u′ , ψ ≤ γ + O(1) and ψ ≤ γ ′ ≤ O(1) then
+                               tψ + (1 − t)ψ ′ ∈ PSH(X, tγ + (1 − t)γ ′ )
+and is dominated by tu + (1 − t)u′ . Finally, (8) follows from applying (5) to the inequality v +
+inf(u − v) ≤ u ≤ v + sup(u − v).                                                                □
+```
+
+Primary Allermann-Rau-0709.3705.txt, LF lines 1--35.
+
+```text
+                                                       FIRST STEPS IN TROPICAL INTERSECTION THEORY
+
+                                                                       LARS ALLERMANN AND JOHANNES RAU
+arXiv:0709.3705v3 [math.AG] 20 Jan 2009
+
+
+
+
+                                                   A BSTRACT. We establish first parts of a tropical intersection theory. Namely, we define
+                                                   cycles, Cartier divisors and intersection products between these two (without passing to
+                                                   rational equivalence) and discuss push-forward and pull-back. We do this first for fans
+                                                   in Rn and then for “abstract” cycles that are fans locally. With regard to applications
+                                                   in enumerative geometry, we finally have a look at rational equivalence and intersection
+                                                   products of cycles and cycle classes in Rn .
+
+
+
+
+                                                                                  1. I NTRODUCTION
+
+                                          Tropical geometry is a recent development in the field of algebraic geometry that tries
+                                          to transform algebro-geometric problems into easier, purely combinatorial ones. In the
+                                          last few years various authors were able to answer questions of enumerative algebraic
+                                          geometry using these techniques. In order to determine the number of (classical) curves
+                                          meeting given conditions in some ambient space they constructed moduli spaces of tropical
+                                          curves and had to intersect the corresponding tropical conditions in these moduli spaces.
+                                          Since there is no tropical intersection theory yet the computation of the arising intersection
+                                          multiplicities and the proof of the independence of the choice of the conditions had to be
+                                          repeated for every single problem without the tools of an elaborated intersection theory
+                                          (see for example [GM], [KM]).
+                                          A first draft of a general tropical intersection theory without proofs has been presented
+                                          by Mikhalkin in [M]. The concepts introduced there — if set up rigorously — would
+                                          help to unify and solve the above mentioned problems and would provide utilities for
+                                          further applications. Thus in this paper we develop in detail the basics of a general tropical
+                                          intersection theory based on Mikhalkin’s ideas.
+```
+
+Primary Allermann-Rau-0709.3705.txt, LF lines 297--536.
+
+```text
+Definition 3.1 (Rational functions). Let C be an affine k-cycle. A (non-zero) rational
+function on C is a continuous piecewise linear function ϕ : |C| → R, i.e. there exists
+a representative (X, ωX ) of C such that on each cone σ ∈ X, ϕ is the restriction of an
+integer affine linear function ϕ|σ = λ + c, λ ∈ Λ∨σ , c ∈ R. Obviously, c is the same on all
+faces by c = ϕ(0) and λ is uniquely determined by ϕ and therefore denoted by ϕσ := λ.
+The set of (non-zero) rational functions of C is denoted by K∗ (C).
+Remark 3.2 (The zero function and restrictions to subcycles). The “zero” function can be
+thought of being the constant function −∞, therefore K(C) := K∗ (C) ∪ {−∞}. With
+respect to the operations max and +, K(C) is a semifield.
+Let us note an important difference to the classical case: Let D be an arbitrary subcycle of
+C and ϕ ∈ K∗ (C). Then ϕ||D| ∈ K∗ (D), whereas in the classical case it might become
+zero. This will be crucial for defining intersection products not only modulo rational equiv-
+alence. On the other hand, the definition of rational functions given above, requiring the
+
+                              FIRST STEPS IN TROPICAL INTERSECTION THEORY                    7
+
+
+function to be defined everywhere, seems to be restrictive when compared to the classical
+case, even so “being defined” does not imply “being regular” tropically. In some cases (see
+remark 8.6) it would be desirable to generalize our definition while preserving the above
+restriction property.
+
+As in the classical case, each non-zero rational function ϕ on C defines a Weil divisor, i.e.
+             aff
+a cycle in Zdim  C−1 (C). The idea of course should be to describe the “zeros” and “poles”
+of ϕ. A naive approach could be to consider the graph of ϕ in V × R and “intersect it with
+V × {−∞} and V × {+∞}”. However, our function ϕ takes values only in R, in fact. On
+the other hand, the graph of ϕ is not a tropical object as it is not balanced: Where ϕ is not
+linear, our graph gets edges that might violate the balancing condition. So, we first make
+the graph balanced by adding new faces in the additional direction (0, −1) ∈ V × R and
+then apply our naive approach. Let us make this precise.
+Construction 3.3 (The associated Weil divisor). Let C be an affine k-cycle in V = Λ ⊗ R
+and ϕ ∈ K∗ (C) a rational function on C. Let furthermore (X, ω) be a representative
+of C on whose faces ϕ is affine linear. Therefore, for each cone σ ∈ X, we get a cone
+σ̃ := (id ×ϕσ )(σ) in V × R of the same dimension. Obviously, Γϕ := {σ̃|σ ∈ X} forms
+a fan which we can make into a weighted fan (Γϕ , ω̃) by ω̃(σ̃) := ω(σ). Its support is just
+the set-theoretic graph of ϕ − ϕ(0) in |X| × R.
+For τ < σ with dim(τ ) = dim(σ) − 1 let vσ/τ ∈ Λ be a representative of the normal
+                                      
+vector uσ/τ . Then, vσ/τ , ϕσ (vσ/τ ) ∈ Λ × Z is a representative of the normal vector
+uσ̃/τ̃ . Therefore, summing around a cone τ̃ with dim τ̃ = dim τ = k − 1, we get
+                                        (                                        )
+       X                                  ( X            X               )
+                 ω̃(σ̃) vσ/τ , ϕσ (vσ/τ ) = (
+                                            (  ω(σ)vσ/τ ,   ϕσ (ω(σ)vσ/τ ))
+                                                                          ).
+           (k)
+     σ̃∈Γϕ                                     σ∈X (k)           σ∈X (k)
+       τ̃ <σ̃                                   τ <σ              τ <σ
+                                                           P
+From the balancing condition for (X, ω) it follows that σ∈X (k) :τ <σ ω(σ)vσ/τ ∈ Vτ ,
+                     P                              P                       
+which also means        σ∈X (k) :τ <σ ω(σ)vσ/τ , ϕτ  σ∈X (k) :τ <σ ω(σ)vσ/τ    ∈ Vτ̃ . There-
+fore, modulo Vτ̃ , our first sum equals
+           (                                                        )
+           (        X                           ( X               ))
+           (0,                                        ω(σ)vσ/τ )
+           (              ϕσ (ω(σ)vσ/τ ) − ϕτ                       ) ∈ V × R.
+                    σ∈X (k)                          σ∈X (k)
+                     τ <σ                             τ <σ
+
+So, in order to “make (Γϕ , ω̃) balanced at τ̃ ”, we add the cone ϑ := τ̃ + ({0} ×)R≤0 )
+                                                            (P
+                     P
+with weight ω̃(ϑ) =                  ϕ
+                       σ∈X (k) :τ <σ σ (ω(σ)v    σ/τ ) − ϕτ    σ∈X (k) :τ <σ ω(σ)vσ/τ . As
+obviously [(0, −1)] = uϑ/τ̃ ∈ (V × R)/Vτ̃ , the above calculation shows that then the
+balancing condition around τ̃ holds. In other words, we build the new fan (Γ′ϕ , ω̃ ′ ), where
+                                          n                                o
+                        Γ′ϕ := Γϕ ∪ τ̃ + ({0} × R≤0 )|τ̃ ∈ Γϕ \ Γ(k)     ϕ    ,
+                        ω̃ ′ |Γ(k)   := ω̃,
+                               ϕ
+                                          X                     ( X          )
+      ω̃ ′ (τ̃ + ({0} × R≤0 ))       :=     ϕσ (ω(σ)vσ/τ ) − ϕτ     ω(σ)vσ/τ
+                                          σ∈X (k)                       σ∈X (k)
+                                           τ <σ                          τ <σ
+                                          if dim τ̃ = k − 1.
+
+8                           LARS ALLERMANN AND JOHANNES RAU
+
+
+
+
+                                                                  σ̃1
+                                σ̃2
+
+
+                                                         Γϕ ⊆ R2 × R
+
+                                 σ̃3
+
+
+                                                    ← new edge
+
+
+                                                                 σ1
+                                σ2                       C ⊆ R2
+
+
+                                       σ3
+
+                              Construction of a Weil divisor.
+
+                                            (k−1)
+This fan is balanced around all τ̃ ∈ Γϕ     . We will show that it is also balanced at all
+“new” cones of dimension k − 1 in proposition 3.7.
+We now think of intersecting this new fan with V × {−∞} to get our desired Weil divisor
+(As our weights are allowed to be negative, we can forget about intersecting also with
+V × {+∞}). This construction leads to the following definition.
+Definition 3.4 (Associated Weil divisors). Let C be an affine k-cycle in V = Λ ⊗ R and
+ϕ ∈ K∗ (C) a rational function on C. Let furthermore (X, ω) be a representative of C
+                                                                      Sk−1
+on whose cones ϕ is affine linear. We define div(ϕ) := ϕ · C := [( i=0 X (i) , ωϕ )] ∈
+  aff
+Zk−1  (C), where
+          ωϕ : X (k−1)    → Z,
+                              X                     ( X          )
+                      τ   7 →   ϕσ (ω(σ)vσ/τ ) − ϕτ     ω(σ)vσ/τ
+                               σ∈X (k)                                  σ∈X (k)
+                                τ <σ                                     τ <σ
+
+and the vσ/τ are arbitrary representatives of the normal vectors uσ/τ .
+Let D be an arbitrary subcycle of C. By remark 3.2, we can define ϕ · D := ϕ||D| · D.
+Remark 3.5. Obviously, ωϕ (τ ) is independent of the choice of the vσ/τ , as a different
+choice only differs by elements in Vτ .
+Our definition does also not depend on the choice of a representative (X, ω): Let (Y, υ)
+be a refinement of (X, ω). For τ ∈ Y (k−1) , two cases can occur (see also remark 2.9):
+Let τ ′ := CY,X (τ ). If dim τ ′ = k, there are precisely two cones at τ < σ1 , σ2 ∈ Y (k) ,
+which then fulfill CY,X (σ1 ) = CY,X (σ2 ) and therefore uσ1 /τ = −uσ2 /τ , υ(σ1 ) = υ(σ2 )
+and ϕσ1 = ϕσ2 . It follows that υϕ (τ ) = 0. If dim τ ′ = k − 1, CY,X gives a one-to-one
+correspondence between {σ ∈ Y (k) |τ < σ} and {σ ′ ∈ X (k) |τ ′ < σ ′ } respecting weights
+and normal vectors, and we have ϕσ = ϕCY,X (σ) . It follows that υϕ (τ ) = ωϕ (τ ′ ). So the
+two weighted fans we obtain are equivalent.
+Remark 3.6 (Affine linear functions and sums). Let ϕ ∈ K∗ (C) be globally affine linear,
+i.e. ϕ = λ||C| + c for some λ ∈ Λ∨ , c ∈ R. Then obviously ϕ · C = 0.
+Let furthermore ψ ∈ K∗ (C) be another rational function on C. From ϕσ + ψσ = (ϕ + ψ)σ
+it follows that (ϕ + ψ) · C = ϕ · C + ψ · C.
+
+                        FIRST STEPS IN TROPICAL INTERSECTION THEORY                          9
+
+
+Proposition 3.7 (Balancing Condition and Commutativity).
+
+   (a) Let C be an affine k-cycle in V = Λ ⊗ R and ϕ ∈ K∗ (C) a rational function on C.
+       Then div(ϕ) = ϕ·C is an equivalence class of tropical fans, i.e. its representatives
+       are balanced.
+   (b) Let ψ ∈ K∗ (C) be another rational function on C. Then it holds ψ · (ϕ · C) =
+       ϕ · (ψ · C).
+
+
+Proof. (a): Let (X, ω) be a representative of C on whose cones ϕ is affine linear. Pick a
+θ ∈ X (k−2) . We choose an element λ ∈ Λ∨ with λ|Vθ = ϕθ . By remark 3.6, we can go
+on with ϕ − λ − ϕ(0) ∈ K∗ (C) instead of ϕ. By dividing out Vθ , we can restrict ourselves
+to the situation dim X = 2, θ = {0}.
+By a further refinement (i.e. by cutting an possibly occuring halfspace into two pieces
+along an additional ray), we can assume that all cones σ ∈ X are simplicial. Therefore
+each two-dimensional cone σ ∈ X (2) is generated by two unique rays τ, τ ′ ∈ X (1) , i.e.
+σ = τ + τ ′ . We denote
+
+                 χ(σ) := [Λσ : Λτ + Λτ ′ ] = [Λσ : Zuτ /{0} + Zuτ ′ /{0} ],
+
+where uτ /{0} and uτ ′ /{0} denote the primitive normal vectors introduced in construction
+2.3. Then we get
+                             [uτ ′ /{0} ] = χ(σ)uσ/τ           mod Vτ .
+
+This equation can be shown for example as follows: The linear extension of the following
+function
+
+                       index : Λσ \ Λτ           → Z,
+                                           v     7→ [Λσ : Zuτ /{0} + Zv]
+
+to Λσ is in fact trivial on Λτ . Therefore it can also be considered as a function on Λσ /Λτ .
+But by definitions we know index(uσ/τ ) = 1 (as uτ /{0} and any representative of uσ/τ
+form a lattice basis of Λσ ) and index(uτ ′ /{0} ) = χ(σ), which proves the claim.
+This means that we can rewrite the balancing condition of X around τ ∈ X (1) only using
+the vectors generating the rays, namely
+                             X           ω(σ)
+                                              uτ ′ /{0}    ∈     Vτ
+                                         χ(σ)
+                           τ ′ ∈X (1)
+                         τ +τ ′ ∈X (2)
+                                                           = λτ uτ /{0} ,
+
+where λτ is a coefficient in R and σ denotes τ + τ ′ in such sums. Of course, we can also
+compute the weight ωϕ (τ ) of τ in div(ϕ):
+                           (                            )
+                           (       X           ω(σ)              )
+                 ωϕ (τ ) = (
+                           (                        ϕ(uτ ′ /{0} ))
+                                                                 ) − λτ ϕ(uτ /{0} )
+                                               χ(σ)
+                                 τ ′ ∈X (1)
+                               τ +τ ′ ∈X (2)
+
+10                            LARS ALLERMANN AND JOHANNES RAU
+
+
+Let us now check the balancing condition of ϕ · C around {0} by plugging in these equa-
+tions. We get
+               X                           X       ω(σ)
+                      ωϕ (τ )uτ /{0} =                  ϕ(uτ ′ /{0} )uτ /{0}
+                  (1)
+                                                   χ(σ)
+               τ ∈X                               τ,τ ′ ∈X (1)
+                                                 τ +τ ′ ∈X (2)
+                                                      X
+                                                 −              λτ ϕ(uτ /{0} )uτ /{0} .
+                                                     τ ∈X (1)
+
+By Commuting τ and τ ′ in the first summand we get
+ X                           X        ω(σ)
+       ωϕ (τ )uτ /{0} =                    ϕ(uτ /{0} )uτ ′ /{0}
+   (1)
+                                      χ(σ)
+τ ∈X                          τ,τ ′ ∈X (1)
+                             τ +τ ′ ∈X (2)
+                                  X
+                             −              λτ ϕ(uτ /{0} )uτ /{0}
+                                 τ ∈X (1)
+                                                      ((                                    )            )
+                               X                    ((           X          ω(σ)           )              )
+                        =               ϕ(uτ /{0} ) (
+                                                    ((
+                                                      (                          uτ ′ /{0} )
+                                                                                           ) − λτ uτ /{0} )
+                                                                                                          )
+                                                                            χ(σ)
+                             τ ∈X (1)                         τ ′ ∈X (1)
+                                                            τ +τ ′ ∈X (2)
+                                                      |                            {z                    }
+                                                                    =0 (balancing condition around τ )
+                        = 0.
+This finishes the proof of (a).
+(b): Let (X, ω) be a representative of C on whose cones ϕ and ψ are affine linear. Pick a
+θ ∈ X (k−2) . By the same reduction steps as in case (a), we can again restrict ourselves to
+dim X = 2, θ = {0}. With the notations and trick as in (a) we get
+                                 X          ω(σ)
+            ωϕ,ψ ({0}) =                         ϕ(uτ ′ /{0} )ψ(uτ /{0} ) = ωψ,ϕ ({0}),
+                                            χ(σ)
+                             τ,τ ′ ∈X (1)
+                            τ +τ ′ ∈X (2)
+
+which finishes part (b).                                                                                 
+
+```
+
+
+# Known graph classification and original residual scope (comparison only)
+
+## Existing one-dimensional accessible-mass dossier (not a new result or premise)
+
+Complete controlling-book input one-dimensional-STATEMENT.tex:
+
+```latex
+% P05.2 one-dimensional graph classification, 25 September 2026.
+
+Continue with the finite one-dimensional balanced rational polyhedral
+structure $\Pi$ and the local relation cones $K_v$ above.  We may insert one
+bivalent vertex in every component without a vertex.  This does not change
+any original relation cone or the orthogonality problem.
+
+\begin{definition}
+\label{def:frontier-polyhedral-mass-accessible}
+Let $\gamma\in\mathrm{PA}_{\mathbf R}(\mathbf X)\cap
+\mathrm{PC}(\mathbf X)$.  A vertex $v\in\Pi^{(0)}$ is
+$\gamma$-mass-accessible if there is a function
+\[
+ \varphi\in\mathrm{PA}_{\mathbf R}(\mathbf X)\cap
+ \mathrm{PC}(\mathbf X),
+ \qquad
+ \varphi-\gamma\in\mathrm{PA}_{\mathbf R,b}(\mathbf X),
+\]
+such that
+\[
+ \MA_{\mathrm{poly},\mathbf R}(\varphi)\{v\}
+ =\sum_{e\in E(v)}w_es_{v,e}(\varphi)>0.
+\]
+\end{definition}
+
+\begin{lemma}
+\label{lem:frontier-polyhedral-ambient-vertex-accessibility}
+Let $\gamma$ be positive at infinity.  Then every vertex of $\Pi$ is
+$\gamma$-mass-accessible.
+\end{lemma}
+
+\begin{lemma}
+\label{lem:frontier-polyhedral-accessible-mass-obstruction}
+Suppose that $\dim K_v>1$ and that $v$ is
+$\gamma$-mass-accessible.  Then $(\mathbf X,\gamma)$ does not have
+real-polyhedral orthogonality.  More precisely, there is a bounded
+real-piecewise-affine obstacle $u$ such that
+\[
+ \int_{\mathbf X}
+ \bigl(P_\gamma(u)-(\gamma+u)\bigr)
+ \MA_{\mathrm{poly},\mathbf R}(P_\gamma(u))<0.
+\]
+\end{lemma}
+
+\begin{theorem}
+\label{thm:frontier-polyhedral-graph-orthogonality-classification}
+Let $\mathbf X$ be a one-dimensional balanced rational polyhedral space
+admitting a finite structure $\Pi$, and let
+$\gamma\in\mathrm{PA}_{\mathbf R}(\mathbf X)\cap
+\mathrm{PC}(\mathbf X)$ be positive at infinity.  Then
+$(\mathbf X,\gamma)$ has real-polyhedral orthogonality if and only if
+\[
+                         \dim K_v=1
+                         \qquad\text{for every }v\in\Pi^{(0)}.
+\]
+Thus the repaired one-dimensional classification is local at the vertices:
+bounded edges, graph cycles, and lattice saturation introduce no additional
+condition.
+\end{theorem}
+
+Positivity at infinity enters the converse only through
+\Cref{lem:frontier-polyhedral-ambient-vertex-accessibility}: it permits an
+ambient polyhedral norm with strictly smaller recession slope on every
+unbounded edge.  The statement neither repairs the literal integral-slope
+class nor addresses higher-dimensional balanced spaces.
+
+```
+
+Complete controlling-book input one-dimensional-PROOF.tex:
+
+```latex
+% P05.2 one-dimensional graph classification proof, 25 September 2026.
+
+\begin{proof}[\Cref{lem:frontier-polyhedral-ambient-vertex-accessibility}]
+Choose a rational polyhedral norm $\lVert\cdot\rVert$ on $N_{\mathbf R}$.
+On every unbounded edge $e$, let $r_e>0$ be the eventual slope of $\gamma$
+in the primitive outgoing direction $u_e$.  Since there are only finitely
+many such edges, choose $\varepsilon>0$ such that
+\[
+                         \varepsilon\lVert u_e\rVert<r_e
+                         \qquad\text{for every unbounded }e.
+\]
+If $\mathbf X$ has no unbounded edge, any positive $\varepsilon$ will do.
+
+Fix a vertex $v$ and choose $C>\gamma(v)$.  The restriction to $\mathbf X$
+of the ambient convex function
+\[
+                         h(x):=C+\varepsilon\lVert x-v\rVert
+\]
+is polyhedrally convex and is affine on a finite rational polyhedral
+refinement.  A finite maximum preserves every polyhedral Jensen inequality,
+so the continuous function
+\[
+                         F:=\max\{\gamma,h\}
+\]
+is polyhedrally convex and has only finitely many affine pieces on every
+edge.  Its breakpoints need not be rational, so one further rational
+interpolation is required.
+
+Along every unbounded edge the eventual slope of $\gamma-h$ is positive.
+Hence $F=\gamma$ outside a compact subset of $\mathbf X$.  On each edge,
+choose finitely many rational points which include its endpoints, meet the
+affine germ of $F$ at every incident vertex, and, on an unbounded edge,
+include a point beyond which $F=\gamma$.  Let $\varphi$ be the affine
+interpolation of the values of $F$ at these points, extended by $\gamma$ on
+the remaining unbounded tails.  Secant slopes of a convex function on an
+interval are nondecreasing, so $\varphi$ is convex on each edge.  Its
+outgoing slopes at every original vertex equal those of $F$; hence all local
+nonnegative-cycle inequalities are preserved.  The one-dimensional local
+slope criterion gives
+\[
+ \varphi\in\mathrm{PA}_{\mathbf R}(\mathbf X)\cap
+ \mathrm{PC}(\mathbf X),
+ \qquad
+ \varphi-\gamma\in\mathrm{PA}_{\mathbf R,b}(\mathbf X).
+\]
+
+The strict inequality $C>\gamma(v)$ persists on a sufficiently small closed
+star about $v$.  Choose the first rational interpolation points inside this
+star.  Then $\varphi=h$ on their incident segments, and its outgoing slope
+along every incident edge is
+$\varepsilon\lVert u_{e/v}\rVert>0$.  Therefore
+\[
+ \MA_{\mathrm{poly},\mathbf R}(\varphi)\{v\}
+ =\varepsilon\sum_{e\in E(v)}w_e\lVert u_{e/v}\rVert>0.
+\]
+Thus $v$ is $\gamma$-mass-accessible.
+\end{proof}
+
+\begin{proof}[\Cref{lem:frontier-polyhedral-accessible-mass-obstruction}]
+Choose $\varphi$ as in
+\Cref{def:frontier-polyhedral-mass-accessible}.  Let
+$s=(s_e)_{e\in E(v)}$ be its outgoing slope vector at $v$, let
+$w=(w_e)_{e\in E(v)}$, and put
+\[
+                         m:=w\mathbin{\cdot}s>0.
+\]
+The local convexity criterion gives
+$\lambda\mathbin{\cdot}s\geq0$ for every $\lambda\in K_v$.
+
+Let $L_v$ be the linear span of $K_v$.  Since $\dim K_v>1$ and
+$w\mathbin{\cdot}s>0$, choose a positive rational vector
+$c=(c_e)_{e\in E(v)}$ such that the restrictions of $c$ and $s$ to $L_v$
+are not proportional.  Multiplying $c$ by a sufficiently large positive
+rational number, choose points $x_e$ at integral-affine distance
+$\rho_e=c_e^{-1}$ from $v$ such that every segment $[v,x_e]$ contains no
+other vertex and $\varphi$ is affine on it.  The slice
+\[
+                       B_c:=\{\lambda\in K_v:\lambda\mathbin{\cdot}c=1\}
+\]
+is nonempty and compact.  Set
+\[
+                       \tau:=\min_{\lambda\in B_c}
+                       \lambda\mathbin{\cdot}s\geq0.
+\]
+
+Raise $\varphi(v)$ by $\tau$, interpolate affinely to the unchanged values
+$\varphi(x_e)$, and leave $\varphi$ unchanged off the closed star.  Denote
+the resulting function by $\widetilde\varphi$.  Its outgoing slope vector
+at $v$ is
+\[
+                         \widetilde s=s-\tau c.
+\]
+The definition of $\tau$ gives
+$\lambda\mathbin{\cdot}\widetilde s\geq0$ for every $\lambda\in K_v$,
+and a minimizer $\lambda^0\in B_c$ satisfies
+\begin{equation}
+                  \lambda^0\mathbin{\cdot}\widetilde s=0.
+                  \label{eq:frontier-polyhedral-supporting-relation}
+\end{equation}
+At each $x_e$ the modified slope increases back to the old slope, so
+one-variable convexity is preserved.  All other local inequalities are
+unchanged.  Thus $\widetilde\varphi$ is polyhedrally convex and remains
+$\gamma$-bounded.
+
+Its mass at $v$ is still positive.  This is immediate when $\tau=0$.
+If $\tau>0$, the linear functional
+$\lambda\mapsto\lambda\mathbin{\cdot}s$ is nonconstant on $B_c$ by the
+choice of $c$.  The point
+$w/(w\mathbin{\cdot}c)$ lies in the relative interior of $B_c$, so its
+value is strictly larger than the minimum.  Hence
+\begin{equation}
+ \frac{w\mathbin{\cdot}s}{w\mathbin{\cdot}c}>\tau,
+ \qquad
+ w\mathbin{\cdot}\widetilde s>0.
+ \label{eq:frontier-polyhedral-positive-projected-mass}
+\end{equation}
+
+Let $b$ be the real-piecewise-affine function which is one at $v$, zero at
+every $x_e$, affine on $[v,x_e]$, and zero off the closed star.  Put
+\[
+                         a:=\widetilde\varphi+b,
+                         \qquad
+                         u:=a-\gamma.
+\]
+Then $u$ is bounded and real-piecewise affine, and
+$\widetilde\varphi$ is an admissible competitor for $P_\gamma(u)$.
+
+Let $q\leq a$ be any polyhedrally convex envelope competitor and put
+\[
+ C_0:=\sum_e\frac{\lambda^0_e}{\rho_e},
+ \qquad
+ \alpha_e:=\frac{\lambda^0_e/\rho_e}{C_0}.
+\]
+Because $x_e=v+\rho_eu_{e/v}$ and $\lambda^0\in K_v$, the points $x_e$
+with coefficients $\alpha_e$ form a polyhedral convex combination with
+barycentre $v$.  Since $b(x_e)=0$, polyhedral convexity and
+\eqref{eq:frontier-polyhedral-supporting-relation} give
+\[
+ \begin{aligned}
+ q(v)
+ &\leq\sum_e\alpha_eq(x_e)
+ \leq\sum_e\alpha_e\widetilde\varphi(x_e)\\
+ &=\widetilde\varphi(v)
+   +\frac{1}{C_0}\sum_e\lambda^0_e\widetilde s_e
+ =\widetilde\varphi(v).
+ \end{aligned}
+\]
+Taking the supremum over competitors and using the competitor
+$\widetilde\varphi$ shows that, for $P:=P_\gamma(u)$,
+\[
+                         P(v)=\widetilde\varphi(v),
+                         \qquad
+                         P\geq\widetilde\varphi.
+\]
+
+The one-dimensional real-affine envelope theorem makes $P$
+real-piecewise affine.  Since $P-\widetilde\varphi$ is nonnegative and
+vanishes at $v$, every outgoing slope of $P$ at $v$ is at least the
+corresponding slope of $\widetilde\varphi$.  By
+\eqref{eq:frontier-polyhedral-positive-projected-mass},
+\[
+              \MA_{\mathrm{poly},\mathbf R}(P)\{v\}
+              \geq w\mathbin{\cdot}\widetilde s>0.
+\]
+At $v$ one has $P-a=-1$, while $P-a\leq0$ everywhere and
+$\MA_{\mathrm{poly},\mathbf R}(P)$ is nonnegative.  Therefore
+\[
+ \int_{\mathbf X}(P-a)\MA_{\mathrm{poly},\mathbf R}(P)
+ \leq-\MA_{\mathrm{poly},\mathbf R}(P)\{v\}<0.
+\]
+This is the required failure of orthogonality.
+\end{proof}
+
+\begin{proof}[\Cref{thm:frontier-polyhedral-graph-orthogonality-classification}]
+If $\dim K_v=1$ at every vertex, orthogonality is
+\Cref{thm:frontier-polyhedral-local-rank-one-graph}.
+
+Conversely, suppose that $\dim K_v>1$ at some vertex.  By
+\Cref{lem:frontier-polyhedral-ambient-vertex-accessibility}, this vertex is
+$\gamma$-mass-accessible.  Then
+\Cref{lem:frontier-polyhedral-accessible-mass-obstruction} gives a bounded
+real-piecewise-affine obstacle with a strictly negative orthogonality
+integral.  Thus orthogonality fails.
+\end{proof}
+
+```
+
+
+No conclusion from that dossier is used above. The original arbitrary balanced-carrier classification and its singular-fan contact problem remain open. The finite two-graph case is previous comparison scope, reconstructed here; the new result is all finite d in the present product family. No P06.2 theorem is used or claimed.
+
+
+# Reproducibility and proof limits
+
+The following are exact finite observations for the stated input germs only. `diagnostics.py` uses Fraction arithmetic and evaluates formula (D) on every product facet at each stage. On a primitive pair-plane ray (p,q), Bezout integers give an integral normal (-v,u) with pu+qv=1, whose sign is selected by the adjacent cone determinant. It maps this normal through the original primitive axes, retains the common tangential correction, and checks that the weighted normal sum lies in each actual facet tangent. The algorithm does not insert a top mass: it computes the first, second and every later divisor directly. It separately evaluates every surviving mixed ordering and a repeated exhausted factor. These local finite calculations do not enumerate global envelopes or prove the complete contact integral.
+
+| Input germ | d | Nonzero cells in successive divisors | Computed full mass | Surviving orders | Each order |
+|---|---:|---|---:|---:|---:|
+| higher rank, two edges | 3 | 20, 8, 1 | 64/49 | 6 | 32/147 |
+| higher rank, four edges | 5 | 144, 128, 56, 12, 1 | 576000/26411 | 120 | 4800/26411 |
+| tripod pair, one edge | 3 | 26, 9, 1 | 64/567 | 3 | 64/1701 |
+| tripod pair, three edges | 5 | 200, 164, 66, 13, 1 | 6400/6561 | 60 | 320/19683 |
+
+All recorded nonnegativity, tangent balancing, identical-order and repeated-factor-zero assertions pass. The two-branch input has saturated cone indices 1 and 2, and the first star rays generate an index-two sublattice of their full span. The complete exact input is supplied here; the output and program are retained separately for rerunning.
+
+```json
+{
+  "cases": [
+    {
+      "name": "higher-rank cross times two primitive edge germs",
+      "type": "higher_relation",
+      "directions": [[1,0],[1,2],[-1,0],[-1,-2]],
+      "weights": ["3/2","5/3","3/2","5/3"],
+      "slopes": [0,"1/7",0,"1/7"],
+      "extra": [
+        {"direction": [2,3], "weight": "4/5", "slope": "2/7"},
+        {"direction": [3,5], "weight": "7/6", "slope": "3/7"}
+      ]
+    },
+    {
+      "name": "higher-rank cross times four primitive edge germs",
+      "type": "higher_relation",
+      "directions": [[1,0],[1,2],[-1,0],[-1,-2]],
+      "weights": ["3/2","5/3","3/2","5/3"],
+      "slopes": [0,"1/7",0,"1/7"],
+      "extra": [
+        {"direction": [2,3], "weight": "4/5", "slope": "2/7"},
+        {"direction": [3,5], "weight": "7/6", "slope": "3/7"},
+        {"direction": [1,-2], "weight": "5/8", "slope": "4/7"},
+        {"direction": [4,7], "weight": "9/11", "slope": "5/7"}
+      ]
+    },
+    {
+      "name": "nonsaturated rank-one tripod pair times one edge germ",
+      "type": "two_branches",
+      "first_directions": [[1,0],[1,2],[-3,-2]],
+      "second_directions": [[1,0],[0,1],[-1,-1]],
+      "first_relation": [2,1,1], "second_relation": [1,1,1],
+      "a": "3/2", "b": "5/7", "kappa": "1/9",
+      "extra": [{"direction": [2,3], "weight": "4/5", "slope": "2/9"}]
+    },
+    {
+      "name": "nonsaturated rank-one tripod pair times three edge germs",
+      "type": "two_branches",
+      "first_directions": [[1,0],[1,2],[-3,-2]],
+      "second_directions": [[1,0],[0,1],[-1,-1]],
+      "first_relation": [2,1,1], "second_relation": [1,1,1],
+      "a": "3/2", "b": "5/7", "kappa": "1/9",
+      "extra": [
+        {"direction": [2,3], "weight": "4/5", "slope": "2/9"},
+        {"direction": [3,5], "weight": "7/6", "slope": "3/9"},
+        {"direction": [1,-2], "weight": "5/8", "slope": "4/9"}
+      ]
+    }
+  ]
+}
+```
+
+Rerun in this fresh directory: `python3 snapshot_sources.py`; `python3 diagnostics.py`; `python3 compose_argument.py`; `python3 build.py`; `python3 make_notes.py`; `python3 final_checks.py`. Programs, exact inputs, full outputs, source provenance, LF excerpts, original inputs, author audit and build logs are retained. `P05.2-partial.tex` is the standalone rendering and the PDF is compiled twice. `status.json` has exactly id, status, exact_result, proof_file, concrete_gaps, with status partial. Canonical notes are `result-notes.json`; no old artifact is modified. No additional model, subagent, network call, external message, installation or heavy local compute is used. No operator-supervised heavy-compute facility is exposed; none is required for these finite arithmetic checks and document builds. Execution, source hashes, prior reviews, same-model author audit and compilation do not constitute mathematical verification or establish priority.
+
+
+
+# Complete supporting proofs supplied for independent reconstruction
+
+These are mathematical evidence, not grants of assumptions. Each application and dependency must be reconstructed. Prior verdicts and hashes do not replace these proofs.
+
+
+# Primary source evidence supplied directly
+
+# Fallible evidence for the future many-graph product step
+
+Prepared after both current P05/P06 campaigns were admitted; neither live
+input nor review is changed. No new theorem is accepted.
+
+Primary source: Lars Allermann and Johannes Rau, First Steps in Tropical
+Intersection Theory, arXiv:0709.3705v3, PDF header20January2009; journal DOI
+10.1007/s00209-009-0483-1. The official abstract page identifies both authors,
+title and DOI. Source retrieval metadata is retained alongside the PDF.
+The source works with INTEGER cycle weights and integral-slope rational
+functions, with real additive constants. The exact real scalar extension
+under discussion requires a separate argument; a source statement alone
+does not grant that extension or the many-factor envelope theorem.
+
+The root read Definition3.1 through Proposition3.7 in full, including the
+normal, refinement, balancing and commutativity proofs. The whole selected
+unit is reproduced below. Only formfeeds are replaced by newlines for display;
+source bytes, LF ranges and body hashes remain bound separately.
+
+## Proposed all-dimensional reconstruction, not an accepted lemma
+
+At a codimension-two face theta of a k-cycle, translate the germ to zero,
+subtract an ambient REAL affine extension of the common tangent linear part
+of each function, and quotient by span(theta) with lattice N/N_theta.
+N_theta is saturated, and each image N_sigma/N_theta remains saturated in
+the ambient quotient: if a positive multiple of a class has a lift in
+N_sigma, saturation of N_sigma puts that lift itself in N_sigma.
+Thus primitive quotient normals and all plane indices are retained exactly.
+The incident germ becomes a balanced two-dimensional fan. Additional
+rational cuts make its two-cones pointed. For primitive rays r,s of each
+cone, top weight omega_rs and chi_rs=[N_cone:Zr+Zs], balancing gives
+
+    sum_{s adjacent to r} (omega_rs/chi_rs) s = t_r r,
+    D_h(r) = sum_s (omega_rs/chi_rs) h(s) - t_r h(r).
+
+Sum D_h(r)r over all rays. In the first sum each unordered cone contributes
+omega_rs (h(s)r+h(r)s)/chi_rs. Substituting the top balancing identities
+in the second sum gives exactly the same contributions. The sum is zero.
+This proves balancing of the first divisor at the chosen theta. Since theta
+was arbitrary, the actual (k-1)-cycle is balanced globally, subject to the
+localization/refinement facts which must themselves be proved.
+
+With first-divisor balancing established, subtracting an ambient affine
+function from the outer slot changes no divisor. The full second coefficient
+in the quotient is
+
+    sum_{unordered {r,s}} (omega_rs/chi_rs)
+          [h(s)g(r)+h(r)g(s)] - sum_r t_r h(r)g(r).
+
+Both terms are symmetric. Retain the tangential term explicitly; do not
+substitute a shorter printed formula without verifying its cancellation.
+This proves the proposed mixed commutativity at theta and, by all faces,
+globally. Together with direct normal-lift independence and the three
+minimal-old-face cases for refinement, this appears to reconstruct the
+all-k recursion needed by the new product step using elementary fan algebra.
+This remains a FALLIBLE proposed proof requiring an independent audit.
+
+For coefficient extension one can separately use the finite rational
+homogeneous continuity equations for affine pieces on a fixed rational
+complex and the finite rational balancing equations for cycle weights.
+Choose rational bases and clear denominators; real functions/weights are
+finite real linear combinations of permitted integral data. Bilinearity
+extends identities, not positivity. Positivity against all ordinary-open
+REAL nonnegative local cycles needs the independent genuine-PCC argument
+and rational generation of its balanced nonnegative cone. Do not infer it
+from arbitrary signed basis expansion.
+
+The factor intersection rule, compact raw-envelope pinning, complete
+contact integral, positivity and every neighborhood quantifier in
+P05.2-finite-many-graph-product-proposal.md remain separate obligations.
+Hash/source correctness does not prove any new application.
+
+## Complete selected primary statement/proof unit
+
+```text
+Definition 3.1 (Rational functions). Let C be an affine k-cycle. A (non-zero) rational
+function on C is a continuous piecewise linear function ϕ : |C| → R, i.e. there exists
+a representative (X, ωX ) of C such that on each cone σ ∈ X, ϕ is the restriction of an
+integer affine linear function ϕ|σ = λ + c, λ ∈ Λ∨σ , c ∈ R. Obviously, c is the same on all
+faces by c = ϕ(0) and λ is uniquely determined by ϕ and therefore denoted by ϕσ := λ.
+The set of (non-zero) rational functions of C is denoted by K∗ (C).
+Remark 3.2 (The zero function and restrictions to subcycles). The “zero” function can be
+thought of being the constant function −∞, therefore K(C) := K∗ (C) ∪ {−∞}. With
+respect to the operations max and +, K(C) is a semifield.
+Let us note an important difference to the classical case: Let D be an arbitrary subcycle of
+C and ϕ ∈ K∗ (C). Then ϕ||D| ∈ K∗ (D), whereas in the classical case it might become
+zero. This will be crucial for defining intersection products not only modulo rational equiv-
+alence. On the other hand, the definition of rational functions given above, requiring the
+
+                              FIRST STEPS IN TROPICAL INTERSECTION THEORY                    7
+
+
+function to be defined everywhere, seems to be restrictive when compared to the classical
+case, even so “being defined” does not imply “being regular” tropically. In some cases (see
+remark 8.6) it would be desirable to generalize our definition while preserving the above
+restriction property.
+
+As in the classical case, each non-zero rational function ϕ on C defines a Weil divisor, i.e.
+             aff
+a cycle in Zdim  C−1 (C). The idea of course should be to describe the “zeros” and “poles”
+of ϕ. A naive approach could be to consider the graph of ϕ in V × R and “intersect it with
+V × {−∞} and V × {+∞}”. However, our function ϕ takes values only in R, in fact. On
+the other hand, the graph of ϕ is not a tropical object as it is not balanced: Where ϕ is not
+linear, our graph gets edges that might violate the balancing condition. So, we first make
+the graph balanced by adding new faces in the additional direction (0, −1) ∈ V × R and
+then apply our naive approach. Let us make this precise.
+Construction 3.3 (The associated Weil divisor). Let C be an affine k-cycle in V = Λ ⊗ R
+and ϕ ∈ K∗ (C) a rational function on C. Let furthermore (X, ω) be a representative
+of C on whose faces ϕ is affine linear. Therefore, for each cone σ ∈ X, we get a cone
+σ̃ := (id ×ϕσ )(σ) in V × R of the same dimension. Obviously, Γϕ := {σ̃|σ ∈ X} forms
+a fan which we can make into a weighted fan (Γϕ , ω̃) by ω̃(σ̃) := ω(σ). Its support is just
+the set-theoretic graph of ϕ − ϕ(0) in |X| × R.
+For τ < σ with dim(τ ) = dim(σ) − 1 let vσ/τ ∈ Λ be a representative of the normal
+                                      
+vector uσ/τ . Then, vσ/τ , ϕσ (vσ/τ ) ∈ Λ × Z is a representative of the normal vector
+uσ̃/τ̃ . Therefore, summing around a cone τ̃ with dim τ̃ = dim τ = k − 1, we get
+                                                                                
+       X                                   X            X               
+                 ω̃(σ̃) vσ/τ , ϕσ (vσ/τ ) = 
+                                              ω(σ)vσ/τ ,   ϕσ (ω(σ)vσ/τ )
+                                                                          .
+           (k)
+     σ̃∈Γϕ                                     σ∈X (k)           σ∈X (k)
+       τ̃ <σ̃                                   τ <σ              τ <σ
+                                                           P
+From the balancing condition for (X, ω) it follows that σ∈X (k) :τ <σ ω(σ)vσ/τ ∈ Vτ ,
+                     P                              P                       
+which also means        σ∈X (k) :τ <σ ω(σ)vσ/τ , ϕτ  σ∈X (k) :τ <σ ω(σ)vσ/τ    ∈ Vτ̃ . There-
+fore, modulo Vτ̃ , our first sum equals
+                                                                   
+                   X                            X               
+           0,                                        ω(σ)vσ/τ 
+                         ϕσ (ω(σ)vσ/τ ) − ϕτ                        ∈ V × R.
+                    σ∈X (k)                          σ∈X (k)
+                     τ <σ                             τ <σ
+
+So, in order to “make (Γϕ , ω̃) balanced at τ̃ ”, we add the cone ϑ := τ̃ + ({0} ×R≤0 )
+                                                            P
+                     P
+with weight ω̃(ϑ) =                  ϕ
+                       σ∈X (k) :τ <σ σ (ω(σ)v    σ/τ ) − ϕτ    σ∈X (k) :τ <σ ω(σ)vσ/τ . As
+obviously [(0, −1)] = uϑ/τ̃ ∈ (V × R)/Vτ̃ , the above calculation shows that then the
+balancing condition around τ̃ holds. In other words, we build the new fan (Γ′ϕ , ω̃ ′ ), where
+                                          n                                o
+                        Γ′ϕ := Γϕ ∪ τ̃ + ({0} × R≤0 )|τ̃ ∈ Γϕ \ Γ(k)     ϕ    ,
+                        ω̃ ′ |Γ(k)   := ω̃,
+                               ϕ
+                                          X                      X          
+      ω̃ ′ (τ̃ + ({0} × R≤0 ))       :=     ϕσ (ω(σ)vσ/τ ) − ϕτ     ω(σ)vσ/τ
+                                          σ∈X (k)                       σ∈X (k)
+                                           τ <σ                          τ <σ
+                                          if dim τ̃ = k − 1.
+
+8                           LARS ALLERMANN AND JOHANNES RAU
+
+
+
+
+                                                                  σ̃1
+                                σ̃2
+
+
+                                                         Γϕ ⊆ R2 × R
+
+                                 σ̃3
+
+
+                                                    ← new edge
+
+
+                                                                 σ1
+                                σ2                       C ⊆ R2
+
+
+                                       σ3
+
+                              Construction of a Weil divisor.
+
+                                            (k−1)
+This fan is balanced around all τ̃ ∈ Γϕ     . We will show that it is also balanced at all
+“new” cones of dimension k − 1 in proposition 3.7.
+We now think of intersecting this new fan with V × {−∞} to get our desired Weil divisor
+(As our weights are allowed to be negative, we can forget about intersecting also with
+V × {+∞}). This construction leads to the following definition.
+Definition 3.4 (Associated Weil divisors). Let C be an affine k-cycle in V = Λ ⊗ R and
+ϕ ∈ K∗ (C) a rational function on C. Let furthermore (X, ω) be a representative of C
+                                                                      Sk−1
+on whose cones ϕ is affine linear. We define div(ϕ) := ϕ · C := [( i=0 X (i) , ωϕ )] ∈
+  aff
+Zk−1  (C), where
+          ωϕ : X (k−1)    → Z,
+                              X                      X          
+                      τ   7 →   ϕσ (ω(σ)vσ/τ ) − ϕτ     ω(σ)vσ/τ
+                               σ∈X (k)                                  σ∈X (k)
+                                τ <σ                                     τ <σ
+
+and the vσ/τ are arbitrary representatives of the normal vectors uσ/τ .
+Let D be an arbitrary subcycle of C. By remark 3.2, we can define ϕ · D := ϕ||D| · D.
+Remark 3.5. Obviously, ωϕ (τ ) is independent of the choice of the vσ/τ , as a different
+choice only differs by elements in Vτ .
+Our definition does also not depend on the choice of a representative (X, ω): Let (Y, υ)
+be a refinement of (X, ω). For τ ∈ Y (k−1) , two cases can occur (see also remark 2.9):
+Let τ ′ := CY,X (τ ). If dim τ ′ = k, there are precisely two cones at τ < σ1 , σ2 ∈ Y (k) ,
+which then fulfill CY,X (σ1 ) = CY,X (σ2 ) and therefore uσ1 /τ = −uσ2 /τ , υ(σ1 ) = υ(σ2 )
+and ϕσ1 = ϕσ2 . It follows that υϕ (τ ) = 0. If dim τ ′ = k − 1, CY,X gives a one-to-one
+correspondence between {σ ∈ Y (k) |τ < σ} and {σ ′ ∈ X (k) |τ ′ < σ ′ } respecting weights
+and normal vectors, and we have ϕσ = ϕCY,X (σ) . It follows that υϕ (τ ) = ωϕ (τ ′ ). So the
+two weighted fans we obtain are equivalent.
+Remark 3.6 (Affine linear functions and sums). Let ϕ ∈ K∗ (C) be globally affine linear,
+i.e. ϕ = λ||C| + c for some λ ∈ Λ∨ , c ∈ R. Then obviously ϕ · C = 0.
+Let furthermore ψ ∈ K∗ (C) be another rational function on C. From ϕσ + ψσ = (ϕ + ψ)σ
+it follows that (ϕ + ψ) · C = ϕ · C + ψ · C.
+
+                        FIRST STEPS IN TROPICAL INTERSECTION THEORY                          9
+
+
+Proposition 3.7 (Balancing Condition and Commutativity).
+
+   (a) Let C be an affine k-cycle in V = Λ ⊗ R and ϕ ∈ K∗ (C) a rational function on C.
+       Then div(ϕ) = ϕ·C is an equivalence class of tropical fans, i.e. its representatives
+       are balanced.
+   (b) Let ψ ∈ K∗ (C) be another rational function on C. Then it holds ψ · (ϕ · C) =
+       ϕ · (ψ · C).
+
+
+Proof. (a): Let (X, ω) be a representative of C on whose cones ϕ is affine linear. Pick a
+θ ∈ X (k−2) . We choose an element λ ∈ Λ∨ with λ|Vθ = ϕθ . By remark 3.6, we can go
+on with ϕ − λ − ϕ(0) ∈ K∗ (C) instead of ϕ. By dividing out Vθ , we can restrict ourselves
+to the situation dim X = 2, θ = {0}.
+By a further refinement (i.e. by cutting an possibly occuring halfspace into two pieces
+along an additional ray), we can assume that all cones σ ∈ X are simplicial. Therefore
+each two-dimensional cone σ ∈ X (2) is generated by two unique rays τ, τ ′ ∈ X (1) , i.e.
+σ = τ + τ ′ . We denote
+
+                 χ(σ) := [Λσ : Λτ + Λτ ′ ] = [Λσ : Zuτ /{0} + Zuτ ′ /{0} ],
+
+where uτ /{0} and uτ ′ /{0} denote the primitive normal vectors introduced in construction
+2.3. Then we get
+                             [uτ ′ /{0} ] = χ(σ)uσ/τ           mod Vτ .
+
+This equation can be shown for example as follows: The linear extension of the following
+function
+
+                       index : Λσ \ Λτ           → Z,
+                                           v     7→ [Λσ : Zuτ /{0} + Zv]
+
+to Λσ is in fact trivial on Λτ . Therefore it can also be considered as a function on Λσ /Λτ .
+But by definitions we know index(uσ/τ ) = 1 (as uτ /{0} and any representative of uσ/τ
+form a lattice basis of Λσ ) and index(uτ ′ /{0} ) = χ(σ), which proves the claim.
+This means that we can rewrite the balancing condition of X around τ ∈ X (1) only using
+the vectors generating the rays, namely
+                             X           ω(σ)
+                                              uτ ′ /{0}    ∈     Vτ
+                                         χ(σ)
+                           τ ′ ∈X (1)
+                         τ +τ ′ ∈X (2)
+                                                           = λτ uτ /{0} ,
+
+where λτ is a coefficient in R and σ denotes τ + τ ′ in such sums. Of course, we can also
+compute the weight ωϕ (τ ) of τ in div(ϕ):
+                                                       
+                                  X           ω(σ)              
+                 ωϕ (τ ) = 
+                                                   ϕ(uτ ′ /{0} )
+                                                                  − λτ ϕ(uτ /{0} )
+                                               χ(σ)
+                                 τ ′ ∈X (1)
+                               τ +τ ′ ∈X (2)
+
+10                            LARS ALLERMANN AND JOHANNES RAU
+
+
+Let us now check the balancing condition of ϕ · C around {0} by plugging in these equa-
+tions. We get
+               X                           X       ω(σ)
+                      ωϕ (τ )uτ /{0} =                  ϕ(uτ ′ /{0} )uτ /{0}
+                  (1)
+                                                   χ(σ)
+               τ ∈X                               τ,τ ′ ∈X (1)
+                                                 τ +τ ′ ∈X (2)
+                                                      X
+                                                 −              λτ ϕ(uτ /{0} )uτ /{0} .
+                                                     τ ∈X (1)
+
+By Commuting τ and τ ′ in the first summand we get
+ X                           X        ω(σ)
+       ωϕ (τ )uτ /{0} =                    ϕ(uτ /{0} )uτ ′ /{0}
+   (1)
+                                      χ(σ)
+τ ∈X                          τ,τ ′ ∈X (1)
+                             τ +τ ′ ∈X (2)
+                                  X
+                             −              λτ ϕ(uτ /{0} )uτ /{0}
+                                 τ ∈X (1)
+                                                                                                      
+                               X                               X          ω(σ)                         
+                        =               ϕ(uτ /{0} ) 
+                                                    
+                                                                                uτ ′ /{0} 
+                                                                                            − λτ uτ /{0} 
+                                                                                                          
+                                                                            χ(σ)
+                             τ ∈X (1)                         τ ′ ∈X (1)
+                                                            τ +τ ′ ∈X (2)
+                                                      |                            {z                    }
+                                                                    =0 (balancing condition around τ )
+                        = 0.
+This finishes the proof of (a).
+(b): Let (X, ω) be a representative of C on whose cones ϕ and ψ are affine linear. Pick a
+θ ∈ X (k−2) . By the same reduction steps as in case (a), we can again restrict ourselves to
+dim X = 2, θ = {0}. With the notations and trick as in (a) we get
+                                 X          ω(σ)
+            ωϕ,ψ ({0}) =                         ϕ(uτ ′ /{0} )ψ(uτ /{0} ) = ωψ,ϕ ({0}),
+                                            χ(σ)
+                             τ,τ ′ ∈X (1)
+                            τ +τ ′ ∈X (2)
+
+which finishes part (b).                                                                                 
+```
