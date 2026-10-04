@@ -317,8 +317,13 @@ Appendix H's 918 original lines and 22 selected complex-primary pages were
 freshly read. Pointwise quasi-psh representatives and the subgeodesic psh
 condition are explicit; all sixteen appendix pages and both seams pass.
 See the [Appendix H audit](second_reading_appH_audit_20261004.md).
-Appendix I is active; all 817 source lines have been freshly read and its
-dependency checks continue. No later appendix is marked complete in this pass.
+Appendix I's 817 original lines and all 78 cached dependency statement
+signatures were freshly read. Flattening has its open-set hypothesis; the
+0DSV citation boundary agrees with Chapter 17 and Appendix L. All eighteen
+appendix pages, both seams and the two changed source notes pass visual review.
+See the [Appendix I audit](second_reading_appI_audit_20261004.md).
+Appendix J is active; all 812 source lines have been freshly read and its
+normalization checks continue. No later appendix is marked complete in this pass.
 The current catalogue incorporates the real-scalar Bergman correction; its
 [4 October audit](open_problem_catalogue_correction_audit_20261004.md) records
 the preserved twelve full problems, unchanged 42 statuses and fresh checks.
