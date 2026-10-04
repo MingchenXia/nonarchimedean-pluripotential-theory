@@ -784,6 +784,29 @@ status change is claimed. The active 4,244-page book and all 42 statuses
 stay fixed. Continue the presentation/category check and related-source
 research in the cloud, while fetching incoming GitHub progress.
 
+### Cyclic normalization and height-one subdivisions, 4 October 2026
+
+The [local lattice derivation](research_dossiers/li_cyclic_normalization_and_height_one_subdivision_20261004.md)
+proves the finite normalized monomial cover and computes its primitive
+rays: the central multiplicity is b_i/gcd(q,b_i). It separates
+reducedness from total regularity, identifies a regular reduced model
+with a unimodular height-one triangulation, and translates a further
+cover into dilation with the same difference lattice. A supplied
+coherent subdivision has a normalized vertical monomial-blowup
+presentation. Global common-face compatibility and category inputs
+remain explicit. Ambro v2 and the preliminary Abramovich–Karu v1
+were checked in 471 and 394 conservatively counted text lines and
+fourteen actual pages. The former's normalized Section 3 is kept
+separate from its early literal unnormalized-root diagnostics; the
+latter's generic-fibre modification is not silently treated as vertical.
+See the [audit](li_cyclic_normalization_and_subdivision_audit_20261004.md)
+and [manifest](li_cyclic_normalization_and_subdivision_manifest_20261004.json).
+Three versioned triangulation sources were acquired as unread next
+leads, including a May 2026 paper. No new numerical experiment,
+independent verifier, book admission or status change is claimed.
+Continue checking coherent face-compatible dilation and the related
+recent literature; the active 4,244-page book and all 42 statuses stay fixed.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit
