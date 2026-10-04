@@ -383,7 +383,11 @@ Appendix F's 669 original lines, 14 selected Dang–Favre pages and two Stacks
 main bodies were freshly read. The plane blowup center is explicitly rational;
 all ten appendix pages and both seams passed visual review.
 See the [Appendix F audit](second_reading_appF_audit_20261004.md).
-Appendix G is active; all 767 source lines have been freshly read and its
+Appendix G's 767 original lines and 25 selected CLD/Mikhalkin–Rau pages were
+freshly read. The calibration proof separates integer flat and calibrated
+degrees; all twelve appendix pages and both seams passed visual review.
+See the [Appendix G audit](second_reading_appG_audit_20261004.md).
+Appendix H is active; all 918 source lines have been freshly read and its
 primary checks continue. No later appendix is marked complete in this pass.
 
 The current catalogue incorporates the 4 October real-scalar Bergman repair;
