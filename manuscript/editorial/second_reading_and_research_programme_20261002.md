@@ -591,6 +591,23 @@ uniform-potential and Bergman gates remain research tasks. No new verifier
 receipt or solved problem is claimed. The frozen 4,236- and 4,240-page
 artifacts retain their original scopes. Cloud literature research continues.
 
+### Chamber convergence and uniform domination follow-up, 4 October 2026
+
+Two further conditional derivations are fully written outside the active
+book. A [uniform finite truncation](research_dossiers/li_convergent_chamber_transfer_20261004.md)
+turns supplied formal chamber bases into convergent meromorphic ones under
+explicit compact valuation bounds, making the preceding fixed-matrix route
+applicable. A [bounded comparison truncation](research_dossiers/li_uniform_comparison_truncation_20261004.md)
+uses the CY lower bound and a Skoda upper bound on the comparison to remove
+the previously separate uniform comparison-potential lower-bound condition
+from the strict-sublevel argument. Constants retain the stated uniformity
+and small-mass threshold. The [follow-up manifest](li_chamber_and_domination_repair_manifest_20261004.json)
+pins both proofs and their fixed source inputs. No new calculation or
+external verifier is run; no principal general convergence theorem or
+problem solution is admitted. The geometric chamber/base-change inputs,
+comparison metric and Bergman/hybrid gates remain separately identified.
+The checked active book stays at 4,244 pages with all 42 statuses unchanged.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit
