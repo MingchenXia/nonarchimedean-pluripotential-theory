@@ -326,8 +326,14 @@ Appendix J's 812 original lines and its scoped normalization interfaces
 were freshly read. Pointwise psh representatives and precise Legendre
 domains agree with Chapters 51–52; all fourteen pages and both seams pass.
 See the [Appendix J audit](second_reading_appJ_audit_20261004.md).
-Appendix K is active; all 1,036 source lines have been freshly read and its
-notation checks continue. No later appendix is marked complete in this pass.
+Appendix K's 1,036 original lines and its scoped chapter interfaces were
+freshly read. Integral local equations, real-linear extension, pointwise
+psh representatives and reflected toric subgradient containment agree with
+the closed chapter gates; all sixteen pages and both seams pass.
+See the [Appendix K audit](second_reading_appK_audit_20261004.md).
+Appendix L is active; all 2,768 source lines have been freshly read and its
+historical/current provenance checks continue. No later appendix is marked
+complete in this pass.
 The current catalogue incorporates the real-scalar Bergman correction; its
 [4 October audit](open_problem_catalogue_correction_audit_20261004.md) records
 the preserved twelve full problems, unchanged 42 statuses and fresh checks.
