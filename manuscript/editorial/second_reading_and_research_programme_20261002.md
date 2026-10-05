@@ -2349,3 +2349,36 @@ entry. Di Nezza–Trapani–Trusiani's published entropy paper and Guedj–Lu
 arXiv v2 were read in full and all 33 actual pages inspected for the next
 research phase; they are not imported by this local mean-field checkpoint.
 Berman–Berndtsson remains a selected dependency reading.
+
+### Relative entropy and normalized power energies — 5 October
+
+This checkpoint follows `4851791` and adds a complex relative-energy
+section to Chapter 65 with provenance L.39. It imports the known published
+Di Nezza–Trapani–Trusiani power Moser–Trudinger and finite-entropy critical
+energy results. Raw relative mass, probability entropy and normalized
+energy are distinguished; the source coefficient's mass factor cancels
+against the raw energy. Finite critical energy is established by the
+known measure characterization before its reciprocal is used.
+Six selected DDL arXiv v2 dependency pages were freshly checked with
+printed and actual pagination kept separate. The original primary
+entropy-paper reading and actual views are reused from the preceding
+research phase. The audit is
+[relative_entropy_energy_audit_20261005.md](relative_entropy_energy_audit_20261005.md).
+
+Reference-volume invariance and complex bimeromorphic pullback use the
+bounded-density entropy inequality. A change of cohomology class keeps
+Proposition 3.12's positive-perturbation premise; the dimension-one direct
+binomial calculation is identified separately. No general answer to the
+source's perturbation question is claimed. Guedj–Lu's Orlicz paper,
+Berman–Berndtsson's local dependencies and the August general uniform
+estimate remain separate research. All complete canonical problem
+statuses and Siu/closure/spectral/A2–A4 boundaries remain unchanged.
+
+The final 4,319-page build passes references, bibliography, index and
+internal destinations with no TeX errors or overfull boxes. Twenty matching
+actual release pages were freshly displayed, including all of the new
+section and L.39; this is a scoped review. The 425-input closure, 108
+protected inputs, 49 pre-existing formal blocks/proofs and 37 preceding
+frozen manifests are byte checked. The 86-page native catalogue is
+unchanged. Full PDF, 20-page review and complete-source exports use new
+relative-entropy filenames, preserving prior releases.

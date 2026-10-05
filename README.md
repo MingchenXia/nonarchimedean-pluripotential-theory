@@ -9,7 +9,12 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,315 pages**.
+The current research-integration build has **4,319 pages**.
+The [relative entropy audit](manuscript/editorial/relative_entropy_energy_audit_20261005.md)
+checks the known published power Moser–Trudinger and finite-entropy
+critical-energy estimates with their own relative probability mass.
+Reference-volume changes and class perturbations keep their distinct
+hypotheses.
 The [local mean-field audit](manuscript/editorial/meanfield_local_projective_audit_20261005.md)
 checks Lu–Phung's known projective nonuniqueness family and bounded
 zero-boundary uniqueness on hyperconvex domains. Class, parameter and
