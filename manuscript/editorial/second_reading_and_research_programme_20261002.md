@@ -1577,6 +1577,32 @@ The prior 4,259-page cohomological edition and all older exports remain
 frozen separately. Continue checking the matroid-specific projected
 incidence and related recent work before any preprint import.
 
+### Matroid boundary and wedge-complex follow-up, 5 October 2026
+
+The [follow-up](lee_matroid_boundary_followup_20261005.md) tests the specific
+matroid structure separately from the general orthant diagnostic. The
+checker enumerates all 92 labelled matroids on ground sets of sizes 0--4,
+including 55 with loops, and retains coordinate-labelled minors. It checks
+2,111 augmented cones, 1,330 strata and 119,374 projected common-ray pairs.
+The pair count concerns symbolic ray sets, not independent geometric cone
+intersection certificates. All 258 fixed-degree wedge complexes satisfy
+the exact differential-square check and have the predicted diagonal
+cohomology over the rationals. The `U_(3,4)` result has dimensions
+`(1,4,6,1)`; no general topological or integral conclusion is inferred.
+
+The published Eur--Huh--Larson paper was acquired from its publisher and
+targeted text and four actual pages were checked. Definitions 3.2/5.10
+retain the empty flat. The literal nonempty-flat clause of Lemma 5.14
+loses the negative ray in the one-element Boolean example and is not
+silently imported. Proposition 5.13's generic-translation requirement
+remains explicit. The accompanying manifest pins these sources, exact
+computations and preservation of all 425 active inputs, current book and
+catalogue bytes, protected files and 42 complete status strings.
+No independent production-model call, formal result admission or fresh
+book build is claimed. Continue with cross-sedentarity closed cells and
+the canonical-compactification cup-product pullback before deciding on
+any preprint integration.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit

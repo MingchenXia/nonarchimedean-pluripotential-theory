@@ -116,6 +116,17 @@ show why boundary data belong to the comparison; see the
 [compactification integration audit](manuscript/editorial/tropical_compactification_integration_audit_20261005.md).
 This imports known results and preserves existing formal statements and
 proofs, the catalogue and all 42 open-problem statuses.
+The [matroid boundary follow-up](manuscript/editorial/lee_matroid_boundary_followup_20261005.md)
+checks all 92 labelled matroids on at most four elements, retaining loop
+coordinates and distinct minor labels. Projected ray sets match their
+minor fans, and 258 exact rational wedge complexes give the predicted
+diagonal flat counts. These are finite source checks, with the known fan
+theorem supplying geometric intersection input. Targeted published
+stellahedral pages clarify the subdivision and translated-realization
+steps and identify a literal nonempty-flat clause needing qualification.
+Global closed-cell and ring identifications remain to be checked; the
+preprint and original repair candidates remain outside active TeX.
+This research checkpoint preserves the current book and catalogue bytes.
 Chapter 5 adds
 a source-checked Sylvester height-slice example that computes a normalized
 local monomial model and its regular semistable subdivision. The exact
