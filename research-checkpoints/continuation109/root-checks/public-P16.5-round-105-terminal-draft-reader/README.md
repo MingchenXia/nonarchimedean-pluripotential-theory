@@ -1,0 +1,9 @@
+The proof draft is [P16.5-paper.pdf](P16.5-paper.pdf); its authoritative editable source is [P16.5-paper.md](P16.5-paper.md). The canonical mathematical notes are in `canonical-result.json`, and the exact five-key status record is `status.json`.
+
+Run `python3 rerun.py` here to reproduce input preservation, literal-source and premise bindings, exact rational diagnostics, the backward-support registry, and the existing Pandoc/pdfLaTeX build. No tools are installed and no network or heavy computation is needed for the rerun.
+
+The claimed domain is every actual big rational bundle on the retained original smooth integral projective variety over every algebraically closed trivially valued characteristic-zero field, with genuinely retained actual Kodaira data and the whole reference-dominated genuine cone. Raw relative mass is `A^n`. The additional zero-volume equation is exactly the actual trivial bundle in positive dimension. Other singularity types, class-volume minimal singularities, and general nonbig pseudoeffective equations are not proved here.
+
+`preserved/` retains the exact input and all eight inline mathematical-data blocks. `primary-units/` retains the literal supplied source units with their original coordinate metadata; `primary-dictionary/` preserves the complete supplied proof-source dictionary and literal bindings. `public-primary/` retains additional public renderer responses as renderer data, not PDF binaries. Supplied absolute source paths are never followed. `external-premises.json` separates the exact actual-ample task grant G0 from eleven scoped published premise groups and the new proofs.
+
+Successful preservation, arithmetic execution and compilation do not establish mathematical correctness. This is an unverified research draft. The first diagnostic failure and its arithmetic correction are retained in `logs/diagnostic-first-failure.txt`.
