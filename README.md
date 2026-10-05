@@ -9,7 +9,7 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,261 pages**. The proof of
+The current research-integration build has **4,263 pages**. The proof of
 Boucksom--Jonsson (2022), Theorem 6.21, incorrectly infers monotonicity of
 a residual with a changing divisor coefficient. Critical homogeneous Siu
 division is now an explicit additional assertion `(SD)_k`; the general
@@ -134,6 +134,19 @@ face-intersection and signed-boundary rules. Direct multi-tangent chains
 in five examples agree with the preceding wedge-complex dimensions.
 These finite candidate-poset calculations leave the general geometric
 and sheaf identification open and preserve active manuscript bytes.
+Appendix G now adds the known Chow-ring comparison for a fan's own canonical
+compactification. It separates rational diagonal comparison from full
+local-duality scope and retains unimodularity and saturation for integral
+coefficients. Exact named-example checks recover the tripod's index-three
+torsion distinction and the cube fan's rational off-diagonal group.
+The ordinary matroid Chow comparison is kept distinct from the rational
+Möbius subalgebra of the augmented Chow ring. The checked BHM injection is
+Proposition 2.18; an inconsistent lattice clause in AP Example 8.2 is
+excluded. See the [canonical fan integration audit](manuscript/editorial/canonical_fan_chow_integration_audit_20261005.md).
+The full book, bibliography, index and navigation checks pass. This imports
+known results and source examples, preserves existing formal blocks and
+all 42 statuses, and leaves the original Lee boundary candidates outside
+active TeX. The open catalogue source and PDF are unchanged.
 Chapter 5 adds
 a source-checked Sylvester height-slice example that computes a normalized
 local monomial model and its regular semistable subdivision. The exact

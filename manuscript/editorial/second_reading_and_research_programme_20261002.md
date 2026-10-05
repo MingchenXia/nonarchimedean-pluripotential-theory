@@ -1625,6 +1625,30 @@ book/catalogue bytes and 42 complete status strings and adds no production
 model receipt. Continue with controlling Chow/Möbius source locators and
 keep any original general repair outside active TeX pending verification.
 
+### Canonical fan Chow-ring comparison, 5 October 2026
+
+Appendix G now adds the known canonical fan comparison before the complex
+cohomology discussion. The [integration audit](canonical_fan_chow_integration_audit_20261005.md)
+records a full reading of Amini--Piquerez's frozen arXiv version one,
+targeted reading of the paginated BHM author copy and twenty actual primary
+pages. The comparison retains the fan's own compactification, rational
+diagonal versus full local-duality scope, and unimodularity/saturation
+for integral coefficients. The ordinary matroid Chow ring is kept distinct
+from the rational Möbius subalgebra of the augmented Chow ring. The checked
+BHM injection is Proposition 2.18, not the preprint's quoted 2.15.
+
+Exact named-example calculations recover the tripod's index-three
+torsion distinction and the cube fan's rational off-diagonal `Q^2`.
+The literal standard-lattice clause of Example 8.2 conflicts with its
+nonunimodularity claim, so that example is excluded without an implicit
+lattice repair. These checks import known results and source examples;
+they do not admit the original Lee boundary candidates or certify a
+different compactification's ring. Source and full-book release checks
+preserve all existing formal blocks, protected inputs, catalogue bytes
+and 42 complete problem statuses. No independent production receipt is
+added or extended. Continue with revision-sensitive primary literature
+and the unresolved geometric/sheaf comparison before any Lee import.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit
