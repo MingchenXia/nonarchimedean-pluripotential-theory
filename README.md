@@ -203,6 +203,13 @@ bounded-base obstacle condition for a parallel line. The published
 25-page text was read in full and twenty actual primary pages were
 inspected. These known results retain a Kähler class; no merely big or
 non-Archimedean line extension, new theorem or solved problem is claimed.
+The [relative-truncation research draft](manuscript/editorial/volume_diamond_relative_truncation_candidate_20261005.md)
+then proposes a complete proof of the related volume-diamond equality
+for a psh pointwise minimum and full-mass maximum, using named BEGZ
+locality and stability inputs. Exact projective radial and scalar checks
+calibrate its signs and mass normalization. It remains outside active
+TeX pending independent verification; the book and all 42 statuses are
+unchanged at this research checkpoint.
 Chapter 5 adds
 a source-checked Sylvester height-slice example that computes a normalized
 local monomial model and its regular semistable subdivision. The exact

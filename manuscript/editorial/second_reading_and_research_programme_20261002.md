@@ -2002,3 +2002,32 @@ final pages were inspected, including the complete new section and
 provenance entry. The existing 49 formal environments/proofs in the
 changed TeX files, 108 protected inputs and all 42 statuses are preserved.
 New displays follow the existing manual sequence as 65.49–65.53.
+
+### Relative truncation and the volume-diamond question — 5 October
+
+The subsequent research draft gives a complete candidate proof for the
+mass equality when the pointwise minimum is psh and the maximum has
+full mass, with a smooth form in a big complex class. Relative cutoffs
+max(h,b-k) keep full mass while their deficit sets are disjoint outside
+the common polar locus. Plurifine locality gives an exact finite-cutoff
+identity; monotone convergence applies to each fixed limiting measure,
+without asserting convergence of the whole cutoff measures.
+
+Applied to the two raw tails of the published test-line correspondence,
+the candidate would answer the source's general subgeodesic-line mass
+question. A separate curve proof uses degree-one current additivity.
+Selected BEGZ arXiv v2 inputs were read and six actual pages inspected;
+the full published Darvas–McCleerey reading is reused from its frozen
+checkpoint. No version identity or new full dependency reading is claimed.
+
+Exact rational checks compare 4,536 expanded radial polynomial integrals
+in 1,512 parameter cases with the mass formulas, check 216 weak-line
+boundary cases, 216 real-Hessian Schur complements, 1,750 scalar tail
+min/max identities and 120 failures after deliberately removing full mass.
+These are calibrations, not an independent analytic certificate. The
+general candidate has no independent production receipt and remains
+outside active TeX; no source theorem or problem atom is declared solved.
+The current book, bibliography, 108 protected inputs, all 42 statuses,
+catalogue and frozen releases are byte preserved. Next seek a primary
+literature comparison for this precise minimum/full-mass statement and
+continue its adversarial audit before any book admission.
