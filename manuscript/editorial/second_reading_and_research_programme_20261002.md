@@ -1211,6 +1211,33 @@ bind this edition. Continue the general local-comparison dependency audit,
 the revision-sensitive arXiv search and noncircular Siu research after
 normal work-branch publication.
 
+### Lin's coefficient-domain comparison, 5 October 2026
+
+The [selected-primary follow-up](lin_polyhedral_coefficient_boundary_20261005.md)
+checks Lin v1 Proposition 8.2 against BMPS v1's printed integral-slope
+Definition 2.28. Its rational-slope approximants do not establish
+membership in the literal PC-regularizable space. An application of
+the book's existing verified midpoint separation supplies a fixed
+reference example at uniform distance at least one eighth from every
+literal approximation. This concerns the membership clause, not a
+counterexample to Lin's main analytic comparison. A rational measure
+can be obtained by tensor-exponent normalization without asserting
+literal integral-slope density.
+
+The note also records a Bedford–Taylor route to local continuity using
+the pinned BGJK v1 Theorem 4.1.2. Exact real-facet Stokes and delta-form
+product conventions remain explicit checks before a general replacement
+proof could be admitted. Fifteen actual selected primary pages were
+freshly viewed. Official abstract pages list v1 for BMPS, Lin and BGJK;
+the identifier API was rate limited and the publisher page returned an
+Incapsula block document, so no published-primary equivalence is
+asserted. The [manifest](lin_polyhedral_coefficient_boundary_manifest_20261005.json)
+pins the diagnosis and proof-comparison limits. All 425 active TeX
+inputs, book and catalogue PDFs, and 42 problem statuses are unchanged.
+No new theorem, production-model receipt or Siu repair is admitted.
+Continue the product/source convention check and revision-sensitive
+literature search.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit
