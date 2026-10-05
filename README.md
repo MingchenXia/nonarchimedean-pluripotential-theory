@@ -9,7 +9,17 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,307 pages**.
+The current research-integration build has **4,311 pages**.
+The [big-class uniqueness audit](manuscript/editorial/dang_big_uniqueness_audit_20261005.md)
+checks Dang–Zhang–Zhou's September preprint in full and adds Chapter 68's
+small-parameter existence and uniqueness argument on smooth compact
+Kähler manifolds. Its direct formal derivation uses weighted integrability
+for unbounded minimal potentials and integral normalization for the convex
+fixed-point domain. Local Hölder continuity uses a separately checked
+published theorem; logarithmic continuity retains an explicit minimal
+singularity bound. All-parameter and arbitrary normal-space uniqueness
+are not asserted. Five additional bibliography entries identify the
+controlling source versions and publisher PDFs.
 The [global klt stability audit](manuscript/editorial/klt_global_stability_audit_20261005.md)
 checks Darvas–Zhang's 13 September 2026 preprint in full and imports its
 adapted-measure continuity, analytic/divisorial alpha and delta identities,

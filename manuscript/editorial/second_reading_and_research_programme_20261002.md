@@ -2245,3 +2245,64 @@ been acquired and partly read but is not imported. Its small-parameter
 uniqueness proof needs a weighted integrability check when minimal
 potentials are unbounded; a printed supremum of exponential factors is
 not automatically finite in a big class.
+
+### Big-class density stability and small-parameter uniqueness — 5 October
+
+The next checkpoint follows `b780e43` and adds Chapter 68.9 and provenance
+L.37. The complete Dang–Zhang–Zhou arXiv:2609.00810v1 text, including
+references, was read; all 21 actual PDF pages were inspected. The audit
+is [dang_big_uniqueness_audit_20261005.md](dang_big_uniqueness_audit_20261005.md).
+Theorem 3.2 is imported in its `L^q` probability-density case on fixed
+smooth compact Kähler big geometry, retaining minimal singularities and
+mass normalization. No uniformity toward zero volume is asserted.
+
+The known sufficiently small parameter result is derived explicitly
+from the imported stability and Skoda inputs. Weighted `L^q` estimates
+replace the source's unweighted supremum of exponentials of unbounded
+minimal potentials. The exact logarithmic normalizer comparison gives
+the contraction. For existence, the integral-zero psh slice is compact
+and convex, unlike the printed supremum-zero slice. Ordinary full-mass
+solvability, higher integrability and density stability give a continuous
+self-map before Schauder. The auxiliary positive-exponent density proof
+with its printed root-power problem is excluded. These are identified
+direct formal consequences; no original general result or independent
+production-model receipt is claimed.
+
+Four additional primary files were checked selectively on 16 actual pages:
+DDL arXiv v2 contact/normalization results, the published DDGHKZ Theorem D,
+the published LPT Lemma 4.4, and Zeriahi arXiv v1 Lemma 3.3. General big-class
+local Hölder continuity is a separately checked published input. The weaker
+logarithmic modulus retains `V_theta-M_0 <= phi <= V_theta`, nested ample-locus
+compact sets, small positive distances and a downward shift of the strict
+analytic barrier. The Orlicz-only minimal-singularity consequence, double-log
+extension and arbitrary normal-space uniqueness are outside the import.
+
+The source's `ddc=i partial partialbar` is converted explicitly to the book's
+`ddc=i partial partialbar/(2 pi)` and volume-normalized operator. The source
+parameter becomes `2 pi V^(1/n)` times the book parameter; parameter units
+are not silently identified. Seven new equation tags are 68.23l–68.23r.
+All 46 old formal environments/proofs in the two edited files, 108 protected
+inputs, 42 complete problem statuses, prior frozen releases and the native
+catalogue are preserved. There are 12 new labels and five new bibliography
+entries. The final build has 4,311 pages, 12,671 unique labels and 326 cited
+references. The initial long inline norm pair was replaced by equivalent
+prose to remove its overfull line; mathematical content did not change.
+
+Continue with the acquired Dang–Zhang–Zhou arXiv:2608.19600v1
+uniform-estimate paper, whose first 230 extracted lines have been read,
+and the acquired, not yet read Lu–Phung arXiv:2501.18281v1 mean-field
+uniqueness paper. Neither is imported in this checkpoint. Their source
+versions were checked on arXiv.
+The local Guedj–Trusiani dependency audit also remains pending. No general
+Siu/closure repair, initial spectral law or A2–A4 convergence is inferred.
+
+The final cloud verification passes with no TeX errors, unresolved
+references, missing glyphs, package/PDF warnings or overfull boxes;
+underfull boxes remain 954. Bibliography, index and navigation checks
+pass. Eighteen matching final-book pages were checked: sixteen rasters
+are byte identical to previously inspected images, and the changed
+two-page bibliography sheet was displayed again after protecting
+“Hölder” from lowercasing. The matching review records this distinction.
+The source archive preserves the complete 425-input active closure and
+verifies every member against workspace bytes; no isolated archive
+compilation or fresh whole-book rereading is claimed.
