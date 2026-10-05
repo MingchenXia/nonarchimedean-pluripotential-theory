@@ -1,0 +1,667 @@
+---
+title: "Retained polar modifications for proper nonprojective varieties: reconstruction and remaining audit gates"
+author: "P16.2 research draft"
+date: "5 October 2026"
+geometry: margin=0.85in
+fontsize: 10pt
+header-includes:
+  - \usepackage{amsmath,amssymb,amsthm}
+  - \usepackage{longtable}
+  - \usepackage{mathtools}
+---
+
+# Abstract and status
+
+We reconstruct a proposed replacement polarization on a smooth integral proper variety over an arbitrary algebraically closed trivially valued characteristic-zero field. The retained datum is an actual rational-bundle identity
+\[
+ \mathcal M=(L,\pi:Y\longrightarrow X,A,D,\iota),\qquad
+ \iota:\pi^*L\simeq A+\mathcal O_Y(D),
+\]
+with $Y$ smooth projective, $A$ ample and $D$ effective. The original proper carrier $X$ is allowed to be nonprojective. Choices are retained, and the proposed raw mass is $A^n$.
+
+The reconstruction establishes the algebraic whole-fiber argument and a useful strengthening: the divisor is saturated under $\pi$. It repairs the fixed-bundle approximation argument by using real-valued ample approximants, and repairs divisor division by normalized ample compactness instead of a purported monotone divided net. It gives an explicit actual ample finite-energy polar test, an intrinsic quotient-integrability criterion, and a complete topological proof of the Radon inverse on the zero-mass complement. Finally it proves a conditional variational transfer theorem, including all continuous original directions, actual attainment and uniqueness for the transported measures.
+
+**This is not a complete solution of original P16.2.** The required identification, for unbounded original metrics, with a fully local intersection/nonpluripolar product remains an explicit gate. The continuous-stage identification and a distinguished global approximation limit are proved below; these are not silently promoted to the stronger local assertion. The source audit also lacks independently retained primary statement/proof units for the proper analytification facts and the toric fan-to-scheme criteria. Public retrieval failed at the configured network connection. These limitations are stated precisely in Section 12. No part of the granted ample theorem is applied directly to a nonprojective carrier.
+
+# 1. Exact domain, conventions, and the one task grant
+
+Let $k$ be algebraically closed, of characteristic zero, and equipped with the trivial absolute value. No countability hypothesis is imposed. Let $X$ be smooth, integral, proper over $k$, of dimension $n\geq1$. Throughout, a rational line bundle is an actual element of $\operatorname{Pic}(X)_{\mathbf Q}$ with specified clearing powers when sections are used. An identity of bundles is retained, not just an equality of numerical classes. An effective rational Cartier divisor has its canonical section after clearing denominators. A big actual bundle on a proper integral carrier means
+\[
+ \limsup_{m\to\infty}\frac{h^0(X,mrL)}{m^n}>0
+\]
+for one, equivalently every sufficiently divisible, integral clearing power $rL$.
+
+Analytic spaces are Berkovich analytifications. Measures are finite positive Radon measures, including on compact spaces that need not be metrizable. Potentials are scalar differences from a specified continuous reference metric, and may take the value $-\infty$. Addition of a finite scalar to $-\infty$ leaves $-\infty$. An expression $(-\infty)-(-\infty)$ is never used as a definition.
+
+**Task grant G.** The supplied exact P16.1 theorem is used only on the smooth integral **projective** $Y$ and its actual **ample** rational $A$. In that domain, write
+\[
+ V=(A^n),\quad E_A(\psi)=\frac{(c_1(A),\psi)^{n+1}}{n+1},\quad
+ \mathcal E^1_A=\{\psi\in\operatorname{PSH}(Y,A):E_A(\psi)>-\infty\}.
+\]
+We use its genuine raw mixed intersection measures, of mass $V$ when all bundles are $A$, and their unbounded decreasing-net and integrable-weight continuity. We use its normalized divisorial compactness, envelope regularity, comparison, locality, energy estimates, and uniqueness modulo constants. For a Radon measure $\nu$ of mass $V$, its intrinsic raw dual energy is
+\[
+ E_A^\vee(\nu)=\sup_{\psi\in\mathcal E^1_A}
+   \left(E_A(\psi)-\int_Y\psi\,d\nu\right).
+ \tag{1.1}
+\]
+It is finite exactly when every actual $\mathcal E^1_A$ potential is $\nu$-integrable. Such a target has an actually attained genuine finite-energy solution. The two-sided outer derivative holds for every $g\in C^0(Y^{\rm an})$.
+
+The grant includes fixed-actual-ample section approximation. Alternatively, BJ Theorem 4.15(iii), together with its actual-bundle inclusion in Example 3.9, gives decreasing **real-valued continuous** finite section maxima on this same $A$. We use this formulation. We do not need a general flattening assertion for arbitrary extended-valued families. Only genuine potentials and genuine finite-energy endpoints occur in any invocation of G.
+
+Further primary inputs are recorded in `premise-ledger.json`. They are distinguished from G, from new deductions, and from unresolved source/application gates. Documentary verdicts in the input are not mathematical premises. The unreviewed proposals numbered 106--109 are reconstructed rather than accepted. Active105 and all other workers' material were not read.
+
+# 2. Existence of actual retained data
+
+## 2.1. Smooth projective birational source
+
+Apply Chow's lemma, Stacks Tag 0200, to $X\to\operatorname{Spec}k$. Choose the scheme-theoretic closure of its dense isomorphism open, with reduced structure, as permitted by Tag 0201. Since $X$ is integral, this produces an integral $X'$ and a proper birational $X'\to X$, with an immersion $X'\to\mathbf P^N_k$. The composite $X'\to\operatorname{Spec}k$ is proper. The immersion is therefore closed: its graph is closed over the separated projective target and its image is proper. Thus $X'$ is projective over $k$. Tag 0201 also makes the map to $X$ projective, but that stronger assertion is not needed for compactness of the source.
+
+The finite-type integral $X'$ is Noetherian, excellent, and generically reduced over $\mathbf Q$. Temkin's version-pinned Theorem 1.2.1 provides a finite blowup sequence, unchanged over the original regular locus, with regular final scheme $Y$. Blowup charts of an integral scheme are subrings of its function field, so the birational component stays integral. Blowups are projective by their Rees algebra construction; hence $Y$ is projective over $k$. Since $k$ is perfect, regularity of this finite-type $Y$ means smoothness over $k$. The composite
+\[
+ \pi:Y\longrightarrow X
+ \tag{2.1}
+\]
+is proper birational and has the same function field. The Temkin statement and the pertinent complete Section 4.3 proof unit are retained literally. This is a resolution application to the Chow source; it does not claim that the original $X$ was projective.
+
+## 2.2. An actual big Cartier bundle on the original carrier
+
+There are finitely many exceptional prime divisors of $\pi$. Choose a very ample bundle $H_0$ on $Y$. For each of those primes the sections vanishing at its generic point form a proper $k$-linear subspace of $H^0(Y,H_0)$, because $H_0$ is globally generated. A finite union of proper linear subspaces cannot exhaust a vector space over the infinite field $k$. A section outside that union has an effective Cartier zero divisor $H$ containing no exceptional prime.
+
+Put $B=\pi_*H$ as a Weil divisor on $X$. Smooth local rings are regular local factorial rings, so $B$ is an effective Cartier divisor. Tag 0BFP says that $\pi$ is an isomorphism at every codimension-one point of the normal $X$. Consequently
+\[
+ \pi^*B=H+E
+ \tag{2.2}
+\]
+for an effective exceptional divisor $E$: on nonexceptional primes the coefficients agree, and on exceptional primes the pullback of the effective Cartier divisor has nonnegative coefficients while $H$ has coefficient zero.
+
+Tag 0AY8 applies directly to $\pi$: $X$ is normal integral, $Y$ is reduced integral, its generic point dominates that of $X$, and its generic fiber is $\operatorname{Spec}k(X)$. It proves both
+\[
+ \pi_*\mathcal O_Y=\mathcal O_X
+ \quad\hbox{and geometrically connected fibers.}
+ \tag{2.3}
+\]
+The projection formula for an invertible bundle can be checked on its trivializing open sets, giving
+\[
+ H^0(X,mB)=H^0(Y,m\pi^*B)\supset s_E^mH^0(Y,mH).
+ \tag{2.4}
+\]
+The right-hand spaces have growth at least a positive multiple of $m^n$ along a divisible subsequence. One elementary verification avoids an assumption about finite generation of $B$. Choose algebraically independent $f_1,\ldots,f_n\in k(Y)$. For a sufficiently positive multiple $qH$, ampleness clears their pole divisors with a common nonzero section $s_0$; then $s_i=f_i s_0$ are sections of $qH$. Clearing poles follows from positive-twist global generation, or from the section-localization argument inside Stacks 01Q3. The sections
+\[
+ s_0^{m-|\alpha|}s_1^{\alpha_1}\cdots s_n^{\alpha_n},
+ \qquad \alpha_i\geq0,\quad |\alpha|\leq m,
+\]
+are linearly independent, because the $f_i$ are algebraically independent. There are $\binom{m+n}{n}$ of them. Thus (2.4) proves that $\mathcal O_X(B)$ is an actual big bundle. No ample bundle on $X$ has been produced.
+
+## 2.3. Every retained big bundle, without Bertini
+
+Now fix **any** actual big rational $L$ on $X$. Equation (2.3) and the same projection formula identify all of its section spaces with those of $\pi^*L$. Hence $\pi^*L$ is big. Clear a denominator and denote the resulting integral big bundle on $Y$ by $F$.
+
+Choose a very ample integral $M$ and a nonzero section with Cartier zero scheme $T$. This scheme may be reducible and nonreduced. It is projective of dimension $n-1$ (and is zero-dimensional when $n=1$). On $T$ choose a sufficiently ample bundle $N$ such that $N-F|_T$ is globally generated, using Stacks 01Q3. Its finitely many associated points impose finitely many proper linear subspaces on the space of sections. Choose a section outside their union. Multiplication by that section is injective: locally a zero divisor on a Noetherian module belongs to one of its associated primes. This supplies the omitted proof mechanism in Stacks 0B3Q for this application. Its powers give
+\[
+ h^0(T,mF|_T)\leq h^0(T,mN)=O(m^{n-1}).
+ \tag{2.5}
+\]
+The last bound follows from Serre vanishing (0B5T) and the degree bound for the Euler-characteristic polynomial (0BEM), with the coherent sheaf $\mathcal O_T$. Both source statements allow the present nonreduced $T$.
+
+Bigness supplies $h^0(Y,mF)\geq c m^n$ for infinitely many large $m$. The restriction exact sequence and (2.5) then give a nonzero section of $mF-M$. Its zero divisor $D'$ is effective Cartier, since $Y$ is integral. Dividing by $m$ and by the initial clearing denominator gives an actual identity
+\[
+ \pi^*L=A+D,\qquad A\ \hbox{ample rational},\quad D\ \hbox{effective rational Cartier}.
+ \tag{2.6}
+\]
+The section, the isomorphism of bundles, and the decomposition are fixed before a target measure. No Bertini assertion, irreducible hyperplane, countable field, or finite generation of the section ring of $L$ is used. The standard regular-local factorial and regular-over-perfect-field inputs remain explicitly named baseline algebraic inputs in the ledger; their new primary proof-unit audit was not completed here.
+
+# 3. Whole bad fibers, saturation, and centers
+
+Let $U_\pi\subset X$ be the maximal open on which $\pi$ is an isomorphism, and put $B_\pi=X\setminus U_\pi$. It is closed and nowhere dense; by 0BFP it has no codimension-one point. More strongly, 0BFP(4) says that **no point of a fiber above $B_\pi$ is quasi-finite for $\pi$**. Indeed, any such point over the normal $X$ would put its image in $U_\pi$.
+
+Fix a geometric point above $B_\pi$. Every reduced irreducible component $F$ of its fiber has positive dimension. A zero-dimensional irreducible component would be an isolated point of a finite-type fiber and would give a quasi-finite point; alternatively geometric connectedness from (2.3) excludes an isolated component beside a positive-dimensional one. On $F$ the pullback of $L$ is trivial, so after clearing denominators
+\[
+ \mathcal O_Y(mD)|_F\simeq(-mA)|_F.
+\]
+This is antiample. It has no nonzero section. To check that assertion without a smoothness assumption on $F$, suppose a nonzero section of $M^{-r}$ existed on a positive-dimensional projective integral $F$, with $M$ ample and $r>0$. Its $p$th power would inject $H^0(F,M^{rp})$ into $H^0(F,\mathcal O_F)=k'$ for all $p$. For $p$ large the ample bundle $M^{rp}$ is very ample and has at least two independent sections. This is impossible. Here $k'$ is the algebraically closed geometric ground field; a regular function on a projective integral variety is constant.
+
+The canonical section $s_{mD}$ therefore vanishes on every reduced component, and hence at every geometric point of the entire fiber. Nilpotent structure does not supply additional analytic points. For an analytic $x\in B_\pi^{\rm an}$, base change to $\mathcal H(x)$ and its completed algebraic closure shows that every analytic point above $x$ lies in $|D|^{\rm an}$. Thus
+\[
+ \pi^{-1}(B_\pi)\subset |D|,\qquad
+ \pi^{-1}(B_\pi^{\rm an})\subset |D|^{\rm an}.
+ \tag{3.1}
+\]
+
+Put $P=\pi(|D|)$, a proper Zariski closed subset because $\pi$ is proper and birational. It contains $B_\pi$. Off $B_\pi$ each fiber is a singleton. Combining this with (3.1) proves the stronger assertion
+\[
+ \boxed{\ \pi^{-1}(P)=|D|\ },\qquad
+ \boxed{\ \pi^{-1}(P^{\rm an})=|D|^{\rm an}\ }.
+ \tag{3.2}
+\]
+For the analytic equality, use the same fiber argument and surjectivity of analytification of the proper map $|D|\to P$. This surjectivity is part of analytic gate A below. In particular the complement map
+\[
+ Y^{\rm an}\setminus|D|^{\rm an}\ \simeq\ X^{\rm an}\setminus P^{\rm an}
+ \tag{3.3}
+\]
+is the analytification of an actual algebraic isomorphism. Saturation is essential: a function having a pole on a divisor does not in general have a pole at the maximum over its image fiber.
+
+## 3.1. Explicit analytic gate A and the canonical reference
+
+The following standard analytic facts have not been bound here to newly retained complete primary statement/proof units. We keep their use visible:
+
+**A.** A proper separated finite-type $k$-scheme has compact Hausdorff analytification; a proper surjective algebraic map has continuous surjective analytification and is a closed quotient; every analytic point has a unique valuative center on a proper algebraic carrier, compatible with proper morphisms and isometric extensions of completed residue fields.
+
+Parts of A have direct short explanations. For a finite affine cover $U_i=\operatorname{Spec}R_i$ of a proper carrier, a point whose center lies in $U_i$ gives a seminorm with all algebra generators bounded by one. The corresponding sets of multiplicative seminorms are compact closed subsets of products of $[0,1]$. Properness supplies centers, so finitely many such compact sets cover the space. Separated analytification is Hausdorff. For surjectivity, the proper fiber over $\mathcal H(x)$ is nonempty; a closed point of it has finite residue extension, to which the complete absolute value extends, and gives an analytic lift. A continuous surjection from compact to Hausdorff is closed and quotient. The valuative criterion supplies center compatibility. These observations clarify the hypotheses, but do not replace the missing full primary binding for the analytic construction, separated-Hausdorff assertion, and valuation-to-analytic-point correspondence.
+
+Conditional on A, the canonical metric on the actual $\pi^*L$ descends. Let $x\in X^{\rm an}$, and choose an $L$-frame $e$ on a Zariski neighborhood of its center $c_X(x)$. For any $y$ over $x$, compatibility puts $c_Y(y)$ in the pulled neighborhood, so the canonical upstairs norm of $\pi^*e$ is one there. If another frame differs by a unit $a$, its norm differs by the actual scalar $|a(x)|$, identical at all lifts. This proves fiber equality of norms in an original frame, rather than equality just at divisorial points. On an algebraic trivializing open, the pulled frame norm is continuous. Restriction of the proper quotient to that open is still quotient, so this norm descends continuously. The descended metric will be denoted $\|\cdot\|_0$.
+
+This argument constructs a reference on an actual bundle on the proper original carrier. BJ Remark 1.24 characterizes the canonical metric on the projective source; it is not silently invoked as a projective theorem on nonprojective $X$. Scalar potentials below are measured from this descended $\|\cdot\|_0$.
+
+# 4. Two proof diagnostics and a repaired divisor-division argument
+
+## 4.1. Extended-valued flattening is not proved by the displayed strict inequality
+
+The supplied complete BJ Lemma 4.6 proof uses constant shifts to assert a strict inequality, and then exponentiates it to obtain a strictly negative continuous function at every point. That argument requires attention when both sides are $-\infty$. For example, on $K=[0,1]$ put
+\[
+ g(x)=\log x,\qquad f_j(x)=\log(x+1/j),\qquad \log0=-\infty.
+\]
+The functions are continuous into $\mathbf R\cup\{-\infty\}$ and $f_j\downarrow g$. Nevertheless, for any finite $\epsilon,\epsilon_0$ and every $j$,
+\[
+ f_j(0)+\epsilon>g(0)+\epsilon_0=-\infty.
+\]
+Thus two outer indices, the first having the exact inner function $g$ and the second having inner approximants $f_j$, need not have an upper triple in the displayed preorder. At their common limiting pole the exponential difference tends to zero, not to a negative number. This is a counterexample to that **directedness argument**, not a claim that the theorem has been disproved.
+
+Our fixed-$A$ use avoids the difficulty. Take real-valued continuous ample FS approximants from G. For those functions, a strictly positive constant margin gives a strict exponential inequality even at a pole of the limiting potential, since the old approximating majorant is finite. Finite maxima and constants preserve actual section formulas, using tensor powers and products to pass to a common integral degree. No arbitrary extended-valued flattening result is needed to obtain the single fixed-$A$ net used below. Once the full cone identity is proved, its decreasing closure follows in the ample cone and is returned to actual original sections afresh; it is not justified by applying the faulty preorder to arbitrary original pole sets.
+
+## 4.2. A decreasing divided net need not result
+
+There is an actual geometric diagnostic for the monotonicity assertion in the supplied BJ Theorem 6.21 proof. On $Y=\mathbf P^1_k$, let $D$ be a point, $\sigma=\log|s_D|$, and let $A=\mathcal O(1)$. For integers $i\geq2$ set
+\[
+ h_i=(1-i^{-2})\sigma,\quad L_i=A+(1-i^{-2})D,\quad t_i=1-i^{-1}.
+\]
+The $h_i$ are genuine homogeneous finite section maxima in $L_i$: multiply the rational power of $s_D$ by a generating system on a clearing power of $A$, whose canonical section maximum is zero. They decrease to $\sigma$, and $h_i\leq t_i\sigma$. But
+\[
+ r_i=h_i-t_i\sigma=(i^{-1}-i^{-2})\sigma
+ \tag{4.1}
+\]
+increases at every divisorial valuation where $\sigma<0$; its positive coefficient strictly decreases for $i\geq2$. Both $c_1(L_i)\to c_1(A+D)$ and $t_i\to1$. Thus the displayed inference from monotonicity of $h_i$ to monotonicity of $r_i$ is false, even for actual section metrics and an ample limiting remainder. It is unnecessary for the following repair.
+
+## 4.3. Homogeneous division by compactness
+
+All assertions in this subsection occur on the smooth projective $Y$. Put $\sigma=\log|s_D|$ in its canonical metric, and first suppose $D\ne0$. Let $h\in\operatorname{PSH}_{\rm hom}(Y,A+D)$ with $h\leq\sigma$. BJ Corollary 6.17, whose statement and complete pertinent proof are supplied, gives decreasing homogeneous section maxima $h_i\in\mathcal H_{\rm hom}(L_i)$ with $c_1(L_i)\to c_1(A+D)$ and $h_i\downarrow h$. Every $h_i$ has supremum zero.
+
+The set $K=\{\sigma=-1\}$ is compact. Decreasing continuous functions on a compact space have decreasing suprema converging to the supremum of their usc limit: for any level strictly above the latter supremum the nested closed upper-level sets have empty intersection and some tail is empty. This proves that for every rational $t<1$ a tail has $\sup_K h_i\leq-t$. Reindex by pairs of a tail index and a rational $t\uparrow1$, and choose $t_i\to1$ satisfying this inequality. Homogeneity then gives $h_i\leq t_i\sigma$ where $\sigma$ is negative finite. Where $\sigma=0$ it follows from $h_i\leq0$. It holds at every divisorial point, where $\sigma$ is finite; BJ Theorem 4.22 extends it to all analytic points, including divisor poles.
+
+BJ Lemma 2.23 divides the **literal sections** on the normal $Y$, giving
+\[
+ r_i:=h_i-t_i\sigma\in\mathcal H_{\rm hom}(L_i-t_iD).
+\]
+Here the equality is first understood away from $D$, with the unique section-defined extension at its poles. No subtraction of infinite values defines $r_i$. The lemma's proof uses normality to pass from inequalities of prime-divisor orders to divisibility of the actual sections. Its rational coefficients are cleared by powers.
+
+Let $\theta_i=c_1(L_i-t_iD)\to c_1(A)$. Choose rational $c_i>1$, $c_i\to1$, such that $c_i c_1(A)-\theta_i$ is ample; this is possible because the ample cone is open and $A$ is an interior vector. Adding the zero potential in that ample difference class gives
+\[
+ c_i^{-1}r_i\in\operatorname{PSH}(Y,A),\qquad
+ \sup(c_i^{-1}r_i)=0.
+\]
+Normalized ample compactness from G supplies a convergent subnet to an actual $r\in\operatorname{PSH}(Y,A)$. For every divisorial $v$,
+\[
+ c_i^{-1}r_i(v)\longrightarrow h(v)-\sigma(v).
+ \tag{4.2}
+\]
+All quantities are finite there. Consequently $r$ has exactly those divisorial values, independent of the subnet. Genuine addition gives $\sigma+r\in\operatorname{PSH}(Y,A+D)$, and BJ divisorial determination gives
+\[
+ h=\sigma+r\quad\hbox{at every analytic point.}
+ \tag{4.3}
+\]
+This proves the division conclusion without making the divided approximants decreasing. If $D=0$, division is the identity and no level set $K$ is required.
+
+## 4.4. Full division, not a homogeneous subcone
+
+Let $v\in\operatorname{PSH}(Y,A+D)$ and suppose $v\leq\sigma+C$. BJ Theorem 6.24 writes
+\[
+ v=\sup_{\lambda<\sup v}(\widehat v_\lambda+\lambda)
+ \tag{4.4}
+\]
+pointwise on all of $Y^{\rm an}$, where each $\widehat v_\lambda$ is homogeneous psh and has supremum zero. Since $\widehat v_\lambda\leq v-\lambda\leq\sigma+C-\lambda$, scaling a divisorial valuation by $s\to\infty$ removes the constant and gives $\widehat v_\lambda\leq\sigma$ on divisorial valuations. BJ 4.22 gives the inequality everywhere. The preceding repair gives unique actual $r_\lambda\in\operatorname{PSH}(Y,A)$ with $\widehat v_\lambda=\sigma+r_\lambda$ and $\sup r_\lambda=0$.
+
+The family $r_\lambda+\lambda$ is uniformly bounded above by $\sup v$. The ample envelope property from G makes
+\[
+ r=\left(\sup_{\lambda<\sup v}(r_\lambda+\lambda)\right)^*
+ \in\operatorname{PSH}(Y,A).
+\]
+BJ Theorem 5.6 says that this usc regularization does not change divisorial values. Equations (4.2)--(4.4) therefore give $\sigma+r=v$ on divisorial valuations; both sides are genuine psh in $A+D$, so they agree everywhere. Conversely $\sigma+r$ is genuine psh and is at most $\sigma+\sup r$. We have proved the full equivalence needed here:
+\[
+ \{v\in\operatorname{PSH}(Y,A+D):v\leq\sigma+C\}
+       =\sigma+\operatorname{PSH}(Y,A).
+ \tag{4.5}
+\]
+The quotient $r$ is unique because $\sigma$ is finite on every divisorial valuation and psh potentials are determined there. The argument reconstructs the relevant full Siu application using only ample compactness and EP in the remainder. The addendum's full Corollary 2.3 is consistent with (4.5); we have not used its stronger all-class EP result as a substitute for this repair.
+
+# 5. Actual original metrics and the full constrained section cone
+
+Continue conditional on analytic gate A. The extended-valued continuous function $\sigma$ is $-\infty$ exactly on $|D|^{\rm an}$. If $\psi\in\operatorname{PSH}(Y,A)$, then $\sigma+\psi$ is usc and bounded above. It equals $-\infty$ on every bad fiber by (3.1); other fibers are singletons. Hence it is fiber-constant. Define the actual original scalar $F(\psi)$ by
+\[
+ \pi^*F(\psi)=\sigma+\psi.
+ \tag{5.1}
+\]
+Closed quotient descent gives upper semicontinuity: for each finite $a$, its upper-level set is the image of the compact closed upper-level set upstairs. It is finite at the generic trivial valuation. Its reference is $\tau=F(0)$, an extended-valued continuous original metric potential. Its pole set is exactly $P^{\rm an}$ by saturation.
+
+For a nonzero actual original section $s\in H^0(X,mL)$, define its logarithmic norm using $\|\cdot\|_0$. Let $\mathcal H^{\rm sec}(X,L)$ be the finite maxima
+\[
+ \frac1m\max_\alpha\{\log\|s_\alpha\|_0+\lambda_\alpha\},
+ \qquad s_\alpha\in H^0(X,mL)\setminus\{0\},\quad\lambda_\alpha\in\mathbf R.
+ \tag{5.2}
+\]
+Their common base locus may be nonempty, so the functions can be $-\infty$. They are extended-valued continuous and are actual metric potentials on $L$, after the usual scaling. Define $\operatorname{PSH}_{\rm sec}(X,L)$ to be the generically finite pointwise decreasing-net limits of (5.2). This definition does not assert a general nonprojective numerical-class theory.
+
+Take a decreasing net of finite real-valued continuous section maxima $\psi_i$ on the fixed actual $A$, with $\psi_i\downarrow\psi$, using G. Choose one common clearing power for the bundle and the divisor in each finite formula. Multiplication of each section in the formula by $s_{mD}$ produces sections of the actual $m\pi^*L$. The equality $\pi_*\mathcal O_Y=\mathcal O_X$ and the projection formula give a literal isomorphism
+\[
+ H^0(Y,m\pi^*L)=H^0(X,mL).
+ \tag{5.3}
+\]
+Center compatibility and the descended reference metric identify their canonical norms at every analytic point. Therefore the original section formula obtained from (5.3) pulls back to $\sigma+\psi_i$, including its common poles. It decreases to the actual $F(\psi)$. This is genuine original-section approximation, with all approximating bundles equal to $L$.
+
+Define the whole reference-dominated cone by
+\[
+ \mathcal P_{\mathcal M}:=
+ \{u\in\operatorname{PSH}_{\rm sec}(X,L):u\leq\tau+C
+       \text{ for some }C\in\mathbf R\}.
+ \tag{5.4}
+\]
+The construction above proves $F(\operatorname{PSH}(Y,A))\subset\mathcal P_{\mathcal M}$. For the reverse inclusion pull a genuine section net on $X$ to $Y$. Its terms are actual finite section maxima in $\pi^*L$. Its generically finite decreasing limit is genuine $\pi^*L$-psh directly by BJ Definition 4.1, with fixed class. Its domination by $\sigma+C$ allows (4.5). Hence it equals $\sigma+\psi$ for a unique actual $\psi\in\operatorname{PSH}(Y,A)$. Surjectivity of $\pi^{\rm an}$ identifies its original function with $F(\psi)$. We obtain
+\[
+ \boxed{\mathcal P_{\mathcal M}=F(\operatorname{PSH}(Y,A)).}
+ \tag{5.5}
+\]
+Thus the cone is the whole specified reference-dominated genuine section cone, not a separately chosen formal subspace. No arbitrary lift is involved.
+
+On common function-field divisorial valuations, $u(v)=\sigma(v)+\psi(v)$ with finite $\sigma(v)$. Consequently $F$ is a homeomorphism for pointwise divisorial topologies. It is order-preserving and order-reflecting: an original inequality implies the quotient inequality on divisorial valuations, and BJ 4.22 extends the latter everywhere on $Y$. The maximum principle gives
+\[
+ \sup_X F(\psi)=F(\psi)(v_{\rm triv})=\psi(v_{\rm triv})=\sup_Y\psi.
+ \tag{5.6}
+\]
+In particular the normalized original cone is compact under G. Decreasing original nets with genuine limits have decreasing genuine quotients, by order reflection and divisorial determination. The full cone's closure under constants, finite maxima and decreasing generically finite limits can now be proved in the actual ample cone and reapproximated by (5.2). This also explains why no extended-valued net-flattening shortcut is required.
+
+# 6. The unique fiber maximum and an actual finite-energy pole
+
+Let $u\in\mathcal P_{\mathcal M}$. Equation (5.5) determines a unique genuine $\psi\in\operatorname{PSH}(Y,A)$, denoted $Q(u)$. This is determined by $\pi^*u-\sigma$ off $D$ and divisorial determination. Define a function on the **original** carrier by
+\[
+ q_u(x)=\max_{y\in(\pi^{\rm an})^{-1}(x)}Q(u)(y).
+ \tag{6.1}
+\]
+Every fiber is nonempty compact and $Q(u)$ is usc and upper bounded, so the maximum exists, including the possible value $-\infty$. For finite $a$, the upper-level set of $q_u$ is $\pi(\{Q(u)\geq a\})$, compact closed. Thus $q_u$ is usc and Borel. It equals $Q(u)$ under the inverse isomorphism off $B_\pi^{\rm an}$. It need not be psh or affine as a function of $u$ on bad fibers, and neither property is used.
+
+Constants satisfy $q_{u+c}=q_u+c$. If $Q(u_i)\downarrow Q(u)$, then $q_{u_i}\downarrow q_u$. To prove this for arbitrary nets, let $a$ be strictly above the maximum of the limit on one compact fiber. The decreasing closed sets $\{Q(u_i)\geq a\}$ in that fiber have empty intersection; some tail is empty. This identifies the infimum of the maxima with the maximum of the infimum. In particular
+\[
+ Q(\max(u,\tau-j))=\max(Q(u),-j),\qquad
+ q_{\max(u,\tau-j)}=\max(q_u,-j).
+ \tag{6.2}
+\]
+These are actual identities even on $P$, where both original metric potentials are $-\infty$.
+
+## 6.1. An explicit actual ample $\mathcal E^1$ polar test
+
+Let $Z\subset Y$ be any proper closed algebraic subset, in particular $Z=|D|$. Choose a clearing power $A_0=rA$. Positive-twist generation applied to $\mathcal I_Z$ gives, for sufficiently large $m$, a nonzero
+\[
+ s\in H^0(Y,\mathcal I_Z\otimes A_0^m)\subset H^0(Y,A_0^m).
+\]
+Its actual section potential
+\[
+ a=(rm)^{-1}\log|s|\in\operatorname{PSH}(Y,A),\quad a\leq0,\quad
+ a(v_{\rm triv})=0
+\]
+is $-\infty$ on $Z^{\rm an}$. Put $\alpha=1/(n+2)$ and define on $(-\infty,0]$
+\[
+ \chi(t)=
+ \begin{cases}
+ -(-t)^\alpha,&t\leq-1,\\
+ -1+\alpha(t+1),&-1\leq t\leq0.
+ \end{cases}
+\]
+It is continuous, convex and nondecreasing, with slope in $[0,1]$. BJ Corollary 4.10, including its finite-affine-max proof, applies to $a-1\leq0$ and the zero ample reference. Therefore
+\[
+ w=\chi(a-1)+1=1-(1-a)^\alpha
+ \in\operatorname{PSH}(Y,A),\qquad \sup w=0,\quad w\leq0.
+ \tag{6.3}
+\]
+It is $-\infty$ on $Z^{\rm an}$.
+
+Use probability-normalized ample capacity only in this estimate. The supplied BJ Lemma 7.47 states
+\[
+ \operatorname{Cap}_A\{a\leq-t\}\leq n/t,\qquad
+ J_A(w)\leq1+\int_1^\infty t^n\operatorname{Cap}_A\{w\leq-t\}\,dt,
+ \tag{6.4}
+\]
+where $J_A=-E_A/V$ on normalized potentials. For $t\geq1$,
+\[
+ \{w\leq-t\}=\{a\leq1-(t+1)^{1/\alpha}\},
+\]
+so the integrand in (6.4) is $O(t^{n-1/\alpha})=O(t^{-2})$. Hence $E_A(w)>-\infty$ and $w$ is an **actual** $\mathcal E^1_A$ potential.
+
+For clarity, the $t^n$ in the sufficient bound must be retained. For a normalized potential $b$, let $b_s=\max(b,-s)$ and $\mu_s=V^{-1}\operatorname{MA}_{A,\rm raw}(b_s)$. Concavity bounds $J_A(b_s)$ by $\int(-b_s)d\mu_s$. Locality and equal mass replace $\mu_s\{b\leq-t\}$ by $\mu_t\{b\leq-t\}$ for $1\leq t\leq s$. The positive mixed expansion gives
+\[
+ \operatorname{MA}_{A,\rm prob}(b_t/t)\geq t^{-n}\mu_t,
+\]
+and $b_t/t$ lies between $-1$ and $0$. Layer-cake integration gives the stated bound. This explains the factor omitted in the supplied extraction's last display. The conservative exponent $1/(n+2)$ avoids relying on the larger printed exponent range of Corollary 7.48.
+
+Taking $Z=|D|$ and using saturation (3.2) proves
+\[
+ q_{F(w)}=-\infty\quad\hbox{on all of }P^{\rm an}.
+ \tag{6.5}
+\]
+This is precisely where the entire-fiber and saturation proofs are used. The weaker assertion $w=-\infty$ on $D$ alone would not prove (6.5) for a general nonsaturated divisor.
+
+# 7. Relative energy, intrinsic targets, and the Radon inverse
+
+Define on actual original metrics
+\[
+ E_{\mathcal M}(u)=E_A(Q(u)),\qquad
+ \mathcal E^1_{\mathcal M}=F(\mathcal E^1_A).
+ \tag{7.1}
+\]
+This is a finite-energy space of genuine metrics produced by original sections, rather than an abstract completion. Its energy is increasing, concave, and usc in the divisorial topology, and continuous along decreasing genuine nets, by (5.5) and G. It satisfies $E_{\mathcal M}(u+c)=E_{\mathcal M}(u)+Vc$. Concavity here concerns the metric cone: addition and convex combination descend from the unique quotients, even though $q$ need not be affine on bad fibers.
+
+For a positive original Radon $\mu$ with $\mu(X^{\rm an})=V$, define
+\[
+ D_{\mathcal M}(\mu)=\sup_{u\in\mathcal E^1_{\mathcal M}}
+       \left(E_{\mathcal M}(u)-\int_Xq_u\,d\mu\right).
+ \tag{7.2}
+\]
+Upper boundedness makes the extended integral unambiguous. The expression is unchanged by adding a constant. This definition uses the uniquely determined entire-fiber maximum and the retained geometric datum; it does not use a solution or a chosen lift of a point.
+
+If $\mu(P^{\rm an})>0$, the actual test $F(w)$ from (6.3) has finite relative energy and has integral $-\infty$ by (6.5). Its objective is $+\infty$. Consequently
+\[
+ D_{\mathcal M}(\mu)<\infty\ \Longrightarrow\ \mu(P^{\rm an})=0.
+ \tag{7.3}
+\]
+Likewise integrability of every $q_u$, $u\in\mathcal E^1_{\mathcal M}$, forces this zero-mass conclusion. It is a consequence of the intrinsic condition, not an extra support hypothesis.
+
+## 7.1. A complete Radon inverse lemma
+
+Here is the topological assertion needed after (7.3). Let $p:S\to T$ be a continuous surjection of compact Hausdorff spaces. Let $C\subset T$ be closed, $F=p^{-1}(C)$, and assume $p:S\setminus F\to T\setminus C$ is a homeomorphism with inverse $j$. If $\mu$ is a finite positive Radon measure on $T$ with $\mu(C)=0$, then there is exactly one positive Radon $\nu$ on $S$ such that
+\[
+ p_*\nu=\mu,\qquad \nu(F)=0.
+ \tag{7.4}
+\]
+It has the same mass, and all Borel integrals on the complements agree through $j$, including upper-bounded extended integrals.
+
+**Proof.** For $g\in C(S)$ set
+\[
+ \Lambda(g)=\int_{T\setminus C}g(j(x))\,d\mu(x).
+\]
+The integrand is continuous on the open complement and Borel on $T$ when extended by zero on $C$. This is a positive bounded linear functional, with $\Lambda(1)=\mu(T)$. Riesz representation gives a positive Radon $\nu$ on $S$. For $h\in C(T)$,
+\[
+ \int_S h\circ p\,d\nu=\Lambda(h\circ p)=\int_T h\,d\mu,
+\]
+so $p_*\nu=\mu$.
+
+We separately prove zero mass on $F$. Inner regularity on the open $T\setminus C$ gives compact $K\subset T\setminus C$ with $\mu(K)$ as close to $\mu(T)$ as desired. The sets $p^{-1}(K)$ and $F$ are disjoint compact sets. Compact Hausdorff spaces are normal, so there is $g\in C(S)$ with $0\leq g\leq1$, $g=1$ on $p^{-1}(K)$, and support in $S\setminus F$ (choose a smaller separating neighborhood first). Then
+\[
+ \nu(S\setminus F)\geq\int g\,d\nu=\Lambda(g)\geq\mu(K).
+\]
+Taking the supremum over these $K$ gives $\nu(S\setminus F)=\nu(S)$ and hence $\nu(F)=0$.
+
+The restriction of $\nu$ to $S\setminus F$ is determined by the homeomorphism and its pushforward. More explicitly, for compact $K'\subset S\setminus F$, $p(K')$ is compact and $p^{-1}(p(K'))=K'$, so $\nu(K')=\mu(p(K'))$. Inner regularity on open subsets of the complement determines both restrictions from these compact sets. Zero mass on $F$ then proves uniqueness on $S$. This identifies the Borel measure with the zero extension of $j_*\mu|_{T\setminus C}$; integration of simple functions and monotone convergence gives the final assertion. There is no countable exhaustion, metric-space assumption, or selection over $C$. $\square$
+
+Apply the lemma with $S=Y^{\rm an}$, $T=X^{\rm an}$, $C=P^{\rm an}$ and $F=|D|^{\rm an}$, using A and (3.2)--(3.3). Denote its unique Radon inverse by $\nu_\mu$. The same lemma also works with $B_\pi$ and its whole preimage; the stronger polar complement is convenient here.
+
+## 7.2. Exact all-$\mathcal E^1$ integrability characterization
+
+For every $u=F(\psi)$ with $\psi\in\mathcal E^1_A$, the actual quotient integral identity is
+\[
+ \int_Xq_u\,d\mu=\int_Y\psi\,d\nu_\mu,
+ \tag{7.5}
+\]
+provided $\mu(P)=0$, including the possible value $-\infty$. It follows on the complements from the isomorphism and (6.1), and both excluded sets have zero measure. Consequently
+\[
+ D_{\mathcal M}(\mu)=E_A^\vee(\nu_\mu).
+ \tag{7.6}
+\]
+The equality is an equality of suprema over bijective spaces of actual genuine potentials, not over a formal completion.
+
+We obtain both implications of the intrinsic characterization. Finite $D_{\mathcal M}$ first gives (7.3), then the Radon inverse and (7.6), then integrability of every actual quotient by G. Conversely, if every $q_u$ is integrable, the polar test gives (7.3); (7.5) says every actual $\mathcal E^1_A$ potential is $\nu_\mu$-integrable. G gives finite ample dual energy, and (7.6) gives finite $D_{\mathcal M}$. Thus, conditional on A,
+\[
+ \boxed{\ D_{\mathcal M}(\mu)<\infty\quad\Longleftrightarrow\quad
+     q_u\in L^1(\mu)\text{ for every actual }u\in\mathcal E^1_{\mathcal M}.\ }
+ \tag{7.7}
+\]
+The mass is exactly $A^n$. Neither $L^n$, the volume of $L$, nor a probability normalization is substituted. The absolute singular original potential $u$ need not be integrable; (7.7) concerns the uniquely determined relative quotient $q_u$. This distinction is necessary because the fixed reference itself has divisorial logarithmic poles.
+
+# 8. Genuine continuous local products and the unbounded gate
+
+The discussion here precedes any target choice. Define a distinguished family of positive Radon measures on the original carrier by
+\[
+ \widetilde M_{\mathcal M}(u_1,\ldots,u_n)
+   =\pi_*\left(\bigwedge_{i=1}^n(c_1(A)+dd^cQ(u_i))\right),
+ \qquad u_i\in\mathcal E^1_{\mathcal M}.
+ \tag{8.1}
+\]
+Its definition uses the granted **actual** ample intersection product, not an inverse target measure. Its mass is $V$. The polar test $w$ is integrable against every mixed ample finite-energy product by G. Hence every such product gives zero mass to $|D|$. Saturation proves that (8.1) gives zero mass to $P$, including the entire exceptional image. These assertions are mathematical deductions independent of any desired equation.
+
+## 8.1. Frame identity at the continuous stage
+
+On $X\setminus P$, identify the carrier with $Y\setminus D$. Clear a common rational denominator. In a local frame $e_A\otimes e_D$ for $A+D$, write $s_D=f e_D$. Here $f$ is an analytic unit. If $h_A$ is the canonical raw reference weight of $e_A$, the raw weight of the actual $L$ metric $F(\psi)$ is
+\[
+ \lambda_L=\psi+h_A+\log|f|.
+ \tag{8.2}
+\]
+To check the sign, $\sigma=\log|f|-h_D$ and the canonical tensor reference is $h_A+h_D$, so $\sigma+\psi+h_A+h_D$ equals (8.2). CLD 18.1.2 makes the unit logarithm smooth with zero Hessian. CLD 8.8.5 shows the local mixed product is unchanged by this harmonic addition. Rational bundles are treated by clearing powers and multilinearity.
+
+For real-valued continuous $\psi_i\in\operatorname{PSH}(Y,A)$, BE Theorem 7.14 gives decreasing smooth semipositive metrics on the actual ample bundle, valid also for the trivial valuation. Compactness and Dini's lemma give uniform convergence. Their genuine cycle products are positive; BE 8.3--8.5 and its complete pertinent proof identify the continuous uniform limit. The local unit identity holds at every smooth stage and passes to the continuous Bedford--Taylor product. Thus on every analytic open of $X\setminus P$, (8.1) agrees with the genuine local product of the actual continuous original metric weights (8.2).
+
+No BE 7.8 argument is used: its hypothesis is nontrivial valuation and would be invalid here. No mass formula for a global continuous $L$-metric on the original $X$ is invoked. Such a metric in this datum is singular on $P$; its relative mass is $A^n$.
+
+## 8.2. What the projective unbounded limit proves
+
+For genuine decreasing nets $\psi_{i,\alpha}\downarrow\psi_i\in\mathcal E^1_A$, G gives weak convergence of the mixed ample measures. Testing their pushforwards by $f\in C(X^{\rm an})$ is the same as testing upstairs by $f\circ\pi$, a continuous function. Thus (8.1) has genuine unbounded decreasing-net continuity, with finite-energy endpoints. For an integrable actual psh test $\eta$ upstairs and decreasing genuine test approximants, G's correctly signed weighted pairing identity gives convergence of $\eta_\alpha$ times the mixed measures. If the tests are finite-energy quotients of original metrics, (7.5) identifies these weighted measures with $q$ times (8.1) off the zero-mass image; pushforward proves their original weak convergence. A difference of two decreasing tests is handled as two terms, never as a purported decreasing difference.
+
+The appropriate reference floors are
+\[
+ \psi_j=\max(\psi,-j),\qquad u_j=\max(u,\tau-j)=F(\psi_j).
+ \tag{8.3}
+\]
+Both have genuine limits, and original reference poles are retained. The ample strict-winning locality identity gives
+\[
+ \mathbf1_{\{\psi>-j\}}\operatorname{MA}_{A,\rm raw}(\psi_j)
+    =\mathbf1_{\{\psi>-j\}}\operatorname{MA}_{A,\rm raw}(\psi).
+ \tag{8.4}
+\]
+The final measure integrates $\psi$, so $\{\psi=-\infty\}$ has measure zero. It also integrates $w$, so $D$ has measure zero. The restricted measures in (8.4), further restricted off $D$, therefore increase to the full ample measure. Their original images increase to $\widetilde M_{\mathcal M}(u^n)$. This proves exact raw mass $V$ for this distinguished truncation construction. It does not use $\max(u,-j)$, which can leave the constrained cone and can change the reference type. Mixed statements follow by polarization of genuine ample products and retain mass $V$.
+
+For bounded quotients, the original integral expression for relative energy is
+\[
+ E_{\mathcal M}(u)=\frac1{n+1}\sum_{j=0}^n
+       \int_X q_u\,\widetilde M_{\mathcal M}(u^j,\tau^{n-j}).
+ \tag{8.5}
+\]
+It is the actual ample Aubin--Mabuchi expression after (7.5). Formula (8.3), mixed weighted convergence, and decreasing energy continuity extend it to finite-energy endpoints with the correctly interpreted finite pairings. All terms are relative quotient terms, not undefined differences of original infinite weights.
+
+## 8.3. The remaining mathematical gate L
+
+The supplied CLD units and BE uniform continuity theorem are continuous/local results. They do not themselves establish the following complete unbounded assertion on the nonprojective carrier:
+
+**L.** For every actual $u_i\in\mathcal E^1_{\mathcal M}$, the local unbounded intersection product of their actual $L$-weights on every analytic open of $X\setminus P$ is well-defined in the required intrinsic local category, independent of local semipositive approximation; it agrees with the limits in (8.1)--(8.4). Its nonpluripolar zero extension across $P$ is a genuine original-carrier operator, with the same mixed and integrable-weight limits.
+
+We have proved independence within the distinguished approximations coming from global genuine ample potentials on the retained $Y$, because their quotients and ample measures are unique. This is useful, but it is weaker than L: an arbitrary local approximation on an analytic open need not be a restriction of those global ample approximants. Its approximation-independent local product and compatibility have not been reconstructed here. Even the following sufficient intermediate application needs an explicit reconstruction: the possibly discontinuous bounded reference floors in (8.3) must have genuine local products, obtained from decreasing continuous original-section approximants, on every compact frame neighborhood off $P$, and those products must agree with the restriction of the ample energy-pairing operator. Continuous uniform convergence does not prove this bounded decreasing-endpoint assertion. The additionally retained CLD Proposition 8.7.2 also assumes local uniform convergence of continuous functions, and therefore does not discharge it. In particular, weak convergence of global measures does not automatically prove locality for every unbounded local approximating net, nor does it license invoking a continuous theorem on an unbounded endpoint. We retain the tilde in (8.1) to expose this difference. Establishing L, or supplying an equally explicit complete local construction with the exact required compatibility, is necessary before these transported measures may be claimed as the solution's genuine original Monge--Ampère operator.
+
+# 9. Singular obstacles and all continuous original variations
+
+We prove the variational statements for the transported pairing independently of L. They become statements about the genuine original operator if L is established.
+
+For any upper-bounded extended obstacle $h$ on $X^{\rm an}$ define its **relative obstacle energy** by
+\[
+ \mathcal O_{\mathcal M}(h)=
+   \sup\{E_{\mathcal M}(v):v\in\mathcal P_{\mathcal M},\ v\leq h\}.
+ \tag{9.1}
+\]
+The supremum of the empty set is $-\infty$. For singular obstacles of the form $h=u+f$, with $u\in\mathcal E^1_{\mathcal M}$ and $f\in C(X^{\rm an})$, we identify this with a precise singular outer energy. Write $\psi=Q(u)$ and $\widetilde f=f\circ\pi$. An actual candidate $v=F(\eta)$ lies under $u+f$ if and only if
+\[
+ \eta\leq\psi+\widetilde f\quad\hbox{on }Y^{\rm an}.
+ \tag{9.2}
+\]
+The forward implication follows by cancellation of finite $\sigma$ on divisorial valuations and BJ 4.22: the comparator $\psi+\widetilde f$ is usc, even if $\psi$ is singular. The reverse follows by (5.1), including the reference poles. This proves the obstacle inequality everywhere without subtracting infinite values at a pole.
+
+For an upper-bounded usc $b$ on $Y$, let the granted ample outer energy be
+\[
+ E_A^\downarrow(b)=\inf_{c\in C(Y^{\rm an}),\ c\geq b} E_A(P_A(c)).
+ \tag{9.3}
+\]
+Under the ample EP it equals $E_A(P_A(b))$ whenever the latter envelope is genuine. For $b=\psi+\widetilde f$, the envelope lies between $\psi\pm\|f\|_\infty$ and is genuine finite energy. Equation (9.2) and (9.1) give
+\[
+ \mathcal O_{\mathcal M}(u+f)
+   =E_A^\downarrow(\psi+\widetilde f)
+   =E_A(P_A(\psi+\widetilde f)).
+ \tag{9.4}
+\]
+This is the precise singular outer definition used here. It does **not** assert that all continuous majorants in (9.3) are pullbacks of original continuous functions. They generally are not. The original definition (9.1) and its equivalence (9.4) avoid that false approximation claim.
+
+For a continuous original $b$, the relative envelope of $\tau+b$ is exactly
+\[
+ R_{\mathcal M}(\tau+b)=F(P_A(b\circ\pi)).
+ \tag{9.5}
+\]
+It is an actual original metric and is continuous into $\mathbf R\cup\{-\infty\}$: the ample envelope is real-valued continuous, $\sigma$ is extended-valued continuous, their sum is fiber-constant, and A gives quotient continuity. For $b=0$, (5.6) shows every normalized candidate is at most $\tau$; hence $R_{\mathcal M}(0)=\tau$ in the constrained cone. We make no claim that it is the unrestricted minimal metric of the big class.
+
+Every $f\in C(X^{\rm an})$ gives $\widetilde f\in C(Y^{\rm an})$. The two-sided derivative from G and (9.4) prove
+\[
+ \left.\frac d{dt}\right|_{0}\mathcal O_{\mathcal M}(u+tf)
+     =\int_Y(f\circ\pi)\operatorname{MA}_{A,\rm raw}(\psi)
+     =\int_X f\,\widetilde M_{\mathcal M}(u^n).
+ \tag{9.6}
+\]
+This includes **all** continuous original-carrier directions, not a PL subspace, skeletal functions, or invariant functions. Nothing requires that $q_{u+tf}$ itself be defined or psh: $u+tf$ is an obstacle and (9.1) defines its energy. If PL approximation is used upstairs, its energy error is bounded by $|t|\epsilon$, and both derivative signs follow from the corresponding upper and lower bounds. No $t^2\epsilon$ error is substituted.
+
+# 10. Actual attainment, comparison, and conditional equation theorem
+
+Let $\mu$ be a positive original Radon measure of mass $V$ with $D_{\mathcal M}(\mu)<\infty$. Equations (7.3)--(7.6) construct the unique zero-mass Radon inverse $\nu_\mu$, with finite ample dual energy. By G there is an actual $\psi_\mu\in\mathcal E^1_A$ attaining its ample dual supremum and solving its raw ample equation. The actual original metric $u_\mu=F(\psi_\mu)$ belongs to the whole genuine section cone and has finite relative energy. Equations (7.5)--(7.6) prove actual attainment of (7.2).
+
+One can also expose the compactness and attainment inputs rather than call just the inverse equation. A normalized maximizing sequence in the actual cone corresponds to a normalized ample sequence with bounded $J$ by the granted coercivity estimate. Normalized divisorial compactness gives a convergent subnet in actual PSH, without any metrizability assumption. Energy usc makes the limit finite energy. Granted bounded-$J$ integral continuity for $\nu_\mu$, transported by (7.5), gives convergence of target integrals. The objective is therefore attained at an actual original metric. No abstract completion or approximate maximizer is used.
+
+For completeness, the original obstacle argument also identifies its transported measure. For $v=R_{\mathcal M}(u_\mu+tf)$, (9.2) shows it is finite energy and $q_v\leq q_{u_\mu}+tf$ on $X\setminus P$. Since $\mu(P)=0$, attainment gives
+\[
+ \mathcal O_{\mathcal M}(u_\mu+tf)-\int_X(q_{u_\mu}+tf)\,d\mu
+       \leq D_{\mathcal M}(\mu).
+\]
+Subtract the attained objective at $t=0$. Divide by $t>0$ and pass to zero using (9.6) to obtain the inequality of continuous test integrals in one direction. Divide by $t<0$ with reversed sign to obtain the other. Equality against every $f\in C(X^{\rm an})$ identifies the positive Radon measures:
+\[
+ \widetilde M_{\mathcal M}(u_\mu^n)=\mu.
+ \tag{10.1}
+\]
+This is an actual attained equation for the transported intersection measures. It is not, without L, the claimed complete original Monge--Ampère equation theorem.
+
+Comparison also transfers for these measures. On $X\setminus P$, strict inequalities between $u=F(\psi)$ and $v=F(\eta)$ are exactly strict inequalities between $\psi$ and $\eta$. On $P$ both original functions are $-\infty$ and all the measures vanish. Ample comparison gives
+\[
+ \int_{\{u<v\}}\widetilde M_{\mathcal M}(v^n)
+       \leq\int_{\{u<v\}}\widetilde M_{\mathcal M}(u^n).
+ \tag{10.2}
+\]
+Strict-winning locality follows the same way. Maxima of metric potentials correspond to maxima of genuine quotients; all involved measures have the same raw mass $V$.
+
+If two transported original measures agree, their upstairs measures agree on $Y\setminus D$ through the isomorphism (3.3). Both give $D$ zero mass by the explicit polar test, so they agree on all $Y$. G's ample uniqueness gives $Q(u)-Q(v)=c$ and therefore $u=v+c$ everywhere on the original carrier. Necessity of finite dual energy for every transported output follows from its ample finite-energy output condition, the zero-polar-mass assertion, and (7.6).
+
+We have proved the following accurately delimited statement.
+
+**Conditional transfer theorem.** Under the standing field and smoothness hypotheses and analytic gate A, every retained datum (2.6) has an actual original section cone (5.5), a genuine relative finite-energy space, compactness, relative envelopes, the intrinsic all-$\mathcal E^1$ condition (7.7), all continuous original-direction derivatives, and an attained equation (10.1) for the transported ample intersection measures, of exact raw mass $A^n$, with comparison and uniqueness modulo constants. If in addition L is proved, those measures are the genuine local/nonpluripolar original-carrier Monge--Ampère operator required in original P16.2. The present paper has not proved L and has not completed the primary bindings for A. It therefore does not assert that the last conditional implication has been discharged.
+
+# 11. An explicit complete nonprojective toric threefold test
+
+This is an example to test the proposed datum, not a restriction of the theorem's domain. In $N=\mathbf Z^3$ use
+\[
+ v_1=e_1,\ v_2=e_2,\ v_3=e_3,\ v_4=(-1,-1,-1),
+ \quad v_5=(0,-1,-1),\ v_6=(-1,0,-1),\ v_7=(-1,-1,0).
+\]
+Let the maximal cones be
+\[
+ 123,\ 125,\ 256,\ 456,\ 236,\ 367,\ 467,\ 137,\ 157,\ 457,
+ \tag{11.1}
+\]
+with their faces. Here $ijk$ denotes the cone on $v_i,v_j,v_k$.
+
+## 11.1. Completeness and smoothness as fan computations
+
+The cone $123$ is unchanged from the standard $\mathbf P^3$ fan. In each of its other maximal cones, write the basis as $(a,b,c)$ with $c=v_4$ and $(a,b)$ respectively $(e_1,e_2)$, $(e_2,e_3)$, $(e_3,e_1)$. The new rays are $a+c,b+c$. Replace that cone by
+\[
+ (a,b,a+c),\quad (b,a+c,b+c),\quad(c,a+c,b+c).
+\]
+For coordinates $(x,y,z)\geq0$ in the old basis these cones are, respectively, the regions $x\geq z$, $x\leq z\leq x+y$, and $z\geq x+y$. They cover the original cone and meet in the indicated faces. The common faces of old cones acquire exactly the same edge subdivisions. This proves that (11.1) is a complete fan, by an explicit covering argument rather than a finite sampling of directions.
+
+The determinants of the displayed triples in the old basis are $+1,-1,+1$. Together with the unimodular old basis this proves every maximal cone is unimodular. The rerunnable integer program checks the concrete determinants in the global basis and the three wall relations. Those finite checks corroborate the coordinates; they do not prove the fan-to-variety assertions.
+
+## 11.2. Wall degrees and absence of an ample line bundle
+
+The walls $25$, $36$, $17$ have adjacent pairs of maximal cones $(125,256)$, $(236,367)$, and $(137,157)$. The wall relations are
+\[
+ v_1+v_6=v_2+v_5,\quad v_2+v_7=v_3+v_6,\quad v_3+v_5=v_1+v_7.
+ \tag{11.2}
+\]
+For an invariant Cartier divisor $H=\sum a_iD_i$, the proposed degrees on the corresponding invariant curves are
+\[
+ d_{25}=a_1+a_6-a_2-a_5,\quad
+ d_{36}=a_2+a_7-a_3-a_6,\quad
+ d_{17}=a_3+a_5-a_1-a_7.
+ \tag{11.3}
+\]
+These signs can be checked directly from transition characters. On cone $125$, the local Cartier character $m_+$ takes values $-a_1,-a_2,-a_5$ on $v_1,v_2,v_5$. On cone $256$, $m_-$ takes values $-a_2,-a_5,-a_6$ on $v_2,v_5,v_6$. Relation (11.2) gives
+\[
+ \langle m_--m_+,v_1\rangle=a_1+a_6-a_2-a_5.
+\]
+The difference vanishes on the wall lattice, so its exponent in the one-dimensional quotient gives the displayed degree on the two-chart invariant $\mathbf P^1$. The other two formulas are the identical cyclic computation. Their sum is identically zero. Three ample curve degrees cannot all be positive.
+
+To apply this to every line bundle, the dense split torus has trivial Picard group: its Laurent polynomial ring is a UFD, and an invertible sheaf on this regular affine scheme is represented by a Cartier divisor and hence is principal. Trivialize a line bundle on the torus. Its rational section has divisor supported on the boundary, hence is an invariant divisor. Thus (11.3) rules out an ample line bundle on the carrier, once the standard toric chart/curve correspondence is justified.
+
+The fan refines that of $\mathbf P^3$, so its toric carrier has a proper birational morphism to $\mathbf P^3$ under the standard toric morphism criterion. The pullback of $\mathcal O(1)$ is actual big: pushforward of the structure sheaf along this normal-base birational map identifies its sections, and $h^0(\mathbf P^3,\mathcal O(m))=\binom{m+3}{3}$. This supplies a concrete retained big bundle on the proposed nonprojective test carrier.
+
+**Source-audit limitation T.** The input contains the coordinates of this fan but does not supply primary toric statement/proof units. No exact primary body for the complete-fan properness criterion, unimodular-fan smoothness criterion, invariant divisor/curve correspondence, or refinement morphism criterion was retrieved in this run. Therefore the numerical and transition-character computations above are established, while the fully source-audited smooth proper nonprojective toric example remains conditional on T. We do not invent a published example number or assert that a whole toric textbook was read. T concerns the requested test and evidence audit; it is not a restriction to a toric theorem.
+
+# 12. Exact remaining statements and assessment against original P16.2
+
+The positivity proposal fits the allowed *form* of replacement data: the actual big original $L$ and polar modification are retained, and no ample bundle is placed on the nonprojective carrier. The algebraic construction works for every specified $X$ and every retained big $L$. The genuine original-section cone is the entire reference-dominated cone specified in (5.4), and it is the whole image of the actual ample cone. Different $\pi,A,D,\iota$ remain different data. This paper makes no claim of canonical birational invariance, minimal-singularity energy, or class-volume mass. The target condition in (7.2)--(7.7) is defined intrinsically using the actual uniquely determined quotient and excludes the polar image by an actual finite-energy test.
+
+Nevertheless the exact original task requires more than (10.1). The present output has the following concrete gaps:
+
+1. **Unbounded genuine-local identification L.** Prove, in the appropriate intrinsic local metric category, that the local product of all actual finite-energy original $L$ metrics on every analytic open of $X\setminus P$ is independent of local semipositive approximation and equals the transported ample product. Prove its nonpluripolar zero extension, including arbitrary local unbounded mixed and integrable weighted limits. Continuous unit identities, uniform products, global ample weak convergence, and the particular reference-floor identity (8.4) are insufficient by themselves to discharge that statement. The missing assertion must be proved before the transported measures are called the required genuine original Monge--Ampère operator.
+2. **Proper analytic descent primary audit A.** Retain exact primary statements and pertinent proof bodies for the nonprojective proper analytification, surjectivity/closed-quotient, and compatible-center facts in the precise trivially valued scope used in Section 3.1. The application is explained and the Radon inverse is proved topologically, but those analytic-source bindings remain absent. Complete the baseline algebraic source bindings for regular local factoriality and regularity-to-smoothness if the proof rules demand them as separately audited external premises.
+3. **Toric test primary audit T.** Supply exact primary statement/proof evidence for the fan-to-scheme and invariant-divisor/curve facts listed in Section 11, with correct versions, coordinates and literal bytes. The integer relations, covering argument and degree computation are available; their documentary checks do not replace those geometric source premises.
+
+The first item is a mathematical operator/construction gap, and the latter items are explicit premise-audit gaps. Failure to retrieve additional public sources is not evidence for or against any of these mathematical statements. If A, L and T are supplied or proved, the remaining variational replacements have been made explicit: compactness is the actual divisorial homeomorphism, continuous relative envelopes are (9.5), singular outer energy is (9.1)--(9.4), both derivative signs cover every original continuous function, and attainment is in actual metrics by Section 10. This records precisely the work still needed; it does not mark the original open task solved.
+
+Nothing here addresses nondiscrete or nontrivial valuations, positive characteristic, singular original carriers, or genuinely nonalgebraizable spaces. Those remain separate original axes. No contraction to a special projective quotient class is used: $Y$ is a retained birational source above every original smooth proper carrier, and $X$ remains the metric and target-measure carrier throughout.
+
+# 13. Reproducibility and the evidence boundary
+
+Run `python3 rerun.py` in this workspace. It re-extracts the supplied data from the unchanged `input.json`, verifies literal-byte hashes, regenerates the external-premise ledger and the exact finite diagnostic output, builds `P16.2-paper.tex` with the existing Pandoc, and runs the existing pdfLaTeX twice, with a further pass if references change, to produce `P16.2-paper.pdf`. Commands, exit statuses, stdout/stderr, tool versions, selected environment details and final artifact hashes are retained under `logs/` and in `manifest.json`. No tools are installed and no repository or external application is changed.
+
+The scripts do not read any off-workspace primary file or worker output. They extract literal mathematical evidence supplied in the input. `evidence/supplied-new/index.json` preserves the original URLs, source versions when supplied, inclusive LF or renderer coordinates, supplied full-source hash identifiers, and actual hashes of local literal units. These coordinate conventions are kept distinct. Full-source hashes supplied by the input are identifiers, not independent hashes of a downloaded primary paper. The complete supplied ample proof and all proposal bodies remain under `supplied/`; they are mathematical data, not task instructions or new grants.
+
+The public retrieval attempt is preserved in `logs/public-fetch.json`, with its exact argument vector and connection error. No successful download, new version, or new source hash is fabricated. The selected relevant source bodies were read; extraction of the whole dictionary does not mean a complete primary work was read. The ledger states which bodies were selected. Historical audit labels have no mathematical force.
+
+No heavy computation is required by this assignment. No supervised heavy-compute facility was exposed or used. The only numerical work is exact integer/rational diagnostic arithmetic. Compilation, checksum verification, primary-unit counts and finite determinants are documentary or finite evidence, not proof certificates. `status.json` has exactly the five fields requested by the assignment, and the canonical local note registry has at most four notes, with backward supports only. The final candidate flag is false.
+
+# Appendix A. Exact external-premise register and literal evidence
+
+The machine-readable register gives individual IDs, actual statements, domain/application checks, public URLs, version labels, source coordinates, local evidence files and literal hashes. The following table locates the substantive groups. Every unit listed here is an actual supplied literal, not a paraphrase invented by the script.
+
+| Register group | Primary statement/proof and coordinates | Scope and use |
+|:--|:--|:--|
+| G | Supplied exact ample P16.1 theorem, `supplied/block-00.txt` | Only $Y$ projective and actual ample $A$; energy, operator, compactness, attainment, comparison |
+| R | Temkin arXiv:0904.1592v2, Theorem 1.2.1, renderer L82--91; complete pertinent proof beginning L1693 | Noetherian quasi-excellent generically reduced Chow source over $\mathbf Q$ |
+| C | Stacks 0200, Lemma 30.18.1 and 0201, Remark 30.18.2; complete supplied bodies | Proper birational Chow source, closure/reduced choice, projective source |
+| F | Stacks 0AY8, Lemma 37.53.6, complete body; 0BFP, Lemma 33.17.3, complete body | Normal original base; structure-sheaf equality, geometric connectedness, whole bad fibers |
+| K | Stacks 01Q3, Proposition 28.27.13; 0B5T, Lemma 30.16.1; 0BEM, Lemma 33.45.1; complete supplied bodies | Actual twists and the no-Bertini decomposition on possibly nonreduced Cartier $T$ |
+| Z | Stacks 0B3Q, Lemma 31.16.1 | Printed proof is omitted; associated-prime mechanism explicitly supplied in Section 2.3 |
+| S | BJ arXiv:1801.08229v4, Lemma 2.23, supplied LF1270--1289; Corollary 6.17, LF3160--3255; Theorem 6.24, LF3290--3354 | Literal division and the new compactness repair; only normal projective source |
+| D | BJ 4.22--4.26, supplied LF2494--2533; 5.6--5.11, LF2770--2844 | All-point determination and no change on divisorial values; no density substitute |
+| N | BJ 4.6, LF2240--2298; 4.15--4.18, LF2410--2472; printed 6.21, LF3258--3275 | Literal proof diagnostics; fixed actual real-valued ample net and repair |
+| P | BJ 4.10, renderer L3453--3460; 7.47--7.49, renderer L7016--7112 | Explicit actual finite-energy pole and the $t^n$ tail estimate |
+| U | BE arXiv:1805.01016v3, 7.14, supplied LF2320--2390; 8.3--8.6, LF2610--2760 | Semiample smooth regularization valid for trivial valuation, continuous uniform products only |
+| H | CLD arXiv:1204.6277v2, 18.1.2--18.1.6, supplied LF25720--25830; 8.8.5, LF10485--10593 | Actual local frame/unit identity and continuous harmonic invariance |
+| A,L,T | Explicit unresolved gates, Sections 3.1, 8.3, 11.2 | No absent proof body or successful retrieval is claimed |
+
+Representative literal passages, retained without correcting their spelling or source notation, include:
+
+> Stacks 0AY8: “Then $f_*\mathcal{O}_ X = \mathcal{O}_ S$ and $f$ has geometrically connected fibres.”
+
+> Stacks 0BFP: “every $x \in X$ such that $f$ is quasi-finite at some $y \in Y$ lying over $x$ and $\mathcal{O}_{X, x}$ is normal.”
+
+> BJ 4.22: “In particular, $\varphi$ is the smallest usc extension of $\varphi|X^{\rm div}$ to $X^{\rm an}$.”
+
+The authoritative literal units are the UTF-8 files in the ledger. The appendix's typeset notation in the last quotation is typographical; the exact original extracted text, including its spacing and glyphs, remains in `evidence/supplied-new/unit-04.txt`. No whole-primary-source reading is claimed by these quotations.
+
+# Appendix B. The local note dependency convention
+
+The four canonical notes are identified by `n1`, `n2`, `n3`, `n4`. They report respectively the approximation/division audit and repair, the retained algebraic geometry and saturation, the polar/Radon/integrability construction, and the conditional paper with exact unresolved gates. `n3` uses `n1` and `n2`; `n4` uses `n1`, `n2`, and `n3`. The paper proves the substantive new deductions, so historical proposal identifiers supply no support grants. The only task-granted theorem is G, in its actual ample scope. The status remains incomplete and candidate=false.
