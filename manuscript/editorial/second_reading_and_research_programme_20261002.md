@@ -2306,3 +2306,46 @@ two-page bibliography sheet was displayed again after protecting
 The source archive preserves the complete 425-input active closure and
 verifies every member against workspace bytes; no isolated archive
 compilation or fresh whole-book rereading is claimed.
+
+### Projective nonuniqueness and local mean-field estimates — 5 October
+
+This checkpoint continues `6237e78`. Lu–Phung arXiv:2501.18281v1 was
+read in full, including references, and all 15 actual pages inspected.
+Chapter 68 now includes its known projective automorphism family, with
+the exact Hessian coefficient and additive normalization calculated in
+the book's hyperplane-class convention. Distinct smooth potentials solve
+one fixed positive-density equation at parameter n+1; this is not a
+statement about uniqueness modulo automorphisms or a universal threshold.
+The small-parameter conclusion remains intact.
+
+The bounded hyperconvex zero-boundary equation uses ordinary mass one,
+nonnegative Lp density, p>1, and the source's local uniqueness criterion.
+The displayed sufficient parameter range follows from its exponential
+mass-one estimate and the strictly contracting comparison. The actual
+normalizing denominator is retained before it is discarded using its
+lower bound one; the printed beta/2 replacement is not copied. Compact
+stability and Hermitian proofs from this source are not imported.
+The matching version-specific provenance is L.38 and the audit is
+[meanfield_local_projective_audit_20261005.md](meanfield_local_projective_audit_20261005.md).
+
+Dang–Zhang–Zhou arXiv:2608.19600v1 was also read in full, including
+references, and all 22 actual pages inspected. It remains research-only.
+The audit records the relative mass mismatch, the auxiliary envelope
+cutoff and finite-moment questions, Orlicz density rescaling, general
+measure approximation and the dependence of entropy constants on N.
+The earlier logarithmic continuity statement keeps its explicit minimal
+singularity bound. Continue checking the known primary Orlicz-capacity
+and entropy-energy inputs rather than importing unreconciled normalizers.
+The separate singular local Guedj–Trusiani comparison remains pending.
+No complete problem status or Siu/envelope/spectral/A2–A4 boundary changes.
+
+The final 4,315-page cloud build passes all compilation, citation, index
+and navigation checks without errors, unresolved references or overfull
+boxes. Twenty matching final-book pages were displayed and checked.
+The complete 425-input source closure and archive members are byte verified;
+older snapshots and the native catalogue are unchanged. The new known
+local material uses six tags 68.23s–68.23x, nine labels and one bibliography
+entry. Di Nezza–Trapani–Trusiani's published entropy paper and Guedj–Lu
+arXiv v2 were read in full and all 33 actual pages inspected for the next
+research phase; they are not imported by this local mean-field checkpoint.
+Berman–Berndtsson remains a selected dependency reading.

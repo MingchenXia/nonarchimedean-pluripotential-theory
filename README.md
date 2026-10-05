@@ -9,7 +9,12 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,311 pages**.
+The current research-integration build has **4,315 pages**.
+The [local mean-field audit](manuscript/editorial/meanfield_local_projective_audit_20261005.md)
+checks Lu–Phung's known projective nonuniqueness family and bounded
+zero-boundary uniqueness on hyperconvex domains. Class, parameter and
+mass conventions are explicit. The separate August uniform-estimate
+paper has been read in full and remains under dependency review.
 The [big-class uniqueness audit](manuscript/editorial/dang_big_uniqueness_audit_20261005.md)
 checks Dang–Zhang–Zhou's September preprint in full and adds Chapter 68's
 small-parameter existence and uniqueness argument on smooth compact
