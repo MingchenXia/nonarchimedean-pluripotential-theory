@@ -1,0 +1,859 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  11pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{\textbf{#1}}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{amsmath,amssymb,amsthm}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Intrinsic Reeb comparison and signed cutoff estimates},
+  pdfauthor={Source-only research draft},
+  colorlinks=true,
+  linkcolor={Maroon},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Intrinsic Reeb comparison and signed cutoff estimates}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{A partial argument for unchanged P13.1}
+\author{Source-only research draft}
+\date{4 October 2026}
+
+\begin{document}
+\maketitle
+
+\subsection{Scope and status}\label{scope-and-status}
+
+This document proves an intrinsic comparison of the actual classes
+\(\mathcal H(\xi)\), \(\operatorname{CPSH}(\xi)\) and
+\(\operatorname{PSH}(\xi)\) for arbitrary, possibly irrational and
+nonproportional, Reeb fields on every cone in the problem. It also
+proves signed finite-type norm representation and quantitative signed
+cutoff estimates. The latter are algebraic estimates, not estimates for
+the genuine affine-cone energy. The required preservation of
+\(\mathcal E^1\), control of moving mixed Monge--Ampère measures, and
+uniform differentiation of the genuine extended energy are not proved.
+Consequently this is not a solution of P13.1.
+
+The eight supplied caches are the only mathematical sources used. Their
+identifiers in this document are A (Wu, 2406.13684v1), B (Wu,
+2106.13395v2), C (Boucksom--Jonsson, 1801.08229v4), D
+(Boucksom--Jonsson, 2307.01697v1), E (Lyuhui Wu, 2609.27610v1), F
+(Boucksom--Jonsson, 1805.11160v1), G (Chambert-Loir--Ducros,
+1204.6277v2), and H (Boucksom--Hisamoto--Jonsson, 1504.06568v3). All
+line numbers below are one-based inclusive ranges in the supplied UTF-8
+extract split by the literal LF character. Source results used as
+premises are identified explicitly. No earlier research note is a
+premise.
+
+\subsection{1. Fixed carrier, action, and
+normalization}\label{fixed-carrier-action-and-normalization}
+
+Let \(R\) be the coordinate ring of the normal cone, of dimension \(n\),
+with the good torus action of the problem, \(R_0=k\), and homogeneous
+maximal ideal \(\mathfrak m\). Choose nonzero homogeneous algebra
+generators \(h_1,\ldots,h_q\in\mathfrak m\) with weights \(\beta_i\).
+Write \(d_\xi(\alpha)=\langle\xi,\alpha\rangle\). Every supported
+nonzero weight is a nonnegative integral combination of the \(\beta_i\):
+take a homogeneous polynomial expression of a nonzero element of
+\(R_\alpha\) and retain a nonzero monomial. In particular the generators
+control all degree ratios, not just the weights in a particular FS
+presentation.
+
+We use the semivaluation convention \(\log|f|(v)=-v(f)\). Torification
+is \(q(v)(\sum f_\alpha)=\min_\alpha v(f_\alpha)\). On its image let \[
+ (v+t\eta)(f)=\min_\alpha\{v(f_\alpha)+t d_\eta(\alpha)\}.
+ \tag{1}
+\] These are the analytic action and torification recorded in A,
+L218--246; hence they are semivaluations, not merely formal functions.
+The action is additive on torified points. It is jointly continuous,
+since evaluation on each polynomial is a minimum of finitely many
+continuous homogeneous evaluations. This also proves continuity of
+\(q\).
+
+Set \(Y=q(X^{\rm an}\setminus\{o\})\) and \[
+ K=X_0^T=\{v\in Y: v(\mathfrak m)=0\}.
+\] This is one fixed carrier for all Reeb fields. On \(K\) all regular
+functions have nonnegative value: a polynomial in the \(h_i\) has
+nonnegative value when all \(v(h_i)\geq0\). Moreover
+\(v(\mathfrak m)=\min_i v(h_i)\). The closed unit polydisc in the
+coordinates \(h_i\) is compact; imposing the equations of \(R\) and
+\(\min_i v(h_i)=0\) gives a closed compact subset. Imposing \(q(v)=v\)
+is a further closed condition. Thus \(K\) is compact.
+
+The canonical reference function and the orbit section are \[
+ \rho_\xi(v)=\max_i\frac{-v(h_i)}{d_\xi(\beta_i)},\qquad
+ s_\xi(v)=v+\rho_\xi(v)\xi\in K.                 \tag{2}
+\] At least one \(h_i\) has finite value for \(v\ne o\), so the maximum
+is finite. Each generator has nonnegative value at \(s_\xi(v)\), and at
+least one has value zero. Also \(\rho_\xi(v+t\xi)=\rho_\xi(v)-t\).
+Consequently a torified \(\xi\)-equivariant function \(u\) obeys \[
+ u(v)=u(s_\xi(v))+\rho_\xi(v).                  \tag{3}
+\] In particular its restriction to \(K\) determines it on \(Y\), and
+then on \(X^{\rm an}\) by torification and the value \(-\infty\) at
+\(o\). Uniform differences on \(K\) are uniform differences on all of
+\(Y\). The reference (2) is independent of the homogeneous algebra
+generators: it is the unique equivariant function zero on \(K\).
+
+An FS list in A, Definition 2.9 (L277--286), need only generate a
+primary ideal. If its homogeneous elements are \(f_j\), then
+\(\mathfrak m^r\) is contained in their ideal for some \(r\). At
+\(v\in K\), choose \(h_i\) with \(v(h_i)=0\). If all \(v(f_j)>0\), an
+expression \(h_i^r=\sum a_j f_j\) has every summand of positive value,
+since \(v(a_j)\geq0\), contradicting \(v(h_i^r)=0\). Therefore at least
+one \(v(f_j)=0\), while all \(v(f_j)\geq0\). The zero-weight FS function
+defined by this primary list is zero on \(K\), and equals (2) everywhere
+by (3). This proves reference independence for primary lists as well.
+
+All FS functions factor through \(q\) and satisfy (3). The same is true
+of their local uniform limits and decreasing pointwise limits. These are
+exactly the CPSH and PSH definitions used here (A, L344--345 and
+L762--764), rather than a different intrinsic definition of psh. For a
+CPSH function, local uniform convergence on \(Y\) is equivalent to
+uniform convergence on \(K\) within a fixed polarization, by (3).
+
+The trivial valuation \(v_{\rm triv}\) is in \(K\). For FS functions, \[
+ \sup_K u=u(v_{\rm triv})=\max_j\frac{\lambda_j}{d_\xi(\alpha_j)}.
+ \tag{4}
+\] This passes to CPSH by uniform approximation. For a decreasing CPSH
+net defining \(u\in\operatorname{PSH}(\xi)\), the inequality
+\(u(v)\leq u(v_{\rm triv})\) passes pointwise. If the right side were
+\(-\infty\), (3) would make \(u\) identically \(-\infty\), which is
+excluded. Thus (4), with a finite right side, holds for every actual PSH
+function. The normalized representative is \[
+ N_\xi u=u-u(v_{\rm triv}).                    \tag{5}
+\] It is uniquely characterized by \(\sup_K N_\xi u=0\).
+
+\subsection{2. The orbit-root comparison on the completed
+classes}\label{the-orbit-root-comparison-on-the-completed-classes}
+
+For two Reeb fields define \[
+ c=c(\xi,\eta)=\min_i\frac{d_\eta(\beta_i)}{d_\xi(\beta_i)},\qquad
+ C=C(\xi,\eta)=\max_i\frac{d_\eta(\beta_i)}{d_\xi(\beta_i)}.
+ \tag{6}
+\] Both are positive. Taking weighted averages in any monomial proves
+\(c\leq d_\eta(\alpha)/d_\xi(\alpha)\leq C\) for every supported nonzero
+weight \(\alpha\). In particular these constants are independent of
+every FS list, its weights, and all approximating potentials.
+
+For \(u\in\operatorname{PSH}(\xi)\) the following inequalities hold for
+\(t\geq0\), first termwise for FS functions, then by local uniform and
+decreasing limits: \[
+ u(v)-Ct\leq u(v+t\eta)\leq u(v)-ct.           \tag{7}
+\] The reverse-orbit inequalities follow by applying (7) at \(v-t\eta\).
+If \(u(v)\) is finite, (7) makes the function \(t\mapsto u(v+t\eta)\)
+finite, strictly decreasing, Lipschitz, and surjective onto
+\(\mathbb R\). It therefore has exactly one zero. If \(u(v)=-\infty\),
+(7) in both directions makes the entire \(\eta\) orbit \(-\infty\).
+
+Define \(\mathcal R_{\xi\eta}u(v)\) to be this unique zero parameter,
+and define it to be \(-\infty\) in the second case. Extend by \(q\) and
+put \(\mathcal R_{\xi\eta}u(o)=-\infty\). For an FS presentation this is
+the exact formula \[
+ u=\max_j\frac{\lambda_j-v(f_j)}{d_\xi(\alpha_j)}
+ \quad\Longrightarrow\quad
+ \mathcal R_{\xi\eta}u=
+ \max_j\frac{\lambda_j-v(f_j)}{d_\eta(\alpha_j)}.       \tag{8}
+\] Indeed all terms in \(u(v+t\eta)\) are nonpositive if and only if
+\(t\) is at least the right side of (8); at equality one term is zero.
+Equation (8) follows from the intrinsic zero definition. It does not
+define a map by choosing a presentation. This proves presentation
+independence, including redundant generators and primary lists.
+
+\textbf{Theorem 1.} The map \(\mathcal R_{\xi\eta}\) gives order
+isomorphisms on \(\mathcal H\), CPSH and PSH. On these classes, \[
+ \mathcal R_{\eta\xi}\mathcal R_{\xi\eta}=\mathrm{id},\qquad
+ \mathcal R_{\eta\zeta}\mathcal R_{\xi\eta}=\mathcal R_{\xi\zeta}.
+ \tag{9}
+\] It preserves decreasing nets and their pointwise limits, including
+\(-\infty\) behavior. On CPSH it is continuous for local uniform
+convergence. On PSH it is a homeomorphism for the topology of pointwise
+convergence on \emph{all} analytic points. This last assertion does not
+claim continuity for the weaker, quasi-monomial topology used in A,
+L805, nor continuity for a strong finite-energy topology.
+
+\emph{Proof.} Formula (8) proves FS membership. If \(u\leq w\), their
+zero parameters satisfy \(\mathcal R u\leq\mathcal R w\), because the
+orbit functions decrease. If \(u,w\) are CPSH and
+\(\|u-w\|_K\leq\epsilon\), equation (3) gives this bound on the entire
+source orbit. The lower slope bound in (7) consequently gives \[
+ \|\mathcal R u-\mathcal R w\|_K\leq\epsilon/c.       \tag{10}
+\] Uniform FS approximation on \(K\), followed by (10), proves that the
+intrinsic root lies in CPSH of the target polarization. Its
+\(\eta\)-equivariance follows either from the zero definition or from
+the approximants; thus convergence on \(K\) implies local uniform
+convergence everywhere by the target version of (3).
+
+Now let \(u_a\downarrow u\) be a defining CPSH net. The roots decrease.
+If \(r=\mathcal R u(v)\) is finite, \(u(v+(r-\epsilon)\eta)>0\) and
+\(u(v+(r+\epsilon)\eta)<0\). Eventually the corresponding values of
+\(u_a\) have those signs, so their roots converge to \(r\). If
+\(u(v)=-\infty\), then \(u(v-M\eta)=-\infty\) for every \(M>0\).
+Eventually \(u_a(v-M\eta)<0\), so their roots are less than \(-M\). This
+proves pointwise convergence also in this case. The limit is not
+identically \(-\infty\), since \(u(v_{\rm triv})\) is finite. Hence it
+belongs to the target PSH by its actual definition.
+
+The root has exactly the same zero set and exactly the same \(-\infty\)
+locus as \(u\). Roots along a third Reeb field are therefore identical,
+proving the cocycle. Taking the third field to be \(\xi\), where
+\(u(v+t\xi)=u(v)-t\), proves the inverse. The inverse is order
+preserving, so these are order isomorphisms. The same bracket argument
+applies to any pointwise convergent PSH net: at a finite root use two
+fixed orbit points, and at \(-\infty\) use \(v-M\eta\). It proves
+pointwise continuity of the map and inverse. It also proves preservation
+of all existing decreasing PSH limits. Equation (10) proves local
+uniform continuity on CPSH. \(\square\)
+
+For completeness, target Reeb variation has local uniform continuity for
+a fixed CPSH function. On a compact set of \(v\) the roots remain in a
+bounded interval by (7), and \(\eta\) variation in a compact set makes
+the associated orbit points range in a compact subset of \(Y\). Uniform
+continuity of \(u\) there and the uniform positive lower slope bound
+give continuity of the roots. This uses actual continuity of \(u\), not
+qualitative rational approximation of energy.
+
+For an FS function, \(u(v_{\rm triv})=0\) means all \(\lambda_j\leq0\)
+and at least one \(\lambda_j=0\). The general zero definition gives the
+same conclusion about the value at \(v_{\rm triv}\) without needing an
+FS presentation: \(\mathcal R u(v_{\rm triv})=0\) if
+\(u(v_{\rm triv})=0\). Thus (9) restricts to normalized PSH and induces
+genuine bijections of constant quotients by the rule \[
+ [u]\longmapsto[\mathcal R_{\xi\eta}(N_\xi u)].       \tag{11}
+\] This is independent of representatives because (5) is. The output is
+already normalized, so (9) proves inverse and cocycle also for (11).
+
+Normalization before applying the map is essential. For \(R=k[x,y]\),
+\(\xi=(1,1)\) and \(\eta=(1,2)\), \[
+ \mathcal R_{\xi\eta}(\rho_\xi+2)
+ =\max\{-v(x)+2,(-v(y)+2)/2\}.
+\] Its difference from \(\rho_\eta\) is \(2\) at \(v_{\rm triv}\) and
+\(1\) at the monomial valuation \((v(x),v(y))=(3,0)\in K\). The raw map
+does not descend to constant quotients.
+
+For normalized PSH, the exact sign-sensitive comparison on \(K\) is \[
+ \frac{u}{c}\leq\mathcal R_{\xi\eta}u\leq\frac{u}{C}\leq0.
+ \tag{12}
+\] For a nonnegative value of an unnormalized function the inequalities
+instead read \(u/C\leq\mathcal R u\leq u/c\). Both follow directly from
+(7), including extended values. Let \(Q\) be a compact subset of the
+Reeb cone and set \[
+ \delta(\xi,\eta)=\max_i\left|\log
+ \frac{d_\eta(\beta_i)}{d_\xi(\beta_i)}\right|.
+\] Then \(e^{-\delta}\leq c\leq C\leq e^\delta\), and, wherever \(u\) is
+finite, \[
+ |\mathcal R_{\xi\eta}u-u|\leq(e^\delta-1)(-u)
+ \quad\text{on }K.                                  \tag{13}
+\] There is \(L_Q<\infty\), depending only on the chosen generators, the
+norm on \(N_{\mathbb R}\), and \(Q\), such that
+\(\delta\leq L_Q\|\xi-\eta\|\). Indeed the derivative of
+\(\log d_\xi(\beta_i)\) has norm at most
+\(\|\beta_i\|/\min_{\theta\in Q}d_\theta(\beta_i)\) along the segment;
+on the convex hull of \(Q\) this denominator is still bounded below.
+
+For any \emph{fixed} probability measure \(\mu\) on \(K\), (12) also
+gives \[
+ \int(-\mathcal R u)\mathbf1_{\{-\mathcal R u>A\}}\,d\mu
+ \leq c^{-1}\int(-u)\mathbf1_{\{-u>cA\}}\,d\mu.       \tag{14}
+\] This is a genuine integrability/tail statement with a fixed measure.
+It asserts nothing about moving measures
+\(\operatorname{MA}_\eta(\mathcal R u)\).
+
+\subsection{3. Signed finite-type norms and primary-list
+representation}\label{signed-finite-type-norms-and-primary-list-representation}
+
+Let \(g_1,\ldots,g_p\) be homogeneous algebra generators, allowing
+additional redundant homogeneous elements, with arbitrary real assigned
+weights \(\lambda_i\). For \(\alpha\ne0\), define \[
+ F^a R_\alpha=\operatorname{span}\{g^{\mathbf e}:
+              \text{weight}(g^{\mathbf e})=\alpha,
+              \sum e_i\lambda_i\geq a\},\qquad
+ \chi(f)=\sup\{a:f\in F^a R_\alpha\}.                \tag{15}
+\] For general \(f\) use the minimum of its nonzero homogeneous
+components' weights, and give \(1\) weight zero. For fixed \(\alpha\)
+there are only finitely many eligible monomials: their exponent sum is
+bounded by \(d_\xi(\alpha)/\min_i d_\xi(\operatorname{wt}g_i)\). Thus
+(15) is finite, left continuous, exhaustive and separated on each weight
+space, and the supremum is attained. It is a quotient non-Archimedean
+norm with \[
+ \chi(f+g)\geq\min\{\chi(f),\chi(g)\},\qquad
+ \chi(fg)\geq\chi(f)+\chi(g).                        \tag{16}
+\] These follow by adding and multiplying the spanning expressions. No
+assumption that the \(g_i\) are algebraically independent is made. For
+homogeneous \(f\), \[
+ \min_i\frac{\lambda_i}{d_\xi(\operatorname{wt}g_i)},d_\xi(\alpha)
+ \leq\chi(f)\leq
+ \max_i\frac{\lambda_i}{d_\xi(\operatorname{wt}g_i)},d_\xi(\alpha).
+ \tag{17}
+\] Every eligible monomial has weight in that interval, which proves
+both inequalities, including the upper bound after quotienting by
+relations.
+
+The actual weight \(\chi(g_i)\) may exceed its assigned \(\lambda_i\).
+Nevertheless replacing all assigned weights by the actual weights leaves
+(15) unchanged. One inequality follows from \(\chi(g_i)\geq\lambda_i\);
+the other follows from (16), which bounds the minimum of the actual
+monomial weights in every expression by \(\chi(f)\). Taking an
+expression attaining the old weight proves attainment also with the
+actual weights. This verifies the finite-type condition of B, Definition
+3.6 (L493--502), with the saturated norm, rather than assuming that
+assigned generator weights are its actual weights.
+
+The exact potential correspondence is \[
+ \sup_{0\ne f\in R_\alpha,\ \alpha\ne0}
+ \frac{\chi(f)-v(f)}{d_\xi(\alpha)}
+ =\max_i\frac{\lambda_i-v(g_i)}{d_\xi(\operatorname{wt}g_i)}.
+ \tag{18}
+\] To prove the upper bound, take an expression of \(f\) attaining
+\(\chi(f)\). The valuation inequality gives
+\(\chi(f)-v(f)\leq\max_{\mathbf e}(\sum e_i\lambda_i-v(g^{\mathbf e}))\).
+After division by the common degree each monomial expression is a
+weighted average of generator expressions, at most the right side of
+(18). For the reverse bound use \(f=g_i\) and
+\(\chi(g_i)\geq\lambda_i\). The proof permits \(v(g_i)=+\infty\): a
+nonzero finite-valued term in an expression supplies the bound, while
+entirely infinite-valued expressions give the trivial \(-\infty\) bound.
+Thus norm saturation does not alter the FS potential.
+
+An arbitrary primary FS list has a representation of this kind on any
+chosen compact Reeb slice \(Q\). Keep its elements \(f_j\) and weights
+\(\lambda_j\) and append the fixed algebra generators \(h_i\) with
+weight \(-M\). On \(K\) at least one \(f_j\) has value zero, so \[
+ u_\xi(v)\geq\min_j\lambda_j/d_\xi(\alpha_j)\geq-B
+ \quad(\xi\in Q)
+\] for a finite \(B\geq0\). Choose
+\(M\geq B\max_{\xi\in Q,i}d_\xi(\beta_i)\). Every appended term is at
+most \(-B\) on \(K\), so the potential remains exactly unchanged there.
+Equivariance and (3) give exact equality everywhere, for every
+\(\xi\in Q\). This is an exact finite-type representation, not an
+algebra-generating assumption on the original list. The chosen \(M\) can
+depend on this potential; the constants (6), (12), and (22) below do not
+depend on \(M\), weights, or potentials.
+
+For rational assigned weights, multiply their filtration indices by a
+common denominator. The resulting integer Rees algebra is generated over
+\(k[t]\) by the finitely many elements \(g_i t^{-\ell_i}\), where
+\(\ell_i\) are the scaled assigned weights. Indeed every filtered
+monomial at an index below its assigned weight is its generator product
+times a nonnegative power of \(t\); spanning expressions prove the
+assertion also in the presence of relations. Localization at \(t\)
+recovers \(R[t,t^{-1}]\). Negative weights are allowed. For irrational
+weights we assert finite type in the real-norm sense (15), not a
+Noetherian integer Rees algebra.
+
+\subsection{4. Valid shifts and uniform signed cutoff
+estimates}\label{valid-shifts-and-uniform-signed-cutoff-estimates}
+
+Negating a norm is not a valid treatment of negative weights. For
+\(R=k[x]\) with assigned weights \(\lambda_x=\lambda_{x^2}=-1\), (15)
+gives \(\chi(x)=-1\) and \(\chi(x^2)=-1>-2\). Then
+\(-\chi(x^2)=1<2=(-\chi(x))+(-\chi(x))\), violating multiplicativity.
+
+The valid operation is a degree shift. For any Reeb field \(\beta\) set
+\[
+ \chi_{A,\beta}(f)=\chi(f)+A d_\beta(\alpha)
+ \quad(f\in R_\alpha),                              \tag{19}
+\] and extend by minima over homogeneous components. This is precisely
+the construction (15) with assigned weights
+\(\lambda_i+A d_\beta(\operatorname{wt}g_i)\): every homogeneous
+expression acquires the same added weight. It is therefore
+multiplicative and finite type. For sufficiently large \(A\), (17)
+proves nonnegativity on all of \(R\), including the quotient norm; the
+filtration then has \(F^0R=R\) and satisfies every condition of B,
+Definition 3.5 (L470--488). It is linearly bounded by (17).
+
+Let \(N_\xi(m)=\dim\bigoplus_{d_\xi(\alpha)\leq m}R_\alpha\),
+\(V_\xi=\lim n!N_\xi(m)/m^n>0\), and let \(W_\xi^\chi(m)\) be the sum of
+the norm's spectral weights on this direct sum, counting multiplicity.
+Spectral weights mean the weights of an adapted basis of the
+finite-dimensional filtration, equivalently its jumps with their
+dimension multiplicities. They are intrinsic to (15). Define
+\(D_\xi^\beta(m)=\sum_{d_\xi(\alpha)\leq m}
+d_\beta(\alpha)\dim R_\alpha\). The exact finite identity is \[
+ W_\xi^{\chi_{A,\beta}}(m)=W_\xi^\chi(m)+A D_\xi^\beta(m).
+ \tag{20}
+\] It holds because the entire filtration of \(R_\alpha\) is translated
+by one scalar. This is the cutoff identity that must precede subtraction
+of limits.
+
+Existence and positivity of \(V_\xi\) are the volume result in B,
+Definition 2.4 and Theorem 3.3, L204--209 and L454--460, for the normal
+good cone over the algebraically closed characteristic-zero field. Its
+displayed \(\mathbb C\) dimensions are ordinary dimensions over the
+standing field \(K\) of L181--191. The real-cutoff version follows by
+sandwiching between adjacent integer cutoffs. Stieltjes summation gives
+the exact identity \(D_\xi^\xi(m)=mN_\xi(m)-\int_0^mN_\xi(t)\,dt\).
+Consequently \[
+ \lim_{m\to\infty}\frac{D_\xi^\xi(m)}{mN_\xi(m)}=
+ \frac{n}{n+1}.                                    \tag{21}
+\] To justify the integral limit, divide by \(m^{n+1}\) and use
+\(N_\xi(t)=V_\xi t^n/n!+o(t^n)\) beyond an arbitrary fixed cutoff; the
+bounded initial integral vanishes after this division.
+
+For each fixed \(\xi\), use (19) with \(\beta=\xi\) to obtain a
+nonnegative filtration. B, Corollary 3.13 (L635--645), then gives
+convergence of \(W_\xi^{\chi_{A,\xi}}(m)/(mN_\xi(m))\). Its assumptions
+have just been checked. Combining the exact identity (20) with the
+proved limit (21) proves existence of the signed cutoff mean
+\(S_\chi(\xi)=\lim W_\xi^\chi(m)/(mN_\xi(m))\) and the exact rule
+\(S_{\chi_{A,\xi}}(\xi)=S_\chi(\xi)+A n/(n+1)\). This is not a
+difference of two unproved limits.
+
+If all assigned weights are nonpositive, all spectral weights are
+nonpositive by (17). The degree inclusions
+\(R_{\xi,\leq m/C}\subset R_{\eta,\leq m}
+\subset R_{\xi,\leq m/c}\) give finite inequalities
+\(W_\xi^\chi(m/c)\leq W_\eta^\chi(m)\leq W_\xi^\chi(m/C)\). Using the
+established limits and volume asymptotics yields \[
+ \frac{V_\xi}{V_\eta}c^{-(n+1)}S_\chi(\xi)
+ \leq S_\chi(\eta)\leq
+ \frac{V_\xi}{V_\eta}C^{-(n+1)}S_\chi(\xi).          \tag{22}
+\] The volume inclusions also give
+\(V_\xi/C^n\leq V_\eta\leq V_\xi/c^n\). Thus \[
+ e^{-(2n+1)\delta}(-S_\chi(\xi))
+ \leq -S_\chi(\eta)\leq
+ e^{(2n+1)\delta}(-S_\chi(\xi)).                    \tag{23}
+\] There is no division by \(S\) in this argument: if it is zero, all
+three quantities are zero. These constants are independent of the
+assigned weights and appended generators. The fields in (22) may be
+irrational and nonproportional.
+
+A normalized primary FS function can be represented by such a
+nonpositive norm: replace its weights by
+\(\lambda_j-u(v_{\rm triv})d_\xi(\alpha_j)\) and append sufficiently
+negative algebra-generator weights. At least one retained weight is
+zero. Using the same resulting weights at another Reeb field gives
+exactly its normalized orbit comparison. This connects (22) to norm
+representations of the correct normalized potentials. It does \emph{not}
+identify \(S_\chi\) as a presentation-independent functional of the
+potential; nor does it identify \(S_\chi\) with genuine cone energy.
+
+Rational weight approximation is also harmless at this algebraic stage.
+If \(|\lambda_i-\lambda_i'|\leq\epsilon d_\xi(\operatorname{wt}g_i)\),
+all monomial weights of fixed degree differ by at most
+\(\epsilon d_\xi(\alpha)\). Filter inclusions imply that the ordered
+spectral weights in \(R_\alpha\) differ by at most that scalar.
+Therefore the cutoff sums differ by at most \(\epsilon D_\xi^\xi(m)\),
+and the limiting means differ by at most \(\epsilon n/(n+1)\). Equation
+(18) also gives uniform potential approximation with error at most
+\(\epsilon\). These are norm and potential approximation results; they
+do not supply missing analytic energy convergence.
+
+There is a precise cancellation issue. At its own Reeb field, (18) gives
+\(u_{\chi_{A,\xi},\xi}=u_{\chi,\xi}+A\), and the genuine energy
+translation gives \(E_\xi(u+A)=E_\xi(u)+A\). If a cone representation
+were \(E_\xi(u)=a_nS_\chi(\xi)\), its shift coefficient is forced by
+(21) to be \(a_n=(n+1)/n\). At another field \(\eta\), a shift by
+\(A d_\xi\) changes the numerator by a degree-dependent quantity; it is
+not generally a constant shift. One cannot cancel \(A\) at both fields
+after using one reference degree. Equations (20)--23) avoid that invalid
+operation.
+
+\subsection{5. Genuine normalization checks and an exact projective
+result}\label{genuine-normalization-checks-and-an-exact-projective-result}
+
+The genuine affine-cone convention in A, Theorem 2.12 and Definition
+4.1, L321--328 and L522--529, is \[
+ \operatorname{MA}_\xi(u_1,\ldots,u_{n-1})=
+ V_\xi^{-1}dd^c u_1\wedge\cdots\wedge dd^c u_{n-1}
+                  \wedge dd^c\rho_\xi^+,
+\] \[
+ E_\xi(u)=\frac1{nV_\xi}\sum_{j=0}^{n-1}
+ \int (u-\rho_\xi)(dd^c u)^j(dd^c\rho_\xi)^{n-1-j}
+                              dd^c\rho_\xi^+.       \tag{24}
+\] Here \(dd^c=d'd''\) and \(\rho_\xi^+=\max(\rho_\xi,0)\). The mixed
+measures have mass one and are carried by \(K\) (A, Theorem 2.12). This
+convention has \(n-1\) potential factors and one radial factor, with
+\(n\) terms in energy. Substituting \(u=\rho_\xi+a\) in (24), the
+currents are unchanged and each integral equals \(aV_\xi\), giving
+\(E_\xi(\rho_\xi+a)=a\). This argument uses the actual probability
+normalization, not B, Theorem 5.15.
+
+For \(k[x_1,\ldots,x_n]\), \(\xi=(1,\ldots,1)\) and the degree norm
+\(\chi(x^{\mathbf e})=|\mathbf e|\), formula (18) gives
+\(u=\rho_\xi+1\). For integer \(m\geq1\), \[
+ N(m)=\binom{m+n}{n},\qquad
+ W(m)=\sum_{|\mathbf e|\leq m}|\mathbf e|
+      =n\binom{m+n}{n+1}.
+\] The last identity follows by summing
+\(d\binom{d+n-1}{n-1}=n\binom{d+n-1}{n}\) and the binomial summation
+identity. Thus \(W(m)/(mN(m))=n/(n+1)\) \emph{at every cutoff}, whereas
+(24) gives \(E(u)=1\). In particular for \(k[x,y]\) the two values are
+\(2/3\) and \(1\). This is a mathematical counterexample to the
+unmodified printed equality \(E=S\), not just a numerical diagnostic.
+
+For \(n=1\), on \(k[x]\) with \(d_\xi(x)=a>0\), \(V_\xi=1/a\). On the
+calibrated one-dimensional torus skeleton, \(dd^c\max(\log|x|/a,0)\) has
+the slope-jump mass \(1/a\) at \(v(x)=0\). Dividing by \(V_\xi\) gives
+one Dirac probability mass. The product of zero potential factors in
+(24) is the empty product, so \(E(\rho_\xi+c)=c\), while the
+degree-shift cutoff coefficient is \(1/2\). This checks the
+low-dimensional convention directly. It supplies no nonproportional
+comparison in dimension one.
+
+For every cone the same scaling calculation in (24) gives
+\(V_{s\xi}=s^{-n}V_\xi\) and \(E_{s\xi}(u/s)=E_\xi(u)/s\), since
+\(\rho_{s\xi}=\rho_\xi/s\). There are \(n\) current factors, and the
+energy integrand has one more scalar factor. These are proportional
+identities only.
+
+There is an exact signed \emph{projective test-configuration}
+representation available without a smoothness assumption. Let \(Z\) be
+normal projective of dimension \(n-1\), let \(A\) be ample, and let
+\((\mathcal Z,\mathcal A)\) be an ample test configuration. Replace
+\(A\) by a sufficiently divisible multiple so that its induced
+filtration on the full section ring \(\bigoplus_{d\geq0}H^0(Z,dA)\) is
+the one in H, Proposition 2.15. Signed rational weights are permitted:
+clear denominators by the corresponding integer scaling. By H,
+Proposition 5.9 (not a Theorem in this version), the rescaled
+degree-wise spectral measures converge to its DH probability measure.
+Linear upper growth and the lower bound of H, Remark 5.2, put them in a
+common compact interval, so their signed means converge as well. H,
+Proposition 3.12(iii), identifies that mean with the actual intersection
+number \[
+ e=\frac{(\overline{\mathcal A}^{,n})}{n(A^{n-1})}
+   =E^{\rm NA}_{\rm proj}(\phi).                    \tag{25}
+\] The second equality is H, Definition 7.2. Thus a distribution theorem
+is not being substituted for an energy identification.
+
+To check its MA convention, use H, Section 6.7: the mixed model measure
+is \(V_A^{-1}\sum_E b_E(\mathcal A_1|_E\cdots
+\mathcal A_{n-1}|_E)\delta_{v_E}\), of mass one. If a vertical divisor
+has coefficient \(r_E\), its potential value at \(v_E\) is \(r_E/b_E\).
+H, Remark 6.12, therefore gives the intersection pairing as \(V_A\)
+times its integral against this probability measure. Expanding the
+difference of \(n\)-fold intersections using H, Lemma 7.4, proves the
+energy formula with \(n\) terms and denominator \(nV_A\). There is no
+further \(V_A^{-1}\) after integrating a probability measure. This
+derivation fixes the normalization even though the extract of H, Remark
+7.5, prints an additional \(1/V\) alongside the statement
+\(\mu_j=\operatorname{MA}^{\rm NA}(\cdots)\).
+
+Write \(N_d=h^0(Z,dA)\) and \(W_d\) for the signed total degree-\(d\)
+weight. The preceding mean convergence says \(W_d/(dN_d)\to e\). Hilbert
+asymptotics give \(N_d=a d^{n-1}+O(d^{n-2})\), with \(a=V_A/(n-1)!\);
+for a point (\(n=1\)) use \(N_d=1\) directly. For all \(\epsilon>0\),
+beyond a fixed degree \(D\) the error in \(W_d-e dN_d\) is bounded by
+\(\epsilon dN_d\). Summing, dividing by \(m\sum_{d\leq m}N_d\), and
+making the fixed initial sum negligible proves \[
+ S_{\rm cumulative}=\frac{n}{n+1}e,\qquad
+ E^{\rm NA}_{\rm proj}(\phi)=\frac{n+1}{n}S_{\rm cumulative}.
+ \tag{26}
+\] This proof handles signed weights without negating a filtration.
+Multiplying the line bundle or clearing weights changes both sides by
+the explicitly corresponding scaling; \(V_A\) is always the volume of
+the line bundle actually used. Normality of \(Z\) is the hypothesis
+here; smoothness is not inferred.
+
+Equations (25)--26) are a proved application to actual projective test
+configurations. They are not yet a proof that every primary cone FS
+norm, at every rational Reeb field with weighted grading, has exactly
+the same energy as (24) after all Veronese and radial calibrations. That
+remaining bridge is not hidden in the notation.
+
+\subsection{6. Source audit and the limits of the analytic
+argument}\label{source-audit-and-the-limits-of-the-analytic-argument}
+
+\textbf{The energy inconsistency.} B, Lemma 3.16(b), L688--755, states
+and proves \(S=\frac{n}{n+1}\widetilde S\), where \(\widetilde S\) is
+the degree-wise mean of L679--685. B, Corollary 5.14, L1344--1354,
+identifies cone and projective energies under its proposed bridge. The
+final proof, L1366--1372, then writes \(E=\widetilde S=S\). The degree
+example above disproves this last equality under the printed
+definitions. Formula (26) repairs the factor for the projective
+situation in its stated scope. It does not prove the universal cone
+representation from the diagnostic.
+
+\textbf{Rational quotient and radial calibration.} Normality and
+projectivity of a rational quotient can be checked algebraically:
+degree-zero localized charts of a normal graded domain are normal, and a
+sufficiently divisible Veronese presents \(\operatorname{Proj}R\) as
+projective with \(\mathcal O(d)\) ample. But this does not make the
+quotient smooth, nor does it prove the radial energy factor. B,
+Proposition 5.13, L1282--1304, uses sections of \(mL\), writes a product
+trivialization via \(s_0\), and expresses the potential as
+\(\pi^*\widetilde\phi-z_0\) in the moment coordinates of those sections.
+In those coordinates its preceding expression has radial coefficient
+\(-z_0/m\). A nonvanishing section of \(mL\) does not trivialize \(L\).
+A valid replacement must account for the degree-\(m\) fiber moment map
+and the integral lattice/calibration before cancelling factors. For
+\(\eta=s\eta_0\) it must also connect
+\(\mathcal O_{\operatorname{Proj}R}(d)/(sd)\), the cone volume, and the
+radial current, including ineffective integral actions and nonstandard
+weighted gradings. Those operator identifications are not proved here.
+F, Theorem 4.13, cannot fill this gap unchanged: F, L525, has the
+standing assumption that the projective variety is smooth. H supplies
+(25), but still requires the cone-to-model bridge.
+
+\textbf{What CLD does supply.} G, Theorem 15.7.1, L22100--22131, places
+a topologically separated pure-dimensional analytic space, with its
+analytic boundary, in the calibrated tropical framework. Smoothness is
+not a hypothesis; trivial valuation is explicitly included in G,
+L585--610. For an analytification of a normal affine variety, separation
+and pure dimension hold, and the analytic space without the vertex has
+no analytic boundary. Local tropical charts still require their actual
+calibration. G, Proposition 8.7.2, L10432--10449 (called a Theorem in
+the assignment), permits positive closed currents to vary and gives
+weighted-current convergence when all the continuous potentials converge
+locally uniformly. The zeroth weight is continuous and locally uniformly
+convergent too. It does not handle unbounded decreasing potentials by
+itself. G, Corollary 18.3.3(b), L26449--26457, gives the finite-map
+factor only when the calibrated generic degree is the specified
+constant. Omitting that degree in a Veronese moment-map argument is not
+justified.
+
+\textbf{The envelope chain.} E, Definition 3.15(2), L766--768, uses
+lower growth \(g\leq u+O(1)\), whereas Definition 6.1(2), L1891--1893,
+uses upper growth \(u\leq g+O(1)\). These are different: on
+\(\mathbb A^1\), \(u=\log|z|\) is bounded above by \(g=\max(\log|z|,0)\)
+and is the decreasing limit of \(\max(\log|z|,-j)\), but is not bounded
+below by an FS function up to a constant near \(z=0\). FS functions in E
+include a finite constant floor. The coherent convention for this audit
+is the upper growth inequality; it is not silently substituted in
+quotations.
+
+Changing this inequality does not complete the application. E,
+Proposition 4.19, L1560--1576, invokes Lemma 3.25(1) to extend
+\(u-cAg\). The invoked lemma, L950--957, explicitly assumes
+\(u\in\operatorname{PSH}^{\log}_{\rm reg}\); membership in this
+regularizable class is the conclusion of Proposition 4.19. The attempted
+chain is Proposition 4.19 to Proposition 6.2(2), then the smooth
+starting case and singular induction in Theorem 6.3, then Theorem 6.5,
+and finally Theorem 7.1. The complete relevant proof bodies are retained
+in the provenance file.
+
+A plausible repair would first establish local truncation/gluing of
+\(u-cAg\) on a smooth compactification without regularizability, then
+apply a valid smooth local-to-global theorem and global FS
+approximation. This would need proof that each truncation is in the
+local psh class at every boundary point, the relevant global theorem
+under its true net/countability hypotheses, and its propagation through
+the singular induction. This document does not supply that repair. It
+does not conclude that Theorem 7.1 is false, and does not reject it for
+being a v1 preprint. It simply does not use its unverified application
+as an indispensable premise.
+
+Theorem 7.1's first stage assumes a countable dense subfield and
+descends a psh function from a resolution using connected geometric
+fibers and weak-to-global psh comparison. Its final stage, L2718--2747,
+descends PL data to countable subfields and uses orthogonality,
+base-change of MA and domination to remove the cardinality restriction.
+For a trivially valued uncountable field, a countable subfield is not
+dense in the discrete field topology. That final stage would therefore
+have to be used and justified, not avoided by assuming countability. Any
+cone application would further have to check its global reference
+metric, the ample rational quotient class after Veronese/scaling,
+residual-torus invariance and the identification of the resulting
+carrier with this document's fixed \(K\). These are not consequences of
+normality alone.
+
+\textbf{Uniform differentiation.} C, Theorem 8.5, L4843--4852, is an
+actual projective result for \(E^\downarrow\), with a quadratic
+remainder for PL directions, uniform in the potential. The agreement
+with enveloped genuine energy for all finite-energy potentials retains
+an envelope hypothesis. C, Corollary 8.6, extends differentiability, not
+a universal quadratic estimate, to continuous directions. Its proof uses
+uniform approximation and the energy's Lipschitz and translation
+properties. The two signs are handled by replacing \(f\) by \(-f\). The
+extracted proof L4947 and L4954 has mismatched extra factors/signs in
+the approximating inequalities: the correct elementary inequality is
+\(f_m-\epsilon_m\leq f\leq f_m+\epsilon_m\), which gives the upper
+derivative bound with \(+\epsilon_m\), not \(-\epsilon_m\). These
+harmless corrections repair that elementary squeeze; they do not
+transfer the projective theorem to cones.
+
+An explicit remaining cone target is the following. For a common dense
+direction class \(D_Q\subset C(K)\), compact Reeb slice \(Q\), and
+normalized energy range \(-E_\xi(u)\leq B\), identify an actual extended
+functional \(F_\xi\) with the genuine operator's energy after
+enveloping, and prove, for each appropriate dense test direction \(f\),
+\[
+ |F_\xi(u+tf)-E_\xi(u)-t\int_K f\,\operatorname{MA}_\xi(u)|
+ \leq C_{Q,B,f}t^2                                  \tag{27}
+\] for both signs and a uniform small-\(t\) interval, or prove another
+explicit uniform modulus sufficient for the variational method. No such
+\(F_\xi\), envelope agreement, dense class with uniform positivity
+domination, or remainder theorem is established here. If (27) were
+available only in a dense class, continuous directions would require the
+actual uniform-approximation estimate \(2\|f-f_m\|_K+ C_{Q,B,f_m}|t|\)
+for the derivative quotient. This implies a uniform differentiability
+modulus by choosing \(m\) before \(t\), but gives no quadratic bound for
+every continuous \(f\).
+
+D cannot bypass these steps. Its results, including Theorem 4.6, assume
+a common linear space of closed forms with mixed products, order
+inclusions \(D_\omega\subset D_{\omega'}\), and the associated
+integration and positivity framework; its envelope/differentiation
+statements also retain orthogonality. The nonlinear root map supplies
+none of these mixed-form axioms across different Reeb fields.
+
+\subsection{7. What is still missing from the exact
+task}\label{what-is-still-missing-from-the-exact-task}
+
+First, prove an intrinsic representation of (24) for every primary FS
+presentation on every rational weighted quotient, including signed
+norms, norm saturation, quotient/model normalizations and calibrated
+radial factors, and then its genuine CLD continuity to irrational
+fields. The projective equality (26) and the translation check fix
+necessary factors but do not establish this representation.
+
+Second, turn (22) into an estimate for the \emph{normalized genuine
+energy} with constants uniform on \(Q\). Only after this is proved could
+a defining decreasing net \(u_a\downarrow u\in\mathcal E^1(\xi)\) be
+shown to have target energies bounded below, and hence to define an
+element of \(\mathcal E^1(\eta)\). Theorem 1 by itself only preserves
+PSH membership.
+
+Third, establish uniform integrability and tails for all required moving
+mixed MA measures, for example terms of the form \[
+ \int_K(-\mathcal R u_a)\mathbf1_{\{-\mathcal R u_a>A\}}
+ \operatorname{MA}_\eta((\mathcal R u_a)^{[j]},
+                                     \rho_\eta^{[n-1-j]}),
+ \tag{28}
+\] and the mixed tests needed when both the potential and polarization
+vary. No estimate tending to zero uniformly in the relevant limits is
+proved for (28). The fixed-measure bound (14) does not imply one.
+Strong-topology continuity and finite-energy mixed-integrability are
+consequently unproved.
+
+Fourth, supply the valid envelope/extended-energy construction and the
+actual two-sign, Reeb-uniform differentiation estimate (27), with a
+proved dense direction class and continuous-direction extension. This is
+the missing variational input. Proportional identities, FS
+approximation, signed count convergence, and compilation do not
+constitute it. The original all-cone, all-Reeb P13.1 therefore remains
+unresolved by this draft.
+
+\subsection{8. Evidence and
+reproducibility}\label{evidence-and-reproducibility}
+
+The executable \texttt{audit\_sources.py} verifies all eight PDF and
+extract hashes (and supplied HTML hashes), preserves LF-indexed literal
+statements and proof bodies, and writes
+\texttt{source-extracts/source-provenance.json}. It records 51 excerpts
+and explicit source-application limits. \texttt{input.json} is unchanged
+and \texttt{input-original.json} is byte-identical;
+\texttt{assignment-original.txt} preserves the decoded assignment
+verbatim, and \texttt{task-original.json} preserves the raw task-object
+JSON bytes within the supplied input. The preservation hashes and
+environment details are recorded locally.
+
+The light exact-arithmetic program \texttt{checks.py} checks polynomial
+degree-count identities, finite orbit-root examples and sign-sensitive
+bounds, primary-list supplementation examples, signed shift identities,
+and finite cutoff inclusions. Its results in \texttt{checks-output.json}
+are finite program observations, not a proof for all cones. The
+mathematical proofs are the arguments above. No external compute,
+workers, network messages, software installation or other campaign
+material is used.
+
+Rerun in this directory:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{python}\NormalTok{ audit\_sources.py}
+\ExtensionTok{python}\NormalTok{ checks.py}
+\ExtensionTok{python}\NormalTok{ build.py}
+\end{Highlighting}
+\end{Shaded}
+
+\texttt{build.py} regenerates the standalone \texttt{P13.1-paper.tex}
+from this document using the existing Pandoc executable, then runs the
+existing \texttt{pdflatex} twice. Actual stdout and stderr are preserved
+separately for conversion and each compilation; each pass's actual TeX
+log is copied to a separate filename. The build report records commands,
+return codes, versions, hashes and the preservation check. A successful
+build establishes readability and reproducibility, not correctness,
+novelty, or completion of the mathematical task.
+
+\end{document}
