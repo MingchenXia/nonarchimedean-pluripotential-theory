@@ -9,7 +9,7 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,263 pages**. The proof of
+The current research-integration build has **4,265 pages**. The proof of
 Boucksom--Jonsson (2022), Theorem 6.21, incorrectly infers monotonicity of
 a residual with a changing divisor coefficient. Critical homogeneous Siu
 division is now an explicit additional assertion `(SD)_k`; the general
@@ -147,6 +147,14 @@ The full book, bibliography, index and navigation checks pass. This imports
 known results and source examples, preserves existing formal blocks and
 all 42 statuses, and leaves the original Lee boundary candidates outside
 active TeX. The open catalogue source and PDF are unchanged.
+The worked `U_(3,4)` example now separates that Möbius algebra from both
+the augmented Chow ring and its intersection-cohomology module. Exact
+rational calculations check the complement, module action, a positive
+Lefschetz class and its primitive Hodge–Riemann matrix, together with the
+finite Kazhdan–Lusztig and Z-polynomial recurrence. The June 2026 singular
+Hodge revision was read in full; literal sign and proof-label issues are
+recorded in the [source audit](manuscript/editorial/singular_hodge_integration_audit_20261005.md).
+The finite example imports no general proof repair or new solved problem.
 Chapter 5 adds
 a source-checked Sylvester height-slice example that computes a normalized
 local monomial model and its regular semistable subdivision. The exact

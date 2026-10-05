@@ -1649,6 +1649,29 @@ and 42 complete problem statuses. No independent production receipt is
 added or extended. Continue with revision-sensitive primary literature
 and the unresolved geometric/sheaf comparison before any Lee import.
 
+### A finite singular-Hodge module example, 5 October 2026
+
+The June 2026 version five of *Singular Hodge theory for combinatorial
+geometries* was read in full. Appendix G adds its known `U_(3,4)` example
+to distinguish the Möbius subalgebra, augmented Chow ring and canonical
+intersection-cohomology module. The [source audit](singular_hodge_integration_audit_20261005.md)
+retains the frozen revision and actual-page checks. Exact rational
+quotient calculations check all dimensions, the orthogonal complement,
+the Möbius action, nonclosure under square products, the all-one positive
+Lefschetz class and its positive primitive matrix. A separate finite
+palindromic recurrence recovers `P=1+2t` and `Z=1+6t+6t^2+t^3`.
+
+The literal positive self-intersection sign in Example 3.3 conflicts with
+the defining relations. Other pairing-direction, signature, stalk/costalk
+and auxiliary-module labels need qualification. These diagnostics do not
+refute the main theorem or constitute independent general proof repairs.
+The general induction is not imported in this finite checkpoint; the
+external dependencies were not freshly read in full. No final publisher
+PDF or publication date/pages are assigned. All original Lee candidates,
+Siu/closure boundaries and 42 problem statuses retain their existing
+scope. Continue by checking a suitable primary-source direction rather
+than treating the general Hodge induction as independently certified.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit
