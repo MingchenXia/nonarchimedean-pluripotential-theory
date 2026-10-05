@@ -2435,3 +2435,37 @@ archive preserve the earlier releases; the native catalogue remains
 unchanged. Continue the selected primary audit of local critical
 concentration, its ordinary Cegrell pole masses and the singularity
 exponent/Green-function identification before any further import.
+
+### Local critical concentration and the Green limit — 5 October
+
+After `02231e2`, Chapter 68.11 and provenance L.41 add the known
+Berman–Berndtsson limiting dichotomy with selected variational maximizers,
+no boundary blow-up and an L1_loc limit in F retained. Forty-eight
+actual primary pages in twenty-six sheets were displayed, with the
+four-page Rashkovskii paper read in full and the other sources selected.
+The [critical concentration audit](local_critical_concentration_audit_20261005.md)
+distinguishes ordinary polar masses, negative energy, effective exponent
+semicontinuity, the decreasing-tail mass bound and ordered uniqueness.
+
+The stability source is Błocki's complete proof of the Cegrell–Persson
+estimate, applied to pairs with continuous approximating densities.
+The original 1992 publisher PDF was not acquired. The ordered identity
+is Theorem 3.6 in the checked ACCH arXiv v3. Li's checked author version
+and its C2-closure/C4-interior hypotheses remain distinct from the
+inaccessible 2016 publisher PDF. The explicit ball family separates
+the unit-mass potential from the exponent-scaled prototype.
+No all-solution symmetry, unrestricted maximizing property or absence
+of every bounded weak critical solution is claimed.
+
+The final 4,332-page build passes TeX, references, bibliography, index
+and PDF navigation checks, with no overfull boxes. Thirty-four matching
+final pages were actually displayed, including every new section page,
+L.41 and the complete bibliography. The scoped review is not another
+whole-book reading. The 425-input closure, 108 protected inputs,
+thirty-nine prior frozen manifests, all forty-two complete canonical
+status rows, prior exports and the native catalogue remain preserved.
+The original toric candidate remains research-only OPEN, with no new
+independent production receipt. Normal GitHub work-branch synchronization
+continues under the user's standing authorization; main is unchanged.
+Continue the current local symmetry literature and the separate
+singular local klt/normalized-volume comparison dependencies.

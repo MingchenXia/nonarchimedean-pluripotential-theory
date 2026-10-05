@@ -9,7 +9,14 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,325 pages**.
+The current research-integration build has **4,332 pages**.
+The [critical concentration audit](manuscript/editorial/local_critical_concentration_audit_20261005.md)
+checks the known local variational dichotomy, ordinary pole masses and
+Green-function identification against their original dependencies.
+The energy sign, unit-mass ball scaling and source-version locators are
+explicit. No boundary blow-up, selected maximizers and the smoothness
+hypotheses of the Pohozaev obstruction retain their roles; general weak
+nonexistence and all-solution symmetry are not inferred.
 The [Orlicz condition audit](manuscript/editorial/orlicz_k_boundedness_audit_20261005.md)
 checks the classical fixed-Kähler-class estimate, Guedj–Lu's reduction
 with its scaling factors retained, and Kołodziej's original continuous
