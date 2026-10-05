@@ -1372,6 +1372,31 @@ independent admission and outside active TeX. No book, catalogue or problem
 status changes are claimed; continue the unresolved algebraic closure and
 noncircular envelope source investigation.
 
+### Closure proof provenance and fixed poles, 5 October 2026
+
+The [proof-provenance audit](closure_proof_provenance_audit_20261005.md)
+corrects the language of Chapter 34's imported decreasing-closure proof.
+The strict comparison in BJ22 Lemma 4.6, equation (4.5), fails at a
+common minus-infinity value. The chapter's warning, regularization proof
+and final source note now display or point to that boundary; Appendix L
+distinguishes it from the coefficient-changing error in Theorem 6.21.
+Theorem 4.5 remains an identified published input. Its statement and all
+other formal theorem statements are unchanged; no independent general
+algebraic closure repair is claimed.
+
+The [fixed-pole research candidate](abstract_fixed_pole_closure_diagnostic_20261005.md)
+strengthens the abstract diagnostic on the compact interval: all stages
+have the same pole, and the outer function is constantly `log x`, yet
+decreasing stage nets cannot have their numerical parameters tend to zero.
+The order of vanishing prevents domination by finite translations.
+The required algebraic class identification fails in the analogous curve
+example, so this is not a psh counterexample. The note remains outside
+active TeX and pending independent admission. The book and catalogue's
+42 statuses are unchanged. Two new arXiv API checks returned HTTP 429;
+they yield no current-version or negative literature claim. Continue
+actual algebraic closure and related polyhedral regularization checks,
+with work-branch publication and incoming author research inspection.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit

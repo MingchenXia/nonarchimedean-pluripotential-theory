@@ -53,6 +53,16 @@ strict division when the residual class is nef. The critical coefficient-one
 case and general non-nef closure remain unresolved by these drafts. Its
 [manifest](manuscript/editorial/direct_gf_regularization_manifest_20261005.json)
 retains the research-only admission boundary.
+The [closure proof-provenance correction](manuscript/editorial/closure_proof_provenance_audit_20261005.md)
+now records the strict-comparison gap at common minus-infinity values in
+BJ22 Lemma 4.6 in Chapter 34 and Appendix L. Theorem 4.5 remains an
+identified published input; its unrestricted proof is not presented as
+independently repaired. This issue is distinct from the changing-coefficient
+step in Theorem 6.21. A [fixed-pole follow-up candidate](manuscript/editorial/abstract_fixed_pole_closure_diagnostic_20261005.md)
+shows why a common pole set and a constant outer function alone do not
+repair the literal abstract lemma. It remains outside active TeX and does
+not refute algebraic psh closure. Formal theorem statements and all 42
+problem statuses are preserved.
 Chapter 5 adds
 a source-checked Sylvester height-slice example that computes a normalized
 local monomial model and its regular semistable subdivision. The exact
