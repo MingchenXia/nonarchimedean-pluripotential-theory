@@ -1266,6 +1266,59 @@ call, production-verifier receipt, new book-level theorem or Siu/envelope
 repair is recorded. Continue the revision-sensitive literature search and
 noncircular Siu investigation after normal work-branch publication.
 
+### Siu scope through reader routes and applications, 5 October 2026
+
+The [downstream audit](siu_downstream_scope_audit_20261005.md) corrects
+sixteen active TeX inputs. General unibranch sufficiency and compactness
+remain conditional on `(SD)_k` when they use the general assembly.
+Chapters 46--50 retain the envelope property in the class used; the
+Calabi--Yau corollary and scaling corollary state that input explicitly.
+Chapter 57 uses the independent published all-class envelope theorem in
+its standing smooth complex projective regime. Actual-page review found
+and removed an additional Chapter 45 paragraph claiming an unconditional
+solution and unconditional discharge of later hypotheses.
+
+The final book has 4,255 pages, 425 active TeX inputs and 12,596 labels.
+Source, build, bibliography, index and internal-navigation checks pass.
+The grouped index page separator was corrected to match hyperref's parser.
+Fifty-five selected actual pages were reviewed; after the final wording
+edit, 52 selected pages were pixel-identical to the viewed first review
+and the three changed pages were freshly viewed. The 954 underfull
+diagnostics are disclosed. All 409 other active inputs and 108 protected
+Appendix M--N inputs remain byte-preserved. Formal counts and labels are
+unchanged; seven counted blocks restrict hypotheses or correct provenance.
+The strict division argument and Chapter 40 are unchanged. No independent
+production-model receipt is added or extended to these modified bytes.
+The [manifest](siu_downstream_scope_manifest_20261005.json),
+[closure](siu_downstream_scope_source_closure_20261005.sha256) and
+[artifact record](siu_downstream_scope_artifacts_20261005.json) pin this edition.
+
+An attempted scaling route to critical division was checked and rejected:
+strict division of `t psi`, for `t>1`, gives divisorially increasing
+residuals as `t` decreases to one. The required general endpoint closure
+is not supplied by BJ22 Theorem 5.11 (compactness is equivalent to the
+envelope property) or Corollary 6.22 (which uses Theorem 6.21). No repair
+or theorem counterexample follows from this attempt. The catalogue source,
+86-page PDF and all 42 active problem statuses are unchanged.
+
+### Updated-date literature check, 5 October 2026
+
+The [revision-sensitive audit](revision_sensitive_arxiv_audit_20261005.md)
+records thirty arXiv metadata results sorted by last update, including
+eleven abstracts revised since January 2025. This complements the earlier
+recent-submission search without claiming completeness. FGK
+`2203.12282v3` was read in full (740 text lines and all thirteen actual
+pages); nine selected actual publication pages were compared. Its
+continuity and Monge--Ampere conclusions retain the distinct resolution
+and embedded-resolution assumptions already in Chapter 23. Original
+global `+` test-ideal subadditivity remains a conjecture; the argument
+uses perturbation friendly test ideals. The [manifest](revision_sensitive_arxiv_manifest_20261005.json)
+pins exact versions and reading boundaries. No stronger mixed-characteristic
+result or general trivially valued Siu repair is imported. Continue
+noncircular normal-envelope source checks and related research after
+ordinary work-branch publication; cloud execution and suspension of Xean
+remain the current instructions.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit

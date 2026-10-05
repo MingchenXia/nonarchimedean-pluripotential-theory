@@ -4,12 +4,12 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
-**Active continuation, 4 October 2026:** the ordered second reading of all
+**Active continuation, 5 October 2026:** the ordered second reading of all
 72 chapters, Appendices A--N and nine front-matter files is complete.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,253 pages**. The proof of
+The current research-integration build has **4,255 pages**. The proof of
 Boucksom--Jonsson (2022), Theorem 6.21, incorrectly infers monotonicity of
 a residual with a changing divisor coefficient. Critical homogeneous Siu
 division is now an explicit additional assertion `(SD)_k`; the general
@@ -22,6 +22,19 @@ also displays the critical division assumption in the normal Cartier psh
 criterion and its chapter summaries. The smooth characteristic-zero
 numerical correspondence uses independently published all-class envelopes
 and division on that smooth variety, preserving its established scope.
+The [downstream scope audit](manuscript/editorial/siu_downstream_scope_audit_20261005.md)
+propagates this boundary into the remaining reader routes and Chapters
+46--50. Envelope-dependent applications retain an explicit envelope input;
+the Calabi--Yau corollaries now state it. Chapter 57 uses the independently
+published all-class envelope theorem in its smooth complex projective
+scope. A stale Chapter 45 summary claiming an unconditional solution has
+also been corrected. The final build and all internal/index destinations
+pass; 55 selected actual book pages were reviewed. No new theorem or
+general Siu repair is admitted.
+The [revision-sensitive arXiv audit](manuscript/editorial/revision_sensitive_arxiv_audit_20261005.md)
+adds an updated-date search and a full reading of FGK's December 2025 v3.
+The compared published results retain the resolution assumptions already
+stated in the book; this check does not extend their scope.
 Chapter 5 adds
 a source-checked Sylvester height-slice example that computes a normalized
 local monomial model and its regular semistable subdivision. The exact
