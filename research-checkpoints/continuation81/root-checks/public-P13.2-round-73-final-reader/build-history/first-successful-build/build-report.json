@@ -1,0 +1,68 @@
+{
+  "status": "compiled",
+  "commands": [
+    {
+      "label": "pandoc",
+      "command": [
+        "pandoc",
+        "P13.2-argument.md",
+        "--standalone",
+        "--from=markdown+tex_math_dollars",
+        "--to=latex",
+        "--output=P13.2-paper.tex"
+      ],
+      "returncode": 0
+    },
+    {
+      "label": "tex-pass-1",
+      "command": [
+        "pdflatex",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "P13.2-paper.tex"
+      ],
+      "returncode": 0
+    },
+    {
+      "label": "tex-pass-2",
+      "command": [
+        "pdflatex",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "P13.2-paper.tex"
+      ],
+      "returncode": 0
+    },
+    {
+      "label": "pdfinfo",
+      "command": [
+        "pdfinfo",
+        "P13.2-paper.pdf"
+      ],
+      "returncode": 0
+    }
+  ],
+  "artifacts": {
+    "P13.2-argument.md": {
+      "sha256": "bbffb0a18b59c5e9976ddc81b7e0d94951e8f2edcd89ced703f9789564c06046",
+      "bytes": 37176
+    },
+    "P13.2-paper.tex": {
+      "sha256": "f4e2199e850e41d1fe1dcd6c9bd3f6f1ac68e2259f1fbeb2eb1bd8cfe7a4304d",
+      "bytes": 43322
+    },
+    "P13.2-paper.pdf": {
+      "sha256": "7cad732c3a08310343aa3aa4a69f8bbbe5c8ee6f88d73c4272a0454baaae2821",
+      "bytes": 341813
+    },
+    "tex-pass-1.log": {
+      "sha256": "39f3f8420afe9e3f08bbaa672d3db27f401f2149c4c4d0b4f67f5fef709ea918",
+      "bytes": 25254
+    },
+    "tex-pass-2.log": {
+      "sha256": "7a6f0ebdcfc96f84e3c3432808e6833b901aa3056a74208754bab7e615514799",
+      "bytes": 25172
+    }
+  },
+  "limitation": "Two successful compilation passes are execution observations, not mathematical validation."
+}

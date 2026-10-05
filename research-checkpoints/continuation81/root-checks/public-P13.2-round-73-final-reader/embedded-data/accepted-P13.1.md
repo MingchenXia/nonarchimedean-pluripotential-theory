@@ -1,0 +1,430 @@
+## Accepted P13.1 exact reviewed full comparison and uniform outer differentiation proof
+
+---
+title: "Nonproportional Reeb comparison and uniform differentiation"
+subtitle: "An all-Reeb argument using signed semigroups and the genuine outer energy"
+author: "Public-source reconstruction; unverified draft"
+date: "5 October 2026"
+geometry: margin=0.85in
+fontsize: 10pt
+header-includes:
+  - \usepackage{amsmath,amssymb,amsthm}
+---
+
+## Statement and conventions
+
+Let $k$ be any algebraically closed trivially valued field of characteristic zero, and let $(X,T)$ be a normal good affine cone, with coordinate ring $R$ and dimension $n\geq1$. No smoothness, klt, rationality, or countability assumption is added. Write $p=n-1$, $d_\xi(\alpha)=\langle\xi,\alpha\rangle$, and $\log|f|(v)=-v(f)$. The carrier is the **fixed** compact space $K=X_0^T$. Potentials on $K$ mean restrictions of actual equivariant cone potentials, not a redefinition of PSH. Energy and MA have Wu2406.13684v1's affine-cone probability convention:
+$$
+ \mu_\xi(u_1,\ldots,u_p)=V_\xi^{-1}dd^cu_1\cdots dd^cu_p\,dd^c\rho_\xi^+,
+ \qquad
+ E_\xi(u)=\frac1{nV_\xi}\sum_{j=0}^p\int_Ku\,(dd^cu)^j(dd^c\rho_\xi)^{p-j}dd^c\rho_\xi^+ .       \tag{1}
+$$
+Here $\rho_\xi|_K=0$; off $K$ the integrand is $u-\rho_\xi$. On PSH, energy is the infimum of energies of dominating CPSH potentials, as in that source's Definition 5.9. The definition of $\mathcal E^1$ is $E> -\infty$.
+
+Choose once and for all homogeneous algebra generators $h_i\in\mathfrak m$ with weights $\beta_i$. For Reeb fields set
+$$
+ c=\min_i\frac{d_\eta(\beta_i)}{d_\xi(\beta_i)},\quad C=\max_i\frac{d_\eta(\beta_i)}{d_\xi(\beta_i)},\quad
+ \delta=\max_i\left|\log\frac{d_\eta(\beta_i)}{d_\xi(\beta_i)}\right|,\quad k_n=2n+1.                     \tag{2}
+$$
+The following is the result claimed by this draft.
+
+**Theorem.** There are presentation-independent order isomorphisms $\mathcal R_{\xi\eta}$ of the actual H, CPSH, and PSH classes, for all Reeb fields, with inverse and cocycle. They preserve defining decreasing nets, including all $-\infty$ values. Normalizing by $u(v_{\rm triv})$ gives bijections of constant quotients. On normalized $\mathcal E^1$ these bijections are onto and obey
+$$
+ e^{-k_n\delta}(-E_\xi(u))\leq-E_\eta(\mathcal R_{\xi\eta}u)\leq e^{k_n\delta}(-E_\xi(u)).                  \tag{3}
+$$
+The constants are independent of potentials, presentations, and rational denominators. On a compact Reeb set $Q$, $\delta\leq L_Q\|\xi-\eta\|$, where one can take
+$$ L_Q=\max_i\frac{\|\beta_i\|_*}{\min_{\theta\in Q}d_\theta(\beta_i)}. $$
+
+For continuous $g$ on $K$ and bounded-above usc $h$ define
+$$
+ F_\eta(g)=\sup_{w\in\mathrm{CPSH}(\eta),\ w|_K\leq g}E_\eta(w),\qquad
+ F_\eta^\downarrow(h)=\inf_{g\in C(K),\ g\geq h}F_\eta(g).                                      \tag{4}
+$$
+This is a canonical extension constructed from the existing energy; $F_\eta^\downarrow(u)=E_\eta(u)$ for **every actual PSH** potential. There is one uniformly dense rational vector lattice $D\subset C(K)$, fixed before varying the Reeb field. For each $f\in D$ and compact $Q$, choose $A>0$ as in Section 9. For every $\tau>0$, every $\eta\in Q$, every $u\in\mathcal E^1(\eta)$, and both signs of $t$ with $|t|\leq\tau$,
+$$
+ \left|F_\eta^\downarrow(u+tf)-E_\eta(u)-t\int_K f\,\mu_\eta(u)\right|
+ \leq 2|t|\big((1+A|t|)^p-1\big)\|f\|_K
+ \leq 2pA(1+A\tau)^{p-1}\|f\|_K\,t^2.                                                        \tag{5}
+$$
+For $p=0$ the remainder is zero. For an arbitrary **fixed** continuous $f$, choose $f_m\in D$ uniformly convergent to $f$. The remainder divided by $|t|$ is bounded, uniformly over $Q$ and all these finite-energy potentials, by
+$$ 2\|f-f_m\|_K+C_{Q,f_m,\tau}|t|.                                                            \tag{6}$$
+In particular its limit is zero, with $m$ chosen before $t$. The derivative is exactly the existing genuine cone MA probability of mass one on $K$.
+
+Thus the comparison is nonproportional and includes irrational fields; the differentiability is of the canonical outer extension of the actual energy, in the precise sense of BJ1801.08229v4 Theorem 8.5. No equality $F^\downarrow(u+tf)=E(P(u+tf))$ is asserted without a separately justified envelope theorem. This distinction does not change $E$ on its original domain or its derivative operator. No assertion of strong-topology continuity, uniform differentiation over the whole unit ball of $C(K)$, or a general unbounded moving-field MA theorem is needed or made. P13.2's image/existence question is not claimed solved.
+
+The argument below reconstructs the needed bridges. It does not take any embedded generated argument as a premise. A--K refer to the eleven exact primary caches in `sources.json`, in input order. Literal statements and relevant proof bodies, inclusive one-based LF ranges computed with `split('\n')`, and application checks are preserved in `source-extracts/source-provenance.json`. Mathematical statements in this document remain unverified draft claims; execution is not a correctness or novelty verdict.
+
+## 1. The carrier and intrinsic roots
+
+Every supported nonzero weight is a nonnegative integral combination of the $\beta_i$: express a nonzero homogeneous element as a polynomial in the $h_i$ and retain a nonzero monomial of its weight. Thus (2) bounds the degree ratios for **every** supported weight.
+
+Torification and the torified analytic action are
+$$ q(v)(\textstyle\sum f_\alpha)=\min_\alpha v(f_\alpha),\qquad
+ (v+t\eta)(\textstyle\sum f_\alpha)=\min_\alpha\{v(f_\alpha)+t d_\eta(\alpha)\}.                       \tag{7}$$
+These are actual semivaluations (A LF218--246). Independently, the Gauss construction proves multiplicativity: embed the graded domain into its group-graded Laurent extension; taking a weighted Gauss seminorm preserves products, including after passing to a prime kernel. Restriction gives (7). On torified points the action is additive. Evaluation of a polynomial involves finitely many components, proving continuity of $q$ and joint continuity of the action.
+
+On $K$, $v(h_i)\geq0$ and $\min_i v(h_i)=0$. All regular coefficients have nonnegative value by polynomial expressions in the $h_i$. The coordinate unit polydisc is compact; imposing the equations of $R$, this minimum condition, and $q(v)=v$ gives a closed compact Hausdorff space. Define
+$$ \rho_\xi(v)=\max_i\frac{-v(h_i)}{d_\xi(\beta_i)},\quad s_\xi(v)=v+\rho_\xi(v)\xi.                   \tag{8}$$
+Off the vertex some generator has finite value. The maximum is finite, $s_\xi(v)\in K$, and $\rho_\xi(v+t\xi)=\rho_\xi(v)-t$. For each actual potential,
+$$ u(v)=u(s_\xi(v))+\rho_\xi(v).                                                               \tag{9}$$
+FS functions satisfy this and factor through $q$; so do their local uniform limits and decreasing limits, the actual definitions of CPSH and PSH (A LF277--286,344--346,762--764). Hence the sup norm of a difference on $K$ controls it everywhere off the vertex in a fixed polarization.
+
+If $(f_j)$ is a primary FS list, $\mathfrak m^r\subset(f_j)$ for some $r$. At $v\in K$ choose $h_i$ of value zero. If all $f_j$ had positive value, an expression $h_i^r=\sum a_jf_j$ would have positive value, since all $a_j$ have nonnegative value. This is impossible. Therefore some $f_j$ has value zero and all have nonnegative value. Its zero-weight FS maximum is zero on $K$ and equals (8) by (9). This proves independence of the reference and includes infinite values of some $f_j$.
+
+For $t\geq0$, the finite maxima and the two completions give
+$$ u(v)-Ct\leq u(v+t\eta)\leq u(v)-ct.                                                        \tag{10}$$
+Apply this also at $v-t\eta$. At a finite point the orbit function is finite, Lipschitz, strictly decreasing and surjective onto $\mathbb R$. Its unique zero parameter defines $\mathcal R_{\xi\eta}u(v)$. If $u(v)=-\infty$, the two inequalities make the entire orbit $-\infty$; give the root value $-\infty$. Extend by torification and give the vertex value $-\infty$. For FS functions the formula is exactly
+$$ \mathcal R_{\xi\eta}\left(\max_j\frac{\lambda_j-v(f_j)}{d_\xi(\alpha_j)}\right)
+       =\max_j\frac{\lambda_j-v(f_j)}{d_\eta(\alpha_j)}.                                     \tag{11}$$
+At that parameter all branches are nonpositive and one is zero. The intrinsic definition proves presentation independence.
+
+Order is preserved. A source uniform error $\epsilon$ moves roots by at most $\epsilon/c$, using (9)--(10). Uniform FS approximation on $K$ proves CPSH membership and continuity. For $u_i\downarrow u$, roots decrease. Bracket a finite root $r$ by the values at $v+(r\pm\epsilon)\eta$. The lower bracket is positive for every $u_i$, and the upper bracket is eventually negative. At an infinite limit, the value at $v-M\eta$ is eventually negative for every $M$, forcing roots below $-M$. Thus the raw roots decrease to the actual target PSH limit. The limit is nontrivial since the value at $v_{\rm triv}$ is finite. A root has the same zero set and infinite locus as the original function. Roots along any third field consequently give the inverse and cocycle.
+
+For all actual PSH functions, $\sup_Ku=u(v_{\rm triv})$ is finite: first prove this branchwise on FS, then pass through the two completions. A value $-\infty$ there forces the entire function $-\infty$. Normalize by $Nu=u-u(v_{\rm triv})$. Its root remains normalized. Thus the map on constant quotients is $[u]\mapsto[\mathcal R(Nu)]$. The raw root need not descend: on $k[x,y]$, with $\xi=(1,1)$ and $\eta=(1,2)$, $\mathcal R(\rho_\xi+2)-\rho_\eta$ equals 2 at $v_{\rm triv}$ and 1 at $(v(x),v(y))=(3,0)$.
+
+For normalized $u$, including extended values,
+$$ u/c\leq\mathcal R u\leq u/C\leq0.                                                         \tag{12}$$
+For any bounded unnormalized restriction this gives $|\mathcal R u-u|\leq(e^\delta-1)|u|$ by treating its positive and negative parts separately. Constant shifts obey
+$$ \|\mathcal R(u+a)-\mathcal R u-a\|_K\leq(e^\delta-1)|a|.                                  \tag{13}$$
+The derivative of $\log d_\theta(\beta_i)$ on the segment joining two fields proves the stated $L_Q$ bound; its denominator on the convex hull of $Q$ is at least its minimum on $Q$.
+
+For a fixed CPSH function, roots vary locally uniformly with the target field: on a compact set their parameters remain bounded by (10); the orbit points lie in a compact set, and uniform continuity and a uniform lower slope bracket their roots. This proof works without metrizability of $K$. Within a fixed polarization, uniform convergence on $K$ is precisely local uniform convergence off the vertex. The root brackets also prove continuity for pointwise convergence at **all** analytic points, not for a weaker topology tested only at quasimonomial points.
+
+## 2. Signed quotient norms
+
+Let homogeneous algebra generators $g_i$ (redundant elements are allowed) have arbitrary assigned real weights $\lambda_i$. In $R_\alpha$ let $F^a$ be the span of monomials of weight $\alpha$ whose assigned weight is at least $a$. Define $\chi(f)$ as the largest such index, and use the minimum over homogeneous components for nonhomogeneous elements. A positive Reeb degree bounds all eligible exponents, so there are finitely many eligible monomials in a fixed weight space. All indices are finite and attained; relations are retained in the quotient filtration. Addition and multiplication of expressions give the norm inequalities and
+$$
+ \min_i\frac{\lambda_i}{d_\theta(g_i)}d_\theta(\alpha)
+ \leq\chi(f)\leq\max_i\frac{\lambda_i}{d_\theta(g_i)}d_\theta(\alpha).                            \tag{14}
+$$
+Replacing $\lambda_i$ by the actual $\chi(g_i)$ leaves the filtration unchanged. Increasing assignments gives one inclusion. For the other, multiplicativity puts every newly assigned monomial in the old filtration at its new index. An expression attaining the old index cannot acquire a strictly larger minimum new index, since that would increase $\chi(f)$. This verifies the saturation required by B Definition 3.6.
+
+The exact potential identity is
+$$ \sup_{f\in R_\alpha\setminus0,\ \alpha\ne0}\frac{\chi(f)-v(f)}{d_\theta(\alpha)}
+       =\max_i\frac{\lambda_i-v(g_i)}{d_\theta(g_i)}.                                        \tag{15}$$
+For the upper inequality choose an expression attaining $\chi(f)$ and a term with minimum valuation. Then $\chi(f)-v(f)$ is at most that term's assigned weight minus valuation. Division by its common degree makes it a weighted average of generator branches. The reverse inequality uses $f=g_i$ and $\chi(g_i)\geq\lambda_i$. If every term has infinite value the upper bound is trivial; otherwise use a finite-valued minimum term. No cancellation is presumed absent.
+
+An arbitrary primary list can be supplemented by the fixed $h_i$ at sufficiently negative weights without changing its function on any prescribed compact Reeb neighborhood. On $K$ some primary element has value zero, giving a uniform lower bound $-B$ for that list on the neighborhood. Appending $h_i$ with weight $-M$, where $M\geq B\max_{\theta,i}d_\theta(\beta_i)$, puts every added branch below $-B$. Equality on $K$ implies equality everywhere. The representation parameter $M$ may depend on the list; the estimates (2),(3) do not.
+
+For rational assignments, clear indices by $b$ to obtain the integer Rees algebra
+$$ \Gamma=\bigoplus_{q,a}t^{-a}F^a_{b\chi}R_q=k[t,g_it^{-b\lambda_i}]\subset R[t,t^{-1}].            \tag{16}$$
+Filtered spanning expressions prove the equality also for negative weights. At real weights no integer-Noetherian Rees assertion is made. A valid real degree shift is
+$$ \chi_{a,\theta}(f)=\chi(f)+a d_\theta(\alpha).                                                \tag{17}$$
+Every expression receives the same shift, so it is exactly the quotient norm with shifted assignments. Negation is not valid: assigning $x,x^2$ both weight $-1$ in $k[x]$ gives $\chi(x)=\chi(x^2)=-1$, and $-\chi$ is not multiplicative.
+
+Let $N_\theta(m)$ be the cutoff dimension, $W_\theta^\chi(m)$ the signed spectral sum on it, and $D_\theta(m)$ the sum of Reeb degrees with their dimensions. An adapted basis gives the finite identity
+$$ W_\theta^{\chi_{a,\theta}}(m)=W_\theta^\chi(m)+aD_\theta(m),\qquad
+ D_\theta(m)=mN_\theta(m)-\int_0^mN_\theta(r)\,dr.                                              \tag{18}$$
+If $N\sim Vm^n/n!$, splitting the integral at a fixed large cutoff proves $D/(mN)\to n/(n+1)$. Shifts are added back only in their **own degree**, not in a different field's degree.
+
+## 3. The effective rational quotient
+
+For rational $\eta$ write $\eta=s\eta_e$, where the supported integer grading of $\eta_e$ has gcd one. Only this effective grading matters; primitiveness in an ineffective ambient torus is insufficient. A normal good cone is integral: its normal components are disjoint, while the positive grading contracts every component to the one vertex.
+
+Take $d$ sufficiently divisible so that $A=R^{(d)}$ and the degree-Veronese of (16) are generated in new degree one, and put $V=\operatorname{Proj}R$, $L_d=\mathcal O_V(d)$. The generation assertion follows without a weighted-degree assumption: choose $d_0$ divisible by all positive generator degrees, extract powers of degree $d_0$, and leave exponents below these powers. The residual monomials have bounded degree $B_0$. Choose a multiple $d>B_0$ of $d_0$. For a monomial of degree $rd$, the residual degree is divisible by $d_0$; combine it with enough extracted blocks to have degree $d$, then partition the remaining blocks into degree-$d$ groups. This works over $k[t]$ as well as $k$. Quotients inherit generation. Enlarge $d$ further to avoid the finite low-degree discrepancy between a finitely generated graded algebra and sections on its relative Proj: the localization description and Serre vanishing give equality in all sufficiently high degrees, and this further Veronese puts every positive degree there. Low-degree differences alone would not change a leading spectral mean.
+
+The ring $A=R^{\mu_d}$ is finite in $R$, since each generator has its $d$th power in $A$. It is normal: an element of $\operatorname{Frac}A$ integral over $A$ belongs to $R$ by normality, and invariance puts it in $A$. The degree gcd makes $\mu_d$ faithful. Its invariant field is $\operatorname{Frac}A$ (multiply a denominator by the other conjugates). The elementary fixed-field theorem for a faithful finite group, proved by independence of its distinct field automorphisms, gives
+$$ [\operatorname{Frac}R:\operatorname{Frac}A]=d. $$
+All residues occur: the semigroup of generator degrees has gcd one and contains every sufficiently large integer. To see the last assertion, fix a generator degree $q$, choose a nonnegative degree representative of each residue modulo $q$, and add multiples of $q$. Nonzero products witness these degrees in the domain.
+
+On a new degree-one element $a$, $A[a^{-1}]=A[a^{-1}]_0[a,a^{-1}]$. Thus $V$ is normal, and the punctured standard cone is the **actual** $L_d^{-1}$ torsor. For $n\geq2$, normal Hartogs across the codimension-$n$ vertex yields
+$$ A_l=H^0(V,lL_d).                                                                            \tag{19}$$
+Indeed a normal noetherian domain is the intersection of its height-one local rings, and none of those points has been removed. Functions on the torsor therefore extend, and taking homogeneous pieces gives (19). In dimension one, degree-zero homogeneous fractions form the field of the integral projective point $\operatorname{Proj}R$, hence $k$. A homogeneous fraction $z$ of degree one exists by the degree gcd. Every homogeneous element is a scalar multiple of a power of $z$, so $R=k[z^S]$ for a positive monoid of gcd one. Normality saturates $S$ in $\mathbb Z$, forcing $S=\mathbb N$. Thus $R=k[z]$ and the quotient is a point. This treats that case without Hartogs or a nonexistent curve.
+
+Restriction of (15) to $A$ has exactly the same supremum after degree conversion. The full supremum gives its upper bound; powers of every generator lying in $A$ give its lower bound, even if those powers have saturated norm larger than their assigned weight. Hence for the genuine finite degree-$d$ map $\pi:\operatorname{Spec}R\to\operatorname{Spec}A$,
+$$ \pi^*\Phi=sd\,u_\eta,\qquad \pi^*\rho_d=sd\,\rho_\eta,\qquad\pi^*\rho_d^+=sd\,\rho_\eta^+.       \tag{20}$$
+Equivalently raise each primary branch to a common degree $D$ divisible by $d$; its coefficient must become $(D/q_i)\lambda_i$. Leaving its coefficient unchanged would not give (20).
+
+## 4. The calibrated radial current
+
+First work on the standard section cone of a normal projective $V$ and an ample globally generated $L$ whose full ring is standard. In a genuine frame $e_i$ of $L$, a vector of $L^{-1}$ is $t_i e_i^{-1}$ and
+$$ \Phi=\log|t_i|+h_i,\qquad\rho=\log|t_i|+h_{0,i}.                                            \tag{21}$$
+If $e_j=a_{ij}e_i$, then $t_j=a_{ij}t_i$ and $h_j=h_i-\log|a_{ij}|$. In particular a section of $mL$ has radial coordinate $t_i^m$, and its radial logarithm carries the coefficient $1/m$.
+
+For FS metrics, tensor each line bundle by the actual section exponent to get an integer-paralinear metric, then divide each curvature factor back by that exponent. Real additive constants are allowed by G12.5.2. The top projective mixed measure is a finite sum $\nu=\sum_v a_v\delta_v$: G18.4.3 and 18.4.7 give closed discrete support, and the proper base makes it finite. Singular bases are permitted. All spaces here are separated, equidimensional and boundaryless, and the torsor is flat. G18.6.1 therefore gives the current identity
+$$ T=dd^c\Phi_1\cdots dd^c\Phi_p=\sum_v a_v\delta_{Y_v},                                    \tag{22}$$
+where $Y_v$ is the $\mathcal H(v)$-analytic fiber. Its proof applies G18.3.5 to a compactly supported fiber form and sums the projective masses; the coefficient already contains the graded residual degree, defect, and generic multiplicity from G18.4.7. There is no additional fiber multiplier.
+
+On $Y_v$, $h_0$ is constant. G18.6.2 for the identity coordinate on $\mathbb G_{m,\mathcal H(v)}$ yields
+$$ dd^c\max(\log|t|+h_0(v),0)=\delta_{\zeta_{\exp(-h_0(v))}}.                                 \tag{23}$$
+The fiber over that Gauss point is a point with multiplicity one. The source's proof computes its residual $\mathcal O(1)$ intersection to be one; this is the slope-jump normalization, not the mass of a degree-$m$ coordinate regarded as degree one.
+
+To justify the wedge against all tests, let $q$ be any local compactly supported smooth test on a frame chart. On a sufficiently small neighborhood, discard vanishing inactive section branches and smoothly regularize the finite convex maximum of the remaining invertible logarithmic branches and the zero branch. This regularizes the reference weight $h_0$ as well as the radial maximum. The resulting smooth psh $r_\epsilon$ converge locally uniformly to $\rho^+$. Apply (22) to $q\,dd^cr_\epsilon$, then restrict to each $Y_v$. G8.7.2 with the fixed positive closed current $T$ passes the wedge to its limit; (23) evaluates each term. Consequently
+$$ \int q\,Tdd^c\rho^+=\sum_v a_vq(i(v)),\qquad Tdd^c\rho^+=i_*\nu,                            \tag{24}$$
+where $i(v)$ is that fiber Gauss point. G15.7.1 gives the differential structure, G6.2.4 gives compact cutoffs, and G6.2.6 gives density for continuous compact tests. Finite partitions on the support patch the identity globally. Under frame change the radius is multiplied by $|a_{ij}(v)|$ and the reference changes by the opposite logarithm; the Gauss point is unchanged. Thus $i$ is global, with $\rho(i(v))=0$. This proves the measure identity on singular bases and for arbitrary local tests, not just tests pulled back from $V$.
+
+Uniform FS approximation, G8.7.2 and J8.4 pass (24) to continuous psh metrics. The reference can be kept fixed. The radial identity for $p=0$ is just (23), with an empty horizontal product. The total raw mass is $(L^p)$. At $i(v)$, $\Phi-\rho=h-h_0$, so applying (24) to every mixed-reference term of (1) proves equality of standard cone energy and projective **probability-normalized** energy $E_L$, with denominator $(p+1)(L^p)$.
+
+For (20), the punctured finite map is proper between boundaryless $n$-spaces. G13.3.7 identifies its calibrated generic degree as $d$, the field-extension length divided by the target's generic multiplicity one. G16.1.5 applies locally to all $n$ continuous psh factors. Hence
+$$ \pi_*\big(dd^cu_1\cdots dd^cu_pdd^c\rho_\eta^+\big)
+       =s^{-n}d^{1-n}\,dd^c\Phi_1\cdots dd^c\Phi_pdd^c\rho_d^+.                              \tag{25}$$
+There are $n$ factors $1/(sd)$ and one pushforward factor $d$.
+
+Restriction gives a homeomorphism of the torified carriers. A homogeneous value in $R$ is recovered from its $d$th power in $A$; torification recovers sums from homogeneous components, giving uniqueness including kernels. Existence follows by extending a valuation/seminorm through the finite integral algebra (first quotient by its prime kernel, then extend the valuation of the resulting field), or by surjectivity of the finite analytification, followed by torification. Restriction commutes with torification. The link condition is detected by powers. Compactness and Hausdorffness give the homeomorphism.
+
+Algebraic Hilbert asymptotics and (25) give the **same** mass:
+$$ V_\eta=s^{-n}d^{1-n}(L_d^p),\qquad\omega_\eta=L_d/(sd),\qquad V_{\omega_\eta}=sV_\eta,\qquad
+ E_\eta(u)=E_{L_d}(\Phi)/(sd).                                                               \tag{26}$$
+Indeed the rank-$d$ ring extension gives $N_R(m)\sim dN_A(m/d)$, and $\sum_{l\leq M}h^0(V,lL_d)\sim(L_d^p)M^n/n!$. The extra $1/s$ in the radial factor explains why raw cone mass is not the transverse volume. Normalized MA is precisely the lifted projective probability. The zero-weight globally generating eigen-section reference is the canonical trivial projective metric: every nonzero section has canonical supnorm one, attained at the trivial valuation, and its zero-weight product configuration has energy zero.
+
+## 5. Model energy and the full-ring signed mean
+
+For integer indices, the restricted Rees algebra of the full section ring gives an ample test configuration by H2.15. The hypothesis is finite generation over $k[t]$, with exhaustive separated integer filtration and an ample generic line bundle, all verified above. A sufficiently divisible further Veronese makes the relative Proj line bundle generated. An adapted degree-one basis $s_i t^{-w_i}$ gives the local metric $\max_i(\log|s_i|+w_i)$, so (15) is its actual FS metric. Pullback to the normalization preserves that metric, since it preserves this generating-section norm. The generic variety is reduced, so H3.14 preserves DH under normalization. Its proof twists the measures into a common nonnegative interval, compares their tail distributions by inclusion, and uses equal barycenters by the projection formula; subtracting the twist returns signed weights.
+
+H2.14 and H5.9 identify the degree-wise filtration weights with the central-fiber representation. Their signed first moment can also be proved directly without H5.3's external threshold-series theorem. For $N_l=h^0(V,lL_d)$ and total weight $W_l$, relative Serre vanishing identifies the central fiber with the fiber of $\pi_*\mathcal L^l$. The equivariantly trivial bundle away from zero has determinant degree $W_l$. Riemann--Roch on $\mathbb P^1$, followed by projective asymptotic Riemann--Roch on the compactification, gives
+$$ N_l=\frac{(L_d^p)}{p!}l^p+O(l^{p-1}),\quad
+ W_l=\frac{(\overline{\mathcal L}^{p+1})}{(p+1)!}l^{p+1}+O(l^p).                               \tag{27}$$
+These are exactly H3.12's proof and factors. Thus $W_l/(lN_l)\to E_{L_d}$ by H7.2--7.4.
+
+This intersection energy is the genuine curvature energy used above. On a common normal graph determination, H6.7 has probability coefficients
+$$ (L_d^p)^{-1}b_E(\mathcal L_1|_E\cdots\mathcal L_p|_E). $$
+A vertical coefficient $r_E$ evaluates as $r_E/b_E$; H6.12 therefore gives its curvature integral as the mixed vertical intersection divided by $(L_d^p)$. For an independent operator check, complete the normal test configuration over $k[[t]]$, $|t|=e^{-1}$. It is relatively normal in its reduced generic fiber. G18.5.8 identifies the fundamental special-fiber cycle, including $b_E$, with the calibrated cycle; G18.4.7 gives the same curvature masses. J8.3 transfers the measure back by field-extension compatibility. J8.18, especially (8.16), identifies the vertical Deligne pairing with the actual CLD integral. Its induction uses relatively regular sections and their unit norm at Shilov points, not smoothness. Expanding the difference of $(p+1)$-fold intersections now gives exactly (1). There is no second division by volume after integration against probability measures; the extra factor printed in H Remark7.5 is not used.
+
+Index clearing is distinct from tensoring a bundle and from multiplying a potential. If $b\lambda_i$ are integral, the relative projective potentials satisfy
+$$ \varphi_{b\chi}(v)=b\varphi_\chi(v/b).                                                       \tag{28}$$
+Canonical reference logarithms are homogeneous under valuation dilation. Integer base change $t\mapsto t^b$ gives (28); the intersection scales by $b$ (H6.13), while $(L_d^p)$ is unchanged. Inverting the dilation gives rational scaling. C7.2 and 7.7(iii) state precisely these two different homogeneities. Thus the rational-index metric has energy $E_{b\chi}/b$, and its signed spectral mean also divides by $b$. Tensoring $L$ by $r$, instead, multiplies raw volume by $r^p$ and raw energy by $r^{p+1}$; normalized energy scales by $r$. It does not identify $\varphi_{b\chi}$ with $b\varphi_\chi(v)$.
+
+Here is the needed all-residue argument. In integer indices put $B=\Gamma^{(d)}$, retaining old degrees divisible by $d$. The extension $B\subset\Gamma$ is finite, of fraction rank $d$, by the faithful $\mu_d$ action with $t$ of degree zero. Choose one nonzero bihomogeneous $e_j=f_jt^{-b_j}$ in each residue. Each character eigenspace is one-dimensional over the invariant fraction field, so
+$$ F=\bigoplus_{j=0}^{d-1}Be_j\subset\Gamma $$
+is a free rank-$d$ submodule. A finite bihomogeneous set of module generators can be expanded in these basis elements with bihomogeneous fractions. Homogeneous denominators exist: in any fraction identity take a nonzero denominator component and its matching numerator component. Multiplying the finitely many denominators gives a nonzero homogeneous $c$ with $c\Gamma\subset F$. At $t=1$, all denominators remain nonzero, and the $f_j$ remain independent over $\operatorname{Frac}A$ by their distinct residues. The resulting injections retain fixed degree and index shifts.
+
+If an injection of finite filtered vector spaces increases indices by at least $b$, the descending ordered jumps satisfy $w_i\geq u_i+b$: every threshold subspace injects. If all jumps of the larger space have absolute value at most $Lm$, unmatched dimensions contribute at most $Lm$ times their number. Apply this to $F_{\leq m}\hookrightarrow R_{\leq m}$ and $cR_{\leq m}\hookrightarrow F_{\leq m+a}$. Hilbert asymptotics bound a fixed degree strip by $O(m^{n-1})$ dimensions; (14) bounds its signed weights by $O(m)$ per dimension. Fixed index shifts contribute $O(N(m))$. Therefore
+$$ W_R(m)=W_F(m)+O(m^n)=dW_A(m/d)+O(m^n),\qquad N_R(m)=dN_A(m/d)+O(m^{n-1}).                      \tag{29}$$
+The finitely many free summands are shifted copies with weights $b_j+\chi_A$ and degrees $q_j+d l$; this proves the second equality, rather than assuming multiplication by $c$ is an isometry. For $n=1$ the strip dimension is bounded and the weight error is $O(m)$, negligible against $mN(m)$.
+
+Summing the degree-wise limit in (27), with its signed error bounded by $\epsilon lN_l$ beyond a fixed degree, gives
+$$ \frac{\sum_{l\leq M}W_l}{M\sum_{l\leq M}N_l}\longrightarrow\frac n{n+1}E_{L_d}. $$
+Use (26),(29), and the cutoff conversion $m=sdM$. The genuine result is
+$$ \boxed{ E_\eta(u_{\chi,\eta})=\frac{n+1}{n}S_\chi(\eta),\qquad
+ S_\chi(\eta)=\lim_{m\to\infty}\frac{W_\eta^\chi(m)}{mN_\eta(m)}. }                             \tag{30}$$
+It is proved rationally for every primary FS presentation, not presumed from a translation example. That identification also proves presentation independence of the leading mean.
+
+## 6. Real weights and irrational fields
+
+The cutoff inclusions from (2) are
+$$ R_{\xi,\leq m/C}\subset R_{\eta,\leq m}\subset R_{\xi,\leq m/c}.                              \tag{31}$$
+At rational fields Hilbert asymptotics give positive volumes. These inclusions imply $V_\xi/C^n\leq V_\eta\leq V_\xi/c^n$. Rational approximants form a Cauchy family in logarithmic volume; sandwich the irrational liminf and limsup between arbitrarily close rational cutoffs to prove existence and continuity of its positive volume. This derives the irrational assertion without an orbifold or cardinality argument.
+
+Perturb assignments so $|\lambda_i'-\lambda_i|\leq\epsilon d_\theta(g_i)$. All monomial weights of degree $\alpha$ differ by at most $\epsilon d_\theta(\alpha)$. The two filtered inclusions prove the same bound for every ordered quotient jump. Hence the total cutoff error is at most $\epsilon D_\theta(m)$, and (18) bounds the mean error by $\epsilon n/(n+1)$. This proves convergence for real lists at rational fields.
+
+For a nonpositive list all jumps are nonpositive, so (31) gives the finite inequalities
+$$ W_\xi(m/c)\leq W_\eta(m)\leq W_\xi(m/C). $$
+Known rational means and arbitrarily close rational fields squeeze the irrational liminf and limsup to a limit as well. Passing to limits gives
+$$ \frac{V_\xi}{V_\eta}c^{-(n+1)}S_\chi(\xi)\leq S_\chi(\eta)
+ \leq\frac{V_\xi}{V_\eta}C^{-(n+1)}S_\chi(\xi), $$
+and therefore
+$$ e^{-k_n\delta}(-S_\chi(\xi))\leq-S_\chi(\eta)\leq e^{k_n\delta}(-S_\chi(\xi)).                 \tag{32}$$
+Zero means need no division. For arbitrary assignments put $a(\theta)=\max_i\lambda_i/d_\theta(g_i)$, and subtract $a(\theta)d_\theta(g_i)$ from each assignment. The resulting lists are nonpositive and vary continuously. Apply (32) to a fixed such list and the perturbation bound to the changing list; add back **only** its own-degree mean shift $a(\theta)n/(n+1)$ from (18). This proves signed-mean existence and continuity for all real assignments and all Reeb fields.
+
+The analytic limit uses actual CLD currents. FS functions are locally smooth-psh approachable: near a point off the vertex at least one branch is finite, branches vanishing there are locally inactive below a fixed finite branch, and the remaining invertible functions form a moment chart. Smooth convex maxima approximate their finite maximum. G8.1.7--8.1.9 retain continuous-psh membership under local uniform limits. The same applies to $\rho^+$. The analytifications in question are separated, pure-dimensional and boundaryless; G15.7.1 supplies their calibrated differential structure, without a smoothness condition.
+
+If $\theta_l\to\theta$ and actual CPSH potentials converge locally uniformly, so do the references (8) and their positive parts. The radial positive closed currents converge by distributional differentiation. G8.7.2, with exactly $p$ potential factors, gives convergence of the mixed currents; with zeroth weight $u_l-\rho_{\theta_l}$ it gives convergence of every summand in (1). At rational FS data, (24)--(25) give support on the link. Their finite projective support is torus fixed: equivariance permutes the finite support, while $T(k)$ is divisible and has no nontrivial finite quotient. A $T(k)$-fixed seminorm is torified, since projections onto any finite collection of distinct weight components are $k$-linear combinations of torus translates (character interpolation). Thus those measures are carried by $K$. Real FS weights and irrational fields are bounded local uniform limits of these data. Compact cutoffs from G6.2.4 and density from G6.2.6 pass the identities to all continuous tests on $K$; extension of a continuous test from $K$ to a compact neighborhood follows from normality of compact Hausdorff spaces. Division by the positive continuous volume gives weak convergence of genuine probabilities. CPSH uniform FS limits have the same property.
+
+Consequently genuine energies and mixed MA converge in every bounded local uniform passage used here. Approximate real weights and irrational fields in (30). Finite maxima converge locally uniformly (uniform lower bounds let one discard all sufficiently negative branches on a compact set), their signed means converge by the preceding argument, and their genuine energies converge by the weighted-current statement. Thus (30) holds for every primary FS presentation at every Reeb field. Its presentation independence is now an energy identity, not a claim inferred from a count.
+
+Bounded same-Reeb calculus can be checked at the same time. At rational fields, symmetry of the genuine mixed intersection pairing gives integration by parts and the cocycle formula by expanding a difference of powers. Positive mixed measures give monotonicity and translation by one unit. Here is the vertical calculation needed for concavity, so the external citation in H6.14 is not an unchecked premise. On a common resolution of a normal determination write the central fiber as $\sum b_iE_i$ and the vertical difference divisor as $D=\sum r_iE_i$. Pullback preserves the energy intersections; the relatively semipositive classes restrict nef to every central component. After intersecting with the $p-1$ remaining nef classes, put $q_{ij}=(E_iE_j\mathcal L_2\cdots\mathcal L_p)$. For $i\ne j$, proper effective intersections and nefness give $q_{ij}\geq0$. The fiber divisor is pulled back from the base, so $\sum_jb_jq_{ij}=0$; its line bundle is trivial on each $E_i$. Consequently
+$$ D^2\mathcal L_2\cdots\mathcal L_p
+ =-\sum_{i<j}b_ib_jq_{ij}\left(\frac{r_i}{b_i}-\frac{r_j}{b_j}\right)^2\leq0. $$
+A resolution may be chosen with a normal-crossing central support in characteristic zero; the projection formula returns this inequality to the original determination. For $p=0$ the energy is linear. For $p\geq1$, differentiation of the $(p+1)$-fold energy intersection along a segment gives $p$ times this nonpositive mixed vertical pairing divided by $(L^p)$. This proves concavity on rational model segments. Uniform FS approximation and continuity give it on all rational CPSH segments. Simultaneous root approximants transfer these identities to arbitrary fields using the bounded current convergence. Convex combinations and maxima are actual CPSH there: at rational fields products of section lists give positive sums; for irrational fields approximate by rational fields, form these combinations, and root back to the fixed field. Their bounded restrictions converge uniformly, so the limits belong to the actual CPSH closure. In particular no mixed-form algebra across the nonlinear root maps is introduced.
+
+## 7. Genuine finite-energy comparison
+
+Normalized FS lists have nonpositive assignments and at least one zero assignment. Supplement them as in Section 2. The same assignments at the target give exactly their normalized roots. Equations (30),(32) prove (3) on FS. Uniform FS approximation, normalization at $v_{\rm triv}$, the root Lipschitz bound and genuine energy continuity prove it on normalized CPSH.
+
+We spell out decreasing energy continuity to avoid a topology shortcut. If $u_i\downarrow u$ is a defining CPSH net and $w\in\mathrm{CPSH}$ dominates $u$, the sets $\{u_i<w+\epsilon\}$ are increasing open sets covering compact $K$. A finite subcover and directedness give $u_i\leq w+\epsilon$ eventually. Monotonicity and translation then yield $\lim E(u_i)\leq E(w)+\epsilon$. The reverse inequality is the definition of $E(u)$. Infimizing over $w$ and letting $\epsilon\downarrow0$ proves $E(u_i)\to E(u)$, including $-\infty$.
+
+Let $u$ be normalized E1 and choose its actual defining net $u_i\downarrow u$. Set $a_i=u_i(v_{\rm triv})\downarrow0$, $v_i=u_i-a_i$. The $v_i$ need not decrease. Their source energies tend to $E(u)$, and (3) applies to each. The source difference is constant $a_i$, so (10) gives $\|\mathcal R u_i-\mathcal R v_i\|_K\leq|a_i|/c$. Same-field monotonicity and translation bound the corresponding energy difference by this amount. The **raw** roots decrease to $\mathcal R u$, with a finite lower energy bound. Decreasing energy continuity proves its E1 membership and passes (3) to the limit. Applying the reverse root proves onto E1. This is a finite-energy estimate, not only an oscillation bound. It makes no strong-topology claim.
+
+## 8. Signed semigroups close the obstacle-volume gate
+
+Here we prove the additional approximation needed beyond continuous-psh volume/energy equality. Let $V$ be a normal integral projective variety of dimension $p\geq1$ and $L$ ample. Tensor by a sufficiently high integer $r$ so its full section ring is generated in degree one and it separates first jets at a regular point. Existence of such a tensor power follows from the graded generation argument and very ampleness. A regular $k$-rational point $x$ exists: characteristic zero gives a nonempty smooth locus and algebraic closedness gives rational closed points. Global smoothness is not assumed.
+
+First let $\chi$ be any bounded multiplicative graded norm on $R(L)$, with $|\chi(s)|\leq Bm$ in degree $m$. Choose integer $C>B+1$. Pick a section $s_0$ nonzero at $x$ and sections $s_i$ vanishing there whose differentials $d(s_i/s_0)$ are independent. Take $z_i=s_i/s_0$ as regular parameters and use $s_0$ as the local frame. The completed regular local ring is $k[[z_1,\ldots,z_p]]$: the parameter-adic expansion is obtained successively modulo powers of the maximal ideal; regularity makes its associated graded ring the polynomial ring. Use graded lexicographic order. The least exponent $\nu(s)$ is additive under products, and $|\nu(s)|=\operatorname{ord}_x(s)$.
+
+There is a uniform bound $|\nu(s)|\leq Dm$. Here is a proper-intersection proof that avoids a singular-projective Bertini assertion. Fix a very ample $H$. For a given nonzero $s$, choose $p-1$ members of $|H|$ through $x$. At every step the linear system has only base point $x$, so a general member avoids the finitely many positive-dimensional components of the previous intersections with both $V$ and $\operatorname{div}(s)$. Simultaneously choose their differentials at $x$ independent; the tangent hyperplane conditions are proper closed conditions, and $k$ is infinite. The resulting curve cycle $Z$ is effective and has class $H^{p-1}\cap[V]$; it has one regular multiplicity-one local component through $x$, because the local equations are part of a regular parameter system. No curve component is contained in $\operatorname{div}(s)$, by the proper intersections also imposed on that divisor. Restriction to the local regular curve has vanishing order at least $\operatorname{ord}_x(s)$. The proper effective Cartier intersection $\operatorname{div}(s)\cdot Z$ has degree $m(L\cdot H^{p-1})$ and nonnegative local contributions. Its contribution at $x$ bounds this order. Thus $D=(L\cdot H^{p-1})$ works. Embedded components elsewhere do not affect the effective top-dimensional curve cycle or its proper Cartier intersection. For $p=1$, use the effective divisor degree directly; for $p=0$, the obstacle is a constant on a point and is treated separately below.
+
+The valuation has one-dimensional leaves. More concretely, every subspace $U\subset R_m$ injects into the finite collection of Taylor coefficients of total degree at most $Dm$; a section with all those coefficients zero would violate the proved bound. Row echelon elimination in the graded-lex order gives one distinct pivot exponent for each dimension. Hence
+$$ \dim U=\#\nu(U\setminus0).                                                                   \tag{33}$$
+This establishes the needed dimension counting for every filtration subspace, with no infinite elimination. A norm over the trivially valued field has finitely many attained jumps in a finite-dimensional space: distinct values give strictly distinct levels, whose number cannot exceed its dimension. Equivalently the resulting finite flag has an adapted basis.
+
+Define the additive extended semigroup
+$$ \Gamma_\chi=\{(m,\nu(s),a):m\geq1,\ s\ne0,\ a\in\mathbb Z,\ -Cm\leq a\leq\chi(s)\}\cup\{0\}. \tag{34}$$
+Multiplicativity and additivity of $\nu$ prove closure. The degree-one slice of its closed real cone is a compact convex body $\Delta\subset\mathbb R^{p+1}$: $\nu/m$ has nonnegative coordinates summing to at most $D$, and $a/m\in[-C,B]$. Its group lattice is **exactly** $\mathbb Z^{p+2}$, not a sublattice: (34) contains
+$$ (1,0,-C),\quad(1,e_i,-C)\ (1\leq i\leq p),\quad(1,0,-C+1). $$
+The degree-one sections above have these values and weights at least $-B>-C+1$. Differences give every exponent and weight coordinate, and the first vector then gives the degree coordinate. These vectors are also real-linearly independent, so the slice has nonempty interior. This checks both the period and lattice index explicitly.
+
+We need only an elementary conductor lemma. If a finite positive-degree semigroup $S$ has generators $b_i$ spanning the whole group lattice, let $P$ be its real cone. For $y\in P\cap\mathbb Z^{p+2}$ choose $y=\sum t_ib_i$, $t_i\geq0$. Subtract $\sum\lfloor t_i\rfloor b_i$. The residue is a lattice point in the bounded zonotope $\sum[0,1]b_i$, so there are finitely many possible residues $r$. Since the group is the whole lattice, write each $r=u_r-v_r$ with $u_r,v_r\in S$. Set $c=\sum_rv_r\in S$. Then
+$$ c+y=\sum\lfloor t_i\rfloor b_i+u_r+(c-v_r)\in S,qquad c+(P\cap\mathbb Z^{p+2})\subset S. $$
+The argument includes boundary points. Cone slices above and their translates by $c$ below consequently give
+$$ \#S_m=\operatorname{vol}_{p+1}(\Delta_S)m^{p+1}+O(m^p).                                    \tag{35}$$
+Indeed a rational polytope has lattice count equal to its volume plus $O(m^p)$: all cubes not meeting a facet are entirely inside or outside; the finitely many facet strips meet $O(m^p)$ unit cubes. The lower count uses degree $m-\deg c$ and an integral translate, which has the same leading coefficient. The full degree lattice is why no congruence or index factor appears.
+
+Take all finite subsets of (34), always including the displayed lattice generators. Their slice polytopes lie in $\Delta$ and have volumes with supremum $\operatorname{vol}(\Delta)$. The normalized semigroup vectors have closed convex hull $\Delta$; finite convex hulls approximate any inner polytope and hence its volume. For a full-dimensional compact convex body the boundary has Lebesgue measure zero (slice along lines, or sandwich between homothetic inner and outer bodies). Unit-cube Riemann sums therefore give the upper lattice asymptotic for $m\Delta$. The lower estimate (35) for each finite semigroup gives
+$$ \lim_m\frac{\#\Gamma_{\chi,m}}{m^{p+1}}=\operatorname{vol}(\Delta).                            \tag{36}$$
+There is no assumed saturation theorem for every high-weight subseries.
+
+Let $w_{m,j}$ be the signed jumps of $\chi$ and $N_m=\dim R_m$. Equation (33) gives the exact count
+$$ \#\Gamma_{\chi,m}=\sum_{a=-Cm}^{\lfloor Bm\rfloor}\dim F^aR_m
+       =\sum_j\lfloor w_{m,j}\rfloor+(Cm+1)N_m.                                                \tag{37}$$
+The floor error is at most $N_m$. Hilbert asymptotics with $a_0=(L^p)/p!$ show
+$$ e_\chi:=\lim_m\frac{\sum_jw_{m,j}}{mN_m}=\frac{\operatorname{vol}(\Delta)}{a_0}-C.              \tag{38}$$
+Thus (36) records the signed first moment all at once.
+
+For a finite $S$, choose an actual witness section for each generating triple and assign it the integer weight $a$ of that triple. Add a complete basis of $R_1$ at weight $-C$. Its quotient norm $\chi_S$ on the entire ring satisfies
+$$ -Cm\leq\chi_S(s)\leq\chi(s)\leq Bm. $$
+The first inequality uses degree-one generation; the second follows because every assigned monomial genuinely lies in the original filtration. Products of witnesses place the entire $S$ inside the extended value semigroup of $\chi_S$. Applying (35)--(38) to that norm gives
+$$ e_{\chi_S}\geq\operatorname{vol}(\Delta_S)/a_0-C,\qquad e_{\chi_S}\leq e_\chi,qquad
+ \sup_Se_{\chi_S}=e_\chi.                                                                     \tag{39}$$
+The family is directed by adding witnesses, not by claiming energy continuity along increasing limits. All these are signed finite-generated norms with actual finite Rees algebras.
+
+Now let $g$ be any continuous obstacle relative to the canonical metric $h_0$. Its supnorm is a genuine norm, its additive weight $\chi(s)=-\log\|s\|_{m(h_0+g)}$ is multiplicative, and $|\chi(s)|\leq m\|g\|$. The canonical supnorm of every nonzero section is one: centered local regular coefficients have absolute value at most one, and at the trivial valuation any nonzero coefficient has absolute value one. Every witness with assigned $a\leq\chi(s)$ gives the branch
+$$ \frac{\log|s|_{mh_0}+a}{m}\leq g. $$
+Their finite maximum, with the degree-one basis ensuring no base locus, is an actual FS potential $\psi_S\leq g$. Products and filtered expressions give exactly its quotient norm metric, as in (15). Section 5, applied on this normal projective variety, proves its genuine normalized model energy is $e_{\chi_S}$, with the factors (27) and the central multiplicities retained. Integer assignments suffice; the floor error already treated arbitrary real obstacle weights.
+
+By J9.8, or independently by (38), the raw relative volume is $\lim p!m^{-p-1}\sum_j w_{m,j}$. Thus its division by $(L^p)$ is exactly $e_\chi$. Taking (39) proves the reverse obstacle inequality. The forward inequality follows from J9.15 (two continuous psh metrics only) and monotonicity of determinant norms. We obtain
+$$ \boxed{\sup_{\psi\in\mathrm{CPSH}(L),\ \psi\leq g}E_L(\psi)
+       =\frac{\operatorname{vol}(L,h_0+g,h_0)}{(L^p)}.}                                      \tag{40}$$
+No envelope continuity is used. Return from $rL,rg$ by dividing metrics by $r$: actual FS definitions give a bijection of CPSH classes, normalized energy scales by $r$, and raw relative volume scales by $r^{p+1}$ while $(rL)^p=r^p(L^p)$. This also handles rational ample classes after tensor clearing. For $p=0$, $V=\operatorname{Spec}k$, every obstacle is a constant, $N_m=1$, and both sides of (40) equal that constant. This closes the singular-quotient obstacle-volume gate with independent lattice and counting arguments.
+
+Reboulet K4.5.4/4.5.5 and 5.1.1 address the same approximation. Its standing convention is geometrically integral projective, and its valuation is at a regular rational point, not a globally smooth variety. Its proof relies on external threshold-semigroup and Chebyshev results. Those are **not** premises here: (33)--(39) replace their required first-moment consequence. In particular, K LF1585--1590 needs division by $\#\Gamma_m$ to be a probability measure, LF1837--1839 needs $p!$ in the Hilbert leading coefficient, and LF1873--1878 uses decreasing-net continuity for families increasing under divisibility. None of those printed chains is imported.
+
+## 9. A single dense carrier direction class
+
+Fix one rational Reeb $\xi_0$. Let $D$ be the rational span of differences of rational-weight primary FS functions at $\xi_0$ on $K$. Allow arbitrary positive rational equivariant slopes in constructing representatives. Products after clearing rational logarithmic exponents give positive sums of FS functions, with slopes added; maxima concatenate lists. A reference, zero on $K$, pads a smaller slope to a common one. Thus every $f\in D$ is $A_0(\phi-\psi)$, $A_0>0$ rational, with actual rational-weight FS $\phi,\psi$ at $\xi_0$.
+
+For two equal-slope pairs,
+$$ \max(a-b,c-d)=\max(a+d,c+b)-(b+d). $$
+The common new slope is the sum of the two old slopes. Dividing it out returns actual FS at $\xi_0$, by the power/product construction; negation gives minima. Rational constants are reference translates. Distinct torified points differ on a homogeneous nonconstant $g$, since evaluation of sums is the minimum of homogeneous evaluations. The primary padded potential
+$$ \max\{(\lambda-v(g))/d_{\xi_0}(g),\rho_{\xi_0}-M\}\big|_K $$
+separates them for appropriate rational $\lambda,M$, including finite/infinite pairs. The uniform closure of $D$ is a real vector lattice containing constants and separating points, so the lattice Stone--Weierstrass theorem on compact Hausdorff $K$ makes it all $C(K)$. This proves the exact class, rather than assuming differences of one bounded fixed-slope class themselves form a lattice.
+
+Write $f=A_0(\phi-\psi)$ and extend by $f_\eta(v)=f(s_\eta(v))$. For each branch of $\phi$ put $r_j(\eta)=A_0d_\eta(f_j)/d_{\xi_0}(f_j)$. Choose a rational $A$ strictly larger than all these numbers for both lists and $\eta\in Q$. The strict margin permits nearby rational approximants even if they are outside $Q$. Set
+$$ a_\eta=A\rho_\eta+A_0\phi(s_\eta(v))
+ =\max_j\left\{\frac{A_0(\lambda_j-v(f_j))}{d_{\xi_0}(f_j)}+(A-r_j(\eta))\rho_\eta(v)\right\},        \tag{41}$$
+and similarly $b_\eta$. Their difference is $f_\eta$, and their equivariant slope is $A$.
+
+For rational $\eta$ expand $\rho_\eta$ over the $h_l$. Every branch has positive rational logarithmic coefficients $c_j,c_l$ with $c_jd_\eta(f_j)+c_ld_\eta(h_l)=A$. Clear them by $m$: the branch becomes
+$$ [mc_j\lambda_j-v(f_j^{mc_j}h_l^{mc_l})]/m,\qquad
+ d_{\eta/A}(f_j^{mc_j}h_l^{mc_l})=m. $$
+This product list is primary because off the vertex some primary $f_j$ and some $h_l$ are simultaneously nonzero. Therefore $a_\eta,b_\eta$ are actual FS$(\eta/A)$. At irrational $\eta$, rational approximants in (41) converge locally uniformly; root them back to the fixed polarization $\eta/A$. Their bounded restrictions change by $o(1)$ by (12)'s two-sign version, and equivariance then gives local uniform convergence. This proves actual CPSH membership. On $K$, their difference is exactly the **same fixed** $f$ for every field.
+
+On a rational quotient these are positive metrics on $A\omega_\eta$. All mixed volume ratios are therefore $(1+\epsilon A)^p$. Constants will depend on $p,A,\tau,\|f\|$, not on $sd$ or the potential.
+
+## 10. The rational obstacle correspondence and remainder
+
+On the rational quotient $L_d$ is naturally $T$-linearized by its graded sections. The effective central $\mathbb G_m$ acts on its section space with degree $d$. Choose one degree-$d$ eigencharacter $\gamma$ and twist this linearization by $-\gamma$; the central action becomes trivial, so the linearization descends to the residual torus. In degree $m$, section weights are then $\alpha-m\gamma$, all annihilating the central cocharacter. This twist changes no absolute values over the trivially valued field. Choose a globally generating eigenbasis and its eigen-section charts. Their degree-zero coordinate rings carry the residual torus grading. Taking the minimum of weight-component valuations defines a continuous torification $q_V$. Localization on overlaps is by eigenfunctions, so these definitions agree. The canonical zero-weight reference is unchanged. The radial Gauss construction and uniqueness in Section 4 identify its torified image with $K$: degree-zero eigen-ratios determine the base point; the Gauss radial coordinate separates different effective degrees; within one degree residual torification separates different torus weights. Conversely these formulas show that the Gauss lift of a residual-torified base point is fully torified. They also include prime kernels. Thus continuous functions on $K$ correspond exactly to continuous $q_V$-fixed obstacles on the full projective space.
+
+The projective competitors initially supplied by cones are residual-torified. Their energy supremum equals the unrestricted projective supremum, as follows. In an eigenframe, split every section of a projective FS metric $\psi$ into residual weight components, giving each component the original section's coefficient. The resulting FS metric is precisely $\psi\circ q_V$, relative to the unchanged canonical reference. It is globally generating: a common zero of all components would be a common zero of the original sections. Ultrametricity gives $\psi\circ q_V\geq\psi$. Frame transitions are eigenunits and preserve the construction. Uniform FS approximation gives global continuity and the CPSH statement. If $\psi\leq g=g\circ q_V$, its torification remains below $g$. Energy monotonicity proves equality of the two suprema. This is a competitor construction, not an inference from obstacle invariance alone. Conversely torified projective FS metrics split into eigenlists and lift through the torsor and finite cover to the actual cone classes; uniform limits give the continuous correspondence.
+
+Combining (26),(40) and this torification, the cone $F_\eta$ of (4), for rational fields, is exactly the normalized relative-volume functional on $\omega_\eta$, relative to its canonical reference. All probability normalizations are preserved.
+
+We now check the quantitative source application. I Lemma 3.2 assumes a geometrically reduced projective scheme over an arbitrary complete non-Archimedean field, $L$ ample, $\phi$ continuous psh on $L$, and $\psi_1,\psi_2$ continuous psh on an auxiliary ample $M$. With $f=\psi_1-\psi_2$ and $C=(L+M)^p-L^p$, it gives
+$$ C\inf f\leq\int f(dd^c\phi+dd^c\psi_1)^p-\operatorname{vol}(L,\phi+f,\phi)\leq C\sup f.          \tag{42}$$
+It has no envelope antecedent. Our normal integral quotients are geometrically reduced and all these metrics are actual continuous psh, including (41).
+
+For completeness the source proof's reductions and factors are as follows. J9.12 and J8.3 allow algebraically closed nontrivially valued field extension without changing volume or curvature integrals. J7.6--7.8 allow uniform nef-model approximation; I1.1/J4.20 allow a dominating reduced-special-fiber model carrying ample auxiliary models. Perturb toward these ample models and take uniform limits. Tensor powers clear Q-line bundles. J A.15 supplies relatively regular sections under flatness, projectivity, finite presentation and relative ampleness: prime avoidance at the finitely many associated fiber points gives a section, and openness of relative regularity extends it over a neighborhood of the base point. I1.2 proves its restriction to an effective vertical divisor regular, using flatness of the section quotient and injectivity into its generic fiber. No global smoothness enters.
+
+Translate to $\inf f=0$. On the reduced special fiber I1.3 identifies its vertical divisor $E$ as effective. Restriction sequences for $mL+jE$ bound the determinant difference by $\sum_{j=1}^m h^0(E,(mL+jE)|_E)$, at most $m h^0(E,m(L+M_1)|_E)$ by the regular section restrictions. I2.4 proves
+$$ h^0(E,mN|_E)=\frac{m^p}{p!}\int\phi_E(dd^c\phi_N)^p+O(m^{p-1}). $$
+Its proof uses Serre vanishing for $mN$ and $mN-E$ and a determinant difference. The determinant functor has degree $p+1$, so its first difference has leading term $m^p\langle O(E),N^p\rangle/p!$; J8.18/I2.3 identifies that pairing with the curvature integral. Dividing the previous bound by $m^{p+1}/p!$ gives the lower inequality in (42). Translate instead to $\sup f=0$ and use effective $D=-E$ and sequences for $mL-jD$ to get the upper inequality. Adding a constant $a$ translates the difference by $aC$, yielding both signs. This checks the raw factorial and intersection factors. J9.15, separately, proves energy/volume equality for two continuous psh metrics using the $m^{p+1}/(p+1)!$ Deligne determinant expansion; its Corollary 9.16 adds an envelope hypothesis for general obstacles and is not used in (40).
+
+Apply (42) to $\epsilon\psi_1,\epsilon\psi_2$ on $M=\epsilon A\omega$, first for rational $\epsilon>0$ by tensor clearing, then by uniform metric/volume continuity for real $\epsilon$. Divide by $V=\omega^p$. The positive mixed measure
+$$ V^{-1}(dd^c\phi+\epsilon dd^c\psi_1)^p $$
+is the original probability plus positive terms of total mass $(1+\epsilon A)^p-1$. The absolute added integral is at most this mass times $\|f\|$. The source-estimate error is also at most $\epsilon$ times this mass times $\|f\|$. The volume cocycle and (40) therefore give
+$$ |F_\eta(u+tf)-E_\eta(u)-t\int f\mu_\eta(u)|
+ \leq2|t|((1+A|t|)^p-1)\|f\|.                                                               \tag{43}$$
+For $t<0$ interchange the two auxiliary metrics and use $-f$; the norm and constant are the same. The mean-value bound on $(1+x)^p$ gives (5). For $p=0$, point energy and volume give zero remainder. This is a bound for the **genuine cone obstacle energy**, since the previously missing reverse inequality has now been proved in Section 8.
+
+## 11. Bounded-obstacle Reeb continuity
+
+For any field, the reference plus $\min g$ is a competitor in (4), and every competitor lies below the reference plus $\max g$ by equivariance. Thus $\min g\leq F(g)\leq\max g$, and it is finite, monotone, exactly translation equivariant and 1-Lipschitz. For a CPSH restriction $u$, monotonicity gives $F(u)=E(u)$.
+
+If $\|g\|\leq M$, replace every competitor by $\max(w,\rho_\xi-M)$. This remains actual CPSH and feasible and increases its energy. Thus $-M\leq w|_K\leq M$ suffices. Write $w=Nw+a$, where $|a|\leq M$ and $-2M\leq Nw\leq0$. With $h=\mathcal R_{\xi\eta}w$, (3),(13) give
+$$ |E_\eta(h)-E_\xi(w)|\leq2M(e^{k_n\delta}-1)+M(e^\delta-1). $$
+Also $\|h-w\|_K\leq M(e^\delta-1)$. Subtract that last constant to restore feasibility for the same obstacle. Taking suprema and reversing fields proves
+$$ |F_\eta(g)-F_\xi(g)|\leq2M\big(e^{k_n\delta}-1+e^\delta-1\big).                              \tag{44}$$
+This is uniform on bounded obstacles. It does not use an unbounded root bound to estimate an uncontrolled supremum.
+
+For a bounded CPSH $u$ at an irrational field choose rational approximants and its raw root images. They converge locally uniformly by Section 1. In (43) the directions remain the single fixed $f$ and the constant $A$ remains valid by its strict margin. Equation (44), Lipschitzness for varying continuous obstacles, and Section 6's actual bounded MA/energy convergence pass (43) to the irrational field. No unbounded moving-field measure limit occurs here.
+
+## 12. Existing same-field mixed MA: a corrected decreasing-net argument
+
+We give the fixed-field argument needed for the last limit, rather than use a printed density assertion as a substitute for positivity. All potentials in this section have the same Reeb field. Write their restrictions to $K$, so the reference is zero. Let $\mu(u_1,\ldots,u_p)$ denote the already genuine mixed operator on CPSH.
+
+The needed coarse estimate follows from bounded concavity and positivity. For $u_0,\ldots,u_p\leq0$ in CPSH, set $\bar u=n^{-1}\sum_{i=0}^p u_i$ and $B=\max_i(-E(u_i))$. Concavity gives $E(\bar u)\geq-B$. All energy summands are nonpositive, so retain just the top term; then use $\bar u\leq u_0/n$ and expand the positive mixed measure. This gives
+$$
+ E(\bar u)\leq\frac1n\int\bar u\mu(\bar u)
+ \leq\frac1{n^2}\int u_0\mu(\bar u)
+ \leq\frac{p!}{n^{n+1}}\int u_0\mu(u_1,\ldots,u_p),
+$$
+whence
+$$ \int u_0\mu(u_1,\ldots,u_p)\geq-\frac{n^{n+1}}{p!}B.                                    \tag{45}$$
+For $n=1$ this is the trivial one-point bound. This corrects A Lemma 6.4's missing $1/n$, its summation endpoint and its $J$ definition: actually $J(u)=u(v_{\rm triv})-E(u)$, not just the reference integral.
+
+A decreasing net of bounded-above usc functions on compact Hausdorff $K$ has convergent integrals against a fixed Radon measure, equal to the integral of its limit. To check uncountable nets, a usc function's integral is the infimum of integrals of continuous majorants by Radon regularity; for each majorant $g$ the open sets $\{u_i<g+\epsilon\}$ eventually cover $K$. Compactness and directedness give the asserted infimum. This is the actual net form used in C Lemma 7.17, not sequence-only monotone convergence.
+
+Induct on the number $r$ of E1 slots, with the remaining slots fixed CPSH. The induction includes joint decreasing continuity when an E1 weight is integrated. For $r=0$, (45), decreasing CPSH approximation of the weight, and the preceding net integral argument prove integrability and weighted continuity against this fixed probability.
+
+For $r>0$, put $u=u_r$. For a CPSH test $\psi$, integration by parts prescribes
+$$
+ \int\psi\mu(u_1,\ldots,u_r,\ldots)
+ =\int u\mu(u_1,\ldots,\psi,\ldots)
+  +\int(\psi-u)\mu(u_1,\ldots,0,\ldots).                                                     \tag{46}
+$$
+Both measures on the right have at most $r-1$ E1 slots. Their integrals are well-defined by induction. Approximate the E1 slots by their raw decreasing CPSH nets; the right side converges by the inductive weighted assertion. The bounded approximating left sides are probabilities and have weak cluster points on compact $K$. Differences of CPSH tests are dense: by Section 9/41, for each $f\in D$ at this field $f=A(a/A-b/A)$ with $a/A,b/A$ actual CPSH. Formula (46) thus uniquely specifies every cluster point. It is positive and has mass one **because it is a weak limit of probabilities**, not because density alone says so. This also gives symmetry, independence of all defining nets, and weak decreasing continuity; applying the right side to simultaneous decreasing E1 nets uses the inductive assertion. Formula (45), passed to a fixed continuous majorant of an E1 weight and then through decreasing weight approximation, proves integrability in the new slot count. One may shift all potentials on an initial tail by one common constant to make them nonpositive; their finite lower energy bound supplies the uniform $B$. Normalizing each approximant and pretending it decreases is unnecessary.
+
+For clarity, here is the weighted lower estimate that completes the induction. For $u_i'\geq u_i$ and any E1 weight $\psi$, telescoping (46), first for CPSH $\psi$, drops the nonnegative integrals of $u_i'-u_i$ against the measure with $\psi$ inserted and gives
+$$
+ \int\psi\mu(u_1',\ldots,u_r',\ldots)
+ \geq\int\psi\mu(u_1,\ldots,u_r,\ldots)
+  +\sum_{i=1}^r\int(u_i-u_i')\mu(u_1,\ldots,u_{i-1},0,u_{i+1}',\ldots,u_r',\ldots).               \tag{47}
+$$
+The same inequality for an E1 weight follows by its decreasing CPSH approximation and the fixed-measure integral fact, since integrability was just established. This proof does not use the weighted continuity that it is proving.
+
+Let $\psi_j,u_{i,j}$ decrease to $\psi,u_i$. Continuous majorants of $\psi$ and weak probability convergence give the usual usc upper bound $\limsup\int\psi_j\mu_j\leq\int\psi\mu$. For the lower bound use $\psi_j\geq\psi$ and (47) with $u_i'=u_{i,j}$. Every error integral tends to zero by the induction at $r-1$, applied once with fixed weight $u_i$ and once with the decreasing weight $u_{i,j}$. Hence $\int\psi_j\mu_j\to\int\psi\mu$. Weighted weak convergence follows as well: after shifting, $-\psi_j\mu_j$ are positive with convergent masses; every cluster limit dominates $-\psi\mu$ by lower semicontinuity against positive continuous tests, and equality of masses forces equality. This is the elementary mass argument behind C Lemma 7.22.
+
+This reconstructs the needed genuine same-field extension and its decreasing-net continuity, including the weighted version. It agrees with A Theorem 6.3 by its defining integration-by-parts prescription, CPSH agreement and uniqueness on dense tests. The index is $p=n-1$, and all probabilities remain on $K$. No measure is obtained by an inverse construction, and no field variation of unbounded products is used.
+
+## 13. The outer energy and uniform differentiation on E1
+
+For bounded-above usc $h$, define $F^\downarrow$ by (4). It is monotone and exactly translation equivariant, and agrees with $F$ on continuous obstacles. It is continuous along decreasing nets of bounded-above usc obstacles. Indeed, for $h_i\downarrow h$ and continuous $g\geq h$, the increasing open sets $\{h_i<g+\epsilon\}$ cover compact $K$; directedness gives $h_i\leq g+\epsilon$ eventually. This bounds $\lim F^\downarrow(h_i)$ above by $F(g)+\epsilon$; infimizing gives one inequality, and monotonicity gives the other. Infinite values are included.
+
+For an actual PSH potential $u_i\downarrow u$ in CPSH, $F^\downarrow(u)\leq E(u_i)$ since $F(u_i)=E(u_i)$. Conversely any continuous $g\geq u$ eventually bounds $u_i$ up to $\epsilon$, giving $E(u)\leq F(g)+\epsilon$. Decreasing energy continuity therefore proves
+$$ F^\downarrow(u)=E(u),\qquad F^\downarrow(u+tf)=\lim_iF(u_i+tf).                               \tag{48}$$
+This is independent of the defining net. For $u\in\mathcal E^1$ translation bounds give
+$$ E(u)-|t|\|f\|\leq F^\downarrow(u+tf)\leq E(u)+|t|\|f\|, $$
+so this extended value is finite.
+
+Pass the already proved bounded estimate (43) through the **fixed-field** defining net. Equation (48) passes its left side, decreasing energy continuity passes its base energy, and Section 12 passes the genuine probability MA against the fixed continuous $f$. The constant is independent of $u_i$, so (5) follows for every E1 potential, both signs, and every field in $Q$. This is exactly the direct outer-extension route: its only unbounded analytic limit is a genuine same-field decreasing limit. A new strong-topology theorem or moving-field tail theorem would be an additional result, not an indispensable premise for this proof.
+
+For arbitrary fixed $f\in C(K)$, take $f_m\in D$ with $\epsilon_m=\|f-f_m\|\to0$. The correct squeeze is $f_m-\epsilon_m\leq f\leq f_m+\epsilon_m$; hence Lipschitzness and translation bound the difference of the two energy increments by $|t|\epsilon_m$. The difference of their linear MA terms is also at most $|t|\epsilon_m$, since MA has mass one. Dividing by $|t|$ gives (6). Choose $m$ first and then $t$. This corrects the extra $t$ and wrong upper sign in C LF4947,4954, and yields uniform differentiability for each fixed continuous direction. It gives neither a quadratic estimate for every continuous direction nor a uniform modulus on their entire unit ball.
+
+C Theorem 8.5/Corollary 8.6 explicitly distinguish this outer energy differentiation from the additional equality with the enveloped energy, which assumes the envelope property for general E1 potentials. Our construction makes the same distinction. It supplies the original comparison and the required uniform derivative of an extension agreeing with the actual energy, with the actual probability operator as derivative; it does not insert an unproved singular envelope theorem.
+
+## 14. Source limits and normalization checks
+
+The primary applications used in the proof are recorded individually in the provenance file. A provides the actual cone domains, currents and extended-energy conventions, with its calculus reconstructed above where its printing is inconsistent. B's unmodified $E=S$ is not used: its Lemma 3.16 states $S=n\widetilde S/(n+1)$, while its final proof identifies them. On $k[x_1,\ldots,x_n]$ with degree norm, $u=\rho+1$ and genuine $E(u)=1$, but
+$$ N(m)=\binom{m+n}{n},\quad W(m)=n\binom{m+n}{n+1},\quad W(m)/(mN(m))=n/(n+1) $$
+for every integer $m\geq1$. This is a mathematical counterexample to that printed equality and is consistent with (30). B's $mL$ coordinate proof also drops the radial $1/m$; Section 4 uses actual frames and actual finite-map degrees.
+
+F has a smooth-projective standing hypothesis; its Theorem 4.13 and external lattice lemma are not applied to singular quotients. E's Definitions 3.15 and 6.1 use opposite logarithmic-growth inequalities, and Proposition 4.19 invokes Lemma 3.25 whose hypothesis already includes regularizability. No result from that singular envelope chain is used here; this is a scope/dependency audit, not a claim that its conclusions are false. D's synthetic comparison assumes a common linear space of closed forms and mixed products; a nonlinear root does not establish those axioms, and no such application is made. K's pertinent statements and complete proofs are retained, but the independent signed semigroup argument replaces its external lattice/Chebyshev premises and the increasing/decreasing slip. J is the actual v3, not the v2 bibliography numbering in C. J9.15 is used only for two continuous psh metrics; (40)'s reverse inequality is a separate proof.
+
+All extra algebra and lattice arguments used in the bridges are provided here, particularly full-section-ring normality, all grading residues, degree/index error bounds, proper intersections through the regular point, full lattice generators, the conductor, and signed moment counting. No global smoothness or envelope premise is added to the normal-cone domain. The comparison (3), bounded-obstacle modulus (44), and differentiation (5)--(6) are the quantitative conclusions. Nothing here claims existence or image characterization for P13.2.
+
+## 15. Execution and reproducibility
+
+`input.json` is untouched and byte-identical to `input-original.json`; `assignment-original.txt` preserves the decoded assignment, and `task-original.json` preserves the literal task-object bytes. `preservation.json` records their hashes. `status.json` has exactly the requested five fields. The claim is a complete draft argument for P13.1, subject to independent checking; matching hashes and successful compilation certify neither mathematics nor novelty.
+
+Rerun in this fresh workspace:
+
+```sh
+python audit_sources.py
+python checks.py
+python build.py
+python validate.py
+```
+
+The audit verifies all eleven exact PDF/text hash sets, retains literal LF-indexed statements and proof bodies, and records checked applications and limitations. The lightweight exact-arithmetic diagnostics exercise finite signed semigroup counts, a nonnormal finite-semigroup conductor, residue errors, root bounds and normalization; they are finite observations, not proofs of universal claims. Existing Pandoc generates the standalone TeX and existing pdfTeX compiles it twice, preserving each stdout/stderr and a separate TeX log. Environment versions and exact commands are retained. No other campaign files, workers, models, installations, network calls, external messages, account changes or heavy computations are used.
+
+
+

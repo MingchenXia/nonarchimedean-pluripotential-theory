@@ -1,0 +1,376 @@
+## Actual round71 full finite-target, approximate-solution, I-Cauchy and raw-root envelope draft; UNREVIEWED
+
+---
+title: "The fixed-Reeb Monge--Ampere image: genuine approximation and the remaining realization gate"
+author: "Public-source reconstruction; unverified partial mathematical draft"
+date: "5 October 2026"
+geometry: margin=0.9in
+fontsize: 10pt
+header-includes:
+  - \usepackage{amsmath,amssymb,amsthm}
+---
+
+## Result and exact status
+
+The complete original P13.2 is **not solved by this document**. We prove the following partial theorem on its entire domain, including irrational Reeb fields. The theorem gives an intrinsic, finite-test description of the *finite-energy target class*, a necessary condition for the genuine image, and quantitative genuine approximate solutions. It does not identify that target class with the image.
+
+Let $k$ be any algebraically closed trivially valued characteristic-zero field and let $(X,T;\xi)$ be a normal good polarized affine cone of dimension $n\geq1$. Put $p=n-1$, $K=X_0^T$, and $o$ for the vertex. Potentials below are restrictions of the actual cone classes. Their reference $\rho_\xi$ restricts to zero on $K$. The reference point $v_{\mathrm{triv}}$ belongs to $K$. Define, for a Radon probability $\mu$ on this fixed carrier,
+$$
+ L_\xi(\mu)=\sup_{w\in H(\xi)}\left(E_\xi(w)-\int_Kw\,d\mu\right).                     \tag{1}
+$$
+Every test in (1) is an explicit finite maximum of homogeneous logarithmic branches with a primary list. In particular, the condition $L_\xi(\mu)<\infty$ involves neither an inverse potential nor unknown finite-energy outputs.
+
+**Partial theorem.** For every cone and every Reeb field in the stated domain:
+
+1. The condition $L_\xi(\mu)<\infty$ is equivalent to $\mathcal E^1(\xi)\subset L^1(\mu)$. It is exactly the existing finite-energy measure condition $E_\xi^\vee(\mu)<\infty$. The finite-energy measure class on $K$ is independent of the Reeb field. Every genuine output belongs to this class.
+2. Every such target has an $H(\xi)$ maximizing sequence $u_j$. Its *genuine* measures $\mathrm{MA}_\xi(u_j)$ converge weakly to $\mu$. For $f$ in the accepted fixed dense direction lattice $D$, a potential with dual deficit $d$ satisfies
+$$
+ \left|\int_K f\,d(\mathrm{MA}_\xi(u)-\mu)\right|
+ \leq d/s+C_f s\qquad(0<s\leq\tau),                                  \tag{2}
+$$
+where $C_f=2pA(1+A\tau)^{p-1}\|f\|_K$ and $A$ is an actual positive auxiliary slope. If $d=0$, both signs give the equation on a genuine $u\in\mathcal E^1$.
+3. When $p\geq1$, set $a_p=p/4^{p+1}$. For any two finite-energy potentials and their deficits,
+$$
+ I_\xi(u,v)\leq\frac{d_u+d_v}{2a_p}.                                  \tag{3}
+$$
+Thus every maximizing sequence is Cauchy modulo constants for the existing $I_\xi$. After normalization at $v_{\mathrm{triv}}$, its energies have a uniform finite lower bound. For every $f\in D$ with actual auxiliary slope $A$,
+$$
+ \left|\int_Kf\,d(\mathrm{MA}_\xi(u)-\mathrm{MA}_\xi(v))\right|
+ \leq\sqrt{2Ap\|f\|_K I_\xi(u,v)}.                                   \tag{4}
+$$
+This proves genuine weak continuity if an $I_\xi$ limit exists in the actual $\mathcal E^1/\mathbb R$.
+4. The carrier upper-semicontinuous supremum property transfers through the accepted intrinsic root maps: it holds at one Reeb field if and only if it holds at any other. We prove the upper-semicontinuous transport, rather than infer it from order alone.
+5. For $n=1$, $K$ is a point and the exact image is its sole probability. This special case is complete; it does not cover the original all-dimensional problem.
+
+The unresolved universal gate is realization of the Cauchy sequences in (3) by actual finite-energy potentials. Neither completeness of that actual space nor the singular normal rational envelope base needed by an envelope route is established here. Formula (2) proves Euler--Lagrange at a genuine maximizer; it does not manufacture that maximizer. Formula (4) would make completeness an independent realization substitute, without requiring an unbounded moving-Reeb measure limit. No variational-attainment condition or output-closure condition is presented as a solution of P13.2.
+
+## 1. Accepted input and normalization
+
+We use the explicitly accepted *full mathematical P13.1 proof* as a supporting theorem, rather than use operational claims in its canonical notes. Its exact binding is
+`/workspace/research/deliverables/original-P13.1/P13.1-reviewed-argument.md`, SHA256
+`de75b9ae55fbeb63c605505a328ed306c321a8e674331827cde51f5cfad76609`.
+The independently accepted review is a supplied binding, not a new review of this document. No new envelope conclusion is attributed to that theorem.
+
+The parts used are its actual-class convexity, decreasing-net energy and weighted mixed-MA continuity, positive mass-one mixed products, fixed-ray integration by parts and Hodge index, intrinsic order roots, finite-energy root comparison, rational quotient calibration, dense direction lattice, and canonical outer differentiation. In particular,
+$$
+ \nu_\xi(u_1,\ldots,u_p)
+   =V_\xi^{-1}dd^cu_1\cdots dd^cu_p\,dd^c\rho_\xi^+,
+ \quad \rho_\xi^+=\max(\rho_\xi,0),                                    \tag{5}
+$$
+and
+$$
+ E_\xi(u)=\frac1{nV_\xi}\sum_{j=0}^p
+       \int_Ku\,(dd^cu)^j(dd^c\rho_\xi)^{p-j}dd^c\rho_\xi^+.             \tag{6}
+$$
+For finite-energy potentials, (6) denotes the extended energy, obtained by genuine fixed-field decreasing limits; the mixed weighted integrals agree with that limit. There are $p$ horizontal factors and one radial factor in (5). Its total mass is one. Constants have energy equal to the constant on $K$.
+
+For a rational field $\eta=s\eta_e$, the effective supported grading has gcd one. With the actual degree-$d$ Veronese finite map and $L_d$ on the normal projective quotient $V=\operatorname{Proj}R$, the accepted calibration is
+$$
+ \dim V=p,
+ \quad V_\eta=s^{-n}d^{1-n}(L_d^p),
+ \quad\omega_\eta=L_d/(sd),\quad (\omega_\eta^p)=sV_\eta,
+ \quad E_\eta=E_{L_d}/(sd).                                           \tag{7}
+$$
+The one-unit radial Gauss mass, the degree-$d$ pushforward, and the $n$ factors $1/(sd)$ are retained. The relevant Hilbert coefficients are $(L_d^p)m^p/p!$ in a single projective degree and $V_\eta m^n/n!$ in a full cone cutoff. The signed full-ring mean is $S$ with $E=(n+1)S/n$, not $E=S$. These conventions are not replaced by projective raw mass or transverse volume.
+
+We also need the reference identity
+$$
+                    \mathrm{MA}_\xi(\rho_\xi)=\delta_{v_{\mathrm{triv}}}.                    \tag{8}
+$$
+Here is its deduction from the accepted bridge. Rationally the canonical reference is the zero-weight product model on the normal integral quotient. Its central fiber has one component of multiplicity one; the mixed component intersection is $(L_d^p)$. Its probability measure is therefore the trivial-valuation Dirac mass. The radial Gauss lift and the carrier homeomorphism in the accepted proof give exactly $v_{\mathrm{triv}}$ on the cone. For an irrational $\xi$, rational references converge locally uniformly off $o$ to the actual $\rho_\xi$. Their genuine probabilities converge by the accepted **bounded** current-continuity result. All the preceding reference measures are the same Dirac mass on the fixed $K$, so their limit is (8). No unbounded potential moves its Reeb field in this argument.
+
+On $K$, $u(v_{\mathrm{triv}})=\sup_Ku$ is finite for each actual nontrivial PSH potential. Write $Nu=u-u(v_{\mathrm{triv}})$. For normalized potentials, $u\leq0$ and
+$$
+              J_\xi(u)=-E_\xi(u)\geq0.                               \tag{9}
+$$
+Convex combinations on $K$ always mean the actual off-carrier combination with the reference included so that the equivariant slope remains one.
+
+## 2. The finite-test dual energy and target integrability
+
+First prove the elementary integral fact in the nonmetrizable setting. If $h_i$ is a decreasing bounded-above usc net on compact Hausdorff $K$ and $\mu$ is Radon, then
+$$
+                  \int h_i\,d\mu\downarrow\int h\,d\mu,
+             \qquad h=\inf_i h_i.                                    \tag{10}
+$$
+An initial tail is bounded above by one constant. For a bounded-above usc function, Radon regularity expresses its extended integral as the infimum of integrals of continuous majorants. This follows first for bounded functions by approximating their level sets by open sets, and then by truncation below. If $g$ is such a majorant of $h$, the open sets $\{h_i<g+\epsilon\}$ increase and cover $K$. Compactness and directedness give $h_i\leq g+\epsilon$ eventually. This proves the upper bound in (10); the reverse follows from $h_i\geq h$. The same argument covers $h=-\infty$ on a positive-measure set. It is not a sequence-only monotone-convergence assertion.
+
+Uniform actual $H$ approximation on $K$ and energy continuity show that the supremum in (1) equals the supremum over CPSH. If $L_\xi(\mu)<\infty$ and $u_i\downarrow u\in\mathcal E^1$ is its actual CPSH defining net, then
+$$
+             \int_Ku_i\,d\mu\geq E_\xi(u_i)-L_\xi(\mu).
+$$
+Decreasing energy continuity and (10) imply
+$$
+          \int_Ku\,d\mu\geq E_\xi(u)-L_\xi(\mu)>-\infty.               \tag{11}
+$$
+Since $u$ is bounded above on $K$, this is $L^1(\mu)$ integrability. Applying both continuity statements to the difference gives
+$$
+ L_\xi(\mu)=\sup_{u\in\mathcal E^1(\xi)}
+                  \left(E_\xi(u)-\int_Ku\,d\mu\right)
+             =E_\xi^\vee(\mu).                                      \tag{12}
+$$
+If the supremum over CPSH is infinite, the supremum over $\mathcal E^1$ is infinite as well. Thus the equality of extended dual energies has no hidden prior integrability assumption.
+
+We prove the converse integrability criterion, including its needed fixed-ray scaling. If $u\leq0$ is normalized and finite-energy, put
+$$
+ b_l=-\int_K u\,d\nu_\xi(u^{[l]},\rho_\xi^{[p-l]})\geq0,
+               \qquad 0\leq l\leq p.
+$$
+All terms are finite by accepted weighted mixed continuity. Equation (8) gives $b_0=0$, while (6) gives $J(u)=n^{-1}\sum_lb_l$. The restriction $tu$ for $0\leq t\leq1$ represents $u_t=tu+(1-t)\rho_\xi$ off $K$. Expanding the actual positive mixed product in (6),
+$$
+ J(u_t)=\frac1n\sum_{l=1}^p
+   \left[t\sum_{j=l}^p{j\choose l}t^l(1-t)^{j-l}\right]b_l
+       \leq 2^n t^2J(u).                                             \tag{13}
+$$
+For the bound, $t^{l+1}\leq t^2$, $(1-t)^{j-l}\leq1$, and
+$\sum_{j=l}^p{j\choose l}={n\choose l+1}\leq2^n$. The identity first holds for continuous potentials, and passes through actual fixed-field decreasing nets to $\mathcal E^1$. No nonlinear cross-ray linear axiom is invoked. If $p=0$, all normalized potentials have zero energy on the one-point carrier.
+
+Suppose now that every actual finite-energy potential is $\mu$-integrable. There is a finite $B$ such that
+$$
+ \int_K(-u)\,d\mu\leq B
+ \quad\text{for all normalized }u\in\mathcal E^1\text{ with }J(u)\leq1.                       \tag{14}
+$$
+Otherwise choose $u_j$ in that class with $\int(-u_j)\,d\mu\geq2^j$. The restriction
+$w_m=\sum_{j=1}^m2^{-j}u_j$ is an actual convex combination after adding the remaining reference weight. It decreases, is normalized at $v_{\mathrm{triv}}$, and concavity gives $E(w_m)\geq-1$. Its decreasing actual PSH limit is nontrivial because its value at that reference point is zero. Decreasing energy continuity gives a genuine $w\in\mathcal E^1$ with $E(w)\geq-1$. But (10), or ordinary monotone convergence for this sequence, gives $\int(-w)\,d\mu=\infty$. This contradicts the hypothesis, proving (14).
+
+For $J(u)\geq2^{-n}$ choose $t=(2^nJ(u))^{-1/2}\leq1$. Equations (13)--(14) give $\int(-u)\,d\mu\leq B\sqrt{2^nJ(u)}$. For smaller $J(u)$, (14) applies directly. Consequently the uniform bound
+$$
+ \int(-u)\,d\mu\leq B+B\sqrt{2^nJ(u)},\qquad
+ L_\xi(\mu)\leq B+2^{n-2}B^2<\infty                                 \tag{15}
+$$
+follows by maximizing $-x+B\sqrt{2^nx}$ over $x\geq0$. This completes the claimed integrability equivalence, without applying the printed projective Theorem 9.20 to cones.
+
+Finite-energy targets form a convex weakly lower-semicontinuous dual class; the finite dual-energy sublevels are weakly compact because (1) is a supremum of continuous affine functions on the compact space of Radon probabilities on $K$. These are compactness statements about measures, not about actual potentials.
+
+Finally, the accepted normalized root bijection obeys $u/c\leq\mathcal R_{\xi\eta}u\leq u/C\leq0$ and is onto the actual normalized $\mathcal E^1$ class. Therefore integrability of every source potential implies integrability of every target potential, and the inverse gives the converse. Combined with (15), this proves independence of the finite-energy measure class from $\xi$ on the **same carrier**. It makes no strong-topology assertion about roots.
+
+## 3. Necessity and the actual tangent inequality
+
+Fixed-ray concavity and its first variation imply, for continuous actual potentials,
+$$
+ E(w)\leq E(u)+\int_K(w-u)\,d\mathrm{MA}(u).                           \tag{16}
+$$
+Indeed apply concavity to the actual segment $u+t(w-u)$ and its derivative at $t=0$. Approximate both potentials by raw decreasing CPSH nets. The accepted energy and **weighted** fixed-field mixed-MA continuity pass (16) to all $u,w\in\mathcal E^1$.
+
+For $\nu=\mathrm{MA}(u)$, all finite-energy weights are $\nu$-integrable by the same accepted mixed calculus. Equation (16) and (12) give the exact identity
+$$
+              L_\xi(\nu)=E(u)-\int_Ku\,d\nu<\infty.                  \tag{17}
+$$
+The inequality $\leq$ follows by applying (16) to every competitor; equality follows by using $u$ in (12). This proves the necessary finite-energy condition and variational optimality of every genuine solution.
+
+Wu A Proposition 7.3 LF1249 prints the rearranged inequality in the opposite direction. The concave tangent used here is (16), proved independently from the accepted calculus. We do not use that printed line as a premise.
+
+## 4. Outer duality, both signs, and genuine approximate equations
+
+Use the accepted canonical functional
+$$
+ F(g)=\sup_{w\in\mathrm{CPSH}(\xi),\ w|_K\leq g}E(w),\qquad
+ F^\downarrow(h)=\inf_{g\in C(K),\ g\geq h}F(g).                        \tag{18}
+$$
+It is finite on continuous obstacles, monotone, translation equivariant and 1-Lipschitz. It agrees with actual PSH energy on that actual domain; its outer extension is decreasing-net continuous on bounded-above usc functions. We use its accepted differentiability, without asserting envelope attainment.
+
+For continuous $g$, positivity of $\mu$ and the definition of $F$ give
+$$
+          F(g)-\int_Kg\,d\mu\leq L_\xi(\mu).                         \tag{19}
+$$
+In fact, a feasible $w\leq g$ satisfies $E(w)-\int g\,d\mu\leq E(w)-\int w\,d\mu\leq L$. Conversely CPSH restrictions are continuous and satisfy $F(w)=E(w)$, so $L$ is also the supremum of the left side of (19).
+
+For any bounded-above usc $h$ that is $\mu$-integrable, choose its decreasing continuous-majorant net. Such a net exists on compact Hausdorff $K$: take all continuous majorants below a fixed upper constant, ordered by pointwise reverse order, using minima to make it directed. The pointwise infimum is $h$, by upper semicontinuity and the continuous separation of a point from a closed level set. Equations (10), (18), and (19) yield
+$$
+          F^\downarrow(h)-\int_Kh\,d\mu\leq L_\xi(\mu).               \tag{20}
+$$
+No interchange of an uncontrolled supremum and an unbounded integral has occurred.
+
+Fix a genuine $u\in\mathcal E^1$ and let
+$$
+ d_u=L_\xi(\mu)-E(u)+\int_Ku\,d\mu\geq0.
+$$
+The weight $h=u+tf$ is $\mu$-integrable for every continuous bounded $f$. The accepted outer derivative, for $f\in D$, gives
+$$
+ \left|F^\downarrow(u+tf)-E(u)-t\int_Kf\,d\mathrm{MA}(u)\right|
+   \leq C_f t^2\quad(|t|\leq\tau),                                  \tag{21}
+$$
+with the explicit constant in (2). Combining (20) and the lower side of (21),
+$$
+ t\int_Kf\,d(\mathrm{MA}(u)-\mu)\leq d_u+C_f t^2.
+$$
+Taking $t=s$ and $t=-s$ proves (2). This is both-sign Euler--Lagrange on a genuine potential if $d_u=0$: send $s\downarrow0$, then use density of $D$ and mass one to conclude $\mathrm{MA}(u)=\mu$. Conversely (17) gives $d_u=0$ for a solution. This is a proved optimality identity for an already genuine potential, not a proposed intrinsic existence condition.
+
+For every finite $L$ choose $u_j\in H(\xi)$ with $0\leq d_{u_j}<j^{-2}$, and normalize by a constant if desired. Constants do not change deficits or MA. With $\tau=1$ and $s=1/j$, (2) yields
+$$
+ \left|\int_Kf\,d(\mathrm{MA}(u_j)-\mu)\right|
+                         \leq(1+C_f)/j\qquad(f\in D).                 \tag{22}
+$$
+For $f\in C(K)$ choose $f_m\in D$ uniformly close. The additional error is at most $2\|f-f_m\|_K$, because both measures are probabilities. Choose $m$ before $j$. This proves weak convergence on every continuous test, on any compact Hausdorff carrier and over every field in the original domain. The maximizing sequence exists by the real supremum in (1); no countable enumeration of the ground field or all FS presentations is claimed.
+
+More generally, the same argument applies to any maximizing net in actual $\mathcal E^1$. Its target integration uses (11) and (20). It does not assert integration continuity along arbitrary nonmonotone potential nets.
+
+## 5. The Cauchy property: an actual fixed-ray calculation
+
+Assume $p\geq1$. For continuous actual $u,v$, let $z=u-v$ and define the nonnegative fixed-ray Dirichlet coefficients
+$$
+ B_j=-V_\xi^{-1}\int z\,dd^cz\,(dd^cu)^j(dd^cv)^{p-1-j}dd^c\rho_\xi^+,
+                      \qquad 0\leq j\leq p-1.                        \tag{23}
+$$
+Nonnegativity is the accepted fixed-ray Hodge index. Integration by parts and the difference-of-powers identity give
+$$
+ I_\xi(u,v)=\int_K(u-v)\,d(\mathrm{MA}(v)-\mathrm{MA}(u))
+                          =\sum_{j=0}^{p-1}B_j.                      \tag{24}
+$$
+Writing $g(t)=E(v+tz)$, the genuine derivative and the actual product expansion give
+$$
+ -g''(t)=p\sum_{j=0}^{p-1}{p-1\choose j}t^j(1-t)^{p-1-j}B_j.           \tag{25}
+$$
+These are mixed products on the one fixed ray. The roots are absent from this calculation.
+
+The Green kernel on $[0,1]$, evaluated at $1/2$, is
+$G(1/2,t)=\tfrac12\min(t,1-t)$. Consequently
+$$
+ E((u+v)/2)-(E(u)+E(v))/2
+       =\int_0^1G(1/2,t)(-g''(t))\,dt\geq a_p I_\xi(u,v).             \tag{26}
+$$
+To check the coefficient, on $[1/4,3/4]$ the Green kernel is at least $1/8$, every $t^j(1-t)^{p-1-j}$ is at least $4^{-(p-1)}$, each binomial is at least one, and the interval length is $1/2$. Their product with $p$ is $p/4^{p+1}=a_p$.
+
+All expressions (23)--(24) can also be written as sums of accepted weighted genuine mixed measures. Simultaneous raw decreasing CPSH approximation therefore passes them, their nonnegativity, and (26) to actual finite-energy potentials. The midpoint approximants decrease to the actual midpoint. Thus no unbounded differential current is newly postulated by the notation in (23).
+
+The dual deficit of the actual midpoint equals
+$$
+ d_{(u+v)/2}=(d_u+d_v)/2-
+               \big(E((u+v)/2)-(E(u)+E(v))/2\big)\geq0.
+$$
+Combining with (26) proves (3). This proves Cauchyness of every maximizing sequence directly, without silently applying a projective or synthetic completeness theorem.
+
+Pair a normalized $u$ with the reference. Its reference deficit is $d_\rho=L$. The two nonnegative tangent deficits from (16) sum to $I(u,\rho)$, and the reference one is $-E(u)$ by (8). Hence
+$$
+                   -E(u)\leq I(u,\rho)
+                    \leq (d_u+L)/(2a_p).                             \tag{27}
+$$
+The approximating normalized potentials thus have bounded finite energy. This bound does not imply their compactness or their membership after completion.
+
+## 6. A genuine MA continuity estimate if an actual limit exists
+
+For $f\in D$, the accepted direction construction at this fixed $\xi$ supplies actual continuous slope-$A$ cone psh functions $a,b$ with $f=a-b$ on $K$, where $a/A,b/A$ belong to CPSH$(\xi)$. Extend the difference with equivariant slope zero. This is a common **linear fixed-ray** class, sufficient for the following calculation; no synthetic theorem is applied.
+
+For each horizontal product $M_j=(dd^cu)^j(dd^cv)^{p-1-j}dd^c\rho_\xi^+$, Hodge index and Cauchy--Schwarz give
+$$
+ \left|V_\xi^{-1}\int f\,dd^cz\,M_j\right|\leq\sqrt{Q_j(f)B_j},
+ \qquad Q_j(f)=-V_\xi^{-1}\int f\,dd^cf\,M_j\geq0.
+$$
+Since $dd^cf=dd^ca-dd^cb$ and each positive product $V_\xi^{-1}dd^ca\,M_j$ or $V_\xi^{-1}dd^cb\,M_j$ has mass $A$, positivity gives
+$$
+                         Q_j(f)\leq2A\|f\|_K.                       \tag{28}
+$$
+The mass assertion follows immediately by factoring out $A$ and applying the accepted mixed probability to $a/A$ or $b/A$ and the remaining same-field slots. Summing the difference-of-powers identity and applying the finite Cauchy--Schwarz inequality gives
+$$
+ \left|\int f\,d(\mathrm{MA}(u)-\mathrm{MA}(v))\right|
+ \leq\sqrt{2A\|f\|_K}\sum_j\sqrt{B_j}
+ \leq\sqrt{2Ap\|f\|_K I(u,v)},
+$$
+which is (4). For finite-energy $u,v$, approximate decreasingly at this **fixed** field. The accepted weighted continuity passes $I$ and the coefficients in (24); ordinary weak decreasing continuity passes the bounded $f$ tests. This proves the estimate on actual $\mathcal E^1$.
+
+It follows that, if the Cauchy sequence in Section 5 has a limit $[u]$ in the actual $\mathcal E^1/\mathbb R$ for $I$, its MA measures converge weakly to $\mathrm{MA}(u)$. By Section 4 they also converge to $\mu$, so $\mathrm{MA}(u)=\mu$. The uniqueness assumed in the task then applies. This explains precisely why **actual** completeness would suffice as an independent realization route. It is a reduction, not a theorem asserting completeness or a substitute image condition.
+
+This route does not need to pass target integrals through a nonmonotone maximizing sequence: the actual equation follows from the two weak measure limits. Once the genuine solution exists, its target integral is finite by (11), and (17) and (21) give actual optimality and both-sign Euler--Lagrange. The missing assertion is the existence of that actual limit.
+
+## 7. Upper-semicontinuous envelope transport through roots
+
+Here is an analytic statement beyond the accepted order comparison, with its proof. It concerns carrier envelopes and does not assume that an envelope is psh.
+
+Let $\Omega$ be the torified analytic points off $o$. With fixed homogeneous generators $h_i$ of weights $\beta_i$, the accepted action is jointly continuous and
+$$
+ (v+t\eta)(\textstyle\sum f_\alpha)=\min_\alpha\{v(f_\alpha)+t\langle\eta,\alpha\rangle\}.
+$$
+On $\Omega$, every fixed-$t$ map is a homeomorphism, with inverse $-t$. The reference and slice maps are
+$$
+ \rho_\xi(v)=\max_i\frac{-v(h_i)}{\langle\xi,\beta_i\rangle},\qquad
+ s_\xi(v)=v+\rho_\xi(v)\xi.
+$$
+The map $v\mapsto(s_\xi(v),\rho_\xi(v))$ is a homeomorphism $\Omega\simeq K\times\mathbb R$, with inverse $(x,r)\mapsto x-r\xi$. Its continuity follows from the accepted action and the continuous reference; the two identities verify the inverse. Thus for a function $h$ on $K$ its equivariant extension $U(v)=h(s_\xi(v))+\rho_\xi(v)$ has usc regularization
+$$
+                        U^*(v)=h^*(s_\xi(v))+\rho_\xi(v).              \tag{29}
+$$
+This product-space equality is valid for extended $-\infty$ values and arbitrary nets. It does not require metrizability of $K$.
+
+Let $\{u_i\}$ be any nonempty family of actual $\xi$-PSH potentials with a uniform upper bound on their restrictions to $K$. Set $U=\sup_i u_i$ on $\Omega$. It is locally bounded above, is $\xi$-equivariant, and retains the accepted orbit inequalities
+$$
+ U(v)-Ct\leq U(v+t\eta)\leq U(v)-ct\quad(t\geq0),
+ $$
+where $c,C>0$ control all supported degree ratios. The same inequalities hold for $U^*$: take usc regularizations and use that each fixed action map is a homeomorphism. Finiteness at one point of an orbit forces finiteness everywhere on that orbit and a unique zero parameter; an infinite orbit stays $-\infty$. Define $\mathcal R U$ and $\mathcal R U^*$ by those parameters, without claiming psh membership.
+
+The uniform lower slope proves the two identities
+$$
+        \mathcal R U=\sup_i\mathcal R u_i,
+        \qquad \mathcal R U^*=(\mathcal R U)^*.                        \tag{30}
+$$
+For the first, put $r=\sup_i\mathcal R u_i(v)$. Above $r$, every value is at most $-c(t-r)$; below $r$, some branch has a positive value. If $r=-\infty$, every original orbit is entirely infinite, giving the asserted extended identity.
+
+For the second, let $r^*=\mathcal R U^*(v)$. If $t>r^*$, then $U^*(v+t\eta)<0$. Upper semicontinuity gives a neighborhood where $U$ is strictly negative. Applying the fixed inverse action gives a neighborhood of $v$ on which $\mathcal R U<t$, so $(\mathcal R U)^*(v)\leq t$. If $t<r^*$, the defining property of usc regularization and $U^*(v+t\eta)>0$ imply that every neighborhood of $v+t\eta$ meets $\{U>0\}$. Apply the inverse action: every neighborhood of $v$ meets $\{\mathcal R U>t\}$. Hence $(\mathcal R U)^*(v)\geq t$. Taking arbitrary such $t$ proves equality. If $r^*=-\infty$, the first argument works for every real $t$. There is no $+\infty$ case, since the family is locally bounded above.
+
+Define the **carrier supremum property** at $\xi$ to mean that $(\sup_i u_i|_K)^*$ is the restriction of an actual $\xi$-PSH potential for every such family. It is nontrivial at $v_{\mathrm{triv}}$. Root images of a uniformly upper-bounded family are uniformly upper bounded: their values at $v_{\mathrm{triv}}$ are bounded by the same orbit slopes, and those values equal their carrier suprema. If the property holds at $\eta$, equations (29)--(30) make the envelope of the root family an actual $\eta$-PSH potential. Apply the accepted **raw** inverse root. It is an actual $\xi$-PSH potential, and (29)--(30) identify its restriction with the source carrier envelope. Reversing fields proves equivalence.
+
+Only torified $\Omega$ and $K$ are involved in (29)--(30). An envelope on the full link is not identified by an unjustified openness assertion for torification. Actual potential membership in the last paragraph follows from the accepted raw inverse and uniqueness of the equivariant, torified extension.
+
+At a rational field, the accepted normal quotient/torsor and residual torification describe this carrier property as the invariant projective envelope property. An independently proved unrestricted projective EP on that actual singular normal quotient would suffice. It is not silently supplied here. Universally this base cannot be reduced to smooth quotients. To check this assertion, take a normal integral projective variety $V$ and an ample Cartier divisor $D$. Its full section ring is the intersection, inside $k(V)(t)$, of $k(V)[t]$ with the Gauss valuation rings having weights $v_F(f)+m\operatorname{ord}_F(D)$ on $ft^m$, for all prime divisors $F$ of $V$. Normality of $V$ identifies sections with these codimension-one inequalities. Every ring in this intersection is integrally closed, so the section ring is normal. Ampleness gives finite generation, and a high Veronese is standard and has Proj equal to $V$. Its affine section cone with the scalar torus is therefore an original normal good cone whose rational quotient is precisely $V$ and whose residual torus is trivial. Thus all normal singular projective bases occur in the original family.
+
+No strong-topology continuity is inferred from (30). Although carrier envelopes transfer in this precise sense, the accepted roots remain nonlinear and do not by themselves transport $I$ completeness.
+
+## 8. Why the printed singular source cannot close the gate as supplied
+
+E is Lyuhui Wu, arXiv:2609.27610v1, the exact public primary cache with PDF SHA256
+`11808a6c9ede9c0158b27e16700fc180a4ac8df12a4586a7178e1958e8f6bba8`.
+Its extract SHA256 is `c8ffe91a631da67f6d3872a1a06ab8d15755aed2f926cdf326725ca3662cef7d`.
+Coordinates below are inclusive one-based indices after UTF-8 byte decoding and `split('\n')`.
+
+At LF766--768, Definition 3.15(2) calls $v$ logarithmic-growth if there is an FS function $g$ with $g\leq v+O(1)$. At LF769--774 regularizability requires a decreasing sequence of global FS functions converging to $v$. At LF1560--1562 Proposition 4.19 claims equality of those classes on every smooth affine variety in equicharacteristic zero. The proof at LF1569--1572 tries to get the opposite, upper-growth estimate and invokes Lemma 3.25(1), whose hypothesis at LF952--957 already includes regularizability.
+
+The lower-growth statement of Proposition 4.19 is actually false as printed. This is an independently proved source diagnostic, not just an observation about a missing citation. Take $Y=\mathbb A^1_k$ and
+$$
+             v(x)=\big(\max(\log|z|(x),0)\big)^2,
+             \qquad g(x)=\max(\log|z|(x),0).                           \tag{31}
+$$
+At $z=0$ give both functions value zero. The function $v$ is continuous, finite everywhere on $Y^{\mathrm{an}}$, and locally psh under E Definition 3.8. To verify that exact definition, on any neighborhood $\{|z|<e^M\}$ with rational positive $M$, let $t=-\log|z|$. Interpolate $t^2$ on the successive dyadic subdivisions of $[-M,0]$ by secants, and give the interpolants value zero for $t\geq0$, including $t=+\infty$. These are continuous convex rational PL functions on $(-M,+\infty]$, with slopes increasing to zero. On the finite-coordinate part they are finite maxima of rational affine branches and the zero branch; near $+\infty$ they are the constant zero. This finite local cover meets E's requirement that the active affine expressions take finite values on their domains. Refining the nested subdivision decreases the secant interpolants to $(\max(-t,0))^2$. Composing with the tropicalization by $z$ gives precisely the decreasing local TConv--PL sequences in E Definitions 3.7--3.8, LF696--707. These neighborhoods cover $Y^{\mathrm{an}}$.
+
+The element $z$ generates $k[z]$, so $g$ is an actual E-FS function with rational data and constant branch zero. For every $r\geq0$, $r\leq r^2+1/4$. Consequently $g\leq v+1/4$ everywhere. Thus $v$ belongs to E's **printed lower-growth** class.
+
+Nevertheless $v$ cannot be a decreasing limit of global E-FS functions. For $t\geq0$, the Gauss seminorm of radius $e^t$ on $k[z]$ is $|\sum a_jz^j|_t=\max_j |a_j|e^{jt}$. Every nonzero polynomial $f$ has $\log|f|_t=(\deg f)t$, since $k$ is trivially valued. Any E-FS function is a finite maximum of positive rational multiples of these expressions plus rational constants and a rational constant branch. It is bounded above by $At+B$ for some finite $A,B$ on this Gauss ray. If a decreasing FS sequence converged to $v$, its first term would majorize $v$, requiring $t^2\leq At+B$ for all $t\geq0$. This is impossible. The counterexample is on a smooth affine line and uses the exact rational/local definitions, without external regularization results.
+
+Replacing the lower-growth definition by an upper-growth definition removes this particular counterexample. It does **not** prove the corrected proposition or the singular envelope theorem. The global extension step must then be justified without presupposing the very regularizability it is trying to prove. The remaining trace, Runge, strict-contact and singular-induction applications would still need independent reconstruction with their antecedents, including arbitrary-field descent. E Theorem 6.3 and 6.5 have countable-dense-subfield hypotheses at LF1926--1929 and LF1938--1941, while Theorem 7.1 removes that restriction through another descent argument. These hypotheses cannot be suppressed.
+
+As a separate normalization warning, the strict contact construction in E Lemma 6.6 LF1972 prints $\chi_k(t')>l(t)$, although contact at $t$ requires comparison with the affine function evaluated at $t'$. We do not import the printed contact lemma or claim that correcting the displayed variable alone checks its construction. Similarly, the open trace and singular induction bodies are retained for auditing, not assumed valid. The conclusion here is limited: the supplied printed chain is not a verified applicable singular EP proof. This document neither disproves the final EP conclusion nor claims that no repair exists.
+
+## 9. Dimension one and precise unresolved conclusions
+
+The accepted normal effective-grading argument gives $R=k[z]$ in cone dimension one. Torification and the link condition force $|z|=1$ on $K$, so $K=\{v_{\mathrm{triv}}\}$. Every actual potential restriction is a finite constant. The empty horizontal product and the calibrated radial factor give $\mathrm{MA}(u)=\delta_{v_{\mathrm{triv}}}$, and $E(u)=u(v_{\mathrm{triv}})$. The only Radon probability on $K$ therefore has a genuine solution and dual energy zero, with uniqueness modulo constants. There is no higher-dimensional consequence from this case.
+
+For $n\geq2$, the strongest unconditional conclusion proved here is (1)--(4), (12)--(17), (22), (27), and (30). It gives the following concrete inventory.
+
+* Finite-energy targets are determined by explicit $H$ integrals and genuine energy, or equivalently by integrating the whole known $\mathcal E^1$ domain. This is a description of the target class, not a proved description of the image.
+* The targets have genuine model approximate solutions, with a quantitative weak error and Cauchy actual potentials of bounded energy. Execution, finite arithmetic, and weak measure convergence do not create an actual inverse.
+* An actual $I$ limit would solve the equation by (4). **Actual completeness on all normal cones is unproved here.** A formal completion cannot be substituted.
+* Carrier usc-sup stability transfers through roots, but **its singular normal rational base is unproved here**. If pursuing a compactness variational proof instead, the necessary target-integration continuity on the resulting nonmonotone potential limits would also have to be checked. The decreasing-net target continuity in Section 2 alone is insufficient for that different route.
+* The new singular source cannot be used by simply citing Theorem 7.1; Section 8 proves a counterexample to an indispensable proposition under its printed definition and leaves the corrected chain unverified.
+
+The operator's given bi-Lipschitz embedding and uniqueness on its image are fully consistent with this partial theorem. A Cauchy dense image can remain a proper image until realization is established. No rational-only or toric-only substitute covers the unchanged completion criteria. Accordingly `candidate=false` and the status is partial, with an explicit mathematical realization gap.
+
+## 10. Provenance, execution, and rerun
+
+Only the input, the eleven supplied read-only primary caches and the three explicitly accepted bindings were read. The accepted mathematical body and the relevant literal primary bodies are retained in `source-extracts/source-provenance.json`, with exact versions, SHA256 checks, inclusive LF ranges, checked applications and concrete limits. Byte-identical complete text copies `source-extracts/A-full.txt` through `K-full.txt` retain bodies beyond the selected excerpts. Retention is not a claim that all their proofs were independently checked. This document applies no synthetic theorem and no new singular EP theorem.
+
+`input.json` is untouched; `input-original.json` is byte identical. `assignment-original.txt` preserves the decoded assignment, and `task-original.json` preserves the literal task-object bytes. `preservation.json` records all four hashes. `status.json` has exactly `id,status,exact_result,proof_file,concrete_gaps`.
+
+The lightweight exact diagnostics in `checks.py` check the coefficient bound in (13) on a finite rational grid, nested dyadic secant inequalities used in (31), and the scalar factors in (7). They are exhaustive only on their stated finite domains. They prove neither universal mathematical correctness nor realization. No heavy computation, worker, other model, network request, software installation, account/runtime change, external message or publication is used.
+
+The existing Pandoc and pdfTeX tools generate `P13.2-paper.tex` and compile twice. Separate `pandoc.stdout`, `pandoc.stderr`, `tex-pass-1.stdout`, `tex-pass-1.stderr`, `tex-pass-2.stdout`, `tex-pass-2.stderr`, `tex-pass-1.log`, and `tex-pass-2.log` are retained with `environment.json` and `build-report.json`. Successful compilation establishes readability and execution only.
+
+Rerun in this fresh workspace:
+
+```sh
+python audit_sources.py
+python checks.py
+python build.py
+python validate.py
+```
+
+The complete partial proof is this `P13.2-argument.md`, with standalone `P13.2-paper.tex`. The final canonical notes preserve the claims, proofs, diagnostic and exact gaps; none claims a complete solution of the original P13.2.
+
+
+

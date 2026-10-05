@@ -1,0 +1,821 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  10pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=0.85in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{\textbf{#1}}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{amsmath,amssymb,amsthm}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Fixed-Reeb finite-energy targets and the actual realization obstruction},
+  pdfauthor={Public-source reconstruction; unverified partial proof},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Fixed-Reeb finite-energy targets and the actual realization
+obstruction}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{A fixed-ray polynomial, uniform target integration, and
+explicit normal-envelope auxiliaries}
+\author{Public-source reconstruction; unverified partial proof}
+\date{5 October 2026}
+
+\begin{document}
+\maketitle
+
+\section{Exact scope and disposition}\label{exact-scope-and-disposition}
+
+The unchanged original P13.2 is \textbf{not solved in this paper}. No
+intrinsic sufficiency or actual inverse existence is claimed in general
+dimension. The domain remains every normal good polarized affine cone
+over every algebraically closed trivially valued characteristic-zero
+field, with every Reeb field, including irrational fields. The carrier
+remains the fixed compact space \(K=X_0^T\), and every MA below is the
+genuine affine-cone probability. The final flag is
+\texttt{candidate=false}.
+
+The supplied full P13.1 mathematical proof, explicitly accepted with its
+original PASS review, is the sole accepted new theorem. The supplied
+round71, round70, and root79 drafts are not premises. This paper
+independently derives the finite-target and approximation assertions
+from the accepted calculus, and adds a linear fixed-ray homogeneous
+polynomial and a uniform bounded-energy target-integration estimate. It
+also reconstructs explicit strict supports, rational affine
+approximations at logarithmic poles, a normal-ring localization lemma,
+and a retraction argument for carrier envelopes. Those auxiliaries do
+not establish the normal singular rational envelope base.
+
+The precise new estimate is as follows. Put \(p=\dim X-1\ge1\) and
+\(\alpha=2^{-p}\). For a Radon probability \(\mu\) on \(K\), define the
+finite-test dual energy \[
+ L(\mu)=\sup_{w\in H(\xi)}\left(E(w)-\int_Kw\,d\mu\right).
+ \tag{1}
+\] For \(L(\mu)<\infty\), let \(\psi\) be an actual normalized
+finite-energy potential, with deficit
+\[d_\psi=L(\mu)-E(\psi)+\int_K\psi\,d\mu.\] There is a constant \(C_p\)
+depending only on \(p\) such that, for every actual normalized
+\(\phi\in\mathcal E^1\), \[
+ \left|\int_K\phi\,d(\mathrm{MA}(\psi)-\mu)\right|
+ \le C_p\sqrt{d_\psi}\,J(\phi)^\alpha
+       \big(J(\phi)+J(\psi)+B_0\big)^{1/2-\alpha},
+ \qquad B_0=1+\frac{L(\mu)+1}{2a_p},\quad a_p=\frac p{4^{p+1}}.
+ \tag{2}
+\] Here \(J(\phi)=-E(\phi)\) after normalization at the trivial
+valuation. If \(p=1\), the last factor has exponent zero and is
+interpreted as one. Formula (2) proves uniform convergence of
+\textbf{signed target integrals} on bounded-\(J\) sets along a
+maximizing sequence. It also proves convergence of the dual energies of
+its genuine output measures. It does not assert \(L^1\) continuity along
+arbitrary weakly convergent nonmonotone potential nets, nor compactness
+or actual membership of a potential limit.
+
+\section{Accepted calculus and exact
+normalization}\label{accepted-calculus-and-exact-normalization}
+
+Let \(n=\dim X\ge1\), \(p=n-1\), and write \(\rho=\rho_\xi\),
+\(V=V_\xi\). The actual continuous class is the local-uniform closure of
+finite primary homogeneous maxima
+\[u=\max_i\frac{\lambda_i-v(f_i)}{\langle\xi,\mathrm{wt}(f_i)\rangle}.\]
+PSH consists of nontrivial decreasing CPSH-net limits. Potentials in
+this paper are restrictions of those classes, not a replacement
+definition on \(K\). The accepted theorem supplies genuine positive
+mixed products, integration by parts, the fixed-ray Hodge inequality,
+bounded local-uniform continuity, weighted decreasing-net continuity,
+and actual convexity and maximum stability.
+
+The conventions are \[
+ \nu(u_1,\ldots,u_p)=V^{-1}dd^cu_1\cdots dd^cu_p\,dd^c\rho^+,
+ \quad \rho^+=\max(\rho,0),\quad \nu(K)=1,
+ \tag{3}
+\] \[
+ E(u)=\frac1{nV}\sum_{j=0}^p\int_Ku\,(dd^cu)^j(dd^c\rho)^{p-j}dd^c\rho^+.
+ \tag{4}
+\] The reference restricts to zero on \(K\). On unbounded finite-energy
+potentials, these expressions mean the actual fixed-field weighted
+decreasing limits. The accepted outer energy is
+\[F(g)=\sup_{w\in\mathrm{CPSH},\ w\le g}E(w),\qquad
+ F^\downarrow(h)=\inf_{g\in C(K),\ g\ge h}F(g). \tag{5}\] It agrees with
+the existing energy on every actual PSH potential and is decreasing-net
+continuous. For a fixed uniformly dense direction lattice
+\(\mathscr D\subset C(K)\), each \(f\in\mathscr D\) has actual
+slope-\(A\) auxiliary representatives \(f=a-b\) with
+\(a/A,b/A\in\mathrm{CPSH}(\xi)\). Both signs of the accepted estimate
+are \[
+ |F^\downarrow(u+tf)-E(u)-t\int_Kf\,d\mathrm{MA}(u)|
+ \le C_f t^2,\qquad C_f=2pA(1+A\tau)^{p-1}\|f\|_K,\quad |t|\le\tau.
+ \tag{6}
+\] This is an outer functional, with no envelope-attainment identity
+assumed.
+
+We also deduce the reference identity
+\(\mathrm{MA}(\rho)=\delta_{v_{\rm triv}}\). Rationally, the zero-weight
+product model on the normal integral projective quotient has one central
+component of multiplicity one and mixed intersection equal to the
+projective volume. Its projective probability is the trivial-valuation
+Dirac mass. The accepted radial Gauss lift gives \(v_{\rm triv}\) on
+\(K\). Irrational references are bounded local-uniform limits of
+rational references; accepted genuine current continuity gives the same
+Dirac measure. Thus normalized \(u\) has
+\[u(v_{\rm triv})=\sup_Ku=0,\qquad u\le0,\qquad J(u)=-E(u). \tag{7}\]
+
+For a rational field \(\eta=s\eta_e\), the accepted effective supported
+grading has gcd one. On a suitable degree-\(d\) Veronese quotient with
+actual ample bundle \(L_d\), the calibration is \[
+ V_\eta=s^{-n}d^{1-n}(L_d^p),\quad \omega_\eta=L_d/(sd),\quad
+ (\omega_\eta^p)=sV_\eta,\quad E_\eta=E_{L_d}/(sd). \tag{8}
+\] The finite map has generic degree \(d\), the \(n\) curvature factors
+each contribute \(1/(sd)\), and the radial Gauss current has one unit
+mass. The full-ring signed mean has \(E=(n+1)S/n\). We retain these
+factors throughout; there is no replacement by an unnormalized
+projective measure.
+
+\section{Reconstruction of the finite-target
+criterion}\label{reconstruction-of-the-finite-target-criterion}
+
+For a decreasing bounded-above usc net \(h_i\downarrow h\) on compact
+Hausdorff \(K\) and a Radon probability \(\mu\),
+\[\int h_i\,d\mu\downarrow\int h\,d\mu. \tag{9}\] Here the integral of a
+bounded-above usc function is the infimum of its continuous-majorant
+integrals. For bounded functions this follows by regular approximation
+of level sets; truncation below gives the extended version. If
+\(g\ge h\) is continuous, the increasing open sets
+\(\{h_i<g+\epsilon\}\) cover \(K\). A finite subcover and directedness
+give \(h_i\le g+\epsilon\) eventually. Taking the infimum over \(g\)
+proves (9), including value \(-\infty\). No sequence-only monotone
+convergence is substituted for nets.
+
+Uniform \(H\) approximation and actual energy continuity equate (1) with
+its CPSH supremum. If \(L(\mu)<\infty\) and
+\(u_i\downarrow u\in\mathcal E^1\) is an actual defining net, then
+\[\int u_i\,d\mu\ge E(u_i)-L(\mu).\] Equation (9) and decreasing energy
+continuity imply \(\int u\,d\mu\ge E(u)-L(\mu)>-\infty\). All
+finite-energy potentials are therefore \(\mu\)-integrable, and \[
+ L(\mu)=\sup_{u\in\mathcal E^1}\left(E(u)-\int u\,d\mu\right)=E^\vee(\mu).
+ \tag{10}
+\] When the bounded-test supremum is infinite, the E1 supremum is
+already infinite since it contains those bounded tests. This establishes
+equality as an extended functional as well.
+
+Conversely, assume every actual E1 potential is \(\mu\)-integrable. On
+normalized \(u\) put
+\[b_l=-\int u\,d\nu(u^{[l]},\rho^{[p-l]})\ge0,\quad 0\le l\le p.\]
+Weighted mixed continuity gives finiteness, the reference Dirac gives
+\(b_0=0\), and \(J(u)=n^{-1}\sum_l b_l\). The actual segment
+\(u_t=tu+(1-t)\rho\), \(0\le t\le1\), has on \(K\) the restriction
+\(tu\). Expanding the actual positive products gives \[
+ J(u_t)=\frac1n\sum_{l=1}^p
+ t\sum_{j=l}^p{j\choose l}t^l(1-t)^{j-l}b_l
+ \le2^nt^2J(u). \tag{11}
+\] Indeed \(t^{l+1}\le t^2\) and
+\(\sum_{j=l}^p{j\choose l}={n\choose l+1}\le2^n\). The expansion first
+holds for CPSH and passes through actual fixed-field weighted decreasing
+limits.
+
+There is \(B<\infty\) with \(\int(-u)\,d\mu\le B\) on normalized
+\(J(u)\le1\). Otherwise choose \(u_j\) in that class with integrals at
+least \(2^j\). The actual restrictions \(w_m=\sum_{j\le m}2^{-j}u_j\),
+with the missing weight supplied by the reference off \(K\), decrease,
+have value zero at \(v_{\rm triv}\), and have energy at least \(-1\) by
+concavity. Their actual nontrivial decreasing PSH limit is E1, but its
+negative integral is infinite. This contradicts the hypothesis. For
+\(J(u)\ge2^{-n}\) take \(t=(2^nJ(u))^{-1/2}\) in (11). For smaller
+\(J\), use \(B\). Thus \[\int(-u)\,d\mu\le B+B\sqrt{2^nJ(u)},\qquad
+ L(\mu)\le B+2^{n-2}B^2<\infty. \tag{12}\] This independently
+reconstructs the finite-test integrability criterion on every original
+cone. It describes the finite-energy \textbf{target class}, without
+image sufficiency.
+
+The accepted normalized root bijections are onto actual E1 classes and
+obey \(u/c\le\mathcal R u\le u/C\le0\). Integrability of all source
+potentials consequently implies integrability of every target potential;
+the inverse gives the converse. Hence the finite-energy measure class is
+independent of Reeb field on the same \(K\). No strong-topology
+assertion about roots is involved.
+
+Fixed-ray concavity and first variation give the genuine tangent
+inequality \[E(w)\le E(u)+\int(w-u)\,d\mathrm{MA}(u). \tag{13}\] Raw
+simultaneous decreasing approximation and weighted mixed continuity
+extend it from continuous potentials to E1. Therefore every genuine
+output \(\nu=\mathrm{MA}(u)\) has
+\[L(\nu)=E(u)-\int u\,d\nu<\infty. \tag{14}\] The printed opposite
+tangent sign in A, LF1249, is not used.
+
+\section{Genuine approximation and midpoint
+Cauchyness}\label{genuine-approximation-and-midpoint-cauchyness}
+
+For continuous \(g\) and every feasible \(w\le g\) in (5),
+\[E(w)-\int g\,d\mu\le E(w)-\int w\,d\mu\le L(\mu).\] Thus
+\(F(g)-\int g\,d\mu\le L(\mu)\). A decreasing net of continuous
+majorants of a bounded-above, integrable usc \(h\) exists: minima make
+it directed, and separation of a point from a closed usc level set
+proves that its infimum is \(h\). Equation (9) and outer decreasing
+continuity give \[F^\downarrow(h)-\int h\,d\mu\le L(\mu). \tag{15}\] Use
+(15) on \(h=u+tf\) and the lower side of (6). Taking \(t=s\) and
+\(t=-s\) proves \[
+ \left|\int f\,d(\mathrm{MA}(u)-\mu)\right|\le d_u/s+C_fs,
+ \qquad 0<s\le\tau. \tag{16}
+\] Choose actual \(u_j\in H(\xi)\) with \(d_j<j^{-2}\) and normalize by
+constants. For \(s=1/j\), (16) gives error at most \((1+C_f)/j\) on
+\(f\in\mathscr D\). Uniform approximation of any continuous test adds at
+most \(2\|f-f_m\|\), since both measures are probabilities. Hence the
+\textbf{genuine} \(\mathrm{MA}(u_j)\) converge weakly to \(\mu\). The
+sequence comes from a real supremum, not an enumeration of all field
+elements. Deficit zero on an already genuine E1 potential gives the
+equation by both signs and density. This proves optimality of an actual
+maximizer, not attainment.
+
+For \(p\ge1\), put \(z=u-v\) and, first for continuous same-field
+potentials,
+\[ B_j=-V^{-1}\int z\,dd^cz\,(dd^cu)^j(dd^cv)^{p-1-j}dd^c\rho^+\ge0,
+ \qquad 0\le j<p. \tag{17}\] The accepted Hodge inequality supplies the
+sign. Difference of powers and integration by parts give
+\[ I(u,v)=\int(u-v)\,d(\mathrm{MA}(v)-\mathrm{MA}(u))=\sum_{j=0}^{p-1}B_j. \tag{18}\]
+For \(g(t)=E(v+tz)\), genuine segment differentiation gives
+\[-g''(t)=p\sum_{j=0}^{p-1}{p-1\choose j}t^j(1-t)^{p-1-j}B_j.\] The
+midpoint Green kernel is \(\frac12\min(t,1-t)\). On \([1/4,3/4]\) it is
+at least \(1/8\), every monomial is at least \(4^{-(p-1)}\), each
+binomial is at least one, and the interval length is \(1/2\).
+Consequently
+\[E((u+v)/2)-(E(u)+E(v))/2\ge a_p I(u,v),\quad a_p=p/4^{p+1}. \tag{19}\]
+Each expression is a finite combination of accepted weighted mixed
+integrals. Actual raw decreasing CPSH approximants therefore pass the
+identity and inequality to E1. The actual midpoint deficit is
+nonnegative, giving \[ I(u,v)\le(d_u+d_v)/(2a_p). \tag{20}\] Every
+maximizing sequence is I-Cauchy modulo constants. Pairing normalized
+\(u\) with the reference and using its deficit \(L\) gives
+\[ J(u)\le I(u,0)\le(d_u+L)/(2a_p). \tag{21}\] The first inequality
+follows from the two nonnegative tangent deficits summing to \(I\), with
+the reference deficit \(J(u)\).
+
+For completeness, a genuine-limit MA estimate follows directly from
+Hodge. Represent \(f\in\mathscr D\) by slope-\(A\) \(a-b\). With
+\(M_j=(dd^cu)^j(dd^cv)^{p-1-j}dd^c\rho^+\), Cauchy--Schwarz bounds the
+\(j\)th difference term by \(\sqrt{Q_j(f)B_j}\), where
+\[Q_j(f)=-V^{-1}\int f\,dd^cf\,M_j\le2A\|f\|_K.\] Each positive product
+with \(a\) or \(b\) has mass \(A\), by scaling the accepted mixed
+probability. Summing and using finite Cauchy--Schwarz gives
+\[ |\int f\,d(\mathrm{MA}(u)-\mathrm{MA}(v))|
+ \le\sqrt{2Ap\|f\|_K I(u,v)}. \tag{22}\] Weighted decreasing continuity
+extends this to E1. Thus an actual E1 I-limit of the maximizing sequence
+would realize \(\mu\). No such actual limit is obtained from (20).
+
+\section{A genuinely linear fixed-ray
+polynomial}\label{a-genuinely-linear-fixed-ray-polynomial}
+
+We now construct the finite linear algebra needed for the new bound; we
+do not apply the synthetic inverse theory.
+
+Let \(\mathcal D\) be the real vector space spanned by restrictions of
+actual CPSH potentials at this one fixed \(\xi\), including constants.
+It is uniformly dense because it contains \(\mathscr D\). Each
+\(d\in\mathcal D\) has a unique zero-slope equivariant extension
+\(\widetilde d(v)=d(s_\xi(v))\) to the torified punctured cone, then by
+torification to the punctured cone. It is a finite linear combination of
+genuine CPSH differences. Its distributional \(dd^c\) is well defined,
+and all products below are finite linear combinations of the accepted
+bounded positive products. This uses one fixed linear class, not
+nonlinear root maps.
+
+Put \(\mathcal V=\mathbb R\times\mathcal D\) and project onto
+\(\Theta=\mathbb R\) by the first coordinate. For \(x=(s,d)\) set
+\(\Omega_x=s\,dd^c\rho+dd^c\widetilde d\) and define the homogeneous
+polynomial of degree \(p+1\) \[
+ H(s,d)=\sum_{l=0}^p\frac{{p\choose l}}{l+1}s^{p-l}
+ V^{-1}\int_K d\,(dd^c\widetilde d)^l(dd^c\rho)^{p-l}dd^c\rho^+,
+ \qquad \mathcal F=-H. \tag{23}
+\] The primitive form is
+\(H(s,d)=\int_0^1V^{-1}\int d(sdd^c\rho+tdd^c\widetilde d)^pdd^c\rho^+\,dt\).
+Expanding (4) and using \(\sum_{j=l}^p{j\choose l}={p+1\choose l+1}\)
+proves \(H(1,u)=E(u)\).
+
+Integration by parts makes the \(l+1\) differentiated copies of \(d\)
+equal, hence for a zero-slope direction \(f\),
+\[\partial_d H(s,d)[f]=V^{-1}\int f\,\Omega_x^p dd^c\rho^+. \tag{24}\]
+Polarization of this finite polynomial gives a symmetric
+\((p+1)\)-linear pairing. For two zero-slope directions \(a,b\) and
+\(x_2,\ldots,x_p\), \[
+ \mathcal F\big((0,a),(0,b),x_2,\ldots,x_p\big)
+ =-\frac1{p+1}V^{-1}\int a\,dd^c\widetilde b\,
+        \Omega_{x_2}\cdots\Omega_{x_p}dd^c\rho^+. \tag{25}
+\] The coefficient follows by differentiating twice:
+\(\partial^2\mathcal F=-p\int a\,dd^cb\,\Omega^{p-1}/V\), whereas a
+degree-\((p+1)\) polarization contributes \((p+1)p\).
+
+Take the convex cone
+\[\mathcal P=\{(s,d):s>0,\ d/s\in\mathrm{CPSH}(\xi)|_K\}
+              \ \cup\ \{(0,c):c\in\mathbb R\}. \tag{26}\] Positive
+combinations stay in it by accepted actual convexity and translation.
+The curvature of \((0,c)\) is zero. For all positive slots in (25), the
+fixed-ray Hodge index gives
+\[a^2\cdot x_2\cdots x_p\ge0\qquad(a\in\mathcal V_0,\ x_i\in\mathcal P). \tag{27}\]
+These are precisely the surjective linear projection, homogeneous
+polynomial, convex cone, and quadratic sign hypotheses of D Appendix A.
+No nice order on a global space \(Z\), positive cohomology cone,
+ample-class identification, model axiom, topology of a generated PSH
+cone, or synthetic inverse theorem is inferred. They are not needed for
+this finite algebra application.
+
+For \(x=(1,u)\), \(y=(1,v)\), its polynomial deficit is
+\[\delta(x,y)=\mathcal F(x)-\mathcal F(y)-\langle\mathcal F'(y),x-y\rangle
+             =E(v)-E(u)+\int(u-v)\,d\mathrm{MA}(v). \tag{28}\] The
+nonnegative coefficients in its expansion give
+\[I(u,v)/(p+1)\le\delta(x,y)\le pI(u,v)/(p+1),\quad
+ \delta(x,y)+\delta(y,x)=I(u,v). \tag{29}\] On normalized \(u\),
+\(\delta((1,u),(1,0))=J(u)\).
+
+\section{Checking the polynomial Hölder estimate and its source
+application}\label{checking-the-polynomial-huxf6lder-estimate-and-its-source-application}
+
+We state the relevant consequence of D Theorem A.3, and check its proof
+mechanism so that the source use is not an analogy. For a fixed fiber,
+define \[q(x,y)=\max_{0\le j<p}(x-y)^2y^jx^{p-1-j}.\] The positive
+coefficient expansion and binomial theorem give
+\(q\asymp\delta\asymp(x-y)^2((x+y)/2)^{p-1}\), with constants depending
+only on \(p\).
+
+Write \(w=(x+y)/2\), \(A=q(x,y)\) and \(B=\max(q(x,z),q(y,z))\). For
+\(b_j=(x-y)^2z^jw^{p-1-j}\), Cauchy--Schwarz and \(2w-x=y\in\mathcal P\)
+give \[b_0\le C_pA,\qquad b_{j+1}\le b_j+C_p\sqrt{b_jB},\qquad
+ b_{p-1}\le C_pA^{2^{1-p}}B^{1-2^{1-p}}. \tag{30}\] The last inequality
+follows by induction when \(A\le B\); when \(A\ge B\), the triangle
+inequality for the seminorm with positive slots gives \(b_{p-1}\le4B\).
+To justify the bound used in the recurrence, convexity of
+\(\delta(\cdot,z)\) gives \(q(z,w)\le C_pB\). This convexity itself
+follows from the positive quadratic sign (27). Thus no quasi-triangle
+inequality has been assumed before its proof.
+
+Using (30) on \(x-z\) and \(y-z\) with positive slot \(w\) gives
+\[q(x,y)\le C_pT^{2^{1-p}}\max(q(x,y),T)^{1-2^{1-p}},\quad
+ T=\max(q(x,z),q(y,z)).\] If \(q(x,y)>T\), absorb its indicated power;
+otherwise the desired bound is already true. Hence \(q(x,y)\le C'_pT\).
+Averaging finitely many positive slots and using this quasi-triangle
+inequality gives the general mixed estimate
+\[|(x_0-y_0)(x_1-y_1)z_2\cdots z_p|
+ \le C_p\delta(x_0,y_0)^\alpha\delta(x_1,y_1)^\alpha M^{1-2\alpha},
+ \quad \alpha=2^{-p},\quad M=\max_\zeta\delta(\zeta,x_*). \tag{31}\] For
+the equal-pair case this is (30), after bounding distances to the
+average of the \(z_i\) by the reference distances; the unequal-pair case
+follows by Cauchy--Schwarz. Expanding \(x_0^p-y_0^p\) and applying
+Cauchy--Schwarz once more, the first quadratic factor is comparable with
+\(\delta(x_0,y_0)\) and (31) bounds the other. Thus \[
+ |\langle\mathcal F'(x_0)-\mathcal F'(y_0),x_1-y_1\rangle|
+ \le C_p\delta(x_0,y_0)^{1/2}\delta(x_1,y_1)^\alpha M^{1/2-\alpha}.
+ \tag{32}
+\] For \(p=1\) this is the direct quadratic Cauchy--Schwarz inequality.
+These are the pertinent proof bodies of D Appendix A, LF2053--2235; (30)
+explicitly retains the square root in the recurrence. The source's
+implicit constants are not replaced by a falsely exact numerical
+constant.
+
+With (24), (29), and reference \(x_*=(1,0)\), (32) becomes the genuine
+cone bound \[
+ \left|\int(u-v)\,d(\mathrm{MA}(w)-\mathrm{MA}(z))\right|
+ \le C_p I(w,z)^{1/2}I(u,v)^\alpha
+       \max\{J(u),J(v),J(w),J(z)\}^{1/2-\alpha}
+ \tag{33}
+\] for normalized actual continuous potentials. Constants disappear from
+the measure difference. Raw decreasing approximation extends (33) to E1:
+subtracting the decreasing values at \(v_{\rm triv}\) need not give a
+decreasing net, but each weighted integral differs from its raw
+decreasing counterpart by just that convergent constant. Energies and
+\(I\) therefore converge by accepted weighted continuity. All products
+and all limits have one fixed irrational or rational \(\xi\). The
+constants depend only on \(p\).
+
+\section{Uniform target integrals and output dual
+energies}\label{uniform-target-integrals-and-output-dual-energies}
+
+Choose normalized maximizing \(w_k\in H\) with \(d_k\to0\) and
+\(d_k\le1\). Equation (21) gives \(J(w_k)\le B_0\). In (33), take
+\(u=\phi\), \(v=0\), \(w=\psi\), \(z=w_k\). From (20) and (29), \[
+ |\int\phi\,d(\mathrm{MA}(\psi)-\mathrm{MA}(w_k))|
+ \le C_p\sqrt{d_\psi+d_k}\,J(\phi)^\alpha
+       (J(\phi)+J(\psi)+B_0)^{1/2-\alpha}. \tag{34}
+\] For continuous \(\phi\), weak convergence from (16) lets
+\(k\to\infty\), proving (2). The order of limits for unbounded \(\phi\)
+is essential. First approximate it by its actual decreasing CPSH net,
+normalize each approximant, and prove the target estimate for each fixed
+approximant by sending \(k\to\infty\). Then send the defining net to its
+limit. The fixed target uses (9)--(10); the fixed measure
+\(\mathrm{MA}(\psi)\) uses accepted weighted continuity. The energies
+converge, and the subtracted normalization constants tend to zero. This
+proves (2) on all actual E1, with no unjustified passage of an unbounded
+varying test through weak measure convergence.
+
+In particular, for \(J(\phi)\le B\) and \(d_j\le1\), \[
+ \sup_{J(\phi)\le B}\left|\int\phi\,d(\mathrm{MA}(w_j)-\mu)\right|
+ \le C_p\sqrt{d_j}\,B^\alpha(B+2B_0)^{1/2-\alpha}. \tag{35}
+\] All tests are normalized. For \(B=0\) the conclusion is obtained by
+the same zero-distance inequality, rather than dividing by zero. These
+are signed integrals. Neither (35) nor decreasing continuity alone
+proves absolute \(L^1\) continuity along an arbitrary weak potential
+net.
+
+Putting \(\phi=w_j\) in (2), the genuine tangent identity (14) yields \[
+ |L(\mathrm{MA}(w_j))-L(\mu)|
+ \le d_j+C_p\sqrt{d_j}\,B_0^{1/2}. \tag{36}
+\] Thus these outputs converge to \(\mu\) weakly \textbf{and} in dual
+energy. This is an actual measure conclusion, not a potential
+realization.
+
+Also take \(w=w_j\), \(z=0\) in (33) and then send \(j\to\infty\), using
+the same continuous-test-first, decreasing-test-second order. For
+normalized \(u,v\in\mathcal E^1\) this gives \[
+ |\int(u-v)\,d\mu|
+ \le C_p I(u,v)^\alpha B_0^{1/2}
+       (B_0+J(u)+J(v))^{1/2-\alpha}. \tag{37}
+\] Consequently the target integrals of a normalized maximizing sequence
+are Cauchy. Since \(E(w_j)-\int w_j\,d\mu\to L(\mu)\), its normalized
+energies also converge to a finite value. This strengthens bounded
+energy, but still supplies no actual potential.
+
+\section{Explicit strict supports with infinite
+coordinates}\label{explicit-strict-supports-with-infinite-coordinates}
+
+The following auxiliary reconstruction is independent of the unreviewed
+local/global bridge. On \(\mathbb T^N=(\mathbb R\cup\{+\infty\})^N\),
+choose an integer \(a\ge\log(N+1)\) and define
+\[\chi_N(t)=a^{-1}\log\left(1+\sum_{i=1}^Ne^{-at_i}\right),\quad e^{-a\infty}=0. \tag{38}\]
+It is continuous and convex on finite coordinates, decreases in each
+coordinate, and lies between \(\max(0,-t_i)\) and that maximum plus one.
+At \(t\), let \(I\) be its finite coordinates and let
+\(p_i=e^{-at_i}/(1+\sum_{i\in I}e^{-at_i})\). The real support
+\[\ell_t(s)=\chi_N(t)-\sum_{i\in I}p_i(s_i-t_i) \tag{39}\] has
+coefficient zero on every infinite coordinate. If a finite supported
+coordinate becomes infinite, its value is \(-\infty\). The convex
+log-sum inequality gives \(\chi_N\ge\ell_t\), with equality exactly at
+\(s=t\): on the finite face strict convexity follows from the extra
+positive constant term, and making a formerly infinite coordinate finite
+increases \(\chi_N\) strictly.
+
+For every neighborhood \(U\) of \(t\), there is \(\delta>0\) with
+\(\chi_N-\ell_t\ge\delta\) outside \(U\). Along a nonzero recession
+vector in the finite coordinates,
+\[\max(0,-v_i:i\in I)+\sum_{i\in I}p_iv_i>0,\] because every \(p_i>0\)
+and \(\sum p_i<1\). Thus a bounded difference sublevel confines the
+finite supported coordinates. It also bounds every other coordinate
+below, since a coordinate tending to \(-\infty\) sends \(\chi_N\) to
+\(+\infty\). Its closure is compact in the extended product; at a
+supported coordinate \(+\infty\) the difference tends to \(+\infty\).
+The continuous difference on the remaining compact sublevel has the
+singleton zero set \(\{t\}\). Compactness proves the gap, including the
+case \(I\) empty.
+
+Actual rational AFS approximation is explicit. Put \(z_0=1\),
+\(z_i=e^{-at_i}\) and \(B_m={m+N\choose N}\). The multinomial expansion
+shows \[
+ q_m(t)=\max_{|\beta|=m}\left\{-\sum_{i=1}^N\frac{\beta_i}{m}t_i
+          +\frac{\log{m\choose\beta}}{am}\right\}
+ \le\chi_N(t)\le q_m(t)+\frac{\log B_m}{am}. \tag{40}
+\] This holds uniformly on the whole extended product. A term with
+positive \(\beta_i\) at \(t_i=\infty\) is \(-\infty\); \(\beta_0=m\)
+supplies a zero floor. Round intercepts upward rationally, with error at
+most \(\epsilon_j/4\), and choose \(m_j\) with the other error at most
+\(\epsilon_j/4\). For rational \(\epsilon_{j+1}\le\epsilon_j/4\), adding
+\(\epsilon_j\) makes the resulting maxima decrease: the lower error
+bound at level \(j\) exceeds the upper error bound at level \(j+1\).
+They converge to \(\chi_N\).
+
+After \(t_i=-\log|f_i|\), a branch is
+\(m^{-1}\log|\prod f_i^{\beta_i}|\) plus a rational intercept. If the
+list includes the original affine algebra generators, the terms
+\(\beta_i=1\), \(\beta_0=m-1\) contain the generators themselves. Thus
+these are actual E-Definition-3.15 finite AFS presentations, with
+generators and floor retained. This proves the approximation directly
+and does not infer it from a singular envelope theorem.
+
+Real logarithmic supports also need a pole-sensitive construction. Let
+\(H\ge0\) be a rational AFS exhaustion in the original generators and
+choose integers \(D_i\ge1\) with \(\log|f_i|\le D_iH\) (enlarge \(H\) by
+a constant). For finitely many strictly positive real \(p_i\), put
+\[ F_{ij}=\max(\log|f_i|,2^{-j}H-j),\qquad
+ q_{ij}\uparrow p_i,\quad r_{ij}\downarrow p_i,
+ \quad \varepsilon_j=\sum_iD_i(r_{ij}-q_{ij}),\] where the bounds are
+rational and nested. Choose rational \(C_j\downarrow C\). Then
+\[L_j=\sum_iq_{ij}F_{ij}+(\varepsilon_j+2^{-j})H+C_j \tag{41}\] are
+decreasing actual AFS and converge to \(\sum_ip_i\log|f_i|+C\). They
+dominate that sum because \(F_{ij}\ge\log|f_i|\) and \(F_{ij}\le D_iH\).
+Monotonicity follows from
+\[\varepsilon_j-\varepsilon_{j+1}\ge\sum_iD_i(q_{i,j+1}-q_{ij}),\quad
+ F_{i,j+1}\le F_{ij}.\] At a zero of an \(f_i\) with \(p_i>0\), its term
+tends to \(-\infty\) while all other terms are bounded above at that
+point. Zero coefficients are omitted. To check the exact embedding
+definition, \(L_j\) has a positive lower multiple of \(H\) minus a
+finite constant, since \(F_{ij}\ge2^{-j}H-j\). Each original generator
+can therefore be appended with a sufficiently low rational intercept
+without changing the maximum. Positive rational sums are finite maxima
+of logarithmic monomials. There is no unsupported uniform approximation
+claim at a logarithmic pole.
+
+\section{A normal-ring localization estimate with actual divisor
+orders}\label{a-normal-ring-localization-estimate-with-actual-divisor-orders}
+
+Let \(A\) be a normal integral finitely generated algebra over the
+original \(k\), \(f\ne0\), \(h\in A_f\), and \(U\) an actual global
+rational AFS. Suppose
+\[b+a\log|h|\le\max(U,-c\log|f|)+C\quad\hbox{on }(\operatorname{Spec}A_f)^{\rm an},\quad a,c>0. \tag{42}\]
+For a prime divisor \(D\) of \(\operatorname{Spec}A\), use the rays
+\(r\operatorname{ord}_D\), \(r>0\). Every regular generator of \(U\) has
+nonnegative divisor order, so \(U\) is bounded above there. Sending
+\(r\to\infty\) in (42) gives
+\[a\max(-\operatorname{ord}_Dh,0)\le c\operatorname{ord}_Df. \tag{43}\]
+All orders are orders of the actual rational function. A chosen
+denominator exponent is not a divisor order: \(f=z^2\), \(h=z^{-1}\),
+\(a=2\), \(c=1\) has equality in (43), although a denominator
+representation can suggest the wrong bound.
+
+For positive integers \(r,q\) with \(q/r>c/a\), \(h^rf^q\) has no
+prime-divisor pole. Normality gives \(h^rf^q\in A\): the height-one DVR
+intersection property identifies regular elements with those having
+nonnegative orders. This is the normal-domain Hartogs algebra already
+contained in the accepted rational bridge; no normalization hull
+replaces the original \(A\) hull.
+
+Let \(x\) be in the \(A\)-polynomial hull of compact
+\(L\subset (\operatorname{Spec}A_f)^{\rm an}\), and assume
+\(|\log|f||\le M\) on \(L\cup\{x\}\). Apply the hull inequality to
+\((h^rf^q)^l\in A\). Dividing by \(rl\), or directly using its
+logarithm, gives \[a\log|h(x)|+b\le\sup_L(a\log|h|+b)+2a(q/r)M.\] Let
+\(q/r\downarrow c/a\). Then
+\[a\log|h(x)|+b\le\sup_L(a\log|h|+b)+2cM. \tag{44}\] If \(h(x)=0\) the
+assertion is immediate; if \(h\) vanishes everywhere on \(L\), the same
+polynomial forces \(h(x)=0\). Hence no subtraction of infinities was
+used. This simplification is valid for normal \(A\) and does not prove
+controlled AFS approximation of a weak input on \(A_f\). Such
+approximation remains a separate premise before a localized-hull or
+Runge application.
+
+\section{Carrier envelopes: the retraction issue and raw
+roots}\label{carrier-envelopes-the-retraction-issue-and-raw-roots}
+
+We isolate a topological lemma which avoids an openness assumption for
+torification. Let \(q:Y\to Y\) be a continuous retraction on a compact
+Hausdorff space with image \(B\). For a bounded-above \(U\) satisfying
+\(U=U\circ q\), \[U_Y^*|_B=(U|_B)_B^*. \tag{45}\] For any neighborhood
+\(N\) of \(b\in B\) in \(B\), the set \(q^{-1}(N)\) is a neighborhood of
+\(b\) in \(Y\), and the supremum of \(U\) on it is the supremum on
+\(N\). This gives one limsup inequality. Neighborhoods in the ambient
+space restrict to neighborhoods in \(B\), giving the other. No openness
+of \(q\) is required.
+
+At a rational Reeb field the accepted quotient gives residual
+torification \(q_V\) and its compact image \(B\) identified with \(K\)
+by the calibrated Gauss lift. Splitting projective FS sections into
+residual weight components with their original coefficients produces an
+actual globally generating FS metric \(\psi\circ q_V\ge\psi\). Uniform
+limits and actual decreasing limits preserve membership and composition.
+Thus if unrestricted projective EP were independently proved on this
+actual normal quotient, apply it to the invariant family, then torify
+its actual envelope. Equation (45) identifies its carrier restriction
+with the carrier usc supremum. This gives the invariant carrier property
+without any claim about a full-link envelope equality away from the
+image.
+
+The raw-root transport can be checked independently. On torified points
+off the vertex, the accepted maps give
+\(\Omega\simeq K\times\mathbb R\), with
+\(v\mapsto(s_\xi(v),\rho_\xi(v))\) and inverse \((x,r)\mapsto x-r\xi\).
+An equivariant extension has usc regularization
+\(U^*(v)=h^*(s_\xi(v))+\rho_\xi(v)\). For a uniformly upper-bounded
+family, its supremum \(U\) and \(U^*\) satisfy the same uniform orbit
+slopes \(0<c\le C\): \[U(v)-Ct\le U(v+t\eta)\le U(v)-ct\quad(t\ge0).\]
+Every orbit is finite with a unique root or identically \(-\infty\).
+Bracketing the zero shows
+\[\mathcal R(\sup_i u_i)=\sup_i\mathcal R u_i,\qquad
+ \mathcal R(U^*)=(\mathcal R U)^*. \tag{46}\] For the second identity, a
+value above the root has negative \(U^*\) on a neighborhood and pulls
+back to an upper root bound. A value below the root has every
+neighborhood meeting \(\{U>0\}\) and pulls back to a lower limsup root
+bound. If the root is \(-\infty\), the upper argument works for every
+real parameter. Applying the accepted actual raw inverse then transports
+carrier usc-sup membership between Reeb fields. This transfers a
+property \textbf{after} its rational normal base is proved; it
+transports neither \(I\) completeness nor strong topology.
+
+\section{What the singular source and the synthetic source leave
+unresolved}\label{what-the-singular-source-and-the-synthetic-source-leave-unresolved}
+
+E is the exact public preprint 2609.27610v1, PDF SHA256
+\texttt{11808a6c9ede9c0158b27e16700fc180a4ac8df12a4586a7178e1958e8f6bba8},
+extract SHA256
+\texttt{c8ffe91a631da67f6d3872a1a06ab8d15755aed2f926cdf326725ca3662cef7d}.
+Its printed Definition 3.15 at LF766--768 is LOWER growth; Proposition
+4.19 at LF1560--1562 asserts equality with global decreasing AFS
+regularizability. Its proof LF1569--1572 seeks an upper bound and
+invokes Lemma 3.25(1), whose LF952--957 antecedent already includes
+regularizability.
+
+For completeness, the supplied counterexample is independently
+reconstructed. On \(\mathbb A^1_k\), \(v=(\max(\log|z|,0))^2\) is
+locally psh under the printed local definition: on \(\{|z|<e^M\}\) with
+rational \(M>0\), dyadic secants of \(t^2\) on \([-M,0]\),
+\(t=-\log|z|\), extended by zero for \(t\ge0\), are convex rational PL
+and decrease to \(v\). Near \(t=\infty\) they are the constant zero, so
+their active affine branches are finite on their charts. The global AFS
+\(g=\max(\log|z|,0)\) satisfies \(g\le v+1/4\). On the Gauss ray
+\(|z|=e^t\), every global AFS is bounded above by \(At+B\) for finite
+\(A,B\), since every polynomial has log norm \((\deg f)t\). A first
+decreasing approximant cannot majorize \(t^2\) for all \(t\ge0\). Thus
+the LOWER-growth proposition is false as printed. A corrected
+UPPER-growth proposition is not disproved by this example; it needs a
+new proof.
+
+Our explicit supports (38)--(41) repair particular elementary barrier
+operations. They do not prove the following indispensable antecedents:
+an actual strict Laurent PL/formal representation for corrected local
+selections; analytic curve unit balancing; represented nef-metric
+detection; same-class BE cancellation and calibrated finite-Laurent
+Gauss coefficient descent; common collars and weighted local products;
+smooth-target descent, controlled removal, and determinant/radial trace
+construction; a single proper witness and whole winning collars in the
+split-piece weak maximum principle; localization of the positive integer
+trace without losing the hull neighborhood, including a separate
+\(\gamma=1\) argument; weak Hartogs-domain Runge \textbf{before}
+coefficient radii; finite projection and reduced singular-stratum
+induction; and genuine countable rational normal EP.
+
+The primary E proof of Theorem 7.1 at LF2704--2717 explicitly invokes
+weak/global Theorem 6.5. Hence its final normal EP statement is not an
+independent premise bypassing that chain. The printed integer trace
+inference at LF2451--2461 also does not prove one constant on a
+disconnected open. The supplied \(z\mapsto z^2\) two-disk example
+demonstrates traces two and one on different components; a compatible
+local shrink and \(\gamma=1\) treatment are necessary. We have not
+established them for the entire weak Runge argument.
+
+Removing field cardinality is likewise not automatic. A valid route
+descends finite PL/reference data, verifies exact positive MA base
+change and contact orthogonality, and uses domination over larger
+countable fields. It need not descend every PSH competitor to one small
+field. That procedure requires the countable rational normal envelope
+base first. No such base is proved here.
+
+D is the exact synthetic source 2307.01697v1. Its Theorem A, LF134--145,
+has conclusions about a dense image of \textbf{test functions in the
+space of measures}, a continuous quasimetric on that measure space, and
+its completeness. Remark 2.14 at LF1024--1029 explicitly sets aside
+pursuit of a generated PSH theory. Its theorem is therefore not an
+actual E1 realization theorem. We have verified only the Appendix A
+polynomial application (23)--(33). We have not supplied the common
+ordered \(Z\), ample/model/direction axioms and generated-cone topology
+or actual cone identification needed for a larger synthetic application.
+Nonlinear roots are not such linear axioms.
+
+The remaining original gap is actual realization: either construct an
+actual E1 I-limit with its membership proved, or complete the normal
+rational envelope base and then prove genuine normalized PSH
+compactness, weak bounded-\(J\) target \(L^1\) continuity, energy usc
+and variational attainment at every fixed irrational field. The signed
+estimates (35)--(37) improve target control but do not imply those
+missing geometric/topological claims. The weak limit of the genuine
+measures in (16) is not labeled an output without an actual potential.
+
+For \(n=1\), the accepted normal effective grading gives \(R=k[z]\),
+\(K=\{v_{\rm triv}\}\), \(E(c)=c\), and the empty horizontal product
+with the radial unit current gives the sole probability
+\(\delta_{v_{\rm triv}}\). That case is realized uniquely modulo
+constants. It does not supply any higher-dimensional realization.
+
+\section{Source coordinates, evidence, and
+rerun}\label{source-coordinates-evidence-and-rerun}
+
+All seventeen authorized source PDF/text hash sets, and supplied
+associated HTML files, are audited locally. IDs A--Q follow input order.
+\texttt{source-extracts/source-provenance.json} preserves literal
+pertinent statements and proof bodies, exact versions and hashes,
+inclusive one-based LF ranges obtained by UTF-8 byte decoding and
+\texttt{split(\textquotesingle{}\textbackslash{}n\textquotesingle{})},
+and application limits. Complete extracts are copied for
+reproducibility; no claim of independently checking every page is made.
+The main new source application is D Appendix A, with its actual
+hypotheses and calculation checked above. The other metric-bridge
+sources are audited inputs, not unproved theorem premises.
+
+\texttt{input-original.json} is byte identical to untouched
+\texttt{input.json}; \texttt{task-original.json} preserves the literal
+task-object bytes and \texttt{assignment-original.txt} the decoded
+assignment. Embedded drafts are retained as data in
+\texttt{embedded-data/}; none of their referenced campaign paths was
+opened. \texttt{status.json} has exactly
+\texttt{id,status,exact\_result,proof\_file,concrete\_gaps}.
+
+Lightweight exact checks cover fixed-ray coefficient identities,
+midpoint constants on finite dimensions, the dimension-one quadratic
+Hölder instance on a finite grid, dyadic counterexample secants, pole
+orders, generator terms and probability scalar cancellations. They are
+exhaustive only on their specified finite inputs. Hash matches, finite
+arithmetic and compilation certify neither universal mathematical
+correctness nor realization.
+
+Existing Pandoc produces standalone TeX; existing pdfTeX compiles twice
+with separate retained logs. Programs, commands, environment versions
+and outputs are local. No installation, worker, other model, network
+request, private record, external write, source-cache edit or
+resource-heavy computation is used. No supervised compute facility is
+needed for the lightweight diagnostics.
+
+Rerun in this workspace:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{python3}\NormalTok{ audit\_sources.py}
+\ExtensionTok{python3}\NormalTok{ checks.py}
+\ExtensionTok{python3}\NormalTok{ build.py}
+\ExtensionTok{python3}\NormalTok{ make\_notes.py}
+\ExtensionTok{python3}\NormalTok{ validate.py}
+\end{Highlighting}
+\end{Shaded}
+
+The strongest retained theorem is (2), with (35)--(37), supported by the
+independently reconstructed target and approximate-equation results and
+the actual fixed-ray polynomial. The unchanged all-normal, all-Reeb
+image sufficiency remains an indispensable gap. These are unverified
+mathematical drafts. The final flag is \texttt{candidate=false}.
+
+\end{document}
