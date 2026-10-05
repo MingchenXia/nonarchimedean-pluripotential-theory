@@ -9,7 +9,16 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,334 pages**.
+The current research-integration build has **4,340 pages**.
+The [local klt comparison audit](manuscript/editorial/local_klt_normalized_volume_audit_20261005.md)
+checks the known normalized-volume and integrability formulas for isolated
+complex algebraic klt singularities. Chapter 68 explains how simultaneous
+divisorial control supplies the existential primary-ideal comparison,
+retains ordinary polar mass, and passes from pointwise to uniform
+integrability on a larger domain. Fifty selected primary pages and
+thirty-two final book pages were displayed. The scope is algebraic;
+general analytic approximation, endpoint existence and supercritical
+nonexistence are not inferred.
 The [boundary singularity audit](manuscript/editorial/boundary_poisson_audit_20261005.md)
 checks Wang's September 2026 explicit homogeneous solution family on
 unit balls of complex dimension at least two. The complete fourteen-page
@@ -58,7 +67,10 @@ and big-class existence for 0 < lambda < delta without semipositivity of
 the twist. Chapter 68 retains normality, an effective real boundary,
 probability and energy normalization, and minimal singularities. Endpoint
 existence, general uniqueness and necessity are not asserted. The separate
-local Cegrell/normalized-volume dependencies remain under audit.
+local Cegrell/normalized-volume comparison is now explained in the
+algebraic scope recorded in the separate local audit above; a general
+analytic extension of its algebraic approximation input remains outside
+that import.
  The proof of
 Boucksom--Jonsson (2022), Theorem 6.21, incorrectly infers monotonicity of
 a residual with a changing divisor coefficient. Critical homogeneous Siu

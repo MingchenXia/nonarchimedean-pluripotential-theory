@@ -2499,3 +2499,36 @@ preserved. The native catalogue and research-only toric candidate are
 unchanged. There is no new independent production-model receipt.
 Continue normal work-branch synchronization and primary dependency
 review of the separate local singular klt/normalized-volume comparison.
+
+### Local algebraic klt volume and uniform integrability — 5 October
+
+After `d4cfa17`, four additional Chapter 68.8 subsections and L.43 explain
+the known local comparison for isolated complex algebraic Q-Gorenstein
+klt singularities. The [local dependency audit](local_klt_normalized_volume_audit_20261005.md)
+records fifty selected primary pages actually displayed in twenty-seven
+sheets, together with reuse of the earlier complete Darvas–Zhang reading.
+The original BdFF approximation controls all divisors simultaneously and
+supplies primary ideals for the known existential GT comparison. Its
+from-above approximation and intersection semicontinuity suffice without
+a decreasing-sequence assertion. Ordinary polar mass, logarithms of
+squares and the n-th root in the ideal formula are retained.
+
+The all-F1 pointwise alpha statement is distinguished from its isolated-pole
+residual-mass special case. The uniformity argument retains obstacle
+extension to a larger domain, compact containment and a strictly larger
+integrability exponent. Published GT Theorems 5.1 and 4.5 control the sharp
+MT parameter; their strict subcritical existence does not prove endpoint
+existence or absence of every supercritical solution. The algebraic nef
+approximation is not extended to all analytic germs. BJ22's gap and the
+general Siu/closure, spectral and A2–A4 questions retain their scope.
+
+The final 4,340-page build passes TeX, references, bibliography, index and
+PDF navigation checks with zero overfull boxes. Thirty-two matching final
+pages were displayed, including all new pages and the entire bibliography.
+The 425-input closure, 108 protected inputs, forty-one preceding frozen
+manifests, forty-two full canonical status rows, native catalogue and
+research-only toric candidate are preserved. No new production-model
+receipt or original priority claim is made. Continue normal work-branch
+synchronization, and audit the recent finite-degree normalized-volume
+paper, including its effective boundaries and analytic dependencies,
+before any further import.
