@@ -1892,3 +1892,42 @@ promoted to the book. Active TeX, bibliography, all 42 problem statuses,
 the open catalogue and frozen exports are byte preserved. Next acquire
 and inspect the current Gupta metric source and primary approximation
 results for initial velocity measures.
+
+### Complex metric completion and the regular initial endpoint — 5 October
+
+The entire 33-page arXiv:2401.01688v1 by Gupta has now been read,
+including references, and 21 actual PDF pages were inspected. The
+initial-velocity formula in Lemma 5.3 requires the initial point to be
+a regular obstacle envelope. Theorem 5.4 extends metric geodesicity to
+arbitrary finite-energy endpoints through limits of distances; it does
+not drop that regularity hypothesis from the velocity formula.
+
+Chapter 68 now imports the known complete complex finite-energy metric,
+the I_p comparison, general metric-geodesic identity, regular initial
+velocity formula and p=2 CAT(0) inequality. It states the volume
+normalization explicitly and uses a separately identified arXiv entry.
+The published DOI metadata were verified, but publisher links returned
+403 and no published-text equivalence is asserted. Appendix L records
+that boundary. The elementary uniform-convergence consequence follows
+from full mass and the source comparison. A2–A4 retain their scope,
+and no non-Archimedean topology or convergence of Chow minimizers has
+been supplied.
+
+The research audit strengthens the preceding P1 corner diagnostic:
+the smooth approximations converge in every finite d_p on each bounded
+time interval, and their distance moments yield an exact limit; their
+initial velocity laws remain uniform while the literal corner initial
+derivative gives an atom. This illustrates the separate derivative and
+measure passage and remains a research candidate without an independent
+production receipt or admitted theorem-counterexample verdict. It is
+not integrated as a solved atom. The source's literal exponent, p-range,
+constant and endpoint-label inconsistencies are excluded from the import.
+
+The existing 46 formal environments and proofs in Chapter 68 and
+Appendix L, all 108 protected analytic inputs, all 42 complete problem
+statuses and the standalone catalogue are preserved. The fresh full-book
+build and release gates are recorded separately; earlier frozen exports
+and research manifests remain immutable. Next inspect primary results
+for geodesic rays in big classes and the exact convergence mechanism for
+velocity-measure pairs, retaining the distinction between a known metric
+completion and an unproved quantization/minimizer passage.
