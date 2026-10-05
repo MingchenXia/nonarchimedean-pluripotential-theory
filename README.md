@@ -9,7 +9,7 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,290 pages**. The proof of
+The current research-integration build has **4,303 pages**. The proof of
 Boucksom--Jonsson (2022), Theorem 6.21, incorrectly infers monotonicity of
 a residual with a changing divisor coefficient. Critical homogeneous Siu
 division is now an explicit additional assertion `(SD)_k`; the general
@@ -230,6 +230,17 @@ The separate curvature and C1-alpha estimates retain their positive
 lower bound, and ampleness is used at sufficiently large very ample
 degrees. These results give no spectral-law, minimizing-direction or
 A2–A4 convergence, and leave partial-kernel sufficiency outside the import.
+The [weak-geodesic directions audit](manuscript/editorial/darvas_survey_nonuniqueness_audit_20261005.md)
+reads all seven questions and conjectures in Darvas's August 2026 survey.
+Chapter 65 distinguishes five directions reported open in that version
+from two uniqueness questions answered negatively in Xiao's September
+preprint. It includes the separate constructions for equality of model
+measures and literal contact sets, and for different bounded weak rays
+with the same pointwise initial tangent. Positive deficient mass,
+almost-everywhere versus literal contact equality, and the conversion
+of potentials and dual slopes are retained. The known sharp radial
+J comparison is separated from the general global comparison question;
+the book's 42 complete research-status rows remain unchanged.
 Chapter 5 adds
 a source-checked Sylvester height-slice example that computes a normalized
 local monomial model and its regular semistable subdivision. The exact

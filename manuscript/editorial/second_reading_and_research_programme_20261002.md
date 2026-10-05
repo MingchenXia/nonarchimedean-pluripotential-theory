@@ -2137,3 +2137,53 @@ without a claim of a fresh isolated archive compilation. The next
 acquired sources are Darvas's survey arXiv:2604.18981v2, revised
 28 August 2026, and Darvas–Zhang arXiv:2608.23505v2, revised
 13 September 2026; acquisition or initial reading is not an import.
+
+### Weak geodesic directions and initial data — 5 October
+
+The full primary reading of Darvas's arXiv:2604.18981v2 (revised
+28 August 2026) identifies seven explicitly numbered questions and
+conjectures. All twelve actual PDF pages were inspected. Five directions
+remain open according to that version: strict positivity of weak
+segments, sharp global J comparison, a canonical description of the
+specified chordal interpolation, preservation of approximability and
+real C1,1 decreasing approximation of bounded weak rays. The book states
+these precise domains and dates without claiming that later literature
+has made no progress.
+
+The September follow-up arXiv:2609.03296v1 was read in full, including
+references, and all 21 actual pages inspected. Xiao's Theorem 4.1 concerns
+equal nonpluripolar measures with different diffuse polar curvature;
+it gives only almost-everywhere contact equality. Proposition 5.1 is the
+separate literal-contact perturbation, and Theorem 5.2 produces different
+bounded weak rays with the same pointwise initial tangent. Chapter 65
+explains their proof structure and doubles the source's additive
+potentials and dual slopes to retain the book's ddc and unit
+Fubini–Study background. The mass is positive and deficient; the examples
+do not concern full-mass uniqueness or classical real C1,1 rays.
+
+The contact formula and model criterion were checked in full in
+arXiv:1912.12720v1, with five actual pages inspected. The complete
+arXiv:2101.02589v1 text was also read, with eight actual pages inspected.
+Darvas–George–Smith's Theorem 1.3 already gives the sharp comparison
+along all finite-energy rays, using probability-normalized d1 and energy.
+It does not supply one additive constant for all potentials in the
+survey's global Conjecture 3.3. The survey's literal contact-set/measure
+equivalence and inconsistent auxiliary regularity/volume displays are
+not copied. The full source and proof audit is
+[darvas_survey_nonuniqueness_audit_20261005.md](darvas_survey_nonuniqueness_audit_20261005.md).
+
+The final cloud build has 4,303 pages, 319 cited references and 12,650
+unique labels. All 49 old formal blocks/proofs in Chapter 65 and
+Appendix L, 108 protected inputs, 42 complete statuses, the native
+catalogue and all frozen prior releases are preserved. Six new equation
+tags are 65.60–65.65, and the new provenance section is L.35. Source,
+reference, inventory, bibliography, index and PDF-navigation checks pass
+with no errors, unresolved references, missing glyphs, package/PDF
+warnings or overfull boxes; the underfull count remains 954. Sixteen
+actual final book pages were inspected and exported as the matching
+review. The source archive retains all 425 active inputs and is checked
+against workspace bytes without a fresh isolated archive compilation.
+These are identified external imports and direct formal consequences,
+without a new original-result or production-verifier claim. Continue the
+full proof reading of Darvas–Zhang arXiv:2608.23505v2; reading through
+line 1140 is a partial reading, and no klt result has yet been imported.
