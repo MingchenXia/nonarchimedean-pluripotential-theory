@@ -1863,3 +1863,32 @@ bibliography, all 42 problem statuses, the open catalogue and the frozen
 4,282-page book exports are byte preserved. Next inspect the current
 Toeplitz theorem used for the density claim and primary endpoint-velocity
 regularity results before admitting any new analytic material.
+
+### Toeplitz and density follow-up — 5 October
+
+The complete 32-page arXiv:2502.01554v1 has now been read, including
+references; eighteen actual controlling pages and three additional
+published BBWN pages were inspected. The comparison in Theorem 7.1
+requires a continuous metric below the non-negligible envelope, not
+just full support. The source's main velocity formula retains its
+smooth-positive initial point.
+
+A direct research candidate constructs one fixed bounded density with
+full essential support on P1 and explicit dyadic-degree sections whose
+weighted L2/sup-norm ratios decay exponentially. This advances the
+ordinary section test left pending in the preceding frozen audit;
+it does not infer that conclusion merely from nondetermining. The
+positive-area zero set places it outside the source's nonpathological
+support criterion, while testing the later big paper's broader density
+proposition. Separate cap and disk-plus-isolated-point calculations
+test the printed local-comparison and weak-versus-psh-weight claims.
+
+Exact rational checks compare polynomial beta integration with binomial
+tails in 48 degrees, check smallest eigenvalues, half-cap kernels and
+rank-one Gram determinants, and check 60 dyadic section degrees. These
+are research candidates with no independent production receipt; no
+source-counterexample verdict, theorem environment or solved atom is
+promoted to the book. Active TeX, bibliography, all 42 problem statuses,
+the open catalogue and frozen exports are byte preserved. Next acquire
+and inspect the current Gupta metric source and primary approximation
+results for initial velocity measures.
