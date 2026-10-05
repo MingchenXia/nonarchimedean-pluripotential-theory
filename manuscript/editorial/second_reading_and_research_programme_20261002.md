@@ -2382,3 +2382,22 @@ protected inputs, 49 pre-existing formal blocks/proofs and 37 preceding
 frozen manifests are byte checked. The 86-page native catalogue is
 unchanged. Full PDF, 20-page review and complete-source exports use new
 relative-entropy filenames, preserving prior releases.
+
+### Class-perturbation research candidate — 5 October
+
+After `cbae440`, a separate [research-only toric draft](research_candidates/entropy_class_perturbation_toric_20261005.md)
+records a proposed bounded-potential example on (P^1)^2. The candidate
+distinguishes an absolutely continuous top measure with a local L log L
+bound from a mixed measure supported on a real hypersurface. It includes
+the complete proposed global smooth-maximum gluing, endpoint subgradient
+calculation, positive full masses and source/book normalization.
+
+The Coman–Guedj–Sahin–Zeriahi arXiv v1 toric identity and bounded-product
+inputs were selectively read and six actual pages displayed. The symbolic
+determinant and profile integral were checked, without treating symbolic
+diagnostics as an independent mathematical verifier. The production
+status is OPEN: no separate model call, receipt, novelty assertion or
+problem retirement is claimed. The requested verifier setting remains
+gpt-6.1-sol xhigh. The draft is not an active TeX input. The full book and
+native catalogue retain their previous source/PDF bytes while the separate
+Orlicz primary-source work continues.
