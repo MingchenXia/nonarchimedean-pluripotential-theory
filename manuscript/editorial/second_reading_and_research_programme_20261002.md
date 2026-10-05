@@ -2087,3 +2087,53 @@ is retained. Sixteen actual final pages were inspected and exported as
 the matching review extract. The manifest and complete 425-input source
 closure pin this checkpoint; its archive is checked against workspace
 bytes without claiming a new isolated archive build.
+
+### Bergman measures and bounded curvature — 5 October
+
+The next primary reading is Błocki–Darvas, arXiv:2602.03111v1,
+submitted 3 February 2026. The complete 18-page extracted text,
+including references, was read and every actual PDF page inspected.
+The author-page PDF and the arXiv PDF have identical bytes and SHA-256;
+this is a direct file comparison, without a publication claim.
+
+Chapter 68 imports the known full-mass Bergman-measure convergence
+without a finite-energy restriction. It uses N_k rather than a raw
+asymptotic volume prefactor, so the finite-degree measure has total
+mass exactly one. The source's i partial partial-bar and the book's
+ddc differ by 2pi with the same logarithmic potential; the scalar
+Hilbert-volume change leaves curvature and probability measures
+unchanged. The raw factorial convention, singular weighted-density
+smoothness, small-degree base points, origin/basis-index clauses,
+missing auxiliary logarithm and printed energy infinity sign are
+recorded without copying those literal steps or refuting the intended
+known theorem.
+
+The separate curvature estimate requires bounded Laplacian and a
+positive lower bound. Its C1-alpha limit has alpha<1 and does not
+assert convergence of curvature tensors or the real C1,1 norm.
+The constructions use an ample line bundle at sufficiently large very
+ample degrees. A singular target measure is allowed for the weak limit;
+convergence of densities or an initial-velocity spectral pushforward
+does not follow. A2–A4, partial-kernel sufficiency and the general
+Siu/envelope boundary remain unchanged. The three questions of the
+inspected February version are attributed source directions, without
+an unsupported claim that subsequent literature has made no progress.
+
+All 46 existing formal environments/proofs in Chapter 68 and Appendix L,
+108 protected inputs, 42 complete statuses, native catalogue and prior
+frozen releases are preserved. Four equation tags are 68.23a–68.23d.
+Next follow current primary work on weak-geodesic quantization and
+partial kernels, distinguishing spatial measure convergence from a
+spectral law and a degreewise minimizer limit.
+
+The final matching cloud build has 4,298 pages, 314 cited references
+and 12,642 unique labels. Source/reference, inventory, bibliography,
+index and PDF-navigation checks pass with no errors, unresolved
+references, missing glyphs, package/PDF warnings or overfull boxes;
+the underfull count remains 954. Sixteen actual final book pages were
+inspected and exported as the matching review. The source archive
+retains all 425 active inputs and is checked against workspace bytes,
+without a claim of a fresh isolated archive compilation. The next
+acquired sources are Darvas's survey arXiv:2604.18981v2, revised
+28 August 2026, and Darvas–Zhang arXiv:2608.23505v2, revised
+13 September 2026; acquisition or initial reading is not an import.

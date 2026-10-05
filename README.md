@@ -221,6 +221,15 @@ The initial preprint's unrestricted zero-reference-mass characterization
 is excluded and recorded as a research diagnostic. These ordinary
 known-formula consequences do not retroactively verify the frozen
 research draft or change any of the 42 problem statuses.
+The [Bergman-measure audit](manuscript/editorial/blocki_darvas_bergman_radon_audit_20261005.md)
+then adds Błocki–Darvas's identified February 2026 preprint to Chapter 68.
+Its full 18-page text and every actual PDF page were inspected; the
+author and arXiv PDFs are byte identical. The known full-mass weak
+measure limit uses exact probability normalization at each degree.
+The separate curvature and C1-alpha estimates retain their positive
+lower bound, and ampleness is used at sufficiently large very ample
+degrees. These results give no spectral-law, minimizing-direction or
+A2–A4 convergence, and leave partial-kernel sufficiency outside the import.
 Chapter 5 adds
 a source-checked Sylvester height-slice example that computes a normalized
 local monomial model and its regular semistable subdivision. The exact
