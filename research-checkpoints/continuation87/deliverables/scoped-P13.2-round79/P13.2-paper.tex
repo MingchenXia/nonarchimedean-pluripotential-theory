@@ -1,0 +1,662 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  10pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=0.85in]{geometry}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{amsmath,amssymb,amsthm}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Actual finite-energy realization from a smooth rational quotient},
+  pdfauthor={Primary-source reconstruction; unverified mathematical draft},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Actual finite-energy realization from a smooth rational quotient}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{Supremum tests, orbit-root tails, and a genuine all-Reeb
+partial theorem}
+\author{Primary-source reconstruction; unverified mathematical draft}
+\date{5 October 2026}
+
+\begin{document}
+\maketitle
+
+\section{1. Exact disposition and the new realization
+scope}\label{exact-disposition-and-the-new-realization-scope}
+
+The unchanged original P13.2 remains open in this deliverable. The flag
+is \texttt{candidate=false}. Its original domain is every normal good
+polarized affine cone over every algebraically closed trivially valued
+characteristic-zero field, with the specified torus, every rational or
+irrational Reeb field, actual finite-energy potentials modulo constants,
+the invariant carrier \(K=X_0^T\), and the actual affine-cone
+probability normalization. The exact problem, completion criterion, full
+assignment, accepted proof bodies and reviews are preserved in
+\texttt{input-original.json}, \texttt{task-original.json}, and
+\texttt{assignment-original.txt}.
+
+There is a new \textbf{actual realization theorem on a specified
+algebraic subdomain}, rather than a completion element or an approximate
+equation. Suppose there is at least one rational Reeb field \(\eta\) for
+which the effective projective quotient \[
+Y=\operatorname{Proj}R_{\eta_e}
+\] is smooth. The integer field \(\eta_e\) here has effective supported
+degree gcd one, and \(\eta=s\eta_e\), \(s>0\). Then, for \textbf{every}
+Reeb field \(\xi\) on this same cone, including nonproportional
+irrational fields, the image of the genuine operator is exactly \[
+\left\{\mu\text{ positive Radon on }K:\ \mu(K)=1,\quad
+L_\xi(\mu):=\sup_{h\in H(\xi)}\left(E_\xi(h)-\int_Kh\,d\mu\right)<\infty\right\}.                 \tag{1.1}
+\] Equivalently, every actual \(\mathcal E^1(\xi)\) potential is
+\(\mu\)-integrable. The solution is an actual normalized potential,
+unique modulo constants. In particular this theorem covers \textbf{all
+original normal cones of dimension at most two}, over every retained
+field and at every Reeb field. It also covers higher-dimensional cones
+with a smooth rational quotient. No toric assumption is made in that
+theorem.
+
+The extra smooth-quotient hypothesis is not automatic in dimension at
+least three; Section 9 gives a normal good cone outside it. Thus (1.1)
+is not asserted as a sufficient condition on every original cone. The
+strongest new ingredients are an actual topology on the genuine
+potential class, a finite-grid and tail proof of \(L^1\) continuity of
+nonlinear orbit roots, and an actual variational limit with its energy
+and operator identified. None of the unreviewed root80--83 or round75
+results is used.
+
+\section{2. Granted mathematical inputs and
+calibration}\label{granted-mathematical-inputs-and-calibration}
+
+We use the supplied \textbf{full accepted P13.1 mathematical proof},
+together with its exact original PASS, only in its granted scope: actual
+\(H\), CPSH, PSH and normalized \(\mathcal E^1\) classes; intrinsic raw
+root maps; fixed-field convexity, positivity, Hodge calculus, weighted
+decreasing-net continuity; calibrated rational projective
+correspondence; energy comparisons; and uniform outer differentiation.
+We use the supplied \textbf{full accepted round73 partial proof}, with
+exact round76 PASS, for the finite-target/integrability criterion, its
+field independence, genuine maximizing sequences, the deficit bound on
+\(J\), the midpoint estimate, and optimality of an already actual
+maximizer. Those results do not include compactness or attainment.
+
+For clarity, \(n=\dim X\ge1\), \(p=n-1\), \(\rho_\xi|_K=0\), and \[
+\operatorname{MA}_\xi(u_1,\ldots,u_p)
+ =V_\xi^{-1}dd^cu_1\cdots dd^cu_p\,dd^c\rho_\xi^+,
+\qquad \rho_\xi^+=\max(\rho_\xi,0).                                      \tag{2.1}
+\] Its mass on \(K\) is one. For continuous potentials, \[
+E_\xi(u)=\frac1{nV_\xi}\sum_{j=0}^p\int_Ku\,(dd^cu)^j
+                 (dd^c\rho_\xi)^{p-j}dd^c\rho_\xi^+;                    \tag{2.2}
+\] on actual PSH it is the infimum over dominating actual CPSH
+potentials. Normalization means \(u(v_{\rm triv})=\sup_Ku=0\), and
+\(J_\xi(u)=-E_\xi(u)\).
+
+For homogeneous algebra generators \(h_i\) of weights \(\beta_i\), set
+\[
+a=\min_i\frac{\langle\xi,\beta_i\rangle}{\langle\eta,\beta_i\rangle}>0,
+\qquad b=\max_i\frac{\langle\xi,\beta_i\rangle}{\langle\eta,\beta_i\rangle}.
+\] Every actual \(\eta\)-potential satisfies, for \(t\ge0\), \[
+u(v)-bt\le u(v+t\xi)\le u(v)-at.                              \tag{2.3}
+\] The same bounds after reversing the orbit imply that a finite orbit
+is Lipschitz and strictly decreasing, and an infinite-valued orbit is
+identically \(-\infty\). Its zero parameter is
+\(\mathcal R_{\eta\xi}u(v)\). The raw maps preserve order, CPSH and
+decreasing actual PSH nets; are inverses; and preserve normalization.
+For normalized actual finite-energy potentials they are onto, with the
+granted comparison \[
+e^{-(2n+1)\delta}J_\eta(u)\le
+J_\xi(\mathcal R_{\eta\xi}u)\le e^{(2n+1)\delta}J_\eta(u),
+\quad \delta=\max_i\left|\log\frac{\langle\xi,\beta_i\rangle}{\langle\eta,\beta_i\rangle}\right|.  \tag{2.4}
+\] On \(K\), normalized roots satisfy \(u/a\le\mathcal R u\le u/b\le0\).
+The finite-energy target class on the fixed \(K\) is independent of the
+Reeb field, by the granted integrability criterion and these pointwise
+bounds.
+
+For a rational \(\eta=s\eta_e\), choose a sufficiently divisible
+Veronese \(d\) and the actual ample line bundle \(L_d=\mathcal O_Y(d)\).
+The accepted calibration is \[
+V_\eta=s^{-n}d^{1-n}(L_d^p),\quad \omega_\eta=L_d/(sd),
+\quad (\omega_\eta^p)=sV_\eta,\quad E_\eta(u)=E_{L_d}(\varphi)/(sd).       \tag{2.5}
+\] The projective probability is raw projective curvature divided by
+\((L_d^p)\). Its calibrated Gauss lift is the cone probability; raw
+projective mass is not identified with \(V_\eta\). Section 7 verifies
+the unbounded fixed-field application of (2.5).
+
+\section{3. A topology on actual potentials and actual root
+homeomorphisms}\label{a-topology-on-actual-potentials-and-actual-root-homeomorphisms}
+
+Write \(\mathcal P_\theta\) for normalized \textbf{actual} PSH
+restrictions on \(K\). For each actual \(\psi\in\mathrm{CPSH}(\theta)\)
+define \[
+S_\psi(u)=\sup_K(u-\psi)\in\mathbb R.
+\] It is finite: \(u\le0\), \(u(v_{\rm triv})=0\), and \(\psi\) is
+bounded on \(K\). Let \(\tau_\theta\) be the coarsest topology making
+every \(S_\psi\) continuous. This introduces a topology on the given
+functions, not a new potential cone.
+
+\textbf{Lemma 3.1.} \(\tau_\theta\) is Hausdorff, \(E_\theta\) is upper
+semicontinuous in it, and every normalized raw-root bijection is a
+homeomorphism \[
+\mathcal R_{\eta\xi}:(\mathcal P_\eta,\tau_\eta)\longrightarrow
+                     (\mathcal P_\xi,\tau_\xi).                         \tag{3.1}
+\] This lemma holds on every original cone; it asserts no compactness in
+general.
+
+For separation, if \(u(x)>v(x)\) at some \(x\in K\), take a genuine
+decreasing CPSH defining net \(\psi_j\downarrow v\). Some
+\(\psi_j(x)<u(x)\), including when \(v(x)=-\infty\). Then
+\(S_{\psi_j}(u)>0\) and \(S_{\psi_j}(v)\le0\). If distinct restrictions
+have the opposite inequality, exchange them. Equivariance and
+torification determine the full potential from the restriction, so this
+also separates actual normalized potentials.
+
+For upper semicontinuity, if \(E_\theta(u)<c\), choose a genuine
+continuous majorant \(\psi\ge u\) with \(E_\theta(\psi)<c-\epsilon\).
+The neighborhood \(S_\psi(v)<\epsilon\) gives \(v\le\psi+\epsilon\) and
+hence \(E_\theta(v)\le E_\theta(\psi)+\epsilon<c\). This works also at
+energy \(-\infty\). Thus \(J_\theta\) is lower semicontinuous on the
+normalized class.
+
+We prove (3.1) using strict global order, rather than pointwise
+convergence on a selected valuation set. For
+\(\psi\in\mathrm{CPSH}(\xi)\) and \(t\in\mathbb R\), put \[
+g_t=\mathcal R_{\xi\eta}(\psi+t)\in\mathrm{CPSH}(\eta).
+\] Raw order equivalence, including unbounded values, gives \[
+S_\psi(\mathcal R_{\eta\xi}u)\le t\ \Longleftrightarrow\ S_{g_t}(u)\le0.   \tag{3.2}
+\] There is also equivalence with strict \(<\) on the left and strict
+\(<0\) on the right. Indeed a uniform negative gap on one side remains a
+uniform negative gap after applying the inverse root: by (2.3), a
+constant shift \(c>0\) changes every root between \(c/b\) and \(c/a\).
+The reverse map has degree ratios \(1/b,1/a\). Therefore strictly
+negative suprema cannot become zero. Strict \(>t\) corresponds to strict
+\(>0\) by the non-strict equivalence. Both strict sublevel and strict
+superlevel preimages in (3.2) are open in \(\tau_\eta\), proving
+continuity. Apply the same argument to the inverse. No strong \(I\)
+continuity is inferred.
+
+\section{4. Orbit pushforwards remain genuine finite-energy
+targets}\label{orbit-pushforwards-remain-genuine-finite-energy-targets}
+
+Fix \(\eta,\xi\) and a real \(r\), and define a continuous map on the
+same actual carrier \[
+T_r(x)=s_\eta(x+r\xi),\qquad x\in K.                             \tag{4.1}
+\] Here \(s_\eta(v)=v+\rho_\eta(v)\eta\) is the accepted radial
+retraction. Continuity follows from the actual torified action and the
+finite reference maximum. No inverse or group law for \(T_r\) is
+asserted.
+
+\textbf{Lemma 4.1.} If \(\mu\) is a finite-energy probability on \(K\),
+then \(\mu_r=(T_r)_*\mu\) is also such a probability, for every fixed
+\(r\). For every actual \(\eta\)-potential \(u\) finite at \(x\), \[
+|u(T_r x)-u(x)|\le2b|r|.                                      \tag{4.2}
+\] Infinite values are preserved along these maps.
+
+To prove it, reverse (2.3) when \(r<0\) and apply it directly when
+\(r\ge0\). This gives \(|u(x+r\xi)-u(x)|\le b|r|\). Applying the same
+estimate to the reference, which is zero at \(x\in K\), gives
+\(|\rho_\eta(x+r\xi)|\le b|r|\). Actual equivariance says \[
+u(T_r x)=u(x+r\xi)-\rho_\eta(x+r\xi),
+\] which proves (4.2). If \(u(x)=-\infty\), the entire orbit is
+\(-\infty\) by (2.3), and subtracting the finite reference preserves it.
+Every actual \(\mathcal E^1(\eta)\) potential is \(\mu\)-integrable;
+(4.2) makes it \(\mu_r\)-integrable. The granted finite-target criterion
+now puts \(\mu_r\) in the actual finite-energy target class. Positivity,
+Radon regularity and mass one follow from continuous pushforward on
+compact Hausdorff \(K\). This reasoning uses actual integrability, not
+an unproved pullback rule for MA.
+
+\section{\texorpdfstring{5. A finite-grid and tail proof of
+nonlinear-root \(L^1\)
+continuity}{5. A finite-grid and tail proof of nonlinear-root L\^{}1 continuity}}\label{a-finite-grid-and-tail-proof-of-nonlinear-root-l1-continuity}
+
+\textbf{Lemma 5.1.} Let \(u_i,u\in\mathcal E^1(\eta)\) be normalized
+actual potentials and let \(\mu\) have finite energy. Suppose \[
+u_i\longrightarrow u\text{ in }L^1(\mu),\qquad
+u_i\longrightarrow u\text{ in }L^1(\mu_r)\quad\text{for every rational }r\le0.  \tag{5.1}
+\] Then the actual normalized roots satisfy \[
+\mathcal R_{\eta\xi}u_i\longrightarrow\mathcal R_{\eta\xi}u
+                       \text{ in }L^1(\mu).                           \tag{5.2}
+\] This holds for arbitrary nets, every original cone, and fixed
+rational or irrational fields. The hypotheses of (5.1) will be proved,
+rather than assumed, on the smooth-quotient subdomain in Section 6.
+
+Put \(R_i=\mathcal R_{\eta\xi}u_i\), \(R=\mathcal R_{\eta\xi}u\). On
+\(\mu\)-almost every point relevant to any fixed comparison, the orbit
+functions \[
+G_i(r,x)=u_i(x+r\xi)=u_i(T_r x)+\rho_\eta(x+r\xi),\qquad G(r,x)=u(x+r\xi)
+\] are finite. Their slopes lie between \(-b\) and \(-a\). The null sets
+may depend on \(i\); each estimate below concerns only finitely many
+functions for that \(i\), so no common null set for an uncountable net
+is needed. Since \(G_i(0,x)=u_i(x)\le0\), the roots are nonpositive and
+\[
+0\le -R_i(x)\le -u_i(x)/a,
+\qquad 0\le -R(x)\le -u(x)/a.                              \tag{5.3}
+\]
+
+Fix a positive rational \(M\) and a rational mesh \(h=M/N\). On
+\([-M,0]\) use the finite grid \(r_j=-M+jh\), \(0\le j\le N\). The orbit
+Lipschitz bound gives \[
+\sup_{-M\le r\le0}|G_i(r,x)-G(r,x)|
+ \le\max_j|G_i(r_j,x)-G(r_j,x)|+2bh.
+\] For two decreasing functions with downward slope at least \(a\),
+inverse zero parameters, clipped to \([-M,0]\), differ by at most their
+sup-norm difference divided by \(a\). To check boundary cases, if a
+clipped root is \(-M\), the value at \(-M\) is nonpositive; if the other
+clipped root is interior, its slope inequality bounds their distance by
+the discrepancy at \(-M\). The same argument at zero and at two interior
+roots proves the assertion. Thus, writing \(R_i^M=\max(R_i,-M)\), \[
+\int|R_i^M-R^M|\,d\mu
+ \le a^{-1}\sum_{j=0}^N\|u_i-u\|_{L^1(\mu_{r_j})}+2bh/a.                \tag{5.4}
+\] The finite reference terms cancel. First let the net index tend to
+its limit with this finite grid fixed; then let \(N\to\infty\). This
+proves clipped \(L^1\) convergence for each fixed \(M\).
+
+The actual tail estimate, stronger than a bound on norms, is \[
+\int|R_i-R_i^M|\,d\mu\le a^{-1}\int(-u_i-aM)_+\,d\mu.                  \tag{5.5}
+\] It follows pointwise from (5.3). For fixed \(M\), the right-hand
+integral converges to the one with \(u\), since \(z\mapsto(-z-aM)_+\) is
+1-Lipschitz and (5.1) holds at \(r=0\). Combining (5.4)--(5.5), \[
+\limsup_i\|R_i-R\|_{L^1(\mu)}
+ \le \frac2a\int(-u-aM)_+\,d\mu.                               \tag{5.6}
+\] The last quantity tends to zero by integrability of the fixed actual
+\(u\). This proves (5.2), with tail control and the order of limits
+explicit. It does not exchange an unbounded varying test with a weakly
+convergent measure and does not claim an unbounded moving-Reeb
+mixed-current theorem.
+
+\section{\texorpdfstring{6. Genuine compactness and bounded-energy
+\(L^1\) continuity at a smooth rational
+quotient}{6. Genuine compactness and bounded-energy L\^{}1 continuity at a smooth rational quotient}}\label{genuine-compactness-and-bounded-energy-l1-continuity-at-a-smooth-rational-quotient}
+
+For Sections 6--8 assume \(n\ge2\); the \(n=1\) point case is treated
+directly at the end of Section 8. Assume now that \(Y\) for the rational
+field \(\eta\) is smooth. The accepted rational construction supplies
+the actual \(L_d\), its canonical reference, a continuous residual
+torification \(q:Y^{\rm an}\to Y^{\rm an}\), the compact carrier
+\(B=q(Y^{\rm an})\), and the calibrated homeomorphism \(\ell:B\to K\).
+All torification formulas use the actual residual linearization and
+eigen-section charts in the granted P13.1 proof.
+
+For every genuine projective PSH potential \(\varphi\), define \[
+\varphi^T=\varphi\circ q.
+\] This is actual PSH and \(\varphi^T\ge\varphi\). On FS metrics, split
+sections into their residual weight components with the same additive
+coefficients. The components still globally generate, the maximum is
+\(\varphi\circ q\), and the ultrametric inequality gives the domination.
+Uniform approximation gives the statement for CPSH. For a decreasing
+genuine CPSH defining net for \(\varphi\), its torifications decrease
+pointwise to \(\varphi\circ q\), establishing actual PSH membership. The
+trivial valuation is fixed, so normalization is preserved. Monotonicity
+gives \[
+E_{L_d}(\varphi^T)\ge E_{L_d}(\varphi),                         \tag{6.1}
+\] and in particular torification preserves actual finite energy.
+
+We apply established smooth projective theorems in the authorized
+primary C, \emph{Global pluripotential theory over a trivially valued
+field}, arXiv:1801.08229v4. Its hypotheses are checked individually
+here: \(k\) is algebraically closed, trivially valued and characteristic
+zero; \(Y\) is an actual integral smooth projective variety, hence
+connected; and \(L_d\) is an actual ample line bundle. C Theorem 5.20
+and Corollary 5.21 give weak compactness of
+\(\mathrm{PSH}_{\rm sup}(L_d)\). C Proposition 4.28 gives continuity of
+\(\varphi\mapsto\sup(\varphi-\gamma)\) for every continuous \(\gamma\);
+Proposition 7.7 gives energy upper semicontinuity. C Proposition 9.19
+gives \(L^1(\lambda)\) convergence for weakly converging genuine PSH
+nets with bounded \(J\) and any finite-energy projective probability
+\(\lambda\).
+
+The source's compactness is an actual decreasing-net argument: Tychonoff
+gives a subnet of divisorial values; genuine upper tail envelopes,
+furnished by smooth EP, decrease to an actual PSH potential.
+Nonnegligibility of divisorial points identifies its values and excludes
+the identically \(-\infty\) limit. This works over uncountable \(k\)
+without metrizability. The smooth EP proof uses multiplier-ideal
+subadditivity and uniform global generation on a smooth test model to
+obtain uniform envelope approximation. We apply that published primary
+theorem on the smooth \(Y\) only. No singular envelope conclusion of E
+is imported.
+
+\textbf{Proposition 6.1.} \((\mathcal P_\eta,\tau_\eta)\) is compact. If
+\(u_i\to u\) in this topology with \(J_\eta(u_i)\) eventually bounded,
+then \(u\in\mathcal E^1(\eta)\) and \(u_i\to u\) in \(L^1(\lambda)\) for
+every finite-energy cone probability \(\lambda\) on \(K\).
+
+Define a map from the genuine compact projective normalized class to the
+genuine cone class by \[
+A(\varphi)=\frac1{sd}\,\varphi^T\circ\ell^{-1}\big|_K.                  \tag{6.2}
+\] Its actual membership and surjectivity are justified in Section 7. If
+\(\psi\) is a cone CPSH test, put \(\Psi=sd\,\psi\circ\ell\circ q\), a
+genuine invariant projective CPSH potential. Then \[
+S_\psi(A\varphi)=\frac1{sd}\sup_{Y^{\rm an}}(\varphi-\Psi).             \tag{6.3}
+\] Indeed the supremum of \(\varphi^T-\Psi\) is attained as a supremum
+on \(B\); it is bounded above by the full supremum of \(\varphi-\Psi\).
+The domination \(\varphi^T\ge\varphi\) gives the reverse inequality. C
+Proposition 4.28 makes (6.3) weakly continuous. Thus (6.2) is a
+continuous surjection from a compact space onto the Hausdorff space of
+Section 3, proving compactness. We need neither closedness of the
+invariant subset in the projective weak topology nor weak continuity of
+roots on all divisorial valuations.
+
+Upper semicontinuity from Lemma 3.1 gives \(E_\eta(u)\ge- C\) if the
+eventual \(J\) bound is \(C\), so \(u\) is actual finite energy. To
+prove \(L^1\), regard each \(u_i\) as the invariant projective potential
+\(\varphi_i=sd\,u_i\circ\ell\circ q\). Its normalized projective \(J\)
+is \(sdJ_\eta(u_i)\). Push \(\lambda\) to a probability \(\lambda_Y\)
+supported on \(B\). It has genuine projective finite energy: for every
+projective \(\chi\in\mathcal E^1(L_d)\), (6.1) gives an invariant
+finite-energy \(\chi^T\), whose cone restriction is an actual
+\(\eta\)-E1 potential. On \(B\), \(\chi=\chi^T\). The granted cone
+integrability criterion gives \(\chi\in L^1(\lambda_Y)\); C Theorem 9.20
+then gives finite projective dual energy.
+
+If \(L^1(\lambda)\) convergence failed, take a subnet on which its
+distance stays above a fixed positive number, and then a weakly
+convergent projective subnet \(\varphi_i\to\chi\). Energy upper
+semicontinuity makes \(\chi\) finite energy. Continuity of (6.2) and
+uniqueness of the \(\tau_\eta\) limit imply \(A\chi=u\). Since
+\(\chi=\chi^T\) on \(B\), the projective C9.19 conclusion \[
+\varphi_i\longrightarrow\chi\quad\hbox{in }L^1(\lambda_Y)
+\] contradicts the supposed cone \(L^1\) failure after division by
+\(sd\). This proves convergence of the whole original net.
+
+We retain C9.19's actual proof and its hypotheses. Its first assertion
+follows from uniform approximation of target integration on
+bounded-\(J\) sets by integration against genuine bounded model MA
+measures, whose pairings are weakly continuous. For the absolute \(L^1\)
+assertion, use \(\chi_i'=\max(\chi_i,\chi)\) and the corrected identity
+\[
+|\chi_i-\chi|=2\max(\chi_i,\chi)-\chi_i-\chi.
+\] These maxima converge on divisorial values, remain normalized, and
+have bounded \(J\) by energy monotonicity. Applying the first assertion
+twice proves \(L^1\). The misprinted identity at C LF5254 is not used.
+No cone absolute \(L^1\) assertion is obtained merely from the accepted
+signed estimate; the projective compactness and this proof are the new
+inputs.
+
+\section{7. Actual rational correspondence and all-Reeb
+compactness}\label{actual-rational-correspondence-and-all-reeb-compactness}
+
+We justify the genuine unbounded correspondence used in (6.2). At the
+continuous level it is the accepted primary/eigen-section quotient
+correspondence, with \(\varphi=sd\,u\circ\ell\circ q\) and the energy
+equality (2.5). Given actual cone \(u\) and a defining CPSH net
+\(u_j\downarrow u\), its projective images decrease to the displayed
+\(\varphi\), at every analytic point after composition with \(q\).
+Normalization guarantees a finite value at the trivial valuation.
+Consequently \(\varphi\) is actual projective PSH, rather than a weak
+completion element.
+
+Conversely, for an invariant projective \(\varphi\), take any actual
+decreasing CPSH defining net \(\varphi_j\downarrow\varphi\) and torify
+it. The actual continuous invariant metrics \(\varphi_j^T\) decrease to
+\(\varphi\). The continuous correspondence lifts them to genuine cone
+CPSH metrics. Their restrictions and equivariant extensions decrease
+pointwise on the real cone carrier and the punctured cone, including all
+\(-\infty\) values. Thus their nontrivial limit is genuine cone PSH. The
+compact directed-refinement argument in C Lemma 4.6, or the granted
+actual decreasing closure, handles a decreasing net of already PSH
+members; no sequential regularization of an uncountable space is
+required.
+
+Decreasing continuity of both genuine energies now extends (2.5) to
+these unbounded potentials, in both directions, including energy
+\(-\infty\). Thus correspondence is onto actual E1 as well. At this
+rational field, weighted mixed-operator identities extend by actual
+fixed-field decreasing approximants. Write
+\(\varphi_i=sd\,u_i\circ\ell\circ q\) for an actual E1 tuple, and let
+\(m_{L_d}(\varphi_1,\ldots,\varphi_p)\) denote the genuine projective
+mixed probability. Then \[
+\ell_*m_{L_d}(\varphi_1,\ldots,\varphi_p)
+       =\operatorname{MA}_\eta(u_1,\ldots,u_p),\qquad
+\int_Ku_0\,d\operatorname{MA}_\eta
+       =\frac1{sd}\int_B\varphi_0\,dm_{L_d}.                    \tag{7.0}
+\] The measures on the left are supported on \(B\), so \(\ell_*\) is
+defined. For a simultaneous decreasing CPSH defining net these are the
+bounded calibrated Gauss/finite-map identities at every stage. The
+granted cone weighted continuity and the genuine projective weighted
+decreasing-net theorem C7.21 pass the measures and weighted integrals to
+the unbounded limits. The latter follows from convergent mixed energy
+pairings with the test-containing pairing \textbf{minus} the zero-test
+pairing, followed by the positive weighted-measure mass argument; the
+reversed displayed sign in its printed proof is not used. This is a
+fixed-\(\eta\) passage, not a Reeb approximation. Support passes through
+the closed \(B\) and \(K\), mass remains one, and the factors (2.5) are
+retained.
+
+For an arbitrary fixed \(\xi\), Lemma 3.1 and Proposition 6.1 give
+compactness of the actual normalized \((\mathcal P_\xi,\tau_\xi)\) via
+the genuine root bijection. If \(w_i\to w\) in \(\tau_\xi\) and
+\(J_\xi(w_i)\) is bounded, energy upper semicontinuity puts \(w\) in
+actual E1. The inverse roots \(u_i=\mathcal R_{\xi\eta}w_i\) converge in
+\(\tau_\eta\) and have bounded \(J_\eta\) by (2.4). For every
+finite-energy probability \(\mu\) on \(K\), Lemma 4.1 puts every
+\(\mu_r\) in that class. Proposition 6.1 supplies all the \(L^1\)
+hypotheses (5.1). Lemma 5.1 therefore proves \[
+w_i\longrightarrow w\quad\hbox{in }L^1(\mu)                          \tag{7.1}
+\] for every such target, with no rationality assumption on \(\xi\). In
+particular we have an actual common-carrier compactness limit, bounded
+energy, explicit unbounded tails, and actual finite-energy membership.
+We have not moved unbounded MA currents across varying Reeb fields.
+
+\section{8. Attainment and genuine operator
+identification}\label{attainment-and-genuine-operator-identification}
+
+Let \(\mu\) satisfy (1.1), and fix any rational or irrational \(\xi\)
+under the smooth-quotient hypothesis. The granted exact finite-target
+theorem identifies \(L_\xi(\mu)\) with the full E1 dual supremum and
+with integrability of every actual E1 potential. Choose normalized
+\textbf{actual FS} maximizing \(w_j\), with deficit \[
+d_j=L_\xi(\mu)-E_\xi(w_j)+\int_Kw_j\,d\mu\longrightarrow0.
+\] For \(p\ge1\) the granted midpoint bound gives \[
+J_\xi(w_j)\le \frac{L_\xi(\mu)+d_j}{2a_p},\qquad a_p=p/4^{p+1}.        \tag{8.1}
+\] This bound is an input with its precise accepted scope, not a new
+repeated signed estimate.
+
+Actual compactness gives a subnet converging in \(\tau_\xi\) to an
+actual normalized PSH potential \(w\). Upper semicontinuity and (8.1)
+give \(E_\xi(w)>-\infty\). Equation (7.1) gives target \(L^1\)
+convergence. Therefore \[
+E_\xi(w)-\int_Kw\,d\mu
+ \ge \limsup_j\left(E_\xi(w_j)-\int_Kw_j\,d\mu\right)=L_\xi(\mu).       \tag{8.2}
+\] The opposite inequality is the defining dual supremum on actual E1.
+Hence \(w\) is an actual maximizer.
+
+Here is the exact operator identification. For the granted outer
+functional \(F_\xi^\downarrow\), every bounded-above integrable usc
+obstacle \(h\) satisfies \[
+F_\xi^\downarrow(h)-\int_Kh\,d\mu\le L_\xi(\mu).
+\] It follows by using feasible actual CPSH competitors for continuous
+obstacles, and then a decreasing net of continuous majorants on compact
+\(K\). Directedness and Radon regularity pass their integrals to the
+limit; metrizability is unnecessary. Apply it to \(h=w+tf\), where \(f\)
+is in the granted dense continuous direction lattice. The actual
+maximizer has deficit zero, so the two signs of the granted derivative
+\[
+F_\xi^\downarrow(w+tf)=E_\xi(w)+t\int_Kf\,d\operatorname{MA}_\xi(w)+O_f(t^2)
+\] give \(\int_Kf\,d\operatorname{MA}_\xi(w)=\int_Kf\,d\mu\). Density
+and the actual mass-one probabilities yield \[
+\operatorname{MA}_\xi(w)=\mu.                                         \tag{8.3}
+\] The differentiated operator is the genuine fixed-\(\xi\) operator of
+(2.1), defined on the actual E1 potential just constructed. No measure
+root-map identity or abstract completion is substituted for it. Its
+weighted decreasing-net definition is the granted one, and Section 7 has
+checked the only new unbounded rational correspondence application.
+
+The existing bi-Lipschitz embedding gives uniqueness modulo constants.
+Necessity is the granted genuine tangent identity
+\(L_\xi(\operatorname{MA}_\xi(w))=E_\xi(w)-\int_Kw\,d\operatorname{MA}_\xi(w)<\infty\),
+together with positivity, support on \(K\) and probability mass one.
+This proves both directions of (1.1) on the stated subdomain.
+
+There is also genuine realization of the \textbf{whole maximizing
+sequence}. The midpoint estimate against the actual maximizer gives \[
+I_\xi(w_j,w)\le d_j/(2a_p)\longrightarrow0.                           \tag{8.4}
+\] The granted target-integral and energy convergence, or (7.1) and
+uniqueness of all compact cluster points, identifies their limits with
+\(\int w\,d\mu\) and \(E_\xi(w)\). Thus the I-Cauchy sequence is
+realized by this actual \(w\), not merely by an isometry class in a
+completion.
+
+For \(p=1\), \(a_1=1/16\), so (8.4) reads \(I(w_j,w)\le8d_j\). No
+exponent-zero estimate or denominator \(p-1\) is needed in the new
+\(L^1\) proof. For \(n=1\), the granted normal effective grading gives
+\(R=k[z]\) and \(K=\{v_{\rm triv}\}\). Energy is \(E(c)=c\), the empty
+horizontal product has the calibrated radial unit mass, and the sole
+probability is realized. We do not use (8.1) with \(a_0\).
+
+\section{9. Exact algebraic reach and the remaining original
+gap}\label{exact-algebraic-reach-and-the-remaining-original-gap}
+
+When \(n=2\), every rational effective quotient is an integral normal
+projective curve, by the accepted normal-Veronese construction. At each
+closed point its one-dimensional normal local ring is a DVR and
+therefore regular. Over the perfect field \(k\), the regular curve is
+smooth: equivalently, in an affine presentation the cotangent space has
+dimension one, the Jacobian has rank equal to the codimension at every
+closed point, and the smooth locus contains all closed points and hence
+is the whole finite-type curve. The dimension-zero quotient for \(n=1\)
+is a point. This proves the claimed all-cone result for \(n\le2\)
+without adding smoothness to the original cone.
+
+For higher dimension the smooth-quotient hypothesis can fail. Take the
+specified torus \(T=\mathbb G_m\) acting by ordinary positive degree on
+\[
+R=k[x_0,x_1,x_2,x_3]/(x_0x_1-x_2^2).
+\] This ring is the invariant subring \(k[a,b,c]^{\{\pm1\}}\), where the
+involution sends \((a,b,c)\) to \((-a,-b,c)\), with
+\(x_0=a^2,x_1=b^2,x_2=ab,x_3=c\). It is a normal domain: a finite group
+invariant subring of a normal domain is normal, by the integrality and
+invariant-fraction-field argument already granted in P13.1. It has
+dimension three, degree-zero part \(k\), and is a normal good affine
+cone for this scalar torus. Its projective quotient is the quadric cone
+\[
+Y=\{x_0x_1=x_2^2\}\subset\mathbb P^3.
+\] At \([0:0:0:1]\), its local affine equation is \(uv=w^2\); the
+cotangent space has dimension three whereas the local dimension is two.
+Thus \(Y\) is singular. Every rational Reeb field in this specified
+one-dimensional torus yields the same Proj, since scaling and Veronese
+do not alter it. This example only demonstrates that the theorem's
+additional algebraic hypothesis is absent on part of the original
+domain. It is not a nonexistence counterexample.
+
+To finish original P13.2 one still needs genuine normalized compactness,
+or another actual realization theorem, for normal cones without such a
+smooth rational quotient. The present topology and root-tail lemma
+reduce the moving-Reeb issue: if genuine bounded-energy compactness and
+finite-energy target \(L^1\) continuity were independently established
+at one normal rational quotient, Sections 3--8 would transfer actual
+realization to every fixed Reeb field. But that singular compactness
+premise is not established here, and this conditional extension is not
+labeled an original solution.
+
+In particular the unreviewed round75 bounded products and norm traces do
+not supply compact signed IBP, smooth weak/global equality or singular
+EP. The new printed Wu envelope conclusion is not assumed. C Theorem
+12.8 explicitly equates projective EP, surjectivity and E1 completeness;
+it cannot turn the previously accepted I-Cauchy estimate into genuine
+membership without a new geometric input. The original
+higher-dimensional singular-quotient gap is indispensable. All results
+here are unverified mathematical drafts; source use and successful
+execution do not constitute independent validation.
+
+\section{10. Primary evidence and
+reproducibility}\label{primary-evidence-and-reproducibility}
+
+Direct new primary applications are C Proposition 4.28, Theorem
+5.20/Corollary 5.21, Proposition 7.7, Proposition 7.21, Proposition 9.19
+and Theorem 9.20, with their actual projective domains. Version:
+1801.08229v4. PDF SHA256:
+\texttt{8d5975337f4ac88a475929ea6a436ec4a15d08715d5582bc0ba0eb3e07152c52}.
+Extract SHA256:
+\texttt{659bb8d2e5335781041f03cdb168bac70126487bc0db394f3dac8cf1e9f076d0}.
+
+\texttt{source-extracts/source-provenance.json} retains literal
+statements and pertinent proof bodies, inclusive one-based LF
+coordinates from UTF-8 byte decode and
+\texttt{split(\textquotesingle{}\textbackslash{}n\textquotesingle{})},
+and concrete application limits. C LF2513--2547 retains sup
+detection/continuity; LF2797--2844 compactness; LF2980--3064 the
+complete smooth EP proof; LF3659--3693 and LF3788--3824 energy;
+LF3971--4059 the genuine projective mixed operator; LF4074--4148
+weighted decreasing convergence; LF5170--5262 uniform target integration
+and the full L1 proof; LF5263--5302 integrability. C LF6033--6147
+retains the completeness equivalence as a diagnostic limitation. A's
+actual class definitions are retained; its printed finite-quasimonomial
+sup-detection proof is not an additional premise of this argument.
+
+All 17 authorized primary source records and 42 designated PDF/text/HTML
+hashes are audited. Whole authorized copies are retained locally for
+rerun; only the directly used bodies are mathematically applied.
+Embedded campaign paths were not accessed.
+\texttt{granted-premises.json} records exact accepted input scopes and
+the excluded unreviewed material.
+
+Run \texttt{python3\ rerun.py} in this directory. It verifies
+byte-identical input preservation and the literal task-object span,
+audits primary hashes and LF units, performs finite exact diagnostics,
+uses existing Pandoc to generate \texttt{P13.2-paper.tex}, and runs
+existing pdfTeX twice. Each pass's stdout, stderr and complete TeX log
+is retained. The programs, finite domains, commands, output hashes and
+environment versions are local. \texttt{status.json} has exactly
+\texttt{id,status,exact\_result,proof\_file,concrete\_gaps};
+\texttt{canonical-notes.json} has four backward-supported notes.
+
+Diagnostics test the finite-grid clipped-root estimate on a declared
+finite rational piecewise-linear domain, the scalar root-tail
+inequality, and the strict-order threshold equivalence on finite
+homogeneous maxima. These finite observations do not prove the analytic
+theorem. Compilation and hashing certify neither mathematics nor
+original completion. No worker, other model, installation, network
+request, unrelated campaign/private read, external message, source-cache
+edit or runtime change is used. No resource-heavy computation was
+required. No operator-provided supervised compute service was exposed;
+none was needed or used.
+
+\end{document}
