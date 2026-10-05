@@ -1672,6 +1672,33 @@ Siu/closure boundaries and 42 problem statuses retain their existing
 scope. Continue by checking a suitable primary-source direction rather
 than treating the general Hodge induction as independently certified.
 
+### Singular cohomology of the ordinary Bergman variety, 5 October 2026
+
+Appendix G adds the known `U_(3,4)` example from Binder's June 2026
+preprint after the augmented intersection-cohomology module. The
+[integration audit](uniform_singular_cohomology_integration_audit_20261005.md)
+records the specified nonproper smooth complex toric variety and rational
+coefficients. Independent constructions of the polynomial Koszul complex
+and its complete finite square-free subcomplex agree; named cycles and
+their independence modulo boundaries are checked exactly. Internal,
+homological, cohomological and weight degrees are distinguished. The
+Poincaré polynomial is `1+7t^2+6t^3+t^4+3t^5`, and multiplication ranks
+are checked for the displayed class.
+
+The June paper and the acquired Weber author copy were read in full;
+Franz--Fu's institutional paginated article and the base Binder revision
+were read selectively. A literal vanishing clause in the Weber author
+copy is excluded. No final publisher-file identity for that copy or
+general proof repair is inferred. The known quasi-isomorphism,
+topological and weight identifications retain their source scope.
+General matroid Lefschetz questions remain follow-up directions.
+A September Binder--Vecchi preprint reports the uniform refined
+real-rootedness conjecture proved and further augmented-fan results;
+it is queued for full primary-source review and is not an abstract-based
+mathematical input of this checkpoint. No atom or original result is
+newly promoted.
+All 42 statuses, Siu/closure boundaries and catalogue bytes are preserved.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit

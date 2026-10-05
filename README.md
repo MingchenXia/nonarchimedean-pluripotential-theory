@@ -9,7 +9,7 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,265 pages**. The proof of
+The current research-integration build has **4,269 pages**. The proof of
 Boucksom--Jonsson (2022), Theorem 6.21, incorrectly infers monotonicity of
 a residual with a changing divisor coefficient. Critical homogeneous Siu
 division is now an explicit additional assertion `(SD)_k`; the general
@@ -155,6 +155,14 @@ finite Kazhdan–Lusztig and Z-polynomial recurrence. The June 2026 singular
 Hodge revision was read in full; literal sign and proof-label issues are
 recorded in the [source audit](manuscript/editorial/singular_hodge_integration_audit_20261005.md).
 The finite example imports no general proof repair or new solved problem.
+The adjacent singular-cohomology example uses the ordinary Bergman toric
+variety for the same matroid. Its Koszul calculation retains odd degrees
+and weight information, with Poincaré polynomial
+`1+7t^2+6t^3+t^4+3t^5`. A separate complete finite square-free complex and
+the named basis give the same answer; multiplication ranks are checked
+for the displayed class. The [integration audit](manuscript/editorial/uniform_singular_cohomology_integration_audit_20261005.md)
+records the June 2026 preprint, rational product and weight sources,
+selected versus full readings, and the excluded literal vanishing clause.
 Chapter 5 adds
 a source-checked Sylvester height-slice example that computes a normalized
 local monomial model and its regular semistable subdivision. The exact
