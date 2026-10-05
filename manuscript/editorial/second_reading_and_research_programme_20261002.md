@@ -1135,6 +1135,31 @@ classification remain pending. Prior candidate bytes, all 425 active TeX
 inputs, both PDFs and all 42 statuses are preserved; the birational and
 critical Siu gaps are still open.
 
+### Smooth finite-cover consequences, 5 October 2026
+
+The [conditional reduction](finite_smooth_cover_siu_reduction_20261005.md)
+tests the finite draft on a narrower geometric situation: a normal
+projective variety admitting a global finite cover by a smooth projective
+variety in characteristic zero. Assuming the specified finite psh
+reflection, independent smooth all-class envelopes and finite analytic
+openness would give envelopes downstairs. A separate residual argument
+passes to the Galois closure, pulls back the smooth residual, establishes
+its invariance by divisorial determination, and still explicitly assumes
+finite reflection for that closure map. The closure need not be smooth.
+
+An explicit homogeneous section calculation on the existing nonflat
+quadric cone has an unconditional additive division identity; it tests
+the example only. A resolution has the same function field as its target,
+so normalization in a field closure does not provide a finite lift to
+that resolution. Flattening also changes the base and does not close this
+gap. Three actual BE21 source pages also confirm its fixed-semiample
+metric convention, model pullback statement and ground-field descent
+scope. This bounded comparison does not settle the finite draft's novelty.
+The [manifest](finite_smooth_cover_siu_reduction_manifest_20261005.json)
+records the reused sources and conditional boundaries. No new source
+paper, independent receipt, TeX input, PDF or active problem status changes.
+Continue the precise literature comparison and birational investigation.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit
