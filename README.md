@@ -87,6 +87,16 @@ and selected primary and book pages were inspected; see the
 [cohomological integration audit](manuscript/editorial/cohomologically_tropical_integration_audit_20261005.md).
 This is an import of established results and source examples; all 42
 problem statuses and the standalone catalogue are unchanged.
+The subsequent [arroid projection diagnostic](manuscript/editorial/arroid_deletion_projection_diagnostic_20261005.md)
+reads the curve-arrangement paper in full and checks a deletion-projection
+step on an explicit transverse configuration. Exact cone computations give
+a disconnected fibre, so the claimed universal modification route needs
+clarification. The arrangement is not simple; no counterexample to the
+paper's simple-arrangement cohomology theorem is claimed. This research
+candidate remains outside active TeX, pending independent admission. A direct
+rational chain-complex calculation still gives the required lower
+Borel--Moore vanishing in this example; the failed proof step is kept
+distinct from its downstream conclusions.
 Chapter 5 adds
 a source-checked Sylvester height-slice example that computes a normalized
 local monomial model and its regular semistable subdivision. The exact

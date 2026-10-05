@@ -1495,6 +1495,34 @@ Continue related-source research, beginning with the final published curve
 arrangement/arroid paper, and inspect incoming GitHub research before
 ordinary work-branch publication.
 
+### Arroid deletion-projection diagnostic, 5 October 2026
+
+The [research note](arroid_deletion_projection_diagnostic_20261005.md) follows
+a full reading of the published 32-page curve-arrangement paper and targeted
+arXiv v3 checks. Eighteen actual primary pages were inspected. It separates
+the printed repeated-coordinate Bézout convention from the ordinary
+distinct-curve intersection condition. Under the latter geometric convention,
+two explicit smooth conics and four lines give 24 transverse intersection
+points and 33 incidence cones. Deleting an extra line merges marked and
+unmarked conic-intersection directions. An exhaustive exact cone calculation
+gives a disconnected point-plus-half-line fibre and, over a cone interior,
+two distinct points. Neither is the point-or-attached-half-line fibre asserted
+in Proposition 4.14's modification proof.
+
+The candidate checks the projection route, not the final local-duality or
+cohomology conclusions. Its arrangement is not simple, so it is not a
+counterexample to Theorem 6.2. The published arbitrary-deletion and vanishing
+arguments need further checking; direct chain-complex and branch-separation
+routes are next. The subsequent exact rational complex check validates all
+528 cone-pair intersections, zero boundary compositions and top
+Borel--Moore dimensions `(12,8,2)`, with vanishing in the lower two degrees.
+Thus this example does not refute the vanishing conclusion. Its global
+balancing space has dimension two and its cohomology dimensions fail the
+global Poincaré-duality comparison. The note, standard-library exact checkers
+and computation records stay outside active TeX. No independent model receipt, newly solved
+atom or formal admission is claimed. All 425 active inputs, the current
+4,259-page book, catalogue and 42 statuses remain byte-preserved.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit
