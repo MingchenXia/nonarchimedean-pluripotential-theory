@@ -2401,3 +2401,37 @@ problem retirement is claimed. The requested verifier setting remains
 gpt-6.1-sol xhigh. The draft is not an active TeX input. The full book and
 native catalogue retain their previous source/PDF bytes while the separate
 Orlicz primary-source work continues.
+
+### Orlicz conditions in a fixed Kähler class — 5 October
+
+After `7f39cc1`, Chapter 68.10 and L.40 add the known classical
+Kołodziej estimate and the Guedj–Lu arXiv v2 reduction. Scaled
+Luxembourg integrability, the low-density exponential coefficient and
+the convex-composition derivative are retained explicitly. The known
+continuous-solvability statement for the double-logarithmic power
+weight is checked against original Theorem 2.5.2 and Example 1.
+Eight actual original-paper pages were freshly displayed; the complete
+fourteen-page Guedj–Lu reading is reused. The audit is
+[orlicz_k_boundedness_audit_20261005.md](orlicz_k_boundedness_audit_20261005.md).
+
+The general a priori bound has fixed smooth Kähler geometry. The radial
+calculation has its own log-density and one-variable hypotheses and
+does not answer the 2025 version's optimality question. The preceding
+general big-class modulus retains its explicit minimal-singularity
+bound. The original toric entropy candidate remains OPEN and outside
+active TeX; all its saved bytes and canonical problem statuses are
+unchanged. The import contains known results and direct formal
+calculations, with no new production receipt or Siu/closure/spectral/
+A2–A4 extension.
+
+The final 4,325-page build passes TeX, references, bibliography, index
+and PDF navigation checks, with zero overfull boxes. Twenty-four
+matching final pages were freshly displayed for the scoped release
+review. The 425-input closure, 108 protected inputs, thirty-eight
+prior frozen manifests, forty-two complete status rows and toric
+research-candidate bytes are preserved as recorded in the source
+gates. Fresh Orlicz-named full/review PDFs and a 575-member source
+archive preserve the earlier releases; the native catalogue remains
+unchanged. Continue the selected primary audit of local critical
+concentration, its ordinary Cegrell pole masses and the singularity
+exponent/Green-function identification before any further import.

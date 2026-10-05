@@ -9,7 +9,13 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,319 pages**.
+The current research-integration build has **4,325 pages**.
+The [Orlicz condition audit](manuscript/editorial/orlicz_k_boundedness_audit_20261005.md)
+checks the classical fixed-Kähler-class estimate, Guedj–Lu's reduction
+with its scaling factors retained, and Kołodziej's original continuous
+solvability theorem for the explicit double-logarithmic weight. Radial
+tests keep their own density hypotheses; the general big-class relative
+bound and open-problem statuses retain their previous scope.
 The [relative entropy audit](manuscript/editorial/relative_entropy_energy_audit_20261005.md)
 checks the known published power Moser–Trudinger and finite-entropy
 critical-energy estimates with their own relative probability mass.
