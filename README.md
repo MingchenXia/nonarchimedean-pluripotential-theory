@@ -9,7 +9,16 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,303 pages**. The proof of
+The current research-integration build has **4,307 pages**.
+The [global klt stability audit](manuscript/editorial/klt_global_stability_audit_20261005.md)
+checks Darvas–Zhang's 13 September 2026 preprint in full and imports its
+adapted-measure continuity, analytic/divisorial alpha and delta identities,
+and big-class existence for 0 < lambda < delta without semipositivity of
+the twist. Chapter 68 retains normality, an effective real boundary,
+probability and energy normalization, and minimal singularities. Endpoint
+existence, general uniqueness and necessity are not asserted. The separate
+local Cegrell/normalized-volume dependencies remain under audit.
+ The proof of
 Boucksom--Jonsson (2022), Theorem 6.21, incorrectly infers monotonicity of
 a residual with a changing divisor coefficient. Critical homogeneous Siu
 division is now an explicit additional assertion `(SD)_k`; the general

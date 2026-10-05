@@ -2187,3 +2187,61 @@ These are identified external imports and direct formal consequences,
 without a new original-result or production-verifier claim. Continue the
 full proof reading of Darvas–Zhang arXiv:2608.23505v2; reading through
 line 1140 is a partial reading, and no klt result has yet been imported.
+
+
+### Global klt continuity and big-class stability — 5 October
+
+Darvas–Zhang arXiv:2608.23505v2, revised 13 September 2026, has now
+been read in full, including references, and all 33 actual pages inspected.
+The smooth dependency arXiv:2208.08324v4 was separately read in full,
+with 15 actual pages inspected, preserving the prior big-ray checkpoint's
+historical selected-reading record. BEGZ arXiv:0812.3674v2 was checked
+as a selected minimal-singularity dependency on actual pages 3, 40 and 43.
+The current audit is [klt_global_stability_audit_20261005.md](klt_global_stability_audit_20261005.md).
+
+Chapter 68 imports the adapted-measure continuity, analytic/divisorial
+alpha and delta identities, and strictly subcritical big-class existence.
+Normality, an effective real boundary, real-Cartier log canonical divisor,
+big class, integrable quasi-psh twist, mass-normalized energy and a
+probability measure are retained. The ray proof uses higher-exponent
+continuity and dual transforms instead of assuming Ding convexity.
+The resulting minimal-singularity solution exists for 0 < lambda < delta;
+no endpoint, general uniqueness, necessity or all-category YTD equivalence
+is claimed. The general Siu/envelope boundary and A2–A4 remain unchanged.
+
+All 46 old formal environments/proofs in Chapter 68 and Appendix L,
+108 protected inputs, 42 complete statuses and the native catalogue are
+byte preserved. New equation tags are 68.23e–68.23k and provenance is L.36.
+Two version-specific bibliography keys identify the actual klt and BEGZ
+files. The smooth v4 citation note is expanded to cover its global locators.
+Compilation and release verification are recorded in the matching manifest.
+
+The local normalized-volume application remains outside this import.
+The published Guedj–Trusiani version differs from the arXiv v1 numbering;
+17 selected actual pages of an institutional archived published-format
+copy were read. A single valuation-ideal order limit does not by itself
+justify the full singularity comparison in Lemma 5.9; the nef b-divisor
+appendix route and logarithmic normalization require further checks.
+This is a dependency question, without a counterexample claim. Continue
+that audit and retain the larger-domain extension needed before applying
+continuity on closure(Omega). A sharp MT exponent is not a KE nonexistence
+threshold above the exponent.
+
+
+The matching final cloud build has 4,307 pages, 321 cited references and
+12,659 unique labels. Source/reference, inventory, bibliography, index
+and PDF-navigation checks pass with no errors, unresolved references,
+missing glyphs, package/PDF warnings or overfull boxes; underfull boxes
+remain 954. The initial duplicate equation destinations were removed by
+using the repository's manual-tag display convention. Proper names in
+new bibliography entries are protected from automatic lowercasing.
+Eighteen actual final book pages were inspected for the matching review,
+including all new chapter/provenance pages, the index opening and both new
+reference entries.
+The source archive retains all 425 active inputs and is checked against
+workspace bytes without an isolated archive compilation. Continue reading
+Dang–Zhang–Zhou arXiv:2609.00810v1, submitted 1 September 2026, which has
+been acquired and partly read but is not imported. Its small-parameter
+uniqueness proof needs a weighted integrability check when minimal
+potentials are unbounded; a printed supremum of exponential factors is
+not automatically finite in a big class.
