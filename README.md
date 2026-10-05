@@ -9,7 +9,7 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,255 pages**. The proof of
+The current research-integration build has **4,257 pages**. The proof of
 Boucksom--Jonsson (2022), Theorem 6.21, incorrectly infers monotonicity of
 a residual with a changing divisor coefficient. Critical homogeneous Siu
 division is now an explicit additional assertion `(SD)_k`; the general
@@ -66,9 +66,16 @@ problem statuses are preserved.
 The [compact-support follow-up](manuscript/editorial/compact_balanced_support_followup_20261005.md)
 checks the globally embedded BMPS category and reconstructs the exclusion
 of positive-dimensional compact balanced support, with both the primitive
-lattice-normal and Euclidean unit-normal conventions retained. Its possible
-consequence for the listed compact literal branch remains pending independent
-admission. Live arXiv page checks now confirm BMPS v1 and BJ22 v4 as their
+lattice-normal and Euclidean unit-normal conventions retained. Chapter 72,
+Appendix L and the open-problem catalogue now record the narrower named-source
+consequence: the finite embedded category has no compact positive-dimensional
+balanced support. The existing noncompact obstruction therefore excludes
+literal regularity for every such pair. This ordinary source and category
+correction leaves higher-dimensional real-PA regularity, nonseparable
+obstacles and all 42 problem statuses unchanged; the separate Green-formula
+and BBGS research arguments remain outside active TeX. See the
+[category integration audit](manuscript/editorial/compact_category_integration_audit_20261005.md).
+Live arXiv page checks now confirm BMPS v1 and BJ22 v4 as their
 displayed latest versions; the earlier failed API checks are preserved.
 Chapter 5 adds
 a source-checked Sylvester height-slice example that computes a normalized

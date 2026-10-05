@@ -1426,6 +1426,38 @@ announced sequels and support no absence or current-publication claim.
 Continue the higher-dimensional real coefficient problem and inspect
 incoming author research at the next ordinary work-branch checkpoint.
 
+### Compact-category source correction admitted to prose, 5 October 2026
+
+The [integration audit](compact_category_integration_audit_20261005.md)
+records the narrower named-source consequence in Chapter 72, Appendix L,
+the active inventory and the same standalone LaTeX catalogue. BMPS's finite
+globally embedded category, its strictly positive fundamental cycle,
+Proposition 3.11 and Lemma 3.25 reduce compact support to a positive finite
+balanced graph. Summing its vertex balances against the vertex positions
+gives zero equal to a strictly negative edge sum. Thus the previously
+listed compact positive-dimensional literal branch is empty in that
+category; the already admitted noncompact obstruction covers every such
+pair. The catalogue and book carry the identical source-consequence prose.
+
+This uses the verification protocol's explicit ordinary-source-audit
+exception for identified direct formal consequences. It adds no formal
+result environment and changes no existing theorem, proof, identifier,
+tier or open status. The Green-formula and BBGS extensions remain research
+drafts outside active TeX; no independent production receipt is claimed or
+extended. General Siu division and algebraic decreasing closure retain
+their previously recorded source boundaries.
+
+The book builds to 4,257 pages and the revised catalogue to 86 pages.
+References, citations, index targets and both PDFs' internal destinations
+pass. Nine selected actual book pages and seven catalogue pages were
+viewed. The native editor compiler request was terminated without returning
+diagnostics; its compilation is unconfirmed, while the cloud PDF exports
+are verified. Earlier checkpoint files and frozen artifacts retain their
+dated meanings. Continue by reading the published cohomologically tropical
+varieties paper in full, checking its strata and local-duality hypotheses,
+and assessing any useful connection to the book without treating a
+cohomology comparison as a Monge--Ampere regularity theorem.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit
