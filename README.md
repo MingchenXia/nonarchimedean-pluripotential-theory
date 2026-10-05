@@ -163,6 +163,12 @@ the named basis give the same answer; multiplication ranks are checked
 for the displayed class. The [integration audit](manuscript/editorial/uniform_singular_cohomology_integration_audit_20261005.md)
 records the June 2026 preprint, rational product and weight sources,
 selected versus full readings, and the excluded literal vanishing clause.
+The September 2026 Binder--Vecchi update proves uniform ordinary refined
+real-rootedness and distinguishes the augmented and modified fans, with
+explicit examples where augmentation loses real-rootedness or unimodality.
+The [new source audit](manuscript/editorial/augmented_singular_cohomology_integration_audit_20261005.md)
+records its known inputs, exact polynomial/basis checks and excluded
+auxiliary clauses.
 Chapter 5 adds
 a source-checked Sylvester height-slice example that computes a normalized
 local monomial model and its regular semistable subdivision. The exact

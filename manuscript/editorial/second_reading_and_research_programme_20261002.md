@@ -1699,6 +1699,36 @@ mathematical input of this checkpoint. No atom or original result is
 newly promoted.
 All 42 statuses, Siu/closure boundaries and catalogue bytes are preserved.
 
+## September uniform real-rootedness update, 5 October 2026
+
+The full 27-page Binder--Vecchi arXiv:2609.15946v1, submitted 14 September,
+has now been read and eighteen actual controlling pages inspected. Its
+uniform ordinary refined real-rootedness theorem resolves the June
+Conjecture 5.8. Appendix G states the known result and positive-basis
+deranged-map argument, distinguishes augmented and modified fans, and
+includes the named nonreal-rooted and nonunimodal augmentation examples.
+The modified fan's real-rootedness and weight-graded Lefschetz property
+retain their specified fan and rational complex setting. General loopless
+matroid real-rootedness is the September source's further Conjecture 1.5.
+
+The Brändén--Vecchi published ordinary Chow input was read in full;
+Brändén--Solus, Athanasiadis and final accepted FMSV dependencies were read
+selectively. Sixteen actual dependency pages were inspected, with edition
+and acquisition boundaries recorded. The excluded September j=1 auxiliary
+count is annihilated by d1=0. The literal published alternative augmented
+Eulerian recurrence is excluded; FMSV Theorem 1.10 supplies that known
+degree-zero input instead. No main real-rootedness refutation is inferred.
+
+Exact calculations check 286 positive-degree parameter triples, direct
+weak-flag and independence-basis counts in 56 small triples, 78 Chow
+rank/cardinality pairs, positive-basis and contraction identities, and
+Sturm real-root counts. These finite checks accompany identified known
+imports; they are not an independent model receipt or original general
+proof. The [integration audit](augmented_singular_cohomology_integration_audit_20261005.md)
+records their precise scope. All 42 statuses, Siu/closure boundaries and
+the standalone catalogue are preserved. The prior ordinary-cohomology
+checkpoint's queued-source description remains an accurate dated record.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit
