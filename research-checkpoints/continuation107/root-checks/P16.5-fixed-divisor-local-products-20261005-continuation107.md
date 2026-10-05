@@ -1,0 +1,169 @@
+# Full big-bundle coverage with retained divisor references: additional proof work
+
+Root continuation107, 5 October 2026. Unreviewed mathematical work for original
+P16.5. The original remains open pending reconstruction and scope assessment.
+Continuation106 is immutable. Research102 has completed with candidate=false;
+its published envelope findings are used below, but its new endpoint is not granted.
+
+## 1. Every actual big rational bundle admits the required retained datum
+
+Let X be smooth integral projective of dimension n>=1 over an algebraically
+closed field k. First treat an actual integral big bundle L. Choose a very ample
+bundle M and a nonzero section; its zero scheme H is an effective Cartier
+divisor, proper over k, of dimension n-1. It need not be integral or reduced.
+
+On H choose a sufficiently large power B of a very ample bundle so that
+B-L|_H is globally generated (Stacks 01Q3, Proposition28.27.13(7)). The
+Noetherian scheme H has finitely many associated points. At each such point,
+global generation implies that the k-vector space of sections vanishing in
+its fiber is a proper linear subspace of H^0(H,B-L|_H). The field k is infinite,
+so a finite union of those subspaces cannot exhaust that vector space.
+Choose a section s outside the union. Stacks 0B3Q, Lemma31.16.1 says exactly
+that this is a regular section. Its printed proof is omitted with a reference
+to the associated-prime zero-divisor criterion; we do not claim to have read
+a proof which is not printed there. Algebraically, trivializing the bundle
+reduces injectivity to the fact that zero divisors of a finite module over a
+Noetherian ring are the union of its finitely many associated primes.
+
+Multiplication by s^m is therefore an injection of actual invertible sheaves
+L^m|_H -> B^m for every m>=1, and hence
+
+    h^0(H,L^m|_H) <= h^0(H,B^m) = O(m^(n-1)).
+
+The last equality follows from Serre vanishing (Stacks 0B5T, Lemma30.16.1(4))
+and the degree bound on the Euler-characteristic polynomial (Stacks 0BEM,
+Lemma33.45.1). These apply to the possibly nonreduced projective H. Bigness
+gives h^0(X,L^m)>=c*m^n for infinitely many large m and some c>0.
+The exact restriction sequence then gives a nonzero section of L^m(-H).
+Its effective Cartier divisor D' yields the actual rational-bundle identity
+
+    L = A + D,       A=M/m ample,       D=D'/m effective.
+
+For rational L first apply this argument to an integral rL and divide the
+result by r. No finite generation of the section ring of L is assumed.
+No Bertini theorem, irreducible hyperplane section, birational contraction,
+field countability, or model-supported measure hypothesis is used.
+
+The choices A,D and the actual rational-bundle isomorphism are retained
+geometric data. They are chosen before a target measure. Their relative mass
+is A^n>0. It is not asserted to equal vol(L), and different decompositions
+are different reference problems.
+
+## 2. The actual cone and its reference are geometrically defined
+
+Keep sigma=log|s_D| in the canonical trivial metric and Z=|D|^an. All
+divisorial function-field valuations have finite sigma. The map
+
+    F(psi)=sigma+psi,      psi in PSH(X,A),
+
+has genuine L-psh values, since sections multiply by cleared powers of the
+actual divisor section and decreasing approximants preserve this identity.
+Its image is precisely
+
+    PSH_D(X,L)={u in PSH(X,L): u<=sigma+C for a finite real C}.
+
+The BJ addendum 2206.07183v2 Corollary2.3 states the corresponding full
+Siu-division equivalence. Its proof depends on the earlier BJ6.31; the
+independent homogeneous compactness argument in continuation106 Section1.1
+repairs the divided-net monotonicity issue in the printed BJ6.21 proof.
+Either use that actual proof after audit, or reconstruct this division
+afresh. It is not a grant from the incomplete research102 endpoint.
+
+The inverse Q is subtraction on X^an\Z followed by the unique genuine
+A-psh extension. It is intrinsic to the actual function and retained datum,
+not point selection over the divisor and not subtraction of infinite values.
+Divisorial determination proves uniqueness and the homeomorphism of
+normalized spaces. Moreover sigma is the maximal normalized member of this
+cone: sup(u)=0 implies Q(u)<=0, so u<=sigma. Thus the chosen relative
+reference is the actual normalized envelope in the chosen cone. The full
+minimal reference V_L in the unrestricted cone is not identified with sigma.
+
+Research102 has now supplied version-pinned original primary proof bodies
+for BJ2206.07183v2 TheoremA and Corollaries2.1-2.3. They prove envelope
+regularity and normalized compactness in every numerical class on the
+retained smooth projective trivially valued characteristic-zero domain.
+Those global psh facts alone do not construct a big-class energy or equation.
+
+## 3. Genuine local intersection products before limits
+
+Let u_i=F(psi_i). On an algebraic open with a frame e_A for A and an
+integral cleared frame e_D for O(D), write s_D=f*e_D. Outside Z, f is an
+analytic unit. The local metric weight for the actual L-frame differs from
+the A-weight by the correctly signed logarithm of this unit. The Hessian
+of a unit logarithm vanishes locally (CLD18.1.2, and the local
+Poincare--Lelong formula18.1.6). This proves equality of curvature currents
+and of genuine smooth mixed products on X^an\Z. Rational powers are
+handled by clearing one common denominator and multilinearity.
+
+For continuous genuine A-psh metrics, A is semiample and BE1805.01016v3
+Theorem7.14 provides decreasing smooth semipositive approximants, including
+over the trivial valuation. Dini convergence on the compact original
+carrier is uniform. BE8.4 extends the smooth mixed measures uniquely under
+uniform convergence. Its continuous products agree with the actual cycle
+formula (BE8.3-8.5; CLD18.4.1/18.4.3). Local frame change therefore gives
+the same genuine continuous L-metric product on the complement of Z,
+before any global measure is assigned.
+
+We do not use BE7.8, whose field hypothesis excludes the trivial valuation,
+or extend a continuous regularization theorem to arbitrary nonample metrics.
+Only the actual A-approximants and their actual L-metric images are used.
+
+For bounded or unbounded psi_i in E1(X,A), use the granted genuine ample
+decreasing product and weighted-pairing theorem, with its actual continuous
+approximants. On the complement of Z the frame identities hold at every
+stage. Their local weak limits thus define the relative genuine L-product.
+Independence of those decreasing choices follows from the unique actual
+quotients Q(u_i) and the established ample products, rather than uniqueness
+of a prescribed inverse target measure.
+
+All these ample mixed products vanish on Z. The source chain in
+continuation106 is BJ4.36 -> 5.3 -> 13.2, together with finite dual energy
+of each E1 output and domination of a mixed product by a constant times
+the positive top product of the average. Consequently the local product's
+nonpluripolar zero extension is exactly the original-carrier ample mixed
+measure. It has mass A^n and is a Radon measure. No new carrier is used.
+
+There is also a direct truncation check for top products. For psi in E1(A),
+put psi_j=max(psi,-j) and u_j=sigma+psi_j. BJ7.40, with its complete printed
+proof, gives
+
+    1_{psi>-j} MA_A(psi_j) = 1_{psi>-j} MA_A(psi).
+
+Here both measures are raw after multiplying by A^n. The output integrates
+psi and vanishes on Z, so the restricted local products on
+{psi>-j}\Z increase to MA_A(psi). These are genuine relative-metric
+truncations, not max(u,-j), which need not remain L-psh when L is nonnef.
+Mixed products follow by polarization in the genuine ample space, and
+their unbounded/weighted continuity is precisely the granted ample one.
+
+## 4. The full equation still requires scope assessment
+
+Define E_D(u)=E_raw,A(Q(u)), E1_D=F(E1(A)), and the intrinsic dual
+sup_u(E_D(u)-integral Q(u)dmu) at raw mass A^n. Finite dual energy implies
+mu(Z)=0; the explicit extra zero-mass condition in continuation106 Section5
+is redundant, not a support restriction on otherwise admissible targets.
+Every original continuous direction f is an actual quotient direction on
+the same X. Relative continuous obstacles sigma+b and their outer energy
+are therefore the actual ample obstacles b and outer energy. Both derivative
+signs, mixed estimates, comparison, attainment and uniqueness transfer by
+the proved actual quotient identity, local product and original-carrier
+homeomorphism. A reader must reconstruct the obstacle inequality even on
+Z using divisorial domination by the continuous b, rather than subtracting
+at the reference poles. No pulled-direction restriction remains here.
+
+This treats every actual big rational L after specifying one intrinsic
+retained effective-divisor reference and ample remainder. It does not prove
+a class-only volume-normalized minimal-singularity theory. The unchanged
+original task explicitly permits a prescribed genuinely retained reference
+and a proved relative mass. Whether the displayed domain fulfills its full
+big alternative is to be assessed from that exact task, not decided from
+the historical incomplete status of research102 or from this author's label.
+
+For zero-volume pseudoeffective bundles there is no such positive ample
+remainder. Preserve research102's two distinct examples and its actual
+trivial-bundle zero-mass equation. Do not assert a probability normalization
+or a general injective zero top operator there. State the additional
+zero-volume range separately, exactly as required by the original task.
+
+This note has not been independently reviewed. Successful byte binding,
+source reading and compilation would not establish its mathematical proof.
