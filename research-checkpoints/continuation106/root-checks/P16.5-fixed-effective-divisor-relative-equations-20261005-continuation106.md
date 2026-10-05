@@ -1,0 +1,308 @@
+# Fixed effective-divisor reference data in a big nonample class
+
+Root research continuation106, 5 October2026. **Unreviewed mathematical
+construction; original P16.5 remains open.** No result from active research102
+or scoped review103 is used. The full ample-domain P16.1 theorem accepted in
+actual99 is the background theorem, within its exact retained hypotheses.
+
+## 1. Datum and actual functions
+
+Let \(k\) be algebraically closed, trivially valued and of characteristic zero.
+Let \(X\) be smooth, irreducible and projective of dimension \(n\geq1\).
+Retain an actual rational line-bundle decomposition
+\[
+                 L=A+D,
+\]
+where \(A\) is ample and \(D\) is an effective rational Cartier divisor.
+The isomorphism of rational bundles is part of the datum. It is cleared by
+one common denominator whenever sections occur. No nefness of \(L\) is
+assumed. Write \(Z=|D|^{\rm an}\), \(U=X^{\rm an}\setminus Z\), and
+\(\sigma_D=\log|s_D|\) in the canonical trivial metric on \(\mathcal O(D)\).
+The scalar is finite on \(U\), is minus infinity on \(Z\), and is zero at the
+generic trivial valuation. For a rational divisor use the cleared integral
+section and divide its logarithm by the denominator.
+
+The positive reference is \(\sigma_D\), with its retained ample remainder
+\(A\). Define the actual cone
+\[
+ {\cal P}_D(L)=\{F_D(\psi):\psi\in{\rm PSH}(X,A)\},\qquad
+ F_D(\psi)=\sigma_D+\psi.
+\]
+The sum is an extended-valued function, including at \(Z\); no subtraction
+of two minus infinities is used. This is a geometrically specified
+subcone of genuine singular \(L\)-psh metrics. At a section-generated
+approximant on \(A\), multiplication of every generating section by the
+same cleared power of \(s_D\) gives exactly the displayed \(L\)-metric.
+Decreasing actual \(A\)-approximants give genuine decreasing \(L\)-metrics.
+Equivalently, the usual positive-sum operation for psh numerical classes
+applies to the effective-divisor metric and the actual \(A\)-potential.
+
+The map \(F_D\) is injective despite all its functions being minus infinity
+on \(Z\). Every divisorial valuation of the function field has support zero
+and finite value on a nonzero local equation of \(D\). Equality of images
+therefore gives equality of the two \(A\)-potentials on all divisorial
+valuations. BJ4.23 then gives equality everywhere. Consequently
+\[
+ Q_D(F_D\psi)=\psi
+\]
+is an intrinsic inverse on this actual function cone: first subtract the
+finite \(\sigma_D\) on \(U\), then take the unique genuine \(A\)-psh
+extension determined by the divisorial values. This is not arbitrary
+selection of values over \(Z\). Adding the fixed finite divisorial
+coordinates shows that \(F_D\) and \(Q_D\) are homeomorphisms for their
+divisorial topologies.
+
+### 1.1. The full psh cone for the retained divisor reference
+
+In fact the preceding cone has the following intrinsic description:
+\[
+ {\cal P}_D(L)=\{u\in{\rm PSH}(X,L):u\leq\sigma_D+C
+                         \text{ for some }C\in\mathbb R\}.
+\tag{1}
+\]
+Thus there is no omitted genuine psh metric dominated by this specified
+reference. This is the ample-remainder case of BJ6.31. Here is a proof
+that makes its homogeneous-division passage independent of the
+unjustified monotonicity inference in the printed proof of BJ6.21.
+
+First take a homogeneous \(h\in{\rm PSH}(A+D)\) with
+\(h\leq\sigma_D\). When \(D=0\), division is the identity, so assume
+\(D\ne0\). BJ6.17 supplies a decreasing net
+\(h_i\in H_{\rm hom}(L_i)\) with
+\(c_1(L_i)\to A+D\) and \(h_i\downarrow h\).
+On the compact level set \(K=\{\sigma_D=-1\}\), the decreasing upper
+semicontinuous net has limit at most \(-1\). The compactness argument
+in Dini's lemma, applied with an arbitrarily small positive tolerance,
+gives rational \(t_i>0\), tending to one, such that
+\(\sup_K h_i\leq-t_i\), after passing to a cofinal tail or refinement.
+Homogeneity gives \(h_i\leq t_i\sigma_D\) at divisorial points with
+\(\sigma_D<0\). At divisorial points with \(\sigma_D=0\) the same
+inequality follows from \(\sup h_i=0\). BJ4.22 extends it to all points.
+
+The actual section-division lemma BJ2.23 now gives genuine homogeneous
+Fubini--Study functions
+\[
+ r_i=h_i-t_i\sigma_D\in H_{\rm hom}(L_i-t_iD),\qquad
+ \theta_i=c_1(L_i)-t_i[D]\longrightarrow A.
+\]
+Subtraction here is first performed off \(Z\); BJ2.23 provides its
+genuine extension over \(Z\). **No decreasingness of \(r_i\) is claimed.**
+Decreasingness of \(h_i\) and convergence of \(t_i\) alone do not imply
+that assertion when \(\sigma_D<0\).
+
+Choose rational \(c_i>1\) tending to one with
+\(c_iA-\theta_i\) ample. Such a choice follows from openness of the
+ample cone in the finite dimensional numerical space: perturbations
+of \(A\) are absorbed by positive multiples tending to zero of \(A\).
+The zero potential is psh for the ample difference class. Addition
+and positive scaling, BJ4.7, therefore give
+\[
+                   r_i/c_i\in{\rm PSH}(A),\qquad
+                   (r_i/c_i)(v_{\rm triv})=0.
+\]
+Ample normalized compactness (actual99, or BJ5.11 with ample EP)
+gives a convergent subnet and an actual \(r\in{\rm PSH}(A)\).
+At every divisorial valuation \(v\), all values being finite,
+\[
+ (r_i/c_i)(v)\longrightarrow h(v)-\sigma_D(v).
+\]
+Consequently \(F_D(r)\) and \(h\) agree on every divisorial point.
+Both are genuine \((A+D)\)-psh functions; BJ4.23 gives equality
+everywhere. This proves homogeneous division without taking a
+monotone limit of the divided approximants. Homogeneity of \(r\)
+also follows from the divisorial equality and determination.
+
+Now let \(u\in{\rm PSH}(A+D)\) satisfy \(u\leq\sigma_D+C\), and put
+\(M=\sup u\). For each \(\lambda<M\), BJ6.24 gives a genuine
+homogeneous \(\widehat u_\lambda\in{\rm PSH}_{\rm hom}(A+D)\), with
+\(\widehat u_\lambda+\lambda\leq u\), and
+\[
+            u=\sup_{\lambda<M}(\widehat u_\lambda+\lambda)
+\]
+pointwise on the whole analytification. Homogeneity and
+\(\widehat u_\lambda\leq\sigma_D+C-\lambda\) imply
+\(\widehat u_\lambda\leq\sigma_D\): apply the scaling action and
+let its positive scalar tend to zero. The preceding division gives
+\(r_\lambda\in{\rm PSH}_{\rm hom}(A)\) with
+\(F_D(r_\lambda)=\widehat u_\lambda\).
+Since \(\sup r_\lambda=0\), the family \(r_\lambda+\lambda\) is
+uniformly bounded above by \(M\). The ample envelope property gives
+\[
+                  r=\sup_{\lambda<M}^{*}(r_\lambda+\lambda)
+                         \in{\rm PSH}(A).
+\]
+BJ5.6 says that this regularization changes no divisorial value.
+The displayed decomposition therefore gives \(F_D(r)=u\) on all
+divisorial points, and BJ4.23 gives equality everywhere. Conversely,
+every \(\psi\in{\rm PSH}(A)\) is bounded above, so
+\(F_D(\psi)\leq\sigma_D+\sup\psi\). This proves (1), including
+the actual values over the polar divisor.
+
+The finite-energy space below is the full finite-energy domain for
+this retained cone when energy is measured relative to \(\sigma_D\)
+and its ample remainder. Equation (1) does not identify this domain
+with a minimal-singularity, class-volume theory for \(L\).
+
+## 2. Reference-relative energy and zero polar mass
+
+Put \(V_D=(A^n)>0\) and
+\[
+ {\cal E}^1_D(L)=F_D({\cal E}^1(X,A)),\qquad
+ E_D(F_D\psi)=E_{{\rm raw},A}(\psi).
+\]
+For bounded genuine \(\psi\), this energy is the actual relative
+intersection expression
+\[
+ {1\over n+1}\sum_{j=0}^n\int_{X^{\rm an}}
+       \psi\,(A+dd^c\psi)^j A^{n-j}.
+\]
+On \(U\) its integrand is \(u-\sigma_D\). Writing it as \(\psi=Q_D(u)\)
+everywhere makes the expression meaningful without infinity subtraction.
+The same expression extends to actual finite energy by the ample pairing
+and its genuine decreasing limits.
+
+All finite-energy ample measures give zero mass to \(Z\). The exact
+source chain is BJ4.36 (a proper algebraic closed subset is pluripolar),
+BJ5.3 (pluripolar sets are negligible), and BJ13.2 (finite-energy
+probabilities do not charge negligible Borel sets under EP). The ample
+EP required for13.2 follows from actual99, or directly from BJ5.20 on
+this smooth \(X\). BJ9.6 supplies finite dual energy of an actual
+finite-energy output. No inverse Dirac equation is used.
+
+This also applies to each mixed \(n\)-fold product of finite-energy
+\(A\)-potentials. Expanding the positive product of their average
+dominates their mixed product by \(n^n/n!\) times the average's
+Monge--Ampere measure. The average is actual finite energy. Hence every
+such mixed product also gives zero mass to \(Z\).
+
+## 3. Genuine relative product and its raw mass
+
+For \(u_i=F_D(\psi_i)\) define
+\[
+ {\rm MA}_D(u_1,\ldots,u_n)
+       =(A+dd^c\psi_1)\cdots(A+dd^c\psi_n).
+\]
+This formula must be justified geometrically, rather than regarded as a
+new inverse measure assignment. On \(U\), \(s_D\) identifies the actual
+bundles \(A\) and \(L\), with their displayed metrics. Its local logarithm
+is a unit logarithm and has zero local Hessian. Thus the actual
+intersection/continuous product there is the \(L\)-metric product.
+Removing the fixed polar divisor and extending by zero gives its
+nonpluripolar relative product on the original \(X^{\rm an}\).
+Section-generated approximants and their common actual cycle formula
+give the same statement before passing to continuous metrics.
+
+For an unbounded actual endpoint, use
+\(\psi_i^{(j)}=\max(\psi_i,-j)\), or the permitted simultaneous genuine
+decreasing approximants. These are actual \(A\)-potentials; their images
+are actual relative \(L\)-metrics. The ample mixed decreasing theorem
+gives the unique limit above. The finite-energy endpoint and Section2
+give zero mass on \(Z\), so the limit remains the zero extension of the
+original-carrier relative product. Its raw mass is \(V_D\), not an
+asserted class volume of \(L\). No base change or new carrier occurs.
+
+Signed and weighted limits concern \(Q_D(u_i)\), or equivalently the
+reference-relative differences on \(U\). They follow from the actual
+ample pairing. Absolute integrability of \(\sigma_D\) is not an
+automatic consequence of finite energy and must not be asserted.
+In particular, integrals of the absolute singular weights \(u_i\) are
+not substituted for the relative integrals.
+
+## 4. Compactness, relative envelopes and differentiation
+
+Normalize by \(Q_D(u)(v_{\rm triv})=0\). Since \(\sigma_D(v_{\rm triv})=0\),
+this is also \(u(v_{\rm triv})=0\). Original-target ample compactness
+transfers through the actual divisorial homeomorphism of Section1.
+Increasingness, concavity, upper semicontinuity, translation by constants
+and decreasing continuity of \(E_D\) transfer with it.
+
+For a relative continuous obstacle \(g=\sigma_D+b\), \(b\in C(X^{\rm an})\),
+\[
+                  P_D(g)=F_D(P_A(b)).
+\]
+The equivalence of its inequalities needs proof at the removed divisor.
+If \(F_D(\chi)\leq\sigma_D+b\), then \(\chi\leq b\) on \(U\), hence at
+every divisorial valuation. BJ4.22 extends this inequality to every
+point because \(\chi\) is genuine psh and \(b\) is continuous. Conversely,
+the full inequality for \(\chi\) plainly implies the image inequality.
+This proves the envelope formula. It also identifies relative
+continuous-majorant outer energy with the actual ample outer energy.
+
+For \(u=F_D\psi\in{\cal E}^1_D\) and \(f\in C(X^{\rm an})\), the two-sided
+outer derivative is consequently
+\[
+ \left.{d\over dt}\right|_{t=0}E_D^\downarrow(u+tf)
+          =\int f\,{\rm MA}_D(u).
+\]
+The raw factor \(V_D\) is retained. For each fixed real PL direction the
+quadratic remainder is the same ample uniform remainder. Comparison
+uses \(\{u<v\}\cap U=\{\psi<\chi\}\cap U\); every relevant measure gives
+zero mass to \(Z\), where both shifted functions are minus infinity.
+Thus the genuine ample comparison theorem transfers without undefined
+values or an assumed inverse equation.
+
+## 5. Intrinsic targets and actual attainment
+
+For a positive Radon measure \(\mu\) of mass \(V_D\), retain the relative
+admissibility condition \(\mu(Z)=0\) and define
+\[
+ E_D^\vee(\mu)=\sup_{u\in{\cal E}^1_D}
+      \left(E_D(u)-\int Q_D(u)\,d\mu\right).
+\]
+This is intrinsic to the stated datum and actual potentials. It equals
+the ample raw dual energy. Finite dual energy is equivalent to
+integrability of every \(Q_D(u)\). An actually attained ample maximizer
+\(\psi\), supplied by actual99, gives the actual function \(F_D\psi\)
+and its genuine relative equation \({\rm MA}_D(F_D\psi)=\mu\).
+Necessity and zero polar mass follow from the ample output theorem and
+Section2. Equal relative measures imply that the two ample potentials
+differ by one constant, and hence that their actual shifted metrics do
+as well.
+
+Changing a generator of the same effective divisor changes \(\sigma_D\)
+only by a constant norm of a global unit; over this proper integral
+trivially valued field it is zero. Changing the rational-bundle
+isomorphism has the same harmless scalar effect. A different effective
+divisor or ample remainder is different retained geometric reference
+data and is not silently identified.
+
+## 6. Why every big rational class admits such data
+
+Here is a direct Kodaira-decomposition argument on smooth projective \(X\).
+Clear the denominator of the big bundle first. Choose a very ample
+integral divisor \(H\). For \(n\geq2\), take an integral hyperplane section;
+for \(n=1\), \(H\) is zero dimensional. One has
+\(h^0(H,mL|_H)=O(m^{n-1})\): on integral \(H\) choose a sufficiently
+positive very ample \(B\) with \(B-L|_H\) having a nonzero section,
+inject into \(mB\), and use its Hilbert polynomial. In dimension1 the
+length bound on \(H\) is constant. Bigness gives
+\(h^0(X,mL)\geq c m^n\) for infinitely many sufficiently large \(m\).
+The exact restriction sequence then gives a nonzero section of
+\(mL-H\). Its effective divisor \(D'\) yields
+\[
+               L={H\over m}+{D'\over m}.
+\]
+Thus the retained class \(L\) need not have a finitely generated section
+ring or be nef. The construction above is available after choosing this
+effective-divisor reference. The standard Bertini, positive-twist
+generation and Hilbert-polynomial inputs still need exact external
+premise binding before independent review.
+
+## 7. Boundary that must be assessed, not suppressed
+
+This constructs the entire genuine psh cone dominated by the fixed
+divisorial reference, with its specified ample remainder, as proved in
+Section1.1. It does **not** identify different Kodaira decompositions
+with one class-only theory.
+No minimal-singularity reference with mass \({\rm vol}(L)\) is asserted.
+Arbitrary reference types, genuinely movable but nonample positive
+parts, and zero-volume pseudoeffective classes are not treated.
+
+Before any original closure, a reviewer must assess whether the precise
+P16.5 question permits this retained reference datum as full coverage of
+its big-class alternative, or requires the missing more general reference
+domains. The genuine local intersection/nonpluripolar
+identification in Section3 also needs an exact source-aware audit.
+The original problem remains open until that assessment and all needed
+proofs have been completed. This note is not supplied as hot feedback to
+the active native research or review.
