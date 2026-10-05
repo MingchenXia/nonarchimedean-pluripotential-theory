@@ -1458,6 +1458,43 @@ varieties paper in full, checking its strata and local-duality hypotheses,
 and assessing any useful connection to the book without treating a
 cohomology comparison as a Monge--Ampere regularity theorem.
 
+### Cohomologically tropical comparison integrated, 5 October 2026
+
+The [integration audit](cohomologically_tropical_integration_audit_20261005.md)
+records a full reading of Aksnes--Amini--Piquerez--Shaw's published 2025
+paper, a targeted comparison with arXiv v2, and eleven actually viewed
+primary pages. Appendix G now defines the compactified comparison and its
+requirement on every closed stratum over rational coefficients. It imports
+the published equivalence for schön varieties, fan independence and the
+comparison on open strata. The generic four-punctured curve, six-punctured
+conic and nodal coordinate cross show why local duality, all-stratum
+comparison and schönness are distinct requirements. Hyperplane arrangements
+in their specified arrangement torus provide a positive class.
+
+The semistable-family discussion retains a toric semistable extension,
+smooth projective general fibres, local tropical Poincaré duality and the
+wunderschön condition on every open central stratum in its specified torus
+embedding. It compares tropical cohomology with the even weight-graded
+limiting cohomology and the nearby Hodge numbers. A Chapter 66 bridge keeps
+these assumptions distinct from its residue-measure inputs. Cohomology
+alone supplies neither Monge--Ampère regularity nor metric convergence;
+the announced differential-calculus sequel is not used.
+
+This is an ordinary import of identified published results, definitions and
+source examples under the verification protocol. No original formal result
+or production-verifier receipt is added. All existing formal blocks,
+including proofs, are byte-preserved; only three of the 425 active TeX
+inputs change, with one new bibliography entry. The 42-atom inventory and
+the open catalogue source and PDF remain byte-identical.
+
+The full book builds to 4,259 pages with no unresolved references, citations,
+overfull boxes or invalid internal/index destinations. Thirteen selected
+actual book pages were reviewed. The saved source closure, manifest and
+frozen artifacts preserve this edition separately from earlier checkpoints.
+Continue related-source research, beginning with the final published curve
+arrangement/arroid paper, and inspect incoming GitHub research before
+ordinary work-branch publication.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit

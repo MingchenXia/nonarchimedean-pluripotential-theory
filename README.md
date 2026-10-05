@@ -9,7 +9,7 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,257 pages**. The proof of
+The current research-integration build has **4,259 pages**. The proof of
 Boucksom--Jonsson (2022), Theorem 6.21, incorrectly infers monotonicity of
 a residual with a changing divisor coefficient. Critical homogeneous Siu
 division is now an explicit additional assertion `(SD)_k`; the general
@@ -77,6 +77,16 @@ and BBGS research arguments remain outside active TeX. See the
 [category integration audit](manuscript/editorial/compact_category_integration_audit_20261005.md).
 Live arXiv page checks now confirm BMPS v1 and BJ22 v4 as their
 displayed latest versions; the earlier failed API checks are preserved.
+Appendix G now explains the published comparison for cohomologically
+tropical varieties, including rational coefficients, comparison on every
+closed stratum, and the schön, wunderschön and local tropical-duality
+hypotheses. Its examples distinguish those assumptions. The related Hodge
+comparison retains the toric semistable setting and every open central-stratum
+condition, with a link from Chapter 66. The published paper was read in full
+and selected primary and book pages were inspected; see the
+[cohomological integration audit](manuscript/editorial/cohomologically_tropical_integration_audit_20261005.md).
+This is an import of established results and source examples; all 42
+problem statuses and the standalone catalogue are unchanged.
 Chapter 5 adds
 a source-checked Sylvester height-slice example that computes a normalized
 local monomial model and its regular semistable subdivision. The exact
