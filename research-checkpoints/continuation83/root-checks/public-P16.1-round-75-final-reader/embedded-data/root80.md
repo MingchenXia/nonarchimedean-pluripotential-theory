@@ -1,0 +1,138 @@
+# Root80 conditional fiber constancy and finite-data envelope descent; UNREVIEWED
+
+# Fiberwise zero class and finite-data envelope descent
+
+Status: new root proposal, not independently reviewed, not an accepted dependency. No original problem is closed by this record. The active original author campaigns P16.1 round 72 and P13.2 round 73 retain their frozen inputs; no hot feedback has been sent.
+
+This proposal concerns projective varieties over algebraically closed trivially valued fields of characteristic zero, with an ample rational line bundle. It does not assert the discrete or arbitrary complete field versions of P16.1/P16.4. Auxiliary complete extensions below are used only to compare values of an already genuine pulled-back metric. They do not supply an affine regularization theorem over arbitrary completed residue fields.
+
+## 1. Exact antecedents and separation of gates
+
+Let X be reduced, irreducible and geometrically unibranch, L ample, and pi: Z -> X a projective resolution factoring through the normalization. The following claims still require reconstruction and independent checking in the current original author work.
+
+F1. For the genuine metric definition being used, a bounded pi*L-psh metric admits decreasing genuine approximants in pi*L + epsilon A, where A is a fixed ample line bundle with an actual semipositive reference metric, epsilon is positive rational and decreases to zero. Pullback of these actual metrics through complete field extension and to an algebraic smooth projective curve preserves their local logarithmic-section subharmonicity. A bounded floor max(u,M), relative to the actual pullback reference, remains genuine. This is a metric assertion, with the actual reference and classes identified; a numerical nef class alone is not a substitute.
+
+F2. Smooth nef envelope theory is available upstairs. Genuine psh functions there are minimum usc extensions from divisorial valuations, and a bounded supremum has unchanged values on that set after usc regularization. The finite morphism from the normalization of X is a universal homeomorphism; pi has geometrically connected fibers.
+
+C1. Over every countable algebraically closed trivially valued characteristic-zero field, the preceding singular Runge argument proves weak/genuine local equality and global membership for the descended envelope in the original ample class. This remains the main singular analytic gate. A conditional fiber lemma does not establish C1.
+
+C2. The genuine ample-class theory has decreasing finite Hdom majorants, uniform closure for continuous metrics, decreasing and varying-class closure, the usual PL separation/density, and actual pullback through ground-field extension. Finite Hdom data and the nef inequality defining its dominating class descend through a faithfully flat field extension. In the actual PL/model presentation one retains the relative model and original generic fiber, including nonnormal generic fibers.
+
+C3. The actual continuous mixed MA operator is positive, has raw total mass V=(L^n), and commutes with ground-field extension by pushforward. Its reference and fundamental cycle agree with the genuine operator under consideration. On a model this retains component multiplicities, the factors b_E, and intersection degrees. No formal weak-limit measure is substituted for this operator.
+
+C4. Over countable fields, after C1 gives EP, continuous envelopes satisfy orthogonality. The genuine finite-energy domination principle also holds there. Its hypotheses are u in PSH(L), v in E1(L), with u <= v almost everywhere for MA(v); its conclusion is the pointwise inequality. An envelope is continuous and therefore bounded finite energy. These are additional mathematical inputs to check, not consequences of an arbitrary support claim.
+
+The deductions below are conditional on these precise antecedents. They are intended to remove identified descent defects without concealing the unfinished Runge, operator and variational arguments.
+
+## 2. Correction in the printed zero-class argument
+
+Wu 2609.27610v1, LF 578--588, normalizes phi <= 0 and calls {-m phi} a decreasing sequence. That sequence is increasing, and at a point with phi<0 its limit is positive infinity, not negative infinity. The corrected sequence is {m phi}. BJ 1801.08229v4, LF 2501--2507, uses exactly {m phi}, finite at the trivial valuation and negative infinity at a putative negative divisorial value.
+
+That BJ proof is in its own trivially valued setting. It cannot be applied without explanation to H(x) for an arbitrary analytic x. The next argument instead uses supplied genuine metric approximants and the maximum principle on smooth curves after complete field extension.
+
+## 3. A direct bounded zero-class fiber lemma
+
+Claim, under F1: let F be a complete characteristic-zero field and Y a projective geometrically connected F-scheme. Suppose that a bounded usc function w on Y^an is supplied by a genuine metric on a line bundle trivialized over all of Y, and that the approximants and all base changes/restrictions specified in F1 apply. Then w is constant. We work on Y_red, which has the same analytic points and function values; we do not discard cycle multiplicities in any later MA calculation.
+
+Here is the value comparison, including arbitrary analytic points rather than merely a dense subset. Fix one closed point b of Y_red. For any a in Y^an, embed the finite residue field k(b) into a completed algebraic closure K of H(a). If that field is trivially valued, first extend H(a) to H(a)((T)) with its T-adic absolute value and then take the completed algebraic closure. K is now algebraically closed, complete and nontrivially valued. The H(a)-rational point representing a gives a K-rational lift a', and the chosen embedding gives a K-rational lift b'. Pullback keeps the values w(a')=w(a) and w(b')=w(b).
+
+The scheme (Y_K)_red is connected. Its finitely many irreducible components have a connected intersection graph. Resolve each component projectively, in characteristic zero. The resolutions are smooth projective irreducible K-varieties. Every K-point of a component has a K-point preimage on its resolution: its fiber is nonempty and proper, and K is algebraically closed.
+
+On a smooth projective irreducible K-variety, any two K-points can be joined by a connected chain of smooth projective curves. For positive dimension choose sufficiently high very ample complete intersections through the prescribed finite set, using characteristic-zero Bertini with assigned points; dimension one uses the variety itself, and dimension zero has just one point. Equivalently one can use a finite chain after resolving the selected curves. This algebraic curve-joining statement is an explicit external geometric premise requiring source verification, not an analytic density assertion.
+
+Along every such smooth projective curve C, the pulled-back line bundle from Y is globally trivial and its chosen reference is flat. In a local frame of A let h be the continuous semipositive reference weight. The F1 approximants have local subharmonic weights
+
+    w_i + epsilon_i h,
+
+where w_i decreases to w and epsilon_i decreases to zero. On a relatively compact frame domain, adding a fixed constant to h makes h nonnegative. It then preserves the decreasing order of these local weights. Actual sections give subharmonic logarithmic weights, and finite positive maxima preserve subharmonicity. Thuillier 3.1.8(ii) applies to their decreasing limit. The limit is w, and boundedness excludes the identically negative-infinity alternative. This proves local subharmonicity on C; it assumes the exact F1 reference identification and does not infer it from abstract numerical pullback.
+
+C^an is compact and connected and is a strict smooth analytic curve over K. The bounded usc function w attains a finite maximum M. Thuillier 3.1.11 makes it locally constant near every point where it equals M. The set {w=M} is closed by upper semicontinuity, open by that strong maximum principle, and nonempty. Thus w=M on C^an.
+
+Values consequently agree at the two chosen points on each resolved component, and at closed points of every nonempty intersection of adjacent components. The connected intersection graph gives w(a')=w(b'). Since a was arbitrary, w(a)=w(b) everywhere. Comparing actual values after extension is essential: equality merely on a dense set would not determine an arbitrary usc function.
+
+For the fiber of pi over x in X^an, the line bundle pi*L is the pullback of the one-dimensional H(x)-space L_x. Its reference norm is constant on that entire fiber, so the zero-class trivialization used above is literal. First apply the argument to u_M=max(u,M). Without this floor, a whole component or fiber might carry negative infinity, and the subharmonic definition would not apply. Geometric connectedness is retained under the auxiliary extensions. Each u_M is constant on the fiber. Letting M decrease to negative infinity proves that u itself is constant there, with the value negative infinity allowed.
+
+## 4. Proper birational descent without the flat-stratum lift assertion
+
+Apply section 3 to a genuine upstairs u. Define v(x) to be its common fiber value. Properness and compactness make pi^an closed, and
+
+    {v >= c} = pi^an({u >= c})
+
+for every real c. Hence v is usc and u=v o pi^an. If x is any point and z is any point above it, F2 expresses u(z) as the upper limit of its divisorial values near z. Because pi is birational between integral varieties, its function fields agree. A nonzero divisorial valuation upstairs therefore restricts to the same divisorial valuation downstairs. Thus
+
+    v(x) = u(z) <= limsup_{y -> x, y in X_div} v(y) <= v(x).
+
+This establishes the minimum usc extension property of v. Here the assertion about images of divisorial valuations uses birationality. It is not asserted for arbitrary proper surjective maps.
+
+This avoids Wu LF 605--610's inference that every prescribed net of base divisorial points can be lifted to a convergent net of source divisorial points merely from openness and density. Openness permits lifting nearby points but alone does not supply that stronger divisorial statement. No such statement is needed in this birational argument.
+
+For a bounded-above family {v_i} in PSH_L(X), let
+
+    u = (sup_i pi* v_i)*
+
+on Z. The class pi*L is nef; F2 makes u genuinely pi*L-psh. The family contains a genuine member, so the envelope remains generically finite; this concerns nonidentical negative infinity on irreducible components, not a claim of finiteness at every analytic point. Section 3 gives a descended usc v. At downstairs divisorial points the birational lift is the same valuation, and F2 gives v=sup_i v_i there.
+
+Since every v_i <= v, upper regularization gives (sup_i v_i)* <= v. Conversely v is the minimum usc extension of those divisorial values, while (sup_i v_i)* is usc and majorizes them. Thus v <= (sup_i v_i)*. Equality follows. The proper resolution witnesses weak membership of v in local frames of L. Under C1 the singular local/global argument supplies genuine PSH_L(X), proving countable-field EP. These last genuine-membership steps remain conditional on C1, not on the fiber lemma alone.
+
+## 5. Descending only finite obstacle and competitor data
+
+Now assume countable-field EP in C1, and C2--C4, on the original geometrically unibranch domain. Let k be any algebraically closed trivially valued characteristic-zero field. It suffices first to consider a finite rational PL obstacle f on X^an, in an integral or rational ample line-bundle class L.
+
+Choose a countable algebraically closed subfield k0 contained in k over which X, L and the finite presentation of f are defined. All finitely many section coefficients descend. Real additive weights in a finite PL or Hdom formula are retained as real constants in the formula; they do not require field elements. Enlarge k0 by the finite coefficients of the normalization, its birational identification and its finite universal-homeomorphism morphism. Finite type, reducedness, ampleness, normality of that chosen normalization and its finite birational/universal-homeomorphism properties descend by faithful flatness over the perfect field k0. This geometric descent is a further external premise to verify in precisely this form. It preserves the original nonnormal variety; replacing its model by an absolute normalization would alter the generic fiber and is forbidden.
+
+Write r0: X_k^an -> X_0^an for restriction of seminorms. This map is surjective for complete extension of fields; a point has a lift by extending its completed residue-field norm to a suitable completed compositum. Countable EP yields
+
+    phi0 = P_L0(f0), continuous and genuine, with phi0 <= f0.
+
+Set phi=phi0 o r0 and f=f0 o r0. Actual pullback of uniformly approximating genuine metrics makes phi continuous and genuine. It is a feasible envelope competitor. Let nu0 and nu be its actual positive raw MA measures. By C3,
+
+    (r0)_* nu = nu0,       nu(X_k^an)=nu0(X_0^an)=V.
+
+By orthogonality C4, the nonnegative continuous function g0=f0-phi0 has integral zero against nu0. Therefore
+
+    integral (f-phi) dnu = integral (f0-phi0) dnu0 = 0.
+
+Positivity implies f=phi almost everywhere for nu. This does not require equality between the inverse image of Supp(nu0) and Supp(nu). That equality is generally unjustified; the pushforward identity and the integral suffice.
+
+Take a finite actual Hdom competitor h <= f on X_k^an. Its sections, bundles, relative models, finite reference data and nef dominating-class inequality descend to a countable algebraically closed k2 containing k0, under C2. Denote by h2, f2 and phi2 the descended competitor and the pullbacks of f0 and phi0 to X_2^an. Surjectivity of r_{k/k2} transfers h<=f to h2<=f2; genuine membership here is checked from the finite Hdom data and faithful-flat nef descent, not inferred from the pointwise inequality. If actual fixed-L FS competitors are used, basepoint-freeness descends directly by faithful flatness.
+
+C3 transfers orthogonality from k0 to k2 by the same nonnegative integral. Thus h2<=f2=phi2 almost everywhere for MA(phi2). Since phi2 is continuous, it is in the actual E1(L2). C4 domination gives h2<=phi2 everywhere. Pulling back gives h<=phi on X_k^an.
+
+## 6. All genuine competitors, continuity, and EP
+
+No arbitrary PSH competitor is said to descend to one field. Let q be any genuine L-psh competitor with q<=f. By C2 there is a decreasing directed net of finite continuous Hdom majorants h_j tending pointwise to q. For epsilon>0 the closed sets
+
+    K_j = {h_j >= f+epsilon}
+
+are decreasing with empty intersection. Compactness implies K_j is empty for sufficiently large j: otherwise the directed family has the finite intersection property. Consequently h_j-epsilon <= f. It is a finite competitor of the preceding section, so
+
+    q <= h_j <= phi+epsilon.
+
+Let epsilon tend to zero. This proves q<=phi. Feasibility gives the reverse inequality in the envelope definition, hence
+
+    P_L(f) = phi = P_L0(f0) o r0.
+
+The conclusion is continuity and genuine membership, not just agreement on divisorial points or construction of a measure limit.
+
+For continuous obstacles, use density of finite rational PL tests on the compact analytic space and the envelope estimate
+
+    ||P_L(f)-P_L(g)||_infty <= ||f-g||_infty.
+
+Continuous envelopes for PL tests therefore give a continuous envelope for every continuous obstacle; C2 uniform closure gives its genuine membership. For a bounded supremum s* of any genuine family, choose continuous majorants t_j decreasing to s*. Then
+
+    s* <= P_L(t_j) <= t_j,
+
+so P_L(t_j) decreases to s*. The family contains a genuine member, which prevents a componentwise identical negative-infinity limit. C2 decreasing closure proves s* is genuine L-psh. This is the continuity-to-EP implication of BJ 5.17, with its compact-majorant proof made explicit. It never requires the original arbitrary family or its entire supremum to descend.
+
+For a real ample numerical class alpha, choose rational ample omega_j tending to alpha with omega_j-alpha nef. A bounded-above alpha-psh family is also omega_j-psh, since the actual nef reference is retained. Its same usc supremum is omega_j-psh for every j by the rational result. The varying-class closure in C2 makes it alpha-psh. This final numerical-class observation is conditional on the genuine metric/class identification in C2; it does not prove any moving-Reeb strong topology or unbounded moving-class MA convergence.
+
+## 7. What remains before either original problem can be closed
+
+The explicit strict-potential, local hull, integer trace, Hartogs, projection and singular induction arguments in root continuation79 and author round72 must establish C1 without using the desired singular EP as a premise. F1's actual metric conversion and curve restriction, the algebraic curve-joining/geometric-descent premises, C2's finite Hdom/model descent, C3's exact operator identification and C4's domination/orthogonality must be checked. The source snippets below provide evidence with their own hypotheses; they do not silently establish all new applications.
+
+Even a completed EP proof must still be connected to onto normalization pullback, target integrability, actual variational attainment and uniqueness for the unchanged P16.1 equation. For P13.2, a normal rational quotient theorem must additionally yield an actual fixed-irrational-Reeb finite-energy maximizer and the correct original measure image. Uniform root formulas do not imply strong I-completeness. Current approximate solutions and I-Cauchy sequences remain insufficient by themselves.
+
+No acceptance, new solved count, priority claim or formal proof certificate is asserted here.
+
+
+
