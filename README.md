@@ -35,6 +35,16 @@ The [revision-sensitive arXiv audit](manuscript/editorial/revision_sensitive_arx
 adds an updated-date search and a full reading of FGK's December 2025 v3.
 The compared published results retain the resolution assumptions already
 stated in the book; this check does not extend their scope.
+Three further research drafts examine the
+[near-critical envelope input](manuscript/editorial/independent_envelope_critical_division_followup_20261005.md),
+an [abstract diagonal-lemma counterexample candidate](manuscript/editorial/bj22_abstract_diagonal_lemma_diagnostic_20261005.md),
+and [bounded-stage and nef-target closure](manuscript/editorial/bounded_and_nef_closure_followup_20261005.md).
+They distinguish the literal abstract Lemma 4.6 from the algebraic psh
+closure theorem, and retain the unresolved general pseudoeffective scope.
+They remain outside active TeX, pending independent admission; no psh or
+Siu theorem counterexample, general repair or solved problem is claimed.
+Their [joint manifest](manuscript/editorial/siu_closure_research_manifest_20261005.json)
+records source checks and preservation of the current book and catalogue.
 Chapter 5 adds
 a source-checked Sylvester height-slice example that computes a normalized
 local monomial model and its regular semistable subdivision. The exact

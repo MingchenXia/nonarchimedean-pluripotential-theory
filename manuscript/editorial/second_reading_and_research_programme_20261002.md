@@ -1319,6 +1319,35 @@ noncircular normal-envelope source checks and related research after
 ordinary work-branch publication; cloud execution and suspension of Xean
 remain the current instructions.
 
+### Closure foundations and near-critical division, 5 October 2026
+
+The [near-critical calculation](independent_envelope_critical_division_followup_20261005.md)
+aligns strict rational-coefficient residuals in fixed classes
+`alpha-[D]+epsilon_m A`. Independently supplied envelopes in those classes
+give the increasing limits; the final numerical-class closedness remains
+an explicitly imported input. One larger ample class does not suffice,
+and homogeneous compactness cannot be imported from a Siu-dependent proof.
+
+The [abstract diagonal diagnostic](bj22_abstract_diagonal_lemma_diagnostic_20261005.md)
+constructs an explicit counterexample candidate to the literal extended-real
+BJ22 Lemma 4.6: every decreasing stage net is frozen at its first pole
+label, although the outer closure parameters tend to zero. The construction
+does not realize algebraic Fubini--Study families or disprove the psh
+closedness theorem. The finite-valued restriction is separately reconstructed,
+with finite-threshold convergence at minus-infinity limit values.
+
+The [bounded/nef follow-up](bounded_and_nef_closure_followup_20261005.md)
+uses that finite-valued restriction and direct section algebra to reconstruct
+bounded-stage varying-class closure and nef-target closure, including an
+unbounded final function. Truncation by constants is not justified for
+arbitrary non-nef pseudoeffective classes, so this does not fill the general
+gap. All three notes remain research drafts outside active TeX and pending
+independent admission. The [joint manifest](siu_closure_research_manifest_20261005.json)
+pins the notes, primary sources and targeted reading/viewing scope. All 425
+active inputs, the book PDF, catalogue source/PDF and 42 problem statuses
+are unchanged. Continue checking the actual unbounded algebraic closure
+without assuming Siu division or the envelope theorem under investigation.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit
