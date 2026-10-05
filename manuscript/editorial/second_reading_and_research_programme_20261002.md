@@ -1833,3 +1833,33 @@ finite penalty identities, and the repeated-eigenvalue block wording
 boundary. No original general theorem or independent model receipt is
 admitted; all 42 problem statuses, Siu/closure conditions and catalogue
 bytes remain unchanged.
+
+### Big-quantization source audit — 5 October
+
+Finski's full 61-page arXiv:2512.10466v1 has been read, including
+references. Selected published PLMS, older arXiv v3 and BBWN passages
+were checked separately; 29 actual primary pages were inspected in
+fifteen sheets. The section-ring quantization requires a unified
+submultiplicative graded family, which degreewise saturated Chow
+minimizers have not yet been shown to supply. A4 remains conditional.
+
+A complete research candidate tests the initial spectral pushforward
+on P1 with continuous max weight and the monomial-order filtration.
+Direct evaluation estimates identify the limiting ray; its pointwise
+initial derivative pushforward and the empirical jump limit have
+different first moments. Smooth positive approximations explain the
+regularity boundary, consistent with the earlier PLMS result's explicit
+smooth-positive initial assumption. This candidate has no independent
+production receipt and is not promoted to a theorem counterexample.
+The density proof audit distinguishes BBWN's ordinary section and
+stronger psh-weight Bernstein--Markov properties; a nondetermining
+measure is not automatically a counterexample to the former.
+
+Exact checks cover 240 degrees and nine powers, 5,760 shifted moment
+identities, 60 corner differences, 20 energy checks and 16 complex-ball
+volume factors. The research audit and manifest preserve source versions,
+excluded literal proof steps and verification limits. Active TeX,
+bibliography, all 42 problem statuses, the open catalogue and the frozen
+4,282-page book exports are byte preserved. Next inspect the current
+Toeplitz theorem used for the density claim and primary endpoint-velocity
+regularity results before admitting any new analytic material.
