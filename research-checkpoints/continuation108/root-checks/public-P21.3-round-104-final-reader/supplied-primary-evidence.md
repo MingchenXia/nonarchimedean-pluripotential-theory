@@ -1,0 +1,1336 @@
+# Literal selected primary evidence
+
+Primary version: CLD arXiv:1204.6277v2, 25 July 2025. The frozen full text SHA256 is `64846cb00926267c6238d1afac61b5eaed0a0e3a6349725738f9b1bf163de085`.
+
+The full primary was copied, not read in full. LF coordinates are one-based, inclusive, using UTF8 decoding followed by split("\n"). Each unit is a literal source slice with one trailing newline. The extracted text contains PDF line-wrap and typography artifacts. Hashes identify bytes and are not mathematical acceptance.
+
+The explicitly bound raw weak-multiplier unit is preserved separately in `sources/cld-weak-multiplier-bound.txt`, SHA256 `0448ea1b480496814c9d81b4a5443f7d6efbb05b91582305b117704008184860`. It equals the selected LF text without the one added trailing newline.
+
+## ordinary-domain
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 14983–15012; unit SHA256 `6efe2fa15d3425138409717a7512d91909e0b03be4f3c3e56e267d4bcdfefabd`.
+
+```text
+11.1.7. — À partir des espaces affinoïdes, Berkovich définit dans [9] la catégorie des
+espaces k-analytiques par un procédé de recollement un peu délicat qu’il serait trop
+long de décrire ici en détail ; nous allons tout de même rappeler quelques faits. Suivant
+Berkovich, si X est un espace topologique et si (Xi ) est une famille de parties de X,
+nous dirons que les Xi constituent
+                           S         un G-recouvrement de X si tout point x de X possède
+un voisinage de la forme i∈J Xi où J est fini et où x ∈ Xi pour tout i ∈ J. Si l’on
+ne s’astreint à recoller que des espaces strictement affinoïdes, on obtient la classe des
+espaces strictement k-analytiques.
+   Soit X un espace k-analytique. C’est en particulier un espace topologique dont tout
+point possède une base de voisinages compacts (mais X n’est pas nécessairement lo-
+calement compact puisqu’un espace topologique localement compact est par définition
+séparé, et que ce n’est pas forcément le cas de X). L’espace X possède par ailleurs une
+classe distinguée de partie compactes, ses domaines affinoïdes (si X = M (A ), les do-
+maines affinoïdes de X sont précisément ceux décrits au 11.1.5 ci-dessus). Un domaine
+analytique de X est une partie de X qui est G-recouverte par les domaines affinoïdes
+qu’elle contient. Tout domaine affinoïde de X est un domaine analytique de X ; plus
+généralement, tout compact de X qui est une union finie de domaines analytiques de
+X est un domaine analytique. Et tout ouvert de X (et notamment X lui-même) est un
+domaine analytique. En particulier, tout point x de X possède un voisinage compact
+qui est une réunion finie de domaines affinoïdes contenant x. Les espaces définis dans [8]
+sont ceux qui sont qualifiés de bons dans [9], c’est-à-dire ceux dont tout point admet un
+voisinage affinoïde (et donc une base de voisinages affinoïdes.) Tout domaine analytique
+de X est une partie localement fermée de X : l’intersection d’une famille finie de do-
+maines analytiques est un domaine analytique ; la réunion d’une famille localement finie
+de domaines analytiques fermés est un domaine analytique.
+   Tout domaine analytique V de X hérite d’une structure canonique d’espace analy-
+tique, et d’un morphisme V ,→ X dont l’application sous-jacente est l’inclusion. Tout
+morphisme f : Y → X se factorisant ensemblistement par V se factorise en fait unique-
+ment par la structure analytique de V .
+```
+
+## analytic-calculus
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 22105–22126; unit SHA256 `960861bd1391008caa52be28ee8a788b6bdc3df269d765f603121a8bab0af320`.
+
+```text
+Théorème 15.7.1. — Soit X un espace analytique purement de dimension n, topolo-
+giquement séparé. Muni de son bord ∂(X) au sens de la théorie des espaces analytiques,
+l’espace G-tropical affiné et calibré de niveau n associé à X est un espace tropical de
+niveau n.
+
+Démonstration. — Vérifions les conditions de la définition 6.6.2.
+  L’intérieur Int(X) de X est localement holomorphiquement séparé (15.2.2) ; il est donc
+localement différentiellement séparé (corollaire 15.2.4). Il est décent (proposition 12.4.7)
+car il est sans bord, donc bon, donc presque bon. Il est très riche (théorème 12.11.1) et
+harmonieux (théorème 15.6.1).
+  Et il résulte du corollaire 12.9.14 que Σ ∩ ∂X est n-négligeable pour toute partie
+paralinéaire Σ de X, de même que Σ∩∂(V /X) pour tout domaine V de X car ∂(V /X) ⊂
+∂V .
+  On munit ainsi tout espace analytique X, topologiquement séparé, et purement de
+dimension n, d’une structure d’espace tropical de niveau n.
+              § 15.7. L’ESPACE TROPICAL ASSOCIÉ À UN ESPACE ANALYTIQUE              433
+
+15.7.2. — Soit X un espace analytique topologiquement séparé, purement de dimen-
+sion n et soit V un domaine de X. Le domaine V est muni de deux façons, a priori
+distinctes, d’une structure d’espace tropical de niveau n, soit comme espace analytique,
+soit comme domaine de l’espace tropical X. La formule ∂(V ) = (∂(X) ∩ V ) ∪ ∂(V /X)
+montre que ces deux structures coïncident.
+```
+
+## generic-lengths
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 23434–23459; unit SHA256 `52dbd2e0b2cf6d2c6220cb31fdf4683247d2c282b0b8055f6a2bf8735129d742`.
+
+```text
+Proposition 16.6.3. — Soit Y un sous-espace analytique fermé de X, purement de
+dimension p. On a δY = δ[Y ] .
+
+Démonstration. — Notons j l’immersion   R de     Y dans X. Soit ω une (p, p)-forme à support
+                                              ∗
+compact sur X. On a donc ⟨δY , ω⟩ = Y j ω, ce qui permet de supposer que Y = X.
+  Soit (Xi ) la famille des composantes irréductibles de X et, pour tout i, soit mi la
+multiplicité de X le long de Xi . Soit X ′ l’ouvert de Zariski de X constitué des points qui
+sont situés sur une unique composante irréductible de X ; il contient le support de ω.
+Pour tout i, posons Xi′ = X ′ ∩ Xi ; c’est un ouvert de X et l’on a
+                             Z            Z              Z
+                                                       1
+                                     ω=            ω=        ω,
+                              Xi,red          ′
+                                            Xi,red    mi Xi′
+                                                              ′
+en vertu de la proposition 15.4.3 appliquée à l’immersion de Xi,red dans Xi′ , dont le degré
+calibré est 1/mi (proposition 13.3.7). Alors, on a
+              Z      Z        XZ          X Z               X Z
+   ⟨δX , ω⟩ =    ω=      ω=          ω=        mi      ω=       mi        ω = ⟨δ[X] , ω⟩,
+              X       X′       i   Xi′       i
+                                                      ′
+                                                     Xi,red       i   Xi,red
+
+
+comme il fallait démontrer.
+```
+
+## generated-psh
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 9729–9781; unit SHA256 `fa2e29bcb98fd26a55598c0dc4c67b162d19d4b1780b39f2a49bdfc7e4373830`.
+
+```text
+Définition 8.1.1. — On note PshX le plus petit sous-faisceau du faisceau des fonctions
+sur X, à valeurs dans R ∪ {−∞}, tel que pour tout ouvert U de X, l’ensemble PshX (U )
+vérifie les propriétés :
+  i) Il contient les fonctions lisses u sur U telles que d′ d′′ u ⩾ 0 ;
+  ii) Il est stable par limite décroissante de suites.
+Ses sections sont appelées des fonctions plurisousharmoniques (psh).
+Lemme 8.1.2. — Pour tout ouvert U de X, l’ensemble des fonctions psh sur U est un
+cône convexe formé de fonctions semi-continues supérieurement ; il contient les fonctions
+constantes.
+  La démonstration est identique à celle du lemme 1.10.6.
+Démonstration. — Les fonctions constantes sont lisses et psh.
+  Les fonctions semi-continues supérieurement u telles que λu soit psh, pour tout nombre
+réel positif λ, forment un sous-faisceau de PshX qui vérifie les conditions (i) et (ii), donc
+est égal à PshX . Cela prouve que pour tout ouvert U de X, l’ensemble PshX (U ) est un
+sous-cône de l’ensemble des fonctions semi-continues supérieurement sur U .
+  Démontrons que si u et v sont des fonctions psh sur un ouvert U de X, il en est de
+même de u + v.
+  Supposons d’abord que u soit lisse. Les fonctions f telles que f + u soit psh forment
+un sous-faisceau de PshU qui contient les fonctions lisses psh et est stable par limite
+décroissante ; il contient donc toutes les fonctions psh sur U . En particulier, u + v est
+psh lorsque u est lisse.
+  Dans le cas général, les fonctions f telles que f + v soit psh forme un sous-faisceau
+de PshU qui contient les fonctions lisses psh d’après le premier cas traité et est stable
+par limite décroissante ; il contient donc toutes les fonctions psh sur U ; par suite, u + v
+est psh.
+196                    CHAPITRE 8. THÉORIE DE BEDFORD–TAYLOR
+
+Remarque 8.1.3. — Cette définition est inspirée par le théorème de [67] en analyse
+complexe qui affirme que dans ce contexte, une fonction psh sur un espace de Stein est
+limite d’une suite décroissante de fonctions psh lisses.
+   Dans le présent travail, nous considérerons surtout des fonctions psh continues.
+   Par ailleurs, rappelons que si une suite décroissante de fonctions continues converge
+simplement vers une fonction continue, elle converge même localement uniformément
+(théorème de Dini), puisqu’un espace tropical est localement compact.
+Lemme 8.1.4. — Pour tout ordinal α, on définit par récurrence transfinie un sous-
+faisceau PshX,α du faisceau des fonctions sur X par les conditions suivantes :
+   a) On définit PshX,0 comme le faisceau des fonctions lisses u telles que d′ d′′ u ⩾ 0 ;
+   b) Si α est un ordinal, on définit PshX,α+1 comme le sous-faisceau des fonctions sur X
+qui sont localement limites décroissantes de fonctions de PshX,α ;
+   c) Si α est un ordinal limite, on définit PshX,α comme le sous-faisceau des fonctions
+sur X qui appartiennent localement à un PshX,β pour β < α.
+La famille ordinale (PshX,α ) est une famille croissante de sous-faisceaux de PshX qui
+vaut PshX pour α assez grand.
+Démonstration. — Par récurrence transfinie, il résulte de la définition de PshX , que
+PshX,α ⊂ PshX pour tout ordinal α. La construction montre que cette famille de sous-
+faisceau est croissante. Elle est nécessairement stationnaire, par un argument de cardinal.
+Soit α un ordinal à partir duquel la famille est constante et démontrons que PshX ⊂
+PshX,α . Il suffit pour cela de démontrer que PshX,α vérifie les deux conditions de la
+définition de PshX . Il est évident que PshX,α contient les fonctions lisses u telles que
+d′ d′′ u ⩾ 0, qui appartiennent au sous-faisceau PshX,0 . Soit maintenant U un ouvert de X
+et (un ) une suite décroissante de fonctions de PshX,α (U ) qui converge simplement vers
+une fonction localement intégrable u et démontrons que u ∈ PshX,α (U ). Par construction,
+on a u ∈ PshX,α+1 (U ) ; par définition de α, on a donc u ∈ PshX,α (U ).
+```
+
+## generated-cpsh-diagnostic
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 9797–9863; unit SHA256 `5ef01dd5ed01e2349c223afadbb34c535cb304dce255f10115f25edccd4899da`.
+
+```text
+Définition 8.1.7. — On note CPshX le plus petit sous-faisceau du faisceau CX des
+fonctions continues sur X tel que pour tout ouvert U de X, l’ensemble CPshX (U ) vérifie
+les propriétés :
+   i) Il contient les fonctions lisses u sur U telles que d′ d′′ u ⩾ 0 ;
+                        § 8.1. FONCTIONS PLURISOUSHARMONIQUES                          197
+
+  ii) Il est stable par limite uniforme.
+  On note CPshX ce sous-faisceau ; ses sections sont appelées des fonctions continues
+plurisousharmoniques (cpsh).
+Lemme 8.1.8. — Pour tout ordinal α, on définit par récurrence transfinie un sous-
+faisceau CPshX,α par les conditions suivantes :
+   a) On définit CPshX,0 comme le faisceau des fonctions lisses u telles que d′ d′′ u ⩾ 0 ;
+   b) Si α est un ordinal, on définit CPshX,α+1 comme le sous-faisceau des fonctions
+sur X qui sont localement limites uniforme de fonctions de CPshX,α ;
+   c) Si α est un ordinal limite, on définit CPshX,α comme le sous-faisceau des fonctions
+sur X qui appartiennent localement à un CPshX,β pour β < α.
+La famille ordinale (CPshX,α ) est une famille croissante de sous-faisceaux de CPshX qui
+vaut CPshX pour α assez grand.
+Démonstration. — La démonstration est analogue à celle du lemme 8.1.4 en remplaçant
+partout « limite décroissante » par « limite uniforme ».
+
+Proposition 8.1.9. — Soit (fn ) une suite de fonctions de X dans R qui converge
+localement uniformément vers une fonction f . Si les fn sont psh, alors f est psh.
+Démonstration. — Comme les fonctions constantes sont psh, l’assertion découle du
+lemme suivant.
+
+Lemme 8.1.10. — Soit X un ensemble et soit (fn ) une suite de fonctions de X dans R
+qui converge uniformément vers une fonction f . La suite (fn + 2∥f − fn ∥∞ ) converge
+uniformément vers f et admet une sous-suite qui est décroissante.
+Démonstration. — Puisque ∥f − fn ∥∞ tend vers 0, il est clair que la suite (fn +
+2∥f − fn ∥∞ ) converge uniformément vers f . L’assertion est évidente s’il existe une
+infinité d’entiers n tels que ∥f − fn ∥∞ = 0. On peut donc supposer que ∥f − fn ∥ > 0
+pour tout n. Soit n un entier. Puisque (fn ) converge uniformément vers f , il existe
+m > n tel que ∥fm − f ∥∞ < ∥f − fn ∥∞ /3. Des inégalités fm ⩽ f + ∥fm − f ∥∞ et
+f − ∥fn − f ∥∞ ⩽ fn , on déduit que
+fm +2∥fm − f ∥∞ ⩽ f +3∥fm − f ∥∞ ⩽ fn +3∥fm − f ∥∞ +∥fn − f ∥∞ ⩽ fn +2∥fn − f ∥∞ .
+Le lemme s’en déduit.
+
+Proposition 8.1.11. — On a CPshX = CX ∩ PshX : les fonctions continues plurisous-
+harmoniques sont les fonctions continues (à valeurs réelles) qui sont plurisousharmoni-
+ques. Plus précisément, pour tout ordinal α, on a CPshX,α = CX ∩ PshX,α .
+Démonstration. — Compte tenu des lemmes 8.1.4 et 8.1.8, il suffit de vérifier la seconde
+assertion. Prouvons cette égalité par récurrence transfinie. Les cas de l’ordinal 0 et
+d’un ordinal limite sont évidents. Il suffit donc de prouver que pour tout ordinal α,
+une fonction continue u définie sur un ouvert U est localement limite décroissante de
+fonctions de CPshX,α si et seulement si elle est localement limite uniforme de telles
+fonctions.
+  Soit U un ouvert de X et soit (un ) une suite décroissante de fonctions de CPshX,α (U )
+qui converge simplement vers une fonction continue u sur U . Le théorème de Dini assure
+que la convergence est uniforme sur toute partie compacte de U . Comme U est localement
+198                    CHAPITRE 8. THÉORIE DE BEDFORD–TAYLOR
+
+compact, la convergence est localement uniforme, si bien que la fonction u appartient
+à CPshX,α+1 .
+   Soit U un ouvert de X et soit u une fonction continue sur U qui est localement limite
+décroissante d’une suite de fonctions de CPshX,α . Soit (Ui ) un recouvrement ouvert de U
+tel que u|Ui soit limite décroissante d’une suite de fonctions de CPshX,α (Ui ). D’après ce
+qui précède, u|Ui appartient à CPshX,α+1 (Ui ). Par la propriété de faisceau, u appartient
+à CPshX,α+1 (U ).
+   Soit U un ouvert de X et soit (un ) une suite de fonctions de CPshX,α (U ) qui converge
+uniformément vers une fonction continue u sur U . D’après le lemme précédent, il existe
+une sous-suite de la suite (un +2∥un − u∥) qui converge uniformément, et en décroissant,
+vers u. Elles appartiennent à CPshX,α , donc à PshX,α , par l’hypothèse de récurrence, si
+bien que u appartient à CX ∩ PshX,α+1 .
+   Soit U un ouvert de X et soit u une fonction continue sur U qui est localement limite
+uniforme d’une suite de fonctions de CPshX,α . D’après ce qui précède, u appartient
+localement à CX ∩ PshX,α+1 , donc est une section de ce faisceau sur l’ouvert U .
+```
+
+## positive-decomposition
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 7359–7381; unit SHA256 `7d7b6d6687db0b922b6e69a1011a9dcb0a2d112c41d65200901f1efd7275db83`.
+
+```text
+Proposition 6.5.2. — Soit ω une forme de type (p, p) et symétrique sur X, à coef-
+ficients dans G dont le support est contenu dans un ouvert paracompact et localement
+différentiellement séparé de X.
+   a) Il existe des formes positives ω1 et ω2 sur X, à coefficients dans G , telles que
+ω = ω1 − ω2 .
+   b) Si, de plus, le support de ω est compact, les formes ω1 et ω2 peuvent être choisies
+à support compact.
+   L’hypothèse sur le support de ω est notamment réalisée lorsque X est localement
+différentiellement séparé et paracompact. Dans le cas des espaces analytiques, elle sera
+également réalisée si le support de ω est compact et si l’espace X est presque bon.
+Démonstration. — Soit U un voisinage ouvert paracompact et localement différentielle-
+ment séparé du support de ω. Dans le second cas, on s’arrange en outre pour que U soit
+relativement compact dans X, ce qui est possible car X possède une base d’ouverts qui
+sont dénombrables à l’infini.
+   Soit (fi , Pi ) une famille de cartes tropicales, de sorte que fi soit un moment sur un
+ouvert Vi de X et Pi un polytope compact contenant fi,trop (Vi ), et, pour tout i, soit αi
+une forme sur Pi telle que ω|Vi = fi∗ αi . Il existe alors une famille localement finie (λi ) de
+fonctionsP lisses sur X, subordonnée au recouvrement (U ∩Vi )i∈I telles que 0 ⩽ λi ⩽ 1 pour
+tout i et λi est identiquement égale à 1 au voisinage du support de ω (corollaire 6.2.8).
+Pour tout i, choisissons des formes positives  P αi,1 ∗et αi,2 sur Pi telles
+                                                                       P que       αi = αi,1 − αi,2
+(proposition 1.10.2). Posons alors ω1 =           λi fi αi,1 et ω2 =      λi fi∗ αi,2 ; ce sont des
+formes lisses et positives telles que ω = ω1 − ω2 .
+```
+
+## middle-positivity
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 7918–7981; unit SHA256 `7e8a9c9f610a102901ed491e3e572f9b96528cf24e5f8733f1d4f3d419801332`.
+
+```text
+  Soit X un espace tropical de niveau n.
+Définition 7.2.1. — Soit p un entier. Un courant S de bidimension (p, p) est dit
+faiblement positif, respectivement positif, respectivement fortement positif, s’il est sy-
+métrique et si pour toute forme α ∈ Acp,p (X) qui est fortement positive, respectivement
+positive, respectivement faiblement positive, on a ⟨S, α⟩ ⩾ 0.
+7.2.2. — Les trois notions de positivité pour les formes de type (0, 0) et (n, n) coïn-
+cident ; il en est donc de même pour les courants. Comme les différentes notions de
+positivité coïncident pour les formes symétriques de type (1, 1) et (n − 1, n − 1), il en
+est de même pour les courants symétriques.
+Remarque 7.2.3. — Soit T un courant tel que T et −T sont positifs ; démontrons
+que T = 0. Soit ω une forme lisse à support compact sur X ; prouvons que ⟨T, ω⟩ = 0.
+Si ω est antisymétrique, cela découle de la symétrie de T ; supposons donc que ω est
+symétrique. Il existe aussi des formes positives α1 et α2 , lisses à support compact telles
+que ω = α1 − α2 (proposition 6.5.2). Par linéarité, on peut donc supposer que ω est
+positive. Mais alors, ⟨T, ω⟩ est à la fois positif (T est positif) et négatif (−T est positif),
+donc nul.
+Lemme 7.2.4. — Supposons que l’espace tropical X soit localement différentiellement
+séparé. Les courants de bidimension (p, p) positifs ( resp. faiblement positifs, resp. for-
+tement positifs) forment un sous-faisceau du faisceau Dp,p (X) des courants de bidimen-
+sion (p, p).
+Démonstration. — Soit S un courant de bidimension (p, p) sur X.
+   Supposons que S soit positif. Soit U un ouvert de X. Pour toute forme ω sur U , de
+type (p, p), positive et à support compact, le prolongement par 0 de ω est une forme
+positive à support compact sur X. Il en résulte que S|U est positif.
+   Soit maintenant (Ui ) un recouvrement ouvert de X tel que S|Ui soit positif pour tout i ;
+démontrons que S est positif. Soit ω une forme de type (p, p) sur X, positive et à support
+compact. Reprenons la preuve que les faisceaux forment un courant (proposition 7.1.7).
+Il existe une famille finie (φi ) de fonctions lisses, positives et à support compact sur X
+                                  § 7.2. COURANTS POSITIFS                                 161
+                                                                              P
+telle que pour tout i, le support de φi soit contenu dans P Ui , et telle que   φi soit égale
+à 1 au voisinage du support de ω. On a de plus ⟨S, ω⟩ = ⟨S, φi ω⟩ ⩾ 0. Pour tout i, on
+a a ⟨S, φi ω⟩ ⩾ 0, car φi ω est une forme positive dont le support est compact et contenu
+dans Ui . Cela démontre que S est positif.
+   Appliqué à chaque ouvert de X, cet argument démontre que les courants positifs de bi-
+dimension (p, p) forment un sous-faisceau du faisceau des courants de bidimension (p, p).
+Les cas des courants faiblement positifs et fortement positifs se démontrent de même.
+
+Lemme 7.2.5. — Supposons que X soit localement différentiellement séparé. Soit T un
+courant sur X. On suppose que pour tout ouvert U de X, toute forme tropicale ω sur U
+qui est positive ( resp. faiblement positive, resp. fortement positive) et toute fonction lisse
+positive ρ dont le support est compact et contenu dans U , on a ⟨T, ρω⟩ ⩾ 0. Alors T est
+positif ( resp. fortement positif, resp. faiblement positif ).
+Démonstration. — On traite le cas des formes positives, les deux autres sont analogues.
+Soit ω une forme lisse positive à support compact sur X ; démontrons que ⟨T, ω⟩ ⩾ 0.
+Pour tout x ∈ X, soit Ux un voisinage ouvert de X sur lequel ω est tropicale. Soit
+                                                                       que, pour tout x ∈ X,
+(λx )x∈X une famille à support fini de fonctions lisses positives telleP
+le support de λx soit compact et contenu dans Ux , et telle que   P      λx soit égale à 1 au
+voisinage du support de ω (corollaire 6.2.8). On a alors ω = x∈X λx ω. Par hypothèse,
+⟨T, λx ω⟩ ⩾ 0 pour tout x. Donc ⟨T, ω⟩ ⩾ 0.
+
+7.2.6. — L’image directe d’un courant positif (resp. faiblement positif, fortement po-
+sitif) par un morphisme topologiquement propre d’espaces tropicaux est de même type.
+Cela résulte du fait que la même propriété vaut pour l’image inverse des formes (§3.5.2).
+Lemme 7.2.7. — Soit α une forme lisse symétrique sur X et soit T un courant symé-
+trique sur X.
+   a) Supposons que la forme α soit fortement positive. Alors, si T est positif ( resp.
+faiblement positif, resp. fortement positif ), il en est de même de T ∧ α.
+   b) Supposons que la forme α soit positive. Si T est positif, le courant T ∧ α est positif.
+   c) Supposons que la forme α soit faiblement positive. Si T est fortement positif, le
+courant T ∧ α est faiblement positif.
+Démonstration. — Ces assertions découlent des propriétés de positivité d’un produit de
+deux formes (prop. 3.5.5).
+```
+
+## positive-scalar-measures
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 7983–8011; unit SHA256 `089af75e6237f117a1ff411156580da33c01951d926d14ecc613c1bf86f77060`.
+
+```text
+Proposition 7.2.8. — Soit X un espace tropical de niveau n, localement différentiel-
+lement séparé.
+  a) Toute mesure de Radon positive µ sur X induit, par restriction à Ac (X), un courant
+positif [µ] d’ordre 0.
+  b) L’application µ 7→ [µ] ainsi définie est une bijection continue de l’espace des me-
+sures de Radon positives sur X sur l’espace des courants positifs de bidimension (0, 0)
+sur X.
+Démonstration. — a) Soit µ une mesure de Radon positive sur X ; démontrons que
+la forme linéaire [µ] est un courant ; ce sera alors un courant positif. Soit K une partie
+compacte de X et soit D un jeu de cartes couvrant sur X. Il suffit de démontrer que
+la restriction de [µ] à l’espace AD,K
+                                  0,0
+                                      (X) est continue pour sa topologie C 0 . Soit ∥µ∥K
+162                  CHAPITRE 7. COURANTS SUR UN ESPACE TROPICAL
+
+la norme de µ sur K : pour toute fonction continue à support compact sur K, on a
+|µ(f )| ⩽ ∥µ∥K ∥f ∥K . Cette inégalité vaut a fortiori pour toute fonction de AD,K (X) et
+entraîne la continuité voulue.
+   b) Cette implication est injective car l’espace des fonctions lisses à support compact
+est dense dans l’espace des fonctions continues à support compact (corollaire 6.2.6).
+   Il reste à prouver qu’elle est surjective. Soit S un courant positif de bidimension (0, 0)
+sur X. Soit K une partie compacte de X. Soit λ une fonction lisse et positive, à support
+compact sur X, qui vaut 1 au voisinage de K. Pour toute fonction lisse f sur X dont
+le support est contenu dans K, on a −∥f ∥K λ ⩽ f ⩽ ∥f ∥K λ. Comme S est positif, il en
+résulte l’inégalité
+                                     |S(f )| ⩽ ∥f ∥K S(λ).
+Par suite, S est continu lorsque l’espace des fonctions lisses à support compact est muni
+de la topologie de la convergence compacte. Par densité, S s’étend en une forme linéaire
+positive sur Cc (X), c’est-à-dire en une mesure de Radon positive.
+```
+
+## ordinary-product
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 8054–8076; unit SHA256 `f647601926c2311a3319b181f2567f487f9a88ce4870332c75ecc8bb5f3156d4`.
+
+```text
+7.2.11. — Soit X un espace tropical de niveau n, localement différentiellement séparé.
+Soit p un entier naturel et soit T un courant positif (resp. faiblement positif, resp.
+fortement positif) de bidimension (p, p).
+   Soit ω une forme positive (resp. fortement positive, resp. faiblement positive) de bide-
+gré (p, p). Le courant T ∧ω est positif, de bidimension (0, 0) ; d’après la proposition 7.2.8,
+il est donc associé à une unique mesure µTω sur X. Cette mesure applique une fonction
+lisse à suppport compact u sur ⟨uT, ω⟩. Lorsque ω est à support compact, cette mesure
+est à support compact. Lorsque ω est positive, cette mesure est positive.
+Exemple 7.2.12. — Soit X un espace tropical de niveau n, localement différentiel-
+lement séparé. Soit p un entier naturel et soit T un courant positif (resp. faiblement
+positif, resp. fortement positif) de bidimension (p, p). Soit u une fonction borélienne et
+localement bornée sur X. L’application ω 7→ µTω (u) est une forme linéaire sur Acp,p (X)
+que nous noterons uT .
+   Lorsque u est positive, cette forme linéaire uT est positive, donc est un courant positif
+(resp. faiblement positif, resp. fortement positif) sur X.
+   Lorsque u est une fonction borélienne et localement bornée arbitraire, on l’écrit u =
+u − u− , où u+ = sup(u, 0) et u− = sup(−u, 0), comme différence de deux fonctions
+  +
+
+positives boréliennes localement bornées sur X. Comme uT = u+ T − u− T , c’est un
+courant sur X, d’ordre 0.
+   Cette notation est compatible avec celle déjà introduite lorsque u est une fonction
+lisse puisque l’on a alors ⟨uT, ω⟩ = ⟨T, uω⟩ = µTω (u).
+```
+
+## current-sheaf
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 7756–7818; unit SHA256 `0d1a24130ba9c326713dcafecb5aa9a83678fb264cbd51fe4d1005de11869d48`.
+
+```text
+7.1.6. Propriété de faisceau. — Soit T un courant sur X. Soit U un ouvert de X
+et soit j l’immersion de U dans X. Comme l’opération j! de prolongement par 0 des
+formes à support compact sur U est une application linéaire continue (prop. 6.4.5),
+l’application α 7→ ⟨T, j! α⟩ est un courant T |U sur X qu’on appelle restriction de T à U .
+Si T est d’ordre ⩽ r, il en est de même de T |U .
+   L’application U 7→ Dp,q (U ) est ainsi un préfaisceau, et pour tout entier r, les courants
+d’ordre ⩽ r en forment un sous-préfaisceau.
+   Pour tout courant T et tout ouvert U , on a JT |U = (JT )|U .
+
+Proposition 7.1.7. — Supposons que l’espace tropical X soit localement différentiel-
+lement séparé. Le préfaisceau Dp,q sur X est un faisceau de A 0,0 -modules. Pour tout
+entier r, le sous-préfaisceau des courants d’ordre ⩽ r en est un sous-faisceau.
+
+   En particulier, l’ordre d’un courant est une notion locale.
+Démonstration. — Soit (Ui ) un recouvrement ouvert d’un ouvert U de X, pour tout i,
+soit Si un courant sur Ui tels que la restriction à Ui ∩ Uj des courants Si et Sj coïncident,
+pour tous i, j. Démontrons qu’il existe un unique courant S sur U dont la restriction
+à Ui est égale à Si .
+   Soit ω une (p, q)-forme à support compact sur U . Soit (φi ) une famille finie de fonctions
+lissesPà support compact sur U telle que le support de φi est contenu dans Ui P          et telle
+que φi soit égale à 1 au voisinage du support de ω (corollaire 6.2.8). On a ω =             φi ω,
+et seuls un nombre fini de termes de cette somme sont non nuls. Si S est un courant    P   sur U
+dont la restriction à Ui est égale à Si , on a donc nécessairement ⟨S, ω⟩ = ⟨Si , φi ω⟩,
+d’où l’unicité d’un courant S vérifiant les conditions requises.
+   Soit (φ′i ) une seconde famille finie de fonctions lisses
+                                                         P ′ à support compact sur U telle
+                        ′
+que le support de φi soit contenu P dans      Ui et que      φj soit égale à 1 au voisinage du
+                                          ′
+support de ω. On a aussi ω = i,j φj φi ω, si bien que
+               X                 X                  X                   X
+                  ⟨φ′j ω, Sj ⟩ =  ⟨φ′j φi ω, Sj ⟩ =   ⟨φ′j φi ω, Sj ⟩ =   ⟨φi ω, Si ⟩,
+              j                i,j                i,j                  i
+
+où la deuxième égalité découle de la condition de coïncidence des courants Si .
+PIl existe donc une unique application S de l’espace Ac (U ) dans R telle que ⟨S, P
+                                                             p,q
+                                                                                       ω⟩ =
+   ⟨Si , φi ω⟩ pour tout famille (φi ) de fonctions lisses à support compact telle que   φi
+soit égale à 1 au voisinage du support de ω. Cette application est linéaire.
+   Démontrons que c’est un courant sur U . Soit K une partie compacte de U . Considérons
+alors une famille finie (φi ) de fonctions lisses à support compact dont la somme est égale
+à 1 au voisinage de K et telle que le support de φi soit contenu dans Ui . Pour tout i,
+l’application ω 7→ φi ω de AKp,q (U ) dans Acp,q (Ui ) est continue, donc la forme P
+                                                                                   linéaire ω 7→
+⟨Si , φi ω⟩ sur AK (U ) est continue. Pour tout ω ∈ AK (U ), on a ⟨S, ω⟩ = i ⟨Si , φi ω⟩.
+                 p,q                                         p,q
+158                 CHAPITRE 7. COURANTS SUR UN ESPACE TROPICAL
+
+Par suite, la restriction de S à AKp,q (U ) est continue. Cela prouve que S est continue ;
+c’est donc un courant sur U .
+   Soit ω une (p, q)-forme dont le support est compact et contenu dans Uj ; soit (φi )
+une famille comme ci-dessus. Pour tout i, le support de φi ω est contenu dans Ui ∩ Uj ,
+donc ⟨Si , φi ω⟩ = ⟨Sj , φi ω, Si ⟩. Alors,
+                                    X                X
+                        ⟨S, ω⟩ =       ⟨Si , φi ω⟩ =   ⟨Sj , φi ω⟩ = ⟨Sj , ω⟩
+         P
+puisque φi est égal à 1 au voisinage du support de ω. Cela démontre que la restriction
+à Uj du courant S est égale à Sj et conclut la démonstration que les courants forment
+un faisceau.
+   Avec les notations qui précèdent, l’ordre de S est ⩽ r si les Si sont tous d’ordre ⩽
+r. Cela entraîne que courants d’ordre ⩽ r forment un sous-faisceau du faisceau des
+courants.
+```
+
+## current-differentials
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 9309–9381; unit SHA256 `a396b6b027f3375f6aa7b3e89bac0319a21ad2c96f44971acb018cec52648801`.
+
+```text
+  Soit X un espace tropical de niveau n.
+7.7.1. — L’application linéaire d′ de Acp,q (X) dans Acp+1,q (X) est continue (prop. 3.7.13).
+On note b′ sa transposée de Dp+1,q (X) dans Dp,q (X). Si T est un courant d’ordre ⩽ r,
+alors b′ T est un courant d’ordre ⩽ r + 1.
+   On définit de même b′′ : Dp,q+1 (X) → Dp,q (X) comme la transposée de l’application d′′ .
+   Il résulte de la définition de la topologie des espaces de courants que ces applications
+linéaires b′ et b′′ sont continues.
+   Par dualité, la relation d′′ ω = J d′ J−1 ω entraîne l’égalité
+(7.7.1.1)                                   b′′ = Jb′ J−1 .
+                          § 7.7. CALCUL DIFFÉRENTIEL SUR LES COURANTS                  187
+
+  On a aussi les relations (b′ )2 = 0, (b′′ )2 = 0, et b′ b′′ = −b′′ b′ .
+7.7.2. — Soit ω une G-forme de type (p, q) sur X et soit [ω] le courant de bidegré (p, q)
+qui lui est associé. Pour toute forme α ∈ Acn−p−1,n−q (X), on a
+
+                              d′ (ω ∧ α) = d′ ω ∧ α + (−1)p+q ω ∧ d′ α.
+
+La formule de Stokes (proposition 5.11.1) entraîne alors l’égalité
+            Z ∂         Z               Z                        Z
+                             ′               ′
+                ω∧α=       d (ω ∧ α) =      d ω ∧ α + (−1)   p+q
+                                                                   ω ∧ d′ α,
+                 X               X                   X                      X
+
+autrement dit
+                                     [d′ ω] = [ω]∂ + (−1)p+q+1 b′ [ω].
+Si l’on définit l’opérateur d′ de D p,q (X) dans D p+1,q par
+
+(7.7.2.1)                                   d′ = (−1)p+q+1 b′ ,
+
+il vient alors
+
+(7.7.2.2)                                 d′ [ω] = [d′ ω] − [ω]∂ .
+
+Lorsque X est sans bord et ω est une forme sur X, le courant [ω]∂ est nul, et l’on a
+
+(7.7.2.3)                                     d′ [ω] = [d′ ω].
+7.7.3. — De même, on pose
+
+(7.7.3.1)                                  d′′ = (−1)p+q+1 b′′ .
+
+On en déduit que les relations du lemme 1.3.6 sont encore valides sur les espaces de
+courants :
+
+(7.7.3.2)                              d′′ = J d′ J−1 = −J−1 d′ J
+(7.7.3.3)                                   (d′ )2 = (d′′ )2 = 0
+(7.7.3.4)                                    d′′ d′ = − d′ d′′
+(7.7.3.5)                                    d′ d′′ J = J d′ d′′ .
+
+  Soit ω une G-forme de type (p, q). On a
+
+                     d′′ [ω] = J d′ J−1 [ω] = J d′ [J−1 ω] = J[d′ J−1 ω] − J[J−1 ω]∂
+                           = [J d′ J−1 ω] − J[J−1 ω]∂ ,
+
+de sorte que
+
+(7.7.3.6)                              d′′ [ω] = [d′′ ω] − J[J−1 ω]∂ .
+
+En outre, si X est sans bord et ω est une forme, alors Jω est également une forme, donc
+on a
+
+(7.7.3.7)                                    d′′ [ω] = [d′′ ω].
+188                  CHAPITRE 7. COURANTS SUR UN ESPACE TROPICAL
+
+7.7.4. — Supposons que l’espace X est sans bord. Comme le courant d’intégration δX
+est égal à [1], il est d′ et d′′ -fermé.
+
+Lemme 7.7.5. — Pour tout courant S ∈ Dp,q (X) et toute forme α ∈ Acp,q (X), on a
+
+                                   ⟨d′ d′′ S, α⟩ = ⟨S, d′ d′′ α⟩.
+
+Démonstration. — En effet, d′ d′′ S = ((−1)p+q+2 b′ )((−1)p+q+1 b′′ )S = − b′ b′′ S est
+l’image de S par le transposé de − d′′ d′ = d′ d′′ .
+```
+
+## cutoffs-density
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 21619–21696; unit SHA256 `aba28489aa7c1e770af13b87e11c77fbca731f95eb5bc41afb637b378d66ed45`.
+
+```text
+15.2.2. Séparation holomorphe. — On dira qu’un espace analytique X est holo-
+morphiquement séparé si pour tout couple (x, y) de points de X avec x ̸= y il existe une
+fonction analytique f sur X telle que |f (x)| =
+                                              ̸ |f (y)|. Un tel espace est topologiquement
+séparé.
+  Si X est un espace holomorphiquement séparé, il en va trivialement de même de tout
+domaine analytique de X.
+  Tout espace affinoïde est par définition holomorphiquement séparé ; en conséquence,
+tout domaine analytique d’un espace affinoïde est holomorphiquement séparé.
+  Un espace analytique sera dit localement holomorphiquement séparé s’il est topologi-
+quement séparé et si chacun de ses points possède un voisinage analytique holomorphi-
+quement séparé.
+  Un espace analytique topologiquement séparé qui est bon, ou plus généralement dont
+tout point possède un voisinage isomorphe à un domaine analytique d’un espace affi-
+noïde, est localement holomorphiquement séparé. C’est en particulier le cas d’un espace
+analytique topologiquement séparé sans bord.
+
+Lemme 15.2.3. — Soit X un espace k-analytique holomorphiquement séparé. L’an-
+neau des fonctions lisses sur X sépare les points.
+
+Démonstration. — Soit x, y des points distincts de X. Par définition de la séparation
+holomorphe, il existe une fonction analytique f sur X telle que |f (x)| =     ̸ |f (y)|.
+  Supposons ces deux valeurs non nulles ; soit φ une fonction C ∞ à support compact
+sur R valant 0 au voisinage de log|f (x)| et 1 au voisinage de log|f (y)|. La fonction
+φ ◦ log|f |, définie sur l’ouvert d’inversibilité de f , est lisse ; prolongeons-la par 0 sur X
+tout entier. Comme φ est à support compact, la fonction obtenue est nulle au voisinage
+de l’ensemble des zéros de f ; elle est donc lisse et prend des valeurs différentes en x et y.
+  Si f (x) = 0, on a alors f (y) ̸= 0 et on raisonne de même à partir d’une fonction φ à
+support compact valant 1 au voisinage de log|f (y)|.
+  Le cas où f (y) = 0 est analogue par symétrie.
+
+Corollaire 15.2.4. — Soit X un espace k-analytique localement holomorphiquement
+séparé. L’espace G-tropical affiné X est localement différentiellement séparé. En parti-
+culier, le faisceau des fonctions lisses sur X sépare localement les points.
+424 CHAPITRE 15. FORMES DIFFÉRENTIELLES RÉELLES EN GÉOMÉTRIE ULTRAMÉTRIQUE
+
+Corollaire 15.2.5. — Soit X un espace analytique localement holomorphiquement sé-
+paré. Soit K une partie compacte de X et soit U un voisinage ouvert de K. Il existe
+une fonction lisse sur X qui vaut 1 au voisinage de K et dont le support est compact et
+contenu dans U .
+Démonstration. — Comme X est localement différentiellement séparé, c’est une consé-
+quence du corollaire 6.2.4.
+
+Théorème 15.2.6 (Stone–Weierstraß). — Soit X un espace analytique localement
+holomorphiquement séparé et soit U un ouvert de X. Soit f une fonction continue à
+valeurs réelles sur X dont le support est compact et contenu dans U . Soit a et b des
+nombres réels tels que a ⩽ f ⩽ b. Pour tout ε > 0, il existe une fonction lisse g sur X
+dont le support est compact, contenu dans U , telle que |f (x) − g(x)| < ε pour tout x ∈ X
+et telle que a ⩽ g ⩽ b.
+Démonstration. — Comme X est localement différentiellement séparé, c’est une consé-
+quence du théorème 6.2.5.
+
+Corollaire 15.2.7. — Soit X un espace analytique localement holomorphiquement sé-
+paré.
+  a) L’ensemble des fonctions lisses à support compact sur X est dense dans l’es-
+pace Cc (X) des fonctions continues à support compact sur X, muni de la topologie limite
+inductive des espaces de fonctions à support dans un compact donné.
+  b) L’ensemble des fonctions lisses à support compact sur X est dense dans l’es-
+pace C (X) des fonctions continues sur X muni de la topologie de la convergence uniforme
+sur tout compact.
+Démonstration. — Comme X est localement différentiellement séparé, c’est une consé-
+quence du corollaire 6.2.6.
+
+Proposition 15.2.8 (Partitions de l’unité lisses). — Soit X un espace analytique
+localement holomorphiquement séparé, paracompact. Soit (Ui )i∈I un recouvrement ouvert
+de X. Il existe une partition de l’unité subordonnée à (Ui ) formée de fonctions lisses
+sur X.
+Démonstration. — Comme X est localement différentiellement séparé, cela résulte de la
+proposition 6.2.7.
+
+Corollaire 15.2.9. — Soit X un espace analytique localement holomorphiquement sé-
+paré et soit F une partie fermée de X qui est dénombrable à l’infini (par exemple, com-
+pacte). Soit (Ui )i∈I un recouvrement de K par des ouverts de X. Il existe une famille
+localement finie (θi ) de fonctions lisses sur X, à support
+                                                          P compact, positives, telle que
+pour tout i, le support de θi soit contenu dans Ui et que   θi vaille 1 au voisinage de F .
+Démonstration. — Comme X est localement différentiellement séparé, cela résulte du
+corollaire 6.2.8.
+```
+
+## form-leibniz
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 3769–3803; unit SHA256 `172d214bed8f4a1ffbfd19dcf120345ce08abbc69c0b70160a6af23832c8eff0`.
+
+```text
+3.3.10. — Le faisceau GXG := GX0,0G est un faisceau en R-algèbres et les faisceaux GXp,qG
+sont des GXG -modules. Leur somme directe GX∗,∗G = p,q GXp,qG est un faisceau en algèbres
+                                                   L
+
+bigraduées commutatives : si ω est de type (p, q) et ω ′ de type (p′ , q ′ ), alors
+                                                    ′     ′
+                                ω ′ ∧ ω = (−1)(p+p )(q+q ) ω ∧ ω ′ .
+3.3.11. — Le G-préfaisceau Gpf∗,∗ est naturellement muni d’un opérateur J qui s’étend
+au faisceau GX∗,∗G . Ce sont des morphismes d’algèbres. On dit qu’une section ω de GXp,qG
+est symétrique si p = q et si Jω = ω.
+    Soit H une classe de coefficients telles que les dérivées partielles des fonctions de G
+existent et appartiennent à H . On dispose alors d’opérateurs différentiels d′ et d′′ de
+Gpf∗,∗ dans Hpf∗,∗ ; ils induisent des opérateurs différentiels de GX∗,∗G dans HX∗,∗
+                                                                                  G
+                                                                                     , caractérisés
+par les relations
+                               d′ f ∗ α = f ∗ d′ α, d′′ f ∗ α = f ∗ d′′ α,
+                                 § 3.4. NULLITÉ DES G-FORMES                             81
+
+pour toute carte G-tropicale (f : U → E, P ) et toute forme α de type (p, q) à coeffi-
+cients dans G sur P . Les différentielles vérifient la règle de Leibniz : si ω et ω ′ sont
+respectivement de type (p, q) et (p′ , q ′ ), on a
+(3.3.11.1)               d′ (ω ∧ ω ′ ) = d′ ω ∧ ω ′ + (−1)p+q ω ∧ d′ ω ′ ,
+et de même pour d′′ (ω ∧ ω ′ ).
+   Si G ⊂ C 2 , ces opérateurs vérifient d′ d′ = d′′ d′′ = 0.
+3.3.12. — Cette construction est fonctorielle. Plus précisément, si f : Y → X est un
+morphisme d’espaces G-tropicaux, on dispose de morphismes de faisceaux
+                                     f ∗ : GX∗,∗G → f∗ (GY∗,∗
+                                                           G
+                                                              )
+sur XG qui sont des morphismes d’anneaux gradués, commutent aux dérivations d′ et
+d′′ (lorsqu’elles existent) et à l’opérateur J.
+   Lorsque le contexte rend évident le morphisme f , on se permettra parfois de noter
+ω|Y l’image dans GYp,q G
+                         (Y ) d’une G-forme ω ∈ GXp,qG .
+```
+
+## weak-multiplier
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 10257–10281; unit SHA256 `0eec1c45dfec34af7fb8e231160cc24fd3ef9b8f6dc1185fb8eedd1905483114`.
+
+```text
+Lemme 8.5.1. — Soit (Tn ) une suite de courants positifs et soit (un ) une suite de
+fonctions continues. On suppose que la suite (Tn ) converge vers un courant T et que la
+suite (un ) converge localement uniformément vers une fonction u. On a un Tn → uT .
+206                      CHAPITRE 8. THÉORIE DE BEDFORD–TAYLOR
+
+Démonstration. — On peut raisonner localement et supposer que (un ) converge uni-
+formément vers u. Soit ε > 0 et soit v une fonction lisse telle que ∥u − v∥ ⩽ ε ; on
+écrit
+                 un Tn − uT = (un − v)Tn + v(Tn − T ) + (v − u)T.
+Soit ω une forme lisse à support compact, et soit α, β des formes lisses positives à support
+compact telles que ω = α − β. Comme Tn est positif, on a
+      |⟨(un − v)Tn , ω⟩| ⩽ |⟨(un − v)Tn , α⟩| + |⟨(un − v)Tn , β⟩| ⩽ ∥un − v∥⟨Tn , α + β⟩.
+Comme v est lisse, le second terme
+                                 ⟨v(Tn − T ), ω⟩ = ⟨Tn − T, vω⟩
+tend vers 0 quand n tend vers +∞. Enfin, comme T est positif,
+                             |⟨(v − u)T, ω⟩| ⩽ ∥v − u∥⟨T, α + β⟩.
+Cela démontre que
+               lim sup|⟨un Tn − uT, ω⟩| ⩽ 2∥u − v∥⟨T, α + β⟩ ⩽ 2ε⟨T, α + β⟩.
+                  n
+
+Comme ceci vaut pour tout ε, on a
+                                    lim⟨un Tn , ω⟩ = ⟨uT, ω⟩.
+                                      n
+
+Cela prouve que un Tn → uT .
+```
+
+## smooth-multiplier
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 10283–10326; unit SHA256 `364ca08767840b4b45382d42e9e0a5b18b7f7c1b2daf978615413b9a1b5cc985`.
+
+```text
+8.5.2. — Soit T un courant de bidegré (p, p) sur X qui est positif et fermé. L’hypothèse
+que T est fermé signifie d′ T = 0 et d′′ T = 0. Par définition d’un courant positif, le
+courant T est symétrique ; ainsi, chacune de ces annulations entraîne l’autre.
+
+Lemme 8.5.3. — Soit S un courant fermé symétrique de bidegré (p, p), soit q un entier
+tel que q ⩽ p − 1 et soit α une forme lisse symétrique de type (q, q). On a
+                                  d′ d′′ (α ∧ S) = (d′ d′′ α) ∧ S.
+
+Démonstration. — Soit β une forme lisse de type (p − q − 1, p − q − 1) ; démontrons que
+l’on a
+                         ⟨d′ d′′ α ∧ S, β⟩ = ⟨α ∧ S, d′ d′′ β⟩.
+Comme les courants d′ d′′ α ∧ S et α ∧ S sont symétriques, on peut supposer que β est
+symétrique. Par définition, on a
+              ⟨d′ d′′ α ∧ S, β⟩ − ⟨α ∧ S, d′ d′′ β⟩ = ⟨S, d′ d′′ α ∧ β − α ∧ d′ d′′ β⟩.
+Or, on a
+
+  d′ (α d′′ β − d′′ α ∧ β) = d′ α ∧ d′′ β + α d′ d′′ β − d′ d′′ α ∧ β + d′′ α ∧ d′ β.
+De plus, on démontre comme dans la preuve du lemme 1.5.10, la forme de type (p, p)
+                                    d′ α ∧ d′′ β + d′′ α ∧ d′ β
+est antisymétrique. Sa valeur sur le courant symétrique S est donc nulle. Comme S est
+fermé, cela entraîne l’égalité voulue.
+                               § 8.6. COURANTS DE BEDFORD–TAYLOR                                            207
+
+8.5.4. — Soit T un courant de bidegré (p, p) sur X qui est positif et fermé. Soit u une
+fonction psh (continue) sur X. Comme est T est positif, on peut former le courant uT
+(exemple 7.2.12) et considérer le courant d′ d′′ (uT ). Si u est lisse, le lemme 8.5.3 entraîne
+que l’on a
+                   d′ d′′ (uT ) = d′ d′′ (u ∧ T ) = d′ d′′ u ∧ T = T ∧ d′ d′′ (u),
+car T est fermé.
+  En géométrie complexe, cette remarque est la base de la construction, par Bedford–
+Taylor [6], de produits de courants. Nous allons utiliser la même méthode dans ce
+contexte. Pour poursuivre la construction, il faut garantir que le courant d′ d′′ (uT ) est
+encore positif. C’est le cas si T est positif et u est psh lisse et, plus généralement, si u
+est psh en vertu du lemme suivant.
+Lemme 8.5.5. — Soit T un courant de bidegré (p, p) sur X, positif et fermé. Pour
+toute fonction continue psh u, le courant d′ d′′ (uT ) est positif et fermé.
+Démonstration. — Pour tout ouvert U de X, soit P(U ) l’ensemble des fonctions conti-
+nues u sur U telles que d′ d′′ (uT |U ) soit un courant positif. Le préfaisceau P ainsi défini
+est un sous-faisceau de CX . Si u est psh lisse, on d′ d′′ (uT ) = d′ d′′ (u) ∧ T , donc u appar-
+tient à P. Si (un ) est une suite de fonctions de P(U ) qui converge uniformément vers
+une fonction u, la suite de courants (un T |U ) converge vers uT |U , donc d′ d′′ (uT |U ) est
+limite de la suite de courants (d′ d′′ (un T |U )). Ces courants étant positifs par hypothèse, le
+courant d′ d′′ (uT |U ) est positif et u appartient à P(U ). Cela entraîne que le faisceau P
+contient le faisceau CPshX , ce qu’il fallait démontrer.
+```
+
+## bt-definition-and-closures
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 10347–10408; unit SHA256 `d6ddcecc24ddb7e5d63f49f8c320e5dd419e2d24b2846e9fbd6025c0f60f1a21`.
+
+```text
+8.6.1. — Soit u et v des fonctions psh telles que h = u − v est lisse. Alors on a
+d′ d′′ (uT ) = d′ d′′ (hT ) + d′ d′′ (vT ) = d′ d′′ (h) ∧ T + d′ d′′ (vT ), car h est lisse. En particulier,
+si d′ d′′ h = 0, on en déduit que d′ d′′ (uT ) = d′ d′′ (vT ). Nous ne savons pas si cette égalité
+208                       CHAPITRE 8. THÉORIE DE BEDFORD–TAYLOR
+
+persiste en général, c’est-à-dire sans supposer que h est lisse. Cela nous conduit à poser
+la définition suivante.
+
+Définition 8.6.2. — On dit qu’un courant positif fermé T est de Bedford–Taylor si
+pour tout ouvert U de X et pour tout couple (u, v) de fonctions psh sur U telles que
+d′ d′′ (u) = d′ d′′ (v), on a d′ d′′ (uT |U ) = d′ d′′ (vT |U ).
+
+  Si c’est le cas, il est légitime de noter d′ d′′ (u) ∧ T le courant d′ d′′ (uT ). On s’autorisera
+cependant cette notation même si T n’est pas de Bedford–Taylor. Cet abus de notation
+sera relativement sans danger car tous les courants que nous construisons dans ce texte
+sont de Bedford–Taylor.
+
+Proposition 8.6.3. — Soit (Ui ) un recouvrement ouvert de X tel que T |Ui est de
+Bedford–Taylor pour tout i ; alors T est de Bedford–Taylor.
+
+Démonstration. — En effet, soit u, v des fonctions psh sur un ouvert V de X telles que
+d′ d′′ (u) = d′ d′′ (v) ; l’égalité de courants d′ d′′ (uT ) = d′ d′′ (vT ) sur V résulte de sa validité
+sur chacun des Ui ∩ V . On en déduit que les courants de Bedford–Taylor forment un
+sous-faisceau du faisceau des courants positifs fermés.
+
+Exemple 8.6.4. — Le courant δX est de Bedford–Taylor.
+ En effet, uδX = [u] donc d′ d′′ (uδX ) = d′ d′′ ([u]) = d′ d′′ u.
+
+Proposition 8.6.5. — Si α est une forme lisse positive fermée et T est de Bedford–
+Taylor, alors il en est de même du courant T ∧ α.
+
+Démonstration. — Soit en effet des fonctions u, v psh telles que d′ d′′ (u) = d′ d′′ (v) ; si α
+est une forme lisse à support compact, on a
+                       d′ d′′ (u(T ∧ α)) = d′ d′′ (uT ∧ α) = d′ d′′ (uT ) ∧ α.
+De même, d′ d′′ (v(T ∧ α)) = d′ d′′ (vT ) ∧ α. Comme T est un courant de Bedford–Taylor,
+on a d′ d′′ (uT ) = d′ d′′ (vT ), d’où d′ d′′ (uT ) ∧ α = d′ d′′ (vT ) ∧ α. Cela démontre l’égalité
+requise.
+
+Proposition 8.6.6. — Soit (Tk ) une suite de courants de Bedford–Taylor qui converge
+faiblement vers un courant T . Le courant T est de Bedford–Taylor.
+
+Démonstration. — Le courant T est positif fermé. Si u est une fonction psh, on a
+d′ d′′ (uT ) = lim d′ d′′ (uTk ) (lemme 8.5.1). Il en résulte que T est un courant de Bedford–
+Taylor.
+
+Corollaire 8.6.7. — Soit T un courant de Bedford–Taylor et soit u une fonction conti-
+nue positive. Le courant uT est de Bedford–Taylor.
+
+Démonstration. — Cela se déduit de la proposition par approximation locale par une
+fonction lisse.
+
+Proposition 8.6.8. — Soit T un courant de Bedford–Taylor. Pour toute fonction conti-
+nue psh u, le courant d′ d′′ (uT ) est de Bedford–Taylor.
+                           § 8.7. THÉORIE DE BEDFORD–TAYLOR : ITÉRATION                                             209
+
+Démonstration. — Soit u une fonction psh sur X. Soit P le sous-préfaisceau de CX tel
+que, pour tout ouvert U , P(U ) soit l’ensemble des fonctions continues f sur U telles
+que d′ d′′ (f T ) soit un courant de Bedford–Taylor ; c’est un faisceau. Si f est lisse psh,
+alors d′ d′′ (f T ) = d′ d′′ (f ) ∧ T , qui est de Bedford–Taylor, puisque T l’est, de sorte que P
+contient les fonctions lisses psh. Ce faisceau est également stable par limites uniformes
+(lemme 8.5.1). Par suite, P contient le faisceau des fonctions psh. En particulier, le
+courant d′ d′′ (uT ) est de Bedford–Taylor.
+```
+
+## middle-matrix
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 885–975; unit SHA256 `7ac6fc20a19b2e92f75e58b56564ddba33b24b1dd86814f5a3068e7978c50da1`.
+
+```text
+
+1.2.6. — Expliquons comment la notion de positivité d’une (p, p)-forme symétrique ω
+peut s’interpréter en termes de positivité d’une forme bilinéaire qω sur Λp V canonique-
+ment associée à ω.
+   Pour tout k ∈ N, posons σk = (−1)k(k−1)/2 . Fixons un élément non nul λ de Λn V ∗ .
+Par définition les (n, n)-formes positives sont les multiples positifs de σn λ ∧ J(λ).
+   On associe à ω une application bilinéaire sur Λn−p (V ∗ ) à valeurs dans An,n (V ) par la
+formule (α, β) 7→ ω ∧ α ∧ Jβ.
+   Rappelons aussi que le choix de λ fournit un isomorphisme v 7→ φv entre Λp V et
+  n−p ∗
+Λ V . Pour v ∈ Λp V , φv est la (n − p)-forme sur V donnée par φv (w) = ⟨λ, v ∧ w⟩
+pour tout w ∈ Λn−p V . Il en résulte une application bilinéaire bω sur Λp (V ) à valeurs
+dans An,n (V ) : pour v, w ∈ Λp V , on a
+                                       bω (v, w) = ω ∧ φv ∧ Jφw .
+  Par ailleurs, puisqu’elle appartient à Λp V ∗ ⊗ Λp V ∗ , ω « est » une forme bilinéaire qω
+sur Λp V , symétrique puisque l’on a supposé que ω est symétrique. Explicitement, si
+ω = α ⊗ β, pour α, β ∈ Λp V ∗ , on a
+                                        qω (v, w) = ⟨α, v⟩⟨β, w⟩.
+  Pour tous v, w ∈ Λp V , on a
+(1.2.6.1)                       bω (v, w) = (−1)p(n−p) qω (v, w)λ ∧ Jλ.
+Pour démontrer cette formule, on peut se donner une base (e1 , . . . , en ) de V et la base
+duale (x1 , . . . , xn ) de V ∗ . On note eI = ei1 ∧ · · · ∧ eip si I = {i1 , . . . , ip } et i1 < · · · < ip ;
+on définit d′ xI de manière analogue. On peut aussi supposer que λ = d′ x1 ∧ · · · ∧ d′ xn
+et ω = d′ xI ⊗ d′′ xJ , où I, J sont des parties à p éléments de {1, . . . , n}. Si I est une
+partie à p éléments de {1, . . . , n}, notons εI la signature de la permutation de {1, . . . , n}
+qui est croissante et d’image I sur {1, . . . , p} et est croissante sur {p + 1, . . . , n}. Si K
+et L sont des parties à n − p éléments de {1, . . . , n}, on a
+                                      (
+                                        (−1)p(n−p) εI εJ λ ∧ Jλ si K = ∁I et L = ∁J,
+           ω ∧ d′ xK ∧ J d′ xL =
+                                        0                            sinon.
+En outre, φeK = εK d′ x∁K , si bien que
+                                (
+                                 (−1)p(n−p) λ ∧ Jλ si I = K et J = L,
+                bω (eK , eL ) =
+                                 0                 sinon.
+                                § 1.2. SUPERFORMES POSITIVES                                  25
+
+Enfin,                                                      (
+                                                             1 si I = K et J = L,
+               qω (eK , eL ) = ⟨d′ xI , eK ⟩⟨d′ xJ , eL ⟩ =
+                                                             0 sinon,
+d’où la formule annoncée.
+   En outre, les formules précédentes entraînent que les signes de ces diverses formes sont
+reliées par les équivalences suivantes :
+La forme ω est positive au sens de la définition 1.2.3 ;
+⇔ L’application bilinéaire (α, β) 7→ ω ∧ α ∧ Jβ est de signe σn−p ;
+⇔ L’application bilinéaire bω est de signe σn−p ;
+⇔ La forme bilinéaire qω est de signe σn−p (−1)p(n−p) σn = σp .
+   Enfin, si f : W → V est une application linéaire, on a qf ∗ ω = qω ◦ (f, f ).
+   Nous dirons qu’une (p, p)-forme symétrique est définie positive si la forme bilinéaire
+symétrique σp qω est définie positive.
+Lemme 1.2.7. — Soit ω ∈ Ap,p (V ) une forme symétrique de type (p, p), soit
+(x1 , . . . , xn ) une base de V et soit
+                                                X
+                               ω = (−1)p(p−1)/2   ωI,J d′ xI ∧ d′′ xJ
+                                               I,J
+
+la décomposition de ω dans la base correspondante de Ap,p (V ). Alors, les quatre propriétés
+suivantes sont équivalentes :
+   a) La forme ω est positive ( resp. définie positive) ;
+   b) La matrice symétrique (ωI,J ) (indexée par les parties à p éléments de {1, . . . , n})
+est positive ( resp. définie positive) ;
+   c) Il existe une base (αI ) de Λp V ∗ et une famille (cI ) de nombres réels positifs ou nuls
+( resp. strictement positifs), indexées par les parties à p éléments de {1, . . . , n}, telles
+que                                             X
+                              ω = (−1)p(p−1)/2     cI αI ∧ J(αI ).
+                                                     I
+
+Démonstration. — L’équivalence des assertions (1) et (2) résulte de la discussion qui
+précède le lemme et de ce qu’avec les notations introduites, la matrice (ωIJ ) est celle de
+la forme bilinéaire (−1)p(p−1)/2 qω dans la base duale de la base (d′ xI )I de Λp V ∗ . Celle des
+propriétés (2) et propriétés (3) découle de la diagonalisation des formes quadratiques.
+
+Corollaire 1.2.8. — L’ensemble des formes positives dans Ap,p (V ) est le cône convexe
+fermé engendré par les formes du type (−1)p(p−1)/2 α ∧ Jα, où α parcourt l’ensemble des
+formes de type (p, 0).
+Démonstration. — Le lemme précédent montre que les formes positives sont contenues
+dans ce cône. Inversement, si α ∈ Ap,0 (V ) est une forme de type (p, 0) et β est une
+(n − p, 0)-forme, la formule
+     (−1)p(p−1)/2 α ∧ Jα ∧ (−1)(n−p)(n−p−1)/2 β ∧ Jβ = (−1)n(n−1)/2 (α ∧ β) ∧ J(α ∧ β)
+montre que (−1)p(p−1)/2 α ∧ Jα est une forme positive, d’où l’autre inclusion.
+
+Corollaire 1.2.9. — La condition de positivité est auto-duale : une forme α, symé-
+trique de type (p, p), est positive si et seulement si α ∧ β est positive pour toute forme
+positive β de type (n − p, n − p).
+26 CHAPITRE 1. SUPERFORMES SUR UN ESPACE VECTORIEL RÉEL (D’APRÈS LAGERBERG)
+
+Démonstration. — Cela résulte immédiatement du corollaire précédent.
+
+Corollaire 1.2.10. — Les trois notions de positivité coïncident pour les formes de
+```
+
+## positive-wedges
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 1026–1040; unit SHA256 `568f9d32c940d6a28332eff16ffcf4a0fb4a1ac468e9645dab1f2e1948c7ca85`.
+
+```text
+Proposition 1.2.12 (cf. [92], Lemma 2.1). — Soit ω1 , . . . , ωs des formes sur V et
+posons ω = ω1 ∧ · · · ∧ ωs .
+  a) Si les ωj sont toutes fortement positives, alors ω est fortement positive.
+  b) Si les ωj sont toutes positives, alors ω est positive.
+  c) Si les ωj sont toutes faiblement positives et si au plus une d’entre elle n’est pas
+fortement positive, alors ω est faiblement positive.
+
+Démonstration. — Par récurrence, l’assertion b) découle de la caractérisation du cône
+des formes positives et de la formule
+        (−1)p(p−1)/2 α ∧ Jα ∧ (−1)q(q−1)/2 β ∧ Jβ = (−1)r(r−1)/2 (α ∧ β) ∧ J(α ∧ β),
+où α, β sont des formes de type (p, 0) et (q, 0) respectivement, et r = p + q.
+   Pour démontrer les assertions a) et c), il suffit par récurrence de prouver que si une
+forme β est fortement positive, alors α ∧ β est de même nature que α. On peut supposer
+que β est de la forme β1 ∧ Jβ1 ∧ · · · ∧ βm ∧ Jβm , où les βj sont des formes de type (1, 0).
+La preuve est alors directe.
+```
+
+## current-topology
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 7654–7736; unit SHA256 `a2b017a29233edf025a43ad188ab9833bce6acb54ef9d924c5e32cc4f7e92a25`.
+
+```text
+7.1.1. — On appelle courant de bidimension (p, q) sur X une forme linéaire continue
+sur l’espace Acp,q (X) des formes lisses de type (p, q) à support compact, lorsque cet
+espace est muni de la topologie induite par la topologie C ∞ sur l’espace des formes lisses
+à support compact définie au paragraphe 6.4.1
+  On dit qu’un courant est d’ordre ⩽ r s’il est continu pour la topologie C r sur l’espace
+des formes (il est alors d’ordre ⩽ s pour tout s ⩾ r).
+  On notera ⟨S, α⟩ l’image de la forme α par le courant S.
+  On note Dp,q (X) l’ensemble des courants de bidimension (p, q). On le munit de la
+topologie de la convergence simple.
+  On posera aussi D p,q = Dn−p,n−q et on dira que c’est l’espace des courants de bide-
+gré (p, q).
+Remarque 7.1.2. — Explicitons la condition de continuité dans la définition d’un
+courant. L’espace Acp,q (X) est la limite inductive des espaces AD,K    p,q
+                                                                            (X), où D parcourt
+l’ensemble des jeux de cartes tropicales couvrants sur X et K l’ensemble des parties
+compactes de X. Par définition, une forme linéaire sur l’espace Acp,q (X) est continue si
+et seulement si sa restriction à chaque sous-espace AD,K    p,q
+                                                                (X) est continue.
+   Fixons une telle donnée (D, K). L’espace AD,K (X) est muni de la topologie induite de
+                                                    p,q
+
+ADp,q (X), laquelle est définie par les classes de semi-normes ∥·∥W,r associées aux domaines
+compacts W d’une carte g de D et à un entier r. (Pour fixer une semi-norme dans
+chaqque classe, il faut choisir une décomposition cellulaire de g(W ) et des systèmes de
+coordonnées affines sur chaque cellule.)
+   La continuité de S sur cet espace AD,K  p,q
+                                               (X) signifie donc qu’il existe un nombre réel c,
+un entier r et une famille finie (Wi ) de domaines de compacts de X, où pour tout i, Wi est
+contenu dans le domaine d’une carte de D, tels que, pour toute forme lisse ω ∈ AD,K    p,q
+                                                                                           (X),
+on ait
+                                    |⟨S, ω⟩| ⩽ c sup∥ω∥Wi ,r .
+                                                 i
+156                 CHAPITRE 7. COURANTS SUR UN ESPACE TROPICAL
+
+  Comme l’espace tropical X est riche, la construction faite dans la remarque 5.2.9
+fournit une description squelettique de la continuité de S : il existe un nombre réel c,
+un entier r et une partie squelettique compacte Σ de X telle que, pour toute forme lisse
+ω ∈ AD,K
+       p,q
+           (X), on ait
+                                   |⟨S, ω⟩| ⩽ c∥ω|Σ ∥Σ,r ,
+où ∥·∥Σ,r est une norme C r standard sur Σ.
+   On peut résumer cette discussion en disant qu’un courant possède un ordre relatif à
+tout jeu de cartes couvrant et toute partie compacte de X. L’ordre construit dépend de
+la partie compacte considérée, comme dans le cas des distributions réelles.
+   On prendra garde que l’ordre construit dépend également du jeu de cartes considéré.
+On peut en effet construire un courant sur un espace tropical compact pour lequel ces
+ordres ne sont pas majorés.
+
+Lemme 7.1.3. — Supposons que X soit localement différentiellement séparé. Soit B
+un jeu de cartes sur X tel que tout jeu de cartes couvrant sur X admet un raffinement
+couvrant formé de cartes appartenant à B. Soit S une application linéaire de Acp,q (X)
+à valeurs dans espace vectoriel topologique localement convexe E. Soit r un élément
+de N ∪ {+∞}. Pour que S soit continue pour la topologie C r il faut et il suffit que
+pour toute carte tropicale f définie sur un ouvert U de X appartenant à la base U et
+toute fonction ρ sur U , lisse, positive et à support compact, la restriction à Afp,q (U ) de
+l’application linéaire ω 7→ S(ρω) soit continue pour la topologie C r .
+
+Démonstration. — Soit D = (fi : Ui → Ei ) un jeu de cartes couvrant sur X et soit
+K une partie compacte de X ; il s’agit de prouver que la restriction de S à l’espace
+AD,K
+   p,p
+       (X) est continue pour sa topologie C ∞ (resp. C r ). Par hypothèse, il existe un
+jeu de cartes D ′ , couvrant, formé de cartes de B qui raffine le jeu D. Cela permet de
+supposer que les cartes de D appartiennent à laSbase d’ouverts U . On choisit une partie
+finie I de l’ensemble des indices i telle K ⊂ i∈I Int(Ui ). Soit (λi )i∈I une famille de
+fonctions lisses et positives sur X tellesPque pour tout i, le support de λi soit compact
+et contenu dans Int(Ui ), et telles que Pi∈I λi soit égale à 1 au voisinage P de K. Pour
+toute forme ω ∈ AD,K p,q
+                         , on a donc ω = ( i∈I λi )ω, de sorte que S(ω) = i∈I S(λi ω). Il
+suffit ainsi de prouver que chacune des applications linéaires ω 7→ S(λi ω) est continue
+sur AD,K .
+   Soit i ∈ I. L’application de restriction à Ui induit une application de AD,K     p,q
+                                                                                        (X)
+dans Afi (Ui ) ; cette application est continue pour les topologies C . Par hypothèse,
+         p,q                                                             m
+
+l’application linéaire α 7→ S(λi α) est continue sur Afp,q  i
+                                                              (Ui ), pour la topologie C ∞
+(resp.. C r ). La composée de ces applications linéaires est donc continue.
+
+7.1.4. — Soit T un courant de bidimension (p, q) ; il découle de la proposition 6.4.6
+```
+
+## compact-moment-image
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 16836–16840; unit SHA256 `d4d28c1f1c639600b5d079cd31ebe2411e60f94e19dd8c40b1544e9ef40e4125`.
+
+```text
+Théorème 12.2.4. — Soit X un espace k-analytique compact et soit f : X → T un
+moment. Le sous-espace compact ftrop (X) est un polyèdre de Ttrop de dimension dim(X).
+   L’assertion a été établie par Berkovich dans le cas où X est G-localement algébrisable,
+cf. [11], cor. 6.2.2. Pour le cas général, on pourra se reporter à [46], §3.30, ou à [50],
+th. 3.2.
+```
+
+## chart-images
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 3685–3701; unit SHA256 `27ede4644fa7140bd001a864d8f0804469ceb8bd833aa7af77d322c5105da01c`.
+
+```text
+  Dans ce paragraphe, on fixe une classe de coefficients G .
+3.3.1. — Soit X un espace G-tropical.
+    Les cartes G-tropicales sur les domaines de X forment une catégorie essentiellement
+petite, un morphisme d’une carte G-tropicale (f : X → E, P ) dans une autre (f ′ : X →
+E ′ , P ′ ) étant une application affine q : E → E ′ tel que f ′ = q ◦ f et q(P ) ⊂ P ′ .
+    Cette catégorie a un objet final pour lequel E = {0} et P est un point. Elle est
+filtrante : si (f : X → E, P ) et (f ′ : X → E ′ , P ′ ) sont deux cartes G-tropicales sur X,
+alors (f × f ′ : X → E × E ′ , P × P ′ ) est une carte G-tropicale sur X qui domine les deux
+cartes G-tropicales données.
+
+Remarque 3.3.2. — Soit X un espace G-tropical compact et soit (f : X → E, P ) une
+G-carte tropicale sur X.
+  a) L’ensemble f (X) est un sous-espace paralinéaire compact de E contenu dans P
+(théorème. 12.2.4) et la carte donnée se factorise par (f : X → E, f (X)). On dira parfois,
+par abus, que f est une carte G-tropicale sur X.
+  b) Pour toute décomposition cellulaire (Pi ) de f (X), la famille (f −1 (Pi )) est un G-
+recouvrement fini de X par des domaines compacts dont l’image par f est une cellule.
+```
+
+## geometric-positive-wedges
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 4074–4081; unit SHA256 `af2ae2b53d2b5093ec220554a5e109e67790222e7b7ce1255d4d6b93d0107534`.
+
+```text
+Proposition 3.5.5. — Soit X un espace G-tropical, soit ω1 , . . . , ωr des G-formes
+sur X, et soit ω = ω1 ∧ · · · ∧ ωr .
+  a) Si les ωj sont fortement positives, alors ω est fortement positive.
+  b) Si les ωj sont positives, alors ω est positive.
+  c) Si les ωj sont faiblement positives et si au plus une d’entre elles n’est pas fortement
+positive, alors ω est faiblement positive.
+
+Démonstration. — Cela découle de la proposition 1.10.3.
+```
+
+## face-positive-wedges
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 2685–2699; unit SHA256 `755005874cbbd0719c56e04d0023943714d304b960d55d46188c1267bd2c9571`.
+
+```text
+Proposition 1.10.3. — Soit P un sous-espace paralinéaire d’un espace affine V et soit
+ω1 , . . . , ωs des formes sur P ; posons ω = ω1 ∧ · · · ∧ ωr .
+   a) Si les ωj sont toutes fortement positives, alors ω est fortement positive.
+   b) Si les ωj sont toutes positives, alors ω est positive.
+   c) Si les ωj sont toutes faiblement positives et si au plus une d’entre elle n’est pas
+fortement positive, alors ω est faiblement positive.
+Démonstration. — Par hypothèse, les formes ωj sont restrictions de formes au voisi-
+nage,de P . L’assertion se déduit donc cellule par cellule de la proposition 1.2.12.
+
+1.10.4. — Soit P un sous-espace paralinéaire d’un espace affine V et soit n = dim(P ).
+Les notions de formes faiblement positives, positives et fortement positives coïncident en
+bidegrés (0, 0) et (n, n) ; pour les formes symétriques, elles coïncident en bidegrés (1, 1)
+et (n − 1, n − 1).
+   Cela se démontre par inspection cellule par cellule.
+Définition 1.10.5. — Soit V un espace affine de dimension finie et soit P une partie
+```
+
+## face-positivity
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 2634–2651; unit SHA256 `3aaef6a90762b10edb0574cb40377ab1f036d24da0e2db4d0552ece7f5e7f481`.
+
+```text
+
+Définition 1.10.1. — Soit V un espace affine de dimension finie sur R et soit P
+un sous-espace paralinéaire de V . Soit ω une forme de type (p, p) sur P . On dit que ω
+est positive ( resp. faiblement positive, resp. fortement positive) si pour toute cellule C
+                                                                   −→
+contenue dans P et tout point x ∈ C, l’élément ω|C (x) de Ap,p (⟨C⟩) est une (p, p)-forme
+                                                                                       −→
+positive ( resp. faiblement positive, resp. fortement positive) sur l’espace vectoriel ⟨C⟩ au
+sens de la définition 1.2.3.
+   Compte tenu du lemme 1.2.11 et de la compatibilité des morphismes d’évaluation à
+la restriction à une sous-cellule, il suffit de vérifier cette condition pour toute cellule
+maximale d’une décomposition cellulaire de P .
+   En particulier, ce sont des notions G-locales : soit α ∈ FPp,p (P ) et soit (Pi ) un G-
+recouvrement de P , pour que α soit positive, il faut et il suffit que α|Pi soit positive pour
+tout i. Comme P est paracompact (c’est un sous-espace de Rn !), l’assertion se déduit
+de la proposition 2.2.13 qui affirme l’existence d’une décomposition cellulaire adaptée
+au G-recouvrement (Pi ). Les cas des formes faiblement positives et fortement positives
+sont analogues.
+```
+
+## mixed-symmetry-diagnostic
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 10470–10481; unit SHA256 `f925445e54e0432f008a517798735ca2c5bf78eda6f665bf0f4ffeade3b22da3`.
+
+```text
+Proposition 8.7.4. — Soit T un courant positif fermé. Soit u1 , . . . , um des fonctions
+psh et soit σ une permutation de {1, . . . , m} ; on a
+d′ d′′ (u1 ) ∧ d′ d′′ (u2 ) ∧ · · · ∧ d′ d′′ (um ) ∧ T = d′ d′′ (uσ(1) ) ∧ d′ d′′ (uσ(2) ) ∧ · · · ∧ d′ d′′ (uσ(m) ) ∧ T.
+Démonstration. — Soit v une fonction psh sur X. Soit P le sous-faisceau de CPshX
+formé des fonctions psh u telles que d′ d′′ (u d′ d′′ (vT )) = d′ d′′ (v d′ d′′ (uT )). Si u est lisse,
+on a
+      d′ d′′ (u d′ d′′ (vT )) = d′ d′′ (u) ∧ d′ d′′ (vT ) = d′ d′′ (vT ∧ d′ d′′ (u)) = d′ d′′ (v d′ d′′ (uT )),
+de sorte que ce faisceau P contient les fonctions lisses. Il est stable par limites uniformes.
+Par suite, il contient le faisceau des fonctions psh.
+  Cela entraîne l’assertion voulue lorsque m = 2.
+  Le cas où σ est la transposition échangeant deux entiers successifs en découle immé-
+diatement. Le cas général s’en déduit car σ est composée de telles transpositions.
+```
+
+## torus-coordinates
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 16493–16575; unit SHA256 `f45158e6456b76c10f89688528b986df3a51a16988d2d6d6ce157bbf925e4667`.
+
+```text
+12.1.1. Convention. — Dans la suite de ce travail, nous travaillerons très régulière-
+ment avec les analytifiés An,an et Gn,an
+                                      m   des k-schémas An et Gnm , et seulement excep-
+tionnellement avec ces schémas eux-mêmes. Aussi écrirons-nous désormais, afin d’alléger
+l’écriture, An et Gnm au lieu de An,an et Gn,an
+                                           m . Il sera donc considéré par défaut que A
+                                                                                        n
+
+et Gnm sont des espaces analytiques ; si nous avons besoin de travailler par endroit avec
+les schémas correspondants, nous le préciserons explicitement.
+12.1.2. — Dans ce travail, le groupe multiplicatif et ses puissances jouent un rôle
+fondamental. Rappelons que l’anneau des fonctions algébriques sur Gnm est l’anneau
+A = k[T1±1 , . . . , Tn±1 ] des polynômes de Laurent à coefficients dans k en des indétermi-
+nées T1 , . . . , Tn ; l’espace analytique Gnm est l’ensemble des semi-normes multiplicatives
+sur cet anneau qui étendent la valeur absolue de k. L’espace Gnm est un ouvert de Zariski
+dense de An : c’est le lieu des points en lesquels aucune fonction coordonnée ne s’annule.
+                                                                 n
+Pour tout polyrayon r = (r1 , . . . , rn ) le point ηr de de A     (défini à l’exemple 11.1.12)
+                     n
+                                                                    aI T I 7→ max|aI |rI sur l’an-
+                                                                P
+appartient à Gm . Il correspond à la norme multiplicative
+neau des polynômes de Laurent. Si le corps k a besoin d’être rappelé nous écrirons ηk,r
+au lieu de ηr .
+   Pour éviter le recours à un choix explicite de coordonnées, nous adopterons la conven-
+tion suivante : nous appellerons tore (de dimension n) tout groupe analytique isomorphe
+à une puissance Gnm du groupe multiplicatif ; nos tores sont donc implicitement supposés
+déployés.
+12.1.3. — Rappelons que toute fonction analytique inversible sur Gnm est un monôme,
+c’est-à-dire de la forme aT1m1 . . . Tnmn , où a ∈ k ∗ et (m1 , . . . , mn ) ∈ Zn est un vecteur
+appelé exposant. (En dimension 1, cet énoncé est le lemme 9.7.1/1 de [20], le cas général
+en découle par récurrence.) C’est en particulier une fonction algébrique.
+   Le morphisme Gnm → Gm induit par une telle fonction est un homomorphisme de
+groupes analytiques si et seulement si a = 1.
+330          CHAPITRE 12. PARTIES SQUELETTIQUES D’UN ESPACE ANALYTIQUE
+
+  Soit T un tore. L’ensemble X(T ) des caractères de T , c’est-à-dire des morphismes de
+groupes analytiques de T vers Gm , est un groupe abélien.
+  On déduit de ce qui précède que tout isomorphisme de T avec Gnm induit un iso-
+morphisme de X(T ) avec Zn ; on en déduit aussi que si T et T ′ sont deux tores, tout
+morphisme d’espaces k-analytiques de T vers T ′ est affine, i.e. composé d’un morphisme
+de groupes analytiques et d’une translation ; c’est donc un morphisme de groupes si et
+seulement si il envoie l’origine de T sur l’origine de T ′ . Pour cette raison, lorsque nous
+évoquerons un morphisme entre tores qui n’est pas nécessairement un morphisme de
+groupes analytiques, nous le qualifierons de morphisme affine.
+12.1.4. Tropicalisations. — On considère le groupe abélien R×            + comme un R-espace
+vectoriel, via l’exponentiation. Par ailleurs, le choix d’une base de logarithmes permet de
+l’identifier à l’espace R. On fixe une fois pour toutes un tel isomorphisme log : R×       + → R.
+Dans ce texte, il n’y a pas d’intérêt particulier à choisir le logarithme néperien ; en
+particulier, nous n’aurons jamais à dériver cet isomorphisme, vu comme fonction d’une
+variable réelle. L’utilisation de cet isomorphisme log présentera pour nous deux intérêts :
+elle nous permettra d’utiliser la géométrie paralinéaire sous sa forme standard, plutôt
+que sa variante multiplicative ; et elle donnera lieu à un formalisme apparenté à celui de
+la géométrie complexe, dans lequel les logarithmes de fonctions holomorphes inversibles
+jouent un rôle majeur.
+   Soit T un tore. Nous noterons Ttrop le R-espace vectoriel Hom(X(T ), R×      + ), que l’on peut
+identifier à (R× + )n
+                      une fois choisie une trivialisation de T , ou à Rn
+                                                                         via l’isomorphisme    log
+choisi. L’espace vectoriel Ttrop est appelé tropicalisation du tore T .
+   Étant donné un point t de T , l’application qui applique un caractère φ ∈ X(T ) sur
+l’élément |φ(t)| est un élément de Ttrop noté trop(t). L’application trop : T → Ttrop ainsi
+définie est continue.
+   La formation de Ttrop est fonctorielle : tout morphisme affine f : T → T ′ entre tores
+                                                   ′
+induit une application affine ftrop : Ttrop → Ttrop    telle que le diagramme
+
+                                                   f
+                                          T   ←         → T′
+                                          ←
+
+
+
+
+                                                          ←→
+                                          →
+
+
+
+
+                                                  ftrop   ′
+                                         Ttrop   ←     → Ttrop
+
+```
+
+## top-measures
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 6733–6808; unit SHA256 `c727f9481e602256f7ccc91d7e23516abbf75077de67409d2e46c9956100005f`.
+
+```text
+5.8.1. — Soit ω ∈ FXn,n  G
+                           (X), soit Σ une partie squelettique fermée de X qui supporte
+fortement ω. Par la construction du §4.5.5, en accouplant la restriction ω|Σ à Σ de la
+forme ω et le n-calibrage µΣ de Σ, on obtient une forme-volume n-dimensionnelle ω̃Σ
+sur Σ, et donc une forme-volume n-dimensionnelle sur X au sens du §5.6. D’après la
+proposition 4.5.8 et la définition d’un support fort, cette forme-volume sur X ne dépend
+pas du choix de Σ ; on la note ω   e . Elle est positive si ω est une forme positive, car le
+calibrage canonique est positif (lemme 14.3.4).
+Lemme 5.8.2. — Soit ω ∈ FXn,n     G
+                                    (X). On suppose qu’il existe une partie squelettique
+fermée de X qui supporte fortement ω. Pour tout domaine analytique Y de X, il existe
+une partie squelettique fermée de Y qui supporte fortement ω|Y et l’on a l’égalité ω|
+                                                                                   g Y =
+ω̃|Y de formes-volume n-dimensionnelles sur Y .
+Démonstration. — Soit Σ une partie squelettique fermée de X qui supporte fortement ω.
+Alors, T = Σ ∩ Y est une partie squelettique fermée de Y qui supporte fortement ω|Y .
+De plus, on a
+      ω|Y = ⟨(ω|Y )|T , µT ⟩      par définition de ω|
+      g                                             g Y
+
+            = ⟨ω|T , µT ⟩                  d’après (3.3.14)
+            = ⟨(ω|Σ )|T , (µΣ )|T ⟩        d’après (3.3.14) et la définition d’un calibrage
+            = ⟨ω|Σ , µΣ ⟩|T = ω
+                              e |Y
+parce que l’accouplement entre (n, n)-formes et calibrages est un morphisme de faisceaux
+sur le site XG . Le lemme est ainsi démontré.
+
+Proposition 5.8.3. — Il existe un unique morphisme de faisceaux FXn,n            G
+                                                                                    → VXnG
+sur XG , noté ω 7→ ω e , qui prolonge l’application définie en (5.8.1) lorsque ω possède
+un support fort. Ce morphisme est FX0,0G -linéaire. Si ω est une G-forme positive, la
+forme-volume ωe est positive. Si ω est à coefficients dans une classe G , il en va de même
+de la forme-volume ωe.
+Démonstration. — Compte tenu du lemme 5.8.2, la première assertion résulte de ce que
+toute forme sur un domaine paracompact possède un support fort, et que tout domaine
+est G-recouvert par ses domaines paracompacts. Les autres propriétés découlent alors
+de la construction.
+
+5.8.4. — Explicitons cette construction lorsque ω est tropicale. Soit f : X → E une
+carte G-tropicale et soit α une (n, n)-forme sur un sous-espace paralinéaire de E conte-
+                                         (n)
+nant f (X) telle que ω = f ∗ α. Alors, Σf est un support fort de ω (lemme 5.3.4) et on
+                                         (n)
+a l’égalité de formes-volume sur Σf            :
+                                                ∗
+(5.8.4.1)                                ω̃ = ⟨ftrop α, µΣ(n) ⟩.
+                                                            f
+
+Si, de plus, la carte G-tropicale f est agréable, la proposition 4.5.8 entraîne alors que
+(5.8.4.2)                       ftrop,∗ (ω̃) = ⟨α, f∗ µΣ(n) ⟩ = ⟨α, µΠf ⟩.
+                                                        f
+                                   § 5.9. MESURES DE BORD                                  137
+
+ 5.8.5. — Soit ω une forme de type (n, n) sur XG à coefficients tropicalement boréliens.
+ Nous venons de lui associer une forme-volume n-dimensionnelle ω̃. Nous noterons alors
+ ωBor la mesure de Borel sur X associée à ω̃ par la construction du §5.7.1.
+   Nous dirons que ω est localement intégrable si cette mesure est localement finie, et
+ que ω est intégrable si cette mesure est finie. Lorsque ω est localement intégrable, nous
+ noterons ωRad la mesure de Radon associée à ω̃ ; on a |ωRad | = ωBor . Lorsque ω est une
+ G-forme positive, la mesure ωRad est positive.         R           R
+   Si f est une fonction borélienne sur X, on notera X f |ω| et X f ω les intégrales de f
+Rcontre les mesures ωBor et ωRad lorsqu’elles existent. Cela définit en particulier l’intégrale
+  X
+    ω pour toute G-forme de type (n, n) à support compact qui est localement intégrable
+(par exemple lisse).
+   Les G-formes localement intégrables constituent un sous-espace vectoriel de F n,n (XG )
+contenant les G-formes lisses. Les G-formes intégrables en sont un sous-espace vectoriel
+qui contient les G-formes lisses à support compact.
+5.8.6. — Soit u une fonction localement intégrable sur X et soit ω une G-forme lisse
+de type (n, n) sur X. Alors, u est localement intégrable par rapport à la mesure ωBor ,
+de sorte que uωRad est une mesure de Radon sur X.
+   L’application (u, ω) 7→ uωRad est bilinéaire ; elle induit une application linéaire de
+Lloc
+   1
+     (XG ) ⊗ A n,n (XG ) dans l’ensemble des mesures de Radon sur X. Cette application
+se factorise par L1loc (XG ) ⊗ A n,n (XG ). On la notera bien sûr α 7→ αRad .
+```

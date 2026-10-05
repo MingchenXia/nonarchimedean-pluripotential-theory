@@ -1,0 +1,75 @@
+#!/usr/bin/env python3
+"""Register the two proved reductions; neither is a solution of original P21.3."""
+import json
+import pathlib
+
+notes = [
+    {
+        'id': 'n1',
+        'summary': 'Proved an ordinary-test bipolar identity and exact finite-test/polar criteria for positive doubly closed exhaustion on one fixed neighborhood. Feasibility and constructed-current density remain unproved; no analytic counterexample results.',
+        'detailedSummary': 'For the actual complementary compact smooth symmetric test space E on a fixed ordinary N, let P be its middle-positive cone and B the symmetric projections of both first differential images. The allowed current cone C is the nonnegative annihilator of P+B, and its test polar is H=closure(P+B) in the weak topology induced by all ordinary currents. For any actual construction cone G contained in C, an allowed T lies in its weak closure exactly when every finite full-test list is approximated by a candidate on the same N, or equivalently T is nonnegative on G*. All C are exhausted exactly when G*=H. Finite feasibility yields a genuine directed net including every analytic-unit refinement. The supplied Theorem 3 makes constructed candidates compatible, but no finite feasibility or cone equality is established here. All fields and original ambient hypotheses are retained.',
+        'text': r'''This is a mathematical reduction, not a density theorem or a resolution of P21.3. Fix any original complete non-Archimedean field K, including trivial valuation, a good separated strict boundaryless pure n-dimensional analytic space X, n>=2, one ordinary open N, and 0<=p<=n-1. Set q=n-p>=1. Use the original canonical calibration, with actual generic lengths on nonreduced components. No scalar extension, current pullback, or abstract tropical replacement is used.
+
+The exact imported ordinary-calculus premises are CLD arXiv:1204.6277v2 (25 July 2025): 11.1.7 and 15.7.1-2 give ordinary analytic opens and canonical restriction; 15.2.2-9 give local differential separation and compact smooth cutoffs/scalar density on good separated spaces over either valuation; 7.1.1-7 give actual continuous current duals, evaluation topology, restriction and sheaf; 6.5.2 and 7.2.1-4 give compact symmetric-test decomposition into two middle-positive tests and the definition of middle positivity; 7.7.1-5 give both differential dualities. HTTP source: https://arxiv.org/pdf/1204.6277v2. Their literal statements and proof units are retained, with supplied LF bindings and hashes. The task-granted reviewed core Lemmas 1-2 supply the exact middle-cone order-zero product and net-continuity arguments; Theorem 3 supplies only the displayed constructed-compatible-current operations. There are no supplied canonical note IDs to cite as supports.
+
+Let E=A_c^(q,q)(N)_sym and F=D^(p,p)(N)_sym, using the actual ordinary continuous dual, not a single-chart algebraic dual. Write Pi for symmetric projection, P for the compact middle-positive test cone, and
+B={Pi(d'psi+d''chi): psi in A_c^(q-1,q)(N), chi in A_c^(q,q-1)(N)}.
+Define C={T in F: T middle-positive, d'T=d''T=0}, and H=closure(P+B) for sigma(E,F). Then
+C={T: T(P)>=0 and T(B)=0},
+H={beta in E: T(beta)>=0 for every T in C}.
+The first identity follows separately from each first differential duality, after projection. The signs do not affect annihilation. Both endpoint degrees are valid because q>=1.
+
+Here is a self-contained proof of the second identity. For a paired space V,V' with the weak testing topology and a convex cone A containing zero, if v is outside closure(A), a finite test-coordinate map e has t=e(v) outside the closed convex cone L=closure(e(A)) in R^m. A nearest point z in L exists by closedness and a bounded minimizing subsequence. Minimality along segments gives (t-z).(y-z)<=0 for y in L; using y=0 and 2z gives (t-z).z=0. Thus a=z-t has a.y>=0 on L and a.t=-||t-z||^2<0. The finite linear combination of testing functionals with coefficients a separates v from A. This proof works even if the pairing has a kernel. Apply it to A=P+B. The separator is an actual ordinary continuous current R, a finite combination of such currents. It is nonnegative on P and annihilates B because both b and -b belong to P+B. Hence R is in C. Conversely every T in C is nonnegative on P+B and its weak closure. This proves the identity without importing infinite-dimensional Hahn-Banach or extending a moment-chart functional.
+
+Let G be any cone of actual positive doubly closed currents on this same N, closed under addition and nonnegative scaling; in particular take the precise system generated from the original delta_X by the supplied Theorem 3 operations (agreeing gluing only, fixed-degree actual weak limits, smooth positive closed decorations, and permitted D(vS)). Define G*={beta in E: S(beta)>=0 for all S in G}. For T in C the following are equivalent: T is in closure(G) for sigma(F,E); every finite L subset E and epsilon>0 admit a single S in G defined on all N with |(S-T)(beta)|<epsilon for beta in L; T(beta)>=0 for all beta in G*. The first equivalence is the weak topology definition. The second uses the just-proved finite separation lemma with the paired spaces reversed.
+
+Finite feasibility gives an actual net indexed by (L,m), where L ranges over finite subsets of E and m over positive integers, ordered by inclusion and increasing m. Choose S_(L,m) with error<1/m on L. Every fixed test is eventually controlled. Crucially every term must already be an ordinary positive doubly closed current on all N, even for refinements outside its finite list. The construction does not turn finite coordinate constraints into an analytic current. Consequently every member of C is exhausted if and only if G*=H: H is always contained in G*; equality implies exhaustion by the equivalence, and exhaustion makes every G*-test nonnegative on C, hence in H.
+
+The criterion includes all compact ordinary tests and therefore every analytic-unit moment refinement. N is never shrunk with L or m. Smooth localization may decompose tests, but does not glue unrelated approximating currents. For positive R, beta=eta_1-eta_2, eta_i>=0, eta=eta_1+eta_2, the imported coefficient-measure calculus gives |<bR,beta>|<=||b||_supp(eta)<R,eta> for continuous b. If positive S_a converge weakly, smooth approximation of fixed continuous b on this compact support and eventual bounds for <S_a,eta> prove bS_a->bT. Thus, conditional on exhaustion by compatible G, differentiation and ordinary sheaf locality give D((U-V)T)=0 for original continuous equal-curvature pairs.
+
+What is missing is actual finite feasibility or G*=H near arbitrary analytic germs. An exhaustion separator need not be a multiplier detector hD(alpha), nor supply a separately generated continuous pair with canonical upstairs Hessian equality. It is not a P21.3 counterexample. The selected primary search checked CLD Euclidean convolution, GR real-PL recognition, toric Lagerberg products and Jell smooth Poincare statements; their domains do not supply the missing analytic construction. The BGJKK preprint inspected is v1, 15 February 2021, not a claim to have audited its 2025 published revision.
+
+Artifacts: P21.3-paper.tex, P21.3-paper.pdf, P21.3-argument.md (proofs plus literal primary units), premises.json, source-manifest.json, literature-bindings.json, status.json, notes.json; frozen input-original.json, task-original.json, assignment-original.txt. Rerun: bash reproduce.sh in the deliverable directory. Program checks verify 29 literal CLD slices (27 supplied), six URL-selected web units, exact frozen inputs, the five-field status schema and backward note supports, and compile the paper with installed Pandoc/pdfTeX. These are finite integrity/build checks, not mathematical audits. No heavy compute, installs, other worker/model, or external messages were used. Original P21.3 remains unresolved.''',
+        'support': []
+    },
+    {
+        'id': 'n2',
+        'summary': 'Proved an exact compact-mass scalar criterion and sufficient positive-plus-first-exact test certificates for relation preservation against arbitrary allowed currents. Canonical Hessian equality does not yet yield these certificates or a zero defect.',
+        'detailedSummary': 'Using n1’s full ordinary test bipolar cone H, fix beta=D alpha=eta_1-eta_2, eta=eta_1+eta_2, and normalize allowed currents by T(eta)<=1. The supremum Lambda_eta(h;alpha)=sup |<hT,D alpha>| is finite, Lipschitz in h on supp eta, and vanishes exactly when the pairing vanishes for every allowed T. For smooth g it equals inf{a>=0: a eta +/- g D alpha lie in H}. Smooth scalar approximation makes these infima converge to Lambda with the same uniform error bound. Actual compact positive-plus-dprime/dsecond-exact certificates with coefficients tending to zero therefore suffice for arbitrary-current independence. Neither their existence from D[h]=0 nor an actual positive-defect pair is proved; this is a direct reduction, not a new solved geometric case.',
+        'text': r'''This note uses n1's proved ordinary test bipolar identity and its exact ordinary-calculus premises. Retain its original analytic domain, all fields, degrees, singularities, nilpotents and canonical lengths. This is a direct scalar reduction for arbitrary middle-positive doubly closed currents; it assumes no constructed-current density.
+
+Fix alpha in A_c^(q-1,q-1)(N)_sym and put beta=D alpha, where D=d'd''. The imported DJ=JD ensures beta is symmetric. Choose compact middle-positive eta_1,eta_2 with beta=eta_1-eta_2, and eta=eta_1+eta_2. Its support K_eta may be larger than supp beta but is compact in the same N. For any finite continuous h on N define
+L_(h,alpha)(T)=<hT,beta>=<D(hT),alpha>,
+Lambda_eta(h;alpha)=sup{|L_(h,alpha)(T)|: T in C, <T,eta><=1}.
+The currents in this supremum are actual ordinary analytic currents on N. The supremum need not be attained; no compactness theorem for this current family is assumed.
+
+The coefficient-measure bound stated in n1 proves Lambda_eta(h;alpha)<=||h||_K_eta, and |Lambda_eta(h;alpha)-Lambda_eta(k;alpha)|<=||h-k||_K_eta for continuous h,k, by taking suprema after the ordinary absolute-value inequality. If <T,eta>=0, that same bound already forces L_(h,alpha)(T)=0. If the mass is positive, scaling T by its mass puts it in the normalized family. Therefore Lambda=0 if and only if L vanishes for every T in C. No zero mass is divided by.
+
+For an ordinary smooth real scalar g on N, define
+a_eta(g;alpha)=inf{a>=0: a eta+g beta in H and a eta-g beta in H},
+with H=closure(P+B) exactly as in n1. This infimum is finite. Indeed M=||g||_K_eta gives M eta+/-g beta=(M+/-g)eta_1+(M-/+g)eta_2, a positive compact smooth test: coefficients are nonnegative wherever the corresponding tests are nonzero. Smooth g is not required to be psh or harmonic.
+
+By n1's bipolar identity, both H-memberships are equivalent to |<T,g beta>|<=a<T,eta> for every T in C. Smooth multiplication identifies this pairing with L_(g,alpha)(T). Scaling positive-mass currents and treating zero mass as above shows that this is equivalent to Lambda_eta(g;alpha)<=a. Consequently a_eta(g;alpha)=Lambda_eta(g;alpha), with no approximation or geometric density assumption. The permitted a form a closed ray, since H is weakly closed.
+
+Compact smooth cutoff and scalar density (CLD v2 15.2.5-7, within the original ordinary domain) give g_j smooth on N with epsilon_j=||g_j-h||_K_eta->0. Concretely multiply h by a compact cutoff equal to one near K_eta and approximate that compact continuous scalar. The Lipschitz inequality now proves
+|a_eta(g_j;alpha)-Lambda_eta(h;alpha)|<=epsilon_j.
+It follows that D(hT)=0 for all T in C exactly when these infima tend to zero for every alpha, for one or every such smooth approximation. Symmetric alpha suffice: hT and D(hT) are symmetric. The zero condition is independent of the chosen positive-test decomposition because it is equivalent to all the same unnormalized pairings being zero; the numerical normalized supremum can depend on the decomposition.
+
+This yields a concrete sufficient certificate that makes no reference to approximating T. For each alpha, suppose there exist smooth g_j on the fixed N, a_j>=0 with a_j->0, compact middle-positive xi_j^+ and xi_j^-, and compact psi_j^+/- of type (q-1,q), chi_j^+/- of type (q,q-1), such that
+a_j eta +/- g_j D alpha = xi_j^+/- + Pi(d'psi_j^+/- + d''chi_j^+/-),
+||g_j-h||_K_eta->0.
+Evaluation on arbitrary T in C kills each first-differential term separately and is nonnegative on xi. Hence |<T,g_j D alpha>|<=a_j<T,eta>. The scalar approximation error is at most epsilon_j<T,eta>, so <hT,D alpha>=0 on taking the limit. Testing every alpha gives D(hT)=0. Membership of the left sides in H rather than in P+B is sufficient as well, by the proved bipolar identity; the limiting-infimum criterion is exact. Every function and form remains on the same N. They may depend on the compact detector, but their analytic definitions respect all moment refinements.
+
+For an original separately admissible continuous generated-Psh pair h=U-V, the given canonical upstairs equation D[h]=0 establishes only L_(h,alpha)(delta_X|N)=0 for all alpha. It does not control the supremum over arbitrary positive doubly closed currents, or construct the positive-plus-first-exact certificates. Proving this control is the exact remaining geometric relation-preservation step in this route. It has not been proved here. Likewise no membership of both h and -h in generated Psh has been obtained.
+
+If Lambda were strictly positive for an actual admissible pair and compact alpha, the definition of supremum would yield an actual allowed T with nonzero Hessian pairing, without requiring attainment; these would be legitimate analytic counterexample data. No such pair, value, current or detector is exhibited. The reduction itself is neither a counterexample nor a resolution of the original every-open assertion. It adds no already-known polycylinder/toric range to the solved inventory.
+
+Artifacts and reproduction: Theorem 5 and Corollary 5.1 are in P21.3-argument.md and standalone P21.3-paper.tex/PDF; exact premise/version and HTTP passage bindings are in premises.json, source-manifest.json and literature-bindings.json. Run bash reproduce.sh. logs/verification.json records finite byte/source/schema checks; PDF build success is not an independent mathematical audit. status.json lists the unproved exhaustion, scalar-certificate, two-sign-recognition and analytic-counterexample steps. candidate=false.''',
+        'support': ['n1']
+    }
+]
+
+root = pathlib.Path(__file__).resolve().parent
+(root / 'notes.json').write_text(json.dumps({'notes': notes, 'candidate': False},
+                                         ensure_ascii=False, indent=2) + '\n')
+print('Registered two canonical proof notes; original P21.3 remains unresolved.')

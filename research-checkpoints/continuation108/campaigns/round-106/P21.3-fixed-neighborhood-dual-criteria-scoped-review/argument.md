@@ -1,0 +1,2875 @@
+---
+title: "The fixed-neighborhood exhaustion and scalar-relation gaps in P21.3"
+subtitle: "Exact dual criteria in ordinary CLD calculus"
+author: "Research draft; no independent mathematical verification claimed"
+date: "5 October 2026"
+geometry: margin=1in
+fontsize: 11pt
+header-includes:
+  - \setlength{\emergencystretch}{3em}
+---
+
+# Result and scope
+
+**P21.3 remains unresolved.** We prove two reductions of its remaining arbitrary-current step. The first gives an exact finite-test and dual criterion for weak positive exhaustion on **one fixed ordinary neighborhood**. The second gives an exact scalar criterion, using a compact positive mass bound, for relation preservation against **all** middle-positive doubly closed ordinary currents. The second criterion does not require current exhaustion, smooth harmonic approximants, or generated-Psh recognition of the difference. Neither geometric criterion is established for arbitrary analytic germs or arbitrary equal-curvature pairs.
+
+These are mathematical proofs of reductions, not a construction of a density net, a new geometric special case, or an analytic counterexample. In particular a separator for the exhaustion cone is not automatically a Bedford--Taylor detecting test of the prescribed form. All conclusions are conditional on the explicitly stated ordinary-calculus premises. Execution and compilation are not mathematical audits.
+
+Let $K$ be any complete non-Archimedean field, including a trivially valued field. Let $X$ be good, separated, strict, boundaryless, pure of dimension $n\geq2$, and let $N\subset X$ be an ordinary open. Every current and every test below is defined on this **same** $N$. Fix $0\leq p\leq n-1$ and write $q=n-p\geq1$ and $D=\mathrm d'\mathrm d''$. Positivity always means the middle cone. We keep the original canonical calibration and its actual generic component lengths, including on singular and nonreduced spaces. We make no scalar extension or replacement by tropical currents.
+
+The original implication, on every ordinary open $W$, is
+$$
+ U,V\in\operatorname{Psh}(W)\cap C(W),\qquad D[U]=D[V]
+ \quad\Longrightarrow\quad D(UT)=D(VT),                    \tag{Q}
+$$
+where $[f]=f\delta_X$ and $T$ is positive with $\mathrm d'T=\mathrm d''T=0$. Here Psh is the generated sheaf of CLD v2 Definition 8.1.1. We neither use nor infer $\operatorname{Psh}\cap C=\operatorname{CPsh}$. For $h=U-V$, the equation $D[h]=0$ refers to the canonical integration current; the question concerns the order-zero ordinary product with arbitrary $T$.
+
+# Exact premises and their applicability
+
+The primary ordinary calculus is [CLD], arXiv:1204.6277v2, 25 July 2025. The source used is the explicitly supplied read-only public text, whose SHA256 is \path{64846cb00926267c6238d1afac61b5eaed0a0e3a6349725738f9b1bf163de085}. Selected statements and printed proof units have been read, not the entire book. \path{source-manifest.json} records the supplied one-based inclusive LF intervals and hashes; \path{P21.3-primary-evidence.md} retains the literal units. The following are the entire external mathematical premises needed for the new reductions.
+
+**E0, ordinary localization and density.** CLD 11.1.7, 15.7.1--2 and 15.2.2--9: ordinary opens are analytic domains; the canonical level-$n$ structure restricts to them; good separated analytic spaces are locally holomorphically and differentially separated. A compact set in an ordinary open has a compactly supported smooth cutoff in a prescribed neighborhood. Compact continuous real scalars can be uniformly approximated by compact smooth scalars in such a neighborhood. Finite nonnegative smooth localization exists on compact supports. These assertions are compact-support assertions, and require no global paracompactness. They apply over either valuation regime in our ambient class.
+
+**E1, tests and current duality.** CLD 7.1.1--7: a current of bidegree $(p,p)$ is a continuous linear functional on complementary compact smooth $(q,q)$ tests. Its weak topology is pointwise convergence on **all** these tests. Restriction uses extension of tests by zero; currents form an ordinary sheaf. Symmetry projects tests to their symmetric part; denote this continuous projection by $\Pi$. We work with the actual ordinary test space and its ordinary continuous dual, not the algebraic dual of one moment presentation.
+
+**E2, positivity and compact decomposition.** CLD 6.5.2 and 7.2.1--4: every symmetric compact smooth test is a difference of two compact middle-positive smooth tests; the support hypothesis in 6.5.2 holds on good analytic spaces. Middle positivity is nonnegativity on such positive complementary tests and is ordinary-local. The cone is convex and pointed. The decomposition and the current symmetry are retained; strongly positive tests are not substituted.
+
+**E3, order-zero multiplication and its bound.** CLD 7.2.8 and 7.2.11--12 provide unique positive coefficient Radon measures for positive tests. We use the middle-cone product and continuity justification explicitly proved in the supplied reviewed core, Lemmas 1--2. For a positive current $R$, a compact symmetric test $\beta=\eta_1-\eta_2$, $\eta_i\geq0$, and $\eta=\eta_1+\eta_2$, the continuous ordinary product satisfies
+$$
+ |\langle bR,\beta\rangle|\leq
+       \|b\|_{\operatorname{supp}\eta}\langle R,\eta\rangle. \tag{1}
+$$
+Here $b$ is any continuous real scalar. This follows by integrating $b$ against the difference of the two positive coefficient measures, whose support is in $\operatorname{supp}\eta$. If positive $R_a\to R$ weakly, multiplication by a **fixed continuous** $b$ commutes with that limit. The supplied proof extends CLD Lemma 8.5.1 from sequences to nets using smooth scalar approximation and eventual bounds on the tested positive masses. We reproduce that argument below. No varying-current limit with a discontinuous multiplier is used.
+
+**E4, the two differentials.** CLD 3.3.10--12 and 7.7.1--5: differentials are weakly continuous and act in duality, with square-zero, anticommutation, and $DJ=JD$. In compatible diagonal degrees,
+$$\langle DR,\alpha\rangle=\langle R,D\alpha\rangle.          \tag{2}$$
+The two first closedness equations are equivalent to annihilating the corresponding first differential images of compact tests. No index ambiguity in CLD 8.5.3 is needed for the new dual arguments.
+
+**E5, the canonical seed.** CLD 5.8.1--5, 7.7.4, 15.7.1 and 16.6.3: $\delta_X$ is positive and doubly closed on a boundaryless analytic space. Integration agrees with the associated analytic cycle current, using actual generic component lengths. No nilreduction with unit weights is made.
+
+**G, the supplied constructed-current grant, and only that grant.** The reviewed partial core's Theorem 3 applies to finite real continuous generated-Psh pairs in (Q), on every ordinary subopen. A compatible positive doubly closed current remains compatible under addition, nonnegative scaling, restriction, gluing of currents that already agree on overlaps, fixed-degree weak positive limits with an actual ordinary-current limit, and wedge with a smooth middle-positive doubly closed $(r,r)$ form, with output degree at most $n-1$. Also $D(vS)$ remains compatible when $S$ is compatible, its degree is at most $n-2$, and $v$ is any locally bounded real generated-Psh function, possibly discontinuous. This is an explicit supplied premise, not a literature density assertion.
+
+For clarity, the last closure uses the supplied one-continuous-factor identity twice, oriented with $v$ as the possibly discontinuous factor and $U$ or $V$ as the continuous factor:
+$$
+ D(UD(vS))=D(vD(US)),\qquad D(VD(vS))=D(vD(VS)).             \tag{3}
+$$
+Compatibility identifies the **positive** inner currents $D(US)$ and $D(VS)$, whose Borel products with $v$ are identical. It does not declare $D(hT)=0$ for arbitrary $T$.
+
+We use the preceding precise scope without independently re-establishing the whole supplied transfinite calculus. The new proofs below are independent of reverse psh recognition, curve restriction of a canonical Hessian equation, strong-current lifts, and every catalogue theorem mentioned only by description.
+
+# A finite-dimensional separation lemma proved here
+
+**Lemma 1.** Let $V$ and $V'$ be real vector spaces with a bilinear pairing, and give $V$ the topology of pointwise testing by $V'$. For a convex cone $A\subset V$ containing zero, an element $v$ is in $\overline A$ if and only if every $\ell\in V'$ which is nonnegative on $A$ is nonnegative on $v$.
+
+*Proof.* Necessity follows by continuity of the pairing. For sufficiency suppose $v\notin\overline A$. A basic open neighborhood disjoint from $A$ tests only finitely many elements $\ell_1,\ldots,\ell_m$ of $V'$. Thus, for the map $e(w)=(\ell_i(w))_i$, the point $t=e(v)$ lies outside the closed convex cone $L=\overline{e(A)}\subset\mathbf R^m$.
+
+There is a nearest point $z\in L$ to $t$: minimizing sequences lie in a bounded ball after comparison with $0\in L$, and a convergent subsequence gives the minimum by closedness. Set $a=z-t\ne0$. For $y\in L$, minimizing along the segment $z+s(y-z)$ gives $\langle t-z,y-z\rangle\leq0$. Applying this to $y=0$ and $y=2z$ gives $\langle t-z,z\rangle=0$. Consequently
+$$a\cdot y\geq0\ (y\in L),\qquad a\cdot t=-\|t-z\|^2<0.$$
+The element $\ell=\sum_i a_i\ell_i\in V'$ is nonnegative on $A$ and negative on $v$, as required. No infinite-dimensional separation theorem is imported. The proof also works for a pairing with a kernel. $\square$
+
+# The full ordinary test quotient by both differential equations
+
+Let
+$$ E=\mathcal A_c^{q,q}(N)_{\mathrm{sym}},\qquad
+ F=\mathcal D^{p,p}(N)_{\mathrm{sym}}.$$
+Here $F$ is the ordinary continuous dual with symmetry, as in E1. Denote the middle-positive test cone by $P\subset E$. Define the real linear subspace
+$$
+ B=\left\{\Pi(\mathrm d'\psi+\mathrm d''\chi):
+ \psi\in\mathcal A_c^{q-1,q}(N),\quad
+ \chi\in\mathcal A_c^{q,q-1}(N)\right\}.                    \tag{4}
+$$
+All supports are compact in $N$. Let
+$$ C=\{T\in F:T\geq0,\ \mathrm d'T=\mathrm d''T=0\},\qquad
+ H=\overline{P+B}^{\sigma(E,F)}.                            \tag{5}
+$$
+The topology on $H$ is **test-side weak topology induced by all ordinary currents**, not coefficient convergence in a fixed moment chart. It does not involve the constructed-current cone. The space $B$ includes both first differentials, with all analytic-unit refinements already included in its test spaces.
+
+**Theorem 2 (ordinary test bipolar identity).**
+$$
+ C=\{T\in F:\langle T,\xi\rangle\geq0\ (\xi\in P),\
+                        \langle T,b\rangle=0\ (b\in B)\},  \tag{6}
+$$
+and
+$$
+ H=\{\beta\in E:\langle T,\beta\rangle\geq0\ (T\in C)\}.
+                                                               \tag{7}
+$$
+
+*Proof.* Equation (6) is exactly E2 and differential duality E4. Since a symmetric current pairs with a diagonal test through $\Pi$, annihilation of $B$ is annihilation of each first differential image. The harmless differential signs disappear in an annihilation condition. This checks both equations, including $p=0$ and $p=n-1$.
+
+If $T\in C$, it is nonnegative on $P+B$, hence on $H$. Conversely, if $\beta\notin H$, apply Lemma 1 with $V=E$, $V'=F$, and $A=P+B$. It gives an ordinary symmetric current $R\in F$ nonnegative on $P+B$ and negative on $\beta$. Taking $0\in B$ proves $R\geq0$ on $P$. Since $\pm b\in P+B$ for every $b\in B$, we have $\langle R,b\rangle=0$. Thus (6) shows $R\in C$. This proves (7). The separating current is a finite linear combination of ordinary continuous currents from the basic neighborhood; positivity and both closedness equations are then checked. No extension of an arbitrary functional from one moment image is asserted. $\square$
+
+# Exhaustion on one fixed ordinary neighborhood
+
+Let $\mathcal G^p(N)\subset C$ be the degree-$p$ part of the smallest system of actual current cones on ordinary opens generated from the original $\delta_X$ by precisely the operations in G. Local gluing means gluing actual currents agreeing on overlaps; it does not mean multiplying unrelated currents by a partition. All weak limits are in a fixed degree and are required to be actual ordinary currents. One can also use any smaller explicit construction cone closed under addition and nonnegative scaling. Everything below holds for **any** such cone $G\subset C$; set $G=\mathcal G^p(N)$ for the proposed exhaustion.
+
+Define
+$$G^*=\{\beta\in E:\langle S,\beta\rangle\geq0\ (S\in G)\}.$$
+
+**Theorem 3 (finite-test exhaustion and exact dual gap).** For $T\in C$ the following are equivalent:
+
+1. $T\in\overline G^{\sigma(F,E)}$.
+2. For every finite $\mathcal L\subset E$ and every $\varepsilon>0$, there exists one actual $S\in G$, defined on all of the fixed $N$, with
+   $$|\langle S-T,\beta\rangle|<\varepsilon\quad(\beta\in\mathcal L). \tag{8}$$
+3. $\langle T,\beta\rangle\geq0$ for every $\beta\in G^*$.
+
+Moreover, the whole cone $C$ is weakly exhausted by $G$ if and only if
+$$                       G^*=H.                             \tag{9}$$
+
+*Proof.* The equivalence of 1 and 2 is the definition of the weak topology. For completeness, (8) gives a genuine net: index by finite test sets $\mathcal L$ and positive integers $m$, ordered by inclusion of sets and increase of $m$. Choose $S_{\mathcal L,m}\in G$ with error $<1/m$ on $\mathcal L$. For a fixed $\beta$ and a tolerance, the tail with $\beta\in\mathcal L$ and sufficiently large $m$ has the required error. All terms are on $N$, positive and doubly closed **exactly**, including at all stages not used in a particular finite list. There is no claim that finitely many constraints certify that a proposed chart functional is an analytic current.
+
+Apply Lemma 1 with $V=F$, $V'=E$, $A=G$ to obtain the equivalence with 3. Since $G\subset C$, (7) gives $H\subset G^*$. If $G^*=H$, then every $T\in C$ is nonnegative on $G^*$ by (7), and 3 gives its exhaustion. Conversely, suppose every $T\in C$ is in the weak closure of $G$. A $\beta\in G^*$ then pairs nonnegatively with every $T\in C$, so (7) gives $\beta\in H$. This proves (9). $\square$
+
+Every compact ordinary smooth test has finitely many moment presentations after compact-support localization. Including it in $\mathcal L$ therefore incorporates whatever analytic units that test uses, and the directed set eventually includes every further refined test. The neighborhood $N$ never shrinks with $\mathcal L$ or $m$. Smooth partitions are used, if needed, to express a **test**; they do not glue approximating currents. This is how the criterion retains all moment refinements and both differential equations without introducing a coordinate kernel.
+
+**Corollary 3.1 (the exact conditional exhaustion route).** If each original current $T$, near every point of the open carrying the pair, has a fixed ordinary neighborhood $N$ on which any of the conditions in Theorem 3 holds with $G=\mathcal G^p(N)$, then (Q) holds for that current on every ordinary open.
+
+*Proof.* The grant G makes every approximant pair-compatible. For $h=U-V$ continuous, $hS_a\to hT$ weakly by E3, whence $D(hT)=\lim D(hS_a)=0$. On a compact symmetric test $\zeta=\eta_1-\eta_2$, approximate $h$ by smooth $g$ uniformly on the support of $\eta_1+\eta_2$. The error is bounded by the uniform error times the tested positive mass. Weak convergence makes these masses eventually bounded. For the fixed $g$, $\langle S_a-T,g\zeta\rangle\to0$. Letting the scalar approximation error decrease proves the asserted multiplier convergence for nets. Differential continuity gives the conclusion. Restrict the pair to each $N$ and use the ordinary current sheaf for equality on the given open. The fixed $N$ may depend on the point and on the restriction of the original current, but the proof uses neighborhoods inside the open on which the pair is defined. It does not turn a chart cover into a basis. $\square$
+
+The unproved analytic statement is now the cone equality (9) on appropriate fixed neighborhoods. A failure of (9) yields a separating **smooth** $\beta$ and an actual positive doubly closed current. It need not supply $\beta=hD\alpha$, any continuous separately generated pair, or $D[h]=0$. It is a failure of the proposed exhaustion route, not a negative answer to P21.3.
+
+# A direct scalar criterion with a compact positive mass bound
+
+Fix a compact symmetric test
+$$\alpha\in\mathcal A_c^{q-1,q-1}(N)_{\mathrm{sym}},\qquad \beta=D\alpha\in E.$$
+By E2 choose $\beta=\eta_1-\eta_2$ with compact $\eta_i\in P$ and put
+$$\eta=\eta_1+\eta_2,\qquad K_\eta=\operatorname{supp}\eta.$$
+This is one fixed test decomposition; it may have support larger than $\operatorname{supp}\beta$, but still compact in $N$. For a continuous real $h$ on $N$, define
+$$
+ L_{h,\alpha}(T)=\langle hT,\beta\rangle=\langle D(hT),\alpha\rangle,
+\qquad
+ \Lambda_\eta(h;\alpha)=
+ \sup_{\substack{T\in C\\\langle T,\eta\rangle\leq1}}
+                         |L_{h,\alpha}(T)|.                 \tag{10}
+$$
+The supremum is over actual analytic ordinary currents, not tropical functionals. It need not be attained and no compactness of this current family is assumed.
+
+**Lemma 4 (finite mass and uniform scalar stability).** The number in (10) is finite and at most $\|h\|_{K_\eta}$. If $h,k$ are continuous, then
+$$|\Lambda_\eta(h;\alpha)-\Lambda_\eta(k;\alpha)|
+                                         \leq\|h-k\|_{K_\eta}. \tag{11}$$
+Moreover, $\Lambda_\eta(h;\alpha)=0$ if and only if $L_{h,\alpha}(T)=0$ for all $T\in C$.
+
+*Proof.* Inequality (1) proves finiteness and (11), using the elementary inequality $||a|-|b||\leq|a-b|$ before taking suprema. If $\langle T,\eta\rangle=0$, (1) forces $L_{h,\alpha}(T)=0$. If this mass is positive, dividing $T$ by the mass puts it in the normalized set, so vanishing of the supremum forces the unnormalized pairing to vanish. The converse is immediate. No zero mass is divided by. $\square$
+
+For a smooth real scalar $g$ on $N$ define
+$$
+ a_\eta(g;\alpha)=\inf\{a\geq0:
+                    a\eta+g\beta\in H,\ a\eta-g\beta\in H\}. \tag{12}
+$$
+This infimum is finite: $\|g\|_{K_\eta}\eta\pm g\beta$ are positive smooth tests. To see this directly, their coefficients of $\eta_1$ and $\eta_2$ are $\|g\|_{K_\eta}\pm g$ and $\|g\|_{K_\eta}\mp g$, nonnegative wherever those compact tests are nonzero. No multiplier closedness is required for this assertion about tests.
+
+**Theorem 5 (exact scalar quotient criterion).** Choose compact ordinary smooth scalars $g_j$ on $N$ with $\varepsilon_j=\|g_j-h\|_{K_\eta}\to0$, using E0. Then
+$$
+ a_\eta(g_j;\alpha)=\Lambda_\eta(g_j;\alpha),\qquad
+ \Lambda_\eta(h;\alpha)=\lim_j a_\eta(g_j;\alpha),             \tag{13}
+$$
+and the error in the limit is at most $\varepsilon_j$. In particular, the following are equivalent:
+
+1. $D(hT)=0$ for every $T\in C$ on $N$.
+2. For every compact symmetric $\alpha$ as above, $\Lambda_\eta(h;\alpha)=0$.
+3. For every such $\alpha$, the infima (12) tend to zero for one, equivalently every, smooth approximation of $h$ on $K_\eta$.
+
+The vanishing condition is independent of the chosen positive-test decomposition.
+
+*Proof.* By (7), the two inclusions in (12) are equivalent to
+$$|\langle T,g\beta\rangle|\leq a\langle T,\eta\rangle
+                                                    \quad(T\in C). \tag{14}$$
+Smooth multiplication identifies the pairing here with $L_{g,\alpha}(T)$. If (14) holds, the normalized supremum is at most $a$. Conversely if that supremum is at most $a$, scale positive-mass $T$ as in Lemma 4; zero-mass $T$ has zero pairing. Thus (14) holds for all $T$. This proves $a_\eta(g;\alpha)=\Lambda_\eta(g;\alpha)$. The set of permitted $a$ is a closed ray, since $H$ is weakly closed, so there is no issue from the infimum.
+
+Use (11) to prove (13). Equivalence of 1 and 2 follows from Lemma 4 and differential duality (2). The current $D(hT)$ is symmetric: $hT$ is symmetric and $DJ=JD$. Symmetric tests therefore suffice to detect its vanishing. Equation (13) proves equivalence with 3. Changing the decomposition changes the normalization and the numerical value of the supremum, but each zero condition is equivalent to the same unnormalized pairings against all $T$. $\square$
+
+Theorem 5 is a direct scalar reduction for arbitrary allowed middle degree, including both endpoints. It does not invoke the constructed cone $G$, so it offers a route distinct from exhaustion. It replaces the desired conclusion with a precise small-order condition in the full ordinary test cone modulo **both** closedness relations.
+
+**Corollary 5.1 (a concrete sufficient test certificate).** For each compact symmetric $\alpha$, suppose there are smooth $g_j$ on the fixed $N$, $a_j\geq0$ tending to zero, and actual compact tests $\xi_j^\pm\in P$, $\psi_j^\pm\in\mathcal A_c^{q-1,q}(N)$, $\chi_j^\pm\in\mathcal A_c^{q,q-1}(N)$ with
+$$
+ a_j\eta\pm g_jD\alpha=
+      \xi_j^\pm+\Pi(\mathrm d'\psi_j^\pm+\mathrm d''\chi_j^\pm),
+\qquad \|g_j-h\|_{K_\eta}\to0.                              \tag{15}
+$$
+Then $D(hT)=0$ for every $T\in C$. Membership of the left sides in $H$ instead of $P+B$ also suffices.
+
+*Proof.* Evaluate (15) on an arbitrary $T\in C$. The first differential terms have zero pairing by each of the two closedness equations, and $\xi_j^\pm$ have nonnegative pairing. Thus (14) holds with $a=a_j$. Add the error estimate (1) for $h-g_j$ and take the limit. Testing all $\alpha$ proves the conclusion. The $H$ version follows from Theorem 2. $\square$
+
+The test certificates may depend on $\alpha$ and its compact support, but every function and test is on the same $N$. They are actual analytic forms, so all their moment refinements are respected by their definitions. Nonnegative partitions do not construct (15). No existence of these certificates is inferred from $D[h]=0$.
+
+For a separately admissible pair $U,V$, canonical Hessian equality gives only
+$$L_{h,\alpha}(\delta_X|_N)=0\quad\text{for all }\alpha.$$
+It controls the canonical seed, not the normalized supremum (10) over all closed positive currents. If $\Lambda_\eta(h;\alpha)>0$ for some actual such pair on $N$, its definition yields an actual $T\in C$ and the compact ordinary smooth $\alpha$ with nonzero product Hessian pairing; the supremum need not be attained. **No such pair or positive value has been exhibited here.** Conversely a separator for (9) alone has no reason to be of this form.
+
+# Primary-literature investigation and scope checks
+
+The web queries and returned primary passages are preserved in \path{logs/search-*.json}. The search is a selected literature investigation, not an exhaustive nonexistence claim.
+
+In CLD v2 §8.6.1, immediately before Definition 8.6.2, the authors explicitly leave the nonsmooth-difference independence question unsettled in that discussion. The subsequent closure statements concern constructed currents, not an exhaustion of all positive closed analytic currents. The supplied reviewed core repairs the relevant generated-potential arguments in its exact scope; it does not add density.
+
+CLD v2 §1.6.6 gives convolution of supercurrents on $\mathbf R^m$, preserving positivity and both first closedness equations, with weak approximation by smooth forms. Its proof convolves distribution coefficients in Euclidean coordinates. The exact statement/proof unit is LF 1698--1762, HTTP <https://arxiv.org/pdf/1204.6277v2#page=38>. Its source domain is a real affine space with a volume vector. Applying it to one analytic moment image supplies neither an ordinary current on the analytic neighborhood nor compatibility with other moments and their nullity relations. We do not use it as an analytic approximation premise.
+
+[GR], arXiv:2506.13548v2, 17 September 2025, §1.2, compares generated CLD psh with classically psh in one direction, through smooth curves and decreasing closure. Its §4 real-PL recognition theorem assumes a **nontrivial valuation** and an already real-PL function. We checked its proof: it uses residual line-bundle nefness, base extension and curve tests. Neither unit recognizes both signs of an arbitrary continuous zero-canonical-Hessian difference as generated Psh. No classical-to-generated converse is used here. Version and passage bindings: <https://arxiv.org/abs/2506.13548v2>, <https://arxiv.org/html/2506.13548v2#S1.SS2>, <https://arxiv.org/html/2506.13548v2#S4>; retained web-rendered lines 94--98 and 677--684.
+
+[BGJKK], arXiv:2102.07392v1, 15 February 2021, the public PDF examined in this run, Theorem 3.3.4 regularizes psh **functions on $N_\Sigma$**, where $\Sigma$ is a fan. Its proof first handles boundary constancy and then convolves within the real vector space. Theorem 4.1.2's arbitrary-current factor is a positive closed **Lagerberg current on $N_\Sigma$** for a smooth fan, and its proof uses a correspondence with complex toric currents. The non-Archimedean comparison in Theorem 6.1.1 concerns locally psh approximable **toric metrics** and their constructed Chern-current products. These domains cannot be substituted for arbitrary ordinary analytic currents. Exact inspected units and proof beginnings are bound to <https://arxiv.org/pdf/2102.07392#page=19>, <https://arxiv.org/pdf/2102.07392#page=20>, and <https://arxiv.org/pdf/2102.07392#page=33>, with web-rendered lines 1483--1519, 1578--1654 and 2595--2645. The inspected PDF header is v1, 15 February 2021. The catalogue instead cites the 2025 published article; this run checked the identified preprint units, not every unit of the published revision. Version-specific passage bindings are also in \path{literature-bindings.json}; web-rendered text is not represented as frozen PDF bytes.
+
+We also inspected [Jell], arXiv:1409.0676v3, 29 July 2016, Corollary 4.6 and its proof, <https://arxiv.org/pdf/1409.0676v3#page=19>. Its scalar degree-zero closedness statement is about **smooth forms**; its Poincare lemma is about local first-differential exactness. Neither unit is an approximation theorem for arbitrary positive closed currents or for a continuous zero-current scalar. It is not a premise of our new theorems.
+
+The raw shell HTTP attempt failed because the configured proxy was unreachable. Public source access used the provided web tool. Web-rendered extracts and exact URLs are distinguished from the byte-frozen supplied CLD text. No source cache or external repository was edited.
+
+# What remains geometric
+
+The first remaining statement is: for every original current and point, find one ordinary neighborhood inside the pair's domain on which the constructed-current polar satisfies (9), or at least every finite test list satisfies (8) with actual candidates on that neighborhood. This would suffice by Corollary 3.1. Theorem 3 proves the direction from feasibility to a net **only after feasibility has been established**; it supplies no chartwise construction or compatibility theorem.
+
+The second remaining statement is: for every original continuous separately generated equal-canonical-curvature pair, prove the vanishing in Theorem 5 for all compact detecting tests, for example by constructing (15) on one fixed neighborhood. This is a direct scalar route that would control arbitrary $T$. Canonical nullity alone has not supplied the positive-plus-first-exact test certificates.
+
+The already supplied alternative is to generate both signs of $h=U-V$ as locally bounded Psh on one fixed ordinary neighborhood; the supplied positivity theorem and pointedness would then give the equality. We have not established that membership. Nor can the one-continuous-factor symmetry (3) prove the target for arbitrary $T$: the signed form still has $D(hT)$ on the right.
+
+These gaps retain arbitrary fields including trivial valuation, every ordinary open, all $p=0,\ldots,n-1$, singularities and nilpotents, and canonical generic lengths. None of the catalogue's removed polycylinder, invariant toric, curve or conditional approximation ranges is counted as a new solution. A cover of one specified open and a genuine ordinary-open basis remain different. No analytic separately admissible pair/current/test counterexample is produced. Accordingly the deliverable status is partial and `candidate=false`.
+
+# Reproducibility and limits
+
+\path{input-original.json} preserves the exact bytes of the supplied local \path{input.json}. \path{task-original.json} and \path{assignment-original.txt} preserve its parsed task and exact assignment string. The standalone paper is \path{P21.3-paper.tex} / \path{P21.3-paper.pdf}; the argument with literal selected supplied primary evidence is \path{P21.3-argument.md}. \path{status.json} contains exactly the requested five fields. \path{notes.json} registers the two actual proof notes with a backward support from the scalar criterion to the dual criterion.
+
+Run `bash reproduce.sh` in this directory. It verifies frozen inputs, source-slice hashes, note supports, artifact schemas, and rebuilds the paper using installed Pandoc and pdfTeX. \path{logs/verification.json}, build logs, and \path{environment.json} record the checks. No mathematical audit is claimed. No resource-heavy computation was needed. No supervised heavy-compute facility was supplied or used. No other workers or models, installs, external messages, book edits, or private artifacts were used.
+
+# References
+
+[CLD] A. Chambert-Loir and A. Ducros, *Formes differentielles reelles et courants sur les espaces de Berkovich*, arXiv:1204.6277v2, 25 July 2025. <https://arxiv.org/pdf/1204.6277v2>.
+
+[GR] W. Gubler and J. Rabinoff, *Classically psh and pluriharmonic functions on Berkovich spaces*, arXiv:2506.13548v2, 17 September 2025. <https://arxiv.org/html/2506.13548v2>.
+
+[BGJKK] J. I. Burgos Gil, W. Gubler, P. Jell and K. Kunnemann, *Pluripotential theory for tropical toric varieties and non-archimedean Monge--Ampere equations*, arXiv:2102.07392v1, 15 February 2021; version header and retrieval bindings in \path{literature-bindings.json}. <https://arxiv.org/pdf/2102.07392>.
+
+[Jell] P. Jell, *A Poincare lemma for real-valued differential forms on Berkovich spaces*, arXiv:1409.0676v3, 29 July 2016. <https://arxiv.org/pdf/1409.0676v3>.
+
+
+# Appendix: literal supplied primary statement and proof units
+
+# Literal selected primary evidence
+
+Primary version: CLD arXiv:1204.6277v2, 25 July 2025. The frozen full text SHA256 is `64846cb00926267c6238d1afac61b5eaed0a0e3a6349725738f9b1bf163de085`.
+
+The full primary was copied, not read in full. LF coordinates are one-based, inclusive, using UTF8 decoding followed by split("\n"). Each unit is a literal source slice with one trailing newline. The extracted text contains PDF line-wrap and typography artifacts. Hashes identify bytes and are not mathematical acceptance.
+
+The explicitly bound raw weak-multiplier unit is preserved separately in `sources/cld-weak-multiplier-bound.txt`, SHA256 `0448ea1b480496814c9d81b4a5443f7d6efbb05b91582305b117704008184860`. It equals the selected LF text without the one added trailing newline.
+
+## ordinary-domain
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 14983–15012; unit SHA256 `6efe2fa15d3425138409717a7512d91909e0b03be4f3c3e56e267d4bcdfefabd`.
+
+```text
+11.1.7. — À partir des espaces affinoïdes, Berkovich définit dans [9] la catégorie des
+espaces k-analytiques par un procédé de recollement un peu délicat qu’il serait trop
+long de décrire ici en détail ; nous allons tout de même rappeler quelques faits. Suivant
+Berkovich, si X est un espace topologique et si (Xi ) est une famille de parties de X,
+nous dirons que les Xi constituent
+                           S         un G-recouvrement de X si tout point x de X possède
+un voisinage de la forme i∈J Xi où J est fini et où x ∈ Xi pour tout i ∈ J. Si l’on
+ne s’astreint à recoller que des espaces strictement affinoïdes, on obtient la classe des
+espaces strictement k-analytiques.
+   Soit X un espace k-analytique. C’est en particulier un espace topologique dont tout
+point possède une base de voisinages compacts (mais X n’est pas nécessairement lo-
+calement compact puisqu’un espace topologique localement compact est par définition
+séparé, et que ce n’est pas forcément le cas de X). L’espace X possède par ailleurs une
+classe distinguée de partie compactes, ses domaines affinoïdes (si X = M (A ), les do-
+maines affinoïdes de X sont précisément ceux décrits au 11.1.5 ci-dessus). Un domaine
+analytique de X est une partie de X qui est G-recouverte par les domaines affinoïdes
+qu’elle contient. Tout domaine affinoïde de X est un domaine analytique de X ; plus
+généralement, tout compact de X qui est une union finie de domaines analytiques de
+X est un domaine analytique. Et tout ouvert de X (et notamment X lui-même) est un
+domaine analytique. En particulier, tout point x de X possède un voisinage compact
+qui est une réunion finie de domaines affinoïdes contenant x. Les espaces définis dans [8]
+sont ceux qui sont qualifiés de bons dans [9], c’est-à-dire ceux dont tout point admet un
+voisinage affinoïde (et donc une base de voisinages affinoïdes.) Tout domaine analytique
+de X est une partie localement fermée de X : l’intersection d’une famille finie de do-
+maines analytiques est un domaine analytique ; la réunion d’une famille localement finie
+de domaines analytiques fermés est un domaine analytique.
+   Tout domaine analytique V de X hérite d’une structure canonique d’espace analy-
+tique, et d’un morphisme V ,→ X dont l’application sous-jacente est l’inclusion. Tout
+morphisme f : Y → X se factorisant ensemblistement par V se factorise en fait unique-
+ment par la structure analytique de V .
+```
+
+## analytic-calculus
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 22105–22126; unit SHA256 `960861bd1391008caa52be28ee8a788b6bdc3df269d765f603121a8bab0af320`.
+
+```text
+Théorème 15.7.1. — Soit X un espace analytique purement de dimension n, topolo-
+giquement séparé. Muni de son bord ∂(X) au sens de la théorie des espaces analytiques,
+l’espace G-tropical affiné et calibré de niveau n associé à X est un espace tropical de
+niveau n.
+
+Démonstration. — Vérifions les conditions de la définition 6.6.2.
+  L’intérieur Int(X) de X est localement holomorphiquement séparé (15.2.2) ; il est donc
+localement différentiellement séparé (corollaire 15.2.4). Il est décent (proposition 12.4.7)
+car il est sans bord, donc bon, donc presque bon. Il est très riche (théorème 12.11.1) et
+harmonieux (théorème 15.6.1).
+  Et il résulte du corollaire 12.9.14 que Σ ∩ ∂X est n-négligeable pour toute partie
+paralinéaire Σ de X, de même que Σ∩∂(V /X) pour tout domaine V de X car ∂(V /X) ⊂
+∂V .
+  On munit ainsi tout espace analytique X, topologiquement séparé, et purement de
+dimension n, d’une structure d’espace tropical de niveau n.
+              § 15.7. L’ESPACE TROPICAL ASSOCIÉ À UN ESPACE ANALYTIQUE              433
+
+15.7.2. — Soit X un espace analytique topologiquement séparé, purement de dimen-
+sion n et soit V un domaine de X. Le domaine V est muni de deux façons, a priori
+distinctes, d’une structure d’espace tropical de niveau n, soit comme espace analytique,
+soit comme domaine de l’espace tropical X. La formule ∂(V ) = (∂(X) ∩ V ) ∪ ∂(V /X)
+montre que ces deux structures coïncident.
+```
+
+## generic-lengths
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 23434–23459; unit SHA256 `52dbd2e0b2cf6d2c6220cb31fdf4683247d2c282b0b8055f6a2bf8735129d742`.
+
+```text
+Proposition 16.6.3. — Soit Y un sous-espace analytique fermé de X, purement de
+dimension p. On a δY = δ[Y ] .
+
+Démonstration. — Notons j l’immersion   R de     Y dans X. Soit ω une (p, p)-forme à support
+                                              ∗
+compact sur X. On a donc ⟨δY , ω⟩ = Y j ω, ce qui permet de supposer que Y = X.
+  Soit (Xi ) la famille des composantes irréductibles de X et, pour tout i, soit mi la
+multiplicité de X le long de Xi . Soit X ′ l’ouvert de Zariski de X constitué des points qui
+sont situés sur une unique composante irréductible de X ; il contient le support de ω.
+Pour tout i, posons Xi′ = X ′ ∩ Xi ; c’est un ouvert de X et l’on a
+                             Z            Z              Z
+                                                       1
+                                     ω=            ω=        ω,
+                              Xi,red          ′
+                                            Xi,red    mi Xi′
+                                                              ′
+en vertu de la proposition 15.4.3 appliquée à l’immersion de Xi,red dans Xi′ , dont le degré
+calibré est 1/mi (proposition 13.3.7). Alors, on a
+              Z      Z        XZ          X Z               X Z
+   ⟨δX , ω⟩ =    ω=      ω=          ω=        mi      ω=       mi        ω = ⟨δ[X] , ω⟩,
+              X       X′       i   Xi′       i
+                                                      ′
+                                                     Xi,red       i   Xi,red
+
+
+comme il fallait démontrer.
+```
+
+## generated-psh
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 9729–9781; unit SHA256 `fa2e29bcb98fd26a55598c0dc4c67b162d19d4b1780b39f2a49bdfc7e4373830`.
+
+```text
+Définition 8.1.1. — On note PshX le plus petit sous-faisceau du faisceau des fonctions
+sur X, à valeurs dans R ∪ {−∞}, tel que pour tout ouvert U de X, l’ensemble PshX (U )
+vérifie les propriétés :
+  i) Il contient les fonctions lisses u sur U telles que d′ d′′ u ⩾ 0 ;
+  ii) Il est stable par limite décroissante de suites.
+Ses sections sont appelées des fonctions plurisousharmoniques (psh).
+Lemme 8.1.2. — Pour tout ouvert U de X, l’ensemble des fonctions psh sur U est un
+cône convexe formé de fonctions semi-continues supérieurement ; il contient les fonctions
+constantes.
+  La démonstration est identique à celle du lemme 1.10.6.
+Démonstration. — Les fonctions constantes sont lisses et psh.
+  Les fonctions semi-continues supérieurement u telles que λu soit psh, pour tout nombre
+réel positif λ, forment un sous-faisceau de PshX qui vérifie les conditions (i) et (ii), donc
+est égal à PshX . Cela prouve que pour tout ouvert U de X, l’ensemble PshX (U ) est un
+sous-cône de l’ensemble des fonctions semi-continues supérieurement sur U .
+  Démontrons que si u et v sont des fonctions psh sur un ouvert U de X, il en est de
+même de u + v.
+  Supposons d’abord que u soit lisse. Les fonctions f telles que f + u soit psh forment
+un sous-faisceau de PshU qui contient les fonctions lisses psh et est stable par limite
+décroissante ; il contient donc toutes les fonctions psh sur U . En particulier, u + v est
+psh lorsque u est lisse.
+  Dans le cas général, les fonctions f telles que f + v soit psh forme un sous-faisceau
+de PshU qui contient les fonctions lisses psh d’après le premier cas traité et est stable
+par limite décroissante ; il contient donc toutes les fonctions psh sur U ; par suite, u + v
+est psh.
+196                    CHAPITRE 8. THÉORIE DE BEDFORD–TAYLOR
+
+Remarque 8.1.3. — Cette définition est inspirée par le théorème de [67] en analyse
+complexe qui affirme que dans ce contexte, une fonction psh sur un espace de Stein est
+limite d’une suite décroissante de fonctions psh lisses.
+   Dans le présent travail, nous considérerons surtout des fonctions psh continues.
+   Par ailleurs, rappelons que si une suite décroissante de fonctions continues converge
+simplement vers une fonction continue, elle converge même localement uniformément
+(théorème de Dini), puisqu’un espace tropical est localement compact.
+Lemme 8.1.4. — Pour tout ordinal α, on définit par récurrence transfinie un sous-
+faisceau PshX,α du faisceau des fonctions sur X par les conditions suivantes :
+   a) On définit PshX,0 comme le faisceau des fonctions lisses u telles que d′ d′′ u ⩾ 0 ;
+   b) Si α est un ordinal, on définit PshX,α+1 comme le sous-faisceau des fonctions sur X
+qui sont localement limites décroissantes de fonctions de PshX,α ;
+   c) Si α est un ordinal limite, on définit PshX,α comme le sous-faisceau des fonctions
+sur X qui appartiennent localement à un PshX,β pour β < α.
+La famille ordinale (PshX,α ) est une famille croissante de sous-faisceaux de PshX qui
+vaut PshX pour α assez grand.
+Démonstration. — Par récurrence transfinie, il résulte de la définition de PshX , que
+PshX,α ⊂ PshX pour tout ordinal α. La construction montre que cette famille de sous-
+faisceau est croissante. Elle est nécessairement stationnaire, par un argument de cardinal.
+Soit α un ordinal à partir duquel la famille est constante et démontrons que PshX ⊂
+PshX,α . Il suffit pour cela de démontrer que PshX,α vérifie les deux conditions de la
+définition de PshX . Il est évident que PshX,α contient les fonctions lisses u telles que
+d′ d′′ u ⩾ 0, qui appartiennent au sous-faisceau PshX,0 . Soit maintenant U un ouvert de X
+et (un ) une suite décroissante de fonctions de PshX,α (U ) qui converge simplement vers
+une fonction localement intégrable u et démontrons que u ∈ PshX,α (U ). Par construction,
+on a u ∈ PshX,α+1 (U ) ; par définition de α, on a donc u ∈ PshX,α (U ).
+```
+
+## generated-cpsh-diagnostic
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 9797–9863; unit SHA256 `5ef01dd5ed01e2349c223afadbb34c535cb304dce255f10115f25edccd4899da`.
+
+```text
+Définition 8.1.7. — On note CPshX le plus petit sous-faisceau du faisceau CX des
+fonctions continues sur X tel que pour tout ouvert U de X, l’ensemble CPshX (U ) vérifie
+les propriétés :
+   i) Il contient les fonctions lisses u sur U telles que d′ d′′ u ⩾ 0 ;
+                        § 8.1. FONCTIONS PLURISOUSHARMONIQUES                          197
+
+  ii) Il est stable par limite uniforme.
+  On note CPshX ce sous-faisceau ; ses sections sont appelées des fonctions continues
+plurisousharmoniques (cpsh).
+Lemme 8.1.8. — Pour tout ordinal α, on définit par récurrence transfinie un sous-
+faisceau CPshX,α par les conditions suivantes :
+   a) On définit CPshX,0 comme le faisceau des fonctions lisses u telles que d′ d′′ u ⩾ 0 ;
+   b) Si α est un ordinal, on définit CPshX,α+1 comme le sous-faisceau des fonctions
+sur X qui sont localement limites uniforme de fonctions de CPshX,α ;
+   c) Si α est un ordinal limite, on définit CPshX,α comme le sous-faisceau des fonctions
+sur X qui appartiennent localement à un CPshX,β pour β < α.
+La famille ordinale (CPshX,α ) est une famille croissante de sous-faisceaux de CPshX qui
+vaut CPshX pour α assez grand.
+Démonstration. — La démonstration est analogue à celle du lemme 8.1.4 en remplaçant
+partout « limite décroissante » par « limite uniforme ».
+
+Proposition 8.1.9. — Soit (fn ) une suite de fonctions de X dans R qui converge
+localement uniformément vers une fonction f . Si les fn sont psh, alors f est psh.
+Démonstration. — Comme les fonctions constantes sont psh, l’assertion découle du
+lemme suivant.
+
+Lemme 8.1.10. — Soit X un ensemble et soit (fn ) une suite de fonctions de X dans R
+qui converge uniformément vers une fonction f . La suite (fn + 2∥f − fn ∥∞ ) converge
+uniformément vers f et admet une sous-suite qui est décroissante.
+Démonstration. — Puisque ∥f − fn ∥∞ tend vers 0, il est clair que la suite (fn +
+2∥f − fn ∥∞ ) converge uniformément vers f . L’assertion est évidente s’il existe une
+infinité d’entiers n tels que ∥f − fn ∥∞ = 0. On peut donc supposer que ∥f − fn ∥ > 0
+pour tout n. Soit n un entier. Puisque (fn ) converge uniformément vers f , il existe
+m > n tel que ∥fm − f ∥∞ < ∥f − fn ∥∞ /3. Des inégalités fm ⩽ f + ∥fm − f ∥∞ et
+f − ∥fn − f ∥∞ ⩽ fn , on déduit que
+fm +2∥fm − f ∥∞ ⩽ f +3∥fm − f ∥∞ ⩽ fn +3∥fm − f ∥∞ +∥fn − f ∥∞ ⩽ fn +2∥fn − f ∥∞ .
+Le lemme s’en déduit.
+
+Proposition 8.1.11. — On a CPshX = CX ∩ PshX : les fonctions continues plurisous-
+harmoniques sont les fonctions continues (à valeurs réelles) qui sont plurisousharmoni-
+ques. Plus précisément, pour tout ordinal α, on a CPshX,α = CX ∩ PshX,α .
+Démonstration. — Compte tenu des lemmes 8.1.4 et 8.1.8, il suffit de vérifier la seconde
+assertion. Prouvons cette égalité par récurrence transfinie. Les cas de l’ordinal 0 et
+d’un ordinal limite sont évidents. Il suffit donc de prouver que pour tout ordinal α,
+une fonction continue u définie sur un ouvert U est localement limite décroissante de
+fonctions de CPshX,α si et seulement si elle est localement limite uniforme de telles
+fonctions.
+  Soit U un ouvert de X et soit (un ) une suite décroissante de fonctions de CPshX,α (U )
+qui converge simplement vers une fonction continue u sur U . Le théorème de Dini assure
+que la convergence est uniforme sur toute partie compacte de U . Comme U est localement
+198                    CHAPITRE 8. THÉORIE DE BEDFORD–TAYLOR
+
+compact, la convergence est localement uniforme, si bien que la fonction u appartient
+à CPshX,α+1 .
+   Soit U un ouvert de X et soit u une fonction continue sur U qui est localement limite
+décroissante d’une suite de fonctions de CPshX,α . Soit (Ui ) un recouvrement ouvert de U
+tel que u|Ui soit limite décroissante d’une suite de fonctions de CPshX,α (Ui ). D’après ce
+qui précède, u|Ui appartient à CPshX,α+1 (Ui ). Par la propriété de faisceau, u appartient
+à CPshX,α+1 (U ).
+   Soit U un ouvert de X et soit (un ) une suite de fonctions de CPshX,α (U ) qui converge
+uniformément vers une fonction continue u sur U . D’après le lemme précédent, il existe
+une sous-suite de la suite (un +2∥un − u∥) qui converge uniformément, et en décroissant,
+vers u. Elles appartiennent à CPshX,α , donc à PshX,α , par l’hypothèse de récurrence, si
+bien que u appartient à CX ∩ PshX,α+1 .
+   Soit U un ouvert de X et soit u une fonction continue sur U qui est localement limite
+uniforme d’une suite de fonctions de CPshX,α . D’après ce qui précède, u appartient
+localement à CX ∩ PshX,α+1 , donc est une section de ce faisceau sur l’ouvert U .
+```
+
+## positive-decomposition
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 7359–7381; unit SHA256 `7d7b6d6687db0b922b6e69a1011a9dcb0a2d112c41d65200901f1efd7275db83`.
+
+```text
+Proposition 6.5.2. — Soit ω une forme de type (p, p) et symétrique sur X, à coef-
+ficients dans G dont le support est contenu dans un ouvert paracompact et localement
+différentiellement séparé de X.
+   a) Il existe des formes positives ω1 et ω2 sur X, à coefficients dans G , telles que
+ω = ω1 − ω2 .
+   b) Si, de plus, le support de ω est compact, les formes ω1 et ω2 peuvent être choisies
+à support compact.
+   L’hypothèse sur le support de ω est notamment réalisée lorsque X est localement
+différentiellement séparé et paracompact. Dans le cas des espaces analytiques, elle sera
+également réalisée si le support de ω est compact et si l’espace X est presque bon.
+Démonstration. — Soit U un voisinage ouvert paracompact et localement différentielle-
+ment séparé du support de ω. Dans le second cas, on s’arrange en outre pour que U soit
+relativement compact dans X, ce qui est possible car X possède une base d’ouverts qui
+sont dénombrables à l’infini.
+   Soit (fi , Pi ) une famille de cartes tropicales, de sorte que fi soit un moment sur un
+ouvert Vi de X et Pi un polytope compact contenant fi,trop (Vi ), et, pour tout i, soit αi
+une forme sur Pi telle que ω|Vi = fi∗ αi . Il existe alors une famille localement finie (λi ) de
+fonctionsP lisses sur X, subordonnée au recouvrement (U ∩Vi )i∈I telles que 0 ⩽ λi ⩽ 1 pour
+tout i et λi est identiquement égale à 1 au voisinage du support de ω (corollaire 6.2.8).
+Pour tout i, choisissons des formes positives  P αi,1 ∗et αi,2 sur Pi telles
+                                                                       P que       αi = αi,1 − αi,2
+(proposition 1.10.2). Posons alors ω1 =           λi fi αi,1 et ω2 =      λi fi∗ αi,2 ; ce sont des
+formes lisses et positives telles que ω = ω1 − ω2 .
+```
+
+## middle-positivity
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 7918–7981; unit SHA256 `7e8a9c9f610a102901ed491e3e572f9b96528cf24e5f8733f1d4f3d419801332`.
+
+```text
+  Soit X un espace tropical de niveau n.
+Définition 7.2.1. — Soit p un entier. Un courant S de bidimension (p, p) est dit
+faiblement positif, respectivement positif, respectivement fortement positif, s’il est sy-
+métrique et si pour toute forme α ∈ Acp,p (X) qui est fortement positive, respectivement
+positive, respectivement faiblement positive, on a ⟨S, α⟩ ⩾ 0.
+7.2.2. — Les trois notions de positivité pour les formes de type (0, 0) et (n, n) coïn-
+cident ; il en est donc de même pour les courants. Comme les différentes notions de
+positivité coïncident pour les formes symétriques de type (1, 1) et (n − 1, n − 1), il en
+est de même pour les courants symétriques.
+Remarque 7.2.3. — Soit T un courant tel que T et −T sont positifs ; démontrons
+que T = 0. Soit ω une forme lisse à support compact sur X ; prouvons que ⟨T, ω⟩ = 0.
+Si ω est antisymétrique, cela découle de la symétrie de T ; supposons donc que ω est
+symétrique. Il existe aussi des formes positives α1 et α2 , lisses à support compact telles
+que ω = α1 − α2 (proposition 6.5.2). Par linéarité, on peut donc supposer que ω est
+positive. Mais alors, ⟨T, ω⟩ est à la fois positif (T est positif) et négatif (−T est positif),
+donc nul.
+Lemme 7.2.4. — Supposons que l’espace tropical X soit localement différentiellement
+séparé. Les courants de bidimension (p, p) positifs ( resp. faiblement positifs, resp. for-
+tement positifs) forment un sous-faisceau du faisceau Dp,p (X) des courants de bidimen-
+sion (p, p).
+Démonstration. — Soit S un courant de bidimension (p, p) sur X.
+   Supposons que S soit positif. Soit U un ouvert de X. Pour toute forme ω sur U , de
+type (p, p), positive et à support compact, le prolongement par 0 de ω est une forme
+positive à support compact sur X. Il en résulte que S|U est positif.
+   Soit maintenant (Ui ) un recouvrement ouvert de X tel que S|Ui soit positif pour tout i ;
+démontrons que S est positif. Soit ω une forme de type (p, p) sur X, positive et à support
+compact. Reprenons la preuve que les faisceaux forment un courant (proposition 7.1.7).
+Il existe une famille finie (φi ) de fonctions lisses, positives et à support compact sur X
+                                  § 7.2. COURANTS POSITIFS                                 161
+                                                                              P
+telle que pour tout i, le support de φi soit contenu dans P Ui , et telle que   φi soit égale
+à 1 au voisinage du support de ω. On a de plus ⟨S, ω⟩ = ⟨S, φi ω⟩ ⩾ 0. Pour tout i, on
+a a ⟨S, φi ω⟩ ⩾ 0, car φi ω est une forme positive dont le support est compact et contenu
+dans Ui . Cela démontre que S est positif.
+   Appliqué à chaque ouvert de X, cet argument démontre que les courants positifs de bi-
+dimension (p, p) forment un sous-faisceau du faisceau des courants de bidimension (p, p).
+Les cas des courants faiblement positifs et fortement positifs se démontrent de même.
+
+Lemme 7.2.5. — Supposons que X soit localement différentiellement séparé. Soit T un
+courant sur X. On suppose que pour tout ouvert U de X, toute forme tropicale ω sur U
+qui est positive ( resp. faiblement positive, resp. fortement positive) et toute fonction lisse
+positive ρ dont le support est compact et contenu dans U , on a ⟨T, ρω⟩ ⩾ 0. Alors T est
+positif ( resp. fortement positif, resp. faiblement positif ).
+Démonstration. — On traite le cas des formes positives, les deux autres sont analogues.
+Soit ω une forme lisse positive à support compact sur X ; démontrons que ⟨T, ω⟩ ⩾ 0.
+Pour tout x ∈ X, soit Ux un voisinage ouvert de X sur lequel ω est tropicale. Soit
+                                                                       que, pour tout x ∈ X,
+(λx )x∈X une famille à support fini de fonctions lisses positives telleP
+le support de λx soit compact et contenu dans Ux , et telle que   P      λx soit égale à 1 au
+voisinage du support de ω (corollaire 6.2.8). On a alors ω = x∈X λx ω. Par hypothèse,
+⟨T, λx ω⟩ ⩾ 0 pour tout x. Donc ⟨T, ω⟩ ⩾ 0.
+
+7.2.6. — L’image directe d’un courant positif (resp. faiblement positif, fortement po-
+sitif) par un morphisme topologiquement propre d’espaces tropicaux est de même type.
+Cela résulte du fait que la même propriété vaut pour l’image inverse des formes (§3.5.2).
+Lemme 7.2.7. — Soit α une forme lisse symétrique sur X et soit T un courant symé-
+trique sur X.
+   a) Supposons que la forme α soit fortement positive. Alors, si T est positif ( resp.
+faiblement positif, resp. fortement positif ), il en est de même de T ∧ α.
+   b) Supposons que la forme α soit positive. Si T est positif, le courant T ∧ α est positif.
+   c) Supposons que la forme α soit faiblement positive. Si T est fortement positif, le
+courant T ∧ α est faiblement positif.
+Démonstration. — Ces assertions découlent des propriétés de positivité d’un produit de
+deux formes (prop. 3.5.5).
+```
+
+## positive-scalar-measures
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 7983–8011; unit SHA256 `089af75e6237f117a1ff411156580da33c01951d926d14ecc613c1bf86f77060`.
+
+```text
+Proposition 7.2.8. — Soit X un espace tropical de niveau n, localement différentiel-
+lement séparé.
+  a) Toute mesure de Radon positive µ sur X induit, par restriction à Ac (X), un courant
+positif [µ] d’ordre 0.
+  b) L’application µ 7→ [µ] ainsi définie est une bijection continue de l’espace des me-
+sures de Radon positives sur X sur l’espace des courants positifs de bidimension (0, 0)
+sur X.
+Démonstration. — a) Soit µ une mesure de Radon positive sur X ; démontrons que
+la forme linéaire [µ] est un courant ; ce sera alors un courant positif. Soit K une partie
+compacte de X et soit D un jeu de cartes couvrant sur X. Il suffit de démontrer que
+la restriction de [µ] à l’espace AD,K
+                                  0,0
+                                      (X) est continue pour sa topologie C 0 . Soit ∥µ∥K
+162                  CHAPITRE 7. COURANTS SUR UN ESPACE TROPICAL
+
+la norme de µ sur K : pour toute fonction continue à support compact sur K, on a
+|µ(f )| ⩽ ∥µ∥K ∥f ∥K . Cette inégalité vaut a fortiori pour toute fonction de AD,K (X) et
+entraîne la continuité voulue.
+   b) Cette implication est injective car l’espace des fonctions lisses à support compact
+est dense dans l’espace des fonctions continues à support compact (corollaire 6.2.6).
+   Il reste à prouver qu’elle est surjective. Soit S un courant positif de bidimension (0, 0)
+sur X. Soit K une partie compacte de X. Soit λ une fonction lisse et positive, à support
+compact sur X, qui vaut 1 au voisinage de K. Pour toute fonction lisse f sur X dont
+le support est contenu dans K, on a −∥f ∥K λ ⩽ f ⩽ ∥f ∥K λ. Comme S est positif, il en
+résulte l’inégalité
+                                     |S(f )| ⩽ ∥f ∥K S(λ).
+Par suite, S est continu lorsque l’espace des fonctions lisses à support compact est muni
+de la topologie de la convergence compacte. Par densité, S s’étend en une forme linéaire
+positive sur Cc (X), c’est-à-dire en une mesure de Radon positive.
+```
+
+## ordinary-product
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 8054–8076; unit SHA256 `f647601926c2311a3319b181f2567f487f9a88ce4870332c75ecc8bb5f3156d4`.
+
+```text
+7.2.11. — Soit X un espace tropical de niveau n, localement différentiellement séparé.
+Soit p un entier naturel et soit T un courant positif (resp. faiblement positif, resp.
+fortement positif) de bidimension (p, p).
+   Soit ω une forme positive (resp. fortement positive, resp. faiblement positive) de bide-
+gré (p, p). Le courant T ∧ω est positif, de bidimension (0, 0) ; d’après la proposition 7.2.8,
+il est donc associé à une unique mesure µTω sur X. Cette mesure applique une fonction
+lisse à suppport compact u sur ⟨uT, ω⟩. Lorsque ω est à support compact, cette mesure
+est à support compact. Lorsque ω est positive, cette mesure est positive.
+Exemple 7.2.12. — Soit X un espace tropical de niveau n, localement différentiel-
+lement séparé. Soit p un entier naturel et soit T un courant positif (resp. faiblement
+positif, resp. fortement positif) de bidimension (p, p). Soit u une fonction borélienne et
+localement bornée sur X. L’application ω 7→ µTω (u) est une forme linéaire sur Acp,p (X)
+que nous noterons uT .
+   Lorsque u est positive, cette forme linéaire uT est positive, donc est un courant positif
+(resp. faiblement positif, resp. fortement positif) sur X.
+   Lorsque u est une fonction borélienne et localement bornée arbitraire, on l’écrit u =
+u − u− , où u+ = sup(u, 0) et u− = sup(−u, 0), comme différence de deux fonctions
+  +
+
+positives boréliennes localement bornées sur X. Comme uT = u+ T − u− T , c’est un
+courant sur X, d’ordre 0.
+   Cette notation est compatible avec celle déjà introduite lorsque u est une fonction
+lisse puisque l’on a alors ⟨uT, ω⟩ = ⟨T, uω⟩ = µTω (u).
+```
+
+## current-sheaf
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 7756–7818; unit SHA256 `0d1a24130ba9c326713dcafecb5aa9a83678fb264cbd51fe4d1005de11869d48`.
+
+```text
+7.1.6. Propriété de faisceau. — Soit T un courant sur X. Soit U un ouvert de X
+et soit j l’immersion de U dans X. Comme l’opération j! de prolongement par 0 des
+formes à support compact sur U est une application linéaire continue (prop. 6.4.5),
+l’application α 7→ ⟨T, j! α⟩ est un courant T |U sur X qu’on appelle restriction de T à U .
+Si T est d’ordre ⩽ r, il en est de même de T |U .
+   L’application U 7→ Dp,q (U ) est ainsi un préfaisceau, et pour tout entier r, les courants
+d’ordre ⩽ r en forment un sous-préfaisceau.
+   Pour tout courant T et tout ouvert U , on a JT |U = (JT )|U .
+
+Proposition 7.1.7. — Supposons que l’espace tropical X soit localement différentiel-
+lement séparé. Le préfaisceau Dp,q sur X est un faisceau de A 0,0 -modules. Pour tout
+entier r, le sous-préfaisceau des courants d’ordre ⩽ r en est un sous-faisceau.
+
+   En particulier, l’ordre d’un courant est une notion locale.
+Démonstration. — Soit (Ui ) un recouvrement ouvert d’un ouvert U de X, pour tout i,
+soit Si un courant sur Ui tels que la restriction à Ui ∩ Uj des courants Si et Sj coïncident,
+pour tous i, j. Démontrons qu’il existe un unique courant S sur U dont la restriction
+à Ui est égale à Si .
+   Soit ω une (p, q)-forme à support compact sur U . Soit (φi ) une famille finie de fonctions
+lissesPà support compact sur U telle que le support de φi est contenu dans Ui P          et telle
+que φi soit égale à 1 au voisinage du support de ω (corollaire 6.2.8). On a ω =             φi ω,
+et seuls un nombre fini de termes de cette somme sont non nuls. Si S est un courant    P   sur U
+dont la restriction à Ui est égale à Si , on a donc nécessairement ⟨S, ω⟩ = ⟨Si , φi ω⟩,
+d’où l’unicité d’un courant S vérifiant les conditions requises.
+   Soit (φ′i ) une seconde famille finie de fonctions lisses
+                                                         P ′ à support compact sur U telle
+                        ′
+que le support de φi soit contenu P dans      Ui et que      φj soit égale à 1 au voisinage du
+                                          ′
+support de ω. On a aussi ω = i,j φj φi ω, si bien que
+               X                 X                  X                   X
+                  ⟨φ′j ω, Sj ⟩ =  ⟨φ′j φi ω, Sj ⟩ =   ⟨φ′j φi ω, Sj ⟩ =   ⟨φi ω, Si ⟩,
+              j                i,j                i,j                  i
+
+où la deuxième égalité découle de la condition de coïncidence des courants Si .
+PIl existe donc une unique application S de l’espace Ac (U ) dans R telle que ⟨S, P
+                                                             p,q
+                                                                                       ω⟩ =
+   ⟨Si , φi ω⟩ pour tout famille (φi ) de fonctions lisses à support compact telle que   φi
+soit égale à 1 au voisinage du support de ω. Cette application est linéaire.
+   Démontrons que c’est un courant sur U . Soit K une partie compacte de U . Considérons
+alors une famille finie (φi ) de fonctions lisses à support compact dont la somme est égale
+à 1 au voisinage de K et telle que le support de φi soit contenu dans Ui . Pour tout i,
+l’application ω 7→ φi ω de AKp,q (U ) dans Acp,q (Ui ) est continue, donc la forme P
+                                                                                   linéaire ω 7→
+⟨Si , φi ω⟩ sur AK (U ) est continue. Pour tout ω ∈ AK (U ), on a ⟨S, ω⟩ = i ⟨Si , φi ω⟩.
+                 p,q                                         p,q
+158                 CHAPITRE 7. COURANTS SUR UN ESPACE TROPICAL
+
+Par suite, la restriction de S à AKp,q (U ) est continue. Cela prouve que S est continue ;
+c’est donc un courant sur U .
+   Soit ω une (p, q)-forme dont le support est compact et contenu dans Uj ; soit (φi )
+une famille comme ci-dessus. Pour tout i, le support de φi ω est contenu dans Ui ∩ Uj ,
+donc ⟨Si , φi ω⟩ = ⟨Sj , φi ω, Si ⟩. Alors,
+                                    X                X
+                        ⟨S, ω⟩ =       ⟨Si , φi ω⟩ =   ⟨Sj , φi ω⟩ = ⟨Sj , ω⟩
+         P
+puisque φi est égal à 1 au voisinage du support de ω. Cela démontre que la restriction
+à Uj du courant S est égale à Sj et conclut la démonstration que les courants forment
+un faisceau.
+   Avec les notations qui précèdent, l’ordre de S est ⩽ r si les Si sont tous d’ordre ⩽
+r. Cela entraîne que courants d’ordre ⩽ r forment un sous-faisceau du faisceau des
+courants.
+```
+
+## current-differentials
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 9309–9381; unit SHA256 `a396b6b027f3375f6aa7b3e89bac0319a21ad2c96f44971acb018cec52648801`.
+
+```text
+  Soit X un espace tropical de niveau n.
+7.7.1. — L’application linéaire d′ de Acp,q (X) dans Acp+1,q (X) est continue (prop. 3.7.13).
+On note b′ sa transposée de Dp+1,q (X) dans Dp,q (X). Si T est un courant d’ordre ⩽ r,
+alors b′ T est un courant d’ordre ⩽ r + 1.
+   On définit de même b′′ : Dp,q+1 (X) → Dp,q (X) comme la transposée de l’application d′′ .
+   Il résulte de la définition de la topologie des espaces de courants que ces applications
+linéaires b′ et b′′ sont continues.
+   Par dualité, la relation d′′ ω = J d′ J−1 ω entraîne l’égalité
+(7.7.1.1)                                   b′′ = Jb′ J−1 .
+                          § 7.7. CALCUL DIFFÉRENTIEL SUR LES COURANTS                  187
+
+  On a aussi les relations (b′ )2 = 0, (b′′ )2 = 0, et b′ b′′ = −b′′ b′ .
+7.7.2. — Soit ω une G-forme de type (p, q) sur X et soit [ω] le courant de bidegré (p, q)
+qui lui est associé. Pour toute forme α ∈ Acn−p−1,n−q (X), on a
+
+                              d′ (ω ∧ α) = d′ ω ∧ α + (−1)p+q ω ∧ d′ α.
+
+La formule de Stokes (proposition 5.11.1) entraîne alors l’égalité
+            Z ∂         Z               Z                        Z
+                             ′               ′
+                ω∧α=       d (ω ∧ α) =      d ω ∧ α + (−1)   p+q
+                                                                   ω ∧ d′ α,
+                 X               X                   X                      X
+
+autrement dit
+                                     [d′ ω] = [ω]∂ + (−1)p+q+1 b′ [ω].
+Si l’on définit l’opérateur d′ de D p,q (X) dans D p+1,q par
+
+(7.7.2.1)                                   d′ = (−1)p+q+1 b′ ,
+
+il vient alors
+
+(7.7.2.2)                                 d′ [ω] = [d′ ω] − [ω]∂ .
+
+Lorsque X est sans bord et ω est une forme sur X, le courant [ω]∂ est nul, et l’on a
+
+(7.7.2.3)                                     d′ [ω] = [d′ ω].
+7.7.3. — De même, on pose
+
+(7.7.3.1)                                  d′′ = (−1)p+q+1 b′′ .
+
+On en déduit que les relations du lemme 1.3.6 sont encore valides sur les espaces de
+courants :
+
+(7.7.3.2)                              d′′ = J d′ J−1 = −J−1 d′ J
+(7.7.3.3)                                   (d′ )2 = (d′′ )2 = 0
+(7.7.3.4)                                    d′′ d′ = − d′ d′′
+(7.7.3.5)                                    d′ d′′ J = J d′ d′′ .
+
+  Soit ω une G-forme de type (p, q). On a
+
+                     d′′ [ω] = J d′ J−1 [ω] = J d′ [J−1 ω] = J[d′ J−1 ω] − J[J−1 ω]∂
+                           = [J d′ J−1 ω] − J[J−1 ω]∂ ,
+
+de sorte que
+
+(7.7.3.6)                              d′′ [ω] = [d′′ ω] − J[J−1 ω]∂ .
+
+En outre, si X est sans bord et ω est une forme, alors Jω est également une forme, donc
+on a
+
+(7.7.3.7)                                    d′′ [ω] = [d′′ ω].
+188                  CHAPITRE 7. COURANTS SUR UN ESPACE TROPICAL
+
+7.7.4. — Supposons que l’espace X est sans bord. Comme le courant d’intégration δX
+est égal à [1], il est d′ et d′′ -fermé.
+
+Lemme 7.7.5. — Pour tout courant S ∈ Dp,q (X) et toute forme α ∈ Acp,q (X), on a
+
+                                   ⟨d′ d′′ S, α⟩ = ⟨S, d′ d′′ α⟩.
+
+Démonstration. — En effet, d′ d′′ S = ((−1)p+q+2 b′ )((−1)p+q+1 b′′ )S = − b′ b′′ S est
+l’image de S par le transposé de − d′′ d′ = d′ d′′ .
+```
+
+## cutoffs-density
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 21619–21696; unit SHA256 `aba28489aa7c1e770af13b87e11c77fbca731f95eb5bc41afb637b378d66ed45`.
+
+```text
+15.2.2. Séparation holomorphe. — On dira qu’un espace analytique X est holo-
+morphiquement séparé si pour tout couple (x, y) de points de X avec x ̸= y il existe une
+fonction analytique f sur X telle que |f (x)| =
+                                              ̸ |f (y)|. Un tel espace est topologiquement
+séparé.
+  Si X est un espace holomorphiquement séparé, il en va trivialement de même de tout
+domaine analytique de X.
+  Tout espace affinoïde est par définition holomorphiquement séparé ; en conséquence,
+tout domaine analytique d’un espace affinoïde est holomorphiquement séparé.
+  Un espace analytique sera dit localement holomorphiquement séparé s’il est topologi-
+quement séparé et si chacun de ses points possède un voisinage analytique holomorphi-
+quement séparé.
+  Un espace analytique topologiquement séparé qui est bon, ou plus généralement dont
+tout point possède un voisinage isomorphe à un domaine analytique d’un espace affi-
+noïde, est localement holomorphiquement séparé. C’est en particulier le cas d’un espace
+analytique topologiquement séparé sans bord.
+
+Lemme 15.2.3. — Soit X un espace k-analytique holomorphiquement séparé. L’an-
+neau des fonctions lisses sur X sépare les points.
+
+Démonstration. — Soit x, y des points distincts de X. Par définition de la séparation
+holomorphe, il existe une fonction analytique f sur X telle que |f (x)| =     ̸ |f (y)|.
+  Supposons ces deux valeurs non nulles ; soit φ une fonction C ∞ à support compact
+sur R valant 0 au voisinage de log|f (x)| et 1 au voisinage de log|f (y)|. La fonction
+φ ◦ log|f |, définie sur l’ouvert d’inversibilité de f , est lisse ; prolongeons-la par 0 sur X
+tout entier. Comme φ est à support compact, la fonction obtenue est nulle au voisinage
+de l’ensemble des zéros de f ; elle est donc lisse et prend des valeurs différentes en x et y.
+  Si f (x) = 0, on a alors f (y) ̸= 0 et on raisonne de même à partir d’une fonction φ à
+support compact valant 1 au voisinage de log|f (y)|.
+  Le cas où f (y) = 0 est analogue par symétrie.
+
+Corollaire 15.2.4. — Soit X un espace k-analytique localement holomorphiquement
+séparé. L’espace G-tropical affiné X est localement différentiellement séparé. En parti-
+culier, le faisceau des fonctions lisses sur X sépare localement les points.
+424 CHAPITRE 15. FORMES DIFFÉRENTIELLES RÉELLES EN GÉOMÉTRIE ULTRAMÉTRIQUE
+
+Corollaire 15.2.5. — Soit X un espace analytique localement holomorphiquement sé-
+paré. Soit K une partie compacte de X et soit U un voisinage ouvert de K. Il existe
+une fonction lisse sur X qui vaut 1 au voisinage de K et dont le support est compact et
+contenu dans U .
+Démonstration. — Comme X est localement différentiellement séparé, c’est une consé-
+quence du corollaire 6.2.4.
+
+Théorème 15.2.6 (Stone–Weierstraß). — Soit X un espace analytique localement
+holomorphiquement séparé et soit U un ouvert de X. Soit f une fonction continue à
+valeurs réelles sur X dont le support est compact et contenu dans U . Soit a et b des
+nombres réels tels que a ⩽ f ⩽ b. Pour tout ε > 0, il existe une fonction lisse g sur X
+dont le support est compact, contenu dans U , telle que |f (x) − g(x)| < ε pour tout x ∈ X
+et telle que a ⩽ g ⩽ b.
+Démonstration. — Comme X est localement différentiellement séparé, c’est une consé-
+quence du théorème 6.2.5.
+
+Corollaire 15.2.7. — Soit X un espace analytique localement holomorphiquement sé-
+paré.
+  a) L’ensemble des fonctions lisses à support compact sur X est dense dans l’es-
+pace Cc (X) des fonctions continues à support compact sur X, muni de la topologie limite
+inductive des espaces de fonctions à support dans un compact donné.
+  b) L’ensemble des fonctions lisses à support compact sur X est dense dans l’es-
+pace C (X) des fonctions continues sur X muni de la topologie de la convergence uniforme
+sur tout compact.
+Démonstration. — Comme X est localement différentiellement séparé, c’est une consé-
+quence du corollaire 6.2.6.
+
+Proposition 15.2.8 (Partitions de l’unité lisses). — Soit X un espace analytique
+localement holomorphiquement séparé, paracompact. Soit (Ui )i∈I un recouvrement ouvert
+de X. Il existe une partition de l’unité subordonnée à (Ui ) formée de fonctions lisses
+sur X.
+Démonstration. — Comme X est localement différentiellement séparé, cela résulte de la
+proposition 6.2.7.
+
+Corollaire 15.2.9. — Soit X un espace analytique localement holomorphiquement sé-
+paré et soit F une partie fermée de X qui est dénombrable à l’infini (par exemple, com-
+pacte). Soit (Ui )i∈I un recouvrement de K par des ouverts de X. Il existe une famille
+localement finie (θi ) de fonctions lisses sur X, à support
+                                                          P compact, positives, telle que
+pour tout i, le support de θi soit contenu dans Ui et que   θi vaille 1 au voisinage de F .
+Démonstration. — Comme X est localement différentiellement séparé, cela résulte du
+corollaire 6.2.8.
+```
+
+## form-leibniz
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 3769–3803; unit SHA256 `172d214bed8f4a1ffbfd19dcf120345ce08abbc69c0b70160a6af23832c8eff0`.
+
+```text
+3.3.10. — Le faisceau GXG := GX0,0G est un faisceau en R-algèbres et les faisceaux GXp,qG
+sont des GXG -modules. Leur somme directe GX∗,∗G = p,q GXp,qG est un faisceau en algèbres
+                                                   L
+
+bigraduées commutatives : si ω est de type (p, q) et ω ′ de type (p′ , q ′ ), alors
+                                                    ′     ′
+                                ω ′ ∧ ω = (−1)(p+p )(q+q ) ω ∧ ω ′ .
+3.3.11. — Le G-préfaisceau Gpf∗,∗ est naturellement muni d’un opérateur J qui s’étend
+au faisceau GX∗,∗G . Ce sont des morphismes d’algèbres. On dit qu’une section ω de GXp,qG
+est symétrique si p = q et si Jω = ω.
+    Soit H une classe de coefficients telles que les dérivées partielles des fonctions de G
+existent et appartiennent à H . On dispose alors d’opérateurs différentiels d′ et d′′ de
+Gpf∗,∗ dans Hpf∗,∗ ; ils induisent des opérateurs différentiels de GX∗,∗G dans HX∗,∗
+                                                                                  G
+                                                                                     , caractérisés
+par les relations
+                               d′ f ∗ α = f ∗ d′ α, d′′ f ∗ α = f ∗ d′′ α,
+                                 § 3.4. NULLITÉ DES G-FORMES                             81
+
+pour toute carte G-tropicale (f : U → E, P ) et toute forme α de type (p, q) à coeffi-
+cients dans G sur P . Les différentielles vérifient la règle de Leibniz : si ω et ω ′ sont
+respectivement de type (p, q) et (p′ , q ′ ), on a
+(3.3.11.1)               d′ (ω ∧ ω ′ ) = d′ ω ∧ ω ′ + (−1)p+q ω ∧ d′ ω ′ ,
+et de même pour d′′ (ω ∧ ω ′ ).
+   Si G ⊂ C 2 , ces opérateurs vérifient d′ d′ = d′′ d′′ = 0.
+3.3.12. — Cette construction est fonctorielle. Plus précisément, si f : Y → X est un
+morphisme d’espaces G-tropicaux, on dispose de morphismes de faisceaux
+                                     f ∗ : GX∗,∗G → f∗ (GY∗,∗
+                                                           G
+                                                              )
+sur XG qui sont des morphismes d’anneaux gradués, commutent aux dérivations d′ et
+d′′ (lorsqu’elles existent) et à l’opérateur J.
+   Lorsque le contexte rend évident le morphisme f , on se permettra parfois de noter
+ω|Y l’image dans GYp,q G
+                         (Y ) d’une G-forme ω ∈ GXp,qG .
+```
+
+## weak-multiplier
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 10257–10281; unit SHA256 `0eec1c45dfec34af7fb8e231160cc24fd3ef9b8f6dc1185fb8eedd1905483114`.
+
+```text
+Lemme 8.5.1. — Soit (Tn ) une suite de courants positifs et soit (un ) une suite de
+fonctions continues. On suppose que la suite (Tn ) converge vers un courant T et que la
+suite (un ) converge localement uniformément vers une fonction u. On a un Tn → uT .
+206                      CHAPITRE 8. THÉORIE DE BEDFORD–TAYLOR
+
+Démonstration. — On peut raisonner localement et supposer que (un ) converge uni-
+formément vers u. Soit ε > 0 et soit v une fonction lisse telle que ∥u − v∥ ⩽ ε ; on
+écrit
+                 un Tn − uT = (un − v)Tn + v(Tn − T ) + (v − u)T.
+Soit ω une forme lisse à support compact, et soit α, β des formes lisses positives à support
+compact telles que ω = α − β. Comme Tn est positif, on a
+      |⟨(un − v)Tn , ω⟩| ⩽ |⟨(un − v)Tn , α⟩| + |⟨(un − v)Tn , β⟩| ⩽ ∥un − v∥⟨Tn , α + β⟩.
+Comme v est lisse, le second terme
+                                 ⟨v(Tn − T ), ω⟩ = ⟨Tn − T, vω⟩
+tend vers 0 quand n tend vers +∞. Enfin, comme T est positif,
+                             |⟨(v − u)T, ω⟩| ⩽ ∥v − u∥⟨T, α + β⟩.
+Cela démontre que
+               lim sup|⟨un Tn − uT, ω⟩| ⩽ 2∥u − v∥⟨T, α + β⟩ ⩽ 2ε⟨T, α + β⟩.
+                  n
+
+Comme ceci vaut pour tout ε, on a
+                                    lim⟨un Tn , ω⟩ = ⟨uT, ω⟩.
+                                      n
+
+Cela prouve que un Tn → uT .
+```
+
+## smooth-multiplier
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 10283–10326; unit SHA256 `364ca08767840b4b45382d42e9e0a5b18b7f7c1b2daf978615413b9a1b5cc985`.
+
+```text
+8.5.2. — Soit T un courant de bidegré (p, p) sur X qui est positif et fermé. L’hypothèse
+que T est fermé signifie d′ T = 0 et d′′ T = 0. Par définition d’un courant positif, le
+courant T est symétrique ; ainsi, chacune de ces annulations entraîne l’autre.
+
+Lemme 8.5.3. — Soit S un courant fermé symétrique de bidegré (p, p), soit q un entier
+tel que q ⩽ p − 1 et soit α une forme lisse symétrique de type (q, q). On a
+                                  d′ d′′ (α ∧ S) = (d′ d′′ α) ∧ S.
+
+Démonstration. — Soit β une forme lisse de type (p − q − 1, p − q − 1) ; démontrons que
+l’on a
+                         ⟨d′ d′′ α ∧ S, β⟩ = ⟨α ∧ S, d′ d′′ β⟩.
+Comme les courants d′ d′′ α ∧ S et α ∧ S sont symétriques, on peut supposer que β est
+symétrique. Par définition, on a
+              ⟨d′ d′′ α ∧ S, β⟩ − ⟨α ∧ S, d′ d′′ β⟩ = ⟨S, d′ d′′ α ∧ β − α ∧ d′ d′′ β⟩.
+Or, on a
+
+  d′ (α d′′ β − d′′ α ∧ β) = d′ α ∧ d′′ β + α d′ d′′ β − d′ d′′ α ∧ β + d′′ α ∧ d′ β.
+De plus, on démontre comme dans la preuve du lemme 1.5.10, la forme de type (p, p)
+                                    d′ α ∧ d′′ β + d′′ α ∧ d′ β
+est antisymétrique. Sa valeur sur le courant symétrique S est donc nulle. Comme S est
+fermé, cela entraîne l’égalité voulue.
+                               § 8.6. COURANTS DE BEDFORD–TAYLOR                                            207
+
+8.5.4. — Soit T un courant de bidegré (p, p) sur X qui est positif et fermé. Soit u une
+fonction psh (continue) sur X. Comme est T est positif, on peut former le courant uT
+(exemple 7.2.12) et considérer le courant d′ d′′ (uT ). Si u est lisse, le lemme 8.5.3 entraîne
+que l’on a
+                   d′ d′′ (uT ) = d′ d′′ (u ∧ T ) = d′ d′′ u ∧ T = T ∧ d′ d′′ (u),
+car T est fermé.
+  En géométrie complexe, cette remarque est la base de la construction, par Bedford–
+Taylor [6], de produits de courants. Nous allons utiliser la même méthode dans ce
+contexte. Pour poursuivre la construction, il faut garantir que le courant d′ d′′ (uT ) est
+encore positif. C’est le cas si T est positif et u est psh lisse et, plus généralement, si u
+est psh en vertu du lemme suivant.
+Lemme 8.5.5. — Soit T un courant de bidegré (p, p) sur X, positif et fermé. Pour
+toute fonction continue psh u, le courant d′ d′′ (uT ) est positif et fermé.
+Démonstration. — Pour tout ouvert U de X, soit P(U ) l’ensemble des fonctions conti-
+nues u sur U telles que d′ d′′ (uT |U ) soit un courant positif. Le préfaisceau P ainsi défini
+est un sous-faisceau de CX . Si u est psh lisse, on d′ d′′ (uT ) = d′ d′′ (u) ∧ T , donc u appar-
+tient à P. Si (un ) est une suite de fonctions de P(U ) qui converge uniformément vers
+une fonction u, la suite de courants (un T |U ) converge vers uT |U , donc d′ d′′ (uT |U ) est
+limite de la suite de courants (d′ d′′ (un T |U )). Ces courants étant positifs par hypothèse, le
+courant d′ d′′ (uT |U ) est positif et u appartient à P(U ). Cela entraîne que le faisceau P
+contient le faisceau CPshX , ce qu’il fallait démontrer.
+```
+
+## bt-definition-and-closures
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 10347–10408; unit SHA256 `d6ddcecc24ddb7e5d63f49f8c320e5dd419e2d24b2846e9fbd6025c0f60f1a21`.
+
+```text
+8.6.1. — Soit u et v des fonctions psh telles que h = u − v est lisse. Alors on a
+d′ d′′ (uT ) = d′ d′′ (hT ) + d′ d′′ (vT ) = d′ d′′ (h) ∧ T + d′ d′′ (vT ), car h est lisse. En particulier,
+si d′ d′′ h = 0, on en déduit que d′ d′′ (uT ) = d′ d′′ (vT ). Nous ne savons pas si cette égalité
+208                       CHAPITRE 8. THÉORIE DE BEDFORD–TAYLOR
+
+persiste en général, c’est-à-dire sans supposer que h est lisse. Cela nous conduit à poser
+la définition suivante.
+
+Définition 8.6.2. — On dit qu’un courant positif fermé T est de Bedford–Taylor si
+pour tout ouvert U de X et pour tout couple (u, v) de fonctions psh sur U telles que
+d′ d′′ (u) = d′ d′′ (v), on a d′ d′′ (uT |U ) = d′ d′′ (vT |U ).
+
+  Si c’est le cas, il est légitime de noter d′ d′′ (u) ∧ T le courant d′ d′′ (uT ). On s’autorisera
+cependant cette notation même si T n’est pas de Bedford–Taylor. Cet abus de notation
+sera relativement sans danger car tous les courants que nous construisons dans ce texte
+sont de Bedford–Taylor.
+
+Proposition 8.6.3. — Soit (Ui ) un recouvrement ouvert de X tel que T |Ui est de
+Bedford–Taylor pour tout i ; alors T est de Bedford–Taylor.
+
+Démonstration. — En effet, soit u, v des fonctions psh sur un ouvert V de X telles que
+d′ d′′ (u) = d′ d′′ (v) ; l’égalité de courants d′ d′′ (uT ) = d′ d′′ (vT ) sur V résulte de sa validité
+sur chacun des Ui ∩ V . On en déduit que les courants de Bedford–Taylor forment un
+sous-faisceau du faisceau des courants positifs fermés.
+
+Exemple 8.6.4. — Le courant δX est de Bedford–Taylor.
+ En effet, uδX = [u] donc d′ d′′ (uδX ) = d′ d′′ ([u]) = d′ d′′ u.
+
+Proposition 8.6.5. — Si α est une forme lisse positive fermée et T est de Bedford–
+Taylor, alors il en est de même du courant T ∧ α.
+
+Démonstration. — Soit en effet des fonctions u, v psh telles que d′ d′′ (u) = d′ d′′ (v) ; si α
+est une forme lisse à support compact, on a
+                       d′ d′′ (u(T ∧ α)) = d′ d′′ (uT ∧ α) = d′ d′′ (uT ) ∧ α.
+De même, d′ d′′ (v(T ∧ α)) = d′ d′′ (vT ) ∧ α. Comme T est un courant de Bedford–Taylor,
+on a d′ d′′ (uT ) = d′ d′′ (vT ), d’où d′ d′′ (uT ) ∧ α = d′ d′′ (vT ) ∧ α. Cela démontre l’égalité
+requise.
+
+Proposition 8.6.6. — Soit (Tk ) une suite de courants de Bedford–Taylor qui converge
+faiblement vers un courant T . Le courant T est de Bedford–Taylor.
+
+Démonstration. — Le courant T est positif fermé. Si u est une fonction psh, on a
+d′ d′′ (uT ) = lim d′ d′′ (uTk ) (lemme 8.5.1). Il en résulte que T est un courant de Bedford–
+Taylor.
+
+Corollaire 8.6.7. — Soit T un courant de Bedford–Taylor et soit u une fonction conti-
+nue positive. Le courant uT est de Bedford–Taylor.
+
+Démonstration. — Cela se déduit de la proposition par approximation locale par une
+fonction lisse.
+
+Proposition 8.6.8. — Soit T un courant de Bedford–Taylor. Pour toute fonction conti-
+nue psh u, le courant d′ d′′ (uT ) est de Bedford–Taylor.
+                           § 8.7. THÉORIE DE BEDFORD–TAYLOR : ITÉRATION                                             209
+
+Démonstration. — Soit u une fonction psh sur X. Soit P le sous-préfaisceau de CX tel
+que, pour tout ouvert U , P(U ) soit l’ensemble des fonctions continues f sur U telles
+que d′ d′′ (f T ) soit un courant de Bedford–Taylor ; c’est un faisceau. Si f est lisse psh,
+alors d′ d′′ (f T ) = d′ d′′ (f ) ∧ T , qui est de Bedford–Taylor, puisque T l’est, de sorte que P
+contient les fonctions lisses psh. Ce faisceau est également stable par limites uniformes
+(lemme 8.5.1). Par suite, P contient le faisceau des fonctions psh. En particulier, le
+courant d′ d′′ (uT ) est de Bedford–Taylor.
+```
+
+## middle-matrix
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 885–975; unit SHA256 `7ac6fc20a19b2e92f75e58b56564ddba33b24b1dd86814f5a3068e7978c50da1`.
+
+```text
+
+1.2.6. — Expliquons comment la notion de positivité d’une (p, p)-forme symétrique ω
+peut s’interpréter en termes de positivité d’une forme bilinéaire qω sur Λp V canonique-
+ment associée à ω.
+   Pour tout k ∈ N, posons σk = (−1)k(k−1)/2 . Fixons un élément non nul λ de Λn V ∗ .
+Par définition les (n, n)-formes positives sont les multiples positifs de σn λ ∧ J(λ).
+   On associe à ω une application bilinéaire sur Λn−p (V ∗ ) à valeurs dans An,n (V ) par la
+formule (α, β) 7→ ω ∧ α ∧ Jβ.
+   Rappelons aussi que le choix de λ fournit un isomorphisme v 7→ φv entre Λp V et
+  n−p ∗
+Λ V . Pour v ∈ Λp V , φv est la (n − p)-forme sur V donnée par φv (w) = ⟨λ, v ∧ w⟩
+pour tout w ∈ Λn−p V . Il en résulte une application bilinéaire bω sur Λp (V ) à valeurs
+dans An,n (V ) : pour v, w ∈ Λp V , on a
+                                       bω (v, w) = ω ∧ φv ∧ Jφw .
+  Par ailleurs, puisqu’elle appartient à Λp V ∗ ⊗ Λp V ∗ , ω « est » une forme bilinéaire qω
+sur Λp V , symétrique puisque l’on a supposé que ω est symétrique. Explicitement, si
+ω = α ⊗ β, pour α, β ∈ Λp V ∗ , on a
+                                        qω (v, w) = ⟨α, v⟩⟨β, w⟩.
+  Pour tous v, w ∈ Λp V , on a
+(1.2.6.1)                       bω (v, w) = (−1)p(n−p) qω (v, w)λ ∧ Jλ.
+Pour démontrer cette formule, on peut se donner une base (e1 , . . . , en ) de V et la base
+duale (x1 , . . . , xn ) de V ∗ . On note eI = ei1 ∧ · · · ∧ eip si I = {i1 , . . . , ip } et i1 < · · · < ip ;
+on définit d′ xI de manière analogue. On peut aussi supposer que λ = d′ x1 ∧ · · · ∧ d′ xn
+et ω = d′ xI ⊗ d′′ xJ , où I, J sont des parties à p éléments de {1, . . . , n}. Si I est une
+partie à p éléments de {1, . . . , n}, notons εI la signature de la permutation de {1, . . . , n}
+qui est croissante et d’image I sur {1, . . . , p} et est croissante sur {p + 1, . . . , n}. Si K
+et L sont des parties à n − p éléments de {1, . . . , n}, on a
+                                      (
+                                        (−1)p(n−p) εI εJ λ ∧ Jλ si K = ∁I et L = ∁J,
+           ω ∧ d′ xK ∧ J d′ xL =
+                                        0                            sinon.
+En outre, φeK = εK d′ x∁K , si bien que
+                                (
+                                 (−1)p(n−p) λ ∧ Jλ si I = K et J = L,
+                bω (eK , eL ) =
+                                 0                 sinon.
+                                § 1.2. SUPERFORMES POSITIVES                                  25
+
+Enfin,                                                      (
+                                                             1 si I = K et J = L,
+               qω (eK , eL ) = ⟨d′ xI , eK ⟩⟨d′ xJ , eL ⟩ =
+                                                             0 sinon,
+d’où la formule annoncée.
+   En outre, les formules précédentes entraînent que les signes de ces diverses formes sont
+reliées par les équivalences suivantes :
+La forme ω est positive au sens de la définition 1.2.3 ;
+⇔ L’application bilinéaire (α, β) 7→ ω ∧ α ∧ Jβ est de signe σn−p ;
+⇔ L’application bilinéaire bω est de signe σn−p ;
+⇔ La forme bilinéaire qω est de signe σn−p (−1)p(n−p) σn = σp .
+   Enfin, si f : W → V est une application linéaire, on a qf ∗ ω = qω ◦ (f, f ).
+   Nous dirons qu’une (p, p)-forme symétrique est définie positive si la forme bilinéaire
+symétrique σp qω est définie positive.
+Lemme 1.2.7. — Soit ω ∈ Ap,p (V ) une forme symétrique de type (p, p), soit
+(x1 , . . . , xn ) une base de V et soit
+                                                X
+                               ω = (−1)p(p−1)/2   ωI,J d′ xI ∧ d′′ xJ
+                                               I,J
+
+la décomposition de ω dans la base correspondante de Ap,p (V ). Alors, les quatre propriétés
+suivantes sont équivalentes :
+   a) La forme ω est positive ( resp. définie positive) ;
+   b) La matrice symétrique (ωI,J ) (indexée par les parties à p éléments de {1, . . . , n})
+est positive ( resp. définie positive) ;
+   c) Il existe une base (αI ) de Λp V ∗ et une famille (cI ) de nombres réels positifs ou nuls
+( resp. strictement positifs), indexées par les parties à p éléments de {1, . . . , n}, telles
+que                                             X
+                              ω = (−1)p(p−1)/2     cI αI ∧ J(αI ).
+                                                     I
+
+Démonstration. — L’équivalence des assertions (1) et (2) résulte de la discussion qui
+précède le lemme et de ce qu’avec les notations introduites, la matrice (ωIJ ) est celle de
+la forme bilinéaire (−1)p(p−1)/2 qω dans la base duale de la base (d′ xI )I de Λp V ∗ . Celle des
+propriétés (2) et propriétés (3) découle de la diagonalisation des formes quadratiques.
+
+Corollaire 1.2.8. — L’ensemble des formes positives dans Ap,p (V ) est le cône convexe
+fermé engendré par les formes du type (−1)p(p−1)/2 α ∧ Jα, où α parcourt l’ensemble des
+formes de type (p, 0).
+Démonstration. — Le lemme précédent montre que les formes positives sont contenues
+dans ce cône. Inversement, si α ∈ Ap,0 (V ) est une forme de type (p, 0) et β est une
+(n − p, 0)-forme, la formule
+     (−1)p(p−1)/2 α ∧ Jα ∧ (−1)(n−p)(n−p−1)/2 β ∧ Jβ = (−1)n(n−1)/2 (α ∧ β) ∧ J(α ∧ β)
+montre que (−1)p(p−1)/2 α ∧ Jα est une forme positive, d’où l’autre inclusion.
+
+Corollaire 1.2.9. — La condition de positivité est auto-duale : une forme α, symé-
+trique de type (p, p), est positive si et seulement si α ∧ β est positive pour toute forme
+positive β de type (n − p, n − p).
+26 CHAPITRE 1. SUPERFORMES SUR UN ESPACE VECTORIEL RÉEL (D’APRÈS LAGERBERG)
+
+Démonstration. — Cela résulte immédiatement du corollaire précédent.
+
+Corollaire 1.2.10. — Les trois notions de positivité coïncident pour les formes de
+```
+
+## positive-wedges
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 1026–1040; unit SHA256 `568f9d32c940d6a28332eff16ffcf4a0fb4a1ac468e9645dab1f2e1948c7ca85`.
+
+```text
+Proposition 1.2.12 (cf. [92], Lemma 2.1). — Soit ω1 , . . . , ωs des formes sur V et
+posons ω = ω1 ∧ · · · ∧ ωs .
+  a) Si les ωj sont toutes fortement positives, alors ω est fortement positive.
+  b) Si les ωj sont toutes positives, alors ω est positive.
+  c) Si les ωj sont toutes faiblement positives et si au plus une d’entre elle n’est pas
+fortement positive, alors ω est faiblement positive.
+
+Démonstration. — Par récurrence, l’assertion b) découle de la caractérisation du cône
+des formes positives et de la formule
+        (−1)p(p−1)/2 α ∧ Jα ∧ (−1)q(q−1)/2 β ∧ Jβ = (−1)r(r−1)/2 (α ∧ β) ∧ J(α ∧ β),
+où α, β sont des formes de type (p, 0) et (q, 0) respectivement, et r = p + q.
+   Pour démontrer les assertions a) et c), il suffit par récurrence de prouver que si une
+forme β est fortement positive, alors α ∧ β est de même nature que α. On peut supposer
+que β est de la forme β1 ∧ Jβ1 ∧ · · · ∧ βm ∧ Jβm , où les βj sont des formes de type (1, 0).
+La preuve est alors directe.
+```
+
+## current-topology
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 7654–7736; unit SHA256 `a2b017a29233edf025a43ad188ab9833bce6acb54ef9d924c5e32cc4f7e92a25`.
+
+```text
+7.1.1. — On appelle courant de bidimension (p, q) sur X une forme linéaire continue
+sur l’espace Acp,q (X) des formes lisses de type (p, q) à support compact, lorsque cet
+espace est muni de la topologie induite par la topologie C ∞ sur l’espace des formes lisses
+à support compact définie au paragraphe 6.4.1
+  On dit qu’un courant est d’ordre ⩽ r s’il est continu pour la topologie C r sur l’espace
+des formes (il est alors d’ordre ⩽ s pour tout s ⩾ r).
+  On notera ⟨S, α⟩ l’image de la forme α par le courant S.
+  On note Dp,q (X) l’ensemble des courants de bidimension (p, q). On le munit de la
+topologie de la convergence simple.
+  On posera aussi D p,q = Dn−p,n−q et on dira que c’est l’espace des courants de bide-
+gré (p, q).
+Remarque 7.1.2. — Explicitons la condition de continuité dans la définition d’un
+courant. L’espace Acp,q (X) est la limite inductive des espaces AD,K    p,q
+                                                                            (X), où D parcourt
+l’ensemble des jeux de cartes tropicales couvrants sur X et K l’ensemble des parties
+compactes de X. Par définition, une forme linéaire sur l’espace Acp,q (X) est continue si
+et seulement si sa restriction à chaque sous-espace AD,K    p,q
+                                                                (X) est continue.
+   Fixons une telle donnée (D, K). L’espace AD,K (X) est muni de la topologie induite de
+                                                    p,q
+
+ADp,q (X), laquelle est définie par les classes de semi-normes ∥·∥W,r associées aux domaines
+compacts W d’une carte g de D et à un entier r. (Pour fixer une semi-norme dans
+chaqque classe, il faut choisir une décomposition cellulaire de g(W ) et des systèmes de
+coordonnées affines sur chaque cellule.)
+   La continuité de S sur cet espace AD,K  p,q
+                                               (X) signifie donc qu’il existe un nombre réel c,
+un entier r et une famille finie (Wi ) de domaines de compacts de X, où pour tout i, Wi est
+contenu dans le domaine d’une carte de D, tels que, pour toute forme lisse ω ∈ AD,K    p,q
+                                                                                           (X),
+on ait
+                                    |⟨S, ω⟩| ⩽ c sup∥ω∥Wi ,r .
+                                                 i
+156                 CHAPITRE 7. COURANTS SUR UN ESPACE TROPICAL
+
+  Comme l’espace tropical X est riche, la construction faite dans la remarque 5.2.9
+fournit une description squelettique de la continuité de S : il existe un nombre réel c,
+un entier r et une partie squelettique compacte Σ de X telle que, pour toute forme lisse
+ω ∈ AD,K
+       p,q
+           (X), on ait
+                                   |⟨S, ω⟩| ⩽ c∥ω|Σ ∥Σ,r ,
+où ∥·∥Σ,r est une norme C r standard sur Σ.
+   On peut résumer cette discussion en disant qu’un courant possède un ordre relatif à
+tout jeu de cartes couvrant et toute partie compacte de X. L’ordre construit dépend de
+la partie compacte considérée, comme dans le cas des distributions réelles.
+   On prendra garde que l’ordre construit dépend également du jeu de cartes considéré.
+On peut en effet construire un courant sur un espace tropical compact pour lequel ces
+ordres ne sont pas majorés.
+
+Lemme 7.1.3. — Supposons que X soit localement différentiellement séparé. Soit B
+un jeu de cartes sur X tel que tout jeu de cartes couvrant sur X admet un raffinement
+couvrant formé de cartes appartenant à B. Soit S une application linéaire de Acp,q (X)
+à valeurs dans espace vectoriel topologique localement convexe E. Soit r un élément
+de N ∪ {+∞}. Pour que S soit continue pour la topologie C r il faut et il suffit que
+pour toute carte tropicale f définie sur un ouvert U de X appartenant à la base U et
+toute fonction ρ sur U , lisse, positive et à support compact, la restriction à Afp,q (U ) de
+l’application linéaire ω 7→ S(ρω) soit continue pour la topologie C r .
+
+Démonstration. — Soit D = (fi : Ui → Ei ) un jeu de cartes couvrant sur X et soit
+K une partie compacte de X ; il s’agit de prouver que la restriction de S à l’espace
+AD,K
+   p,p
+       (X) est continue pour sa topologie C ∞ (resp. C r ). Par hypothèse, il existe un
+jeu de cartes D ′ , couvrant, formé de cartes de B qui raffine le jeu D. Cela permet de
+supposer que les cartes de D appartiennent à laSbase d’ouverts U . On choisit une partie
+finie I de l’ensemble des indices i telle K ⊂ i∈I Int(Ui ). Soit (λi )i∈I une famille de
+fonctions lisses et positives sur X tellesPque pour tout i, le support de λi soit compact
+et contenu dans Int(Ui ), et telles que Pi∈I λi soit égale à 1 au voisinage P de K. Pour
+toute forme ω ∈ AD,K p,q
+                         , on a donc ω = ( i∈I λi )ω, de sorte que S(ω) = i∈I S(λi ω). Il
+suffit ainsi de prouver que chacune des applications linéaires ω 7→ S(λi ω) est continue
+sur AD,K .
+   Soit i ∈ I. L’application de restriction à Ui induit une application de AD,K     p,q
+                                                                                        (X)
+dans Afi (Ui ) ; cette application est continue pour les topologies C . Par hypothèse,
+         p,q                                                             m
+
+l’application linéaire α 7→ S(λi α) est continue sur Afp,q  i
+                                                              (Ui ), pour la topologie C ∞
+(resp.. C r ). La composée de ces applications linéaires est donc continue.
+
+7.1.4. — Soit T un courant de bidimension (p, q) ; il découle de la proposition 6.4.6
+```
+
+## compact-moment-image
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 16836–16840; unit SHA256 `d4d28c1f1c639600b5d079cd31ebe2411e60f94e19dd8c40b1544e9ef40e4125`.
+
+```text
+Théorème 12.2.4. — Soit X un espace k-analytique compact et soit f : X → T un
+moment. Le sous-espace compact ftrop (X) est un polyèdre de Ttrop de dimension dim(X).
+   L’assertion a été établie par Berkovich dans le cas où X est G-localement algébrisable,
+cf. [11], cor. 6.2.2. Pour le cas général, on pourra se reporter à [46], §3.30, ou à [50],
+th. 3.2.
+```
+
+## chart-images
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 3685–3701; unit SHA256 `27ede4644fa7140bd001a864d8f0804469ceb8bd833aa7af77d322c5105da01c`.
+
+```text
+  Dans ce paragraphe, on fixe une classe de coefficients G .
+3.3.1. — Soit X un espace G-tropical.
+    Les cartes G-tropicales sur les domaines de X forment une catégorie essentiellement
+petite, un morphisme d’une carte G-tropicale (f : X → E, P ) dans une autre (f ′ : X →
+E ′ , P ′ ) étant une application affine q : E → E ′ tel que f ′ = q ◦ f et q(P ) ⊂ P ′ .
+    Cette catégorie a un objet final pour lequel E = {0} et P est un point. Elle est
+filtrante : si (f : X → E, P ) et (f ′ : X → E ′ , P ′ ) sont deux cartes G-tropicales sur X,
+alors (f × f ′ : X → E × E ′ , P × P ′ ) est une carte G-tropicale sur X qui domine les deux
+cartes G-tropicales données.
+
+Remarque 3.3.2. — Soit X un espace G-tropical compact et soit (f : X → E, P ) une
+G-carte tropicale sur X.
+  a) L’ensemble f (X) est un sous-espace paralinéaire compact de E contenu dans P
+(théorème. 12.2.4) et la carte donnée se factorise par (f : X → E, f (X)). On dira parfois,
+par abus, que f est une carte G-tropicale sur X.
+  b) Pour toute décomposition cellulaire (Pi ) de f (X), la famille (f −1 (Pi )) est un G-
+recouvrement fini de X par des domaines compacts dont l’image par f est une cellule.
+```
+
+## geometric-positive-wedges
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 4074–4081; unit SHA256 `af2ae2b53d2b5093ec220554a5e109e67790222e7b7ce1255d4d6b93d0107534`.
+
+```text
+Proposition 3.5.5. — Soit X un espace G-tropical, soit ω1 , . . . , ωr des G-formes
+sur X, et soit ω = ω1 ∧ · · · ∧ ωr .
+  a) Si les ωj sont fortement positives, alors ω est fortement positive.
+  b) Si les ωj sont positives, alors ω est positive.
+  c) Si les ωj sont faiblement positives et si au plus une d’entre elles n’est pas fortement
+positive, alors ω est faiblement positive.
+
+Démonstration. — Cela découle de la proposition 1.10.3.
+```
+
+## face-positive-wedges
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 2685–2699; unit SHA256 `755005874cbbd0719c56e04d0023943714d304b960d55d46188c1267bd2c9571`.
+
+```text
+Proposition 1.10.3. — Soit P un sous-espace paralinéaire d’un espace affine V et soit
+ω1 , . . . , ωs des formes sur P ; posons ω = ω1 ∧ · · · ∧ ωr .
+   a) Si les ωj sont toutes fortement positives, alors ω est fortement positive.
+   b) Si les ωj sont toutes positives, alors ω est positive.
+   c) Si les ωj sont toutes faiblement positives et si au plus une d’entre elle n’est pas
+fortement positive, alors ω est faiblement positive.
+Démonstration. — Par hypothèse, les formes ωj sont restrictions de formes au voisi-
+nage,de P . L’assertion se déduit donc cellule par cellule de la proposition 1.2.12.
+
+1.10.4. — Soit P un sous-espace paralinéaire d’un espace affine V et soit n = dim(P ).
+Les notions de formes faiblement positives, positives et fortement positives coïncident en
+bidegrés (0, 0) et (n, n) ; pour les formes symétriques, elles coïncident en bidegrés (1, 1)
+et (n − 1, n − 1).
+   Cela se démontre par inspection cellule par cellule.
+Définition 1.10.5. — Soit V un espace affine de dimension finie et soit P une partie
+```
+
+## face-positivity
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 2634–2651; unit SHA256 `3aaef6a90762b10edb0574cb40377ab1f036d24da0e2db4d0552ece7f5e7f481`.
+
+```text
+
+Définition 1.10.1. — Soit V un espace affine de dimension finie sur R et soit P
+un sous-espace paralinéaire de V . Soit ω une forme de type (p, p) sur P . On dit que ω
+est positive ( resp. faiblement positive, resp. fortement positive) si pour toute cellule C
+                                                                   −→
+contenue dans P et tout point x ∈ C, l’élément ω|C (x) de Ap,p (⟨C⟩) est une (p, p)-forme
+                                                                                       −→
+positive ( resp. faiblement positive, resp. fortement positive) sur l’espace vectoriel ⟨C⟩ au
+sens de la définition 1.2.3.
+   Compte tenu du lemme 1.2.11 et de la compatibilité des morphismes d’évaluation à
+la restriction à une sous-cellule, il suffit de vérifier cette condition pour toute cellule
+maximale d’une décomposition cellulaire de P .
+   En particulier, ce sont des notions G-locales : soit α ∈ FPp,p (P ) et soit (Pi ) un G-
+recouvrement de P , pour que α soit positive, il faut et il suffit que α|Pi soit positive pour
+tout i. Comme P est paracompact (c’est un sous-espace de Rn !), l’assertion se déduit
+de la proposition 2.2.13 qui affirme l’existence d’une décomposition cellulaire adaptée
+au G-recouvrement (Pi ). Les cas des formes faiblement positives et fortement positives
+sont analogues.
+```
+
+## mixed-symmetry-diagnostic
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 10470–10481; unit SHA256 `f925445e54e0432f008a517798735ca2c5bf78eda6f665bf0f4ffeade3b22da3`.
+
+```text
+Proposition 8.7.4. — Soit T un courant positif fermé. Soit u1 , . . . , um des fonctions
+psh et soit σ une permutation de {1, . . . , m} ; on a
+d′ d′′ (u1 ) ∧ d′ d′′ (u2 ) ∧ · · · ∧ d′ d′′ (um ) ∧ T = d′ d′′ (uσ(1) ) ∧ d′ d′′ (uσ(2) ) ∧ · · · ∧ d′ d′′ (uσ(m) ) ∧ T.
+Démonstration. — Soit v une fonction psh sur X. Soit P le sous-faisceau de CPshX
+formé des fonctions psh u telles que d′ d′′ (u d′ d′′ (vT )) = d′ d′′ (v d′ d′′ (uT )). Si u est lisse,
+on a
+      d′ d′′ (u d′ d′′ (vT )) = d′ d′′ (u) ∧ d′ d′′ (vT ) = d′ d′′ (vT ∧ d′ d′′ (u)) = d′ d′′ (v d′ d′′ (uT )),
+de sorte que ce faisceau P contient les fonctions lisses. Il est stable par limites uniformes.
+Par suite, il contient le faisceau des fonctions psh.
+  Cela entraîne l’assertion voulue lorsque m = 2.
+  Le cas où σ est la transposition échangeant deux entiers successifs en découle immé-
+diatement. Le cas général s’en déduit car σ est composée de telles transpositions.
+```
+
+## torus-coordinates
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 16493–16575; unit SHA256 `f45158e6456b76c10f89688528b986df3a51a16988d2d6d6ce157bbf925e4667`.
+
+```text
+12.1.1. Convention. — Dans la suite de ce travail, nous travaillerons très régulière-
+ment avec les analytifiés An,an et Gn,an
+                                      m   des k-schémas An et Gnm , et seulement excep-
+tionnellement avec ces schémas eux-mêmes. Aussi écrirons-nous désormais, afin d’alléger
+l’écriture, An et Gnm au lieu de An,an et Gn,an
+                                           m . Il sera donc considéré par défaut que A
+                                                                                        n
+
+et Gnm sont des espaces analytiques ; si nous avons besoin de travailler par endroit avec
+les schémas correspondants, nous le préciserons explicitement.
+12.1.2. — Dans ce travail, le groupe multiplicatif et ses puissances jouent un rôle
+fondamental. Rappelons que l’anneau des fonctions algébriques sur Gnm est l’anneau
+A = k[T1±1 , . . . , Tn±1 ] des polynômes de Laurent à coefficients dans k en des indétermi-
+nées T1 , . . . , Tn ; l’espace analytique Gnm est l’ensemble des semi-normes multiplicatives
+sur cet anneau qui étendent la valeur absolue de k. L’espace Gnm est un ouvert de Zariski
+dense de An : c’est le lieu des points en lesquels aucune fonction coordonnée ne s’annule.
+                                                                 n
+Pour tout polyrayon r = (r1 , . . . , rn ) le point ηr de de A     (défini à l’exemple 11.1.12)
+                     n
+                                                                    aI T I 7→ max|aI |rI sur l’an-
+                                                                P
+appartient à Gm . Il correspond à la norme multiplicative
+neau des polynômes de Laurent. Si le corps k a besoin d’être rappelé nous écrirons ηk,r
+au lieu de ηr .
+   Pour éviter le recours à un choix explicite de coordonnées, nous adopterons la conven-
+tion suivante : nous appellerons tore (de dimension n) tout groupe analytique isomorphe
+à une puissance Gnm du groupe multiplicatif ; nos tores sont donc implicitement supposés
+déployés.
+12.1.3. — Rappelons que toute fonction analytique inversible sur Gnm est un monôme,
+c’est-à-dire de la forme aT1m1 . . . Tnmn , où a ∈ k ∗ et (m1 , . . . , mn ) ∈ Zn est un vecteur
+appelé exposant. (En dimension 1, cet énoncé est le lemme 9.7.1/1 de [20], le cas général
+en découle par récurrence.) C’est en particulier une fonction algébrique.
+   Le morphisme Gnm → Gm induit par une telle fonction est un homomorphisme de
+groupes analytiques si et seulement si a = 1.
+330          CHAPITRE 12. PARTIES SQUELETTIQUES D’UN ESPACE ANALYTIQUE
+
+  Soit T un tore. L’ensemble X(T ) des caractères de T , c’est-à-dire des morphismes de
+groupes analytiques de T vers Gm , est un groupe abélien.
+  On déduit de ce qui précède que tout isomorphisme de T avec Gnm induit un iso-
+morphisme de X(T ) avec Zn ; on en déduit aussi que si T et T ′ sont deux tores, tout
+morphisme d’espaces k-analytiques de T vers T ′ est affine, i.e. composé d’un morphisme
+de groupes analytiques et d’une translation ; c’est donc un morphisme de groupes si et
+seulement si il envoie l’origine de T sur l’origine de T ′ . Pour cette raison, lorsque nous
+évoquerons un morphisme entre tores qui n’est pas nécessairement un morphisme de
+groupes analytiques, nous le qualifierons de morphisme affine.
+12.1.4. Tropicalisations. — On considère le groupe abélien R×            + comme un R-espace
+vectoriel, via l’exponentiation. Par ailleurs, le choix d’une base de logarithmes permet de
+l’identifier à l’espace R. On fixe une fois pour toutes un tel isomorphisme log : R×       + → R.
+Dans ce texte, il n’y a pas d’intérêt particulier à choisir le logarithme néperien ; en
+particulier, nous n’aurons jamais à dériver cet isomorphisme, vu comme fonction d’une
+variable réelle. L’utilisation de cet isomorphisme log présentera pour nous deux intérêts :
+elle nous permettra d’utiliser la géométrie paralinéaire sous sa forme standard, plutôt
+que sa variante multiplicative ; et elle donnera lieu à un formalisme apparenté à celui de
+la géométrie complexe, dans lequel les logarithmes de fonctions holomorphes inversibles
+jouent un rôle majeur.
+   Soit T un tore. Nous noterons Ttrop le R-espace vectoriel Hom(X(T ), R×      + ), que l’on peut
+identifier à (R× + )n
+                      une fois choisie une trivialisation de T , ou à Rn
+                                                                         via l’isomorphisme    log
+choisi. L’espace vectoriel Ttrop est appelé tropicalisation du tore T .
+   Étant donné un point t de T , l’application qui applique un caractère φ ∈ X(T ) sur
+l’élément |φ(t)| est un élément de Ttrop noté trop(t). L’application trop : T → Ttrop ainsi
+définie est continue.
+   La formation de Ttrop est fonctorielle : tout morphisme affine f : T → T ′ entre tores
+                                                   ′
+induit une application affine ftrop : Ttrop → Ttrop    telle que le diagramme
+
+                                                   f
+                                          T   ←         → T′
+                                          ←
+
+
+
+
+                                                          ←→
+                                          →
+
+
+
+
+                                                  ftrop   ′
+                                         Ttrop   ←     → Ttrop
+
+```
+
+## top-measures
+
+Primary: <https://arxiv.org/pdf/1204.6277v2>. LF 6733–6808; unit SHA256 `c727f9481e602256f7ccc91d7e23516abbf75077de67409d2e46c9956100005f`.
+
+```text
+5.8.1. — Soit ω ∈ FXn,n  G
+                           (X), soit Σ une partie squelettique fermée de X qui supporte
+fortement ω. Par la construction du §4.5.5, en accouplant la restriction ω|Σ à Σ de la
+forme ω et le n-calibrage µΣ de Σ, on obtient une forme-volume n-dimensionnelle ω̃Σ
+sur Σ, et donc une forme-volume n-dimensionnelle sur X au sens du §5.6. D’après la
+proposition 4.5.8 et la définition d’un support fort, cette forme-volume sur X ne dépend
+pas du choix de Σ ; on la note ω   e . Elle est positive si ω est une forme positive, car le
+calibrage canonique est positif (lemme 14.3.4).
+Lemme 5.8.2. — Soit ω ∈ FXn,n     G
+                                    (X). On suppose qu’il existe une partie squelettique
+fermée de X qui supporte fortement ω. Pour tout domaine analytique Y de X, il existe
+une partie squelettique fermée de Y qui supporte fortement ω|Y et l’on a l’égalité ω|
+                                                                                   g Y =
+ω̃|Y de formes-volume n-dimensionnelles sur Y .
+Démonstration. — Soit Σ une partie squelettique fermée de X qui supporte fortement ω.
+Alors, T = Σ ∩ Y est une partie squelettique fermée de Y qui supporte fortement ω|Y .
+De plus, on a
+      ω|Y = ⟨(ω|Y )|T , µT ⟩      par définition de ω|
+      g                                             g Y
+
+            = ⟨ω|T , µT ⟩                  d’après (3.3.14)
+            = ⟨(ω|Σ )|T , (µΣ )|T ⟩        d’après (3.3.14) et la définition d’un calibrage
+            = ⟨ω|Σ , µΣ ⟩|T = ω
+                              e |Y
+parce que l’accouplement entre (n, n)-formes et calibrages est un morphisme de faisceaux
+sur le site XG . Le lemme est ainsi démontré.
+
+Proposition 5.8.3. — Il existe un unique morphisme de faisceaux FXn,n            G
+                                                                                    → VXnG
+sur XG , noté ω 7→ ω e , qui prolonge l’application définie en (5.8.1) lorsque ω possède
+un support fort. Ce morphisme est FX0,0G -linéaire. Si ω est une G-forme positive, la
+forme-volume ωe est positive. Si ω est à coefficients dans une classe G , il en va de même
+de la forme-volume ωe.
+Démonstration. — Compte tenu du lemme 5.8.2, la première assertion résulte de ce que
+toute forme sur un domaine paracompact possède un support fort, et que tout domaine
+est G-recouvert par ses domaines paracompacts. Les autres propriétés découlent alors
+de la construction.
+
+5.8.4. — Explicitons cette construction lorsque ω est tropicale. Soit f : X → E une
+carte G-tropicale et soit α une (n, n)-forme sur un sous-espace paralinéaire de E conte-
+                                         (n)
+nant f (X) telle que ω = f ∗ α. Alors, Σf est un support fort de ω (lemme 5.3.4) et on
+                                         (n)
+a l’égalité de formes-volume sur Σf            :
+                                                ∗
+(5.8.4.1)                                ω̃ = ⟨ftrop α, µΣ(n) ⟩.
+                                                            f
+
+Si, de plus, la carte G-tropicale f est agréable, la proposition 4.5.8 entraîne alors que
+(5.8.4.2)                       ftrop,∗ (ω̃) = ⟨α, f∗ µΣ(n) ⟩ = ⟨α, µΠf ⟩.
+                                                        f
+                                   § 5.9. MESURES DE BORD                                  137
+
+ 5.8.5. — Soit ω une forme de type (n, n) sur XG à coefficients tropicalement boréliens.
+ Nous venons de lui associer une forme-volume n-dimensionnelle ω̃. Nous noterons alors
+ ωBor la mesure de Borel sur X associée à ω̃ par la construction du §5.7.1.
+   Nous dirons que ω est localement intégrable si cette mesure est localement finie, et
+ que ω est intégrable si cette mesure est finie. Lorsque ω est localement intégrable, nous
+ noterons ωRad la mesure de Radon associée à ω̃ ; on a |ωRad | = ωBor . Lorsque ω est une
+ G-forme positive, la mesure ωRad est positive.         R           R
+   Si f est une fonction borélienne sur X, on notera X f |ω| et X f ω les intégrales de f
+Rcontre les mesures ωBor et ωRad lorsqu’elles existent. Cela définit en particulier l’intégrale
+  X
+    ω pour toute G-forme de type (n, n) à support compact qui est localement intégrable
+(par exemple lisse).
+   Les G-formes localement intégrables constituent un sous-espace vectoriel de F n,n (XG )
+contenant les G-formes lisses. Les G-formes intégrables en sont un sous-espace vectoriel
+qui contient les G-formes lisses à support compact.
+5.8.6. — Soit u une fonction localement intégrable sur X et soit ω une G-forme lisse
+de type (n, n) sur X. Alors, u est localement intégrable par rapport à la mesure ωBor ,
+de sorte que uωRad est une mesure de Radon sur X.
+   L’application (u, ω) 7→ uωRad est bilinéaire ; elle induit une application linéaire de
+Lloc
+   1
+     (XG ) ⊗ A n,n (XG ) dans l’ensemble des mesures de Radon sur X. Cette application
+se factorise par L1loc (XG ) ⊗ A n,n (XG ). On la notera bien sûr α 7→ αRad .
+```
+
+
+# Appendix: inspected literature scope-check units
+
+These are literal source extracts for diagnostic scope checks, not additional analytic-current approximation premises. Web line labels are retained and are distinguished from frozen PDF bytes.
+
+## Euclidean convolution, CLD v2 section 1.6.6
+
+<https://arxiv.org/pdf/1204.6277v2#page=38>, 25 July 2025; one-based inclusive LF 1698--1762 in the frozen supplied source.
+
+```text
+1.6.6. — Lageberg [92] explique comment, par convolution, les supercourants sur Rn
+peuvent être approchés par des formes lisses. Rappelons la construction.
+  Soit ρ une fonction lisse à support compact sur Rn ; pour tout ε > 0, posons ρε (x) =
+ε−n ρ(x/ε).
+  Soit f une fonction lisse sur un ouvert Ω de Rn . La fonction ρ ∗ f sur Rn est définie
+par                                     Z
+                               ρ ∗ f (x) =        f (y)ρ(x − y) dy.
+                                              Ω
+Son support est contenu dans supp(f ) + supp(ρ). Si ρ et f sont positives, alors ρ ∗ f est
+positive.
+  Si Ω = Rn , on écrit                Z
+                               ρ ∗ f (x) =         ρ(y)f (x − y) dy,
+                                              Rn
+On en déduit que si f est lisse, alors ρ ∗ f est lisse, et ses dérivées sont données par
+dérivation sous le signe somme. De plus, si ρ est positive d’intégrale 1, alors ρε ∗ ω
+converge uniformément vers ρ sur tout compact de Rn lorsque ε → 0, et de même pour
+chacune de ses dérivées. De même, si f est croissante par rapport à xi , il en est de même
+de ρ ∗ f .
+  Dans le cas général, on peut écrire
+                                        Z
+                            ρ ∗ f (x) =     ρ(y)f˜(x − y) dy,
+                                              Rn
+
+où f˜ est la fonction (mesurable) sur Rn égale à f sur Ω et à 0 ailleurs. De cette formule,
+on en déduit que des variantes des propriétés précédentes. Si ρ est positive, de support
+contenu dans B et si f est croissante par rapport à xi (resp. convexe, resp. lisse) sur
+un ouvert Ω′ de Ω tel que Ω′ + supp(ρ) ⊂ Ω, alors ρ ∗ f est croissante par rapport à xi
+(resp. convexe, resp. lisse) sur cet ouvert Ω′ . De même, si ρ est positive d’intégrale 1,
+alors ρε ∗ ω converge vers ρ lorsque ε → 0, uniformément sur tout compact de Ω, avec
+ses dérivées.
+   Soit maintenant ω une forme lisse sur Rn . Soit ρ une fonction lisse à support com-
+pact sur Rn ; on définit la forme ρ ∗ ω en se ramenant au cas des fonctions sur Rn en
+                    § 1.7. UN CALCUL D’OPÉRATEUR DE MONGE-AMPÈRE                           39
+
+                               ′      ′′
+                   P
+décomposant ω =       I,J ωIJ d xI ∧ d xJ et en posant
+                                       X
+                             ρ∗ω =      (ρ ∗ ωIJ ) d′ xI ∧ d′′ xJ .
+                                        IJ
+
+  Lorsque ω est à support compact, la forme ρ ∗ ω est à support compact.
+  Par dérivation sous le signe somme, on a
+                       d′ (ρ ∗ ω) = ρ ∗ d′ ω,     d′′ (ρ ∗ ω) = ρ ∗ d′′ ω.
+   Supposons que ρ soit positive. Alors si ω est positive (resp. faiblement positive, resp.
+fortement positive), il en est de même de ρ ∗ ω.
+   Supposons que ρ soit positive, d’intégrale 1 ; pour tout ε > 0, posons ρε (x) =
+ε−n ρ(x/ε). Alors ρε ∗ ω converge uniformément vers ρ sur tout compact de Rn , avec ses
+dérivées.
+   Soit maintenant T un courant de bidimension (p, q) sur Rn . La convolution ρ ∗ T est
+un courant de bidimension (p, q) défini par
+                                     ⟨ρ ∗ T, ω⟩ = ⟨T, ρ ∗ ω⟩
+pour toute forme ω, lisse de type (p, q) et à support compact. En fait, c’est un courant
+associé à la forme lisse
+                            X
+                                (ρ ∗ (TIJ ∧ η)) d′ xI ∧ d′′ xJ ,
+                               I,J
+
+puisque la convolée de ρ et de la distribution TIJ ∧ η est une fonction lisse.
+   On a d′ (ρ ∗ T ) = ρ ∗ d′ T et d′′ (ρ ∗ T ) = ρ ∗ d′′ T .
+   Supposons ρ positive. Si T est positif (resp. faiblement positif, resp. fortement positif),
+il en est de même de ρ ∗ T .
+   Supposons que ρ est positive d’intégrale 1. Alors ρε ∗ T converge faiblement vers T
+quand ε tend vers 0.
+   En particulier, tout courant positif fermé est limite de formes lisses positives fermées.
+```
+
+## gr-generated-comparison
+
+arXiv:2506.13548v2, 17 September 2025
+
+<https://arxiv.org/html/2506.13548v2#S1.SS2>; actual retrieved URL <https://arxiv.org/html/2506.13548v2>. Web-rendered lines [94, 98]; unit SHA256 `5f7409ece85ffb97d3995c4c9eba7f6e82a6ff2b0703d88b7f3e020d5b082b36`.
+
+```text
+L94: ### 1.2. Plurisubharmonic functions on $k$-analytic spaces
+L95: 
+L96: We define classically plurisubharmonic functions on $k$-analytic spaces as the elements of the smallest subsheaf of the sheaf of upper semicontinuous functions with range $[-\infty,\infty)$ that is functorial with respect to pullback, stable under base change, and agrees with the above defined sheaf of subharmonic functions on $k$-analytic curves. In Section 【31†4】, we will show that classically psh functions satisfy properties (【45†1】)–(【47†3】).
+L97: We use the terminology classically psh to distinguish from the psh functions introduced by Chambert-Loir and Ducros in [【44†CD25】]. Note that psh functions are classically psh. Indeed, psh functions are upper semi-continuous and the definition is functorial, so we are reduced to the case of a smooth analytic curve $C$. We have to see that a psh function is subharmonic. By base change, we may assume that $k$ is algebraically closed and non-trivially valued, see Proposition 【30†3】(【48†7】).
+L98: Since subharmonic functions are stable under decreasing limits, and the psh functions are defined by a transfinite regularization process from smooth psh functions, it is enough to show that a smooth psh function on $C$ is subharmonic. This follows from a result of Wanner [【49†Wan19】, Theorem 4.7].
+```
+
+## gr-pl-recognition
+
+arXiv:2506.13548v2, 17 September 2025
+
+<https://arxiv.org/html/2506.13548v2#S4>; actual retrieved URL <https://arxiv.org/html/2506.13548v2>. Web-rendered lines [677, 684]; unit SHA256 `f43dc1f5cd967836dc459177813fec47f6ce9f1046dcd55711680d21d3522880`.
+
+```text
+L677: In the paper [【50†GR25】], we have studied semipositive ${\mathbf{R}}$-PL functions on a good strictly $k$-analytic space over a non-trivially valued non-archimedean field $k$. This turns out to be the same as an ${\mathbf{R}}$-PL function that is classically psh, as we now show.
+L678: ###### Theorem \the\thmnumbering.
+L679: 
+L680: Suppose that the valuation on $k$ is nontrivial. Let $X$ be a good, strictly $k$-analytic space and let $h\colon X\to{\mathbf{R}}$ be an ${\mathbf{R}}$-PL function. Then $h$ is semipositive if and only if $h$ is classically psh.
+L681: ###### Proof.
+L682: For $x\in X$, an ${\mathbf{R}}$-PL function $h\colon X\to{\mathbf{R}}$ induces a residue line bundle $L_{h}(x)\in\operatorname{Pic}(\operatorname{red}(X,x))_{\mathbf{R}}$ on the reduction $\operatorname{red}(X,x)$ of the germ $(X,x$): see 【28†2.15】. Recall from [【72†GJR21】, Definition 7.2] that $h$ is semipositive at $x\in X$ if and only if the associated residue line bundle $L_{h}(x)$ is nef.
+L683: We have shown in [【50†GR25】, Proposition 3.1] that for a smooth strictly $k$-analytic curve, an ${\mathbf{R}}$-PL function is semipositive if and only if it is subharmonic. Since semipositivity is stable under base extension and pull-back [【72†GJR21】, Proposition 7.6], we conclude that a semipositive ${\mathbf{R}}$-PL function on $X$ is classically psh.
+L684: The converse follows from [【50†GR25】, Corollary 3.5], which shows that an ${\mathbf{R}}$-PL function $h$ on $X$ is semipositive if and only if there is an algebraically closed analytic extension field $F$ of $k$ such that for every smooth $F$-analytic curve $C$ and every morphism $\varphi\colon C\to X_{F}$, we have $h\circ\varphi$ semipositive. ∎
+```
+
+## bgjkk-regularization
+
+arXiv:2102.07392v1, 15 February 2021; header observed
+
+<https://arxiv.org/pdf/2102.07392v1#page=19>; actual retrieved URL <https://arxiv.org/pdf/2102.07392>. Web-rendered lines [1483, 1519]; unit SHA256 `96e55c7bcda5d22e427136f4b376c6b4131e621c8a6492256b40857c6c920a8d`.
+
+```text
+L1483@P18: Theorem 3.3.4. Let Σ be a fan and let U be an open subset of NΣ. A function ϕ: U →
+L1484@P18: R−∞ is psh if and only if ϕ is locally a decreasing limit of smooth psh functions.
+L1485@P18: Proof. By Proposition 3.1.3, any decreasing limit of psh functions is psh. Conversely, we
+L1486@P18: assume that ϕ is psh. The claim is local and so we may assume U connected. The claim
+L1487@P18: is obvious for ϕ ≡ −∞ and so we may assume that ϕ is not identically equal to −∞. The
+L1488@P18: difficulty is that our definition of a smooth function on U means that it is a smooth function
+L1489@P18: on U ∩ NR which is constant towards the boundary, therefore a function ϕ with ϕ ◦ trop
+L1490@P18: smooth is not necessarily smooth on U.
+L1491@P18: By Proposition 3.1.3 the function ϕ can be approximated monotonically decreasing by
+L1492@P18: the finite psh functions ϕM := max(ϕ, −M) for M ∈ N.
+L1493@P18: Now we show that a finite function ϕ is locally a decreasing limit of continuous psh
+L1494@P18: functions which are constant towards the boundary. So let us check this in p ∈ U ∩ N(σ).
+L1495@P18: Passing to an open neighbourhood, we may assume that Σ contains a single maximal cone
+L1496@P18: σ and that U satisfies the first condition in (3.11) for V (p) = U. Fix ε > 0 and let εσ := ε.
+L1497@P18: For each τ ∈ Σ with τ ≺ σ, we fix ετ > 0 satisfying ετ1 < ετ2 whenever τ1 ≺ τ2. Since we
+L1498@P18: are assuming that Σ contains a single maximal cone, there is a unique continuous extension
+L1499@P18: πτ : NΣ → N(τ ) of the quotient map NR → N(τ ). Using that πτ (U) = U ∩ N(τ ), we define
+L1500@P18: g : U −→ R, x 7−→ max
+L1501@P18: τ≺σ
+L1502@P18: ϕ(πτ (x)) + ετ .
+L1503@P18: Since πτ is an equivariant morphism of tropical toric varieties and ϕ is psh, Proposition
+L1504@P18: 3.1.10 shows that ϕ ◦ πτ is psh and hence g is psh by Proposition 3.1.3. Using that ϕ is
+L1505@P18: decreasing towards the boundary, we have |ϕ − g| ≤ ε. Since ϕ is a finite function which is
+L1506@P18: continuous by Theorem 3.1.4, the choice of the family ετ shows that g is constant towards
+L1507@P18: the boundary. Choosing εk and εσ,k as above converging monotonically to zero for k → ∞,
+L1508@P18: we obtain a sequence of continuous psh functions which are constant towards the boundary
+L1509@P18: and converge monotonically decreasing to ϕ.
+L1510@P18: Now assume that ϕ is a finite psh function which is constant towards the boundary. We
+L1511@P18: prove the claim for ϕ locally in p ∈ U. We pick a relatively compact open neighbourhood
+L1512@P18: U
+L1513@P18: ′ of p in U. Then applying the sequence of smoothing kernels ηk from Lemma 3.3.3 we
+L1514@P18: see that ϕ is a decreasing limit of smooth psh functions on U
+L1515@P18: ′
+L1516@P18: .
+L1517@P18: Finally, applying a standard diagonal argument based on Dini’s theorem, we deduce from
+L1518@P18: the above steps that locally any psh function ϕ is a limit of a decreasing sequence of smooth
+L1519@P18-19: psh functions. 20 J.I.BURGOS GIL, W. GUBLER, P. JELL, AND K. KUNNEMANN ¨
+```
+
+## bgjkk-current-product
+
+arXiv:2102.07392v1, 15 February 2021; header observed
+
+<https://arxiv.org/pdf/2102.07392v1#page=20>; actual retrieved URL <https://arxiv.org/pdf/2102.07392>. Web-rendered lines [1578, 1654]; unit SHA256 `de6cf487bf0f2e51aec465729a1337868898bc051afa9105387d86b656a71547`.
+
+```text
+L1578@P19: Theorem 4.1.2. For any open subset U of NΣ, locally bounded psh functions u1, . . . , uq
+L1579@P19: on U and T ∈ Dp,p(U)cl,+, there are unique Lagerberg currents
+L1580@P19: u1d
+L1581@P19: ′
+L1582@P19: d
+L1583@P19: ′′u2 ∧ . . . ∧ d′
+L1584@P19: d
+L1585@P19: ′′uq ∧ T ∈ Dp+q−1,p+q−1
+L1586@P19: (U),
+L1587@P19: d
+L1588@P19: ′
+L1589@P19: d
+L1590@P19: ′′u1 ∧ . . . ∧ d′
+L1591@P19: d
+L1592@P19: ′′uq ∧ T ∈ D
+L1593@P19: p+q,p+q
+L1594@P19: cl,+
+L1595@P19: (U)
+L1596@P19: such that these products are given locally in U and satisfy the following two properties:
+L1597@P19: (i) If u1, . . . , uq are smooth, then the product currents agree with (4.1) and (4.2).
+L1598@P19: (ii) If there are psh functions {uj,k}k≥0 converging locally uniformly to uj for j =
+L1599@P19: 1, . . . , q and if there are closed positive Lagerberg currents {Tk}k≥0 converging weakly
+L1600@P19: to T, then we have the weak convergence of Lagerberg currents
+L1601@P19: u1,kd
+L1602@P19: ′
+L1603@P19: d
+L1604@P19: ′′u2,k ∧ . . . ∧ d′
+L1605@P19: d
+L1606@P19: ′′uq,k ∧ Tk
+L1607@P19: k→∞ −−−→ u1d
+L1608@P19: ′
+L1609@P19: d
+L1610@P19: ′′u2 ∧ . . . ∧ d′
+L1611@P19: d
+L1612@P19: ′′uq ∧ T,
+L1613@P19: d
+L1614@P19: ′
+L1615@P19: d
+L1616@P19: ′′u1,k ∧ . . . ∧ d′
+L1617@P19: d
+L1618@P19: ′′uq,k ∧ Tk
+L1619@P19: k→∞ −−−→ d
+L1620@P19: ′
+L1621@P19: d
+L1622@P19: ′′u1 ∧ . . . ∧ d′
+L1623@P19: d
+L1624@P19: ′′uq ∧ T.
+L1625@P19: Proof. For j = 1, . . . , q, Proposition 3.2.1 shows that vj
+L1626@P19: := trop∗
+L1627@P19: ∞(uj ) is psh on V :=
+L1628@P19: trop−1
+L1629@P19: ∞ (U). As seen in Remark 4.1.1, there is a unique closed positive S ∈ Dp,p(V )
+L1630@P19: S,F with
+L1631@P19: trop∞,∗(S) = T. In [Dem12, §III.3] there is an inductive definition of v1ddcv2 ∧. . .∧ddcvq ∧
+L1632@P19: S ∈ Dp+q−1,p+q−1(V ) and ddcv1 ∧ . . . ∧ ddcvq ∧ S ∈ D
+L1633@P19: p+q,p+q
+L1634@P19: cl,+
+L1635@P19: (V ). Then we define
+L1636@P19: u1d
+L1637@P19: ′
+L1638@P19: d
+L1639@P19: ′′u2 ∧ . . . ∧ d′
+L1640@P19: d
+L1641@P19: ′′uq ∧ T := trop∞,∗
+L1642@P19: (v1ddcv2 ∧ . . . ∧ ddcvq ∧ S)
+L1643@P19: d
+L1644@P19: ′
+L1645@P19: d
+L1646@P19: ′′u1 ∧ . . . ∧ d′
+L1647@P19: d
+L1648@P19: ′′uq ∧ T := trop∞,∗
+L1649@P19: (ddcv1 ∧ . . . ddcvq ∧ S).
+L1650@P19: This definition is local in U as the complex construction is local in V . By Remark 4.1.1,
+L1651@P19: we get (i). By Theorem 3.1.4, any psh function on U is continuous and hence (ii) follows
+L1652@P19-20: from the corresponding fact on complex manifolds given in [Dem12, Corollary III.3.6]. ItTROPICAL TORIC PLURIPOTENTIAL THEORY 21
+L1653@P20: follows from the regularization in Theorem 3.3.4 that these two properties and locality in
+L1654@P20: U characterize the product currents uniquely. 
+```
+
+## bgjkk-metric-comparison
+
+arXiv:2102.07392v1, 15 February 2021; header observed
+
+<https://arxiv.org/pdf/2102.07392v1#page=33>; actual retrieved URL <https://arxiv.org/pdf/2102.07392>. Web-rendered lines [2595, 2645]; unit SHA256 `71486428bfc67716f9c369df5d2fb921f9110ef12608e141890cb4467acc1ada`.
+
+```text
+L2595@P32: Theorem 6.1.1. For j = 1, . . . , q, let k kjbe the locally psh approximable toric metric on
+L2596@P32: L
+L2597@P32: an
+L2598@P32: j
+L2599@P32: corresponding to the continuous θj -psh function ϕj : U → R by Theorem 5.3.11. Then
+L2600@P32: tropv,∗
+L2601@P32: 
+L2602@P32: c1(L1, k k1) ∧ . . . ∧ c1(Lq, k kq)
+L2603@P32: 
+L2604@P32: = (d
+L2605@P32: ′
+L2606@P32: d
+L2607@P32: ′′[ϕ1] + θ1) ∧ . . . ∧ (d′
+L2608@P32: d
+L2609@P32: ′′[ϕq] + θq)
+L2610@P32: as positive Lagerberg currents on U. On the left hand side, we use the Bedford–Taylor
+L2611@P32: product on the Berkovich space V introduced by Chambert–Loir and Ducros and on the
+L2612@P32: right hand side, we use the product introduced in Remark 5.2.11.
+L2613@P32: Proof. The claim is local in the target U of tropv, hence, by using Proposition 5.2.5 and
+L2614@P32: the multilinearity of the Bedford-Taylor product we may assume that θ = 0 and that the
+L2615@P32: functions ϕi are finite continuous psh functions on U. It remains to show that the identity
+L2616@P32: (6.1) tropv,∗
+L2617@P32: 
+L2618@P32: d
+L2619@P32: ′
+L2620@P32: d
+L2621@P32: ′′[ϕ1 ◦ tropv
+L2622@P32: ] ∧ . . . ∧ d
+L2623@P32: ′
+L2624@P32: d
+L2625@P32: ′′[ϕq ◦ tropv
+L2626@P32: ]
+L2627@P32: 
+L2628@P32: = d
+L2629@P32: ′
+L2630@P32: d
+L2631@P32: ′′[ϕ1] ∧ . . . ∧ d′
+L2632@P32: d
+L2633@P32: ′′[ϕq]
+L2634@P32: of Lagerberg currents on U holds in this case. Arguing locally on U, the regularization
+L2635@P32: in Theorem 3.3.4 shows that we may assume that the continuous psh functions ϕj are
+L2636@P32: decreasing limits of smooth psh functions on U. By Dini’s theorem and arguing again locally
+L2637@P32: in U, we may assume that the limit is uniform. Since the Bedford–Taylor type product
+L2638@P32: of Chambert–Loir and Ducros on the left hand side of (6.1) is continuous with respect to
+L2639@P32: uniform convergence of psh metrics and weak limits of currents [CD12, Corollaire 5.6.5]
+L2640@P32: and since Theorem 4.1.2 gives a similar kind of continuity on the right hand side of (6.1),
+L2641@P32: it is enough to prove the identity (6.1) for smooth psh functions ϕj on U. Then the claim
+L2642@P32: follows from the compatibility of trop∗
+L2643@P32: v with d, d
+L2644@P32: ′ and the product of smooth forms, the
+L2645@P32: projection formula (2.9) and equation (5.7). 
+```
+
+## jell-smooth-kernel
+
+arXiv:1409.0676v3, 29 July 2016
+
+<https://arxiv.org/pdf/1409.0676v3#page=19>; actual retrieved URL <https://arxiv.org/pdf/1409.0676v3>. Web-rendered lines [1673, 1720]; unit SHA256 `8b0373febadf2aa14303343c8678f5e76c3d1196ba36df9ef2df389318da4014`.
+
+```text
+L1673@P18: Corollary 4.6. The complex
+L1674@P18: 0 → R → A
+L1675@P18: 0,0 d
+L1676@P18: ′
+L1677@P18: → A
+L1678@P18: 1,0 d
+L1679@P18: ′
+L1680@P18: → . . .
+L1681@P18: d
+L1682@P18: ′
+L1683@P18: → A (7) n,0 → 0
+L1684@P18: of sheaves on Xan is exact. The cohomology of its complex of global sections
+L1685@P18: 0 → A
+L1686@P18: 0,0
+L1687@P18: (X
+L1688@P18: an)
+L1689@P18: d
+L1690@P18: ′
+L1691@P18: → A
+L1692@P18: 1,0
+L1693@P18: (X
+L1694@P18: an)
+L1695@P18: d
+L1696@P18: ′
+L1697@P18: → . . .
+L1698@P18: d
+L1699@P18: ′
+L1700@P18: → A
+L1701@P18: n,0
+L1702@P18: (X
+L1703@P18: an (8) ) → 0
+L1704@P18: is isomorphic to the sheaf cohomology H∗(Xan, R) of the constant sheaf R
+L1705@P18: and to the singular cohomology H∗
+L1706@P18: sing(Xan
+L1707@P18: , R).
+L1708@P18: Proof. Let V ⊂ Xan an open subset and f ∈ A0,0(V ) given by the family
+L1709@P18: (Vi, ϕUi, fi)i∈I . Then f can be viewed as a function on V via the definition
+L1710@P18: f(x) := fi ◦tropUi(x) for x ∈ U
+L1711@P18: an
+L1712@P18: i
+L1713@P18: . This function is continuous and d
+L1714@P18: ′f = 0 if
+L1715@P18: and only if f is locally constant. Together with Theorem 4.5 this shows that
+L1716@P18: the complex (7) is exact. Since the sheaves Ap,q admit partitions of unity
+L1717@P18: [Gub13, Proposition 5.10], they are fine, hence acyclic [Wel80, Chapter II,
+L1718@P18: Proposition 3.5 and Theorem 3.11]. This means that the complex (8) calculates the sheaf cohomology of R. Since Xan is paracompact, Hausdorff and
+L1719@P18: locally compact, this is the singular cohomology of the underling topological
+L1720@P18: space of Xan [Bre97, Chapter III, Theorem 1.1]. 
+```
+
+
+
+BEGIN MATHEMATICAL DATA: Exact reviewed scoped103 core; granted solely in its stated domain
+---
+title: "One continuous factor in generated Bedford–Taylor calculus"
+subtitle: "Bounded Borel multipliers, a larger compatible-current class, and the unresolved original P21.3"
+author: "Research draft; no independent verification claimed"
+date: "5 October 2026"
+geometry: margin=1in
+fontsize: 11pt
+header-includes:
+  - \setlength{\emergencystretch}{3em}
+---
+
+# Result and unchanged question
+
+**Original P21.3 is not solved here.** This paper reconstructs the bounded-generated-potential argument and the proposed mixed symmetry from primary ordinary CLD calculus. It proves a further consequence: differentiation by a **locally bounded, possibly discontinuous generated-Psh potential** preserves the continuous-pair Bedford–Taylor property. This consequence does not require continuity of that differentiating potential. Continuity of the original test pair supplies the continuous factor in the symmetry theorem. We also prove a limited obstruction to a fixed convolution regularizer on actual split-torus coordinates. We obtain neither an exhaustion of arbitrary currents nor an analytic counterexample.
+
+Throughout, $K$ is any complete non-Archimedean field, including a trivially valued field. The space $X$ is good, separated, strict, boundaryless, and pure of analytic dimension $n\geq2$. All opens are **ordinary** opens. Put $D=\mathrm d'\mathrm d''$. A current $T$ of bidegree $(p,p)$ is ordinary CLD, **middle-positive**, and satisfies both $\mathrm d'T=\mathrm d''T=0$. Except where stated otherwise, $0\leq p\leq n-1$. We retain the canonical calibration, singularities, nilpotents, and actual generic component lengths. Write $[f]=f\delta_X$, where $\delta_X$ is the canonical integration current. The original assertion is
+
+$$
+ \text{for every }W\subset X,\ T,\ U,V\in\operatorname{Psh}(W)\cap C(W),
+ \qquad D[U]=D[V]\ \Longrightarrow\ D(UT)=D(VT).                 \tag{Q}
+$$
+
+Here $U,V$ are finite real continuous sections of the **generated** Psh sheaf, as defined below. No equality $\operatorname{Psh}\cap C=\operatorname{CPsh}$ is assumed. A negative answer to (Q) would require an actual analytic space in this scope, a separately admissible pair, its upstairs canonical curvature equality, an allowed current, and a compact ordinary smooth test detecting a nonzero difference. Nothing in the diagnostic example below supplies such data.
+
+The main statements proved are:
+
+1. For every locally bounded real generated-Psh $u$, the Borel ordinary product $uT$ exists, and $D(uT)$ is middle-positive and doubly closed, including every sheafified ordinal stage.
+2. If $p\leq n-2$, $u$ is locally bounded real generated Psh, and $v$ is finite continuous generated Psh, then
+   $$D\bigl(uD(vT)\bigr)=D\bigl(vD(uT)\bigr).                    \tag{S}$$
+3. If $S$ already satisfies (Q) on all subopens, then so does $D(vS)$ for **any locally bounded real generated-Psh $v$**, in the allowed output degree. Smooth positive closed factors and weak positive limits also preserve this property.
+
+These are ordinary-current statements for all original fields and analytic hypotheses. Statement 3 constructs a range of compatible currents; it does not identify that range with all positive closed currents.
+
+# Exact primary premises and applicability
+
+The sole mathematical primary text used in the proofs below is [CLD], *Formes différentielles réelles et courants sur les espaces de Berkovich*, arXiv:1204.6277v2, 25 July 2025. The following are the precise imported facts. Full selected statements and pertinent printed proofs are retained in `P21.3-primary-evidence.md`, with inclusive one-based LF intervals, version, and hashes. These imported calculus theorems are external premises, not foundational theorems independently reproved here. The complete primary text was copied from the explicitly bound read-only public file; only selected passages were read.
+
+**P0: analytic and ordinary-local scope.** Analytic spaces have compact-neighbourhood bases; good analytic spaces have affinoid-neighbourhood bases; ordinary opens are analytic domains [11.1.7]. A topologically separated pure $n$-dimensional analytic space has its canonical calibrated level-$n$ tropical structure, compatible with analytic-domain restriction [15.7.1–2]. A good Hausdorff analytic space is locally holomorphically separated and hence locally differentially separated [15.2.2–4]. On such a space compact supports admit smooth cutoffs, finite nonnegative smooth localization, and uniform approximation of compact continuous scalars by compact smooth scalars [15.2.5–9]. Global paracompactness is not required for these compact-support assertions. The hypotheses apply to each original ordinary open, in either valuation regime. Boundarylessness is retained when invoking Stokes.
+
+**P1: generated functions.** Definition 8.1.1 defines Psh as the smallest ordinary subsheaf of functions valued in $\mathbb R\cup\{-\infty\}$ containing smooth functions of positive smooth Hessian and closed under decreasing sequential limits. Lemma 8.1.4 describes the sheafified ordinal construction. We reconstruct stabilization, upper semicontinuity, and the bounded-final-function steps rather than relying on the printed proof's extraneous integrability qualification. Definition 8.1.7 instead generates CPsh inside continuous functions by uniform sequential closure. The printed reverse recognition in 8.1.11 is not used.
+
+**P2: middle positivity.** Every compact symmetric smooth $(q,q)$ test is a difference of two compact middle-positive tests, provided its support is contained in a paracompact locally differentially separated open [6.5.2]. The statement explicitly includes compact supports on almost-good analytic spaces; good suffices here. Middle-positive currents are symmetric and nonnegative on middle-positive complementary tests; positivity is ordinary-local [7.2.1–4]. Positive smooth factors preserve middle-positive currents [7.2.7(b)], since wedges of middle-positive forms are middle-positive [1.2.12, 1.10.3, 3.5.5]. This is not a replacement by strongly positive tests. A current and its negative cannot both be middle-positive unless the current is zero [7.2.3; also proved below using the decomposition].
+
+**P3: coefficient measures.** On a locally differentially separated level-$n$ space, positive scalar currents correspond to unique positive Radon measures [7.2.8]. For middle-positive $T$ and a positive complementary smooth form $\eta$, the associated coefficient measure satisfies
+$$\int g\,d\mu_{T,\eta}=\langle T,g\eta\rangle$$
+for compact smooth scalars $g$, and has compact support when $\eta$ does [7.2.11]. Borel multiplication is stated in 7.2.12. Its order-zero justification for the middle cone is reconstructed below; the strongly-positive spanning inference in the broader wording of 7.2.9 is not imported.
+
+**P4: chart topology and finite-dimensional domination.** In Euclidean coordinates the middle cone of symmetric $(q,q)$ superforms is the positive-semidefinite signed coefficient matrix cone on the $q$th exterior power [1.2.6–7]; positivity on polyhedral spaces is tested on tangent faces [1.10.1]. Compact moment images are finite polyhedral sets [12.2.4]. We use only polyhedrality, not its printed claim that every moment image has dimension equal to that of the source: a constant moment already disproves that clause. Test topology is the inductive topology for fixed compact supports and fixed moment presentations, with cellwise coefficient seminorms [7.1.1–3]. Compact smooth localization reduces continuity to such a chart. Compact analytic neighbourhoods can be finite unions of affinoids, so no assertion that one arbitrary compact support lies in a single affinoid is needed.
+
+**P5: ordinary differential calculus.** Forms have compatible restriction, products, pullback and Leibniz rules [3.3.10–12]. Ordinary currents form a sheaf [7.1.6–7]. Their differentials are continuous for weak convergence and satisfy
+$$ (\mathrm d')^2=(\mathrm d'')^2=0,\quad
+\mathrm d''\mathrm d'=-\mathrm d'\mathrm d'',\quad DJ=JD,\quad
+\langle DR,\alpha\rangle=\langle R,D\alpha\rangle                 \tag{2}
+$$
+[7.7.1–5]. For smooth $s$ and symmetric doubly closed $T$, $D(sT)=Ds\wedge T$ [8.5.3–4]. This assertion is used with actual compatible degrees, independently of the printed bidegree/bidimension indexing in 8.5.3. Multiplication by a smooth doubly closed even-degree form commutes with the differentials, by the same Leibniz rule in duality. Both closedness equations are checked.
+
+**P6: canonical integration.** $\delta_X=[1]$ is positive and doubly closed on the original boundaryless space [15.7.1, 7.7.4; positivity of the canonical calibration is used in 5.8.1–5]. For a pure closed analytic subspace the integration current equals its associated analytic cycle current, with actual generic lengths [16.6.3]. No nilreduction is substituted in our construction.
+
+**P7: weak multiplication, reconstructed.** Lemma 8.5.1 states: if positive currents $T_j\to T$ weakly and continuous functions $u_j\to u$ locally uniformly, then $u_jT_j\to uT$. Its full statement and proof were read. We give the middle-cone proof, including the fixed-function net variant, in Lemma 2. We do not apply it to a discontinuous multiplier.
+
+**P8: torus coordinates, diagnostic only.** [12.1.1–5] describes the analytic split torus, its Laurent characters, and their functorial tropicalizations. In the diagnostic we fix $K=\mathbb Q_2$ and $X=(\mathbf G_{m,K}^2)^{\mathrm{an}}$, a good separated strict smooth boundaryless surface. The explicitly displayed Laurent monomial changes are analytic automorphisms. Their effect on logarithmic coordinates follows directly by multiplicativity. No theorem about arbitrary current ascent, descent, classification, or density is imported.
+
+# Middle-positive Borel products and two different limits
+
+**Lemma 1 (ordinary Borel product).** If $T$ is middle-positive, every locally bounded real Borel $b$ defines an ordinary symmetric order-zero current $bT$. It agrees with smooth multiplication and ordinary restriction. For a compact symmetric complementary test $\beta$, there is a canonical finite signed Radon measure $\mu_{T,\beta}$, linear in $\beta$ and supported in $\operatorname{supp}\beta$, such that
+$$ \langle bT,\beta\rangle=\int b\,d\mu_{T,\beta}.               \tag{3}$$
+If $b_j\downarrow b$ with a common finite absolute bound on each compact, then $b_jT\to bT$ weakly. Also, for locally uniform nets of continuous functions $b_a\to b$ and a **fixed** $T$, $b_aT\to bT$ weakly.
+
+*Proof.* Write $\beta=\eta_1-\eta_2$ with compact middle-positive tests, and set $\mu_{T,\beta}=\mu_{T,\eta_1}-\mu_{T,\eta_2}$. Two decompositions give the same integral against compact smooth scalars, hence against compact continuous scalars by P0, hence the same signed Radon measure. This proves independence and linearity. Scalars supported away from $\operatorname{supp}\beta$ pair to zero. Smooth density within that open shows the signed measure vanishes there, proving its intrinsic support assertion. Use the symmetric projection for general tests; the antisymmetric part pairs to zero.
+
+It remains to prove ordinary-current continuity for Borel $b$. After compact nonnegative smooth localization, consider tests $\rho f^*a$ in one moment chart. Choose a compact analytic neighbourhood $C$ of $\operatorname{supp}\rho$ within the chart, using finitely many affinoid neighbourhoods if necessary. Its moment image $P$ has a finite cellular subdivision. Let $q=n-p$ be the complementary test degree and fix a Euclidean metric in the moment target. The form
+$$\Theta=\sum_i\mathrm d'x_i\wedge\mathrm d''x_i$$
+has $\Theta^q$ positive definite on the exterior power of every tangent face of dimension at least $q$. On smaller faces every $(q,q)$ restriction is zero. With $a$ symmetric, finitely many tangent spaces give a fixed constant $c$ such that
+$$c\|a\|_{P,0}\Theta^q+a\geq0,\qquad
+  c\|a\|_{P,0}\Theta^q-a\geq0.                               \tag{4}$$
+Here the norm is the maximum of the cellwise coefficient norms in fixed face coordinates. On each face this is the operator-norm bound against the fixed positive-definite matrix; take the maximum over the finitely many faces. For $q=0$ use $\Theta^0=1$. These are middle-cone inequalities, without decomposability of the exterior vectors.
+
+Pull back and multiply by $\rho\geq0$. Positive coefficient measures give
+$$|\mu_{T,\rho f^*a}|\leq c\|a\|_{P,0}\mu_{T,\rho f^*\Theta^q}.$$
+Indeed both signed inequalities against the measure on the right hold; the positive and negative parts on a Hahn decomposition give the total variation inequality. Consequently
+$$ |\langle bT,\rho f^*a\rangle|
+ \leq c\|b\|_{\operatorname{supp}\rho}\|a\|_{P,0}
+          \langle T,\rho f^*\Theta^q\rangle.                   \tag{5}$$
+The factor depending on $b$ is finite. The symmetric projection is continuous, and P4's localized topology now proves order-zero continuity for all tests. If $b\geq0$, its pairings with positive tests are nonnegative. Restriction compatibility follows by extending compact tests by zero and comparing their coefficient measures against smooth scalars; uniqueness of the measures gives the result. Smooth multiplication agrees by construction.
+
+For the decreasing limit use the two finite positive measures of a fixed test decomposition. On their compact support let $g_j=b_j-b\downarrow0$, with $0\leq g_j\leq M$. For $\epsilon>0$ the sets $E_j=\{g_j\geq\epsilon\}$ decrease to the empty set. Countable additivity and finiteness give $\mu(E_j)\to0$, and
+$$0\leq\int g_j\,d\mu\leq\epsilon\mu(C)+M\mu(E_j).$$
+Let $j\to\infty$ and then $\epsilon\to0$. This proves the required measure convergence for each positive coefficient. For the locally uniform net use instead
+$$ |\langle(b_a-b)T,\beta\rangle|
+ \leq\|b_a-b\|_C\langle T,\eta_1+\eta_2\rangle.              \tag{6}$$
+The compact $C$ and constant do not depend on the index. No assertion about bounded pointwise convergence of arbitrary nets is made. $\square$
+
+**Lemma 2 (continuous multiplier on varying currents).** Let $S_a\to S$ weakly be a net of positive ordinary currents, whose limit is an ordinary current. For fixed continuous real $v$, $vS_a\to vS$ weakly. The current $S$ is positive; $vS$ is positive when $v$ is nonnegative. The convergence statement also holds for continuous $v_a\to v$ locally uniformly.
+
+*Proof.* Positivity and symmetry pass by evaluation on fixed tests. For a compact symmetric test $\beta=\eta_1-\eta_2$, weak convergence gives convergence, hence an **eventual** bound, of $\langle S_a,\eta_1+\eta_2\rangle$. One does not need all indices of a net to have bounded masses. With $C$ the union of the supports, approximate $v$ uniformly on $C$ by smooth $g$. To obtain $g$, multiply $v$ by a compact cutoff equal to one near $C$, then apply P0. We have
+$$
+\begin{split}
+|\langle vS_a-vS,\beta\rangle|
+ &\leq\epsilon\langle S_a,\eta_1+\eta_2\rangle
+       +|\langle S_a-S,g\beta\rangle|
+       +\epsilon\langle S,\eta_1+\eta_2\rangle.
+\end{split}                                                    \tag{7}
+$$
+First take the weak limit for fixed $g$, then let $\epsilon\to0$. The symmetric projection handles arbitrary tests. For varying $v_a$, the extra error is bounded by $\|v_a-v\|_C\langle S_a,\eta_1+\eta_2\rangle$, which tends to zero on that same eventual tail. This proves precisely the claimed net variant of 8.5.1. $\square$
+
+The distinction is essential: in Lemma 1 the positive coefficient measures belong to **one fixed current**; in Lemma 2 the currents vary and the multiplier is continuous. For example on $\mathbb R$, $\delta_{1/j}\to\delta_0$ but multiplication by $\mathbf1_{\{0\}}$ does not commute with this weak limit. This elementary measure example is only a warning about the limit operation; it is not an analytic P21.3 counterexample and its indicator is not asserted to be generated Psh.
+
+**Lemma 3 (smooth-factor identities).** A smooth doubly closed form $\gamma$ of even total degree commutes with current differentiation. For positive $T$ and locally bounded Borel $b$,
+$$b(T\wedge\gamma)=(bT)\wedge\gamma                           \tag{8}$$
+whenever $T\wedge\gamma$ is positive; the same identity extends by differences of positive currents. In particular it applies to positive smooth Hessians and positive smooth decorations.
+
+*Proof.* Differential commutation follows by applying the ordinary form Leibniz rule to $\gamma\wedge\alpha$ in differential duality, since both first derivatives of $\gamma$ vanish. For (8), the coefficient measure of a test $\alpha$ for $T\wedge\gamma$ is the coefficient measure of $\gamma\wedge\alpha$ for $T$. This equality follows first against smooth scalars and then from uniqueness of signed coefficient measures. Integration of $b$ proves (8). Differences are legitimate: equality of positive-current decompositions implies equality of every signed coefficient measure, so Borel multiplication of a current expressible as a finite difference of positive currents is independent of its such decomposition. $\square$
+
+# Every sheafified ordinal, with bounded final sections
+
+Let $\mathcal P_0$ be the sheaf of smooth positive-Hessian functions. Let $\mathcal P_{\xi+1}$ consist of sections which **ordinary-locally** are decreasing limits of sequences in $\mathcal P_\xi$. At a limit $\lambda$, membership means ordinary-local membership in an earlier $\mathcal P_\xi$, $\xi<\lambda$. These are sheaves and they increase: constant sequences keep earlier sections, and earlier ranks embed in limit stages.
+
+Each stage consists of upper-semicontinuous functions. At a successor $u=\inf_j u_j$, the set $\{u<a\}=\bigcup_j\{u_j<a\}$ is open. Upper semicontinuity is local, giving the limit step. A finite section is consequently Borel. No countability of $X$ is needed for real-valued Borel measurability.
+
+The construction stabilizes and exhausts Psh. All pairs (open, section of the ambient function sheaf on it) form a set. Strict increases at every successor through ordinals beyond the cardinal successor of this set are impossible. Once $\mathcal P_\kappa=\mathcal P_{\kappa+1}$, the successor operation is fixed, and subsequent limit stages add nothing because these are sheaves. This stationary sheaf contains the smooth generators and every decreasing sequential limit on a fixed open: that limit belongs to rank $\kappa+1=\kappa$. Minimality gives Psh inside it, while every stage is inside Psh by induction and locality. We impose no integrability qualification absent from Definition 8.1.1.
+
+All assertions below are simultaneous on every ordinary open, with the current restricted to that open. No flattening of the sheafified construction into one decreasing smooth sequence is claimed.
+
+**Theorem 1 (bounded generated positivity).** For every locally bounded real $u\in\operatorname{Psh}(W)$ and every original positive doubly closed $T$, $D(uT)$ is middle-positive and doubly closed.
+
+*Proof.* Induct on the rank of $u$, for all opens. At rank zero, $D(uT)=Du\wedge T$, positive by P2. At a successor choose an ordinary neighbourhood $N$ on which $u_j\in\mathcal P_\xi(N)$ decrease to the final $u$. Since $u_j\geq u$ and the stages never allow $+\infty$, each $u_j$ is finite everywhere on $N$. The locally bounded final $u$ bounds every predecessor below. Upper semicontinuity bounds the finite $u_j$ locally above, so each predecessor is locally bounded and the inductive assertion applies.
+
+On any compact $C\subset N$ a finite cover of the local bounds gives
+$$a\leq u\leq u_j\leq u_1\leq b\quad\hbox{on }C,\quad j\geq1. \tag{9}$$
+Thus Lemma 1 gives $u_jT\to uT$ weakly, using the fixed coefficient measures of $T|_N$. Equation (2) gives $D(u_jT)\to D(uT)$. Positive pairings and symmetry pass to the limit. Restriction compatibility and ordinary locality give positivity on $W$.
+
+At a limit rank, each point has an ordinary neighbourhood with membership in some earlier rank; boundedness restricts there. Apply the earlier assertion and current locality. Stabilization proves the assertion for all locally bounded real generated sections. The differential identities give $\mathrm d'D(uT)=\mathrm d''D(uT)=0$. For $p=n-1$ its tests are scalars, and for $p=0$ they have degree $(n-1,n-1)$; both endpoints are included. All measures and differential identities are those of the original calibrated analytic space. $\square$
+
+The same theorem may be used successively: for locally bounded real generated potentials $f_1,\ldots,f_m$ and $m\leq n-p$, an ordered recursion $T_0=T$, $T_k=D(f_kT_{k-1})$ defines positive doubly closed currents of degrees $(p+k,p+k)$. The last current may have top degree. No symmetry between arbitrary discontinuous factors is inferred from this ordered construction.
+
+If both $h$ and $-h$ are locally bounded generated Psh, Theorem 1 makes $D(hT)$ and its negative positive. Positive-test decomposition and symmetry force $D(hT)=0$. This is a sufficient two-sign condition. For $h=U-V$, the given memberships of $U,V$ and the equation $D[h]=0$ have not supplied it.
+
+# Mixed symmetry with one continuous factor
+
+**Theorem 2.** Suppose $0\leq p\leq n-2$. Let $v$ be a finite continuous generated-Psh section and $u$ any locally bounded real generated-Psh section on $W$. Then (S) holds as an identity of actual ordinary currents.
+
+*Proof.* Theorem 1 makes both inner currents positive and doubly closed. Their Borel products are well-defined by Lemma 1. Fix $v,T$ and induct on the rank of $u$, simultaneously on all subopens.
+
+If $u$ is smooth, $Du$ is a smooth positive doubly closed form. P5 and Lemma 3 give
+$$
+ D(uD(vT))=Du\wedge D(vT)
+          =D\bigl((vT)\wedge Du\bigr)
+          =D\bigl(v(T\wedge Du)\bigr)
+          =D(vD(uT)).                                         \tag{10}
+$$
+Here the middle differentiation is on currents, and does not differentiate $v$ as a smooth function.
+
+At a successor restrict to $N$ carrying $u_j\downarrow u$ of the preceding stage. The bounded-final selection (9) makes every $u_j$ locally bounded. The induction gives
+$$D(u_jD(vT))=D(vD(u_jT)).                                   \tag{11}$$
+For the left-hand side, apply Lemma 1 with the **fixed positive** current $D(vT)$; its finite coefficient measures and (9) give $u_jD(vT)\to uD(vT)$ weakly. For the right-hand side, Lemma 1 with the fixed $T$ gives $D(u_jT)\to D(uT)$. These are all positive by Theorem 1. Lemma 2 applies with the **continuous** multiplier $v$, so $vD(u_jT)\to vD(uT)$. Continuity of $D$ proves the desired equality on $N$, and ordinary locality gives it on $W$.
+
+At a limit rank use earlier-rank membership on each ordinary neighbourhood, then locality. Stabilization concludes the proof. Predecessors may be discontinuous; they were neither replaced by continuous predecessors nor recognized as CPsh. The varying-current step never multiplies by a discontinuous function. $\square$
+
+**Corollary 2.1 (at most one discontinuous factor).** In the ordered recursion following Theorem 1, suppose all $m$ potentials are continuous except possibly one locally bounded real generated-Psh potential. Then the result is independent of their permutation, for every original $T$ and $m\leq n-p$.
+
+*Proof.* Any adjacent interchange has at least one continuous factor and is (S) applied to its inner positive closed current. The complementary degree allows the two differentiations. Applying subsequent outer operations to equal positive currents preserves equality, even when that one remaining outer potential is Borel. Adjacent transpositions generate all permutations. $\square$
+
+This is permutation independence, not dependence only on canonical curvatures for arbitrary $T$. In particular $m=1$ yields no new relation-preservation assertion.
+
+**Corollary 2.2 (signed continuous difference).** If $h=U-V$ with $U,V$ finite continuous generated Psh and $v$ finite continuous generated Psh, then
+$$D(hD(vT))=D\bigl(vD(hT)\bigr).                             \tag{12}$$
+The right-hand product is defined as a difference of products with the positive currents $D(UT)$ and $D(VT)$; Lemma 3 makes this definition independent of such a positive decomposition. Subtract the two instances of (S) to prove the formula. No generated-Psh membership of either sign of $h$ is assumed.
+
+# A larger class of compatible currents
+
+Call a positive doubly closed $S$ on $W$ **pair-compatible** when it satisfies (Q) on every ordinary subopen of $W$. This term abbreviates a precise property; it is not a classification of positive currents. The base $\delta_X|_W$ is pair-compatible because $U\delta_X=[U]$ and $V\delta_X=[V]$.
+
+**Theorem 3 (bounded-potential closure).** Pair-compatible currents are preserved by addition and nonnegative scalar multiplication in a fixed degree, ordinary restriction and local gluing, weak positive limits in a fixed degree, and wedge with a smooth middle-positive doubly closed form in any permitted degree. If $S$ has degree $(p,p)$ with $p\leq n-2$ and $v$ is **any locally bounded real generated-Psh section**, then $D(vS)$ is also pair-compatible of degree $(p+1,p+1)$.
+
+*Proof.* Addition, scaling and restriction are immediate by linearity. For an ordinary cover, restrict any pair and use the current sheaf to prove the equality; positivity and closedness are local as well. If $S_a\to S$ weakly as positive currents, the limit is positive and both closedness equations pass to the limit. On any subopen and for a fixed continuous pair, Lemma 2 gives $US_a\to US$ and $VS_a\to VS$. The differential passes to the limit. Restriction preserves the assumed weak convergence because tests extend by zero.
+
+For a smooth positive doubly closed decoration $\gamma$, $S\wedge\gamma$ is positive and closed. Lemma 3 gives
+$$D\bigl(h(S\wedge\gamma)\bigr)=D(hS)\wedge\gamma=0$$
+for every admissible continuous difference $h$. Degrees are restricted to $p+\deg\gamma\leq n-1$.
+
+For the final assertion work on an arbitrary subopen $O\subset W$, with an admissible continuous pair $U,V$ there. Theorem 1 gives positivity and closedness of $D(vS)$, $D(US)$ and $D(VS)$. Apply Theorem 2 with the bounded, possibly discontinuous factor $u=v|_O$ and **continuous factor** $U$, and then with continuous factor $V$. This gives
+$$
+ D(UD(vS))=D(vD(US)),\qquad
+ D(VD(vS))=D(vD(VS)).                                        \tag{13}
+$$
+Pair compatibility of $S$ says $D(US)=D(VS)$ as positive currents. Their Borel products with the same locally bounded $v$ are therefore equal by Lemma 1. Equation (13) proves pair compatibility of $D(vS)$ on $O$. Since $O$ was arbitrary, the property is genuinely every-open. No limit involving a discontinuous multiplier on varying currents has been used. $\square$
+
+This last argument strengthens the continuous-differentiating-factor closure proposed in the supplied unreviewed draft. It is obtained by orienting the one-continuous-factor identity with $U,V$ as the continuous factors. In particular the property persists through ordered differentiations by several locally bounded discontinuous generated potentials; this does **not** interchange two discontinuous factors or extend the original pair condition to discontinuous pairs.
+
+One can now form local cones from $\delta_X$ by these operations and weak positive closure, with degree fixed at each limit. All their members are actual ordinary positive doubly closed compatible currents. The assertion about this cone is a mathematical closure theorem. It does not mean that an arbitrary original current lies in it, locally or globally.
+
+# Investigation of arbitrary-current regularization
+
+The preceding calculus makes exhaustion a substantive next target: show that every original current locally lies in the weak positive closure of the compatible currents just constructed. The following small geometric calculation identifies a failure of one particularly rigid way of attempting that step.
+
+**Proposition 4 (no fixed mollifier natural under both monomial shears).** Let $\mu$ be a compactly supported positive probability measure on $\mathbb R^2$. Define the scalar translation convolution
+$$K_\mu f(x)=\int f(x-z)\,d\mu(z),\qquad f\in C_c^\infty(\mathbb R^2).$$
+Suppose the same operator commutes with pullback by both
+$$ A(x,y)=(x+y,y),\qquad B(x,y)=(x,x+y).$$
+Then $\mu=\delta_0$. Thus no nontrivial compactly supported smooth probability mollifier has these two commutation properties. These changes occur on the actual analytic surface $X=(\mathbf G_{m,\mathbb Q_2}^2)^{\mathrm{an}}$ as monomial automorphisms.
+
+*Proof.* Commutation with $A$ gives, at $x=0$,
+$$\int f(-Az)\,d\mu(z)=\int f(-z)\,d\mu(z)$$
+for all compact smooth $f$. Smooth density determines finite Radon measures, so $A_*\mu=\mu$. Similarly $B_*\mu=\mu$. Their invertibility implies their supports and all positive and negative iterates preserve the compact support. If $(x,y)$ belongs to this support, then $A^k(x,y)=(x+ky,y)$ belongs for every integer $k$. Compactness forces $y=0$. Likewise $B^k(x,0)=(x,kx)$ forces $x=0$. The probability measure is supported on $\{0\}$, proving the assertion.
+
+The Laurent monomial maps
+$$ (z_1,z_2)\longmapsto(z_1z_2,z_2),\qquad
+   (z_1,z_2)\longmapsto(z_1,z_1z_2)$$
+have monomial inverses and are analytic automorphisms of that torus. On $(\log|z_1|,\log|z_2|)$ they induce exactly $A,B$. This is an actual analytic-coordinate obstruction to using one unchanged scalar convolution kernel under both coordinate descriptions. $\square$
+
+This proposition has deliberately limited force. A regularizer may transform its kernel with coordinates, depend on the finite collection of moments to be controlled, or use a directed system of such collections. Proposition 4 excludes none of these possibilities, and does not imply that a compatible analytic current regularization is impossible. The underlying torus is already in familiar positive geometric ranges. It supplies no pair or product defect. Extending convolution to coefficients of forms or currents would first have to resolve its coordinate dependence, and then support on the moment image, face positivity, both differential equations, chart nullity, and compatibility with every further analytic-unit moment. Our proof constructs no such extension.
+
+There is a separate elementary failure in a proposed positive partition-of-unity gluing of chartwise regularizations. If $R_i$ are doubly closed currents and $\rho_i$ smooth nonnegative scalars with $\sum_i\rho_i=1$ near a compact support, then
+$$\mathrm d'\Bigl(\sum_i\rho_iR_i\Bigr)
+    =\sum_i\mathrm d'\rho_i\wedge R_i,$$
+and analogously for $\mathrm d''$. The right-hand side is zero if the $R_i$ agree on overlaps, but the partition identity alone does not make it zero. For example on Euclidean $\mathbb R^2$, take the closed positive $(0,0)$ currents $R_1=[1]$, $R_2=2[1]$ and $\rho_1=\rho$, $\rho_2=1-\rho$ with nonconstant smooth $0<\rho<1$. Their glued function current is $[2-\rho]$, which is not first-closed. This is a calculus obstruction to that gluing operation, not an analytic counterexample to (Q). No correction preserving positivity and both closedness equations has been constructed here.
+
+Neither scalar smooth density nor the middle-positive coefficient bound (5) supplies the missing closed-current approximation. Equation (5) controls evaluation of a **given** current; it does not change its coefficients into closed smooth analytic forms. A strong-current restriction map also supplies no positive closed lift of every ordinary current and no identification of a restricted strong product with the Borel product (3).
+
+# The exact unproved analytic step and comparison with the residual scope
+
+The concrete sufficient exhaustion statement left unproved is:
+
+> For every original $K,X,p$, every ordinary $W$, every allowed positive doubly closed current $T$, and every $x\in W$, there is one ordinary neighbourhood $N\subset W$ and a net of actual positive doubly closed currents of degree $(p,p)$ on $N$, each obtained locally from the original canonical integration current by the operations of Theorem 3, converging weakly to $T|_N$ against **all** ordinary compact smooth tests, including every analytic-unit moment refinement.
+
+Theorem 3 would imply (Q) from this statement. We have not proved it, and the hypothesis is not a reformulation of positivity or a consequence of scalar density. It may be stronger than necessary. A direct preservation theorem for arbitrary $T$, or a valid generating construction for both signs of $U-V$ on one fixed ordinary neighbourhood, could instead resolve the original problem. In that latter route, Theorem 1 and pointedness would apply. Neither construction has been found here.
+
+Mixed symmetry itself stops short of the target: for arbitrary $T$, equation (12) still contains $D(hT)$ on its right-hand side. Knowing $D[h]=0$ identifies $D(h\delta_X)$, not $D(hT)$. Using (12) to declare the latter zero would assume the original assertion. Likewise equal canonical curvatures of separately generated $U,V$ do not give equal curvatures of their unrelated decreasing predecessors. Our induction proves positivity and the correctly oriented symmetry, but does not preserve an arbitrary signed relation at predecessor ranks.
+
+The catalogue's granted strict real-PL theorem restricts the function class and excludes trivial valuation; the granted pure-curve recognition is intrinsically one-dimensional. Neither is used as a premise of the above higher-dimensional proofs. An ordinary ambient curvature equation has not been restricted to arbitrary curves or ascended under arbitrary analytic scalar extensions. Semistable-model existence, classical recognition of a general difference, and ordinary harmonic approximation on a fixed neighbourhood are not assumed. A specified-open cover and an actual ordinary-open basis remain distinct. Every local closure assertion here is proved by restricting to the very subopen carrying the pair, not by turning a chart cover into a basis.
+
+Thus the new bounded-differentiating-factor closure retains all fields, every original ordinary open, singularities, nilpotents, middle positivity, and every permitted degree **within a constructed-current class**. It does not remove arbitrary-current quantification. No counterexample in the original separately admissible continuous pair class has been produced. The unchanged universal statement (Q) remains unproved in this work; `candidate=false`.
+
+# Reproducibility and evidence limits
+
+The artifacts are:
+
+- Frozen input bytes: `input-original.json`.
+- Exact task extraction: `task-original.json`.
+- Exact assignment extraction: `assignment-original.txt`.
+- Readable proof core: `P21.3-core.md`.
+- Proof with literal primary evidence: `P21.3-argument.md`.
+- Standalone typeset paper: `P21.3-paper.tex` and `P21.3-paper.pdf`.
+- Exact imported premises and applicability: `premises.json`.
+- Primary versions, hashes, and inclusive one-based LF intervals: `source-manifest.json`.
+
+Partial reading is recorded explicitly. The supplied unreviewed drafts are diagnostic inputs, not proof premises or acceptance receipts. The bound weak-multiplication unit and our LF extraction differ by exactly one trailing newline; both byte hashes are distinguished in the manifest and evidence.
+
+Run `bash reproduce.sh` in this workspace to check original-data preservation, source-slice integrity, the status and note schemas, and rebuild the paper with the already installed Pandoc and pdfTeX. Build output is retained in `logs/`; `environment.json` records versions. These are finite integrity and compilation checks. They do not verify transfinite induction, current density, or the original mathematical assertion. No other worker, model, install, external message, source-cache mutation or independent review was used. No resource-heavy calculation was needed, and no supervised heavy-compute facility was supplied or launched.
+
+# Reference
+
+[CLD] Antoine Chambert-Loir and Antoine Ducros, *Formes différentielles réelles et courants sur les espaces de Berkovich*, arXiv:1204.6277v2, 25 July 2025. <https://arxiv.org/pdf/1204.6277v2>.
+
+END MATHEMATICAL DATA
+
+
+BEGIN MATHEMATICAL DATA: Actual scoped103 report; external statements are mathematics, provenance labels are documentary
+{
+  "verdict": "PASS",
+  "report": "PASS for the requested new100 partial packet, with the harmless Lemma 2 clarification specified below. This verdict does not resolve original P21.3.\n\nI checked the argument independently, including the supplied primary proofs and their applicability, and opened the cited CLD v2 source. The nine premise records below contain external mathematical statements, without the packet’s reading claims, hashes, acceptance history, or proof commentary. No earlier strict-PL theorem, curve theorem, predecessor packet, or supporting note is used as a grant.\n\nLemma 1 is valid. Competing positive-test decompositions determine identical signed measures because they agree against compact smooth scalars and these are dense among compact continuous scalars. Applying density inside the complement of the test’s support establishes the intrinsic support assertion. Symmetric projection handles the remaining tests. On a compact moment presentation, Θ^q has signed coefficient matrix q! times the identity in orthonormal exterior coordinates. Its restriction remains positive definite on every tangent space of dimension at least q; on smaller faces the relevant restrictions vanish. Finitely many faces therefore give the required common domination constant. The compact analytic neighborhood can contain the cutoff support in its ordinary interior, so the inequalities suffice wherever the cutoff is nonzero. Measure domination then proves C⁰ continuity in the actual chart topology. Restriction and independence of finite positive-current decompositions follow from coefficient-measure uniqueness.\n\nThe two limit arguments are correctly separated. Decreasing sequences use finite coefficient measures of one fixed current and common compact bounds. Continuous multiplication on varying positive nets uses smooth scalar approximation and eventual, rather than global, bounds on each tested mass. No discontinuous multiplier is passed through a varying-current limit.\n\nLemma 2’s sentence ‘The limit is positive’ must mean that S is positive. The precise statement is: S is positive, and v_a S_a converges weakly to vS when the continuous v_a converge locally uniformly to v; positivity of the multiplied limit is guaranteed when v is nonnegative. For a nonzero positive S and v=-1, vS=-S is not positive. This is a wording clarification, not a substantive repair: the proof establishes positivity of S, and no subsequent inference uses positivity of a product with an arbitrary signed continuous scalar. Positivity of differentiated generated-potential products is established separately by Theorem 1. The frozen paper has not been edited.\n\nThe sheafified transfinite construction is sound. Each membership condition is ordinary-local, the stages increase, and their sections remain upper semicontinuous. The set of all open/section pairs bounds the number of strict increases; an equal-successor stage is fixed under both the successor operation and subsequent sheafified limit operations. Minimality then identifies the stationary sheaf with generated Psh. At a successor with locally bounded real final u, every predecessor is finite because u_j≥u and +∞ is excluded. Upper semicontinuity bounds u_1 above on compact sets, while u bounds all predecessors below. Thus every predecessor qualifies for induction and the common bounds in (9) are justified. Both equations d′D(uT)=0 and d″D(uT)=0 follow from square-zero and anticommutation. The endpoint degrees and the ordered recursion through top degree are valid.\n\nTheorem 2’s smooth base case follows from smooth multiplication, differential duality, and the smooth-factor identity. At successors its left side uses the fixed positive current D(vT); its right side uses varying positive D(u_jT) with the continuous multiplier v. Limit ranks and localization are legitimate. Adjacent interchanges therefore establish permutation independence with at most one discontinuous factor, including the maximal permitted number of factors. Signed coefficient measures also justify the subtraction in Corollary 2.2.\n\nTheorem 3 has the correct orientation. On each subopen, take the potentially discontinuous differentiating potential as u and U or V as the continuous factor in Theorem 2. Compatibility identifies the positive currents D(US) and D(VS), whose Borel products with the same locally bounded potential consequently agree. Addition, scaling, ordinary restriction, compatible sheaf gluing, fixed-degree weak positive limits, and smooth middle-positive doubly closed decorations preserve the stated property. For a decoration of type (r,r), the output degree restriction is p+r≤n−1. No arbitrary-current density assertion is needed or obtained.\n\nThe external hypotheses apply on the original ordinary opens over either valuation regime. Compact-support localization requires no global paracompactness. Canonical integration and generic component lengths are retained throughout, including singular and nonreduced spaces. The packet does not depend on reverse Psh/CPsh recognition or on the broader strongly-positive spanning inference. CLD 8.5.3’s indexing inconsistency is bypassed by the correctly graded smooth identity and its duality proof. The false dimension-equality clause in CLD 12.2.4 is excluded; its needed polyhedrality assertion is independently corroborated by the cited [Ducros theorem 3.2](https://webusers.imj-prg.fr/~antoine.ducros/tropicbis.pdf), whose bound is dimension at most that of the source. The displayed primary closure and symmetry proofs do not justify discontinuous extensions by uniform closure alone; the packet supplies its own transfinite arguments. In particular, unrestricted continuous scalar multiplication is not a closed-current closure, and the printed CLD 8.6.7 assertion is not adopted.\n\nProposition 4 is correct: commutation evaluated at zero implies invariance of the measure under each shear. Compact invariant support forces first y=0 and then x=0. The displayed Laurent maps and their inverses are analytic torus automorphisms inducing exactly those shears. The diagnostic surface has the required ambient properties; strict polyannulus neighborhoods can be chosen with radii powers of 2. The partition-of-unity calculation correctly exhibits failure of closedness without overlap compatibility. Neither diagnostic supplies an admissible analytic counterexample.\n\nFinally, the two-sign sufficient condition and the proposed exhaustion implication are valid under their explicit antecedents. Neither antecedent is established for arbitrary currents or equal-curvature differences. Mixed symmetry still contains D(hT), and D[h]=0 only identifies its canonical-integration counterpart. The requested partial results are established; original P21.3 remains unresolved by this packet.",
+  "passages": [
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/0",
+      "statement": "CLD arXiv:1204.6277v2, §11.1, 11.1.7, 15.7.1–2 and 15.2.2–9: The ground field is complete non-Archimedean and may be trivially valued. Analytic spaces have bases of compact neighborhoods, good analytic spaces have bases of affinoid neighborhoods, and ordinary opens are analytic domains. A topologically separated pure n-dimensional analytic space has its canonical calibrated level-n tropical structure, compatible with analytic-domain restriction. A good Hausdorff analytic space is locally holomorphically separated, and a locally holomorphically separated analytic space is locally differentially separated. On a locally holomorphically separated analytic space, compact sets admit compactly supported smooth cutoffs inside prescribed ordinary neighborhoods; compactly supported continuous real functions admit uniform approximation by compactly supported smooth functions inside prescribed ordinary open neighborhoods of their supports, retaining prescribed constant lower and upper bounds. An ordinary open cover of a compact set admits finite nonnegative compactly supported smooth localization subordinate to that cover, with sum equal to one near the compact set.",
+      "url": "https://arxiv.org/pdf/1204.6277v2#page=297",
+      "quote": "sa valeur\nabsolue peut être triviale.",
+      "premise": 0
+    },
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/1",
+      "statement": "CLD arXiv:1204.6277v2, §11.1, 11.1.7, 15.7.1–2 and 15.2.2–9: The ground field is complete non-Archimedean and may be trivially valued. Analytic spaces have bases of compact neighborhoods, good analytic spaces have bases of affinoid neighborhoods, and ordinary opens are analytic domains. A topologically separated pure n-dimensional analytic space has its canonical calibrated level-n tropical structure, compatible with analytic-domain restriction. A good Hausdorff analytic space is locally holomorphically separated, and a locally holomorphically separated analytic space is locally differentially separated. On a locally holomorphically separated analytic space, compact sets admit compactly supported smooth cutoffs inside prescribed ordinary neighborhoods; compactly supported continuous real functions admit uniform approximation by compactly supported smooth functions inside prescribed ordinary open neighborhoods of their supports, retaining prescribed constant lower and upper bounds. An ordinary open cover of a compact set admits finite nonnegative compactly supported smooth localization subordinate to that cover, with sum equal to one near the compact set.",
+      "url": "https://arxiv.org/pdf/1204.6277v2#page=300",
+      "quote": "Et tout ouvert de X (et notamment X lui-même) est un\ndomaine analytique. En particulier, tout point x de X possède un voisinage compact\nqui est une réunion finie de domaines affinoïdes contenant x.",
+      "premise": 0
+    },
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/2",
+      "statement": "CLD arXiv:1204.6277v2, §11.1, 11.1.7, 15.7.1–2 and 15.2.2–9: The ground field is complete non-Archimedean and may be trivially valued. Analytic spaces have bases of compact neighborhoods, good analytic spaces have bases of affinoid neighborhoods, and ordinary opens are analytic domains. A topologically separated pure n-dimensional analytic space has its canonical calibrated level-n tropical structure, compatible with analytic-domain restriction. A good Hausdorff analytic space is locally holomorphically separated, and a locally holomorphically separated analytic space is locally differentially separated. On a locally holomorphically separated analytic space, compact sets admit compactly supported smooth cutoffs inside prescribed ordinary neighborhoods; compactly supported continuous real functions admit uniform approximation by compactly supported smooth functions inside prescribed ordinary open neighborhoods of their supports, retaining prescribed constant lower and upper bounds. An ordinary open cover of a compact set admits finite nonnegative compactly supported smooth localization subordinate to that cover, with sum equal to one near the compact set.",
+      "url": "https://arxiv.org/pdf/1204.6277v2#page=300",
+      "quote": "Les espaces définis dans [8]\nsont ceux qui sont qualifiés de bons dans [9], c’est-à-dire ceux dont tout point admet un\nvoisinage affinoïde (et donc une base de voisinages affinoïdes.)",
+      "premise": 0
+    },
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/3",
+      "statement": "CLD arXiv:1204.6277v2, §11.1, 11.1.7, 15.7.1–2 and 15.2.2–9: The ground field is complete non-Archimedean and may be trivially valued. Analytic spaces have bases of compact neighborhoods, good analytic spaces have bases of affinoid neighborhoods, and ordinary opens are analytic domains. A topologically separated pure n-dimensional analytic space has its canonical calibrated level-n tropical structure, compatible with analytic-domain restriction. A good Hausdorff analytic space is locally holomorphically separated, and a locally holomorphically separated analytic space is locally differentially separated. On a locally holomorphically separated analytic space, compact sets admit compactly supported smooth cutoffs inside prescribed ordinary neighborhoods; compactly supported continuous real functions admit uniform approximation by compactly supported smooth functions inside prescribed ordinary open neighborhoods of their supports, retaining prescribed constant lower and upper bounds. An ordinary open cover of a compact set admits finite nonnegative compactly supported smooth localization subordinate to that cover, with sum equal to one near the compact set.",
+      "url": "https://arxiv.org/pdf/1204.6277v2#page=432",
+      "quote": "Théorème 15.7.1. — Soit X un espace analytique purement de dimension n, topolo-\ngiquement séparé. Muni de son bord ∂(X) au sens de la théorie des espaces analytiques,\nl’espace G-tropical affiné et calibré de niveau n associé à X est un espace tropical de\nniveau n.",
+      "premise": 0
+    },
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/4",
+      "statement": "CLD arXiv:1204.6277v2, §11.1, 11.1.7, 15.7.1–2 and 15.2.2–9: The ground field is complete non-Archimedean and may be trivially valued. Analytic spaces have bases of compact neighborhoods, good analytic spaces have bases of affinoid neighborhoods, and ordinary opens are analytic domains. A topologically separated pure n-dimensional analytic space has its canonical calibrated level-n tropical structure, compatible with analytic-domain restriction. A good Hausdorff analytic space is locally holomorphically separated, and a locally holomorphically separated analytic space is locally differentially separated. On a locally holomorphically separated analytic space, compact sets admit compactly supported smooth cutoffs inside prescribed ordinary neighborhoods; compactly supported continuous real functions admit uniform approximation by compactly supported smooth functions inside prescribed ordinary open neighborhoods of their supports, retaining prescribed constant lower and upper bounds. An ordinary open cover of a compact set admits finite nonnegative compactly supported smooth localization subordinate to that cover, with sum equal to one near the compact set.",
+      "url": "https://arxiv.org/pdf/1204.6277v2#page=433",
+      "quote": "La formule ∂(V ) = (∂(X) ∩ V ) ∪ ∂(V /X)\nmontre que ces deux structures coïncident.",
+      "premise": 0
+    },
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/5",
+      "statement": "CLD arXiv:1204.6277v2, §11.1, 11.1.7, 15.7.1–2 and 15.2.2–9: The ground field is complete non-Archimedean and may be trivially valued. Analytic spaces have bases of compact neighborhoods, good analytic spaces have bases of affinoid neighborhoods, and ordinary opens are analytic domains. A topologically separated pure n-dimensional analytic space has its canonical calibrated level-n tropical structure, compatible with analytic-domain restriction. A good Hausdorff analytic space is locally holomorphically separated, and a locally holomorphically separated analytic space is locally differentially separated. On a locally holomorphically separated analytic space, compact sets admit compactly supported smooth cutoffs inside prescribed ordinary neighborhoods; compactly supported continuous real functions admit uniform approximation by compactly supported smooth functions inside prescribed ordinary open neighborhoods of their supports, retaining prescribed constant lower and upper bounds. An ordinary open cover of a compact set admits finite nonnegative compactly supported smooth localization subordinate to that cover, with sum equal to one near the compact set.",
+      "url": "https://arxiv.org/pdf/1204.6277v2#page=423",
+      "quote": "Un espace analytique topologiquement séparé qui est bon, ou plus généralement dont\ntout point possède un voisinage isomorphe à un domaine analytique d’un espace affi-\nnoïde, est localement holomorphiquement séparé.",
+      "premise": 0
+    },
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/6",
+      "statement": "CLD arXiv:1204.6277v2, §11.1, 11.1.7, 15.7.1–2 and 15.2.2–9: The ground field is complete non-Archimedean and may be trivially valued. Analytic spaces have bases of compact neighborhoods, good analytic spaces have bases of affinoid neighborhoods, and ordinary opens are analytic domains. A topologically separated pure n-dimensional analytic space has its canonical calibrated level-n tropical structure, compatible with analytic-domain restriction. A good Hausdorff analytic space is locally holomorphically separated, and a locally holomorphically separated analytic space is locally differentially separated. On a locally holomorphically separated analytic space, compact sets admit compactly supported smooth cutoffs inside prescribed ordinary neighborhoods; compactly supported continuous real functions admit uniform approximation by compactly supported smooth functions inside prescribed ordinary open neighborhoods of their supports, retaining prescribed constant lower and upper bounds. An ordinary open cover of a compact set admits finite nonnegative compactly supported smooth localization subordinate to that cover, with sum equal to one near the compact set.",
+      "url": "https://arxiv.org/pdf/1204.6277v2#page=423",
+      "quote": "Corollaire 15.2.4. — Soit X un espace k-analytique localement holomorphiquement\nséparé. L’espace G-tropical affiné X est localement différentiellement séparé.",
+      "premise": 0
+    },
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/7",
+      "statement": "CLD arXiv:1204.6277v2, §11.1, 11.1.7, 15.7.1–2 and 15.2.2–9: The ground field is complete non-Archimedean and may be trivially valued. Analytic spaces have bases of compact neighborhoods, good analytic spaces have bases of affinoid neighborhoods, and ordinary opens are analytic domains. A topologically separated pure n-dimensional analytic space has its canonical calibrated level-n tropical structure, compatible with analytic-domain restriction. A good Hausdorff analytic space is locally holomorphically separated, and a locally holomorphically separated analytic space is locally differentially separated. On a locally holomorphically separated analytic space, compact sets admit compactly supported smooth cutoffs inside prescribed ordinary neighborhoods; compactly supported continuous real functions admit uniform approximation by compactly supported smooth functions inside prescribed ordinary open neighborhoods of their supports, retaining prescribed constant lower and upper bounds. An ordinary open cover of a compact set admits finite nonnegative compactly supported smooth localization subordinate to that cover, with sum equal to one near the compact set.",
+      "url": "https://arxiv.org/pdf/1204.6277v2#page=424",
+      "quote": "Corollaire 15.2.5. — Soit X un espace analytique localement holomorphiquement sé-\nparé. Soit K une partie compacte de X et soit U un voisinage ouvert de K. Il existe\nune fonction lisse sur X qui vaut 1 au voisinage de K et dont le support est compact et\ncontenu dans U .",
+      "premise": 0
+    },
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/8",
+      "statement": "CLD arXiv:1204.6277v2, §11.1, 11.1.7, 15.7.1–2 and 15.2.2–9: The ground field is complete non-Archimedean and may be trivially valued. Analytic spaces have bases of compact neighborhoods, good analytic spaces have bases of affinoid neighborhoods, and ordinary opens are analytic domains. A topologically separated pure n-dimensional analytic space has its canonical calibrated level-n tropical structure, compatible with analytic-domain restriction. A good Hausdorff analytic space is locally holomorphically separated, and a locally holomorphically separated analytic space is locally differentially separated. On a locally holomorphically separated analytic space, compact sets admit compactly supported smooth cutoffs inside prescribed ordinary neighborhoods; compactly supported continuous real functions admit uniform approximation by compactly supported smooth functions inside prescribed ordinary open neighborhoods of their supports, retaining prescribed constant lower and upper bounds. An ordinary open cover of a compact set admits finite nonnegative compactly supported smooth localization subordinate to that cover, with sum equal to one near the compact set.",
+      "url": "https://arxiv.org/pdf/1204.6277v2#page=424",
+      "quote": "Pour tout ε > 0, il existe une fonction lisse g sur X\ndont le support est compact, contenu dans U , telle que |f (x) − g(x)| < ε pour tout x ∈ X\net telle que a ⩽ g ⩽ b.",
+      "premise": 0
+    },
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/9",
+      "statement": "CLD arXiv:1204.6277v2, §11.1, 11.1.7, 15.7.1–2 and 15.2.2–9: The ground field is complete non-Archimedean and may be trivially valued. Analytic spaces have bases of compact neighborhoods, good analytic spaces have bases of affinoid neighborhoods, and ordinary opens are analytic domains. A topologically separated pure n-dimensional analytic space has its canonical calibrated level-n tropical structure, compatible with analytic-domain restriction. A good Hausdorff analytic space is locally holomorphically separated, and a locally holomorphically separated analytic space is locally differentially separated. On a locally holomorphically separated analytic space, compact sets admit compactly supported smooth cutoffs inside prescribed ordinary neighborhoods; compactly supported continuous real functions admit uniform approximation by compactly supported smooth functions inside prescribed ordinary open neighborhoods of their supports, retaining prescribed constant lower and upper bounds. An ordinary open cover of a compact set admits finite nonnegative compactly supported smooth localization subordinate to that cover, with sum equal to one near the compact set.",
+      "url": "https://arxiv.org/pdf/1204.6277v2#page=424",
+      "quote": "Corollaire 15.2.9. — Soit X un espace analytique localement holomorphiquement sé-\nparé et soit F une partie fermée de X qui est dénombrable à l’infini (par exemple, com-\npacte).",
+      "premise": 0
+    },
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/10",
+      "statement": "CLD v2, Definitions 8.1.1 and 8.1.7 and Lemma 8.1.4: On an affined G-tropical space, generated Psh is the smallest ordinary subsheaf of functions with values in R∪{−∞} containing smooth functions with positive smooth Hessian and closed under decreasing sequential limits. Its ordinal construction starts with those smooth generators, takes ordinary-local decreasing sequential limits at successors, and ordinary-local membership in earlier stages at limit ordinals. CPsh is instead the smallest ordinary subsheaf of real continuous functions containing the same smooth generators and closed under uniform sequential limits.",
+      "url": "https://arxiv.org/pdf/1204.6277v2#page=195",
+      "quote": "Définition 8.1.1. — On note PshX le plus petit sous-faisceau du faisceau des fonctions\nsur X, à valeurs dans R ∪ {−∞}, tel que pour tout ouvert U de X, l’ensemble PshX (U )\nvérifie les propriétés :\n  i) Il contient les fonctions lisses u sur U telles que d′ d′′ u ⩾ 0 ;\n  ii) Il est stable par limite décroissante de suites.",
+      "premise": 1
+    },
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/11",
+      "statement": "CLD v2, Definitions 8.1.1 and 8.1.7 and Lemma 8.1.4: On an affined G-tropical space, generated Psh is the smallest ordinary subsheaf of functions with values in R∪{−∞} containing smooth functions with positive smooth Hessian and closed under decreasing sequential limits. Its ordinal construction starts with those smooth generators, takes ordinary-local decreasing sequential limits at successors, and ordinary-local membership in earlier stages at limit ordinals. CPsh is instead the smallest ordinary subsheaf of real continuous functions containing the same smooth generators and closed under uniform sequential limits.",
+      "url": "https://arxiv.org/pdf/1204.6277v2#page=196",
+      "quote": "b) Si α est un ordinal, on définit PshX,α+1 comme le sous-faisceau des fonctions sur X\nqui sont localement limites décroissantes de fonctions de PshX,α ;\n   c) Si α est un ordinal limite, on définit PshX,α comme le sous-faisceau des fonctions\nsur X qui appartiennent localement à un PshX,β pour β < α.",
+      "premise": 1
+    },
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/12",
+      "statement": "CLD v2, Definitions 8.1.1 and 8.1.7 and Lemma 8.1.4: On an affined G-tropical space, generated Psh is the smallest ordinary subsheaf of functions with values in R∪{−∞} containing smooth functions with positive smooth Hessian and closed under decreasing sequential limits. Its ordinal construction starts with those smooth generators, takes ordinary-local decreasing sequential limits at successors, and ordinary-local membership in earlier stages at limit ordinals. CPsh is instead the smallest ordinary subsheaf of real continuous functions containing the same smooth generators and closed under uniform sequential limits.",
+      "url": "https://arxiv.org/pdf/1204.6277v2#page=196",
+      "quote": "Définition 8.1.7. — On note CPshX le plus petit sous-faisceau du faisceau CX des\nfonctions continues sur X",
+      "premise": 1
+    },
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/13",
+      "statement": "CLD v2, Definitions 8.1.1 and 8.1.7 and Lemma 8.1.4: On an affined G-tropical space, generated Psh is the smallest ordinary subsheaf of functions with values in R∪{−∞} containing smooth functions with positive smooth Hessian and closed under decreasing sequential limits. Its ordinal construction starts with those smooth generators, takes ordinary-local decreasing sequential limits at successors, and ordinary-local membership in earlier stages at limit ordinals. CPsh is instead the smallest ordinary subsheaf of real continuous functions containing the same smooth generators and closed under uniform sequential limits.",
+      "url": "https://arxiv.org/pdf/1204.6277v2#page=197",
+      "quote": "ii) Il est stable par limite uniforme.",
+      "premise": 1
+    },
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/14",
+      "statement": "CLD v2, Proposition 6.5.2, Definition 7.2.1, Remark 7.2.3, Lemmas 7.2.4 and 7.2.7(b), and Propositions 1.2.12, 1.10.3 and 3.5.5: Every compactly supported symmetric smooth (q,q)-form whose support is contained in a paracompact locally differentially separated open is a difference of two compactly supported middle-positive smooth forms; the support condition holds for compact supports on almost-good analytic spaces. On a locally differentially separated level-n tropical space, middle-positive currents are symmetric and nonnegative on middle-positive complementary compact tests, and middle positivity is ordinary-local. The middle-positive current cone is pointed. Wedges of middle-positive forms are middle-positive, and wedging a middle-positive current with a smooth middle-positive form preserves middle positivity in compatible degrees.",
+      "url": "https://arxiv.org/pdf/1204.6277v2#page=148",
+      "quote": "Proposition 6.5.2. — Soit ω une forme de type (p, p) et symétrique sur X, à coef-\nficients dans G dont le support est contenu dans un ouvert paracompact et localement\ndifférentiellement séparé de X.\n   a) Il existe des formes positives ω1 et ω2 sur X, à coefficients dans G , telles que\nω = ω1 − ω2 .\n   b) Si, de plus, le support de ω est compact, les formes ω1 et ω2 peuvent être choisies\nà support compact.",
+      "premise": 2
+    },
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/15",
+      "statement": "CLD v2, Proposition 6.5.2, Definition 7.2.1, Remark 7.2.3, Lemmas 7.2.4 and 7.2.7(b), and Propositions 1.2.12, 1.10.3 and 3.5.5: Every compactly supported symmetric smooth (q,q)-form whose support is contained in a paracompact locally differentially separated open is a difference of two compactly supported middle-positive smooth forms; the support condition holds for compact supports on almost-good analytic spaces. On a locally differentially separated level-n tropical space, middle-positive currents are symmetric and nonnegative on middle-positive complementary compact tests, and middle positivity is ordinary-local. The middle-positive current cone is pointed. Wedges of middle-positive forms are middle-positive, and wedging a middle-positive current with a smooth middle-positive form preserves middle positivity in compatible degrees.",
+      "url": "https://arxiv.org/pdf/1204.6277v2#page=148",
+      "quote": "Dans le cas des espaces analytiques, elle sera\négalement réalisée si le support de ω est compact et si l’espace X est presque bon.",
+      "premise": 2
+    },
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/16",
+      "statement": "CLD v2, Proposition 6.5.2, Definition 7.2.1, Remark 7.2.3, Lemmas 7.2.4 and 7.2.7(b), and Propositions 1.2.12, 1.10.3 and 3.5.5: Every compactly supported symmetric smooth (q,q)-form whose support is contained in a paracompact locally differentially separated open is a difference of two compactly supported middle-positive smooth forms; the support condition holds for compact supports on almost-good analytic spaces. On a locally differentially separated level-n tropical space, middle-positive currents are symmetric and nonnegative on middle-positive complementary compact tests, and middle positivity is ordinary-local. The middle-positive current cone is pointed. Wedges of middle-positive forms are middle-positive, and wedging a middle-positive current with a smooth middle-positive form preserves middle positivity in compatible degrees.",
+      "url": "https://arxiv.org/pdf/1204.6277v2#page=160",
+      "quote": "Un courant S de bidimension (p, p) est dit\nfaiblement positif, respectivement positif, respectivement fortement positif, s’il est sy-\nmétrique et si pour toute forme α ∈ Acp,p (X) qui est fortement positive, respectivement\npositive, respectivement faiblement positive, on a ⟨S, α⟩ ⩾ 0.",
+      "premise": 2
+    },
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/17",
+      "statement": "CLD v2, Proposition 6.5.2, Definition 7.2.1, Remark 7.2.3, Lemmas 7.2.4 and 7.2.7(b), and Propositions 1.2.12, 1.10.3 and 3.5.5: Every compactly supported symmetric smooth (q,q)-form whose support is contained in a paracompact locally differentially separated open is a difference of two compactly supported middle-positive smooth forms; the support condition holds for compact supports on almost-good analytic spaces. On a locally differentially separated level-n tropical space, middle-positive currents are symmetric and nonnegative on middle-positive complementary compact tests, and middle positivity is ordinary-local. The middle-positive current cone is pointed. Wedges of middle-positive forms are middle-positive, and wedging a middle-positive current with a smooth middle-positive form preserves middle positivity in compatible degrees.",
+      "url": "https://arxiv.org/pdf/1204.6277v2#page=160",
+      "quote": "Soit T un courant tel que T et −T sont positifs ; démontrons\nque T = 0.",
+      "premise": 2
+    },
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/18",
+      "statement": "CLD v2, Proposition 6.5.2, Definition 7.2.1, Remark 7.2.3, Lemmas 7.2.4 and 7.2.7(b), and Propositions 1.2.12, 1.10.3 and 3.5.5: Every compactly supported symmetric smooth (q,q)-form whose support is contained in a paracompact locally differentially separated open is a difference of two compactly supported middle-positive smooth forms; the support condition holds for compact supports on almost-good analytic spaces. On a locally differentially separated level-n tropical space, middle-positive currents are symmetric and nonnegative on middle-positive complementary compact tests, and middle positivity is ordinary-local. The middle-positive current cone is pointed. Wedges of middle-positive forms are middle-positive, and wedging a middle-positive current with a smooth middle-positive form preserves middle positivity in compatible degrees.",
+      "url": "https://arxiv.org/pdf/1204.6277v2#page=160",
+      "quote": "Lemme 7.2.4. — Supposons que l’espace tropical X soit localement différentiellement\nséparé. Les courants de bidimension (p, p) positifs ( resp. faiblement positifs, resp. for-\ntement positifs) forment un sous-faisceau du faisceau Dp,p (X)",
+      "premise": 2
+    },
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/19",
+      "statement": "CLD v2, Proposition 6.5.2, Definition 7.2.1, Remark 7.2.3, Lemmas 7.2.4 and 7.2.7(b), and Propositions 1.2.12, 1.10.3 and 3.5.5: Every compactly supported symmetric smooth (q,q)-form whose support is contained in a paracompact locally differentially separated open is a difference of two compactly supported middle-positive smooth forms; the support condition holds for compact supports on almost-good analytic spaces. On a locally differentially separated level-n tropical space, middle-positive currents are symmetric and nonnegative on middle-positive complementary compact tests, and middle positivity is ordinary-local. The middle-positive current cone is pointed. Wedges of middle-positive forms are middle-positive, and wedging a middle-positive current with a smooth middle-positive form preserves middle positivity in compatible degrees.",
+      "url": "https://arxiv.org/pdf/1204.6277v2#page=27",
+      "quote": "b) Si les ωj sont toutes positives, alors ω est positive.",
+      "premise": 2
+    },
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/20",
+      "statement": "CLD v2, Proposition 6.5.2, Definition 7.2.1, Remark 7.2.3, Lemmas 7.2.4 and 7.2.7(b), and Propositions 1.2.12, 1.10.3 and 3.5.5: Every compactly supported symmetric smooth (q,q)-form whose support is contained in a paracompact locally differentially separated open is a difference of two compactly supported middle-positive smooth forms; the support condition holds for compact supports on almost-good analytic spaces. On a locally differentially separated level-n tropical space, middle-positive currents are symmetric and nonnegative on middle-positive complementary compact tests, and middle positivity is ordinary-local. The middle-positive current cone is pointed. Wedges of middle-positive forms are middle-positive, and wedging a middle-positive current with a smooth middle-positive form preserves middle positivity in compatible degrees.",
+      "url": "https://arxiv.org/pdf/1204.6277v2#page=161",
+      "quote": "b) Supposons que la forme α soit positive. Si T est positif, le courant T ∧ α est positif.",
+      "premise": 2
+    },
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/21",
+      "statement": "CLD v2, Proposition 7.2.8 and §7.2.11: On a locally differentially separated level-n tropical space, positive Radon measures correspond bijectively to positive scalar-test currents, and their induced currents have order zero. For a middle-positive current T and a middle-positive complementary smooth form η, T∧η corresponds to a unique positive Radon measure μ satisfying ∫g dμ=⟨T,gη⟩ for every compactly supported smooth scalar g. This coefficient measure has compact support when η does.",
+      "url": "https://arxiv.org/pdf/1204.6277v2#page=161",
+      "quote": "Proposition 7.2.8. — Soit X un espace tropical de niveau n, localement différentiel-\nlement séparé.\n  a) Toute mesure de Radon positive µ sur X induit, par restriction à Ac (X), un courant\npositif [µ] d’ordre 0.\n  b) L’application µ 7→ [µ] ainsi définie est une bijection continue de l’espace des me-\nsures de Radon positives sur X sur l’espace des courants positifs de bidimension (0, 0)",
+      "premise": 3
+    },
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/22",
+      "statement": "CLD v2, Proposition 7.2.8 and §7.2.11: On a locally differentially separated level-n tropical space, positive Radon measures correspond bijectively to positive scalar-test currents, and their induced currents have order zero. For a middle-positive current T and a middle-positive complementary smooth form η, T∧η corresponds to a unique positive Radon measure μ satisfying ∫g dμ=⟨T,gη⟩ for every compactly supported smooth scalar g. This coefficient measure has compact support when η does.",
+      "url": "https://arxiv.org/pdf/1204.6277v2#page=163",
+      "quote": "Le courant T ∧ω est positif, de bidimension (0, 0) ; d’après la proposition 7.2.8,\nil est donc associé à une unique mesure µTω sur X. Cette mesure applique une fonction\nlisse à suppport compact u sur ⟨uT, ω⟩. Lorsque ω est à support compact, cette mesure\nest à support compact.",
+      "premise": 3
+    },
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/23",
+      "statement": "CLD v2, §§1.2.6–7, Definition 1.10.1, §§3.3.1–2, Theorem 12.2.4 and §§7.1.1–3: For a symmetric (q,q)-superform written as σ_q Σ a_IJ d′x_I∧d″x_J, where σ_q=(−1)^{q(q−1)/2}, middle positivity is equivalent to positive semidefiniteness of the symmetric matrix (a_IJ) on the qth exterior power. Positivity on a polyhedral space is tested on tangent spaces of cells, and it suffices to test maximal cells of a cellular decomposition. The tropical image of a compact analytic space under a moment map is compact polyhedral. Compactly supported test-form topology is the inductive topology over fixed compact supports and covering moment presentations, with cellwise coefficient C^r seminorms. On a locally differentially separated space, continuity may be checked on fixed ordinary moment charts after multiplication by nonnegative compactly supported smooth cutoffs. The compact-image assertion is also Theorem 3.2 of Ducros, Espaces de Berkovich, polytopes, squelettes et théorie des modèles: for compact Γ-strict spaces over a complete non-Archimedean field, with Γ·|K×| nontrivial, the image under a finite family of invertible analytic functions is a finite polytope of dimension at most the source dimension.",
+      "url": "https://arxiv.org/pdf/1204.6277v2#page=25",
+      "quote": "a) La forme ω est positive ( resp. définie positive) ;\n   b) La matrice symétrique (ωI,J ) (indexée par les parties à p éléments de {1, . . . , n})\nest positive ( resp. définie positive)",
+      "premise": 4
+    },
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/24",
+      "statement": "CLD v2, §§1.2.6–7, Definition 1.10.1, §§3.3.1–2, Theorem 12.2.4 and §§7.1.1–3: For a symmetric (q,q)-superform written as σ_q Σ a_IJ d′x_I∧d″x_J, where σ_q=(−1)^{q(q−1)/2}, middle positivity is equivalent to positive semidefiniteness of the symmetric matrix (a_IJ) on the qth exterior power. Positivity on a polyhedral space is tested on tangent spaces of cells, and it suffices to test maximal cells of a cellular decomposition. The tropical image of a compact analytic space under a moment map is compact polyhedral. Compactly supported test-form topology is the inductive topology over fixed compact supports and covering moment presentations, with cellwise coefficient C^r seminorms. On a locally differentially separated space, continuity may be checked on fixed ordinary moment charts after multiplication by nonnegative compactly supported smooth cutoffs. The compact-image assertion is also Theorem 3.2 of Ducros, Espaces de Berkovich, polytopes, squelettes et théorie des modèles: for compact Γ-strict spaces over a complete non-Archimedean field, with Γ·|K×| nontrivial, the image under a finite family of invertible analytic functions is a finite polytope of dimension at most the source dimension.",
+      "url": "https://arxiv.org/pdf/1204.6277v2#page=55",
+      "quote": "il suffit de vérifier cette condition pour toute cellule\nmaximale d’une décomposition cellulaire de P .",
+      "premise": 4
+    },
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/25",
+      "statement": "CLD v2, §§1.2.6–7, Definition 1.10.1, §§3.3.1–2, Theorem 12.2.4 and §§7.1.1–3: For a symmetric (q,q)-superform written as σ_q Σ a_IJ d′x_I∧d″x_J, where σ_q=(−1)^{q(q−1)/2}, middle positivity is equivalent to positive semidefiniteness of the symmetric matrix (a_IJ) on the qth exterior power. Positivity on a polyhedral space is tested on tangent spaces of cells, and it suffices to test maximal cells of a cellular decomposition. The tropical image of a compact analytic space under a moment map is compact polyhedral. Compactly supported test-form topology is the inductive topology over fixed compact supports and covering moment presentations, with cellwise coefficient C^r seminorms. On a locally differentially separated space, continuity may be checked on fixed ordinary moment charts after multiplication by nonnegative compactly supported smooth cutoffs. The compact-image assertion is also Theorem 3.2 of Ducros, Espaces de Berkovich, polytopes, squelettes et théorie des modèles: for compact Γ-strict spaces over a complete non-Archimedean field, with Γ·|K×| nontrivial, the image under a finite family of invertible analytic functions is a finite polytope of dimension at most the source dimension.",
+      "url": "https://arxiv.org/pdf/1204.6277v2#page=335",
+      "quote": "Théorème 12.2.4. — Soit X un espace k-analytique compact et soit f : X → T un\nmoment. Le sous-espace compact ftrop (X) est un polyèdre de Ttrop",
+      "premise": 4
+    },
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/26",
+      "statement": "CLD v2, §§1.2.6–7, Definition 1.10.1, §§3.3.1–2, Theorem 12.2.4 and §§7.1.1–3: For a symmetric (q,q)-superform written as σ_q Σ a_IJ d′x_I∧d″x_J, where σ_q=(−1)^{q(q−1)/2}, middle positivity is equivalent to positive semidefiniteness of the symmetric matrix (a_IJ) on the qth exterior power. Positivity on a polyhedral space is tested on tangent spaces of cells, and it suffices to test maximal cells of a cellular decomposition. The tropical image of a compact analytic space under a moment map is compact polyhedral. Compactly supported test-form topology is the inductive topology over fixed compact supports and covering moment presentations, with cellwise coefficient C^r seminorms. On a locally differentially separated space, continuity may be checked on fixed ordinary moment charts after multiplication by nonnegative compactly supported smooth cutoffs. The compact-image assertion is also Theorem 3.2 of Ducros, Espaces de Berkovich, polytopes, squelettes et théorie des modèles: for compact Γ-strict spaces over a complete non-Archimedean field, with Γ·|K×| nontrivial, the image under a finite family of invertible analytic functions is a finite polytope of dimension at most the source dimension.",
+      "url": "https://webusers.imj-prg.fr/~antoine.ducros/tropicbis.pdf#page=37",
+      "quote": "L’image |f|(X) est un c-polytope",
+      "premise": 4
+    },
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/27",
+      "statement": "CLD v2, §§1.2.6–7, Definition 1.10.1, §§3.3.1–2, Theorem 12.2.4 and §§7.1.1–3: For a symmetric (q,q)-superform written as σ_q Σ a_IJ d′x_I∧d″x_J, where σ_q=(−1)^{q(q−1)/2}, middle positivity is equivalent to positive semidefiniteness of the symmetric matrix (a_IJ) on the qth exterior power. Positivity on a polyhedral space is tested on tangent spaces of cells, and it suffices to test maximal cells of a cellular decomposition. The tropical image of a compact analytic space under a moment map is compact polyhedral. Compactly supported test-form topology is the inductive topology over fixed compact supports and covering moment presentations, with cellwise coefficient C^r seminorms. On a locally differentially separated space, continuity may be checked on fixed ordinary moment charts after multiplication by nonnegative compactly supported smooth cutoffs. The compact-image assertion is also Theorem 3.2 of Ducros, Espaces de Berkovich, polytopes, squelettes et théorie des modèles: for compact Γ-strict spaces over a complete non-Archimedean field, with Γ·|K×| nontrivial, the image under a finite family of invertible analytic functions is a finite polytope of dimension at most the source dimension.",
+      "url": "https://arxiv.org/pdf/1204.6277v2#page=155",
+      "quote": "L’espace Acp,q (X) est la limite inductive des espaces AD,K",
+      "premise": 4
+    },
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/28",
+      "statement": "CLD v2, §§1.2.6–7, Definition 1.10.1, §§3.3.1–2, Theorem 12.2.4 and §§7.1.1–3: For a symmetric (q,q)-superform written as σ_q Σ a_IJ d′x_I∧d″x_J, where σ_q=(−1)^{q(q−1)/2}, middle positivity is equivalent to positive semidefiniteness of the symmetric matrix (a_IJ) on the qth exterior power. Positivity on a polyhedral space is tested on tangent spaces of cells, and it suffices to test maximal cells of a cellular decomposition. The tropical image of a compact analytic space under a moment map is compact polyhedral. Compactly supported test-form topology is the inductive topology over fixed compact supports and covering moment presentations, with cellwise coefficient C^r seminorms. On a locally differentially separated space, continuity may be checked on fixed ordinary moment charts after multiplication by nonnegative compactly supported smooth cutoffs. The compact-image assertion is also Theorem 3.2 of Ducros, Espaces de Berkovich, polytopes, squelettes et théorie des modèles: for compact Γ-strict spaces over a complete non-Archimedean field, with Γ·|K×| nontrivial, the image under a finite family of invertible analytic functions is a finite polytope of dimension at most the source dimension.",
+      "url": "https://arxiv.org/pdf/1204.6277v2#page=155",
+      "quote": "Pour fixer une semi-norme dans\nchaqque classe, il faut choisir une décomposition cellulaire de g(W ) et des systèmes de\ncoordonnées affines sur chaque cellule.",
+      "premise": 4
+    },
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/29",
+      "statement": "CLD v2, §§1.2.6–7, Definition 1.10.1, §§3.3.1–2, Theorem 12.2.4 and §§7.1.1–3: For a symmetric (q,q)-superform written as σ_q Σ a_IJ d′x_I∧d″x_J, where σ_q=(−1)^{q(q−1)/2}, middle positivity is equivalent to positive semidefiniteness of the symmetric matrix (a_IJ) on the qth exterior power. Positivity on a polyhedral space is tested on tangent spaces of cells, and it suffices to test maximal cells of a cellular decomposition. The tropical image of a compact analytic space under a moment map is compact polyhedral. Compactly supported test-form topology is the inductive topology over fixed compact supports and covering moment presentations, with cellwise coefficient C^r seminorms. On a locally differentially separated space, continuity may be checked on fixed ordinary moment charts after multiplication by nonnegative compactly supported smooth cutoffs. The compact-image assertion is also Theorem 3.2 of Ducros, Espaces de Berkovich, polytopes, squelettes et théorie des modèles: for compact Γ-strict spaces over a complete non-Archimedean field, with Γ·|K×| nontrivial, the image under a finite family of invertible analytic functions is a finite polytope of dimension at most the source dimension.",
+      "url": "https://arxiv.org/pdf/1204.6277v2#page=156",
+      "quote": "Pour que S soit continue pour la topologie C r il faut et il suffit que\npour toute carte tropicale f définie sur un ouvert U de X appartenant à la base U et\ntoute fonction ρ sur U , lisse, positive et à support compact",
+      "premise": 4
+    },
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/30",
+      "statement": "CLD v2, §§3.3.10–12, 7.1.5–7, 7.7.1–5 and 8.5.3–4: Ordinary smooth forms have compatible restrictions, products, pullbacks and the graded Leibniz rules. On a locally differentially separated level-n tropical space, ordinary currents and currents of each bounded order form ordinary sheaves, with restriction defined by extension of compact tests by zero. Current differentials are weakly continuous and satisfy (d′)^2=(d″)^2=0, d″d′=−d′d″, DJ=JD, and ⟨DR,α⟩=⟨R,Dα⟩ in compatible degrees, where D=d′d″. For a smooth real scalar s and a symmetric current R of bidegree (p,p), with d′R=d″R=0 and p≤n−1, D(sR)=Ds∧R.",
+      "url": "https://arxiv.org/pdf/1204.6277v2#page=81",
+      "quote": "Les différentielles vérifient la règle de Leibniz",
+      "premise": 5
+    },
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/31",
+      "statement": "CLD v2, §§3.3.10–12, 7.1.5–7, 7.7.1–5 and 8.5.3–4: Ordinary smooth forms have compatible restrictions, products, pullbacks and the graded Leibniz rules. On a locally differentially separated level-n tropical space, ordinary currents and currents of each bounded order form ordinary sheaves, with restriction defined by extension of compact tests by zero. Current differentials are weakly continuous and satisfy (d′)^2=(d″)^2=0, d″d′=−d′d″, DJ=JD, and ⟨DR,α⟩=⟨R,Dα⟩ in compatible degrees, where D=d′d″. For a smooth real scalar s and a symmetric current R of bidegree (p,p), with d′R=d″R=0 and p≤n−1, D(sR)=Ds∧R.",
+      "url": "https://arxiv.org/pdf/1204.6277v2#page=81",
+      "quote": "sont des morphismes d’anneaux gradués, commutent aux dérivations d′ et\nd′′ (lorsqu’elles existent) et à l’opérateur J.",
+      "premise": 5
+    },
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/32",
+      "statement": "CLD v2, §§3.3.10–12, 7.1.5–7, 7.7.1–5 and 8.5.3–4: Ordinary smooth forms have compatible restrictions, products, pullbacks and the graded Leibniz rules. On a locally differentially separated level-n tropical space, ordinary currents and currents of each bounded order form ordinary sheaves, with restriction defined by extension of compact tests by zero. Current differentials are weakly continuous and satisfy (d′)^2=(d″)^2=0, d″d′=−d′d″, DJ=JD, and ⟨DR,α⟩=⟨R,Dα⟩ in compatible degrees, where D=d′d″. For a smooth real scalar s and a symmetric current R of bidegree (p,p), with d′R=d″R=0 and p≤n−1, D(sR)=Ds∧R.",
+      "url": "https://arxiv.org/pdf/1204.6277v2#page=157",
+      "quote": "Proposition 7.1.7. — Supposons que l’espace tropical X soit localement différentiel-\nlement séparé. Le préfaisceau Dp,q sur X est un faisceau de A 0,0 -modules. Pour tout\nentier r, le sous-préfaisceau des courants d’ordre ⩽ r en est un sous-faisceau.",
+      "premise": 5
+    },
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/33",
+      "statement": "CLD v2, §§3.3.10–12, 7.1.5–7, 7.7.1–5 and 8.5.3–4: Ordinary smooth forms have compatible restrictions, products, pullbacks and the graded Leibniz rules. On a locally differentially separated level-n tropical space, ordinary currents and currents of each bounded order form ordinary sheaves, with restriction defined by extension of compact tests by zero. Current differentials are weakly continuous and satisfy (d′)^2=(d″)^2=0, d″d′=−d′d″, DJ=JD, and ⟨DR,α⟩=⟨R,Dα⟩ in compatible degrees, where D=d′d″. For a smooth real scalar s and a symmetric current R of bidegree (p,p), with d′R=d″R=0 and p≤n−1, D(sR)=Ds∧R.",
+      "url": "https://arxiv.org/pdf/1204.6277v2#page=186",
+      "quote": "Il résulte de la définition de la topologie des espaces de courants que ces applications\nlinéaires b′ et b′′ sont continues.",
+      "premise": 5
+    },
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/34",
+      "statement": "CLD v2, §§3.3.10–12, 7.1.5–7, 7.7.1–5 and 8.5.3–4: Ordinary smooth forms have compatible restrictions, products, pullbacks and the graded Leibniz rules. On a locally differentially separated level-n tropical space, ordinary currents and currents of each bounded order form ordinary sheaves, with restriction defined by extension of compact tests by zero. Current differentials are weakly continuous and satisfy (d′)^2=(d″)^2=0, d″d′=−d′d″, DJ=JD, and ⟨DR,α⟩=⟨R,Dα⟩ in compatible degrees, where D=d′d″. For a smooth real scalar s and a symmetric current R of bidegree (p,p), with d′R=d″R=0 and p≤n−1, D(sR)=Ds∧R.",
+      "url": "https://arxiv.org/pdf/1204.6277v2#page=188",
+      "quote": "⟨d′ d′′ S, α⟩ = ⟨S, d′ d′′ α⟩.",
+      "premise": 5
+    },
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/35",
+      "statement": "CLD v2, §§3.3.10–12, 7.1.5–7, 7.7.1–5 and 8.5.3–4: Ordinary smooth forms have compatible restrictions, products, pullbacks and the graded Leibniz rules. On a locally differentially separated level-n tropical space, ordinary currents and currents of each bounded order form ordinary sheaves, with restriction defined by extension of compact tests by zero. Current differentials are weakly continuous and satisfy (d′)^2=(d″)^2=0, d″d′=−d′d″, DJ=JD, and ⟨DR,α⟩=⟨R,Dα⟩ in compatible degrees, where D=d′d″. For a smooth real scalar s and a symmetric current R of bidegree (p,p), with d′R=d″R=0 and p≤n−1, D(sR)=Ds∧R.",
+      "url": "https://arxiv.org/pdf/1204.6277v2#page=207",
+      "quote": "d′ d′′ (uT ) = d′ d′′ (u ∧ T ) = d′ d′′ u ∧ T = T ∧ d′ d′′ (u),\ncar T est fermé.",
+      "premise": 5
+    },
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/36",
+      "statement": "CLD v2, §§5.8.1–5, Theorem 15.7.1, §7.7.4 and Proposition 16.6.3: On a topologically separated pure n-dimensional analytic space with its canonical calibration, integration of a positive top-degree smooth form is nonnegative and defines the positive canonical current δ_X=[1]. If the analytic space is boundaryless, d′δ_X=d″δ_X=0. For a pure p-dimensional closed analytic subspace Y, its integration current equals the current of its associated analytic cycle: δ_Y=δ_[Y]. The cycle coefficients are the actual generic component lengths, so nonreduced multiplicities are retained.",
+      "url": "https://arxiv.org/pdf/1204.6277v2#page=136",
+      "quote": "Elle est positive si ω est une forme positive, car le\ncalibrage canonique est positif (lemme 14.3.4).",
+      "premise": 6
+    },
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/37",
+      "statement": "CLD v2, §§5.8.1–5, Theorem 15.7.1, §7.7.4 and Proposition 16.6.3: On a topologically separated pure n-dimensional analytic space with its canonical calibration, integration of a positive top-degree smooth form is nonnegative and defines the positive canonical current δ_X=[1]. If the analytic space is boundaryless, d′δ_X=d″δ_X=0. For a pure p-dimensional closed analytic subspace Y, its integration current equals the current of its associated analytic cycle: δ_Y=δ_[Y]. The cycle coefficients are the actual generic component lengths, so nonreduced multiplicities are retained.",
+      "url": "https://arxiv.org/pdf/1204.6277v2#page=188",
+      "quote": "Supposons que l’espace X est sans bord. Comme le courant d’intégration δX\nest égal à [1], il est d′ et d′′ -fermé.",
+      "premise": 6
+    },
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/38",
+      "statement": "CLD v2, §§5.8.1–5, Theorem 15.7.1, §7.7.4 and Proposition 16.6.3: On a topologically separated pure n-dimensional analytic space with its canonical calibration, integration of a positive top-degree smooth form is nonnegative and defines the positive canonical current δ_X=[1]. If the analytic space is boundaryless, d′δ_X=d″δ_X=0. For a pure p-dimensional closed analytic subspace Y, its integration current equals the current of its associated analytic cycle: δ_Y=δ_[Y]. The cycle coefficients are the actual generic component lengths, so nonreduced multiplicities are retained.",
+      "url": "https://arxiv.org/pdf/1204.6277v2#page=459",
+      "quote": "Proposition 16.6.3. — Soit Y un sous-espace analytique fermé de X, purement de\ndimension p. On a δY = δ[Y ] .",
+      "premise": 6
+    },
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/39",
+      "statement": "CLD v2, §§5.8.1–5, Theorem 15.7.1, §7.7.4 and Proposition 16.6.3: On a topologically separated pure n-dimensional analytic space with its canonical calibration, integration of a positive top-degree smooth form is nonnegative and defines the positive canonical current δ_X=[1]. If the analytic space is boundaryless, d′δ_X=d″δ_X=0. For a pure p-dimensional closed analytic subspace Y, its integration current equals the current of its associated analytic cycle: δ_Y=δ_[Y]. The cycle coefficients are the actual generic component lengths, so nonreduced multiplicities are retained.",
+      "url": "https://arxiv.org/pdf/1204.6277v2#page=459",
+      "quote": "Soit (Xi ) la famille des composantes irréductibles de X et, pour tout i, soit mi la\nmultiplicité de X le long de Xi .",
+      "premise": 6
+    },
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/40",
+      "statement": "CLD v2, Lemma 8.5.1: On a boundaryless level-n tropical space, if a sequence of positive ordinary currents T_j converges weakly to an ordinary current T and continuous real functions u_j converge locally uniformly to u, then u_jT_j converges weakly to uT. Nonnegativity of the functions is not required.",
+      "url": "https://arxiv.org/pdf/1204.6277v2#page=205",
+      "quote": "Lemme 8.5.1. — Soit (Tn ) une suite de courants positifs et soit (un ) une suite de\nfonctions continues. On suppose que la suite (Tn ) converge vers un courant T et que la\nsuite (un ) converge localement uniformément vers une fonction u. On a un Tn → uT .",
+      "premise": 7
+    },
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/41",
+      "statement": "CLD v2, §§11.1.11, 11.4.1 and 12.1.1–4: The analytification of a scheme locally of finite type over a K-affinoid algebra A is a good K-analytic space, its structural morphism to M(A) is boundaryless, and analytification commutes with fiber products. The split analytic torus is the analytification of Spec K[T_1^{±1},…,T_r^{±1}]; its points are multiplicative seminorms extending the absolute value of K. Characters give the continuous logarithmic tropicalization, and affine torus morphisms induce the corresponding affine maps on tropicalizations.",
+      "url": "https://arxiv.org/pdf/1204.6277v2#page=329",
+      "quote": "l’espace analytique Gnm est l’ensemble des semi-normes multiplicatives\nsur cet anneau qui étendent la valeur absolue de k.",
+      "premise": 8
+    },
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/42",
+      "statement": "CLD v2, §§11.1.11, 11.4.1 and 12.1.1–4: The analytification of a scheme locally of finite type over a K-affinoid algebra A is a good K-analytic space, its structural morphism to M(A) is boundaryless, and analytification commutes with fiber products. The split analytic torus is the analytification of Spec K[T_1^{±1},…,T_r^{±1}]; its points are multiplicative seminorms extending the absolute value of K. Characters give the continuous logarithmic tropicalization, and affine torus morphisms induce the corresponding affine maps on tropicalizations.",
+      "url": "https://arxiv.org/pdf/1204.6277v2#page=330",
+      "quote": "La formation de Ttrop est fonctorielle",
+      "premise": 8
+    },
+    {
+      "id": "3bb9963c-56cd-4460-879a-c9179c73cf11/43",
+      "statement": "CLD v2, §§11.1.11, 11.4.1 and 12.1.1–4: The analytification of a scheme locally of finite type over a K-affinoid algebra A is a good K-analytic space, its structural morphism to M(A) is boundaryless, and analytification commutes with fiber products. The split analytic torus is the analytification of Spec K[T_1^{±1},…,T_r^{±1}]; its points are multiplicative seminorms extending the absolute value of K. Characters give the continuous logarithmic tropicalization, and affine torus morphisms induce the corresponding affine maps on tropicalizations.",
+      "url": "https://arxiv.org/pdf/1204.6277v2#page=310",
+      "quote": "structural de X an vers M(A) est sans bord.",
+      "premise": 8
+    }
+  ],
+  "premises": [
+    "CLD arXiv:1204.6277v2, §11.1, 11.1.7, 15.7.1–2 and 15.2.2–9: The ground field is complete non-Archimedean and may be trivially valued. Analytic spaces have bases of compact neighborhoods, good analytic spaces have bases of affinoid neighborhoods, and ordinary opens are analytic domains. A topologically separated pure n-dimensional analytic space has its canonical calibrated level-n tropical structure, compatible with analytic-domain restriction. A good Hausdorff analytic space is locally holomorphically separated, and a locally holomorphically separated analytic space is locally differentially separated. On a locally holomorphically separated analytic space, compact sets admit compactly supported smooth cutoffs inside prescribed ordinary neighborhoods; compactly supported continuous real functions admit uniform approximation by compactly supported smooth functions inside prescribed ordinary open neighborhoods of their supports, retaining prescribed constant lower and upper bounds. An ordinary open cover of a compact set admits finite nonnegative compactly supported smooth localization subordinate to that cover, with sum equal to one near the compact set.",
+    "CLD v2, Definitions 8.1.1 and 8.1.7 and Lemma 8.1.4: On an affined G-tropical space, generated Psh is the smallest ordinary subsheaf of functions with values in R∪{−∞} containing smooth functions with positive smooth Hessian and closed under decreasing sequential limits. Its ordinal construction starts with those smooth generators, takes ordinary-local decreasing sequential limits at successors, and ordinary-local membership in earlier stages at limit ordinals. CPsh is instead the smallest ordinary subsheaf of real continuous functions containing the same smooth generators and closed under uniform sequential limits.",
+    "CLD v2, Proposition 6.5.2, Definition 7.2.1, Remark 7.2.3, Lemmas 7.2.4 and 7.2.7(b), and Propositions 1.2.12, 1.10.3 and 3.5.5: Every compactly supported symmetric smooth (q,q)-form whose support is contained in a paracompact locally differentially separated open is a difference of two compactly supported middle-positive smooth forms; the support condition holds for compact supports on almost-good analytic spaces. On a locally differentially separated level-n tropical space, middle-positive currents are symmetric and nonnegative on middle-positive complementary compact tests, and middle positivity is ordinary-local. The middle-positive current cone is pointed. Wedges of middle-positive forms are middle-positive, and wedging a middle-positive current with a smooth middle-positive form preserves middle positivity in compatible degrees.",
+    "CLD v2, Proposition 7.2.8 and §7.2.11: On a locally differentially separated level-n tropical space, positive Radon measures correspond bijectively to positive scalar-test currents, and their induced currents have order zero. For a middle-positive current T and a middle-positive complementary smooth form η, T∧η corresponds to a unique positive Radon measure μ satisfying ∫g dμ=⟨T,gη⟩ for every compactly supported smooth scalar g. This coefficient measure has compact support when η does.",
+    "CLD v2, §§1.2.6–7, Definition 1.10.1, §§3.3.1–2, Theorem 12.2.4 and §§7.1.1–3: For a symmetric (q,q)-superform written as σ_q Σ a_IJ d′x_I∧d″x_J, where σ_q=(−1)^{q(q−1)/2}, middle positivity is equivalent to positive semidefiniteness of the symmetric matrix (a_IJ) on the qth exterior power. Positivity on a polyhedral space is tested on tangent spaces of cells, and it suffices to test maximal cells of a cellular decomposition. The tropical image of a compact analytic space under a moment map is compact polyhedral. Compactly supported test-form topology is the inductive topology over fixed compact supports and covering moment presentations, with cellwise coefficient C^r seminorms. On a locally differentially separated space, continuity may be checked on fixed ordinary moment charts after multiplication by nonnegative compactly supported smooth cutoffs. The compact-image assertion is also Theorem 3.2 of Ducros, Espaces de Berkovich, polytopes, squelettes et théorie des modèles: for compact Γ-strict spaces over a complete non-Archimedean field, with Γ·|K×| nontrivial, the image under a finite family of invertible analytic functions is a finite polytope of dimension at most the source dimension.",
+    "CLD v2, §§3.3.10–12, 7.1.5–7, 7.7.1–5 and 8.5.3–4: Ordinary smooth forms have compatible restrictions, products, pullbacks and the graded Leibniz rules. On a locally differentially separated level-n tropical space, ordinary currents and currents of each bounded order form ordinary sheaves, with restriction defined by extension of compact tests by zero. Current differentials are weakly continuous and satisfy (d′)^2=(d″)^2=0, d″d′=−d′d″, DJ=JD, and ⟨DR,α⟩=⟨R,Dα⟩ in compatible degrees, where D=d′d″. For a smooth real scalar s and a symmetric current R of bidegree (p,p), with d′R=d″R=0 and p≤n−1, D(sR)=Ds∧R.",
+    "CLD v2, §§5.8.1–5, Theorem 15.7.1, §7.7.4 and Proposition 16.6.3: On a topologically separated pure n-dimensional analytic space with its canonical calibration, integration of a positive top-degree smooth form is nonnegative and defines the positive canonical current δ_X=[1]. If the analytic space is boundaryless, d′δ_X=d″δ_X=0. For a pure p-dimensional closed analytic subspace Y, its integration current equals the current of its associated analytic cycle: δ_Y=δ_[Y]. The cycle coefficients are the actual generic component lengths, so nonreduced multiplicities are retained.",
+    "CLD v2, Lemma 8.5.1: On a boundaryless level-n tropical space, if a sequence of positive ordinary currents T_j converges weakly to an ordinary current T and continuous real functions u_j converge locally uniformly to u, then u_jT_j converges weakly to uT. Nonnegativity of the functions is not required.",
+    "CLD v2, §§11.1.11, 11.4.1 and 12.1.1–4: The analytification of a scheme locally of finite type over a K-affinoid algebra A is a good K-analytic space, its structural morphism to M(A) is boundaryless, and analytification commutes with fiber products. The split analytic torus is the analytification of Spec K[T_1^{±1},…,T_r^{±1}]; its points are multiplicative seminorms extending the absolute value of K. Characters give the continuous logarithmic tropicalization, and affine torus morphisms induce the corresponding affine maps on tropicalizations."
+  ],
+  "kind": "codex-report",
+  "operationId": "3bb9963c-56cd-4460-879a-c9179c73cf11",
+  "reportedAt": "2026-10-05T15:05:02.361Z"
+}
+
+END MATHEMATICAL DATA
+
+
+BEGIN MATHEMATICAL DATA: All six selected literature-version bindings
+[
+  {
+    "id": "gr-generated-comparison",
+    "primary_url": "https://arxiv.org/html/2506.13548v2#S1.SS2",
+    "version": "arXiv:2506.13548v2, 17 September 2025",
+    "retrieved_http_url": "https://arxiv.org/html/2506.13548v2",
+    "unit_file": "sources/gr-generated-comparison-web-unit.txt",
+    "web_rendered_line_interval": [
+      94,
+      98
+    ],
+    "unit_sha256": "5f7409ece85ffb97d3995c4c9eba7f6e82a6ff2b0703d88b7f3e020d5b082b36",
+    "retrieved_output": "logs/search-03.json",
+    "scope": "Literature scope check only: one direction to classically psh; no converse used.",
+    "pdf_bytes_downloaded": false
+  },
+  {
+    "id": "gr-pl-recognition",
+    "primary_url": "https://arxiv.org/html/2506.13548v2#S4",
+    "version": "arXiv:2506.13548v2, 17 September 2025",
+    "retrieved_http_url": "https://arxiv.org/html/2506.13548v2",
+    "unit_file": "sources/gr-pl-recognition-web-unit.txt",
+    "web_rendered_line_interval": [
+      677,
+      684
+    ],
+    "unit_sha256": "f43dc1f5cd967836dc459177813fec47f6ce9f1046dcd55711680d21d3522880",
+    "retrieved_output": "logs/search-05.json",
+    "scope": "Literal rendered statement and proof; nontrivial valuation, already real-PL. Not a new proof premise.",
+    "pdf_bytes_downloaded": false
+  },
+  {
+    "id": "bgjkk-regularization",
+    "primary_url": "https://arxiv.org/pdf/2102.07392v1#page=19",
+    "version": "arXiv:2102.07392v1, 15 February 2021; header observed",
+    "retrieved_http_url": "https://arxiv.org/pdf/2102.07392",
+    "unit_file": "sources/bgjkk-regularization-web-unit.txt",
+    "web_rendered_line_interval": [
+      1483,
+      1519
+    ],
+    "unit_sha256": "96e55c7bcda5d22e427136f4b376c6b4131e621c8a6492256b40857c6c920a8d",
+    "retrieved_output": "logs/search-06.json",
+    "scope": "Literal rendered Theorem 3.3.4 statement/proof, on tropical toric N_Sigma; diagnostic only.",
+    "pdf_bytes_downloaded": false
+  },
+  {
+    "id": "bgjkk-current-product",
+    "primary_url": "https://arxiv.org/pdf/2102.07392v1#page=20",
+    "version": "arXiv:2102.07392v1, 15 February 2021; header observed",
+    "retrieved_http_url": "https://arxiv.org/pdf/2102.07392",
+    "unit_file": "sources/bgjkk-current-product-web-unit.txt",
+    "web_rendered_line_interval": [
+      1578,
+      1654
+    ],
+    "unit_sha256": "de6cf487bf0f2e51aec465729a1337868898bc051afa9105387d86b656a71547",
+    "retrieved_output": "logs/search-12.json",
+    "scope": "Literal rendered Theorem 4.1.2 statement/proof; smooth fan, Lagerberg currents, not arbitrary analytic currents.",
+    "pdf_bytes_downloaded": false
+  },
+  {
+    "id": "bgjkk-metric-comparison",
+    "primary_url": "https://arxiv.org/pdf/2102.07392v1#page=33",
+    "version": "arXiv:2102.07392v1, 15 February 2021; header observed",
+    "retrieved_http_url": "https://arxiv.org/pdf/2102.07392",
+    "unit_file": "sources/bgjkk-metric-comparison-web-unit.txt",
+    "web_rendered_line_interval": [
+      2595,
+      2645
+    ],
+    "unit_sha256": "71486428bfc67716f9c369df5d2fb921f9110ef12608e141890cb4467acc1ada",
+    "retrieved_output": "logs/search-04.json",
+    "scope": "Literal rendered Theorem 6.1.1 statement/proof; toric metrics and constructed Chern products.",
+    "pdf_bytes_downloaded": false
+  },
+  {
+    "id": "jell-smooth-kernel",
+    "primary_url": "https://arxiv.org/pdf/1409.0676v3#page=19",
+    "version": "arXiv:1409.0676v3, 29 July 2016",
+    "retrieved_http_url": "https://arxiv.org/pdf/1409.0676v3",
+    "unit_file": "sources/jell-smooth-kernel-web-unit.txt",
+    "web_rendered_line_interval": [
+      1673,
+      1720
+    ],
+    "unit_sha256": "8b0373febadf2aa14303343c8678f5e76c3d1196ba36df9ef2df389318da4014",
+    "retrieved_output": "logs/search-12.json",
+    "scope": "Literal rendered Corollary 4.6 statement/proof; smooth first differential kernel. Not a new proof premise.",
+    "pdf_bytes_downloaded": false
+  }
+]
+
+END MATHEMATICAL DATA
+
+
+LITERAL SELECTED PRIMARY: https://arxiv.org/html/2506.13548v2#S1.SS2
+L94: ### 1.2. Plurisubharmonic functions on $k$-analytic spaces
+L95: 
+L96: We define classically plurisubharmonic functions on $k$-analytic spaces as the elements of the smallest subsheaf of the sheaf of upper semicontinuous functions with range $[-\infty,\infty)$ that is functorial with respect to pullback, stable under base change, and agrees with the above defined sheaf of subharmonic functions on $k$-analytic curves. In Section 【31†4】, we will show that classically psh functions satisfy properties (【45†1】)–(【47†3】).
+L97: We use the terminology classically psh to distinguish from the psh functions introduced by Chambert-Loir and Ducros in [【44†CD25】]. Note that psh functions are classically psh. Indeed, psh functions are upper semi-continuous and the definition is functorial, so we are reduced to the case of a smooth analytic curve $C$. We have to see that a psh function is subharmonic. By base change, we may assume that $k$ is algebraically closed and non-trivially valued, see Proposition 【30†3】(【48†7】).
+L98: Since subharmonic functions are stable under decreasing limits, and the psh functions are defined by a transfinite regularization process from smooth psh functions, it is enough to show that a smooth psh function on $C$ is subharmonic. This follows from a result of Wanner [【49†Wan19】, Theorem 4.7].
+
+
+
+LITERAL SELECTED PRIMARY: https://arxiv.org/html/2506.13548v2#S4
+L677: In the paper [【50†GR25】], we have studied semipositive ${\mathbf{R}}$-PL functions on a good strictly $k$-analytic space over a non-trivially valued non-archimedean field $k$. This turns out to be the same as an ${\mathbf{R}}$-PL function that is classically psh, as we now show.
+L678: ###### Theorem \the\thmnumbering.
+L679: 
+L680: Suppose that the valuation on $k$ is nontrivial. Let $X$ be a good, strictly $k$-analytic space and let $h\colon X\to{\mathbf{R}}$ be an ${\mathbf{R}}$-PL function. Then $h$ is semipositive if and only if $h$ is classically psh.
+L681: ###### Proof.
+L682: For $x\in X$, an ${\mathbf{R}}$-PL function $h\colon X\to{\mathbf{R}}$ induces a residue line bundle $L_{h}(x)\in\operatorname{Pic}(\operatorname{red}(X,x))_{\mathbf{R}}$ on the reduction $\operatorname{red}(X,x)$ of the germ $(X,x$): see 【28†2.15】. Recall from [【72†GJR21】, Definition 7.2] that $h$ is semipositive at $x\in X$ if and only if the associated residue line bundle $L_{h}(x)$ is nef.
+L683: We have shown in [【50†GR25】, Proposition 3.1] that for a smooth strictly $k$-analytic curve, an ${\mathbf{R}}$-PL function is semipositive if and only if it is subharmonic. Since semipositivity is stable under base extension and pull-back [【72†GJR21】, Proposition 7.6], we conclude that a semipositive ${\mathbf{R}}$-PL function on $X$ is classically psh.
+L684: The converse follows from [【50†GR25】, Corollary 3.5], which shows that an ${\mathbf{R}}$-PL function $h$ on $X$ is semipositive if and only if there is an algebraically closed analytic extension field $F$ of $k$ such that for every smooth $F$-analytic curve $C$ and every morphism $\varphi\colon C\to X_{F}$, we have $h\circ\varphi$ semipositive. ∎
+
+
+
+LITERAL SELECTED PRIMARY: https://arxiv.org/pdf/2102.07392v1#page=19
+L1483@P18: Theorem 3.3.4. Let Σ be a fan and let U be an open subset of NΣ. A function ϕ: U →
+L1484@P18: R−∞ is psh if and only if ϕ is locally a decreasing limit of smooth psh functions.
+L1485@P18: Proof. By Proposition 3.1.3, any decreasing limit of psh functions is psh. Conversely, we
+L1486@P18: assume that ϕ is psh. The claim is local and so we may assume U connected. The claim
+L1487@P18: is obvious for ϕ ≡ −∞ and so we may assume that ϕ is not identically equal to −∞. The
+L1488@P18: difficulty is that our definition of a smooth function on U means that it is a smooth function
+L1489@P18: on U ∩ NR which is constant towards the boundary, therefore a function ϕ with ϕ ◦ trop
+L1490@P18: smooth is not necessarily smooth on U.
+L1491@P18: By Proposition 3.1.3 the function ϕ can be approximated monotonically decreasing by
+L1492@P18: the finite psh functions ϕM := max(ϕ, −M) for M ∈ N.
+L1493@P18: Now we show that a finite function ϕ is locally a decreasing limit of continuous psh
+L1494@P18: functions which are constant towards the boundary. So let us check this in p ∈ U ∩ N(σ).
+L1495@P18: Passing to an open neighbourhood, we may assume that Σ contains a single maximal cone
+L1496@P18: σ and that U satisfies the first condition in (3.11) for V (p) = U. Fix ε > 0 and let εσ := ε.
+L1497@P18: For each τ ∈ Σ with τ ≺ σ, we fix ετ > 0 satisfying ετ1 < ετ2 whenever τ1 ≺ τ2. Since we
+L1498@P18: are assuming that Σ contains a single maximal cone, there is a unique continuous extension
+L1499@P18: πτ : NΣ → N(τ ) of the quotient map NR → N(τ ). Using that πτ (U) = U ∩ N(τ ), we define
+L1500@P18: g : U −→ R, x 7−→ max
+L1501@P18: τ≺σ
+L1502@P18: ϕ(πτ (x)) + ετ .
+L1503@P18: Since πτ is an equivariant morphism of tropical toric varieties and ϕ is psh, Proposition
+L1504@P18: 3.1.10 shows that ϕ ◦ πτ is psh and hence g is psh by Proposition 3.1.3. Using that ϕ is
+L1505@P18: decreasing towards the boundary, we have |ϕ − g| ≤ ε. Since ϕ is a finite function which is
+L1506@P18: continuous by Theorem 3.1.4, the choice of the family ετ shows that g is constant towards
+L1507@P18: the boundary. Choosing εk and εσ,k as above converging monotonically to zero for k → ∞,
+L1508@P18: we obtain a sequence of continuous psh functions which are constant towards the boundary
+L1509@P18: and converge monotonically decreasing to ϕ.
+L1510@P18: Now assume that ϕ is a finite psh function which is constant towards the boundary. We
+L1511@P18: prove the claim for ϕ locally in p ∈ U. We pick a relatively compact open neighbourhood
+L1512@P18: U
+L1513@P18: ′ of p in U. Then applying the sequence of smoothing kernels ηk from Lemma 3.3.3 we
+L1514@P18: see that ϕ is a decreasing limit of smooth psh functions on U
+L1515@P18: ′
+L1516@P18: .
+L1517@P18: Finally, applying a standard diagonal argument based on Dini’s theorem, we deduce from
+L1518@P18: the above steps that locally any psh function ϕ is a limit of a decreasing sequence of smooth
+L1519@P18-19: psh functions. 20 J.I.BURGOS GIL, W. GUBLER, P. JELL, AND K. KUNNEMANN ¨
+
+
+
+LITERAL SELECTED PRIMARY: https://arxiv.org/pdf/2102.07392v1#page=20
+L1578@P19: Theorem 4.1.2. For any open subset U of NΣ, locally bounded psh functions u1, . . . , uq
+L1579@P19: on U and T ∈ Dp,p(U)cl,+, there are unique Lagerberg currents
+L1580@P19: u1d
+L1581@P19: ′
+L1582@P19: d
+L1583@P19: ′′u2 ∧ . . . ∧ d′
+L1584@P19: d
+L1585@P19: ′′uq ∧ T ∈ Dp+q−1,p+q−1
+L1586@P19: (U),
+L1587@P19: d
+L1588@P19: ′
+L1589@P19: d
+L1590@P19: ′′u1 ∧ . . . ∧ d′
+L1591@P19: d
+L1592@P19: ′′uq ∧ T ∈ D
+L1593@P19: p+q,p+q
+L1594@P19: cl,+
+L1595@P19: (U)
+L1596@P19: such that these products are given locally in U and satisfy the following two properties:
+L1597@P19: (i) If u1, . . . , uq are smooth, then the product currents agree with (4.1) and (4.2).
+L1598@P19: (ii) If there are psh functions {uj,k}k≥0 converging locally uniformly to uj for j =
+L1599@P19: 1, . . . , q and if there are closed positive Lagerberg currents {Tk}k≥0 converging weakly
+L1600@P19: to T, then we have the weak convergence of Lagerberg currents
+L1601@P19: u1,kd
+L1602@P19: ′
+L1603@P19: d
+L1604@P19: ′′u2,k ∧ . . . ∧ d′
+L1605@P19: d
+L1606@P19: ′′uq,k ∧ Tk
+L1607@P19: k→∞ −−−→ u1d
+L1608@P19: ′
+L1609@P19: d
+L1610@P19: ′′u2 ∧ . . . ∧ d′
+L1611@P19: d
+L1612@P19: ′′uq ∧ T,
+L1613@P19: d
+L1614@P19: ′
+L1615@P19: d
+L1616@P19: ′′u1,k ∧ . . . ∧ d′
+L1617@P19: d
+L1618@P19: ′′uq,k ∧ Tk
+L1619@P19: k→∞ −−−→ d
+L1620@P19: ′
+L1621@P19: d
+L1622@P19: ′′u1 ∧ . . . ∧ d′
+L1623@P19: d
+L1624@P19: ′′uq ∧ T.
+L1625@P19: Proof. For j = 1, . . . , q, Proposition 3.2.1 shows that vj
+L1626@P19: := trop∗
+L1627@P19: ∞(uj ) is psh on V :=
+L1628@P19: trop−1
+L1629@P19: ∞ (U). As seen in Remark 4.1.1, there is a unique closed positive S ∈ Dp,p(V )
+L1630@P19: S,F with
+L1631@P19: trop∞,∗(S) = T. In [Dem12, §III.3] there is an inductive definition of v1ddcv2 ∧. . .∧ddcvq ∧
+L1632@P19: S ∈ Dp+q−1,p+q−1(V ) and ddcv1 ∧ . . . ∧ ddcvq ∧ S ∈ D
+L1633@P19: p+q,p+q
+L1634@P19: cl,+
+L1635@P19: (V ). Then we define
+L1636@P19: u1d
+L1637@P19: ′
+L1638@P19: d
+L1639@P19: ′′u2 ∧ . . . ∧ d′
+L1640@P19: d
+L1641@P19: ′′uq ∧ T := trop∞,∗
+L1642@P19: (v1ddcv2 ∧ . . . ∧ ddcvq ∧ S)
+L1643@P19: d
+L1644@P19: ′
+L1645@P19: d
+L1646@P19: ′′u1 ∧ . . . ∧ d′
+L1647@P19: d
+L1648@P19: ′′uq ∧ T := trop∞,∗
+L1649@P19: (ddcv1 ∧ . . . ddcvq ∧ S).
+L1650@P19: This definition is local in U as the complex construction is local in V . By Remark 4.1.1,
+L1651@P19: we get (i). By Theorem 3.1.4, any psh function on U is continuous and hence (ii) follows
+L1652@P19-20: from the corresponding fact on complex manifolds given in [Dem12, Corollary III.3.6]. ItTROPICAL TORIC PLURIPOTENTIAL THEORY 21
+L1653@P20: follows from the regularization in Theorem 3.3.4 that these two properties and locality in
+L1654@P20: U characterize the product currents uniquely. 
+
+
+
+LITERAL SELECTED PRIMARY: https://arxiv.org/pdf/2102.07392v1#page=33
+L2595@P32: Theorem 6.1.1. For j = 1, . . . , q, let k kjbe the locally psh approximable toric metric on
+L2596@P32: L
+L2597@P32: an
+L2598@P32: j
+L2599@P32: corresponding to the continuous θj -psh function ϕj : U → R by Theorem 5.3.11. Then
+L2600@P32: tropv,∗
+L2601@P32: 
+L2602@P32: c1(L1, k k1) ∧ . . . ∧ c1(Lq, k kq)
+L2603@P32: 
+L2604@P32: = (d
+L2605@P32: ′
+L2606@P32: d
+L2607@P32: ′′[ϕ1] + θ1) ∧ . . . ∧ (d′
+L2608@P32: d
+L2609@P32: ′′[ϕq] + θq)
+L2610@P32: as positive Lagerberg currents on U. On the left hand side, we use the Bedford–Taylor
+L2611@P32: product on the Berkovich space V introduced by Chambert–Loir and Ducros and on the
+L2612@P32: right hand side, we use the product introduced in Remark 5.2.11.
+L2613@P32: Proof. The claim is local in the target U of tropv, hence, by using Proposition 5.2.5 and
+L2614@P32: the multilinearity of the Bedford-Taylor product we may assume that θ = 0 and that the
+L2615@P32: functions ϕi are finite continuous psh functions on U. It remains to show that the identity
+L2616@P32: (6.1) tropv,∗
+L2617@P32: 
+L2618@P32: d
+L2619@P32: ′
+L2620@P32: d
+L2621@P32: ′′[ϕ1 ◦ tropv
+L2622@P32: ] ∧ . . . ∧ d
+L2623@P32: ′
+L2624@P32: d
+L2625@P32: ′′[ϕq ◦ tropv
+L2626@P32: ]
+L2627@P32: 
+L2628@P32: = d
+L2629@P32: ′
+L2630@P32: d
+L2631@P32: ′′[ϕ1] ∧ . . . ∧ d′
+L2632@P32: d
+L2633@P32: ′′[ϕq]
+L2634@P32: of Lagerberg currents on U holds in this case. Arguing locally on U, the regularization
+L2635@P32: in Theorem 3.3.4 shows that we may assume that the continuous psh functions ϕj are
+L2636@P32: decreasing limits of smooth psh functions on U. By Dini’s theorem and arguing again locally
+L2637@P32: in U, we may assume that the limit is uniform. Since the Bedford–Taylor type product
+L2638@P32: of Chambert–Loir and Ducros on the left hand side of (6.1) is continuous with respect to
+L2639@P32: uniform convergence of psh metrics and weak limits of currents [CD12, Corollaire 5.6.5]
+L2640@P32: and since Theorem 4.1.2 gives a similar kind of continuity on the right hand side of (6.1),
+L2641@P32: it is enough to prove the identity (6.1) for smooth psh functions ϕj on U. Then the claim
+L2642@P32: follows from the compatibility of trop∗
+L2643@P32: v with d, d
+L2644@P32: ′ and the product of smooth forms, the
+L2645@P32: projection formula (2.9) and equation (5.7). 
+
+
+
+LITERAL SELECTED PRIMARY: https://arxiv.org/pdf/1409.0676v3#page=19
+L1673@P18: Corollary 4.6. The complex
+L1674@P18: 0 → R → A
+L1675@P18: 0,0 d
+L1676@P18: ′
+L1677@P18: → A
+L1678@P18: 1,0 d
+L1679@P18: ′
+L1680@P18: → . . .
+L1681@P18: d
+L1682@P18: ′
+L1683@P18: → A (7) n,0 → 0
+L1684@P18: of sheaves on Xan is exact. The cohomology of its complex of global sections
+L1685@P18: 0 → A
+L1686@P18: 0,0
+L1687@P18: (X
+L1688@P18: an)
+L1689@P18: d
+L1690@P18: ′
+L1691@P18: → A
+L1692@P18: 1,0
+L1693@P18: (X
+L1694@P18: an)
+L1695@P18: d
+L1696@P18: ′
+L1697@P18: → . . .
+L1698@P18: d
+L1699@P18: ′
+L1700@P18: → A
+L1701@P18: n,0
+L1702@P18: (X
+L1703@P18: an (8) ) → 0
+L1704@P18: is isomorphic to the sheaf cohomology H∗(Xan, R) of the constant sheaf R
+L1705@P18: and to the singular cohomology H∗
+L1706@P18: sing(Xan
+L1707@P18: , R).
+L1708@P18: Proof. Let V ⊂ Xan an open subset and f ∈ A0,0(V ) given by the family
+L1709@P18: (Vi, ϕUi, fi)i∈I . Then f can be viewed as a function on V via the definition
+L1710@P18: f(x) := fi ◦tropUi(x) for x ∈ U
+L1711@P18: an
+L1712@P18: i
+L1713@P18: . This function is continuous and d
+L1714@P18: ′f = 0 if
+L1715@P18: and only if f is locally constant. Together with Theorem 4.5 this shows that
+L1716@P18: the complex (7) is exact. Since the sheaves Ap,q admit partitions of unity
+L1717@P18: [Gub13, Proposition 5.10], they are fine, hence acyclic [Wel80, Chapter II,
+L1718@P18: Proposition 3.5 and Theorem 3.11]. This means that the complex (8) calculates the sheaf cohomology of R. Since Xan is paracompact, Hausdorff and
+L1719@P18: locally compact, this is the singular cohomology of the underling topological
+L1720@P18: space of Xan [Bre97, Chapter III, Theorem 1.1]. 
+
