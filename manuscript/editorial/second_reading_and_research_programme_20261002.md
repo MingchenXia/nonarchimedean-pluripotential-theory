@@ -1931,3 +1931,39 @@ and research manifests remain immutable. Next inspect primary results
 for geodesic rays in big classes and the exact convergence mechanism for
 velocity-measure pairs, retaining the distinction between a known metric
 completion and an unproved quantization/minimizer passage.
+
+### Big-class rays and mass moments — 5 October
+
+The complete 19-page arXiv:2406.07669v1 has been read, including
+references, and fifteen actual PDF pages were inspected. Selected
+Darvas–Zhang arXiv:2208.08324v4 conventions and correspondence results
+were checked in five additional actual pages. Chapter 65 now imports
+the known convexity along distinguished weak geodesics, complete chordal
+ray spaces, parallel transport between finite-energy bases and the
+mass-deficit criterion for finite-p-energy rays. Appendix L records the
+versions, selected dependency and regular initial-point hypothesis.
+
+The new explanation retains the inverse Legendre plus sign and the
+volume normalization. Its layer-cake formula has exactly one factor p,
+and computes the speed after subtracting the terminal cutoff. A constant
+ray checks this centering: its centered moment is zero although its
+uncentered speed need not vanish. The chordal distance is a supremum
+over the full time half-line; compact-time approximation alone supplies
+no estimate for that supremum. No A4 topology or minimizer convergence
+has been added. Literal initial-version inconsistencies are documented
+in the separate audit and excluded as formula inputs.
+
+This is an identified import of known complex geometry, with no original
+general result or independent production-model receipt admitted. The
+full-book build and preservation checks are recorded separately after
+the edits. All 42 problem statuses, the 108 protected analytic inputs,
+the standalone catalogue and earlier frozen records retain their scope.
+Next examine the long-time approximation mechanism and the role of
+unbounded velocity tails before extending any quantization comparison.
+
+The completed build has 4,288 pages. Reference, bibliography, PDF link
+and index gates pass, with no errors, unresolved citations or overfull
+boxes. Sixteen actual final PDF pages were reviewed. The three new
+equations follow the chapter's existing sequence as 65.46–65.48.
+All 49 existing formal environments/proofs in the changed TeX files,
+108 protected inputs and 42 complete problem statuses are preserved.
