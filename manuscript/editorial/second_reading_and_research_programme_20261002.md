@@ -1816,3 +1816,20 @@ Riemann--Roch calculation checks all 729 U34 weight assignments and explains
 the all-one example. These are finite checks of identified known results,
 not new general theorem or model-verifier receipts. All 42 active problem
 statuses, catalogue bytes and Siu/closure conditions are preserved.
+
+### Maximal-destabilizer quantization update — 5 October
+
+Yao's full 43-page arXiv version one has been read. Selected BJ25 and
+Darvas--Zhang v2 passages identify the known maximal-ray Mabuchi slope
+formula in the smooth complex projective ample scope. Twenty-one actual
+primary pages were viewed across these three sources. Chapter 68 adds
+known finite Chow minimization, symmetry and saturation, and the explicitly
+conditional reduction to maximal K-destabilizers; Appendix L records its
+provenance. The source's t=2s clock and corresponding radial speed are
+kept explicit. A2 continuity, A3 beyond ample test-configuration metrics
+and A4 minimizer convergence remain assumptions. No A4 topology is invented.
+Exact arithmetic checks cover 240 spectral degrees, 45 radial and 180
+finite penalty identities, and the repeated-eigenvalue block wording
+boundary. No original general theorem or independent model receipt is
+admitted; all 42 problem statuses, Siu/closure conditions and catalogue
+bytes remain unchanged.
