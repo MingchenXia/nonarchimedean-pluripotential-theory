@@ -1160,6 +1160,30 @@ records the reused sources and conditional boundaries. No new source
 paper, independent receipt, TeX input, PDF or active problem status changes.
 Continue the precise literature comparison and birational investigation.
 
+### Closed fibers and a birational section diagnostic, 5 October 2026
+
+The [follow-up](birational_closed_fibers_and_section_diagnostic_20261005.md)
+checks BJ22 Corollary 4.24's independent zero-class constancy input.
+Together with componentwise pullback and connected algebraic fibers it
+gives constancy on closed-point fibers; general valued analytic fibers
+and base psh membership remain separate tasks. Two selected primary
+pages were freshly viewed. A blowup of the plane supplies a homogeneous
+section net in classes `H-E/n` decreasing to a pullback. Each term is
+fiber constant and descends as an usc function, but its monomial trace
+has a strict convexity violation and is not psh in any base class.
+Independent smooth division also excludes hidden source membership in
+an exact pullback class, so this does not disprove exact birational
+reflection or critical Siu division.
+
+The exact calculation passes 216 selected trace/support cases, 180
+monotonicity comparisons and six Jensen diagnostics. The same example
+shows why full-preimage norm frames do not extend from finite maps to
+this birational map. The [manifest](birational_section_diagnostic_manifest_20261005.json)
+pins the source and example scopes. All active TeX, artifacts and problem
+statuses are preserved; there is no independent model receipt or theorem
+promotion. Continue the remaining birational investigation and the next
+recent-paper source audit.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit
