@@ -1549,6 +1549,34 @@ admissions. All 425 active inputs, the 4,259-page book, catalogue and all
 controlling compactification source and checking the specific boundary
 geometry before deciding whether to integrate the preprint.
 
+### Recession-fan boundary integration, 5 October 2026
+
+The [integration audit](tropical_compactification_integration_audit_20261005.md)
+adds a boundary-data section immediately before Appendix G's existing
+cohomological comparison. It imports the published Kastner--Shaw--Winz
+definitions, canonical recession-fan complex theorem and source examples.
+Finite rational polyhedra, pointed recession cones and the chosen ambient
+fan are explicit. A compatible/compactifying ambient fan is distinguished
+from merely subdividing the support. Stratum faces must be closed in the
+compactification, and the cellular calculation needs both incidence signs
+and coefficient maps. Local tropical duality and the algebraic hypotheses
+remain separate. The Lee preprint and its projection diagnostic are not
+imported in this source correction.
+
+The online-first published text was read in full and compared against the
+final paginated PDF; 16 actual final primary pages were inspected. The
+two changed active TeX inputs preserve their 27 and 4 existing formal
+blocks, including proofs. Two section labels and one bibliography entry
+are added. The full book builds to 4,261 pages, with clean reference and
+inventory source gates. The final bibliography, index, navigation and
+selected actual-page checks are recorded in the new release manifest.
+All 42 complete status strings, the catalogue and 108 protected inputs
+remain unchanged. This is an ordinary import of known source results,
+with no new independent production receipt or formal result admission.
+The prior 4,259-page cohomological edition and all older exports remain
+frozen separately. Continue checking the matroid-specific projected
+incidence and related recent work before any preprint import.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit

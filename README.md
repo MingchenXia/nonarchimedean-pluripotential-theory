@@ -9,7 +9,7 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,259 pages**. The proof of
+The current research-integration build has **4,261 pages**. The proof of
 Boucksom--Jonsson (2022), Theorem 6.21, incorrectly infers monotonicity of
 a residual with a changing divisor coefficient. Critical homogeneous Siu
 division is now an explicit additional assertion `(SD)_k`; the general
@@ -105,8 +105,17 @@ gives a cone and a proper subcone whose intersection is not a face.
 All 1,326 pairs in the original 52-cone fan have exact common-face
 certificates. This research candidate concerns the general compactification
 step, not a claimed refutation of the matroid cohomology theorems. The
-preprint is not integrated until the specific boundary geometry is settled;
-active TeX, catalogue and all 42 problem statuses remain unchanged.
+preprint is not integrated until the specific boundary geometry is settled.
+That research checkpoint preserves active TeX, catalogue and all 42 statuses.
+Appendix G now introduces the published recession-fan compactification
+before its cohomological comparison. It explains the ambient-fan condition,
+projected stratum faces, their closures and signed incidence maps, retaining
+the finite rational and pointed-recession hypotheses. The complex assertion
+uses the recession fan itself. The source's ray and fan-refinement examples
+show why boundary data belong to the comparison; see the
+[compactification integration audit](manuscript/editorial/tropical_compactification_integration_audit_20261005.md).
+This imports known results and preserves existing formal statements and
+proofs, the catalogue and all 42 open-problem statuses.
 Chapter 5 adds
 a source-checked Sylvester height-slice example that computes a normalized
 local monomial model and its regular semistable subdivision. The exact
