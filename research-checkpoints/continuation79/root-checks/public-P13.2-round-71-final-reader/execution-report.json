@@ -1,0 +1,55 @@
+{
+  "commands": [
+    {
+      "argv": [
+        "python",
+        "audit_sources.py"
+      ],
+      "returncode": 0,
+      "stdout": "audit-sources.stdout",
+      "stderr": "audit-sources.stderr"
+    },
+    {
+      "argv": [
+        "python",
+        "checks.py"
+      ],
+      "returncode": 0,
+      "stdout": "checks.stdout",
+      "stderr": "checks.stderr"
+    },
+    {
+      "argv": [
+        "python",
+        "build.py"
+      ],
+      "returncode": 0,
+      "subcommands": "build-report.json"
+    },
+    {
+      "argv": [
+        "python",
+        "make_notes.py"
+      ],
+      "returncode": 0,
+      "stdout": "make-notes.stdout",
+      "stderr": "make-notes.stderr"
+    },
+    {
+      "argv": [
+        "python",
+        "validate.py"
+      ],
+      "returncode": 0,
+      "stdout": "validation.stdout",
+      "stderr": "validation.stderr"
+    }
+  ],
+  "initial_diagnostic_failure": {
+    "program": "checks.py",
+    "result": "AssertionError in radial scalar equality",
+    "cause": "Python int negative powers introduced floating arithmetic; fixed by Fraction(d)**(1-n).",
+    "mathematical_implication": "None; final diagnostic uses exact rational arithmetic."
+  },
+  "scope": "Source hashing, finite exact arithmetic, and existing Pandoc/TeX only; no heavy compute or external actions."
+}

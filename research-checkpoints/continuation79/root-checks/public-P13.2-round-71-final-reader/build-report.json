@@ -1,0 +1,41 @@
+{
+  "commands": [
+    {
+      "label": "pandoc",
+      "argv": [
+        "pandoc",
+        "P13.2-argument.md",
+        "--standalone",
+        "--from=markdown+tex_math_dollars",
+        "--to=latex",
+        "--output=P13.2-paper.tex"
+      ],
+      "returncode": 0
+    },
+    {
+      "label": "tex-pass-1",
+      "argv": [
+        "pdflatex",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-file-line-error",
+        "P13.2-paper.tex"
+      ],
+      "returncode": 0
+    },
+    {
+      "label": "tex-pass-2",
+      "argv": [
+        "pdflatex",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-file-line-error",
+        "P13.2-paper.tex"
+      ],
+      "returncode": 0
+    }
+  ],
+  "deterministic_TeX_postprocess": "Long literal paths and SHA256 strings use nolinkurl to permit line breaks without changing characters.",
+  "two_TeX_passes_succeeded": true,
+  "mathematical_certification": false
+}
