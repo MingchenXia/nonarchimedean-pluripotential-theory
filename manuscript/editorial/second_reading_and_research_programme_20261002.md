@@ -1603,6 +1603,28 @@ book build is claimed. Continue with cross-sedentarity closed cells and
 the canonical-compactification cup-product pullback before deciding on
 any preprint integration.
 
+### Closed-cell finite follow-up, 5 October 2026
+
+The [closed-cell audit](lee_closed_cell_followup_20261005.md) constructs a
+candidate closed-cell poset with finite cone faces and explicit positive
+and negative infinite facets. It preserves original flat and coordinate
+labels across sedentarity. All 6,538 cells and 1,015,221 unordered pairs
+for the 92 small matroids satisfy the candidate common-face rule, and
+the signed incidence boundary squares to zero. These are combinatorial
+candidate-poset certificates, not a general geometric intersection proof.
+
+For five examples, a separate calculation constructs exterior tangent
+spaces from same-stratum cofaces and projects their coordinates on every
+facet. The exact coefficient maps land in the targets and square to zero;
+rational homology is diagonal with the predicted Whitney numbers. For
+`U_(3,4)`, the resulting much larger chain groups give `(1,4,6,1)`, agreeing
+with the preceding rank-filtration complex. The candidate's identification
+with arbitrary-rank extended-polyhedral charts and sheaf cohomology is
+not certified. This research-only checkpoint preserves all active sources,
+book/catalogue bytes and 42 complete status strings and adds no production
+model receipt. Continue with controlling Chow/Möbius source locators and
+keep any original general repair outside active TeX pending verification.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit

@@ -127,6 +127,13 @@ steps and identify a literal nonempty-flat clause needing qualification.
 Global closed-cell and ring identifications remain to be checked; the
 preprint and original repair candidates remain outside active TeX.
 This research checkpoint preserves the current book and catalogue bytes.
+The [closed-cell follow-up](manuscript/editorial/lee_closed_cell_followup_20261005.md)
+checks a separate candidate across sedentarity labels: all 6,538 cells
+and 1,015,221 pairs in these small matroids satisfy its combinatorial
+face-intersection and signed-boundary rules. Direct multi-tangent chains
+in five examples agree with the preceding wedge-complex dimensions.
+These finite candidate-poset calculations leave the general geometric
+and sheaf identification open and preserve active manuscript bytes.
 Chapter 5 adds
 a source-checked Sylvester height-slice example that computes a normalized
 local monomial model and its regular semistable subdivision. The exact
