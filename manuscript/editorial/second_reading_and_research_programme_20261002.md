@@ -1184,6 +1184,33 @@ statuses are preserved; there is no independent model receipt or theorem
 promotion. Continue the remaining birational investigation and the next
 recent-paper source audit.
 
+### Overlapping tropical branches, 5 October 2026
+
+The [source-checked curve integration](lin_branch_integration_audit_20261005.md)
+complements the existing Lin face example. BPR v2 Examples 2.6, 8.7 and
+8.11 supply the curve and skeletal map revisited by Lin v1 Example 10.1.
+An explicit weighted toric model metric gives one atom of mass two,
+or two distinct atoms of mass one each, depending on the parameter.
+Their merged tropical mass is always two. The proof uses the existing
+graph Laplacian, not the general subvariety theorem or critical Siu
+division. Fourteen exact slope/Newton checks and five approach-to-junction
+checks pass once; four actual BPR and three actual Lin source pages were
+freshly viewed. Full BPR reading and fresh independent verification are
+not claimed.
+
+Chapter 19 adds the example and mass/source entries, Chapter 64 its
+normalization check, and Appendix L the provenance boundary. The build
+passes at 4,253 pages with 12,596 labels, zero errors, warnings, overfull
+boxes or unresolved references, and 954 retained underfull diagnostics.
+All 49 selected pages were viewed. Original formal environments, the
+other 422 active TeX inputs, 108 protected M–N inputs, the standalone
+catalogue and all problem statuses are preserved. The
+[manifest](lin_branch_integration_manifest_20261005.json) and
+[source closure](lin_branch_integration_source_closure_20261005.sha256)
+bind this edition. Continue the general local-comparison dependency audit,
+the revision-sensitive arXiv search and noncircular Siu research after
+normal work-branch publication.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit

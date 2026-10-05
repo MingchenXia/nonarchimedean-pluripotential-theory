@@ -167,7 +167,8 @@ reduction.  \Cref{sec:ch19-wanner} proves Wanner's comparison theorem and
 then proves unconditional ordinary-smooth monotone regularization on smooth
 proper curves.  \Cref{sec:ch19-toric} treats toric
 metrics, tropical Monge--Amp\`ere measures, worked surfaces, and the
-information lost by restricting a weight to a lower-dimensional face.
+information lost by restricting a weight to a lower-dimensional face
+or merging distinct tropical branches.
 \Cref{sec:ch19-models} records the model and good-reduction computations in
 arbitrary dimension.  \Cref{sec:ch19-abelian} sets up Raynaud
 uniformization and proves that the canonical tropicalization is harmonic;
@@ -2073,6 +2074,108 @@ working with the ambient convex weight and the weighted tropical germ;
 \cite[\S\S9--10]{Lin26} develops that local description.  The computation
 above uses the full toric surface formula and makes no replacement of an
 ambient top-degree product by the intrinsic product on a smaller face.
+
+\subsection{Overlapping tropical branches}
+\label{sec:ch19-toric-overlapping-branches}
+
+There is a second loss of information when a toric metric is restricted
+to a subvariety: distinct analytic branches can have the same tropical
+image.  A curve makes the individual masses visible without using the
+general subvariety comparison.  The underlying curve and its skeletal
+map are from \cite[Examples~2.6, 8.7 and~8.11]{BPR12};
+\cite[Example~10.1]{Lin26} revisits their local weighted germs.
+
+\begin{example}
+\label{ex:ch19-toric-overlapping-branches}
+\index{tropicalization!overlapping branches}
+Let $K=\mathbf C_p$, with $v(p)=1$.  In
+$Y=\mathbf P^1_x\times\mathbf P^1_y$ consider the closed curve
+\[
+ C\simeq\mathbf P^1_t,\qquad x=t(t-p),\qquad y=t-1.
+\]
+The second projection identifies $C$ with $\mathbf P^1$, so this is a
+closed embedding, including at infinity.  Its torus locus is
+$C^\circ=\mathbf P^1\setminus\{0,1,p,\infty\}$.
+Put $\trop=(v(x),v(y))$.  Write $\zeta_{b,r}$ for the Gauss point of
+the disc of centre $b$ and radius $r$, and let
+$\zeta'=\zeta_{0,|p|}=\zeta_{p,|p|}$.
+Three edges of the punctured curve's skeleton are
+\begin{equation}
+\label{eq:ch19-overlap-edge-map}
+\begin{array}{c|c|c}
+ \text{point}&\text{range}&\trop\text{-image}\\ \hline
+ \zeta_{0,|p|^\alpha}&0\leq\alpha\leq1&(2\alpha,0)\\
+ \zeta_{0,|p|^\alpha}&\alpha\geq1&(\alpha+1,0)\\
+ \zeta_{p,|p|^\alpha}&\alpha\geq1&(\alpha+1,0).
+\end{array}
+\end{equation}
+These formulas follow by evaluating $t$, $t-p$ and $t-1$ in the
+displayed Gauss norms.  The first edge has expansion factor $2$ in
+annular length; the other two have factor $1$ and the same image.
+Thus the entire positive horizontal tropical ray has weight $2$.
+
+Let $L=\operatorname{pr}_x^*\cO_{\mathbf P^1}(1)$, represented by the
+toric divisor $x=0$.  It is nef on $Y$, and $\deg_C L=2$.
+Choose $c\in\mathbf Q_{>0}=v(K^\times)_{>0}$ and
+$a\in K^\times$ with $v(a)=c$.  In the finite $x$-chart, the weighted
+Fubini--Study metric given by the sections $x$ and $a$ has
+\[
+ \|s_{x=0}\|_c=\frac{|x|}{\max\{|x|,|a|\}},
+ \qquad
+ g_c(u,w)=\max\{0,u-c\}.
+\]
+Equivalently, $-\log\|s_{x=0}\|_c=g_c\circ\trop$ on the torus.
+This is a semipositive toric model metric.  The formula describes the
+norm of its toric section; the metric itself extends continuously over
+the zeros and poles of $x$ in local frames.
+
+On $C^\circ$, compute its curvature from the outgoing slopes of
+$g_c\circ\trop$, using \eqref{eq:cld-curve-graph-laplacian} in
+annular length.  The result on the proper curve is
+\begin{equation}
+\label{eq:ch19-overlap-curve-measure}
+ \mu_c:=c_1(L|_C,\|\cdot\|_c)=
+ \begin{cases}
+  2\delta_{\zeta_{0,|p|^{c/2}}},&0<c<2,\\
+  2\delta_{\zeta'},&c=2,\\
+  \delta_{\zeta_{0,|p|^{c-1}}}
+   +\delta_{\zeta_{p,|p|^{c-1}}},&c>2.
+ \end{cases}
+\end{equation}
+For $0<c<2$, the slope on the first edge jumps from $0$ to $2$.
+At $\zeta'$ the outgoing slopes are $-2,1,1$, whose sum is zero.
+For $c=2$, the slope toward the first edge is zero and the two
+outgoing slopes toward $0$ and $p$ are both $1$, giving mass $2$.
+For $c>2$, there is one unit slope jump on each of the two branches.
+The other edges contribute zero: along the branch toward $1$, $v(x)=0$,
+and toward infinity $v(x)<0$, so $g_c=0$ there.  All displayed
+measures are positive and have mass $2=\deg_C L$; hence they exhaust
+the curvature measure, with no mass at the four removed points or
+elsewhere off the skeleton.
+
+In every case the tropical pushforward is the same simple expression:
+\begin{equation}
+\label{eq:ch19-overlap-tropical-measure}
+ \trop_*\mu_c=2\delta_{(c,0)}.
+\end{equation}
+The intrinsic one-dimensional Alexandrov measure of
+$u\mapsto\max\{0,u-c\}$ is $\delta_c$.  The tropical weight $2$
+accounts for the coefficient in
+\eqref{eq:ch19-overlap-tropical-measure}.  For $c>2$, however, a small
+neighborhood of either individual atom has local tropical weight $1$;
+pulling back the full weight-$2$ measure to each branch would count
+twice the actual mass.  For $0<c<2$ a single edge supplies all the
+mass through its expansion factor $2$.  At $c=2$ the two unit masses
+meet at $\zeta'$.  They converge to $2\delta_{\zeta'}$ as $c\downarrow2$,
+just as the single mass does as $c\uparrow2$.
+\end{example}
+
+This is why a local formula on an analytic branch uses its weighted
+tropical germ.  The global tropical cycle records the sum of the branch
+contributions, and a chart on one branch must retain its own contribution.
+The edge calculation above uses the established curve slope formula;
+it illustrates the local distinction in
+\cite[Theorem~10.2]{Lin26} without using that theorem as a proof input.
 
 \subsection{Invariant Monge--Amp\`ere equations}
 \label{sec:ch19-toric-equation}
@@ -4403,6 +4506,9 @@ $\mathbf F_1$, $2H-E$,
 face-restriction example,
  \Cref{ex:ch19-toric-lower-face}
  &$7+8=15$&$2!\vol_M(-Q)=15$\\
+overlapping tropical branches,
+ \Cref{ex:ch19-toric-overlapping-branches}
+ &$2\ \text{or}\ 1+1=2$&$\deg_C L=2$\\
 good reduction in dimension $n$,
  \Cref{ex:ch19-good-reduction}
  &$(L^n)$&$(L^n)$\\
@@ -4475,6 +4581,12 @@ version~1, with the constants scaled by a positive value-group element.
 Its subgradient computation, toric realization and constant-shift variation
 are explicit worked consequences of \Cref{thm:ch19-toric-ma}; the
 general subvariety theorem of that preprint is not used in their proof.
+The curve and skeletal map in
+\Cref{ex:ch19-toric-overlapping-branches} are from
+\cite[Examples~2.6, 8.7 and~8.11]{BPR12}, version~2, and are revisited
+in \cite[Example~10.1]{Lin26}.  The weighted metric and its masses are
+worked consequences of the curve graph Laplacian.  Their proof does
+not require Lin's general local comparison.
 Harmonic canonical tropicalizations and the correction
 that exposed the ordinary delta-metric question are from \cite{GJR26}.  The
 product--Gauss criterion of

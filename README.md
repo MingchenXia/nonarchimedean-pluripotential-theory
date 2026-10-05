@@ -39,7 +39,13 @@ All fifteen cone determinants and 120 lifting inequalities are checked
 exactly. See the [cyclic-model audit](manuscript/editorial/fujiki_oka_height_one_integration_audit_20261004.md)
 and its [primary-source check](manuscript/editorial/fujiki_oka_and_two_parameter_source_audit_20261004.md).
 Chapter 19's
-checked Lin face-restriction example is retained. Chapter 66 now includes
+checked Lin face-restriction example is retained. Its complementary
+curve example now computes individual branch masses when two analytic
+branches have the same tropical image: the merged mass is two, while
+each separate branch contributes one. The original BPR v2 example,
+weighted metric calculation and local weight boundary are recorded in the
+[overlapping-branch audit](manuscript/editorial/lin_branch_integration_audit_20261005.md).
+Chapter 66 now includes
 the specialized intermediate Calabi--Yau potential limit and recent generic
 metric regularity, with precise family, normalization, region and source
 boundaries recorded in Appendix L. Full-build, reference and scoped actual
