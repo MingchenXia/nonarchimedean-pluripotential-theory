@@ -2469,3 +2469,33 @@ independent production receipt. Normal GitHub work-branch synchronization
 continues under the user's standing authorization; main is unchanged.
 Continue the current local symmetry literature and the separate
 singular local klt/normalized-volume comparison dependencies.
+
+### Boundary singularities and homogeneous nonuniqueness — 5 October
+
+After `90d5965`, Chapter 68.12 and L.42 explain the known explicit
+unit-ball family in Wang's arXiv:2609.15572v1, submitted 14 September
+2026. The complete fourteen-page source was read and all actual pages
+displayed in seven sheets. The [boundary singularity audit](boundary_poisson_audit_20261005.md)
+checks the negative-kernel comparison, the unique smooth scalar maximum,
+the real rank-one Hessian and the ordinary locally bounded top-measure
+calculation, including noncharging of the analytic axis.
+
+The Cayley components are permuted so that the distinguished point is
+the first coordinate vector, matching the displayed kernel. The example
+prescribes comparable nontangential growth and supplies no planar
+counterexample or exact curve-by-curve normalization. The separate
+general-domain geometric theorem needs prior geodesic-regularity papers
+and is not imported here. The BB critical theorem retains absence of
+boundary blow-up; no Gibbs boundary-concentration classification follows.
+
+The final 4,334-page build passes TeX, references, bibliography, index
+and PDF navigation checks, with zero overfull boxes. Twenty-four pages
+from this final PDF were actually displayed, including the entire new
+section, L.42, the repaired index columns and bibliography transitions.
+This scoped review is not a whole-book rereading. The active source
+closure remains 425 inputs, with 108 protected inputs, forty preceding
+frozen manifests and all forty-two complete canonical status rows byte
+preserved. The native catalogue and research-only toric candidate are
+unchanged. There is no new independent production-model receipt.
+Continue normal work-branch synchronization and primary dependency
+review of the separate local singular klt/normalized-volume comparison.

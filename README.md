@@ -9,7 +9,15 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,332 pages**.
+The current research-integration build has **4,334 pages**.
+The [boundary singularity audit](manuscript/editorial/boundary_poisson_audit_20261005.md)
+checks Wang's September 2026 explicit homogeneous solution family on
+unit balls of complex dimension at least two. The complete fourteen-page
+source was read and displayed. The construction retains comparable
+nontangential growth, the corrected Cayley coordinate order and ordinary
+Bedford–Taylor noncharging of its analytic axis. Exact curve normalization,
+general-domain geometric rigidity and critical Gibbs boundary concentration
+are not inferred.
 The [critical concentration audit](manuscript/editorial/local_critical_concentration_audit_20261005.md)
 checks the known local variational dichotomy, ordinary pole masses and
 Green-function identification against their original dependencies.
