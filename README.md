@@ -63,6 +63,13 @@ shows why a common pole set and a constant outer function alone do not
 repair the literal abstract lemma. It remains outside active TeX and does
 not refute algebraic psh closure. Formal theorem statements and all 42
 problem statuses are preserved.
+The [compact-support follow-up](manuscript/editorial/compact_balanced_support_followup_20261005.md)
+checks the globally embedded BMPS category and reconstructs the exclusion
+of positive-dimensional compact balanced support, with both the primitive
+lattice-normal and Euclidean unit-normal conventions retained. Its possible
+consequence for the listed compact literal branch remains pending independent
+admission. Live arXiv page checks now confirm BMPS v1 and BJ22 v4 as their
+displayed latest versions; the earlier failed API checks are preserved.
 Chapter 5 adds
 a source-checked Sylvester height-slice example that computes a normalized
 local monomial model and its regular semistable subdivision. The exact

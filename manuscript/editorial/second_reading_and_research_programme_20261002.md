@@ -1397,6 +1397,35 @@ they yield no current-version or negative literature claim. Continue
 actual algebraic closure and related polyhedral regularization checks,
 with work-branch publication and incoming author research inspection.
 
+### Compact support and the polyhedral category, 5 October 2026
+
+The [compact-support follow-up](compact_balanced_support_followup_20261005.md)
+reconstructs why a positive balanced cycle in positive dimension cannot
+have compact support in the finite globally embedded BMPS category. Its
+direct Green-formula argument retains the tangent-lattice covolumes needed
+to convert primitive normals to Euclidean unit normals. A second route
+uses the published quasi-projective refinement and positive one-cycle
+construction, followed by a finite vertex-balancing sum. The corresponding
+argument for BBGS's single global quasi-embedding uses its unit-normal
+weights directly. Compactifications, chartwise tropical spaces and
+weak embeddings that collapse cells have different hypotheses.
+
+This is a source-consequence reconstruction outside active TeX and pending
+independent admission. It identifies the listed compact higher-dimensional
+literal branch for a future category reconciliation; the real-PA
+higher-dimensional classification, nonseparable product obstacles,
+orthogonality and realization gates remain. No atom or catalogue entry is
+changed. Thirteen selected actual primary pages were viewed: ten BMPS
+pages and three published BBGS pages. The active book sources and PDF
+remain byte-identical to the latest provenance edition.
+
+Web abstract-page checks now succeed where the earlier API calls failed:
+the displayed current histories end at BMPS v1 and BJ22 v4. The dated
+HTTP-429 records remain. Bounded APW title searches did not acquire the
+announced sequels and support no absence or current-publication claim.
+Continue the higher-dimensional real coefficient problem and inspect
+incoming author research at the next ordinary work-branch checkpoint.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit
