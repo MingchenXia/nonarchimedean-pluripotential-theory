@@ -51,6 +51,12 @@ metric regularity, with precise family, normalization, region and source
 boundaries recorded in Appendix L. Full-build, reference and scoped actual
 page checks pass; see the [current integration audit](manuscript/editorial/intermediate_cy_integration_audit_20261004.md)
 and the [earlier Lin audit](manuscript/editorial/lin_face_integration_audit_20261004.md).
+The [coefficient-domain note](manuscript/editorial/lin_polyhedral_coefficient_boundary_20261005.md)
+records a literal rational-versus-integral slope issue in Lin v1's BMPS
+regularizability clause. Its [local Bedford–Taylor follow-up](manuscript/editorial/lin_local_bedford_taylor_continuity_followup_20261005.md)
+checks a direct ambient continuity route using Mihatsch's published divisor
+identity and the pinned BGJK arXiv theorem. Both remain research records
+outside active TeX; no main-theorem counterexample or new admission is claimed.
 Related directions and recent arXiv literature continue to be explored for
 source-checked integration; the 42 open-problem statuses are unchanged.
 All current execution remains in the cloud, and Xean setup is suspended by

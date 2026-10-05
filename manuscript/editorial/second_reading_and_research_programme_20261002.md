@@ -1238,6 +1238,34 @@ No new theorem, production-model receipt or Siu repair is admitted.
 Continue the product/source convention check and revision-sensitive
 literature search.
 
+### Local ambient continuity after the coefficient check, 5 October 2026
+
+The [Bedford–Taylor follow-up](lin_local_bedford_taylor_continuity_followup_20261005.md)
+checks the real-facet Stokes, piecewise smooth scalar product, closed-current
+potential identity and common lattice calibration against Mihatsch's
+published 2023 PDF. BGJK20 v1 supplies the exact current signs, positive
+Radon coefficients and top-degree measure statement; its merely weakly
+positive counterexample is kept outside the argument. Twenty-two additional
+actual primary pages were viewed in six contact sheets. Fresh full-paper
+readings and a published-BGJK25 identity are not claimed.
+
+The written derivation identifies the piecewise affine delta product before
+applying BGJK21 v1 Theorem 4.1.2. It therefore reaches Lin v1 Proposition
+8.3's finite convex ambient sequence-continuity conclusion without the
+literal PC-regularizability clause or that proposition as an input. A common
+compact mass bound supplies continuous-test convergence, and locality and
+the zero-dimensional boundary are explicit. This is a consequence of the
+identified literature inputs and a reordered compatibility calculation,
+not a priority claim or an admitted repair of the complete main theorem.
+
+The [manifest](lin_local_bedford_taylor_continuity_manifest_20261005.json)
+clears the source conventions left pending in the preceding note and pins
+the independent admission boundary. All 425 active TeX inputs, book PDF,
+catalogue source/PDF and 42 active problem statuses are preserved. No model
+call, production-verifier receipt, new book-level theorem or Siu/envelope
+repair is recorded. Continue the revision-sensitive literature search and
+noncircular Siu investigation after normal work-branch publication.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit
