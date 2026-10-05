@@ -97,6 +97,16 @@ candidate remains outside active TeX, pending independent admission. A direct
 rational chain-complex calculation still gives the required lower
 Borel--Moore vanishing in this example; the failed proof step is kept
 distinct from its downstream conclusions.
+The [tropical Schubert source audit](manuscript/editorial/lee_tropical_schubert_source_audit_20261005.md)
+reads Lee's April 2026 preprint in full and retains its real-coefficient,
+translated-realization and matroid-stratum conventions. A rational orthant
+refinement tests the general boundary-complex assertion: exact projection
+gives a cone and a proper subcone whose intersection is not a face.
+All 1,326 pairs in the original 52-cone fan have exact common-face
+certificates. This research candidate concerns the general compactification
+step, not a claimed refutation of the matroid cohomology theorems. The
+preprint is not integrated until the specific boundary geometry is settled;
+active TeX, catalogue and all 42 problem statuses remain unchanged.
 Chapter 5 adds
 a source-checked Sylvester height-slice example that computes a normalized
 local monomial model and its regular semistable subdivision. The exact

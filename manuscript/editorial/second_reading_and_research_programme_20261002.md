@@ -1523,6 +1523,32 @@ and computation records stay outside active TeX. No independent model receipt, n
 atom or formal admission is claimed. All 425 active inputs, the current
 4,259-page book, catalogue and 42 statuses remain byte-preserved.
 
+### Tropical matroid Schubert boundary audit, 5 October 2026
+
+The [source audit](lee_tropical_schubert_source_audit_20261005.md) completes
+a full reading of Lee's 26-page arXiv v1 preprint and 17 actual primary
+page views. It retains real coefficients, the distinction between the
+coordinate-product and canonical compactifications, the implicit maximal
+flat, loop coordinates and distinct minor labels. The rank/Koszul and
+Chow-ring comparison are promising additions, but a general boundary
+complex step needs clarification before import.
+
+A finite rational orthant refinement satisfies the printed ambient-fan
+compatibility condition. Two of its cones project on the same boundary
+stratum to a quadrant and a proper full-dimensional subcone; their
+intersection is not a face. The standard-library exact checker enumerates
+52 cones and certifies all 1,326 original cone-pair face intersections.
+Projection identities have exact extreme-generator and all-parameter
+algebraic lift certificates. This is a research candidate for the general
+Proposition A.6 step, not a claimed counterexample to the specific matroid
+cohomology computation. Proposition 4.8's additional matroid structure
+needs a separate incidence check. The new audit, checker and computation
+remain outside active TeX, with zero independent model calls or new formal
+admissions. All 425 active inputs, the 4,259-page book, catalogue and all
+42 complete statuses remain byte-preserved. Continue by reading the
+controlling compactification source and checking the specific boundary
+geometry before deciding whether to integrate the preprint.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit
@@ -1562,4 +1588,8 @@ tracks the continuation. Automatic approval review rejected direct main
 publication as insufficiently authorized for that target, and explicitly
 identified the existing work branch as the safer permitted alternative.
 Normal work-branch pushes continue after verified milestones; incoming main
-research is fetched and checked before integration.
+research is fetched and checked before integration. On 5 October the user
+also explicitly authorized proceeding with task-related GitHub permissions
+without waiting for them. Routine authorized synchronization and publication
+therefore continue autonomously; this does not bypass platform permission
+checks or replace a rejected action with a force push.
