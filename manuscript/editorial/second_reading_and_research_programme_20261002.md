@@ -1348,6 +1348,30 @@ active inputs, the book PDF, catalogue source/PDF and 42 problem statuses
 are unchanged. Continue checking the actual unbounded algebraic closure
 without assuming Siu division or the envelope theorem under investigation.
 
+### Direct GF reconstruction, 5 October 2026
+
+The [direct GF follow-up](direct_gf_regularization_followup_20261005.md)
+starts with already decreasing section presentations. Rational upper
+rounding preserves their exact pole sets and produces a directed rational
+weight net. Ordinary real multiplication uses a product net of rational
+scalars after one fixed upper-bound shift. A larger fixed ample bundle
+allows finite PL truncations of the existing stages, so the finite Rees
+comparison formula passes to their limit without general psh diagonal
+closure. This reconstructs linear-growth finiteness and divisorial
+comparison. Single-presentation homogenization then reconstructs Corollary
+6.17(i)--(ii), keeping zero section exponents omitted at poles.
+
+Together with the preceding nef-target reconstruction, these inputs also
+give the strict fixed-divisor argument when the residual class is nef.
+Normality, a strict coefficient greater than one and the nef residual
+remain explicit. Neither the critical coefficient-one case nor arbitrary
+non-nef residual closure is repaired. The [manifest](direct_gf_regularization_manifest_20261005.json)
+records exact source scopes and four additionally viewed actual primary
+pages. This is a reconstruction of published conclusions, pending
+independent admission and outside active TeX. No book, catalogue or problem
+status changes are claimed; continue the unresolved algebraic closure and
+noncircular envelope source investigation.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit

@@ -45,6 +45,14 @@ They remain outside active TeX, pending independent admission; no psh or
 Siu theorem counterexample, general repair or solved problem is claimed.
 Their [joint manifest](manuscript/editorial/siu_closure_research_manifest_20261005.json)
 records source checks and preservation of the current book and catalogue.
+The subsequent [direct GF follow-up](manuscript/editorial/direct_gf_regularization_followup_20261005.md)
+reconstructs rational weights, real scalar multiplication, divisorial
+comparison and homogeneous regularization from existing stage nets and
+section algebra. Combined with the restricted nef-target closure, it covers
+strict division when the residual class is nef. The critical coefficient-one
+case and general non-nef closure remain unresolved by these drafts. Its
+[manifest](manuscript/editorial/direct_gf_regularization_manifest_20261005.json)
+retains the research-only admission boundary.
 Chapter 5 adds
 a source-checked Sylvester height-slice example that computes a normalized
 local monomial model and its regular semistable subdivision. The exact
