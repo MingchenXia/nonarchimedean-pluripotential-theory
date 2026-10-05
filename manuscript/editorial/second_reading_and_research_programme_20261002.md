@@ -2031,3 +2031,59 @@ The current book, bibliography, 108 protected inputs, all 42 statuses,
 catalogue and frozen releases are byte preserved. Next seek a primary
 literature comparison for this precise minimum/full-mass statement and
 continue its adversarial audit before any book admission.
+
+### Known maximum formula, nonpluripolar measures and capacity — 5 October
+
+The primary comparison now identifies the bounded valuation identity
+as a direct consequence of Błocki's published Theorem 4 (2000), with
+its valuation interpretation explicitly attested by Alesker's 2017
+preprint. Błocki's five-page published-format text was read in full
+and every actual page inspected; selected Alesker passages and six
+actual pages were checked. The degree-two bounded-current identity
+gives equal power sums by Newton's recurrence. Simultaneous local
+cutoffs then give the nonpluripolar measure identity whenever the
+pointwise minimum is psh. No convergence of unrestricted cutoff
+measures is asserted.
+
+Chapter 65 imports this known-formula consequence explicitly, without
+an original result heading or priority claim. Its two-tail application
+gives the all-time-dual mass relation at every slope, retaining that
+term in the collapsed vertical example. It is not a new active problem
+atom. The frozen relative-truncation draft remains a historical research
+candidate, with no production receipt retroactively ascribed to it.
+
+The source-checked general rooftop inequality and its strict P2 example
+keep the psh-minimum hypothesis visible. The arXiv:1909.00839v1 and
+unacquired published theorem numbers remain distinct. Witt Nyström's
+nine-page preprint was read in full, with five actual pages inspected,
+and confirms singularity-order monotonicity and same-type invariance.
+
+Dang–Do–Pham's arXiv:2503.07534v1 was also read in full, with seven
+actual pages inspected. Chapter 65 adds its quantitative capacity
+comparison of mixed masses, using the common full-mass perturbation
+and the factor k^n. The capacity integral over the tested set was
+checked independently against BEGZ equation (4.3), including an actual
+view of page 40. The initial version's unrestricted zero-reference-mass
+characterization is excluded: an ordered isolated-pole/divisor pair on
+P2 has equal zero masses but different generic divisorial singularities.
+This boundary diagnostic remains outside active TeX and makes no claim
+about the unacquired published file or an independent verifier verdict.
+
+The source audit preserves all 49 existing formal environments/proofs
+in the changed TeX files, 108 protected inputs, all 42 complete status
+rows, the native catalogue and earlier frozen releases. The six new
+equation tags continue as 65.54–65.59. The general BJ22 closure, Siu
+and quantization assumptions A2–A4 retain their scope. Next follow the
+recent work on nonpluripolar Radon measures and quantitative regularity,
+while distinguishing a measure-theoretic result from a repair of any
+non-Archimedean division argument.
+
+The final cloud release has 4,294 pages, 313 cited references, 12,636
+unique source labels and a clean reference/inventory check. All PDF
+outline and internal-link targets and numerical index destinations pass.
+There are no errors, unresolved references, missing glyphs, package/PDF
+warnings or overfull boxes; the existing count of 954 underfull boxes
+is retained. Sixteen actual final pages were inspected and exported as
+the matching review extract. The manifest and complete 425-input source
+closure pin this checkpoint; its archive is checked against workspace
+bytes without claiming a new isolated archive build.

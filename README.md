@@ -210,6 +210,17 @@ locality and stability inputs. Exact projective radial and scalar checks
 calibrate its signs and mass normalization. It remains outside active
 TeX pending independent verification; the book and all 42 statuses are
 unchanged at this research checkpoint.
+The subsequent [known-formula audit](manuscript/editorial/minimum_mass_known_formula_audit_20261005.md)
+identifies Błocki's published maximum formula and its valuation
+interpretation. Chapter 65 now explains its direct nonpluripolar
+measure consequence when the pointwise minimum is psh, and applies it
+to the two tails of a test line, retaining the all-time dual term at
+every slope. It also separates this equality from the general rooftop
+inequality and adds the version-specific 2025 comparison in capacity.
+The initial preprint's unrestricted zero-reference-mass characterization
+is excluded and recorded as a research diagnostic. These ordinary
+known-formula consequences do not retroactively verify the frozen
+research draft or change any of the 42 problem statuses.
 Chapter 5 adds
 a source-checked Sylvester height-slice example that computes a normalized
 local monomial model and its regular semistable subdivision. The exact
