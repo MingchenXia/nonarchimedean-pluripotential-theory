@@ -1967,3 +1967,38 @@ boxes. Sixteen actual final PDF pages were reviewed. The three new
 equations follow the chapter's existing sequence as 65.46–65.48.
 All 49 existing formal environments/proofs in the changed TeX files,
 108 protected inputs and 42 complete problem statuses are preserved.
+
+### Complete weak lines and both time directions — 5 October
+
+Darvas–McCleerey's recently published *Lines in the space of Kähler
+metrics*, Mathematische Annalen 396, article 36 (15 September 2026),
+has been read in full, including references. Twenty actual pages were
+inspected. Selected arXiv:2507.17375v3 passages were compared, without
+claiming full reading or version identity. The published file controls
+the new book locators.
+
+Chapter 65 now explains the known test-line correspondence: zero
+nonpluripolar mass on the interior distinguishes complete weak lines
+from geodesic turns. A one-point dual for a vertical translation keeps
+the degenerate interval separate. The projective max and log-sum examples
+distinguish smooth potentials from strictly positive curvature. The
+bounded-base obstacle criterion shows why parallel transport of the
+two half-rays separately need not give a line through the new base.
+Appendix L records the Kähler, full-energy and bounded-base restrictions.
+No merely big or non-Archimedean line extension is asserted.
+
+Literal auxiliary normalization and sign/order displays are documented
+and excluded from the import. The volume-diamond question is retained as
+a potential research direction, with no new solved atom or production
+receipt. All 42 statuses, the protected analytic scope, catalogue and
+previously frozen exports are preserved. Next study the equality mechanism
+and how its one-dimensional current description relates to the book's
+envelope and mass comparisons.
+
+The fresh full-book build has 4,290 pages. Source, inventory, bibliography,
+index and PDF-navigation checks pass with no compiler errors, unresolved
+references, overfull boxes or invalid link destinations. Sixteen actual
+final pages were inspected, including the complete new section and
+provenance entry. The existing 49 formal environments/proofs in the
+changed TeX files, 108 protected inputs and all 42 statuses are preserved.
+New displays follow the existing manual sequence as 65.49–65.53.

@@ -9,7 +9,7 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,288 pages**. The proof of
+The current research-integration build has **4,290 pages**. The proof of
 Boucksom--Jonsson (2022), Theorem 6.21, incorrectly infers monotonicity of
 a residual with a changing divisor coefficient. Critical homogeneous Siu
 division is now an explicit additional assertion `(SD)_k`; the general
@@ -195,6 +195,14 @@ formula removes the terminal cutoff and retains a regular initial
 obstacle; fixed-time approximation estimates retain their time range.
 See the [big-ray source audit](manuscript/editorial/gupta_big_rays_integration_audit_20261005.md)
 for the primary versions, formula checks and integration boundaries.
+The [complete weak-line integration audit](manuscript/editorial/geodesic_lines_integration_audit_20261005.md)
+adds the published Darvas–McCleerey correspondence to Chapter 65.
+It distinguishes geodesic turns from complete lines, smooth potentials
+from strict curvature positivity, and parallel ray transport from the
+bounded-base obstacle condition for a parallel line. The published
+25-page text was read in full and twenty actual primary pages were
+inspected. These known results retain a Kähler class; no merely big or
+non-Archimedean line extension, new theorem or solved problem is claimed.
 Chapter 5 adds
 a source-checked Sylvester height-slice example that computes a normalized
 local monomial model and its regular semistable subdivision. The exact
