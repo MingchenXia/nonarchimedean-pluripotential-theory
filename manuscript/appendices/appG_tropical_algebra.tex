@@ -1229,6 +1229,118 @@ These results concern the specified toric fans. They do not
 identify their full singular cohomology with the earlier
 intersection-cohomology module or with a tropical compactification.
 
+\subsection{Projective deletions and local polynomial counterexamples}
+\label{sec:appG-projective-deletion-KL}
+\index{Kazhdan--Lusztig polynomial!projective deletion}
+\index{matroid!local and global polynomials}
+
+Real-rootedness depends on the polynomial under consideration.
+The uniform toric cohomology polynomials above differ from the
+Kazhdan--Lusztig polynomial $P_M$. In the $U_{3,4}$ module example,
+$P_M$ records the quotient by $B^{>0}$, whereas $Z_M$ records the
+whole module. A Lefschetz map on that module does not automatically
+give such a map on its quotient. Cheng--Liu's July 2026 preprint
+provides concrete examples of this distinction
+\cite{ChengLiu26MatroidKL}.
+
+Here is its projective-deletion criterion, with its hypotheses
+retained \cite[Theorem~1.1]{ChengLiu26MatroidKL}.
+Let $V=\mathbf F_q^r$, let $D\subset\mathbf P(V)$ be deleted
+projective points, and suppose the surviving set
+$E=\mathbf P(V)\setminus D$ spans $V$. The represented matroid
+$M$ is simple and has rank $r$. A subspace $U\le V$ is a flat
+span when $F_U=E\cap\mathbf P(U)$ spans $U$. Define
+\[
+ C_U(t)=\sum_{\substack{U\le A\le V\\
+              \mathbf P(A)\setminus\mathbf P(U)\subset D}}
+              t^{\dim A-\dim U}.
+\]
+If $\deg C_U<(r-\dim U)/2$ for every proper flat span $U$,
+then the known criterion gives
+\[
+ P_{M/F_U}(t)=C_U(t),\qquad
+ Z_M(t)=\sum_{j=0}^r\genfrac{[}{]}{0pt}{}{r}{j}_q t^j.
+\]
+The Gaussian coefficient counts the $j$-dimensional subspaces
+of $V$ and equals
+$\prod_{a=0}^{j-1}(q^{r-a}-1)/(q^{j-a}-1)$; the empty product
+is one.
+
+The combinatorial proof explains both the degree condition and
+the global polynomial. For each $A\le V$, its surviving span
+$\sigma(A)=\operatorname{span}(E\cap\mathbf P(A))$ is a flat
+span. The equality $\sigma(A)=U$ holds exactly for the subspaces
+counted by $C_U$. Thus
+\[
+ \sum_{F_U\in L(M)}t^{\dim U}C_U(t)
+     =\sum_{A\le V}t^{\dim A}.
+\]
+Contraction by $F_U$ deletes a quotient direction precisely when
+its whole projective fibre was deleted. Successive quotients
+retain this description and the degree hypotheses. Induction on
+rank, followed by the palindromic characterization used in
+\Cref{sec:appG-matroid-intersection-module}, identifies every
+$C_U$ with $P_{M/F_U}$
+\cite[Lemmas~2.1 and~2.3 and Proposition~2.2]{ChengLiu26MatroidKL}.
+
+A small example already disproves general real-rootedness
+\cite[Appendix, Theorem~A.4]{ChengLiu26MatroidKL}.
+Take $V=\mathbf F_2^7$ with basis $e_1,\ldots,e_7$, put
+$W=\langle e_1,e_2,e_3\rangle$, and delete
+\[
+ \begin{split}
+ S={}&\{e_4,e_4+e_5,e_4+e_6,e_4+e_7,\\
+     &\hspace{16mm}e_4+e_5+e_6,e_4+e_5+e_7\},\qquad
+ D=(W\setminus\{0\})\cup S.
+ \end{split}
+\]
+Over $\mathbf F_2$, nonzero vectors are projective points.
+There are $13$ deleted points and $114$ surviving points. The
+latter span $V$, since a hyperplane has only $63$ projective
+points. No subspace of dimension at least two contained in $D$
+meets $S$: sums of two distinct points of $S$, or of a point of
+$S$ with a nonzero point of $W$, lie outside $D$.
+Consequently $C_0=1+13t+7t^2+t^3$.
+For $\dim U=k$ and an $h$-dimensional extension in the quotient,
+the required deleted fibre has $2^k(2^h-1)$ points. At
+$h=\lceil(7-k)/2\rceil$, these numbers, for $k=0,\ldots,6$,
+are $15,14,28,24,48,32,64$, all greater than $13$.
+Every proper flat span therefore satisfies the degree bound.
+The criterion gives
+\[
+ P_M(t)=1+13t+7t^2+t^3.
+\]
+Its cubic discriminant is $-268$, so it has one real root and
+two nonreal conjugate roots. Its coefficient sequence is still
+unimodal; a separate example is needed to disprove unimodality.
+
+For that example, take $V=\mathbf F_2^{17}=W\oplus X$ with
+$\dim W=6$ and $\dim X=11$. Choose a hyperplane $H<X$ and
+any $589$ points $S$ in the $1024$-point affine chart
+$\mathbf P(X)\setminus\mathbf P(H)$. Delete
+$D=\mathbf P(W)\cup S$. Every projective line lying in $D$
+lies in $\mathbf P(W)$: a line through two chart points meets
+$\mathbf P(H)$, and a line joining $W$ to a chart point has a
+point with both components nonzero. The source's line-separated
+criterion applies because $6<17/2$ and $|D|=652<2^{15}$
+\cite[Proposition~2.6 and Corollaries~1.2--1.3]
+{ChengLiu26MatroidKL}. This simple binary matroid has $130419$
+elements and
+\[
+ P_M(t)=1+652t+651t^2+1395t^3+651t^4+63t^5+t^6.
+\]
+The strict valley $652>651<1395$ disproves unimodality, and
+$651^2<652\cdot1395$ disproves log-concavity. Since all
+coefficients are positive, Newton's inequalities also exclude
+real-rootedness.
+
+In both examples, $Z_M$ is the Gaussian rank polynomial above.
+Its coefficients are symmetric and unimodal: the adjacent ratio
+is $(2^{r-j}-1)/(2^{j+1}-1)$. Thus the local counterexamples
+coexist with a well-behaved global polynomial. They concern
+$P_M$, and do not change the uniform toric cohomology results in
+\Cref{sec:appG-uniform-real-rootedness}.
+
 \section{Cohomology retained by tropicalization}
 \label{sec:appG-cohomologically-tropical}
 \index{tropical cohomology}\index{cohomologically tropical variety}

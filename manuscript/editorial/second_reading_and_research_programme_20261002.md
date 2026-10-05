@@ -1773,3 +1773,25 @@ also explicitly authorized proceeding with task-related GitHub permissions
 without waiting for them. Routine authorized synchronization and publication
 therefore continue autonomously; this does not bypass platform permission
 checks or replace a rejected action with a force push.
+
+### Projective-deletion local-polynomial update — 5 October
+
+The full 17-page Cheng--Liu arXiv version two, revised 28 July 2026,
+has been read, including its combinatorial proof, geometric alternative
+and historical AI appendix. Ten actual controlling pages were viewed.
+Appendix G9.6 imports the known projective-deletion criterion with the
+spanning hypothesis and every proper-flat half-rank degree condition;
+Appendix L27 identifies the source and verification limits.
+
+The rank-seven binary named example is checked on all 29,212 subspaces
+and 29,131 flat spans. Its deleted-subspace counts, all quotient extension
+degrees and global Gaussian polynomial agree; its cubic discriminant is
+-268. The rank-seventeen nonunimodal example is checked for line
+separation on all 212,226 deleted-point pairs, spanning, size bounds,
+Gaussian coefficients and the strict coefficient valley. Its full flat
+lattice is not enumerated; its polynomial retains the known source
+criterion. Local P, global Z and the preceding toric polynomials remain
+distinct. This is an ordinary import of existing mathematics, with no
+new model receipt, general original result, changed problem status,
+Siu repair or catalogue edit. The separate review audit records the
+mathematical proof checks and primary-source version.
