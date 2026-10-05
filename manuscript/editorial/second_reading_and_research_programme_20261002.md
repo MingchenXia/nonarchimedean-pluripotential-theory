@@ -1795,3 +1795,24 @@ distinct. This is an ordinary import of existing mathematics, with no
 new model receipt, general original result, changed problem status,
 Siu repair or catalogue edit. The separate review audit records the
 mathematical proof checks and primary-source version.
+
+### Integer-line-weight Snapper update — 5 October
+
+The full 32-page September 2026 Li preprint has been read, with selected
+K-ring, intersection-degree and refined-Eulerian dependencies checked in
+their actual source versions. Twenty-five actual primary pages were viewed.
+Appendix G9.7 imports the known integer-line-weight independence formula,
+magic positivity and real-rooted numerator; Appendix L28 states provenance,
+finite verification limits and excluded auxiliary steps. Actual LLPP
+locators replace the inaccurate numerical citations in the controlling
+preprint.
+
+Exact tests cover all 36 nonempty loopless labelled matroids on at most
+four elements and 2,032 weight assignments in {0,1,2}. Weighted shelling,
+magic and numerator transforms pass; roots are checked exactly only
+through degree three. Twenty-eight permutation cases check the Eulerian
+transform through degree six. An independent classical surface
+Riemann--Roch calculation checks all 729 U34 weight assignments and explains
+the all-one example. These are finite checks of identified known results,
+not new general theorem or model-verifier receipts. All 42 active problem
+statuses, catalogue bytes and Siu/closure conditions are preserved.

@@ -9,7 +9,7 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,271 pages**. The proof of
+The current research-integration build has **4,278 pages**. The proof of
 Boucksom--Jonsson (2022), Theorem 6.21, incorrectly infers monotonicity of
 a residual with a changing divisor coefficient. Critical homogeneous Siu
 division is now an explicit additional assertion `(SD)_k`; the general
@@ -175,6 +175,14 @@ cohomology polynomials. The rank-seven binary example has a nonreal root
 pair; the rank-seventeen example is nonunimodal. The
 [integration audit](manuscript/editorial/matroid_KL_projective_deletion_integration_audit_20261005.md)
 records the full primary reading and exact named-example checks.
+The September 2026 Li Snapper-polynomial result adds the known
+integer-line-weight formula, magic positivity and its real-rooted
+generating numerator. The Euler functional is kept distinct from a
+pushforward on the nonproper Bergman toric variety; its proper wonderful
+realization has a separate surface Riemann--Roch check. The
+[source audit](manuscript/editorial/matroid_magic_positivity_integration_audit_20261005.md)
+records the full controlling reading, selected dependencies, exact
+finite checks and excluded auxiliary steps.
 Chapter 5 adds
 a source-checked Sylvester height-slice example that computes a normalized
 local monomial model and its regular semistable subdivision. The exact

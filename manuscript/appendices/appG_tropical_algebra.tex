@@ -1341,6 +1341,161 @@ coexist with a well-behaved global polynomial. They concern
 $P_M$, and do not change the uniform toric cohomology results in
 \Cref{sec:appG-uniform-real-rootedness}.
 
+\subsection{Snapper polynomials of line classes}
+\label{sec:appG-matroid-Snapper}
+\index{Snapper polynomial}
+
+There is another polynomial attached to the same Bergman fan:
+it measures powers of a line-bundle class, rather than graded
+cohomology. Li's September 2026 preprint proves positivity for
+classes supported on rank-two flats
+\cite[Theorems~3.6--3.7]{Li26Snapper}. The definition of its Euler
+functional matters because the ordinary Bergman toric variety is
+usually not proper.
+
+Let $M$ be a loopless matroid on a nonempty ground set $E$, of
+rank $r\ge1$. Write $K(M)$ for the vector-bundle K-ring of its
+ordinary Bergman toric variety, and $A(M)$ for its integral Chow
+ring. For each nonempty flat $F$, the simplicial line class
+$\mathcal L_F$ has first Chern class $h_F$. There is a known
+integral ring isomorphism
+\[
+ \zeta_M:K(M)\longrightarrow A(M),\qquad
+ \zeta_M(1-[\mathcal L_F]^{-1})=h_F
+\]
+\cite[Theorem~1.8]{LLPP24KRings}. Put $\alpha=h_E$ and define
+\[
+ \chi_M(\xi)=
+ \deg_M\!\left(\zeta_M(\xi)
+       (1+\alpha+\cdots+\alpha^{r-1})\right).
+\]
+Here $\deg_M$ takes the component of Chow degree $r-1$.
+This is the combinatorial Euler functional of
+\cite[\S1.5]{LLPP24KRings}, not a proper pushforward from the
+nonproper toric variety. If an arrangement $\mathcal A$
+realizes $M$, its smooth projective wonderful model
+$W_{\mathcal A}$ has the same K-ring, and this functional
+agrees with the sheaf Euler characteristic on $W_{\mathcal A}$
+\cite[Proposition~1.6 and \S1.5]{LLPP24KRings}.
+The exceptional map $\zeta_M$ is not the classical Chern
+character; its displayed factor is not a classical Todd class.
+
+Let $L_2(M)$ be the rank-two flats and choose integers
+$\omega_F\ge0$ for $F\in L_2(M)$. Set
+\[
+ \mathcal L_\omega=\bigotimes_{F\in L_2(M)}
+                         \mathcal L_F^{\otimes\omega_F},
+ \qquad f_\omega(q)=\chi_M([\mathcal L_\omega]^q).
+\]
+Li calls this a zonotopal class. Its defining generalized
+permutohedron $\sum_F\omega_F\Delta_F$, where
+$\Delta_F=\operatorname{conv}\{e_a:a\in F\}$, need not itself
+be a zonotope: a rank-two flat can contain three or more elements.
+
+The known formula identifies $f_\omega$ with a weighted
+independence polynomial. Let $T(M)$ be the Dilworth truncation
+along the lines of $M$: a set $I$ of rank-two flats is independent
+when
+\[
+ \operatorname{rk}_M\!\left(\bigcup_{F\in J}F\right)
+       \ge |J|+1
+ \quad\text{for every nonempty }J\subseteq I.
+\]
+Then
+\[
+ f_\omega(q)=\sum_{I\text{ independent in }T(M)}
+                     \left(\prod_{F\in I}\omega_F\right)q^{|I|}.
+\]
+The empty set contributes one. One way to obtain this formula
+is to use the known rising-binomial Snapper formula
+\cite[Corollary~7.5]{LLPP24KRings}. Its dragon Hall--Rado
+tuples satisfy the rank inequalities on nonzero subtuples.
+For a rank-two flat, the singleton inequality forces its
+multiplicity to be at most one, so each rising binomial becomes
+$\omega_Fq$; the remaining inequalities are exactly those above.
+The underlying top-degree intersection formula is
+\cite[Theorem~5.2.4]{BES24Simplicial}.
+
+Delete all zero-weight lines and let $d$ be the rank of the
+resulting restriction of $T(M)$. Thus $d=\deg f_\omega$, which
+can be smaller than $r-1$. In particular, $d=0$ and
+$f_\omega=1$ when all weights vanish or $r=1$. With this actual
+degree, the known magic-positivity statement is
+\[
+ f_\omega(q)=\sum_{i=0}^d m_iq^i(1+q)^{d-i},
+ \qquad m_i\ge0.
+\]
+Its shelling proof explains the integer-weight hypothesis.
+Choose a lexicographic shelling of the bases $B$ of the
+positive-support restriction, and let $R(B)$ be its
+restriction face: the new faces at $B$ form the interval
+$[R(B),B]$. The magic-coefficient polynomial is
+\[
+ \begin{split}
+ m(y)&=(1-y)^d f_\omega\!\left(\frac{y}{1-y}\right)\\
+ &=\sum_B
+       \left(\prod_{F\in R(B)}\omega_F\right)y^{|R(B)|}
+       \prod_{F\in B\setminus R(B)}
+                    \bigl(1+(\omega_F-1)y\bigr).
+ \end{split}
+\]
+Every factor has nonnegative coefficients since the retained
+integer weights are at least one
+\cite[proof of Theorem~3.7]{Li26Snapper}.
+
+Define the numerator $h_\omega^*$ using the same degree $d$:
+\[
+ \sum_{q\ge0}f_\omega(q)t^q
+       =\frac{h_\omega^*(t)}{(1-t)^{d+1}}.
+\]
+Magic positivity implies that this numerator has nonnegative
+coefficients and only real roots. The real-root conclusion
+uses the identified refined-Eulerian transformation
+\cite[Corollary~4.5]{BJM19Zonotopes}; it is a known general
+input, not a consequence of the finite checks below.
+
+For a concrete comparison, give weight one to all six pairs
+in $\{1,2,3,4\}$. The same polytope
+$\Pi_3=\sum_{a<b}\Delta_{\{a,b\}}$ gives different Snapper
+polynomials for the Boolean matroid $B_4$ and $U_{3,4}$
+\cite[Example~3.11 and Table~1]{Li26Snapper}. Their line
+truncations are respectively the graphic matroid of $K_4$
+and $U_{2,6}$, so
+\[
+ \begin{array}{c|l|c}
+ M&f_\omega(q)&(m_0,\ldots,m_d)\\ \hline
+ B_4&1+6q+15q^2+16q^3&(1,3,6,6)\\
+ U_{3,4}&1+6q+15q^2&(1,4,10)
+ \end{array}
+\]
+and the corresponding numerators are
+\[
+ h_{B_4}^*(t)=1+34t+55t^2+6t^3,\qquad
+ h_{U_{3,4}}^*(t)=1+19t+10t^2.
+\]
+The Boolean case is the Ehrhart polynomial of $\Pi_3$.
+The uniform case has degree two, reflecting the dimension of
+its wonderful model.
+
+The second polynomial also has a direct geometric check.
+Four general projective lines over $\mathbf C$ realize
+$U_{3,4}$; their wonderful surface is the blowup of
+$\mathbf P^2$ at the six pairwise intersections. With
+$H$ the pullback of a line and $E_F$ the exceptional curves,
+$h_F=H-E_F$, and
+\[
+ D=6H-\sum_F E_F,\qquad K_W=-3H+\sum_F E_F.
+\]
+The intersection form gives $D^2=30$, $D\cdot K_W=-12$
+and $\chi(\mathcal O_W)=1$. Classical surface
+Riemann--Roch therefore yields
+$\chi(W,\mathcal O_W(qD))=1+6q+15q^2$.
+This agreement compares two computations of Euler
+characteristic; it identifies neither the exceptional
+K-to-Chow map with a Chern character nor the Snapper
+polynomial with any ordinary or intersection-cohomology
+polynomial from the preceding subsections.
+
 \section{Cohomology retained by tropicalization}
 \label{sec:appG-cohomologically-tropical}
 \index{tropical cohomology}\index{cohomologically tropical variety}
