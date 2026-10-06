@@ -1181,3 +1181,13 @@ production Rethlas gate and authorizes no theorem promotion.
 Downloaded reference copies, temporary build trees, TeX intermediate files,
 and superseded release PDFs are also intentionally excluded from version
 control.
+
+The 6 October regularization/capacity dependency checkpoint fully reads
+Cheng--Xu 2208.14539v1 and the published Dinew--Kołodziej estimates paper:
+46 displayed physical pages, including 43 research pages. It distinguishes
+the geometric jet estimates from the curvature-dependent admissibility
+step, checks root/density exponents and the direction of capacity bounds,
+and records nine literal diagnostics. Exact stability powers and the
+unrestricted compact comparison formula remain qualified. The checked
+4,398-page book and all canonical statuses are preserved. Details are in
+[the dependency source review](manuscript/editorial/Hessian_gradient_capacity_dependency_source_review_20261006.md).

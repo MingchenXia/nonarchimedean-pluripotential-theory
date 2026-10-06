@@ -3424,3 +3424,38 @@ verification receipt is claimed. Continue with the exact 2208.14539
 regularization paper and the published Dinew--Kołodziej capacity proof;
 their newly located editions are not yet claimed read. The October
 polynomial Hessian preprint 2610.06529 remains a metadata lead only.
+
+### Regularization and capacity dependencies — 6 October
+
+Read and individually displayed Cheng--Xu 2208.14539v1 in full and the
+published Dinew--Kołodziej APDE 7(1) estimates paper in full: 46 physical
+pages in 24 sheets, comprising 43 research pages and three publisher
+pages. The later Cheng--Xu journal edition is not claimed read. See the
+[dependency source review](Hessian_gradient_capacity_dependency_source_review_20261006.md).
+
+Separate the curvature-free semiconvexity and vector-field jets from the
+nonnegative-bisectional-curvature admissibility improvement. The actual
+stability recursion is superlinear and its constant/positive-part
+conditions remain explicit. Conversion from root-operator data to wedge
+density gives p0=mp/n, hence p>n/m and the stated strict Hölder exponent.
+The published capacity proof uses a lower bound for a supremum, retains
+compact singular levels, and combines correctly directed volume-capacity
+and Hölder bounds. Compact arguments retain normalized mass and convex
+combinations. The cited capacity iteration lemma and exact stability
+powers remain to be checked.
+
+Nine literal checks include four cleared objections and five sign,
+condition, class or normalization problems. The unrestricted compact
+stability formula fails under constant shifts; its normalized versions,
+the classical L-infinity/existence results and the regularization theorem
+are not refuted. No full external chain or Chu--Liu normalization/boundary
+repair is certified. Dat's general all-m p>1 import remains excluded.
+
+This source-only checkpoint preserves 425 active inputs, 108 protected
+inputs, 69 preceding frozen manifests, 124 preceding exports, the checked
+4,398-page book and fourteen generated files, the native catalogue and
+all canonical statuses. No active TeX edit, repeated unchanged-book build,
+fresh book PDF review, native compile, original admission, independent
+model call or verification receipt is claimed. Fetch main and work and
+publish on work; continue the remaining analytic dependencies and recent
+polynomial Hessian research.
