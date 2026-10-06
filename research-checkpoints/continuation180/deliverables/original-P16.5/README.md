@@ -1,0 +1,5 @@
+# Original P16.5
+
+The complete original-carrier finite-energy equation theory is proved for every actual big rational line bundle on every smooth integral projective variety of positive dimension over every algebraically closed trivially valued characteristic-zero field. The additional zero-volume range is the entire numerically trivial rational-bundle range, including nontorsion Pic0; raw zero mass is never probability normalized.
+
+Independent Xean native Codex gpt-6.1-sol xhigh round167 reviewed the entire manuscript and both appendices with only complete actual-ample G0 and relative-generation/one-FS-net G1 grants and returned PASS. The whole canonical report, native final result, source-index bindings and exact reviewed inputs are preserved. Publication edits clarify the normalized E1 supremum, common fixed-factor divisibility, formula reference and review status without changing the mathematical theorem. The stronger fixed-original-unbounded-test statement at every physical auxiliary output remains unproved and is not required for the theorem.

@@ -1,0 +1,5 @@
+# P19.2 minimal raw-mass obstruction candidate212
+
+The complete11-page paper proves a proposed analytic obstruction on P1 times a nonprojective complex2torus in a genuinely transcendental Kahler class. A bounded-at-each-finite-time actual weak ray from0 has usual datum0 and an interior raw top-mass deficit. The main new obstruction uses only recovery of the datum at the trivial valuation, normalized NA energy and pointwise raw top mass. The former dS obstruction remains a separate theorem. The proof includes I-maximal/usual-maximal convex-dual comparison and locally bounded compatible total-weight comparison.
+
+Unreviewed. Mathematical correctness and the exact original P19.2 signature/model-category fit require independent judgment. No original is closed on this proposal and no new supporting paper accepted. Only complete accepted originalP19.1 R is a grant. This full source was frozen before reading completed169; no169 report or other verdict enters fresh170 inputs. The existing P16.4 editor is preserved.
