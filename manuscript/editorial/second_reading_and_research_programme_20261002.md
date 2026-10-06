@@ -3575,3 +3575,34 @@ the newly acquired 15-page Wang tau-invariant preprint, 2610.04994v1,
 against the metric-graph Green and energy discussion. Only its primary
 metadata and abstract have been read at this point; its claimed uniform
 bound and cubic counterexample remain unadmitted pending proof review.
+
+## Tau and tropical moments: complete source checkpoint, 6 October
+
+Wang's 2610.04994v1 has now been read and displayed in all fifteen
+pages, including proofs and references. Ninety-three dependency pages
+were read and displayed in 48 additional sheets. The published moments,
+Rayleigh and Edmonds PDFs and Cinkir v3 are complete readings; the height
+paper and Baker--Rumely v2 retain explicit selected-page scopes. Total
+fresh physical reading is 108 pages in 56 sheets. See the
+[source review](tau_invariant_source_review_20261006.md).
+
+The dual-lattice bound, cographic partition, bridge/two-cut reduction,
+loop retention, scalar root branch, cubic graph construction and height
+half-factor are checked. Independent small-network calculations match
+the two exact Foster coefficients and tau formulas; rational checks
+match the limit 59/7260 and the finite M=300 counterexample bound.
+Fourteen diagnostics distinguish false auxiliary formulas from cleared
+objections. In particular, the average grounded inverse requires
+centering to become Moore--Penrose, and a single-edge contraction
+formula requires charges outside the open edge. Neither check refutes
+Wang's main proof. The optimum universal tau constant remains open.
+
+This source-only checkpoint preserves all 425 active inputs, 108
+protected inputs, 73 prior frozen manifests, 127 prior exports,
+the 4,401-page book, its generated files and the native catalogue.
+No original result, independent model call, verification receipt,
+canonical status change or general Siu/closure repair is admitted.
+Next integrate the checked attributed graph-energy and moment
+connection in Chapter 8 with precise Appendix L provenance, then
+compile, inspect matching final pages and publish on work. Routine
+GitHub synchronization continues under standing authorization.
