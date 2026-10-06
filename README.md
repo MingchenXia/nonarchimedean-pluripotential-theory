@@ -10,6 +10,14 @@ The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
 The current research-integration build has **4,392 pages**.
+The [Hessian comparison source review](manuscript/editorial/Hessian_global_comparison_source_review_20261006.md)
+reads Guedj--Lu's fifteen-page arXiv edition in full and 29 further
+selected pages from three primary dependencies. Continuous global
+domination, bounded local comparison, general Hermitian approximation
+and Monge--Ampère comparison retain their precise domains. Four literal
+checks concern wedge powers, background derivative terms and a change
+of reference metric; none refutes a main theorem or certifies the full
+bounded Hessian regularity chain. This is a source-only checkpoint.
 The [bounded Hessian regularity source review](manuscript/editorial/Fang_Hessian_bounded_regularity_source_review_20261006.md)
 reads Fang's new Hermitian Hessian preprint in all twenty pages and
 81 selected physical dependency pages, including one publisher cover.

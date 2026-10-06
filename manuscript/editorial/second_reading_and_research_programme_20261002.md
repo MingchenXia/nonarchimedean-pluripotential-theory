@@ -3153,3 +3153,36 @@ editor/tab change, independent model call, verification receipt,
 original result or general Siu/closure repair is claimed. Continue
 with the original global domination and continuity inputs before
 deciding whether a Hessian passage is suitable for active TeX.
+
+### Hessian domination and local comparison: source review — 6 October
+
+Read and displayed Guedj--Lu's arXiv:2302.03354v1 in all fifteen pages,
+six selected pages from Boucksom--Guedj--Lu's Bott-Chern v1, twenty-one
+selected pages from Gu--Nguyen's published 2018 Dirichlet paper, and
+two additional pages from Kołodziej--Nguyen's weak Hessian v2: 44
+physical research-text pages in 23 sheets. The publisher Guedj--Lu PDF
+returned 403; its twenty-four-page journal edition is not acquired or
+reviewed. Only the fifteen-page preprint is freshly read in full.
+See the [comparison source review](Hessian_global_comparison_source_review_20261006.md).
+
+Guedj--Lu's global domination and exponential comparison concern
+continuous potentials. The strict sublevel supplies the uniform factor
+exp(-delta). Gu--Nguyen's bounded local theory uses a locally conformal
+Kähler reference form, whereas Remark 3.19 extends smooth approximation
+to general Hermitian metrics via a different maximality input.
+Kołodziej--Nguyen Theorem 2.16 permits a bounded competitor but requires
+the zero-Hessian potential to be continuous and uniformly smoothly
+approximable. Boucksom--Guedj--Lu's selected comparison proof concerns
+psh potentials and Monge--Ampère, with its separate positivity inputs.
+
+Four literal checks retain the correct wedge powers, nonclosed
+background derivative terms and fixed Hessian reference metric. They
+do not refute the cited main theorems or certify the complete bounded
+regularity chain. All 425 active inputs, 108 protected inputs, 62 prior
+frozen manifests, 118 prior exports, the checked 4,392-page book and
+all generated files, canonical statuses, and native catalogue remain
+byte-preserved. No repeated book build, native compile, original
+admission, independent model call or verification receipt is claimed.
+Continue with a scoped account of continuous Hessian domination and
+conditional auxiliary identification, keeping the remaining bounded
+continuity, class transfer and specialized estimate checks explicit.
