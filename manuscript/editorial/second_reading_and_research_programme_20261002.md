@@ -3186,3 +3186,40 @@ admission, independent model call or verification receipt is claimed.
 Continue with a scoped account of continuous Hessian domination and
 conditional auxiliary identification, keeping the remaining bounded
 continuity, class transfer and specialized estimate checks explicit.
+
+### Continuous Hessian domination and auxiliary limits — 6 October
+
+Chapter 68.9.5 now explains the known Guedj--Lu global domination for
+continuous admissible potentials on a compact Hermitian manifold, with
+a fixed Hessian reference metric and 1<m<n. Its envelope contact argument
+retains positive mass and mixed-current positivity. Exponential comparison
+uses the uniform factor exp(-a delta) on a strict sublevel, for every
+a>0. A given continuous solution is identified as the uniform limit
+of the positive-coefficient auxiliary equation by two applications of
+this comparison. The second auxiliary sequence yields smoothness only
+under explicitly assumed uniform potential and full second-derivative
+bounds for both sequences, followed by the known concave elliptic
+estimate and bootstrapping. No monotonicity of the original smooth
+nonlinearity is required for this conditional identification. Existence,
+original-equation uniqueness and continuity of an arbitrary bounded
+solution remain distinct inputs. Appendix L.56 records exact editions,
+potential conventions, corrected ordinary power identities and source
+scope. See the [integration audit](continuous_Hessian_audit_20261006.md).
+
+This integration reuses the 44-page comparison reading and ten selected
+Tosatti--Wang--Weinkove--Yang dependency pages; no fresh primary-page
+reading is claimed for it. Only Guedj--Lu's fifteen-page v1 was read
+in full in that comparison record. All 39 matching final book pages
+were displayed and their complete extracted text read in twenty sheets.
+The 4,394-page build, post-render references, index, navigation and
+inventory pass, with all 141 Chapter 68 equation numbers unique.
+The edited inputs preserve all 46 existing statement, explanatory and
+proof blocks. The other 423 active inputs, 108 protected inputs,
+63 prior frozen manifests (54 integrations and nine source reviews),
+118 prior exports, all 42 complete canonical statuses and the native
+catalogue retain their bytes. The source archive contains 656 members,
+each byte-verified with a passing CRC check. No fresh isolated archive
+build, original result, independent model call, verification receipt
+or general Siu/closure repair is claimed. Continue with the remaining
+bounded background-class comparison and specialized uniform-estimate
+inputs before admitting broader Hermitian Hessian regularity.

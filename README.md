@@ -9,7 +9,17 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,392 pages**.
+The current research-integration build has **4,394 pages**.
+The [continuous Hessian audit](manuscript/editorial/continuous_Hessian_audit_20261006.md)
+records Chapter 68.9.5 and Appendix L.56. It explains the known global
+domination argument for continuous admissible potentials, the uniform
+strict-sublevel factor in exponential comparison, and identification
+of auxiliary limits. Smoothness remains conditional on uniform full
+second-derivative bounds for both auxiliary sequences. Arbitrary bounded
+continuity and existence or uniqueness of the original equation retain
+their separate hypotheses. All 39 matching final pages were displayed
+and reread; compilation, references, index, navigation and inventory
+pass. The precise primary editions and reading scopes are recorded.
 The [Hessian comparison source review](manuscript/editorial/Hessian_global_comparison_source_review_20261006.md)
 reads Guedj--Lu's fifteen-page arXiv edition in full and 29 further
 selected pages from three primary dependencies. Continuous global
