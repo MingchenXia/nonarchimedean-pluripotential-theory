@@ -10,6 +10,14 @@ The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
 The current research-integration build has **4,407 pages**.
+The [base-locus erratum source review](manuscript/editorial/ELMNP_base_locus_erratum_source_review_20261006.md)
+reads the complete ELMNP original and corrected proof: 42 fresh physical
+pages, with sixteen reused dependency pages. The common fan works for all
+valuation costs; its product identity retains integral closure and a
+refinement-dependent integer. Thirteen diagnostics separate proof gaps,
+literal formula errors and scope guards. Existing augmented-base-locus
+and restricted-volume imports keep their independent source interfaces.
+This source-only checkpoint preserves the current book and problem statuses.
 The [bibliography typography audit](manuscript/editorial/bibliography_polish_audit_20261006.md)
 corrects the Mustaţă breve and the contiguous Fornæss ligature, including
 its displayed citation label. All five text-changed pages and the complete

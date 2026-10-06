@@ -3689,6 +3689,35 @@ proof artifacts rather than imply distinct publications or silently
 change their source binding. This is not an exhaustive deduplication
 of all bibliography entries.
 
+## Base-locus erratum and common finite-generation fans, 6 October
+
+The [source review](ELMNP_base_locus_erratum_source_review_20261006.md)
+reads all seven pages of ELMNP 2309.16722v1 and all 35 physical pages of
+the published 2006 original: 42 fresh pages in 22 displayed sheets.
+Swanson--Huneke's title and physical pages 153--156 were reread; eleven
+previously read restricted-volumes v2 pages are reused with the earlier
+distinction between PDF reading and incomplete extracted-text rereading.
+The sixteen reused pages are not counted as fresh.
+
+The old Proposition 4.7 induction lacks a termination argument; corrected
+Proposition 1.1 uses one fan for all nonnegative real costs, then the
+ray Veronese integers and a valuative integral-closure criterion. The
+integer d is chosen for the selected smooth refinement, and both closure
+bars are retained. Thirteen diagnostics record the acknowledged gap,
+nine literal formula/scope errors and three interpretation guards. The
+normal-fan proof and corrected proposition are not refuted. Section 1's
+augmented-base-locus definitions and Chapter 46's separate restricted
+Fujita citation retain their own source interfaces.
+
+This checkpoint changes no active TeX, bibliography, original-result
+admission, receipt or canonical status. It preserves the 4,407-page book,
+425 active inputs, 108 protected inputs, 76 prior frozen manifests and
+133 exports, including the open native catalogue source/PDF/editor.
+Main and work have no incoming commits. The next scoped book integration
+will explain finite-generated multigraded ideals near Appendix C, with
+Appendix L provenance; arbitrary envelope finite generation and the
+general BJ22 Siu/closure gate remain unresolved.
+
 Fetch main and work and publish on work under standing authorization.
 Next read ELMNP's 2309.16722v1 erratum, discovered on the author's
 homepage, and its corrected antecedent before deciding whether it
