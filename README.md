@@ -10,6 +10,13 @@ The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
 The current research-integration build has **4,366 pages**.
+The [positive-characteristic symplectic source review](manuscript/editorial/symplectic_Fsplitting_source_review_20261006.md)
+reads Zou's September preprint in full and checks sixteen selected
+dependency pages. It separates good reduction from the full coherent
+cup-algebra condition, retains relative lifting and characteristic bounds,
+and records formal-group dependencies still requiring review. The paper's
+endpoint and family questions remain research leads outside active TeX;
+the current checked book and canonical problem statuses are preserved.
 The [isolated hypertoric audit](manuscript/editorial/isolated_hypertoric_audit_20261006.md)
 checks Namikawa's rank-one family and Beauville's form-extension criteria
 against complete arXiv readings. Chapter 68 explains the free quotient,

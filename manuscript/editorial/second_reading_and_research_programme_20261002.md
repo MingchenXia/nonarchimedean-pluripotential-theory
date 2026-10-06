@@ -2732,3 +2732,32 @@ exports, 42 complete canonical status rows, native catalogue and toric
 candidate retain their bytes. No original result, new production-model
 receipt, Siu/closure repair or A2–A4 solution is admitted. Continue routine
 work-branch synchronization and the accurate related-paper search.
+
+### Positive-characteristic symplectic splitting source review — 6 October
+
+After `9600e49`, the [source-only audit](symplectic_Fsplitting_source_review_20261006.md)
+reads all of Zou's arXiv:2609.35467v1: complete text, proofs, appendix,
+references and all 42 actual PDF pages. Sixteen selected dependency
+pages from Mondal–Reinecke, Deligne–Illusie and Min were also read and
+displayed. The author-hosted versions retain their own locators; a
+full external-dependency verification is not claimed.
+
+The record separates the good-reduction Witt–Euler argument from the
+intrinsic coherent cup-algebra argument, crystalline and formal-group
+heights, étale simple connectedness and coherent vanishing, and the
+Pfaffian and ordinary exterior powers in small characteristic. It keeps
+the finite-generation input, relative W2 lifting, Frobenius twist,
+family obstruction condition and distinct characteristic bounds.
+Mondal–Reinecke's selected special-case Artin–Mazur identification does
+not itself cover every higher even degree of a Hodge-good variety;
+the main paper's other general citation remains to be audited. No
+counterexample to the main theorem is claimed.
+
+The endpoint `n=p` cup-algebra question and removal of (ct2) are recorded
+as source-level research leads. They do not alter the canonical inventory.
+This checkpoint imports no active theorem or original result and creates
+no production-model receipt. All 425 active inputs, 108 protected inputs,
+48 earlier frozen manifests and 97 recorded exports retain their bytes,
+as do the native catalogue and inactive toric candidate. The checked
+book remains 4,366 pages; no fresh compilation is claimed. Continue
+GitHub synchronization and directly relevant pluripotential research.
