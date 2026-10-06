@@ -3794,3 +3794,47 @@ publish on work, and update the draft PR under standing authorization.
 Next integrate the attributed balanced-escape/projective-metric route
 with its uniformity, rank and support hypotheses visible. Keep the
 general BJ22 Siu/envelope-closure gate separate.
+
+## Balanced escape potentials: book integration, 6 October
+
+The [integration audit](hybrid_polynomial_dynamics_audit_20261006.md)
+records Chapter 66.6 and Appendix L.61. The application keeps a
+nonlinear fixed-degree regular meromorphic family and its regular
+C((t)) map, balanced combined tuples, semipositivity and tensor-degree
+division. Relative weights subtract their reference potential. The
+positive hybrid factor and a displayed uniform estimate give the
+projective probability limit through the existing theorem; a common
+closed hybrid polydisc and retained cutoff yield the affine passage.
+Non-Archimedean rank and maximum/product identification stay explicit
+inputs. The correct total Hénon exponent follows directly from the
+determinant with -log r in the denominator; no first-exponent asymptotic
+or extension of the 2023 diagnostics to unread published text is admitted.
+
+The integration reuses 118 source/page pairs and twenty-nine source
+checks, with zero fresh primary pages. All 35 existing formal blocks
+and eleven proofs in the two edited files, the other 423 active
+inputs, 108 protected inputs, 79 prior frozen manifests and 136
+exports are preserved. Thirteen new labels, eleven tags, three index
+entries and seven version-specific bibliography keys are added.
+Reference checks pass with 12,894 unique labels and 400 cited
+entries among 695 keys. The 42-atom canonical inventory and native
+catalogue/editor remain unchanged; no original result, model call or
+receipt is claimed.
+
+The final build has 4,417 pages. All 45 selected final pages in 23
+sheets were read and displayed, including both affected contents pages,
+complete additions/transitions, complete index and complete bibliography.
+Two overfull additions were reformatted before the matching v2 build;
+the earlier source snapshot remains frozen separately. Final compilation,
+references, index and navigation pass without overfull boxes, warnings
+or invalid destinations. The complete book, matching review and active
+source ZIP are exported with byte-verified archive membership.
+
+Fetch main and work and publish normally on work, then update the draft
+PR. Next consolidate the freshly observed index variants
+Monge–Ampère/Monge–Ampere and Stokes/Stokes’ with source bindings
+preserved. The next mathematical source queue contains Irokawa's
+2405.12517v1 K3 paper and Favre–Gong's 2406.15892v4, revised
+20 June 2026. Their exact metadata and PDF acquisition are checked;
+their text and proofs have not yet been read or admitted. Continue
+source review and incoming author-progress checks afterwards.

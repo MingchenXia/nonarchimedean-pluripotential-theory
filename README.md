@@ -9,7 +9,17 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,411 pages**.
+The current research-integration build has **4,417 pages**.
+The [hybrid polynomial integration audit](manuscript/editorial/hybrid_polynomial_dynamics_audit_20261006.md)
+records Chapter 66.6 and Appendix L.61. Balanced forward/inverse
+escape approximants define degree-normalized relative metrics; positive
+hybrid scaling and a uniform estimate yield projective measure convergence.
+Common closed support supplies the affine passage. Non-Archimedean rank
+and maximum/product identification remain explicit inputs, and the total
+Hénon exponent is checked directly from the determinant with the correct
+sign. No first-exponent asymptotic is imported. All 45 matching final
+pages were read and displayed; compilation, references, index,
+navigation and canonical inventory pass.
 The [regular polynomial dynamics source review](manuscript/editorial/hybrid_polynomial_dynamics_source_review_20261006.md)
 reads Irokawa's new 23-page v1 and the complete 22-page Hénon v2,
 with selected primary dependencies: 118 displayed physical pages.
@@ -19,8 +29,9 @@ formula. Neither is a counterexample to the main measure limit.
 The 2025 publication's metadata is checked, but its full text is
 unavailable; the older diagnostics are not attributed to that edition.
 Twenty-nine checks retain degree/reference scaling, semipositivity,
-fibre multiplicities, local rank and closed-support gates. This source-only
-checkpoint preserves the checked book and canonical statuses.
+fibre multiplicities, local rank and closed-support gates. That source-only
+checkpoint preserves the preceding edition and canonical statuses;
+the conditional application is now integrated above.
 The [finite-generation integration audit](manuscript/editorial/ELMNP_finite_generation_audit_20261006.md)
 records Appendix C.4.1 and Appendix L.60. The corrected ELMNP argument
 connects finitely generated graded ideals to a common fan for all valuation
