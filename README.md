@@ -9,16 +9,25 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,388 pages**.
+The current research-integration build has **4,392 pages**.
+The [smooth bounded regularity audit](manuscript/editorial/smooth_bounded_regularity_audit_20261006.md)
+records Chapter 68.9.4 and Appendix L.55. The known smooth Kähler theorem
+applies to an existing bounded solution with arbitrary smooth dependence
+on the unknown. Its short-time stationary-flow argument retains the
+book's potential normalization. A static auxiliary equation identifies
+the given solution, conditional on uniform estimates and convergence.
+Existence and uniqueness of the original equation remain separate.
+All 38 matching final pages were displayed and reread; compilation,
+references, index, navigation and inventory pass. The broader Hermitian
+and singular chains retain their precise scope.
 The [Hermitian regularity source review](manuscript/editorial/Hermitian_bounded_regularity_source_review_20261006.md)
 reads Badiane--Lu--Zeriahi's new preprint in all 23 pages, the complete
 nine-page Székelyhidi--Tosatti precursor and 29 selected primary dependency
 pages. It separates regularity of an existing bounded solution from
 existence, ordering, integrability and uniqueness, and records eight
-literal formula diagnostics. The known Kähler regularity and frozen
-auxiliary-equation argument are the next book candidate; the broader
-Hermitian and singular chains retain their precise scope. This source
-checkpoint preserves the checked book and native catalogue.
+literal formula diagnostics. The known Kähler regularity and conditional
+auxiliary identification are now integrated in the audit above. This
+source-only checkpoint remains a frozen record of the preceding edition.
 The [toric projection audit](manuscript/editorial/toric_projection_audit_20261006.md)
 records Chapter 68's finite secondary-polytope argument: the lower-envelope
 support identity, closest-point destabilizer, full affine projection,

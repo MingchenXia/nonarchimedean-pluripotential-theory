@@ -3069,3 +3069,37 @@ integrating the known smooth Kähler regularity and the explicitly scoped
 frozen-limit argument in the existing mean-field discussion, then audit
 the remaining regularization, degenerate Hermitian and singular-space
 inputs and Fang's metadata-only Hessian paper.
+
+### Smooth bounded regularity and auxiliary identification — 6 October
+
+Chapter 68.9.4 now states the known Székelyhidi--Tosatti smooth compact
+Kähler theorem for an existing bounded solution with a smooth positive
+volume form and arbitrary smooth dependence on the unknown. The source
+potential is the book potential divided by 2 pi. Smooth prescribed-density
+approximants have the exact mass normalizer; its logarithm cancels in
+the initial time derivative. Uniform short-time estimates and the
+stationary limit prove smoothness, without a long-time flow assertion.
+The static Badiane--Lu--Zeriahi auxiliary equation retains a positive
+coefficient of its unknown. Conditional on the required uniform bounds
+and uniform convergence, bounded-potential continuity and domination
+identify its limit with the prescribed solution, even for decreasing
+original dependence. Existence, original-equation uniqueness and the
+full degenerate Hermitian or singular extension remain separate.
+Appendix L.55 records the exact editions and source scopes. See the
+[integration audit](smooth_bounded_regularity_audit_20261006.md).
+
+This integration reuses the preceding full 23-page main-paper reading,
+full nine-page Székelyhidi--Tosatti reading and 29 selected pages from
+three other primary dependencies; it adds no fresh primary reading for
+the imported passage. All 38 matching final book pages were displayed
+and their complete extracted text read in nineteen sheets. The
+4,392-page build, post-render reference, index, navigation and inventory
+checks pass. All 136 Chapter 68 equation numbers are unique. The edited
+files preserve all 46 existing statement, explanatory and proof blocks;
+423 other active inputs, 108 protected inputs, 59 prior frozen manifests,
+115 prior exports, all 42 complete canonical statuses and the native
+catalogue retain their bytes. The archive has 647 byte-verified members.
+No original result, independent model call, verification receipt or
+general Siu/closure repair is claimed. Continue with Fang's acquired
+20-page Hessian v1 and the remaining approximation, domination and
+Hermitian second-order dependencies before further admission.
