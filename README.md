@@ -10,6 +10,15 @@ The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
 The current research-integration build has **4,386 pages**.
+The [toric secondary-polytopes source review](manuscript/editorial/toric_secondary_polytopes_source_review_20261006.md)
+reads the new Li--Sheng--Yao preprint in all 49 actual PDF pages and
+checks nineteen selected primary dependency pages. It separates the
+finite closest-point criterion, continuum regularity, Delzant convergence
+and the general lattice expansion. Exact substitutions identify an extra
+false equivalence, a missing level qualifier and an omitted asymptotic
+remainder without refuting the main theorem in its stated scope. The
+finite projection argument is the next book candidate; the checked book,
+native catalogue and canonical problem statuses retain their bytes and scope.
 The [fixed divisor trace audit](manuscript/editorial/fixed_divisor_trace_audit_20261006.md)
 explains in Chapter 46 how the Morse estimate and volume derivative give
 intersection convergence against a fixed Cartier divisor. The approximant

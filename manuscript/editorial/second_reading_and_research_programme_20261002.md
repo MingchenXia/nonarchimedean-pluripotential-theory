@@ -2965,3 +2965,34 @@ and its direct canonical reduction, with no original theorem, independent
 model call or new verification receipt. Continue with the projection,
 relative-polarization and support requirements, and further related
 primary-paper reading before any full regularization-theorem admission.
+
+### Toric secondary polytopes and quantized instability — 6 October
+
+Read Li--Sheng--Yao, arXiv:2610.05179v1, submitted 4 October, in all
+49 actual PDF pages, including proofs, both appendices and references.
+Every page was displayed and its text read in 25 sheets. The arXiv
+comments' 46-page count does not control this file. Nineteen selected
+primary pages from Székelyhidi v1 and Tate v5 were also read and displayed.
+See the [source review](toric_secondary_polytopes_source_review_20261006.md).
+
+The finite closest-point criterion, full affine projection, weight sign
+and spectral factor are separated from continuum regularity and the
+Delzant main convergence proof. The general lattice expansion retains
+convexity and its remainder; the fine lattice estimate uses unimodular
+vertex coordinates. Exact rational substitutions show that Theorem 29's
+extra affine-projection equivalence is false, Proposition 55 needs a
+sufficiently-large-level qualifier, and the page 12 expansion is not an
+exact finite-level identity. These are source defects, not a claimed
+counterexample to the correctly scoped main theorem. Piecewise-affinity,
+the non-Delzant limit and effective instability thresholds remain research
+directions. Donaldson compactness and the remaining external chain retain
+their unaudited scope; no complete new dependency reading is claimed.
+
+This source-only checkpoint preserves all 425 active inputs, 108 protected
+inputs, 56 prior frozen manifests, 112 prior exports, all generated book
+files, the checked 4,386-page book and the open native catalogue. Inventory
+and whitespace checks pass, with no repeated book build or native compile.
+No original result, production model call, verifier receipt or canonical
+status change is admitted. Continue by integrating the finite projection
+argument in the existing maximal-destabilizer discussion, then auditing
+the continuum dependencies and the newly identified Hermitian papers.
