@@ -10,6 +10,14 @@ The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
 The current research-integration build has **4,382 pages**.
+The [special Fujita source review](manuscript/editorial/special_Fujita_source_review_20261006.md)
+reads Trusiani's August v2, including Boucksom's appendix, in full and
+checks 55 selected primary dependency pages. It separates top volume,
+fixed-divisor traces, Rees discrepancies and entropy, and records literal
+formula and proof-step defects without declaring the corrected main
+theorems false. The remaining envelope, Calabi–Yau and weighted analytic
+inputs keep their explicit scope. This source-only checkpoint preserves
+the checked book, native catalogue and all canonical problem statuses.
 The [ample-generic moving-parts audit](manuscript/editorial/ample_generic_moving_parts_audit_20261006.md)
 explains dominated nef approximation, the vertical fixed part of the
 complete series, and retention of the ample generic polarization in

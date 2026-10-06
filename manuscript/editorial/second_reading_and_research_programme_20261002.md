@@ -2877,3 +2877,30 @@ top-volume consequence, with no independent model call, original-result
 receipt, arbitrary-big stability admission or Siu/closure repair. Continue
 by reading the special Fujita and entropy regularization proof in its
 precise stated categories.
+
+### Special Fujita and entropy dependencies — 6 October
+
+Trusiani's arXiv:2605.30063v2, revised 17 August, is now read in full:
+all 25 actual pages, the proof, Boucksom's appendix and references were
+read and displayed. Fifty-five selected dependency pages from versioned
+DEL, two distinct Li papers, the archived BFJ author edition and BJ's
+September 2025 v1 were displayed and read in 28 sheets. See the
+[source review](special_Fujita_source_review_20261006.md).
+The reading distinguishes top-volume approximation, fixed-divisor trace
+convergence, relative discrepancy and entropy; it records the false
+effective-divisor scalar-supremum formula, the normal-direction issue in
+the analytic Rees proof, the intermediate canonical-pullback convention,
+the missing base twist in an ample total-space construction, a generic
+polarization typo in BJ's support lemma, and whole-sequence monotonicity.
+The independent algebraic Rees route and fixed-divisor trace route remain
+visible without certifying a complete original repair. Full envelope,
+Calabi–Yau and weighted analytic antecedents are not cleared by selected
+reading. No main-theorem counterexample, new theorem, solved canonical
+problem or general Siu/closure repair is claimed.
+The checked 4,382-page book, all 425 active inputs, 108 protected inputs,
+53 prior frozen manifests, 106 prior exports, all 42 canonical statuses
+and the native catalogue retain their bytes and scope. No fresh
+unchanged-book build or independent production model call is claimed.
+Continue with the imported fixed-error argument and the explicit
+projection and relative-polarization requirements before any further
+special-Fujita or entropy-theorem admission.
