@@ -9,7 +9,17 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,372 pages**.
+The current research-integration build has **4,380 pages**.
+The [ordered model and quantized stability audit](manuscript/editorial/Khat_Kbeta_comparison_audit_20261006.md)
+checks Papazachariou's September comparison in full. Chapter 46 explains
+the ordered PL polarization estimate with raw intersection normalization;
+Chapter 68 gives the quantitative Mabuchi comparison conditional on
+separate big-model approximation and entropy convergence inputs. Relative
+volume, the trace correction, distance to constants and the finite-beta
+semistability loss remain explicit. All 25 main-source pages, 32 selected
+dependency pages and 48 matching final book pages were read and displayed.
+Build and navigation checks pass. The general Siu/closure boundary and
+canonical problem statuses retain their scope.
 The [determinantal capacity audit](manuscript/editorial/determinantal_capacity_audit_20261006.md)
 connects Fang–Ma–Wu's relative bounds to the preceding Hessian and entropy
 discussion in Chapter 68. It keeps big-class volume, strict entropy

@@ -2797,3 +2797,30 @@ native catalogue and inactive toric candidate retain their scope and bytes.
 No original result, production-model receipt, Siu/closure repair or solved
 canonical problem is admitted. Continue authorized work-branch synchronization
 and accurate research on directly related pluripotential questions.
+
+
+### Ordered model estimates and quantized stability comparison — 6 October
+
+Papazachariou's arXiv:2609.15333v1 is now read in full, with all 25 actual
+pages displayed. A further 32 selected dependency pages check the published
+BJ22 PL Hodge estimate, Darvas–Zhang v2's discrepancy-envelope and relative
+volume identities, Trusiani v2's separate regularization input, and the
+version-specific BJ divisorial v3 polarization derivative. See the
+[new audit](Khat_Kbeta_comparison_audit_20261006.md).
+Chapter 46 imports the known ordered semipositive PL estimate with a finite
+intersection explanation. It follows general PL operations and precedes the
+curve examples, preserving the existing section numbers. Chapter 68 gives
+an explicitly conditional comparison, retaining big-model approximation and
+entropy convergence rather than substituting lower semicontinuity. The
+uniform loss has order beta to the power minus one half; distance to constants,
+the zero-norm branch, the nonnegative coefficient and the possible finite-beta
+semistability loss are explicit. Appendix L distinguishes versions, the
+volume trace correction, raw/probability measures and relative positive products.
+The corrected 4,380-page build, references, index and PDF navigation pass;
+all 48 matching final book pages were displayed and reread. Earlier drafts
+and the numbering-related layout diagnostic are retained. All 42 canonical
+statuses, the open toric candidate, the native catalogue, 50 prior frozen
+manifests and 100 prior exports keep their baseline bytes. This is a known
+result import and a conditional explanation, with no original theorem,
+independent model call, new receipt or Siu/closure repair. Continue by checking
+the big-class approximation dependencies and related primary research.
