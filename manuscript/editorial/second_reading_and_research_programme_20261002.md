@@ -2847,3 +2847,33 @@ their prior scope. No fresh unchanged-book compilation, independent
 model call or original-result receipt is claimed. Continue with the
 ample-generic Fujita input needed by Chapter 68, retaining the separate
 entropy convergence and general Siu/closure boundaries.
+
+### Moving parts over an ample generic fibre — 6 October
+
+Chapter 46 now explains the known algebraic construction separately from
+the remaining approximation inputs in Chapter 68. A complete series on a
+smooth complex projective total space, after an effective central twist,
+has a vertical fixed part because the ample generic polarization is
+globally generated at sufficiently divisible levels. The moving nef
+classes retain that generic polarization and its volume. Restricted
+Fujita approximation, with the whole total space as subvariety, supplies
+the top-volume limit; the model energy subtracts the central twist after
+division by the common factor (n+1)V. Dominated positive products and the
+failure of unrestricted componentwise measure comparison are explicit.
+For a merely big generic class, the horizontal fixed part and the moving
+generic polarization must remain part of the data.
+See the [integration audit](ample_generic_moving_parts_audit_20261006.md).
+The preceding 58-page selected dependency reading is reused rather than
+represented as a new full reading. Version-specific ELMNP and BHJ preprint
+entries preserve the existing journal references. All 45 matching final
+book pages, including complete index and bibliography, were displayed and
+reread. The corrected 4,382-page build and reference, index, navigation and
+inventory checks pass. The first draft's undefined shorthand was replaced
+by explicit standard macros; its failed-build diagnostic is retained.
+All 136 existing formal blocks in the edited TeX files, 108 protected
+inputs, 52 prior frozen manifests, 103 prior exports, all 42 statuses and
+the native catalogue retain their baseline bytes. This is a known Fujita
+top-volume consequence, with no independent model call, original-result
+receipt, arbitrary-big stability admission or Siu/closure repair. Continue
+by reading the special Fujita and entropy regularization proof in its
+precise stated categories.

@@ -9,7 +9,18 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,380 pages**.
+The current research-integration build has **4,382 pages**.
+The [ample-generic moving-parts audit](manuscript/editorial/ample_generic_moving_parts_audit_20261006.md)
+explains dominated nef approximation, the vertical fixed part of the
+complete series, and retention of the ample generic polarization in
+Chapter 46. The global top product gives a relative model energy after
+subtracting the central twist, with one common volume denominator.
+Chapter 68 distinguishes this known algebraic limit from its additional
+mixed-product, envelope-order and entropy-convergence inputs. The preceding
+58-page selected dependency reading is reused; all 45 matching final book
+pages were displayed and reread. Build and navigation checks pass. The
+arbitrary-big stability chain and general Siu/closure boundary retain
+their scope.
 The [big-class stability source review](manuscript/editorial/big_class_stability_source_review_20261006.md)
 reads Dervan–Reboulet's March preprint in full and checks 58 selected
 primary dependency pages. It records the generic-polarization issue in
