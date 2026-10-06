@@ -10,6 +10,17 @@ The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
 The current research-integration build has **4,432 pages**.
+The [reference precision audit](manuscript/editorial/bibliography_reference_polish_audit_20261006.md)
+unifies the four duplicate Nadel citations and protects six proper-name
+titles from bibliography case conversion. The LXZ publication entries
+remain distinct because Chapter 50 explicitly uses preprint theorem
+numbers; both Temkin keys remain bound to historical proof files.
+All mathematical source text is preserved modulo the four Nadel
+citation edits, and historical proof packets retain their exact bytes.
+All 25 selected final pages were read and displayed. Comparison of
+every physical page finds fifteen changed page texts and 4,417 unchanged
+ones; the full contents, index and pagination remain unchanged.
+Required compilation, references, navigation and inventory pass.
 The [local maximality integration audit](manuscript/editorial/Do_Hiep_complex_reference_integration_audit_20261006.md)
 records Appendix H.8 and Appendix L.64. Analytic spread distinguishes
 divisor poles from isolated poles; compact comparison requires common

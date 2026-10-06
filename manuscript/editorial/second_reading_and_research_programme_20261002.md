@@ -4102,3 +4102,55 @@ and proof-source bindings; continue recent primary-source research
 and incoming author progress. This integration adds no original
 result, independent model call or production receipt, and supplies
 no general BJ22 homogeneous Siu/envelope division input.
+
+### Reference precision and duplicate citations, 6 October 2026
+
+The [reference audit](bibliography_reference_polish_audit_20261006.md)
+unifies four Chapter 51 citation commands: Nad89 and Nad90 describe
+the same 1990 Annals paper, so each command now uses Nad90 once.
+The unused Nad89 database record remains for historical files. Six
+titles protect Monge–Ampère, Moser–Trudinger, Hilbert–Poincaré,
+Kähler–Einstein and Fano from automatic case conversion; no title
+wording or edition is replaced. GL25 keeps the source metadata's
+transliterated title Kolodziej.
+
+Actual-page reading found that a proposed LXZ consolidation would
+blur a source binding: Chapter 50 explicitly assigns Theorem 1.6
+to a February 2022 preprint, whereas the newer key is bound to a
+checked sixty-page published layout in Chapter 68 and Appendix L.
+The proposal was reversed before publication. Both original LXZ
+records, all their citation commands and their source/version notes
+retain baseline bytes. Full cleanup of that edition metadata remains
+separate work. Both Temkin keys also remain because active historical
+proof packets bind to them. All 3,665 tracked packet/dossier files
+retain their bytes; no historical verification scope is extended.
+
+The final required repository validation and matching-page review
+are recorded in the audit and immutable manifest. Mathematical text
+in Chapter 51 is preserved after the exact citation map, and all
+424 other active inputs retain their bytes. Both bibliography key
+sets, the canonical statuses, native catalogue/editor, 108 protected
+inputs, 87 prior frozen manifests and 151 prior exports are preserved.
+The superseded candidate's four displayed pages are not counted
+as matching-final reading. No primary research-proof reading,
+original theorem, model call, new receipt or general Siu/envelope
+closure repair is added by this typography checkpoint.
+
+The final book retains 4,432 pages. All 25 matching final pages were
+read as complete text and displayed in thirteen sheets, including all
+fifteen changed page texts, the full bibliography and its index
+transition. Every physical page's extracted text was compared with
+the preceding export; 4,417 are unchanged. Complete contents and
+pagination, all generated index products and the index configuration
+are preserved. The build has 414 cited entries and 709 retained keys,
+with no warnings, unresolved references, missing characters, overfull
+boxes or invalid destinations. The 954 underfull boxes equal baseline.
+
+Save immutable release artifacts, fetch main and work, push normally
+and update the existing draft PR. Continue exact-primary-source
+research: the newly listed Hessian/null-Lagrangian comparison paper
+2610.06313v1 may clarify the admissible operator range of the complex
+Hessian and J-equation discussion. Metadata alone do not establish
+its proof or permit integration; read its actual edition and relevant
+dependencies before changing the book. Check incoming author progress
+under the standing GitHub authorization.
