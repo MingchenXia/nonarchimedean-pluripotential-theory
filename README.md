@@ -10,6 +10,16 @@ The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
 The current research-integration build has **4,392 pages**.
+The [bounded Hessian regularity source review](manuscript/editorial/Fang_Hessian_bounded_regularity_source_review_20261006.md)
+reads Fang's new Hermitian Hessian preprint in all twenty pages and
+81 selected physical dependency pages, including one publisher cover.
+It separates smooth auxiliary existence, continuity, global domination,
+uniform second-order estimates, Liouville blow-up and Hölder regularity.
+Seven main-paper and three dependency diagnostics concern literal
+formulas or proof inferences; they do not refute the main regularity
+theorem or certify a complete repair. No result from this new paper is
+yet admitted into active TeX. The checked book and canonical statuses
+retain their scope while the remaining comparison inputs are reviewed.
 The [smooth bounded regularity audit](manuscript/editorial/smooth_bounded_regularity_audit_20261006.md)
 records Chapter 68.9.4 and Appendix L.55. The known smooth Kähler theorem
 applies to an existing bounded solution with arbitrary smooth dependence

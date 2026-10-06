@@ -3103,3 +3103,53 @@ No original result, independent model call, verification receipt or
 general Siu/closure repair is claimed. Continue with Fang's acquired
 20-page Hessian v1 and the remaining approximation, domination and
 Hermitian second-order dependencies before further admission.
+
+### Bounded Hermitian Hessian regularity: source review — 6 October
+
+Read Fang's arXiv:2610.06719v1, submitted 5 October at 17:11:59 UTC,
+in all twenty actual pages, with every proof computation and reference
+displayed and the full extracted text read in ten sheets. Read and
+displayed 81 selected physical dependency pages in 41 further sheets:
+eleven from Fang's continuity v1, eighteen from the published
+Kołodziej--Nguyen background-form paper (including its cover), twenty
+from Székelyhidi's v3, the complete twelve-page Dinew--Kołodziej v2,
+ten from Tosatti--Wang--Weinkove--Yang v2 and ten from
+Kołodziej--Nguyen's weak Hessian v2. Only the twelve-page dependency
+is freshly read in full; the other five retain selected scope. See the
+[source review](Fang_Hessian_bounded_regularity_source_review_20261006.md).
+
+The given bounded solution, arbitrary smooth dependence on the unknown,
+positive-coefficient auxiliary equation, fixed smooth approximation,
+uniform second-order bound and second auxiliary sequence are distinct
+parts of the new proof. The older positive-exponent existence theorem
+is Theorem 3.17 of the 2016 Hessian paper, rather than the 2015
+Monge--Ampère citation printed in the new paper. Its Theorem 3.19
+gives uniform convergence and uniqueness in the continuous approximable
+class; Lemma 3.20 states global smooth decreasing approximation. The
+published 2026 comparison corollary uses the zero-background local
+operator. Section 9 retains the smooth background remainder and states
+the transfer to background forms, with the needed extensions referred
+to earlier work. These are not silently treated as a completely
+rechecked global bounded domination proof.
+
+Seven exact main-paper checks record a strict-cone boundary choice,
+a missing wedge power, a missing uniform sublevel gap, inconsistent
+polynomial/root normalization, a false positive differentiated term,
+a missing linearization weight and unnormalized smooth existence.
+Three dependency checks record an auxiliary-limit identification from
+only a measure lower bound, reversed class inclusions, and an
+unbounded set described as compact before restricting to the
+J-invariant image. None is a counterexample to the main regularity
+theorem or a certified complete proof repair. The apparent additional
+factor issue in the final mixed-term absorption is cleared by its
+exact symmetric-polynomial identity and is not retained as a defect.
+
+This source-only checkpoint preserves all 425 active inputs, 108
+protected inputs, sixty prior frozen manifests, 118 prior exports,
+the checked 4,392-page book and every generated book file, all 42
+complete canonical statuses, and the native catalogue. Inventory and
+whitespace checks pass. No unchanged-book build, native compile,
+editor/tab change, independent model call, verification receipt,
+original result or general Siu/closure repair is claimed. Continue
+with the original global domination and continuity inputs before
+deciding whether a Hessian passage is suitable for active TeX.
