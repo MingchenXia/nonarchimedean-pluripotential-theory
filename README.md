@@ -9,7 +9,19 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,347 pages**.
+The current research-integration build has **4,351 pages**.
+The [differential-form and formal rigidity audit](manuscript/editorial/stable_forms_symplectic_rigidity_audit_20261006.md)
+checks Xu–Zhuang–Guenancia's June 2026 v2 in full and seven further
+dependencies. Chapter 68 explains logarithmic form discrepancies, the
+cotangent slope estimate on Kollár components, and preservation of
+non-degenerate forms by stable degeneration. The symplectic formal
+isomorphism uses a separate Poisson-deformation argument, including
+Namikawa's January 2026 corrections and the distinction between parameter
+and section completions. Formal conicality and the still-conjectural
+hyperKähler cone metric are distinguished. All fifty-four main-source
+pages were displayed, including eight reused pages; forty selected
+dependency pages and thirty-nine matching final book pages were also
+displayed. The build and PDF navigation checks pass.
 The [finite degree audit](manuscript/editorial/finite_degree_normalized_volume_audit_20261006.md)
 checks Zhiyu Liu's twenty-page arXiv v2 and six selected proof dependencies.
 Chapter 68 now gives the local finite degree formula, the global sum over

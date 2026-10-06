@@ -2569,3 +2569,35 @@ direction is the differential-form and symplectic stable-degeneration
 part of Xu–Zhuang–Guenancia v2, which has so far been used only for
 selected local stability preliminaries; its further claims must be
 read and checked separately before integration.
+
+### Differential forms and formal symplectic rigidity — 6 October
+
+After `f0ead9c`, four Chapter 68.8 subsections and Appendix L.45 explain
+the known form-discrepancy, cotangent slope and stable specialization
+results of Xu–Zhuang–Guenancia v2. The
+[new audit](stable_forms_symplectic_rigidity_audit_20261006.md)
+records the complete main-paper reading and display, with eight reused
+and 46 additional main-source pages, plus forty selected dependency
+pages from seven further sources. Namikawa's January 2026 correction
+was read in full; other dependency scopes remain explicitly selected.
+
+The ambient germ has zero boundary, while its Kollár component retains
+the different. The slope argument uses the actual K-semistable boundary
+perturbation and the adapted cotangent convention. A weighted example
+shows that preservation of a form alone does not characterize a volume
+minimizer. Rational gradings and minimizing Reeb vectors remain distinct.
+Formal symplectic rigidity uses a separate corrected Poisson route and
+the section-completion comparison; it is distinguished from global
+analytic cone actions and hyperKähler cone metrics. Two auxiliary proof
+steps needing justification and the correct Appendix B perturbation
+factor are recorded without claiming a counterexample to the theorem.
+
+The final 4,351-page build passes references, bibliography, index and
+PDF navigation checks, with no overfull boxes. Thirty-nine matching final
+pages were displayed, including the entire index and bibliography.
+The 108 protected inputs, 43 earlier frozen integration manifests,
+previous exports, 42 full canonical status rows, native catalogue and
+toric candidate retain their previous scope and bytes. No new production
+verification receipt or original priority claim is made. Continue work
+branch synchronization and the separate analytic-conicality, metric,
+nilpotent and hypertoric source directions.
