@@ -2996,3 +2996,38 @@ No original result, production model call, verifier receipt or canonical
 status change is admitted. Continue by integrating the finite projection
 argument in the existing maximal-destabilizer discussion, then auditing
 the continuum dependencies and the newly identified Hermitian papers.
+
+### Finite toric projection and exact certificates — 6 October
+
+Chapter 68.7.2 now explains the imported finite argument of Li--Sheng--Yao.
+Normalized GKZ vectors have total mass one; the lower convex envelope
+gives the minimum support function of the secondary polytope. Strict
+convexity supplies its unique closest point. Subtracting the constant
+barycenter gives the unique negative minimizing ray when unstable.
+The argument that the closest point equals its lower envelope retains
+nonnegativity and both Cauchy--Schwarz steps. Full affine projection is
+separated from projection onto constants, and the symmetric five-node
+example disproves the extra moment-condition equivalence in Theorem 29.
+The spectral norm conversion retains the level, square root of the
+number of nodes and opposite jumping-number sign. The finite quadratic
+gap bounds the distance to the exact minimizer; rational arithmetic and
+polytope membership are needed for an exact certificate. Appendix L.54
+records the primary scope. See the [integration audit](toric_projection_audit_20261006.md).
+
+The preceding full 49-page main-paper reading and nineteen selected
+dependency pages are reused, with no fresh primary or complete dependency
+reading claimed. All 37 matching final book pages were displayed and
+their text read in nineteen sheets. The corrected 4,388-page build,
+post-render reference, index, navigation and inventory checks pass.
+Final equation numbers and PDF anchors are unique; historical draft
+numbering and anchor diagnostics are retained. All 46 existing statement,
+explanatory and proof blocks in the two edited active files, 423 other
+active inputs, 108 protected inputs, 57 prior frozen manifests, 112 prior
+exports, all 42 canonical statuses and the native catalogue retain
+their bytes. The archive has 641 byte-verified members. This imports
+known finite arguments and their direct substitutions, with no original
+result, independent model call or new verification receipt. Continue
+with the bounded-to-smooth Hermitian Monge--Ampère paper; continuum
+regularity, Delzant limits, general lattice precompactness, piecewise-
+affinity, long-time Calabi flow and the general Siu/closure boundary
+retain their separate scope.

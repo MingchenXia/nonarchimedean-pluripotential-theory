@@ -915,6 +915,148 @@ $\operatorname{SN}_k$ is the additive section sup-norm operator.
 The second identity is a saturation statement, stronger than
 invariance under a group.
 
+\subsection{Toric directions and the secondary polytope}
+\label{sec:ytd-toric-secondary-polytope}
+
+For a toric embedding the finite direction has a concrete convex-geometric
+description. It also shows why a barycenter test can miss instability.
+The following argument follows
+\cite[\S3.1--3.4 and Appendix~B]{LSY26SecondaryPolytopesV1};
+its finite minimization is independent of the continuum limit discussed
+below.
+
+Let $A\subset\mathbb R^n$ be a finite set whose convex hull $Q$ has
+dimension $n\geq1$, and put $N=|A|$ and $V_Q=\operatorname{vol}(Q)$.
+Use ordinary Euclidean coordinates on $\mathbb R^A$. For a triangulation
+$T$ of $Q$ with vertices in $A$, possibly omitting marked points, define
+\[
+ g_T(u)=\frac{1}{(n+1)V_Q}
+       \sum_{\substack{\Delta\in T\\u\text{ a vertex of }\Delta}}
+                  \operatorname{vol}(\Delta),
+ \qquad
+ \Sigma(A)=\operatorname{conv}\{g_T\}.
+\]
+Each simplex contributes its volume at its $n+1$ vertices, so
+$\sum_{u\in A}g_T(u)=1$. This is the volume-normalized secondary polytope;
+changing the normalization of the GKZ vector changes its distances.
+For $f\in\mathbb R^A$, let $f^\vee$ be its lower convex envelope on $Q$.
+Integrating an affine function on each simplex of a triangulation
+refining the lower subdivision gives the support formula
+\[
+ H_A(f):=\min_{g\in\Sigma(A)}\langle f,g\rangle
+       =\frac{1}{V_Q}\int_Q f^\vee\,dx,
+ \qquad
+ M_A(f)=\langle f,c_A\rangle-H_A(f),
+ \tag{68.23cs}\label{eq:ytd-secondary-support}
+\]
+where $c_A(u)=1/N$. An arbitrary triangulation interpolates above the
+lower envelope, which gives the other inequality. Thus the formula uses
+all triangulations in the polytope and a lower one for its minimum.
+
+Let $p_A$ be the point of $\Sigma(A)$ nearest zero. Compactness gives
+existence and strict convexity of the squared norm gives uniqueness.
+Differentiating along the segment from $p_A$ to any $g\in\Sigma(A)$ gives
+\[
+ \langle p_A,g-p_A\rangle\geq0.
+ \tag{68.23ct}\label{eq:ytd-secondary-projection}
+\]
+Since every $g$ has total mass one, subtracting $c_A$ translates the
+polytope into the space orthogonal to constants. Consequently $p_A-c_A$
+is also the nearest point of $\Sigma(A)-c_A$ to zero.
+For every nonzero $f$, \eqref{eq:ytd-secondary-support} and
+Cauchy--Schwarz give
+\[
+ \frac{M_A(f)}{\|f\|_{\mathrm{Eucl}}}
+ \geq-\|p_A-c_A\|_{\mathrm{Eucl}}.
+\]
+If $c_A\notin\Sigma(A)$, equality holds for $f=p_A-c_A$, by
+\eqref{eq:ytd-secondary-projection}. The minimizing ray is unique up
+to positive rescaling: equality in the Cauchy--Schwarz step already
+forces that ray. If $c_A\in\Sigma(A)$, all weights are nonnegative
+and a nonzero constant test has weight zero. Hence the exact finite
+criterion is
+\[
+ M_A(f)\geq0\text{ for all }f
+ \quad\Longleftrightarrow\quad
+ c_A\in\Sigma(A)
+ \quad\Longleftrightarrow\quad p_A=c_A.
+ \tag{68.23cu}\label{eq:ytd-secondary-membership}
+\]
+
+The minimizing vector is itself the restriction of a convex function.
+Indeed, all GKZ coordinates are nonnegative, so $p_A\geq0$.
+Set $\rho=(p_A^\vee)|_A$. Then $0\leq\rho\leq p_A$ and
+$H_A(\rho)=H_A(p_A)=\|p_A\|^2$, since taking the lower envelope
+twice does not change it. On the other hand,
+\[
+ H_A(\rho)\leq\langle\rho,p_A\rangle
+          \leq\|\rho\|\,\|p_A\|
+          \leq\|p_A\|^2.
+\]
+Equality throughout implies $\rho=p_A$. Subtracting the constant
+$c_A$ preserves convexity. This is the finite convex-envelope argument
+of \cite[Theorem~37]{LSY26SecondaryPolytopesV1}; it does not require
+the nearest point to be a vertex of the secondary polytope.
+
+The relative condition removes all affine directions. Write
+$\mathcal A_Q=\operatorname{Aff}(Q)|_A$, let
+$\operatorname{pr}_{\mathcal A_Q}$ be its Euclidean orthogonal projection,
+and put $\Pi=I-\operatorname{pr}_{\mathcal A_Q}$. All points of
+$\Sigma(A)$ have the same affine projection $\ell_A$, because
+\[
+ \sum_{u\in A}g(u)a(u)=\frac{1}{V_Q}\int_Q a\,dx
+ \qquad(a\text{ affine}).
+\]
+The relative weight is
+$M_A^{\mathrm{rel}}(f)=-\min_{g\in\Sigma(A)}\langle\Pi f,g\rangle$.
+It is nonnegative for every test precisely when
+$0\in\Pi\Sigma(A)$, or equivalently $\ell_A\in\Sigma(A)$.
+Membership of $c_A$ implies $\ell_A=c_A$, but the latter condition
+alone need not give membership. For example, take
+\[
+ Q=[-1,1],\qquad A=\{-1,-\tfrac1{10},0,\tfrac1{10},1\},
+ \qquad f(u)=|u|.
+\]
+Symmetry gives $\ell_A=c_A=1/5$, while $f^\vee(x)=|x|$ and
+\[
+ M_A(f)=\frac{11}{25}-\frac12=-\frac3{50}<0.
+\]
+The affine barycenter test therefore passes although the membership
+test fails. The extra equivalence with $\ell_A\equiv1/N$ printed in
+\cite[Theorem~29(1)]{LSY26SecondaryPolytopesV1} must be omitted;
+its shortest-vector criterion in Theorem~2 uses $p_A$ correctly.
+
+For an embedding given by $kL$, the toric jumping numbers use
+$\chi_f(s_{u,k})=-k f(u)$. Thus
+$\|\chi_f\|_2=(k/\sqrt N)\|f\|_{\mathrm{Eucl}}$.
+The normalized spectral quotient and the Euclidean test quotient
+have the same minimizing ray, but their numerical values differ by
+the factor $\sqrt N/k$ when the weight is written as $M_A(f)$.
+The convex function and the jumping numbers also have opposite signs.
+Projection away from all affine functions must not be replaced by
+projection away from constants.
+
+Finally, the finite optimization has a useful error certificate.
+For a point $\rho\in\Sigma(A)$, define
+\[
+ \delta(\rho)=\|\rho\|^2-H_A(\rho)\geq0,
+ \qquad
+ \|\rho-p_A\|\leq\sqrt{2\delta(\rho)}.
+ \tag{68.23cv}\label{eq:ytd-secondary-gap}
+\]
+To obtain the bound, use \eqref{eq:ytd-secondary-projection} to get
+$\|\rho-p_A\|^2\leq\|\rho\|^2-\|p_A\|^2$, then use
+$\|\rho-p_A\|^2\geq0$ and
+$H_A(\rho)\leq\langle\rho,p_A\rangle$.
+In particular, $\delta(\rho)=0$ certifies $\rho=p_A$.
+A regular triangulation refining the lower subdivision of $\rho$
+computes $H_A(\rho)$. Appendix~B of
+\cite{LSY26SecondaryPolytopesV1} separates a numerical quadratic
+optimization from this exact check. Membership of $\rho$ in the
+polytope is a prerequisite, and rational arithmetic requires rational
+input coordinates. Such a finite certificate supplies neither
+precompactness of the sequence over all $k$ nor its continuum limit.
+
 \subsection{The limit problem and its assumptions}
 
 In this subsection $\|\phi\|_2$ denotes the radial $L^2$ speed in
