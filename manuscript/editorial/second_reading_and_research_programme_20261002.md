@@ -3313,3 +3313,43 @@ No repeated unchanged-book build, editor change, native compilation,
 original admission, independent model call or verification receipt is
 claimed. Continue with the current Guo--Song direct gradient paper and
 the remaining exact comparison and weak uniform-estimate inputs.
+
+### Direct gradients and precise auxiliary hypotheses — 6 October
+
+Read and individually displayed all 28 actual pages of Guo--Song's
+current 2609.39726v1, including the final Green-potential proof and
+references. Read forty fresh dependency pages: Guo--Phong's exact
+v3 pages 1--4 and 9--19, Székelyhidi's v3 pages 3--10, and Dong--Zhang's
+v1 pages 1--17. This is 68 fresh pages in 35 sheets. The dependency
+papers are partial readings; together with its separately frozen
+earlier selection, Székelyhidi's cumulative scope is 1--28 of 34 pages.
+See the [source review](Guo_Song_direct_gradient_source_review_20261006.md).
+
+The common smooth admissible subsolution and positive asymptotic gap
+supply quantitative level-set radii. Auxiliary Hermitian Monge--Ampère
+normalizers have upper and lower bounds through density and entropy
+control, without a Kähler mass identity. The stability proof fixes
+the auxiliary density peak before shrinking its supporting high-value
+set, and C0 precompactness precedes the comparison gradient estimate.
+A fixed nearby smooth comparison member supplies the contradiction
+without an a priori gradient bound for that member. Positive lower
+density and prescribed C2 control are separate inputs for full C2-alpha
+regularity. None of these estimates automatically handles the earlier
+varying, unknown-dependent weak auxiliary densities.
+
+The Green proof retains Kähler geometry, closed background, Gamma_2,
+trace growth, localized normalized ellipticity and refined concavity.
+The root conversion coefficient k+1 is checked; the whole cited
+refined-concavity proof is not certified. Four literal diagnostics
+concern a preliminary cone construction, square-free multi-indices,
+missing complex conjugates and removal of a negative remainder.
+Four apparent objections are cleared. No main Guo--Song theorem is
+refuted, and no original theorem or complete external repair is admitted.
+
+Preserve 425 active inputs, 108 protected inputs, 66 earlier frozen
+manifests, 121 earlier exports, the checked 4,394-page book and generated
+files, all 42 canonical statuses and the native catalogue. No repeated
+unchanged-book build, new book PDF review, native compile, editor change,
+independent model call or verification receipt is claimed. Continue
+with a scoped Chapter 68 explanation and the outstanding weak comparison
+and specialized auxiliary estimates; fetch main and work at checkpoints.

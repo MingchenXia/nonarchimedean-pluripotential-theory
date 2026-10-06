@@ -10,6 +10,15 @@ The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
 The current research-integration build has **4,394 pages**.
+The [direct gradient source review](manuscript/editorial/Guo_Song_direct_gradient_source_review_20261006.md)
+reads Guo--Song's current v1 in all 28 pages and forty fresh dependency
+pages. It checks the common admissible-subsolution gap, quantitative
+radius, Hermitian auxiliary mass, stability and comparison gradient
+method. The Green argument retains three additional operator hypotheses.
+Four literal dependency diagnostics do not refute a main theorem;
+four apparent objections are cleared. Prescribed-density estimates
+do not automatically supply the remaining weak auxiliary estimates.
+This source-only checkpoint preserves the checked book and statuses.
 The [Xu regularization source review](manuscript/editorial/Xu_Hessian_regularization_source_review_20261006.md)
 reads the current v3 in all 42 actual pages and 27 primary dependency
 pages. It separates canonical bounded representatives, heat/envelope
