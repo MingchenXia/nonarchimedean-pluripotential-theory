@@ -3353,3 +3353,38 @@ unchanged-book build, new book PDF review, native compile, editor change,
 independent model call or verification receipt is claimed. Continue
 with a scoped Chapter 68 explanation and the outstanding weak comparison
 and specialized auxiliary estimates; fetch main and work at checkpoints.
+
+### Common subsolutions and direct gradient integration — 6 October
+
+Completed Chapter 68.9.6 and Appendix L.57. The conditional explanation
+keeps Guo--Song's stability and comparison gradient estimates explicit.
+A common admissible subsolution gives quantitative radii; fixed Hermitian
+auxiliary mass bounds retain their normalizer. Rellich and stability
+give C0 precompactness before one fixed nearby smooth solution supplies
+the gradient contradiction. Prescribed density gradients do not control
+the preceding varying, unknown-dependent auxiliary densities. C2 density
+data and a positive lower bound remain separate second-order hypotheses.
+The Green proof and its refined concavity dependency retain their scope.
+See the [integration audit](direct_gradient_audit_20261006.md).
+
+The final 4,398-page book has 425 active inputs, 12,856 unique labels,
+381 cited entries among 676 bibliography keys, and 144 distinct Chapter 68
+equation numbers. All 39 matching final-v3 PDF pages were individually
+displayed and reread in twenty sheets, including the new text and
+transitions, affected contents, full index and bibliography. Compilation,
+references, bibliography, index, navigation and inventory pass. The first
+failed accent build and the later notation repair retain distinct logs;
+only final-v3 matching views are counted. The 954 nonfatal underfull
+diagnostics are unchanged. This is a scoped final review, not another
+whole-book reading.
+
+Reused 68 primary pages from the preceding source review; zero fresh
+primary pages are claimed in this integration. Preserve all 423 other
+active inputs, 108 protected inputs, 46 preexisting formal/proof blocks,
+67 earlier frozen manifests, 121 earlier exports, all 42 complete
+canonical status rows and the native catalogue. No new formal environment,
+original result, independent model call or verification receipt is added.
+Deliver the full PDF, 39-page review and complete source archive; fetch
+both main and work and publish on work with the existing draft PR.
+Continue with Chu--Liu's alternative gradient estimate and the precise
+claimed Lp range for Hermitian Hessian equations before importing either.
