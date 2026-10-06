@@ -9,7 +9,16 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,382 pages**.
+The current research-integration build has **4,384 pages**.
+The [fixed ideal error audit](manuscript/editorial/fixed_ideal_error_audit_20261006.md)
+records the imported graded/antigraded argument in Chapter 46 and its
+conditional integral consequence. Chapter 68 makes the zero limiting
+error integral, discrepancy bound and continuous reference term explicit.
+The preceding full Trusiani reading and 55 selected dependency pages are
+reused. All 45 matching final book pages were displayed and reread;
+build, references, index and navigation pass. Full special-Fujita and
+entropy regularization remain separate inputs, and canonical statuses
+and the general Siu/closure boundary retain their scope.
 The [special Fujita source review](manuscript/editorial/special_Fujita_source_review_20261006.md)
 reads Trusiani's August v2, including Boucksom's appendix, in full and
 checks 55 selected primary dependency pages. It separates top volume,

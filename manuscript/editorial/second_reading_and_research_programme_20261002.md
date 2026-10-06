@@ -2904,3 +2904,35 @@ unchanged-book build or independent production model call is claimed.
 Continue with the imported fixed-error argument and the explicit
 projection and relative-polarization requirements before any further
 special-Fujita or entropy-theorem admission.
+
+### Fixed ideal errors and conditional entropy convergence — 6 October
+
+Chapter 46 now spells out the imported elementary argument of Boucksom's
+appendix, Trusiani v2 Lemma A.7. Finite vertical-ideal values, graded and
+antigraded inclusions, Fekete's limit and a fixed shift give an error
+bounded by twice one fixed vertical model function. The strict range
+m>m0 avoids an unstated zero-index convention. No whole-sequence
+monotonicity is inferred. Its conditional integral use needs probability
+measures converging weakly, a uniform nonnegative discrepancy bound,
+a continuous fixed model function with zero limiting integral, and a
+separate entropy decomposition with continuous reference term.
+Chapter 68 keeps these assumptions distinct from ordinary moving-part
+top-volume approximation; Appendix L records the exact source scope.
+See the [integration audit](fixed_ideal_error_audit_20261006.md).
+The preceding full 25-page Trusiani reading and 55 selected dependency
+pages are reused, with no new full reading of the five dependencies.
+All 45 matching final book pages, including affected contents and
+transitions and the complete index and bibliography, were displayed and
+reread. The first 4,384-page draft had two overfull boxes at unbreakable
+arXiv identifiers in the new provenance paragraph; explicit breakpoints
+resolve them in the final clean build. Its draft PDF and diagnostics
+remain historical. Final reference, index, navigation and inventory
+checks pass. All 141 existing statement, explanatory and proof blocks
+in the edited files, 422 other active inputs, 108 protected inputs,
+54 prior frozen manifests, 106 prior exports, all 42 canonical statuses
+and the native catalogue retain their bytes and scope. This is an
+imported ideal argument and a direct conditional consequence, with no
+original theorem, independent model call or new verification receipt.
+Continue by checking the fixed-divisor trace convergence argument and
+the projection and relative-polarization requirements separately from
+the remaining full entropy and Calabi–Yau chains.
