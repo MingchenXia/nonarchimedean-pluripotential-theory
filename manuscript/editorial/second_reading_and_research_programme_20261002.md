@@ -4299,3 +4299,41 @@ research and incoming author progress. The published homogeneous-dynamics
 proof remains a source gate, while the old 2016 copy has its own explicit
 scope. No original theorem, independent model call, new receipt or
 general BJ22 Siu/envelope closure repair is added by this checkpoint.
+
+### Unbounded boundary envelopes and divisor sources, 6 October 2026
+
+The [exact-source audit](Dao_Nguyen_boundary_envelopes_source_review_20261006.md)
+reads all 33 pages of Dao--Nguyen 2610.00914v1 and all 35 pages of
+Dao--Nguyen--Tran 2610.00909v1. The original 1999 publisher selection,
+complete one-page 2001 erratum, complete twenty-page Dieu 2005 paper,
+ten DDF 2012 pages and seven quasi-B-regular v1 pages bring the actual
+reading to 119 source/page pairs in 62 displayed sheets. Four returned
+PDFs are read completely and three only in their recorded selections.
+The 2026 quasi-B-regular publisher request returned HTML; neither it
+nor the acquired-but-unread 1998 preprint counts as proof reading.
+
+Twenty-four scoped records and twelve elementary checks retain the
+real-superharmonic interior obstacle, closure-neighborhood minorants,
+closed moving-boundary cluster, ideal-matrix preservation, SID depth
+and finite-order escape, moving centers, fixed contour margins and
+negative intersection weights. The old general residual comparison
+remains unproved in the 2001 erratum; the new SID result has a restricted
+approximation proof. Literal auxiliary formulas are kept distinct from
+the two new main assertions and from the unread 2026 publication.
+
+The 4,443-page checked book is preserved. All 425 active and 108 protected
+inputs, both bibliographies, generated book/index, 92 prior frozen manifests
+and 160 prior exports retain their bytes. The native catalogue/editor and
+all canonical problem statuses are unchanged. No original theorem,
+independent model call, Xean run or verification receipt is added.
+General BJ22 Siu/envelope closure remains conditional.
+
+Fetch both main and work and push this source-only review normally.
+Next add attributed Appendix H exposition and a Chapter 68 connection
+if their exact source scopes can be retained. Keep general B-regular and
+strongly pseudoconvex continuity, higher-codimensional insertion and SID
+geometry as literature directions, with no new canonical problem atoms.
+Compile the ensuing manuscript change, read matching changed pages and
+its bibliography/index transitions, and publish its separate integration
+audit. Continue recent related primary-source research and incoming
+author progress.

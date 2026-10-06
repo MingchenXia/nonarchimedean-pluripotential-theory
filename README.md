@@ -10,6 +10,19 @@ The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
 The current research-integration build has **4,443 pages**.
+The [unbounded boundary-envelope and divisor-source audit](manuscript/editorial/Dao_Nguyen_boundary_envelopes_source_review_20261006.md)
+reads both Dao--Nguyen October preprints in full and a precise original
+dependency selection: 119 actual source/page pairs in 62 displayed sheets,
+four complete PDFs and three partial selections. The 2001
+Lárusson--Sigurdsson erratum is read from the publisher copy.
+Twenty-four scoped records and twelve elementary checks retain the
+interior-obstacle/boundary-data distinction, moving-boundary barriers,
+ideal preservation, sectorial inward deformation and intersection weights.
+Arbitrary B-regular or strongly pseudoconvex Green continuity remains open
+in the stated literature; no counterexample to either new main theorem
+or complete proof repair is claimed. The 2025 quasi-B-regular preprint
+is kept distinct from its unread 2026 publication. This source-only
+checkpoint preserves the checked book, native catalogue and canonical statuses.
 The [hyper-Kähler entropy interface](manuscript/editorial/hyperkahler_group_entropy_integration_audit_20261006.md)
 adds Chapter 66.8.1 and Appendix L.66. The attributed dense-existence
 statement retains the H2 entropy convention, polarized/projective family,
