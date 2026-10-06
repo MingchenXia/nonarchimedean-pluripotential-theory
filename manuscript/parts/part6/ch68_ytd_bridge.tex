@@ -3125,13 +3125,39 @@ first be shifted down so that it lies below every relevant
 regularized obstacle; this preserves its curvature and justifies
 the comparison of positive-part $L^1$ errors.
 
-The passage from averages to oscillations uses nested interior
+The passage from averages to oscillations uses fixed nested interior
 sets and the submean argument in
 \cite[Lemma~4.4]{LPT21StabilityPublished} and
-\cite[Lemma~3.3]{Zeriahi20ModulusV1}. For
-$\kappa(t)=|\log t|^{-\gamma}$ the growth condition (3.1) in
-the latter source holds after restricting to small $t$.
-Its local lemma avoids a boundary regularity assertion.
+the proof of \cite[Lemma~3.3]{Zeriahi20ModulusV1}, restricted to a
+fixed compact set. Choose coordinate neighborhoods
+$K\Subset U_0\Subset U_1\Subset\operatorname{Amp}(\{\theta\})$
+with positive buffers. A smooth local background dominating the
+negative part of $\theta$ makes the potential subharmonic;
+its regularization error is $O(\delta^2)$ and is absorbed into
+the logarithmic modulus. The mean estimate is available on the
+larger neighborhood before the oscillation estimate is used on $K$.
+
+To make the scope of the iteration explicit, let $N=2n$ be the
+real coordinate dimension and let $\mathcal O_tu(x)$ denote
+the oscillation on $B(x,t)$. The nested-ball argument has the form
+$\mathcal O_tu(x)\leq(2N/A)\mathcal O_{(A+1)t}u(x)+C\kappa(t)$,
+while all required balls remain in the larger neighborhood.
+For $\kappa(t)=|\log t|^{-\gamma}$ choose $A$ large and then
+$r_*>0$ small, depending also on the fixed buffer, so that
+\[
+\tag{68.23di}\label{eq:ytd-average-oscillation-buffer}
+ q:=\sup_{0<t\leq r_*}
+       \frac{2N\kappa((A+1)t)}{A\kappa(t)}<1.
+\]
+Iteration stops at a scale between $r_*$ and $(A+1)r_*$.
+Boundedness on the coordinate neighborhood controls the initial
+oscillation divided by $\kappa$ at that positive scale.
+Thus the resulting constant is uniform on $K$ and may depend on
+the buffer and $\kappa(r_*)$. A finite coordinate cover completes
+the fixed-compact argument. The literal stronger assertion in
+the cited lemma, uniform on a shrinking collar without boundary
+control, is not used here; see
+\Cref{sec:provenance-boundary-mass-buffers}.
 The logarithmic estimate alone does not yield H\"older continuity;
 the earlier power modulus uses the stronger $L^q$ density.
 None of these estimates identifies an initial geodesic velocity
@@ -3568,6 +3594,159 @@ hypotheses, and that proof is not substituted for the missing
 auxiliary bounds here. The exact source scopes and retained
 dependency boundaries are recorded in
 \Cref{sec:provenance-direct-gradient-compactness}.
+
+\subsection{Boundary barriers and local trace mass}
+\label{sec:ytd-boundary-mass-buffers}
+
+The preceding compact arguments use prescribed-density estimates
+and keep the mass normalizer. A local Dirichlet problem has a
+different source of control: boundary barriers. Its measure may
+have infinite total mass even though it is finite on every compact
+subset of the domain. The following account explains the known
+Monge--Amp\`ere subsolution mechanism of
+\cite{Nguyen20HolderSubsolutionIIPublished}; it does not replace
+the compact hypotheses above by a boundary assumption.
+
+Let $\Omega\Subset\mathbf C^n$ be a bounded strictly pseudoconvex
+domain with a smooth strictly psh defining function $\rho$, and put
+$\beta=\ddc|z|^2$. Suppose that a positive measure $\mu$ satisfies
+\[
+ \mu\leq(\ddc\phi)^n,
+ \qquad \phi\in\operatorname{PSH}(\Omega)
+                 \cap C^\alpha(\overline\Omega),
+ \qquad \phi|_{\partial\Omega}=0,
+ \qquad0<\alpha<1.
+\]
+The local currents use the book's $\ddc$ convention; changing
+the common positive normalization leaves these qualitative
+subsolution hypotheses unchanged after the corresponding rescaling.
+No finite total mass of $\mu$ or $(\ddc\phi)^n$ is assumed.
+The source's Theorems~A and~B give a unique continuous solution
+for continuous boundary values, and a H\"older solution when the
+boundary values $g$ are H\"older. Uniqueness refers to this
+ordinary bounded-potential Dirichlet problem.
+
+Write $\psi$ for the homogeneous Monge--Amp\`ere envelope with
+boundary values $g$. For H\"older $g$, the boundary-envelope input
+supplies a positive exponent $a$; decrease it so that both $\phi$
+and $\psi$ are $C^a$, with $0<a<1$. The exponent need not equal
+the original exponent of $g$. Positivity of mixed products and
+comparison give $\psi+\phi\leq u\leq\psi$.
+Both barriers take the value $g$ on the boundary. Hence their
+H\"older differences control $u$ near the boundary before one
+attempts to glue a regularization into the whole domain.
+The envelope is maximal for Monge--Amp\`ere; it is not assumed
+pluriharmonic in dimension greater than one.
+
+For $\Omega_\varepsilon=
+\{z\in\Omega:\operatorname{dist}(z,\partial\Omega)>\varepsilon\}$,
+let $\widehat u_\delta$ be the positive normalized ball average,
+with $0<\delta\leq\varepsilon$ sufficiently small.
+The barriers control the difference at the gluing surface.
+After increasing a fixed constant $C$, the source constructs
+\[
+\tag{68.23dj}\label{eq:ytd-boundary-regularization-glue}
+ \widetilde u_{\delta,\varepsilon}=
+ \begin{cases}
+  \max\{u,\widehat u_\delta-C\varepsilon^a\},
+                                  &\text{on }\Omega_\varepsilon,\\
+  u,                              &\text{on }\Omega\setminus
+                                                    \Omega_\varepsilon.
+ \end{cases}
+\]
+It is bounded psh, agrees with $u$ near the boundary, and is a
+permitted competitor for the localized stability estimates.
+The collar estimate is what justifies this construction;
+boundary values alone do not justify the same gluing for an
+arbitrary bounded psh function.
+
+The ordinary $L^1$ error uses a local trace estimate, not a finite
+total Laplacian mass. For a bounded subharmonic function, the
+defining-function integration-by-parts estimate and the buffered
+Jensen estimate in \cite[Lemma~4.10]{Nguyen20HolderSubsolutionIIPublished}
+give, with constants depending on the fixed domain and the
+bounded potential,
+\[
+\tag{68.23dk}\label{eq:ytd-boundary-buffered-jensen}
+ \begin{aligned}
+  \|\Delta u\|_{\Omega_\delta}&\leq C\delta^{-1},\\
+  \int_{\Omega_{2\delta}}(\widehat u_\delta-u)\,dV
+       &\leq C\delta^2\|\Delta u\|_{\Omega_\delta}
+        \leq C\delta.
+ \end{aligned}
+\]
+Here $dV$ is Euclidean volume and $\Delta u$ is the positive
+distributional Laplacian. The extra interior buffer ensures
+that every sampled ball lies in the region whose trace mass
+is controlled. The remaining collar has volume $O(\delta)$;
+boundedness controls its contribution. By contrast, finite
+total Laplacian mass permits the familiar $O(\delta^2)$ interior
+estimate with that global mass on the right.
+
+The localization also keeps the dependence of mixed masses.
+For $A=1+\|\phi\|_\infty$ use
+$\phi_\varepsilon=\max\{\phi-\varepsilon,A\rho/\varepsilon\}$.
+On a defining-function collar it equals $\phi-\varepsilon$;
+near the boundary it equals the defining-function barrier.
+Its mixed masses can grow as negative powers of $\varepsilon$.
+For the exponential capacity bound in the source's
+Corollary~4.6, the useful normalization is
+\[
+ \varepsilon\phi_\varepsilon
+       =\max\{\varepsilon\phi-\varepsilon^2,A\rho\}.
+\]
+This family has uniform H\"older and supremum bounds for
+$0<\varepsilon\leq1$. Applying the source's Proposition~3.1
+to this family and undoing $n$-homogeneity retains the
+$\varepsilon^{-n}$ factor. A coarse unnormalized norm bound
+of order $\varepsilon^{-1}$ would not by itself explain a
+uniform exponential capacity constant.
+
+The source's localized stability and weighted $L^1$ transfer
+have positive exponents $a_2,a_3$ and give a balance of the form
+\[
+\tag{68.23dl}\label{eq:ytd-boundary-localized-balance}
+ \sup_{\Omega_\delta}(\widehat u_\delta-u)
+   \leq C\varepsilon^a
+       +C\frac{\delta^{a_2a_3}}{\varepsilon^{2n+1}}.
+\]
+The constants retain the subsolution, domain and comparison
+bounds. Choosing $\varepsilon=
+\delta^{a_2a_3/(2n+1+a)}$ balances the two terms.
+Mean-to-oscillation conversion near the boundary uses the
+already established barrier modulus, as in
+\cite[Theorem~3.2]{Zeriahi20ModulusV1}. Without a boundary
+modulus, its nested-ball argument is used only on fixed
+interior compact sets with positive buffers, as above.
+This discussion explains the qualitative local mechanism;
+it asserts no sharp exponent or compact uniformity for a
+family with uncontrolled boundary data.
+
+The finite-mass intermediate-Hessian theorem has a different
+signature. The explicit erratum
+\cite[Theorem~B']{BenaliZeriahi21HolderErratumPublished} to
+\cite{BenaliZeriahi20HolderSubsolutionPublished} considers a
+bounded strongly $m$-pseudoconvex domain, finite prescribed mass
+and a H\"older zero-boundary subsolution in $\mathcal E_m^0$.
+This class consists of bounded negative $m$-subharmonic
+potentials with zero boundary values and finite total
+$m$-Hessian mass. For $C^{1,1}$ boundary data its Lemma~2.1
+uses a smooth boundary extension to control global mixed
+mass. General H\"older boundary data use its Lemma~2.2
+power-difference argument and local trace mass instead.
+The account retains these finiteness and boundary hypotheses.
+It does not import the printed numerical exponent: the
+rooted-capacity step in the original Proposition~2.20 remains
+a separate quantitative source gate recorded in
+\Cref{sec:provenance-boundary-mass-buffers}.
+
+Local boundary localization, compact Hermitian normalizers
+and fixed-compact ample-locus estimates therefore supply
+different inputs. None of them proves the required uniform
+second-order estimates for an unknown-dependent auxiliary
+density, identifies a geodesic velocity with a spectral
+measure, or supplies the general non-Archimedean Siu
+decomposition or closure statement.
 
 \subsection{A smooth family at a positive parameter}
 \label{sec:ytd-meanfield-projective-family}

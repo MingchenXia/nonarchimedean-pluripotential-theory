@@ -3528,3 +3528,50 @@ canonical statuses. No active TeX, new original result, model call,
 production receipt, unchanged-book rebuild or native compile is claimed.
 Fetch main and work, integrate incoming author work if any, and publish
 on work before continuing the scoped book integration.
+
+### Boundary barriers and fixed-buffer book integration — 6 October
+
+Integrated the known qualitative local mechanism in Chapter 68.9.7 and
+its exact source scope in Appendix L.58. The existing logarithmic
+mean-to-oscillation passage now uses fixed nested neighborhoods with
+positive buffers and an explicit starting radius. The resulting constant
+can depend on that buffer. A uniform boundary-free shrinking-collar
+assertion is not used.
+
+Nguyen's local problem permits infinite total boundary mass. Actual
+boundary envelopes justify regularization gluing, a buffered Jensen
+estimate uses local trace mass, and the normalized epsilon-scaled collar
+extension supplies uniform exponential capacity constants. The
+Benali--Zeriahi erratum retains finite prescribed mass and a finite-mass
+zero-boundary Hessian subsolution. Its printed numerical stability power
+is not admitted while the capacity-root step remains unresolved.
+The integration reuses the four complete PDFs and the frozen 77-page
+reading; zero fresh primary pages are claimed here. See the
+[integration audit](boundary_mass_audit_20261006.md).
+
+The final v2 book has 4,401 pages. All 42 matching final physical pages
+were read and displayed in 21 sheets, including the affected contents,
+text and provenance transitions and complete index and bibliography.
+The earlier v1 layout received only a 14-page partial review before an
+orphaned paragraph was shortened; that scope remains separately frozen.
+This checkpoint does not claim a new reading of the entire book.
+Compilation has zero errors, missing glyphs, overfull boxes, unresolved
+references or rerun requests. References, index, navigation and the
+42-atom canonical inventory pass.
+
+There are 425 active inputs, 12,862 unique labels, 384 cited entries and
+679 bibliography keys. The two edited active inputs preserve all 46
+existing formal/proof blocks, and no new formal environment is added.
+All 423 other active inputs, 108 protected inputs, 72 prior frozen
+manifests and 124 prior exports retain their bytes. The native catalogue
+and its open editor remain unchanged. The release comprises the full
+book, a 42-page review PDF and a 678-member byte-verified source archive.
+No original theorem, independent model call, production receipt,
+canonical solved status or general Siu/closure repair is added.
+
+Main and work were explicitly fetched with no incoming changes. Publish
+this integration on work and update the existing draft PR. Next audit
+the newly acquired 15-page Wang tau-invariant preprint, 2610.04994v1,
+against the metric-graph Green and energy discussion. Only its primary
+metadata and abstract have been read at this point; its claimed uniform
+bound and cubic counterexample remain unadmitted pending proof review.

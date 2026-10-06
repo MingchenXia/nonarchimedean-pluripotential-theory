@@ -9,7 +9,17 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,398 pages**.
+The current research-integration build has **4,401 pages**.
+The [boundary mass integration audit](manuscript/editorial/boundary_mass_audit_20261006.md)
+records Chapter 68.9.7 and Appendix L.58. The local Dirichlet explanation
+retains actual boundary barriers, buffered Jensen regions, local trace
+mass and normalized collar extensions. The existing logarithmic passage
+now states its fixed positive interior buffer and starting radius.
+Infinite boundary mass, finite-mass Hessian subsolutions and compact
+Hermitian normalization retain their distinct hypotheses. Printed
+quantitative exponents with unresolved source steps are not imported.
+All 42 matching final pages were displayed and reread; compilation,
+references, index, navigation and canonical inventory pass.
 The [boundary and erratum source review](manuscript/editorial/Hessian_boundary_erratum_source_review_20261006.md)
 reads Nguyen's published boundary paper, the Benali--Zeriahi original and
 erratum, and the complete modulus note: 77 displayed pages, 73 fresh.
@@ -19,7 +29,8 @@ counterexample to a literal boundary-free shrinking-collar assertion and
 a missing capacity-root power in the printed stability derivation. The
 fixed-compact logarithmic estimate and the main qualitative Hölder
 theorems are not refuted; unverified numerical exponents are not imported.
-No active TeX or canonical status changes at this source checkpoint.
+That source-only checkpoint remains a frozen record of the preceding
+edition; the scoped qualitative explanation is now integrated above.
 The [alternative gradient and Lp source review](manuscript/editorial/Hessian_gradient_Lp_source_review_20261006.md)
 reads Chu--Liu's nineteen-page v1 and Dat's fifteen-page v1 in full.
 It explains the logarithmic continuity route to compact gradient
