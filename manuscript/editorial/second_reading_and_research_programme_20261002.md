@@ -3606,3 +3606,51 @@ Next integrate the checked attributed graph-energy and moment
 connection in Chapter 8 with precise Appendix L provenance, then
 compile, inspect matching final pages and publish on work. Routine
 GitHub synchronization continues under standing authorization.
+
+## Resistance, tau and tropical moments: book integration, 6 October
+
+Integrated the attributed connection in Chapter 8.1.5 and Appendix L.59.
+The positive conductance Laplacian has the opposite sign to the book's
+outgoing-slope convention. Effective resistance, tau energy and the
+full Voronoi second moment use explicit normalizations. The tree and
+circle examples distinguish graph length from Euclidean Jacobian
+circumference. The chapter roadmap now separates its elementary
+self-contained calculus from this optional source-based subsection.
+
+Wang's uniform positivity, bridge correction, cographic partition and
+cubic family are presented as results of the checked preprint. The
+sharp universal constant remains an open related direction. Two-edge
+cut reduction retains the loops it creates. The number-field height
+application retains semistability, genus at least two, minimal-regular
+dual-graph lengths, residue cardinalities and separate archimedean
+terms. The full moment and half-moment height conventions cancel with
+the source coefficient. Auxiliary source errors and restricted
+single-edge contraction hypotheses remain explicit in Appendix L.
+See the [integration audit](tau_invariant_audit_20261006.md).
+
+The integration reuses the frozen 108-page source reading and adds zero
+fresh primary pages. The final v3 book has 4,407 pages. All 43 matching
+physical pages were read and displayed in 22 sheets, including the
+affected contents and chapter/provenance transitions and the complete
+index and bibliography. An earlier v1 build had duplicate PDF anchors
+and received zero page review; v2 received only a fourteen-page partial
+review before the final dependency and notation polish. These scopes
+remain separately frozen. No new full-book reading is claimed here.
+
+Compilation has zero errors, package or PDF warnings, missing glyphs,
+overfull boxes, unresolved references or rerun requests. The existing
+954 underfull boxes remain unchanged. There are 425 active inputs,
+12,874 unique labels, 391 cited entries and 686 bibliography keys.
+All 99 existing formal/proof blocks in the two edited active inputs
+retain their bytes. No new formal environment is added. All 423 other
+active inputs, 108 protected inputs, 74 prior frozen manifests and 127
+prior exports are preserved. The native catalogue and open editor are
+unchanged. The release comprises the full book, a 43-page review PDF
+and a 684-member byte-verified source archive.
+
+Fetch both main and work, integrate incoming author work if any, and
+publish on work under standing authorization. Next inspect the cited
+bibliography's duplicated publications and author-name typography with
+usage-aware source checks. Preserve distinct checked editions and all
+historical proof receipts; no canonical solved status or general
+Siu/closure repair follows from this integration.

@@ -9,7 +9,16 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,401 pages**.
+The current research-integration build has **4,407 pages**.
+The [tau and tropical-moment integration audit](manuscript/editorial/tau_invariant_audit_20261006.md)
+records Chapter 8.1.5 and Appendix L.59. Effective resistance connects
+the existing Green energy to the tau invariant, the full Voronoi moment
+of the tropical Jacobian, Wang's new uniform positivity bound and cubic
+family, and the scoped number-field height correction. Graph lengths,
+lattice norms, bridges, loops and the height half-factor are explicit.
+The optimal universal constant remains open. All 43 matching final
+pages were read and displayed; compilation, references, index,
+navigation and canonical inventory pass.
 The [tau and tropical-moment source review](manuscript/editorial/tau_invariant_source_review_20261006.md)
 reads Wang's complete new v1 and 93 primary dependency pages: 108
 displayed physical pages in all. The lower universal tau constant,
@@ -17,8 +26,8 @@ the cubic family below 1/108, cographic partition, loop retention
 and height half-factor are checked. Fourteen diagnostics distinguish
 incorrect auxiliary source formulas from cleared objections; no
 counterexample to Wang's main conclusions is claimed. The sharp
-constant remains open. This source-only checkpoint preserves active
-TeX, the book and all canonical statuses before scoped integration.
+constant remains open. That source-only checkpoint preserves the
+preceding edition; the attributed connection is now integrated above.
 The [boundary mass integration audit](manuscript/editorial/boundary_mass_audit_20261006.md)
 records Chapter 68.9.7 and Appendix L.58. The local Dirichlet explanation
 retains actual boundary barriers, buffered Jensen regions, local trace

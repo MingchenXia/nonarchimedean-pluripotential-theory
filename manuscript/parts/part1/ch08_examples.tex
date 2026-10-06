@@ -56,15 +56,22 @@ weighted projective plane.  \Cref{thm:toric-bfj-alexandrov,thm:bj-toric-psh-conv
 are the two later avatars.
 \end{enumerate}
 
+The optional discussion in \cref{sec:ch08-tau-moments} extends the graph
+examples to effective resistance and tropical Jacobian moments. It imports
+the cited moment identities and a recent uniform positivity theorem; the
+elementary Poisson and slope calculations do not depend on these inputs.
+
 A reader who has done the computations below by hand can check any later sign
 against these examples: the four normalization tests collected at the end of
 \cref{sec:model-translation-table} check the conventions used in this chapter.
 
 \subsection*{Dependencies}
 
-\Cref{sec:metric-graphs} is self-contained apart from the model theory of
-\cref{chap:models} and the skeleton theory of \cref{chap:skeleta}, both used
-only in \cref{sec:ch08-slope-formula}.  \Cref{sec:berkovich-p1} uses the
+The elementary graph calculus in \cref{sec:metric-graphs} is self-contained.
+Its optional \cref{sec:ch08-tau-moments} imports the cited lattice,
+moment and positivity results. The model theory of \cref{chap:models}
+and the skeleton theory of \cref{chap:skeleta} enter in
+\cref{sec:ch08-slope-formula}. \Cref{sec:berkovich-p1} uses the
 classification of points of \cref{thm:berk-a1-classification} and the model
 measures of \cref{sec:metrics-cl-measure}.  \Cref{sec:trivial-valuation-cone}
 uses only \cref{sec:berk-trivial}.  \Cref{sec:toric-convex} uses convexity
@@ -83,8 +90,9 @@ to a reference model metric, a model metric on the same line bundle is
 represented by a piecewise affine function on the skeleton of a common
 determining model.  One may need to enlarge an initially chosen skeleton.  This
 section develops the potential theory of such functions from scratch.
-Nothing in it uses algebraic geometry until
-\cref{sec:ch08-slope-formula}.
+The elementary calculus uses no algebraic geometry. The optional
+\cref{sec:ch08-tau-moments} connects it to cited lattice and height
+results before \cref{sec:ch08-slope-formula} returns to curve models.
 
 \subsection{Graphs, models, and piecewise affine functions}
 \label{sec:ch08-graph-basics}
@@ -646,6 +654,199 @@ has rational coefficients.  It is the graph reflection of the fact that
 divisorial points, which have rational coordinates on a skeleton, suffice for
 all model computations (\cref{thm:skeleton-pl-realization}).
 \end{remark}
+
+\subsection{Resistance, tropical moments, and the tau invariant}
+\label{sec:ch08-tau-moments}
+\index{effective resistance}\index{tau invariant}\index{tropical Jacobian!moment}
+
+The positive energy in the Green calculations has an electrical
+interpretation. Choose an orientation of a finite model $G$ of $\Gamma$,
+write $L_e$ for its edge lengths, and let $\partial e=\delta_v-\delta_u$
+for an edge from $u$ to $v$. After subdividing at $p,q\in\Gamma$, define
+the \emph{effective resistance} by the minimum energy of a unit flow:
+\[\tag{8.8a}\label{eq:ch08-effective-resistance}
+ r(p,q)=\min_{\partial j=\delta_q-\delta_p}\sum_e L_e j_e^2.
+\]
+If $h(p)=0$ and $\Delta_\Gamma h=\delta_p-\delta_q$, then
+$r(p,q)=h(q)=D(h)$, by Green's identity. In particular,
+\eqref{eq:ch08-green-circle} gives
+$r(0,c)=c(\ell-c)/\ell$ on a circle. On a tree, the unique path
+between $p$ and $q$ carries the unit flow, so its resistance is its
+path length.
+
+For matrix computations put $D_L=\operatorname{diag}(L_e)$ and
+$Q=\partial D_L^{-1}\partial^T$. This positive conductance matrix is
+the \emph{negative} of our outgoing-slope vertex Laplacian. Its
+Moore--Penrose inverse $Q^+$ annihilates constants, and
+$r(u,v)=(\delta_v-\delta_u)^TQ^+(\delta_v-\delta_u)$.
+Parallel edges contribute the sum of their conductances. A loop has
+zero incidence column, but still contributes length and a cycle;
+it must not be discarded when computing the invariants below.
+The projection formulas and minimum-energy interpretation are
+\cite[Proposition~5.2, Theorem~7.8 and Remark~7.15]{dJS22RayleighPublished}.
+
+Resistance to a fixed point is continuous and quadratic on open
+edges. Baker--Rumely's \emph{tau invariant} is
+\[\tag{8.8b}\label{eq:ch08-tau-energy}
+ \tau(\Gamma)=\frac14\int_\Gamma
+                  \left|\frac{\partial}{\partial x}r(p,x)\right|^2\rd x.
+\]
+It is independent of $p$ and of subdivision; see
+\cite[Section~14, Lemma~14.4]{BakerRumely05HarmonicV2}.
+Writing $\ell(\Gamma)=\sum_eL_e$, the tree and circle calculations give
+$\tau=\ell/4$ and $\tau=\ell/12$, respectively. For the circle,
+integrate $(1-2x/\ell)^2/4$ over $[0,\ell]$.
+
+Two edge expressions make this global invariant computable. Choose
+a model containing $p$ as a vertex and put
+$F_e=1-r(u_e,v_e)/L_e$, the \emph{Foster coefficient}. It is zero
+on a bridge and one on a loop. The cycle projection
+$P=\mathrm{Id}-D_L^{-1}\partial^TQ^+\partial$ has diagonal $F_e$,
+so $\sum_eF_e=g$, where $g=\dim H_1(\Gamma,\mathbf R)$.
+The cited edge formula is
+\[\tag{8.8c}\label{eq:ch08-tau-edge}
+ \tau=\frac1{12}\sum_e L_eF_e^2
+       +\frac14\sum_e\frac{(r(p,u_e)-r(p,v_e))^2}{L_e}.
+\]
+See \cite[Theorem~11.2]{dJS23TropicalMomentsPublished}.
+Placing the base point in the vertex set matters: an endpoint
+interpolation formula need not hold when its source lies inside
+the edge being interpolated.
+
+The same edge lengths define the cycle lattice
+$\Lambda=\ker\partial\cap\mathbf Z^{E(G)}$ with inner product
+$\langle x,y\rangle_L=\sum_eL_ex_ey_e$. The resulting Euclidean torus
+$\operatorname{Jac}(\Gamma)=H_1(\Gamma,\mathbf R)/\Lambda$ is the
+\emph{tropical Jacobian}. Let $I(\Lambda)$ be the average of
+$\|x\|_L^2$ over its centered Voronoi cell; set $I=0$ if $g=0$.
+We use the full average, without a factor one half. De Jong--Shokrieh
+relate it to the graph energy by
+\[\tag{8.8d}\label{eq:ch08-tropical-moment-tau}
+ I(\operatorname{Jac}(\Gamma))=\frac{\ell(\Gamma)}8-\frac{\tau(\Gamma)}2;
+ \qquad\text{see \cite[Theorem~11.4]{dJS23TropicalMomentsPublished}.}
+\]
+For a tree this moment vanishes. For a circle of graph circumference
+$\ell$, its cycle generator has squared norm $\ell$; the Euclidean
+Jacobian circle therefore has circumference $\sqrt\ell$ and moment
+$\ell/12$. This agrees with \eqref{eq:ch08-tropical-moment-tau}.
+Scaling every edge length by $a>0$ multiplies $\ell$, $\tau$ and $I$
+by $a$. Thus $\tau/\ell$ is a useful scale-independent test.
+
+\paragraph{A uniform lower bound and its mechanism.}
+Wang's recent preprint \cite[Theorem~1.1]{Wang26TauV1} proves
+\[\tag{8.8e}\label{eq:ch08-tau-uniform-bound}
+ \tau(\Gamma)\geq c_-\bigl(\ell(\Gamma)-b(\Gamma)\bigr)
+                         +\frac{b(\Gamma)}4,
+ \qquad
+ c_-(1-4c_-)^2=\frac4{27\pi^2\rme^2},
+\]
+where $b$ is total bridge length and $c_-$ is the unique root in
+$(0,1/12)$, approximately $0.0020654439$. The source is
+arXiv:\allowbreak 2610.04994v1, submitted 4 October 2026.
+Here is its route from lattice moments to graph positivity.
+
+For independent vectors $y_1,\ldots,y_k$ in the dual of a Euclidean
+lattice, Wang's Theorem~1.4 gives
+\[\tag{8.8f}\label{eq:ch08-dual-lattice-moment}
+ I(\Lambda)\geq\frac1{2\pi\rme}\sum_{i=1}^k\frac1{\|y_i\|^2}.
+\]
+The coordinate vectors $y_e=P(D_L^{-1}\delta_e)$ belong to the dual
+cycle lattice and satisfy $\|y_e\|_L^2=F_e/L_e$.
+Their independence is cographic: the vectors indexed by $S$ are
+independent exactly when deleting $S$ leaves the graph connected,
+and their rank is $|S|-c(G\setminus S)+1$, counting isolated
+vertices among the components. After reducing bridges and two-edge
+cuts, every proper component in $G\setminus S$ has at least three
+outgoing edges. Hence $3c(G\setminus S)\leq2|S|$ when there is
+more than one component, and $|S|\leq3\operatorname{rank}(S)$.
+Edmonds' matroid partition theorem
+\cite[Theorem~1]{Edmonds65MatroidPartitionPublished} partitions the
+edges into three independent sets. Apply
+\eqref{eq:ch08-dual-lattice-moment} to each and add to obtain
+$R:=\sum_eL_e/F_e\leq6\pi\rme I$.
+
+The reduction retains the metric information needed here.
+Contracting a bridge removes its length from $\ell$ without changing
+the cycle lattice, and removes one quarter of that length from $\tau$.
+For a two-edge cut, orient its edges oppositely across the cut; every
+cycle has equal coordinates on them. Contract one, transfer its
+length to the other, and retain all created loops. The lattice
+inner product, $\ell$, $I$ and $\tau$ are then preserved.
+An entire circle reduces to a single loop, not to an empty graph.
+
+For a tree the bridge formula already gives the result. Otherwise the
+reduced graph has positive length; put $A=\sum_eL_eF_e^2$ and
+$t=\tau/\ell$. H\"older's inequality, \eqref{eq:ch08-tau-edge} and
+\eqref{eq:ch08-tropical-moment-tau} give
+\[\tag{8.8g}\label{eq:ch08-tau-scalar-bound}
+ \ell^3\leq A R^2,\qquad
+ R\leq\frac{3\pi\rme}4\ell(1-4t),\qquad
+ t(1-4t)^2\geq\frac4{27\pi^2\rme^2}.
+\]
+The last scalar function is increasing on $(0,1/12)$, with
+derivative $(1-4t)(1-12t)$. If $t\geq1/12$ the lower bound
+$t\geq c_-$ already holds. Restoring the bridge lengths gives
+\eqref{eq:ch08-tau-uniform-bound}. This explains the cited proof;
+the separate dual-lattice inequality is an external input.
+
+\paragraph{A cubic family and the remaining optimum.}
+The same preprint's Theorem~1.3 gives a different test from trees
+and circles. For $M\geq3$, let
+$V_s=\{x\in(\mathbf Z/M\mathbf Z)^3:x_1+x_2+x_3=s\}$,
+$s=0,1$. Join $x\in V_0$ to $x+e_i\in V_1$, $i=1,2,3$,
+where $e_i$ is the $i$th coordinate vector. Replace each vertex $x$
+by the triangle $(x,1),(x,2),(x,3)$ of unit edges, and join
+$(x,i)$ to $(x+e_i,i)$ by a length-three edge. The resulting
+$\Gamma_M$ is simple and cubic, with $6M^2$ vertices, $9M^2$ edges
+and length $15M^2$. Its two Foster coefficients are
+\[\tag{8.8h}\label{eq:ch08-tau-cubic-family}
+ \beta_M=\frac{M^2+1}{3M^2},\qquad
+ F_{\rm connector}=\frac9{11}\beta_M,\qquad
+ F_{\rm triangle}=\frac13+\frac1{11}\beta_M.
+\]
+Replacing a unit triangle by a star of arms $1/3$ preserves terminal
+resistances. This gives the connector coefficient from the
+edge-transitive base graph; Foster's trace gives the triangle
+coefficient. For a simple length-preserving vertex-transitive model,
+\cite[Theorem~1.1]{Cinkir09DiscreteLaplacianV3} specializes to
+$\tau=A/12+\operatorname{tr}(Q^+)/|V|$. In this family the last
+term, divided by $\ell$, is at most $(8M+5)/(30M^2)$.
+It follows that the normalized tau converges to $59/7260$;
+Wang's Corollary~5.2 already gives finite values below $1/108$
+for $M\geq300$. Consequently the sharper proposed $1/108$
+universal bound fails, while the optimum remains open:
+\[\tag{8.8i}\label{eq:ch08-tau-optimal-constant}
+ c_\tau:=\inf_{\ell(\Gamma)>0}\frac{\tau(\Gamma)}{\ell(\Gamma)},
+ \qquad 0<c_-\leq c_\tau\leq\frac{59}{7260}<\frac1{108}.
+\]
+The infimum here ranges over all finite connected metrized graphs,
+allowing unequal positive lengths, loops and multiple edges.
+Finding its value, or better extremal families, is a related graph
+problem; it is not a solution of the book's pluripotential problems.
+
+\paragraph{The arithmetic normalization.}
+For a semistable smooth projective geometrically connected curve of
+genus at least two over a number field $k$, let $\Gamma_v$ be the
+geometric dual graph of its minimal regular model at a finite place,
+with unit edge lengths. Equations
+\eqref{eq:ch08-tropical-moment-tau} and
+\eqref{eq:ch08-tau-uniform-bound} give
+\[\tag{8.8j}\label{eq:ch08-tau-height-moment}
+ 0\leq I(\operatorname{Jac}(\Gamma_v))
+   \leq\left(\frac18-\frac{c_-}2\right)(\ell(\Gamma_v)-b(\Gamma_v)).
+\]
+In the Faltings--theta height comparison
+\cite[Theorems~A and~B]{dJS22HeightPublished}, the finite-place
+contribution is $[k:\mathbf Q]^{-1}\sum_{v\text{ finite}}
+I(\operatorname{Jac}(\Gamma_v))\log N(v)$.
+The local invariant of that paper is half our moment, and its
+height formula has coefficient $2/[k:\mathbf Q]$; the two factors
+cancel. The valuation convention $v(\pi)=1$ determines the local
+graph lengths, whereas $\log N(v)$ supplies the arithmetic weight;
+$N(v)$ is the cardinality of the residue field at $v$.
+The archimedean terms remain part of the height formula.
+\Cref{sec:provenance-tau-moments} records the exact editions,
+selected proof scope and auxiliary source corrections.
 
 \section{Skeleta of curves, the slope formula, and the retraction}
 \label{sec:ch08-slope-formula}
