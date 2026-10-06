@@ -3718,6 +3718,36 @@ will explain finite-generated multigraded ideals near Appendix C, with
 Appendix L provenance; arbitrary envelope finite generation and the
 general BJ22 Siu/closure gate remain unresolved.
 
+## Common valuation fans: book integration, 6 October
+
+The [integration audit](ELMNP_finite_generation_audit_20261006.md)
+records Appendix C.4.1 and Appendix L.60. The corrected ELMNP result
+retains finite generation, the algebraically closed variety category,
+nonzero support, a common fan for all cost vectors, a refinement-dependent
+integer and both integral-closure bars. The ray Veronese/valuation chain
+explains the known proof; multiplier/test ideals retain their separate
+stabilization and characteristic hypotheses. No arbitrary envelope
+finite generation or general Siu/closure repair is asserted.
+
+The source checkpoint's 42 fresh and sixteen reused physical pages and
+thirteen diagnostics are reused; this integration reads zero fresh
+primary-source pages. All 32 existing formal blocks and 13 proofs in the
+two edited active files are preserved, along with the other 423 active
+inputs, 108 protected inputs, 77 prior frozen manifests and 133 exports.
+There are two new bibliography keys, seven labels, five tags and three
+index entries. References pass with 12,881 labels; 393 cited entries
+among 688 bibliography keys and all 770 index entries pass.
+
+The final build has 4,411 pages. All 43 selected matching pages in 22
+sheets were read and displayed, including transitions, affected contents,
+complete index and complete bibliography. Compilation and PDF navigation
+pass with no invalid destinations or links. The canonical inventory and
+native catalogue/editor remain unchanged. The full book, review PDF and
+complete active-source ZIP are exported with member-byte verification;
+no new original admission, model call or receipt is claimed. The next
+phase continues related primary-source and recent-paper exploration,
+including any new author work arriving on main or work.
+
 Fetch main and work and publish on work under standing authorization.
 Next read ELMNP's 2309.16722v1 erratum, discovered on the author's
 homepage, and its corrected antecedent before deciding whether it

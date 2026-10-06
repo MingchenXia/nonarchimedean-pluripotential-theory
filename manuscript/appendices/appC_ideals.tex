@@ -17,6 +17,12 @@ Only after each theory has been defined do we list the formal properties
 used in \Cref{chap:bj-smooth-characteristic}.  No
 characteristic-free identity between these sheaves is asserted.
 
+The optional discussion in \cref{sec:appC-finite-generation-fans}
+explains a different finiteness input: a finitely generated multigraded
+Rees algebra gives a common fan for asymptotic valuation functions.
+The multiplier-ideal and test-ideal envelope arguments do not assume
+this finite generation.
+
 \section{Complex analytic multiplier ideals}
 \label{sec:appC-analytic-multiplier}
 
@@ -420,6 +426,122 @@ one-sided estimate \eqref{eq:appC-asymptotic-discrepancy}.  We do not
 replace stabilization by an unproved pointwise criterion over arbitrary
 semivaluations.
 \end{remark}
+
+\subsection{Finite generation and common valuation fans}
+\label{sec:appC-finite-generation-fans}
+\index{Rees algebra!finite generation}
+\index{asymptotic valuation!common fan}
+\index{integral closure!multigraded ideals}
+
+The limit in \eqref{eq:appC-asymptotic-order} does not by itself provide
+a finite collection of linear formulas. Finite generation of the Rees
+algebra supplies such a collection. We explain the corrected argument
+of \cite[Proposition~1.1 and Lemma~2.1]{ELMNP23BaseLocusErratumV1},
+which replaces the induction in
+\cite[Proposition~4.7]{ELMNP06BaseLociPublished}.
+
+For this subsection let $X$ be an integral reduced variety of finite type
+over an algebraically closed field, in arbitrary characteristic.
+Let $N$ be a finite-rank free abelian group, $S\subset N$ a finitely
+generated saturated subsemigroup, and $C\subset N_{\mathbf R}$ its cone,
+so that $S=C\cap N$. Consider coherent ideals satisfying
+\[\tag{C.18a}\label{eq:appC-multigraded-rees}
+ \mathfrak a_0=\cO_X,\qquad
+ \mathfrak a_m\mathfrak a_{m'}\subset\mathfrak a_{m+m'},\qquad
+ \mathcal R(\mathfrak a_\bullet)=\bigoplus_{m\in S}\mathfrak a_m.
+\]
+Assume that this sheaf of algebras is finitely generated over $\cO_X$.
+No smoothness or multiplier-ideal construction is used in this input.
+
+\paragraph{A fan independent of the valuation.}
+Choose finitely many nonzero generating degrees $m_1,\ldots,m_r$ on a
+finite affine cover. First restrict to the saturated semigroup generated
+by the degrees with nonzero ideals; its cone will be denoted $C_+$.
+For a discrete valuation $\nu$ of $K(X)$ centered on $X$, put
+$\alpha_i=\nu(\mathfrak a_{m_i})$. These are finite nonnegative numbers.
+Taking the infimum through nonzero multiples gives
+\[\tag{C.18b}\label{eq:appC-fan-cost}
+ \nu_{\mathfrak a_\bullet}(m)
+ =\inf_{\ell:\,\mathfrak a_{\ell m}\ne0}
+       \frac{\nu(\mathfrak a_{\ell m})}{\ell}
+ =\min_{\substack{\lambda_i\in\mathbf Q_{\geq0}\\
+                         \sum_i\lambda_i m_i=m}}
+                         \sum_i\lambda_i\alpha_i.
+\]
+The last equality follows by writing each graded piece as a sum of
+products of the generating ideals, and clearing denominators in the
+opposite direction. The feasible polyhedron is rational. Its linear
+cost is nonnegative, so a minimum exists and can be attained at a
+rational point even when the $\alpha_i$ are irrational.
+
+Allowing real coefficients extends this minimum to $C_+$. It is
+homogeneous and subadditive, hence convex. The dual description is
+\[\tag{C.18c}\label{eq:appC-fan-dual}
+ \varphi_\alpha(m)=\max_{\gamma\in Q(\alpha)}\langle m,\gamma\rangle,
+ \qquad
+ Q(\alpha)=\{\gamma\in N_{\mathbf R}^{\vee}:
+                       \langle m_i,\gamma\rangle\leq\alpha_i\}.
+\]
+For strictly positive costs, $Q(\alpha)$ has the origin in its interior.
+Its normal fan has support $C_+$ and rays among the fixed generating
+directions $m_i$. Only finitely many such fans occur. Their common
+refinement therefore makes every $\varphi_\alpha$ linear on every cone,
+simultaneously for all positive cost vectors. Continuity in $\alpha$
+extends this to nonnegative costs. This is the normal-fan proof of
+the cited Lemma~2.1; the fan is chosen before choosing $\nu$.
+
+\paragraph{From ray powers to integral closure.}
+The corrected Proposition~1.1 states that there is a smooth fan $\Delta$
+with support $C$ such that, for every smooth refinement $\Delta'$, there
+is a positive integer $d$ with
+\[\tag{C.18d}\label{eq:appC-fan-integral-closure}
+ \overline{\mathfrak a_{d\sum_i p_i e_i}}
+    =\overline{\prod_i\mathfrak a_{d e_i}^{\,p_i}},
+ \qquad p_i\in\mathbf Z_{\geq0},
+\]
+on every cone of $\Delta'$ with primitive ray generators
+$e_1,\ldots,e_s$. Smoothness means that these generators extend to a
+lattice basis, so lattice points in the cone have integral nonnegative
+coordinates. The integer $d$ may depend on the selected refinement.
+
+Here is the valuation calculation behind this statement on the nonzero
+support. The Rees algebra on each ray is finitely generated. A suitable
+Veronese gives an integer $d_e$ such that
+$\mathfrak a_{\ell d_e e}=\mathfrak a_{d_e e}^{\ell}$ for every
+$\ell\geq1$. Choose $d$ divisible by the finitely many ray integers
+of the selected smooth fan. Then
+$\nu(\mathfrak a_{de})=\nu_{\mathfrak a_\bullet}(de)$ for all its rays.
+For $m=\sum_i p_i e_i$, gradedness and common-fan linearity give
+\[\tag{C.18e}\label{eq:appC-fan-valuation-chain}
+ \nu(\mathfrak a_{dm})
+ \leq\sum_i p_i\nu(\mathfrak a_{de_i})
+ =\sum_i p_i\nu_{\mathfrak a_\bullet}(de_i)
+ =\nu_{\mathfrak a_\bullet}(dm)
+ \leq\nu(\mathfrak a_{dm}).
+\]
+The product is contained in the degree $dm$ ideal. Equality for every
+centered discrete valuation yields
+\eqref{eq:appC-fan-integral-closure} by the Noetherian-domain valuative
+criterion \cite[Proposition~6.8.2]{SwansonHuneke2006}.
+The source handles degrees outside the saturated nonzero support with
+zero ideals; the asymptotic formula above is used only on $C_+\cap N$.
+
+Both closure bars matter. For the finitely generated sequence in
+\Cref{ex:appC-supported-graded-limit}, the Rees algebra is
+$k[x][xt,t^2]$, and every full-support centered valuation has
+asymptotic order zero. Nevertheless
+$\mathfrak a_2=\cO_X$ differs from $\mathfrak a_1^2=(x^2)$.
+Choosing $d=2$ gives exact powers on its one ray. Thus the choice of
+Veronese cannot be omitted, even in this elementary example.
+
+This result concerns integral closures of finitely generated systems,
+whereas asymptotic multiplier ideals above use a stabilized maximum.
+The two constructions retain their separate hypotheses. In particular,
+the graded systems in the envelope argument have not been shown to
+satisfy this finite-generation assumption. The result supplies no
+general non-Archimedean Siu decomposition or closure repair.
+\Cref{sec:provenance-ELMNP-fans} records the corrected source and its
+literal formula qualifications.
 
 \section{Uniform global generation}
 \label{sec:appC-global-generation}

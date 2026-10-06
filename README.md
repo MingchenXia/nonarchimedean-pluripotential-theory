@@ -9,7 +9,14 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,407 pages**.
+The current research-integration build has **4,411 pages**.
+The [finite-generation integration audit](manuscript/editorial/ELMNP_finite_generation_audit_20261006.md)
+records Appendix C.4.1 and Appendix L.60. The corrected ELMNP argument
+connects finitely generated graded ideals to a common fan for all valuation
+costs, ray Veronese powers and equality of integral closures. The refinement,
+nonzero-support and ambient-category hypotheses remain explicit. All 43
+matching final pages were read and displayed; compilation, references,
+index, navigation and canonical inventory pass.
 The [base-locus erratum source review](manuscript/editorial/ELMNP_base_locus_erratum_source_review_20261006.md)
 reads the complete ELMNP original and corrected proof: 42 fresh physical
 pages, with sixteen reused dependency pages. The common fan works for all
@@ -17,7 +24,8 @@ valuation costs; its product identity retains integral closure and a
 refinement-dependent integer. Thirteen diagnostics separate proof gaps,
 literal formula errors and scope guards. Existing augmented-base-locus
 and restricted-volume imports keep their independent source interfaces.
-This source-only checkpoint preserves the current book and problem statuses.
+That source-only checkpoint preserves the preceding edition and problem
+statuses; the attributed explanation is now integrated above.
 The [bibliography typography audit](manuscript/editorial/bibliography_polish_audit_20261006.md)
 corrects the Mustaţă breve and the contiguous Fornæss ligature, including
 its displayed citation label. All five text-changed pages and the complete
