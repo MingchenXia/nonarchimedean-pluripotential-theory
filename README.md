@@ -10,6 +10,11 @@ The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
 The current research-integration build has **4,361 pages**.
+The [Calabi–Yau finiteness source review](manuscript/editorial/calabi_yau_finiteness_source_review_20261006.md)
+reads the new arXiv framework in full and checks all 34 actual pages.
+It records missing capacity hypotheses, an invalid printed diameter
+constant and overbroad Bergman/scheme lemmas with their precise scopes.
+The framework remains a research lead; no finiteness theorem is imported.
 The [nilpotent and hypertoric examples audit](manuscript/editorial/symplectic_examples_audit_20261006.md)
 checks the known minimizing gradings and Namikawa's 2026 weight-two
 algebraic characterization. Chapter 68 explains the reductive symmetry

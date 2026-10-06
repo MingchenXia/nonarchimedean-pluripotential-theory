@@ -2674,3 +2674,30 @@ work-branch synchronization and the separate related-source search.
 The positive-characteristic loop-slice paper remains research-only;
 the additional September/October search results require primary-source
 and hypothesis checks before any admission.
+
+### Calabi–Yau finiteness framework source review — 6 October
+
+After `3e7958e`, the [source-only audit](calabi_yau_finiteness_source_review_20261006.md)
+reads Truong Dinh Dat's arXiv:2610.00361v1 in full: all 1,951 text lines,
+proofs and bibliography, and all 34 actual pages were read. The source
+was submitted on 30 September and first announced in October. Its own
+abstract and discussion retain unresolved capacity–perimeter and
+metric-to-embedding steps.
+
+The record distinguishes the capacity estimate already assumed in
+Theorem 3.1, the fixed-exponent and truncation issues in Theorem 4.1,
+and the reversed Bishop–Gromov step and invalid quantitative constant
+in Theorem 5.1. A flat elliptic calculation checks that constant while
+preserving the qualitative packing implication. A Fubini–Study example
+checks the overstrong sum-of-suprema claim in Lemma 7.1. A line with
+disjoint points checks the arbitrary-scheme signature of Lemma 8.1;
+the smooth pure-dimensional boundedness setting remains distinct.
+Theorem 8.3 requires a smooth base or finite smooth stratification for
+Ehresmann. Regularity and compactness keep their explicit stronger data.
+
+This is an ordinary primary-source diagnostic, outside active TeX, with
+no original-result promotion, solved book problem or new production
+receipt. All 425 active inputs, 46 earlier frozen manifests, exports,
+native catalogue, inventory and toric candidate retain their bytes.
+The checked book remains 4,361 pages; no fresh book build is claimed.
+Continue GitHub synchronization and accurate related-source research.
