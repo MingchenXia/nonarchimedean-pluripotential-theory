@@ -2601,3 +2601,38 @@ toric candidate retain their previous scope and bytes. No new production
 verification receipt or original priority claim is made. Continue work
 branch synchronization and the separate analytic-conicality, metric,
 nilpotent and hypertoric source directions.
+
+### Algebraic and analytic symplectic cone structures — 6 October
+
+After `17a55ff`, three Chapter 68.8 subsections and Appendix L.46 explain
+the checked algebraization and analytic-conicality inputs. The
+[new audit](symplectic_conicality_audit_20261006.md) completes the full
+sixty-two-page reading of Namikawa–Odaka v4, with six previously displayed
+and fifty-six newly displayed pages, plus eleven selected pages from
+Kollár's arXiv v2 and Artin's published 1969 paper. The separately
+published Kollár locator and Artin's different 1968 paper are not
+claimed checked.
+
+Both cones must have good actions for the stated algebraic comparison;
+the prescribed formal map need not algebraize. Reflexive form jets use
+deeper ring jets, and positive form weight corrects a conjugacy scalar.
+A conical symplectic singularity admits a minimizing Reeb choice, rather
+than every form-dilating grading being minimizing. Artin's common étale
+neighborhood compares underlying germs; its analytic isomorphism can
+pull back a different symplectic form. Metric and quasi-regularity
+conclusions retain projective smoothability, Donaldson–Sun and rotation
+completeness hypotheses where required.
+
+The final 4,355-page build passes references, bibliography, index and
+PDF navigation checks, with zero overfull boxes. Thirty-nine matching
+final pages were displayed, including the full index and bibliography.
+The first build's arXiv-identifier overflow was repaired; PDF rereading
+then removed repeated provenance sentences and a sparse final page.
+The chapter opening is polished. All 108 protected inputs, 44 earlier
+frozen integration manifests, earlier exports, 42 full canonical status
+rows, native catalogue and toric candidate retain their bytes and scope.
+No new production-model call, verification receipt or original priority
+claim is made. Continue normal work-branch synchronization and the
+nilpotent/hypertoric examples. A newly acquired 30 September twisted
+loop-slice paper remains outside the active book while its positive
+characteristic and singular-slice hypotheses are investigated.

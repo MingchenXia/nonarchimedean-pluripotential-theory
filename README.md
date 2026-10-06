@@ -9,7 +9,19 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,351 pages**.
+The current research-integration build has **4,355 pages**.
+The [symplectic cone-structure audit](manuscript/editorial/symplectic_conicality_audit_20261006.md)
+checks Namikawa–Odaka's February 2026 v4 in full, with selected primary
+inputs from Kollár and Artin. Chapter 68 now distinguishes algebraization
+of already conical symplectic singularities, existence of a minimizing
+Reeb direction in a dilating torus, and analytic identification of
+underlying algebraic germs. Artin approximation need not preserve the
+original symplectic form; metric and quasi-regularity conclusions keep
+their additional hypotheses. All sixty-two main-source pages were
+displayed, including six reused pages; eleven selected dependency pages
+and thirty-nine matching final book pages were also displayed. The build
+and PDF navigation checks pass. The new provenance discussion was
+shortened after PDF review to remove a repetitive final-page fragment.
 The [differential-form and formal rigidity audit](manuscript/editorial/stable_forms_symplectic_rigidity_audit_20261006.md)
 checks Xu–Zhuang–Guenancia's June 2026 v2 in full and seven further
 dependencies. Chapter 68 explains logarithmic form discrepancies, the
