@@ -14,8 +14,18 @@ ENTRY = re.compile(r"^\\indexentry\{(?P<key>.*)\}\{(?P<page>[^{}]*)\}\s*$")
 
 def canonical_key(key):
     key = key.replace("Monge--Ampere", "Monge--Amp\\`ere")
-    return re.sub(
+    key = re.sub(
         r"^Stokes formula(?=[!|]|$)", "Stokes formula@Stokes' formula", key
+    )
+    key = re.sub(
+        r"^Kolodziej argument(?=[!|]|$)",
+        lambda match: r"Kolodziej argument@Ko{\l}odziej argument",
+        key,
+    )
+    return re.sub(
+        r"(?<=!)refined Hodge--Poincare polynomial(?=[!|]|$)",
+        lambda match: r"refined Hodge--Poincare polynomial@refined Hodge--Poincar\'e polynomial",
+        key,
     )
 
 

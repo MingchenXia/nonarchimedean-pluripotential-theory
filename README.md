@@ -10,6 +10,14 @@ The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
 The current research-integration build has **4,426 pages**.
+The [index diacritics audit](manuscript/editorial/index_diacritics_polish_audit_20261006.md)
+corrects Kołodziej and Hodge–Poincaré in generated displays, retaining
+all 778 ordered page arguments and their original sort keys. All 425
+active inputs and both bibliographies are byte-preserved. Every PDF
+page was compared with the preceding edition: only physical page 4401
+has changed text; the other 4,425 page texts are identical. The complete
+index and transitions were read and displayed in twelve matching pages.
+Compilation, references, index, navigation and inventory pass.
 The [sequential/K3 integration audit](manuscript/editorial/hybrid_sequential_K3_dynamics_audit_20261006.md)
 records Chapter 66.7–66.8 and Appendix L.62–L.63. It separates the
 product-ring sequential line, good-base relative-line theorem and integral

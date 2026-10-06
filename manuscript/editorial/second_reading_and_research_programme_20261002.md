@@ -3984,3 +3984,32 @@ all active source mathematics. Continue exact-primary-source research and
 incorporate incoming author progress under the standing GitHub authorization.
 No model call, verifier receipt or general BJ22 Siu/envelope-closure repair
 is claimed by this integration.
+
+### Index diacritics polish, 6 October 2026
+
+The [index audit](index_diacritics_polish_audit_20261006.md) completes
+the two inherited display spellings found in the sequential/K3 reading:
+Kołodziej argument and refined Hodge–Poincaré polynomial. Makeindex
+aliases retain their original sort fields, encapsulation and all 778
+ordered page arguments. The preceding Monge–Ampère and Stokes fixes
+remain. All 425 active inputs, both bibliographies, 108 protected inputs,
+84 preceding frozen manifests and 145 exports retain their bytes.
+
+The complete 4,426-page build passes. A comparison of extracted text
+on every physical page finds a change only on page 4401; all other
+4,425 page texts are byte-identical to the preceding export. This
+comparison is not another whole-book rereading. All twelve matching
+final pages in six sheets were read and displayed, covering the full
+index, contents destinations and bibliography transition. References,
+index, navigation and canonical inventory pass. No mathematical status,
+source-page audit, original result, model call, receipt or native-editor
+operation is added.
+
+Save immutable book/review/source artifacts, verify archive member
+bytes and preserve the closure ledger. Fetch main and work, push
+normally on work and update the existing draft PR. Then continue
+checking exact primary editions and recent arXiv metadata, incorporating
+only source-supported material with the actual hypotheses. Retrieve
+incoming author progress on both remote branches under the standing
+GitHub authorization. Keep the general BJ22 Siu/envelope boundary
+conditional.
