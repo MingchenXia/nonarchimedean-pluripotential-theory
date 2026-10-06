@@ -10,6 +10,17 @@ The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
 The current research-integration build has **4,411 pages**.
+The [regular polynomial dynamics source review](manuscript/editorial/hybrid_polynomial_dynamics_source_review_20261006.md)
+reads Irokawa's new 23-page v1 and the complete 22-page Hénon v2,
+with selected primary dependencies: 118 displayed physical pages.
+It records an explicit failure of the new proof's chosen covering
+constants and a sign counterexample to the older preprint's total-Lyapunov
+formula. Neither is a counterexample to the main measure limit.
+The 2025 publication's metadata is checked, but its full text is
+unavailable; the older diagnostics are not attributed to that edition.
+Twenty-nine checks retain degree/reference scaling, semipositivity,
+fibre multiplicities, local rank and closed-support gates. This source-only
+checkpoint preserves the checked book and canonical statuses.
 The [finite-generation integration audit](manuscript/editorial/ELMNP_finite_generation_audit_20261006.md)
 records Appendix C.4.1 and Appendix L.60. The corrected ELMNP argument
 connects finitely generated graded ideals to a common fan for all valuation

@@ -3749,7 +3749,48 @@ phase continues related primary-source and recent-paper exploration,
 including any new author work arriving on main or work.
 
 Fetch main and work and publish on work under standing authorization.
-Next read ELMNP's 2309.16722v1 erratum, discovered on the author's
-homepage, and its corrected antecedent before deciding whether it
-affects the restricted-volume and asymptotic-base-locus explanations.
-Only the erratum metadata and abstract are checked at this point.
+The erratum and original are now fully read and the scoped
+finite-generation explanation is integrated above. Continue with
+recent hybrid dynamics and the precise dependency interfaces.
+
+## Regular polynomial automorphisms: source checkpoint, 6 October
+
+The [source review](hybrid_polynomial_dynamics_source_review_20261006.md)
+reads all 23 actual pages of Irokawa's new 2610.06821v1 and all 22
+actual pages of the older 2212.10851v2. Selected Kawaguchi, Lee,
+Guedj–Sibony, Favre, BE21, CLD25 and Chambert–Loir pages bring the
+total to 118 displayed source/page pairs in 61 sheets: 85 from newly
+acquired PDFs and 33 freshly reread cached pages. Only the two Irokawa
+preprints are claimed fully read. The CLD25 selection follows the
+2025 French edition's actual Chapter 8, with its continuous-potential
+class; old 2012 locators are not transplanted.
+
+Twenty-nine source checks distinguish proof gaps, literal formulas and
+scope guards. The new paper's map-coefficient-only covering constants
+fail for f_t(x,y)=(y,t y^2-x); correcting certificate constants and
+product-domain invariance remains a gate. No counterexample to its
+main weak measure convergence or a complete proof repair is claimed.
+The older v2's total-Lyapunov asymptotic has the wrong sign, witnessed
+by a(t)=t and the exact determinant identity. Its first-exponent proof
+also confuses one-step eigenvalues with the derivative cocycle. The
+2025 publisher metadata is checked, but the full published text was
+not obtained; these diagnostics remain confined to the old v2.
+
+Degree-normalized relative weights differ from affine escape potentials
+by the reference potential. Hybrid scaling is positive, model measures
+retain b_E, positive products require semipositivity, and affine weak
+convergence needs a common closed support or tightness. The classical
+Guedj–Sibony maximum/product identity is read; the new non-Archimedean
+escape-rank proof is not certified. The historical 2023 open remark
+and the 2026 claimed answer do not change canonical problem statuses.
+No original theorem, new model call or independent receipt is claimed.
+
+This source-only checkpoint preserves all 425 active inputs, 108
+protected inputs, 78 frozen manifests, 136 exports, the 4,411-page
+book, both bibliography files and the native catalogue/editor. No
+unchanged book rebuild or new book-page reading is claimed. References,
+canonical inventory and preservation checks run. Fetch main and work,
+publish on work, and update the draft PR under standing authorization.
+Next integrate the attributed balanced-escape/projective-metric route
+with its uniformity, rank and support hypotheses visible. Keep the
+general BJ22 Siu/envelope-closure gate separate.
