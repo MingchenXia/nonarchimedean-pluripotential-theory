@@ -3865,3 +3865,38 @@ push work and update the draft PR. Then read the exact acquired editions
 Irokawa 2405.12517v1 and Favre–Gong 2406.15892v4. Acquisition alone is not
 proof review; admit only content supported by checked statements and
 dependencies, and continue checking incoming author research.
+
+### K3 hybrid dynamics source reading, 6 October 2026
+
+The [exact-source review](hybrid_K3_dynamics_source_review_20261006.md)
+reads and displays all eighteen pages of Irokawa 2405.12517v1, the
+only version listed by the current arXiv metadata. Thirty-eight
+selected pages of Cantat's published paper, Filip's exact arXiv v1
+and Demailly's author layout were also read and displayed. The total
+fresh scope is 56 source/page pairs in 29 sheets; only the main
+eighteen-page paper is fully read. Filip's published metadata is
+checked, but its public PDF endpoints did not supply the full text.
+
+Nineteen diagnostics distinguish definite failures of printed formulas
+from gaps in the uniform hybrid proof. The backward potential requires
+the same lambda^{-n} normalization as the forward one; the printed
+mixed approximants omit lambda^{-2n} and have exponentially growing
+mass on a fixed projective K3 fibre. Filip's read Corollary 5.6.8 keeps
+that factor. The nonreduced-snc model test also distinguishes weighted
+generic degree 4 from the printed unweighted central mass 3. Other
+checks retain residue characteristic, differential normalization,
+semipositivity, changing characters on compact torsor domains,
+reference curvature, cutoff derivatives and the order of limits.
+Neither the correctly defined main measure limit nor the general
+K3 dynamics is refuted; a complete proof repair is not certified.
+
+All 425 active inputs, both bibliographies, 108 protected inputs,
+compiled book/index products, 81 prior frozen manifests and 142
+exports are preserved. The 4,417-page index-polished book is reused
+without a fresh build or book-page review. Canonical statuses, the
+native catalogue/editor and the Siu/envelope boundary are unchanged;
+no original result, model call or receipt is claimed. Preserve the
+exact readings, computations and source-only gate; fetch both branches,
+publish on work and update the draft PR. Then continue Favre–Gong v4
+and integrate only source-attested results or an explicitly conditional
+K3 application with its family-uniformity and product-class inputs.

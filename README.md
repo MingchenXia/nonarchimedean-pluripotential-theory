@@ -10,6 +10,16 @@ The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
 The current research-integration build has **4,417 pages**.
+The [K3 hybrid source review](manuscript/editorial/hybrid_K3_dynamics_source_review_20261006.md)
+reads all eighteen pages of Irokawa 2405.12517v1 and 38 selected
+Cantat/Filip/Demailly dependency pages: 56 displayed physical pages.
+Its printed backward normalization and mixed approximants fail a
+fixed-fibre mass check; both directions require the decaying factor
+retained in Filip's source. Nineteen scoped diagnostics also keep
+model multiplicities, positivity, compact chart domains, reference
+curvature and cutoff terms explicit. This does not refute the main
+hybrid limit or certify a repaired proof. The checkpoint preserves
+the book, bibliography and canonical statuses byte-for-byte.
 The [index spelling audit](manuscript/editorial/index_spelling_polish_audit_20261006.md)
 unifies Monge–Ampère and Stokes’ formula in the generated index. All
 773 raw entries and their ordered page arguments are retained; all
