@@ -10,6 +10,15 @@ The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
 The current research-integration build has **4,388 pages**.
+The [Hermitian regularity source review](manuscript/editorial/Hermitian_bounded_regularity_source_review_20261006.md)
+reads Badiane--Lu--Zeriahi's new preprint in all 23 pages, the complete
+nine-page Székelyhidi--Tosatti precursor and 29 selected primary dependency
+pages. It separates regularity of an existing bounded solution from
+existence, ordering, integrability and uniqueness, and records eight
+literal formula diagnostics. The known Kähler regularity and frozen
+auxiliary-equation argument are the next book candidate; the broader
+Hermitian and singular chains retain their precise scope. This source
+checkpoint preserves the checked book and native catalogue.
 The [toric projection audit](manuscript/editorial/toric_projection_audit_20261006.md)
 records Chapter 68's finite secondary-polytope argument: the lower-envelope
 support identity, closest-point destabilizer, full affine projection,

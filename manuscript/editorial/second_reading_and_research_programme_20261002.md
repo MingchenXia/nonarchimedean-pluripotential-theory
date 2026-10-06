@@ -3031,3 +3031,41 @@ with the bounded-to-smooth Hermitian Monge--Ampère paper; continuum
 regularity, Delzant limits, general lattice precompactness, piecewise-
 affinity, long-time Calabi flow and the general Siu/closure boundary
 retain their separate scope.
+
+### Hermitian bounded-to-smooth regularity — 6 October
+
+Read Badiane--Lu--Zeriahi arXiv:2610.06473v1, submitted 5 October, in all
+23 actual pages, including proofs and references. Every page was displayed
+and its full extracted text read in twelve sheets. Read the complete
+nine-page Székelyhidi--Tosatti v2, together with 29 selected pages of
+Guedj--Lu envelopes III v1, Demailly's author-hosted Chern regularization
+paper and Nguyen's Hermitian type-equation v1, in 21 dependency sheets.
+See the [source review](Hermitian_bounded_regularity_source_review_20261006.md).
+
+The main regularity statement concerns an already bounded solution,
+arbitrary smooth dependence on the unknown, and the locus Omega minus D.
+The static approach freezes the given solution in an auxiliary equation
+whose positive zero-order coefficient permits domination. This does not
+give uniqueness of the original decreasing equation. The ordered
+subsolution/supersolution proof in Section 5 assumes Lp density with p>1;
+its introductory statement omits that additional condition. The
+normalizing constant and positivity of total mass remain separate in
+the Hermitian setting. Eight direct formula checks record a false extra
+trace factor, an integrability-only existence assertion contradicted by
+Kähler mass, a supersolution shift sign, an incorrect example of two-sided
+growth, a derivative, an auxiliary-limit identification, a Hölder sign
+and a missing convolution normalization. They do not refute conditional
+Theorem 1.1 or certify a complete original repair. The first shift test's
+positive constant was corrected in a new negative-constant diagnostic;
+the earlier diagnostic remains historical.
+
+This source-only checkpoint preserves all 425 active inputs, 108 protected
+inputs, 58 prior frozen manifests, 115 prior exports, the checked
+4,388-page book and every generated book file, all 42 complete canonical
+statuses and the native catalogue. Inventory and whitespace checks pass,
+with no repeated book build or native compile. No original result,
+independent model call or verification receipt is claimed. Continue by
+integrating the known smooth Kähler regularity and the explicitly scoped
+frozen-limit argument in the existing mean-field discussion, then audit
+the remaining regularization, degenerate Hermitian and singular-space
+inputs and Fang's metadata-only Hessian paper.
