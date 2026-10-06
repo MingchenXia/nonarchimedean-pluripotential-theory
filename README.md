@@ -9,7 +9,19 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,438 pages**.
+The current research-integration build has **4,443 pages**.
+The [hyper-Kähler entropy interface](manuscript/editorial/hyperkahler_group_entropy_integration_audit_20261006.md)
+adds Chapter 66.8.1 and Appendix L.66. The attributed dense-existence
+statement retains the H2 entropy convention, polarized/projective family,
+finite exceptions and very-general finite-index scope. Maps may vary
+with the fibre; a relative automorphism, uniform eigenpotentials and
+mixed-product continuity remain separate inputs to the hybrid problem.
+Nine exact-edition references and two index entries are appended.
+All 43 selected final pages were read and displayed, including the
+complete index and bibliography. Required compilation, references,
+index, navigation and canonical inventory pass. The preceding 91-page
+source audit is reused with its proof qualifications; no full source-proof
+certification or canonical-status change is claimed.
 The [hyper-Kähler group-entropy source audit](manuscript/editorial/hyperkahler_group_entropy_source_review_20261006.md)
 reads Denisi–Oguiso–Onorati–Rizzo–Viktorova 2610.05173v1 and eight
 precisely scoped dependencies: 91 actual pages in 46 displayed sheets.

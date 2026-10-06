@@ -4261,3 +4261,41 @@ provenance account, retaining the source's statement as such and
 the unresolved proof gates. Continue incoming author progress and
 related recent primary-source research; an unconditional proof
 reconstruction first needs the controlling published dependencies.
+
+### Hyper-Kähler entropy interface integration, 6 October 2026
+
+The [integration audit](hyperkahler_group_entropy_integration_audit_20261006.md)
+records Chapter 66.8.1 and Appendix L.66. The H2-level entropy
+convention and attributed dense existence statement retain the
+polarized/projective family, finite exceptions, very-general finite
+index and fixed deformation type. Strong period-disc intersection
+density is distinguished from ambient density. On K3 fibres the maps
+are regular, but may vary with the parameter; neither a relative map,
+uniform eigenpotentials nor mixed-product continuity is supplied.
+The existing hybrid measure limit retains its own conditions.
+
+Nine exact-edition references, four labels, two equation tags and two
+index entries are appended. No formal/proof block is added. All 35
+old formal and eleven proof blocks in the edited active inputs retain
+their bytes and order, as do 423 other active inputs, 108 protected
+inputs, 91 prior manifests and 157 prior exports. Canonical statuses
+and the native catalogue/editor remain unchanged. The preceding
+91-page, 46-sheet primary audit, eighteen scoped records and six
+diagnostics are reused; no fresh primary-page reading or complete
+source-proof certification is claimed.
+
+The stable 4,443-page book passes required compilation, references,
+inventory, unit tests, index and navigation. All 43 selected matching
+final pages were read as complete text and displayed in 22 sheets,
+including both contents entries, new exposition and transitions,
+the complete index and bibliography. No final-reading source correction
+was needed. The 954 underfull boxes equal baseline; other build
+warnings, overfull boxes and invalid destinations are zero.
+
+Save immutable book/review/source artifacts and the 427-input closure;
+verify all 740 archive members, fetch both main and work, push normally
+and update the existing draft PR. Continue recent related primary-source
+research and incoming author progress. The published homogeneous-dynamics
+proof remains a source gate, while the old 2016 copy has its own explicit
+scope. No original theorem, independent model call, new receipt or
+general BJ22 Siu/envelope closure repair is added by this checkpoint.
