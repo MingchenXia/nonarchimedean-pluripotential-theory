@@ -3388,3 +3388,39 @@ Deliver the full PDF, 39-page review and complete source archive; fetch
 both main and work and publish on work with the existing draft PR.
 Continue with Chu--Liu's alternative gradient estimate and the precise
 claimed Lp range for Hermitian Hessian equations before importing either.
+
+### Alternative gradient proof and claimed Hessian Lp range — 6 October
+
+Read and individually displayed both exact primary PDFs in full,
+including proofs and references: nineteen Chu--Liu pages and fifteen
+Dat pages, 34 physical pages in eighteen sheets. Chu--Liu page 12 was
+additionally inspected at higher resolution without recounting it.
+See the [source review](Hessian_gradient_Lp_source_review_20261006.md).
+
+Chu--Liu's compact route combines a logarithmic sup-convolution,
+quantitative stability, a continuity modulus and the explicit
+Hou--Ma--Wu estimate with a local elliptic gradient estimate. Five
+literal checks concern the exponent sign, test-function normalization,
+the zero-comparison boundary stability counterexample, its invalid
+comparison scale and the boundary upper-obstacle shift. No compact
+gradient theorem is refuted or full repaired dependency chain certified.
+
+Dat's claimed all-m p>1 bound and bounded existence are excluded from
+admission. Seven checks show false all-set CLN volume domination, a
+divergent layer-cake integral, reversed reciprocal optimization, reversed
+capacity-supremum use, a positive nonextinguishing recursion, an extra
+interpolation factor and the classical localized Poisson power that
+already excludes the stated general range for m=1. The correct
+intermediate-Hessian exponent and endpoint questions retain their scope.
+L1 convergence is not a decreasing approximation, and Hermitian
+normalizers and operator definitions remain separate proof gates.
+
+This source-only checkpoint preserves 425 active inputs, 108 protected
+inputs, 68 earlier frozen manifests, 124 earlier exports, the checked
+4,398-page book and its generated files, native catalogue and all
+canonical statuses. No repeated unchanged-book compilation, new book
+PDF review, native compile, original result, independent model call or
+verification receipt is claimed. Continue with the exact 2208.14539
+regularization paper and the published Dinew--Kołodziej capacity proof;
+their newly located editions are not yet claimed read. The October
+polynomial Hessian preprint 2610.06529 remains a metadata lead only.

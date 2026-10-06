@@ -10,6 +10,14 @@ The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
 The current research-integration build has **4,398 pages**.
+The [alternative gradient and Lp source review](manuscript/editorial/Hessian_gradient_Lp_source_review_20261006.md)
+reads Chu--Liu's nineteen-page v1 and Dat's fifteen-page v1 in full.
+It explains the logarithmic continuity route to compact gradient
+estimates, records a false printed boundary stability formula, and
+excludes Dat's claimed all-m p>1 estimate: its capacity and iteration
+steps fail, and a standard Poisson power already rules out the stated
+range. Twelve exact source checks retain their distinct scopes.
+No result from either new paper enters active TeX at this checkpoint.
 The [direct gradient integration audit](manuscript/editorial/direct_gradient_audit_20261006.md)
 records Chapter 68.9.6 and Appendix L.57. It explains how a common
 admissible subsolution and prescribed-density bounds yield C0 compactness,
