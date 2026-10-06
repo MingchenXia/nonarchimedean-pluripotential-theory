@@ -2824,3 +2824,26 @@ manifests and 100 prior exports keep their baseline bytes. This is a known
 result import and a conditional explanation, with no original theorem,
 independent model call, new receipt or Siu/closure repair. Continue by checking
 the big-class approximation dependencies and related primary research.
+
+### Big-class stability and approximation dependencies — 6 October
+
+Dervan–Reboulet's arXiv:2603.25605v1 is now read in full, including
+all 40 actual PDF pages. Fifty-eight selected pages from the published
+BFJ offprint and versioned ELMNP, BHJ, BJ18 and Witt Nyström sources
+were displayed and read. The
+[source review](big_class_stability_source_review_20261006.md) records
+dominated nef approximation, the correct probability tail and first
+moment, the relative logarithmic correction and base-change degree.
+BFJ Theorem B and its proof clear the algebraic prime-divisor identity;
+its scope is distinguished from restricted Fujita approximation for
+general subvarieties. Literal v1 normalization, trivial-valuation and
+generic-polarization defects, and an unsupported componentwise measure
+comparison are recorded without declaring the corrected main theorem
+false or certifying a repair. No full stability or birational theorem
+is imported. All 425 active inputs, 108 protected inputs, 51 prior frozen
+manifests and 103 prior exports are byte preserved. The checked book
+remains 4,380 pages and all 42 statuses and the native catalogue keep
+their prior scope. No fresh unchanged-book compilation, independent
+model call or original-result receipt is claimed. Continue with the
+ample-generic Fujita input needed by Chapter 68, retaining the separate
+entropy convergence and general Siu/closure boundaries.

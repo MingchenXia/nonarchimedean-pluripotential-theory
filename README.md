@@ -10,6 +10,15 @@ The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
 The current research-integration build has **4,380 pages**.
+The [big-class stability source review](manuscript/editorial/big_class_stability_source_review_20261006.md)
+reads Dervan–Reboulet's March preprint in full and checks 58 selected
+primary dependency pages. It records the generic-polarization issue in
+Fujita approximation, the trivial-valuation cutoff, probability factors,
+log canonical sign and base-change degree. The algebraic prime-divisor
+volume formula is cleared in its stated scope. The full stability and
+birational proof chains remain research leads outside active TeX; the
+checked book, native catalogue and canonical problem statuses retain
+their scope.
 The [ordered model and quantized stability audit](manuscript/editorial/Khat_Kbeta_comparison_audit_20261006.md)
 checks Papazachariou's September comparison in full. Chapter 46 explains
 the ordered PL polarization estimate with raw intersection normalization;
