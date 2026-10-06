@@ -10,6 +10,15 @@ The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
 The current research-integration build has **4,426 pages**.
+The [Do–Hiep exact-source review](manuscript/editorial/Do_Hiep_local_maximality_comparison_source_review_20261006.md)
+reads both new local maximality/comparison papers in full and a precise
+dependency selection: 78 displayed edition/page pairs, four full PDFs.
+Nineteen scoped records retain analytic spread, local energy classes,
+common potential transitions and full residual polar mass. Literal
+dependency formula errors are distinguished from the new main theorems;
+McAdam's original proof and the complete mixed capacity chain remain
+external gates. This source-only checkpoint preserves the checked book,
+native catalogue and all canonical statuses.
 The [index diacritics audit](manuscript/editorial/index_diacritics_polish_audit_20261006.md)
 corrects Kołodziej and Hodge–Poincaré in generated displays, retaining
 all 778 ordered page arguments and their original sort keys. All 425

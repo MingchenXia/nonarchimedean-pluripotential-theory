@@ -4013,3 +4013,43 @@ only source-supported material with the actual hypotheses. Retrieve
 incoming author progress on both remote branches under the standing
 GitHub authorization. Keep the general BJ22 Siu/envelope boundary
 conditional.
+
+### Do–Hiep local maximality and comparison source review, 6 October 2026
+
+The [exact-source audit](Do_Hiep_local_maximality_comparison_source_review_20261006.md)
+reads all 13 pages of 2610.05937v1 and all 19 of 2610.05948v1.
+Dependencies add all nine published Błocki pages, all fourteen polar
+comparison v2 pages, thirteen selected Teissier pages, five polar v1
+pages and five ACCP v3 pages: 78 edition/page pairs in 42 displayed
+sheets. Four PDFs are fully read; selected reading is not described as
+full reading. Polar v1 and v2 have identical extracted body-page text,
+but their version dates and actual reading scopes remain distinct.
+McAdam metadata are checked; the unavailable original AMS proof is
+an explicit input, not a completed proof audit.
+
+Nineteen scoped records separate analytic-spread geometry and surface
+residual energy from literal dependency failures. Błocki's mixed
+linear term and inner-ball substitution, Teissier's arc perturbation
+and cusp kernel, and the polar paper's truncation, global F claim,
+envelope direction, retained polar mass and capacity-polarization
+obligations are recorded with locators. These are not nineteen
+counterexamples to the new main theorems or a full repaired-proof
+certificate. The new compact-support comparison retains shared
+transitions and both common-pole terms. The C² residual-current
+criterion uses full local Cegrell mass and its surface-only E-sandwich;
+it does not need the general mixed capacity theorem.
+
+All 425 active inputs, 108 protected inputs, both bibliographies,
+generated book/index products, 85 preceding frozen manifests and
+148 exports retain their bytes. Of 5,113 tracked baseline files,
+only README and this programme change. The 4,426-page book is reused
+without a fresh build or book-page reading. Native editor/catalogue,
+canonical statuses and historical receipts remain unchanged. No
+original theorem, production model call or new receipt is claimed.
+
+Freeze the immutable source-review record, fetch both branches and
+push normally on work; update the existing draft PR. Then integrate
+attributed complex-reference exposition on analytic spread, surface
+residual mass and the compact comparison interface, preserving all
+external inputs and the conditional general BJ22 Siu/envelope boundary.
+Build the book and read the matching final additions and transitions.
