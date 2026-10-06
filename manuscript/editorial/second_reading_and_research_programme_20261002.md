@@ -3494,3 +3494,37 @@ call or verification receipt is added. Fetch main and work and publish
 on work; next read Nguyen's published 2020 boundary argument,
 Benali–Zeriahi's erratum and the mean/sup regularization source before
 a scoped local-boundary explanation enters Chapter 68.
+
+### Boundary mass, erratum and fixed interior buffers — 6 October
+
+Completed the full published Nguyen 2020 paper, both the Benali--Zeriahi
+original and its explicit erratum, and the full acquired Zeriahi modulus
+note. All 77 physical pages were read and displayed in 39 sheets; four
+identically hashed Zeriahi pages repeat the earlier reading. The 73 fresh
+pages comprise 68 research pages and five publisher pages. Zeriahi's
+arXiv v1 submission metadata and internal 2024 PDF date remain distinct.
+See the [source review](Hessian_boundary_erratum_source_review_20261006.md).
+
+Retain actual boundary barriers, correctly buffered Jensen regions,
+local trace mass and normalized collar extensions. Nguyen permits
+infinite total boundary mass; the erratum retains finite prescribed mass
+and a finite-mass zero-boundary subsolution. Its quantitative stability
+derivation has a separate missing capacity-root power and is not admitted
+as a checked numeric exponent. Fourteen diagnostics distinguish literal
+counterexamples, repairable formulas and cleared constant objections.
+
+The bounded harmonic model Im log(1-z) excludes a boundary-free modulus
+uniform on shrinking collars. It does not refute the fixed-compact
+mean-to-oscillation consequence or a theorem with boundary modulus.
+Next make the fixed positive buffer and initial iteration radius explicit
+in the existing Chapter 68 logarithmic passage, and add the scoped
+boundary/local-mass explanation. No new canonical open problem is inferred
+from a source's historical 2020 open-problem description.
+
+This source-only checkpoint preserves 425 active inputs, 108 protected
+inputs, 71 preceding frozen manifests, 124 preceding exports, the
+4,398-page book and fourteen generated files, native catalogue and all
+canonical statuses. No active TeX, new original result, model call,
+production receipt, unchanged-book rebuild or native compile is claimed.
+Fetch main and work, integrate incoming author work if any, and publish
+on work before continuing the scoped book integration.
