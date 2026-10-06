@@ -3654,3 +3654,43 @@ bibliography's duplicated publications and author-name typography with
 usage-aware source checks. Preserve distinct checked editions and all
 historical proof receipts; no canonical solved status or general
 Siu/closure repair follows from this integration.
+
+## Bibliography name typography and citation ledger, 6 October
+
+Corrected two author-name fields in ComplexGeometry.bib: the final
+breve in Mustaţă in ELMNP05, and a braced ae ligature in Fornæss in
+FN80. The latter also repairs the displayed citation label from FsN80
+to FN80. The authors' own University of Michigan homepage and official
+NTNU profile confirm the spellings. This is metadata checking, with no
+fresh research-page or full-paper reading claim. See the
+[audit](bibliography_polish_audit_20261006.md).
+
+The rebuilt book remains 4,407 pages. A full extracted-text comparison
+identifies exactly five changed pages: 717, 721, 846, 4397 and 4398.
+All five were read and displayed, together with the complete nineteen-page
+bibliography: 22 pages in eleven sheets. The full TOC is unchanged.
+References, bibliography, index, navigation and canonical inventory pass;
+zero errors, warnings, missing glyphs, overfull boxes, undefined references
+or rerun requests occur. The 954 underfull boxes remain unchanged.
+
+All 425 active TeX inputs, 108 protected inputs, all citation commands,
+75 prior frozen manifests and 130 prior exports retain their bytes.
+No new theorem, model call, production receipt, canonical status change
+or Siu/closure repair is added. The native catalogue and open editor
+are unchanged. The full book, 22-page review and source archive are
+released separately from the preceding tau edition.
+
+The scoped usage ledger identifies Nadel's two keys as the same 1990
+paper, Temkin's two keys as the same 2015 chapter, and the two LXZ
+keys as the same 2022 published article. Active proofs and frozen
+source locators use these keys. They remain present here; later
+consolidation must preserve the exact edition notes and historical
+proof artifacts rather than imply distinct publications or silently
+change their source binding. This is not an exhaustive deduplication
+of all bibliography entries.
+
+Fetch main and work and publish on work under standing authorization.
+Next read ELMNP's 2309.16722v1 erratum, discovered on the author's
+homepage, and its corrected antecedent before deciding whether it
+affects the restricted-volume and asymptotic-base-locus explanations.
+Only the erratum metadata and abstract are checked at this point.

@@ -10,6 +10,11 @@ The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
 The current research-integration build has **4,407 pages**.
+The [bibliography typography audit](manuscript/editorial/bibliography_polish_audit_20261006.md)
+corrects the Mustaţă breve and the contiguous Fornæss ligature, including
+its displayed citation label. All five text-changed pages and the complete
+bibliography were reread. A usage ledger records three duplicate-publication
+key pairs for later consolidation with their proof-source bindings intact.
 The [tau and tropical-moment integration audit](manuscript/editorial/tau_invariant_audit_20261006.md)
 records Chapter 8.1.5 and Appendix L.59. Effective resistance connects
 the existing Green energy to the tau invariant, the full Voronoi moment
