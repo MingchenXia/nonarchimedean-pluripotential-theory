@@ -1,0 +1,1207 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  11pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Entropy slopes in Kähler classes: calibrated examples and an audit of recovery},
+  pdfauthor={Research draft prepared in the supplied workspace},
+  colorlinks=true,
+  linkcolor={Maroon},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Entropy slopes in Kähler classes: calibrated examples and an
+audit of recovery}
+\author{Research draft prepared in the supplied workspace}
+\date{6 October 2026}
+
+\begin{document}
+\maketitle
+
+\textbf{Status: PARTIAL.} This is a standalone mathematical paper about
+the unchanged P19.1 question. It does not certify entropy recovery for
+every maximal finite-energy ray in an arbitrary transcendental Kähler
+class. In particular it does not inherit a proof from Own178, the
+earlier scoped counterexample verdict, or an abstract of a primary
+source. The results below are explicit analytic examples, a
+normalization calculation, a local counterexample to a step in an
+imported proof, a log-canonical divisor inequality, and precisely
+conditional recovery and ray-transfer statements. None is counted as a
+complete solution of P19.1. P19.2, P19.3 and P19.4 are unclaimed.
+
+\section{1. Conventions, hypotheses and background
+inputs}\label{conventions-hypotheses-and-background-inputs}
+
+Let \(X\) be a connected compact smooth Kähler manifold of dimension
+\(n\geq1\), let \(\omega\) be a Kähler form, and put
+\(\alpha=[\omega]\), \(V=\int_X\omega^n\), and \(\mu_0=\omega^n/V\).
+Throughout the main paper, \[
+ dd^c_C=\frac{i}{2\pi}\partial\bar\partial,\qquad
+ t=-\log|\zeta|^2,\qquad
+ dd^c_C\log|f|^2=[\operatorname{div}(f)].                 \tag{1.1}
+\] We use bounded Bedford--Taylor products and their finite-energy
+extensions. Set \[
+ E(u)=\frac1{(n+1)V}\sum_{j=0}^n\int_Xu\,\omega_u^j\wedge\omega^{n-j},
+ \qquad \operatorname{MA}(u)=V^{-1}\omega_u^n,
+ \qquad \omega_u=\omega+dd^c_Cu.                         \tag{1.2}
+\] The reference energy is \(E(0)=0\). Probability entropy is \[
+ H(u)=\operatorname{Ent}(\operatorname{MA}(u)\mid\mu_0)
+ =\int\rho\log\rho\,d\mu_0                              \tag{1.3}
+\] when \(\operatorname{MA}(u)=\rho\mu_0\), and is \(+\infty\)
+otherwise. It is nonnegative. Changing the smooth positive reference
+probability adds a uniformly bounded term, so it does not change an
+entropy slope.
+
+An actual weak geodesic ray is a family of finite-energy potentials,
+strongly continuous also at time zero, whose restriction to every finite
+time interval is the canonical pluripotential weak geodesic. Bounded
+means bounded at each finite time. It does not mean uniformly bounded
+for all time. The explicit rays constructed below are bounded at every
+finite time and have a smooth zero starting point, except the stationary
+example in Section 4.
+
+For a smooth dominating \(\mathbf C^*\)-equivariant configuration
+\(\rho:\mathcal X\to X\times\mathbf P^1\), write
+\(B=\mathcal X_0=\sum b_iE_i\) and \(A=\rho_X^*\alpha\). All NA model
+divisors and model modifications in this paper are equivariant. A
+vertical invariant real Cartier divisor \(D\) gives the model function
+\[
+ f_D(v_{E_i})=\frac{\operatorname{ord}_{E_i}D}{b_i}.
+                                                               \tag{1.4}
+\] The Gauss valuation has time value one. A compatible total potential
+satisfies \(U\circ\rho+\log|f_D|^2=O(1)\), interpreted locally and
+linearly for real divisors. Thus its divisor coefficient in (1.1) is
+\(-D\). More generally the ordinary datum on a divisorial valuation is
+minus the generic coefficient of \(U\) on its vertical Gauss divisor
+divided by \(b_i\), after an affine time shift if needed to make \(U\)
+locally bounded above. This prescription retains supports of
+semivaluations and is not a new roof metric or an assigned tropical
+datum. Formula (1.5) below concerns Gauss divisors on equivariant
+models; it is not a discrepancy identity for the restriction of every
+nonequivariant total-space divisorial valuation.
+
+Log discrepancy is over \(X\). For a divisor \(F\) on a smooth
+modification of \(X\),
+\(A_X(c\operatorname{ord}_F)=c(1+\operatorname{ord}_FK_{Z/X})\), and
+\(A_X(v_{\rm triv})=0\). For a vertical component on \(\mathcal X\), put
+\(a_i=\operatorname{ord}_{E_i}K_{\mathcal X/(X\times\mathbf P^1)}\). Its
+Gauss restriction has \[
+ b_iA_X(v_{E_i})=a_i+1-b_i.
+                                                               \tag{1.5}
+\] The normalized model measure, for a relatively nef class
+\(\Gamma=A+D\), is \[
+ \operatorname{MA}^{\rm NA}(f_D)
+ =V^{-1}\sum_i b_i(\Gamma^n\cdot E_i)\delta_{v_{E_i}},
+ \qquad H^{\rm NA}(\phi)=\int A_X\,d\operatorname{MA}^{\rm NA}(\phi).
+                                                               \tag{1.6}
+\] For the explicit surface and product models below these are defining
+model calculations, not uses of an entropy-slope theorem. For an
+arbitrary PL obstacle, the positive-product envelope formulas are stated
+separately as an external input in Section 7.
+
+We use the following ordinary analytic background precisely in the
+following forms. These are external foundations, not numerical findings.
+
+\begin{itemize}
+\tightlist
+\item
+  Locally bounded psh functions have Bedford--Taylor products; on a
+  complex manifold their homogeneous Monge--Ampère equation gives the
+  weak Dirichlet geodesic with prescribed bounded boundary values by the
+  comparison principle. This is the Bedford--Taylor Dirichlet/comparison
+  theory {[}BT{]}, applied only on a finite annulus with bounded
+  potentials. For a \(C^{1,1}\) local potential, convolution produces
+  smooth psh potentials converging locally uniformly, with uniformly
+  bounded Hessians. At Lebesgue points those Hessians converge almost
+  everywhere. Dominated convergence identifies their determinant
+  measures, while local uniform continuity of Bedford--Taylor products
+  identifies the same limit with the product of the original potential.
+  This proves the determinant identification used below.
+\item
+  Bounded potentials lie in \(E^1\). Aubin--Mabuchi energy is affine on
+  actual finite-energy geodesics. Its supporting inequalities are \[
+  \int(u-v)\operatorname{MA}(u)\leq E(u)-E(v)
+     \leq\int(u-v)\operatorname{MA}(v).                 \tag{1.7}
+  \] The normalized \(d_1\) metric satisfies \(d_1(u,v)=E(v)-E(u)\) for
+  \(u\leq v\), and in general \(d_1(u,v)=E(u)+E(v)-2E(P(u,v))\). These
+  are the finite-energy metric and energy facts in Darvas {[}D{]} and
+  Berman--Darvas--Lu {[}BDL{]}, Sections 2 and 4.2. Their use below is
+  on \(E^1\) on a fixed compact Kähler manifold, with no rationality
+  assumption.
+\item
+  The extended cohomological Mabuchi functional in (2.4) is \(d_1\)
+  lower semicontinuous and convex on finite-energy geodesics. Smooth
+  potentials approximate any \(E^1\) potential with simultaneous \(d_1\)
+  and entropy convergence. The exact imports are {[}BDL,
+  arXiv:1510.01260v2, Theorems 3.2 and 4.7{]}, with \(p=1\), twisting
+  \(f=0\), and the change of potential scale detailed in Section 2.
+  Their proofs use density truncation and complex Monge--Ampère
+  solutions, then finite-time geodesic approximation. Entropy continuity
+  on arbitrary strongly convergent sequences is not asserted.
+\item
+  A psh function on the complement of a closed pluripolar set, locally
+  bounded above near that set, has a unique psh extension {[}Dem,
+  Chapter I, Theorem 5.24{]}. A divisor is locally pluripolar by
+  \(\log|f|\). For a closed positive \((1,1)\) current \(T\) and a prime
+  divisor \(F\) on a smooth manifold, subtracting its generic
+  coefficient gives \(T-\lambda[F]\geq0\) {[}Dem, Chapter III, Section
+  8, Proposition 8.16 preceding the decomposition formula{]}. Locally
+  the remainder has a psh potential, so divisorial subtraction gives
+  \(q\leq\lambda\log|w|^2+O(1)\), with a smooth local background
+  potential absorbed in the bound. Section 5 applies exactly these
+  statements to the total potential after a smooth local background is
+  added.
+\end{itemize}
+
+\section{2. Calibration of time, energy, Ricci curvature and
+entropy}\label{calibration-of-time-energy-ricci-curvature-and-entropy}
+
+\textbf{Proposition 2.1 (the vertical constant test).} On the product
+model with \(D=cX_0\), the compatible ray in (1.1) is \(u_t=ct\). It has
+datum \(c\), energy slope \(c\), and model energy \(c\). Keeping
+\(dd^c_C\) but changing time to \(s=-\log|\zeta|\) gives the ray
+\(u_s=2cs\) and energy slope \(2c\).
+
+\textbf{Proof.} Compatibility means \(U=-c\log|\zeta|^2+O(1)\). For the
+canonical constant ray the bounded remainder is zero. Adding a constant
+to a potential adds that constant to (1.2), because each of the \(n+1\)
+mixed products has mass \(V\). On \(X\times\mathbf P^1\), \(X_0^2=0\),
+\(A^{n+1}=0\), and \(A^n\cdot X_0=V\). Therefore \[
+ \frac{(A+cX_0)^{n+1}}{(n+1)V}=c.                         \tag{2.1}
+\] The unique central component has weight one and discrepancy zero.
+Formula (1.4) gives datum \(c\), and the two time claims follow. This
+proves a genuine factor-of-two failure of the printed combination of
+conventions in Own178. Zero entropy alone could not detect it.
+\(\square\)
+
+The Green--Riesz factor can be checked without test configurations. For
+an \(S^1\)-invariant scalar function \(F\) on
+\(\mathbf P^1\setminus\{0\}\) smooth away from zero, with no singularity
+at infinity, Stokes gives, whenever the expressions are defined, \[
+ \int_{\mathbf P^1\setminus\Delta_r}dd^c_CF
+ =\tfrac12\frac{dF}{ds},\qquad s=-\log r.
+                                                               \tag{2.2}
+\] Indeed \(dd^c_CF=(4\pi)^{-1}\Delta F\,dA\), and the boundary flux is
+\(-rF_r/2=F_s/2\). In time \(t=2s\) the right-hand side is \(dF/dt\).
+Thus the energy push-forward argument in {[}SD, Theorem 4.9{]} requires
+a factor two with that source's printed \(dd^c_C\) and
+\(s=-\log|\zeta|\). Simply copying its displayed derivative equation
+does not pass (2.1).
+
+Define \[
+ \operatorname{Ric}_C(\omega)=-dd^c_C\log\omega^n,\qquad
+ \overline S_C=\frac nV\int_X\operatorname{Ric}_C(\omega)\wedge\omega^{n-1},
+\] so \([\operatorname{Ric}_C]=c_1(X)\). With \[
+ T_\chi(u)=V^{-1}\sum_{j=0}^{n-1}\int_Xu\,\chi\wedge\omega_u^j\wedge\omega^{n-1-j},
+                                                               \tag{2.3}
+\] the cohomological Mabuchi functional is \[
+ M_C(u)=H(u)+T_{-\operatorname{Ric}_C(\omega)}(u)+\overline S_C E(u),
+ \qquad M_C(0)=0.                                             \tag{2.4}
+\] For a smooth variation \(\dot u\), differentiating the entropy and
+integrating by parts gives \[
+ \dot H=\frac nV\int_X\dot u\,
+     (\operatorname{Ric}_C(\omega)-\operatorname{Ric}_C(\omega_u))
+        \wedge\omega_u^{n-1}.
+\] The derivative of \(T_\chi\) is
+\(nV^{-1}\int\dot u\,\chi\wedge\omega_u^{n-1}\). Consequently
+\(\dot M_C=\int\dot u(\overline S_C-S_C(\omega_u))\operatorname{MA}(u)\),
+verifying the entropy coefficient in (2.4).
+
+For comparison set \(dd^c_L=i\partial\bar\partial/\pi\) and keep the
+same background form \(\omega\). The precise dictionary preserving the
+same currents, class, total potential divisor weights and model datum is
+\[
+ v_s=\tfrac12u_{2s},\qquad s=-\log|\zeta|,
+ \quad E_L(v_s)=\tfrac12E_C(u_{2s}),
+ \quad H_L(v_s)=H_C(u_{2s}).                                \tag{2.5}
+\] The cohomological Ricci form in this convention is
+\(\operatorname{Ric}_{\rm coh}=-(1/2)dd^c_L\log\omega^n=\operatorname{Ric}_C\).
+The correct cohomological Mabuchi expression is \[
+ M_L=\tfrac12 H_L+T_{-\operatorname{Ric}_{\rm coh},L}
+                      +\overline S_C E_L.
+                                                               \tag{2.6}
+\] Indeed \(M_L(v)=M_C(2v)/2\), so the two cohomological Mabuchi slopes
+agree under (2.5), whereas the ordinary probability entropy slope in
+\(s\) is twice its slope in \(t\). BHJ {[}BHJ, Section 1 and Lemma
+3.11{]} use logarithmic metric weights, half probability entropy, and
+volume \(e^{2\Psi}\); this agrees with (2.5)--(2.6). {[}MP, Definition
+5.1.2{]} uses \(\log|f|\) and time \(-\log|\zeta|\). Its mixed and
+entropy formulas must be transported, not copied as squared-log
+formulas. We do not certify every printed scalar formula in either
+source.
+
+Finally {[}BDL{]} uses \(i\partial\bar\partial\). Its potential
+\(q=u/(2\pi)\) has the same current as our \(u\). Its Ricci form is
+\(2\pi\operatorname{Ric}_C\), its energy is \(E_C/(2\pi)\), and its
+contracted-energy products give exactly (2.4). Its metric \(d_1\) is our
+\(d_1/(2\pi)\). Thus its lower semicontinuity, convexity and entropy
+approximation apply to (2.4) without a change of the probability
+entropy.
+
+\section{3. An explicit nonzero divisor entropy
+calibration}\label{an-explicit-nonzero-divisor-entropy-calibration}
+
+Take \(X=\mathbf P^1\) and \(\omega=dd^c_C\log(1+|z|^2)\), of mass one.
+Put \[
+ x=\log|z|^2,\quad h(x)=\log(1+e^x),\quad
+ y=h'(x)=\frac{e^x}{1+e^x},\quad
+ g(y)=y\log y+(1-y)\log(1-y).
+\] Then \(\omega=dy\,d\theta/(2\pi)\). Fix \(0<\varepsilon<1\), write
+\(x_\varepsilon=\log(\varepsilon/(1-\varepsilon))\), and define \[
+ h_t(x)=\sup_{0\leq y\leq1}\{xy-g(y)-t(\varepsilon-y)_+\},
+ \qquad u_t=h_t-h.                                        \tag{3.1}
+\]
+
+\textbf{Theorem 3.1.} The functions (3.1) form an actual bounded weak
+geodesic ray from zero. In convention (1.1), \[
+ -\varepsilon t\leq u_t\leq0,\qquad E(u_t)=-\varepsilon^2t/2,\qquad
+ \lim_{t\to\infty}\frac{H(u_t)}t=\varepsilon.                        \tag{3.2}
+\] Its ordinary datum is the relatively Kähler
+deformation-to-the-normal-cone model \(D=-\varepsilon E\), where \(E\)
+is the exceptional divisor of the blow-up of \((z,\zeta)=(0,0)\). Its
+normalized NA measure is
+\((1-\varepsilon)\delta_{v_{\rm triv}}+\varepsilon\delta_{\operatorname{ord}_0}\),
+and its NA entropy is \(\varepsilon\). Thus the equality is calibrated
+on a genuine positive-discrepancy divisor, not just on entropy zero.
+This is a model special case, not a resolution of the residual
+maximal-ray atom.
+
+\textbf{Proof.} The explicit formula is \[
+ h_t(x)=
+ \begin{cases}
+ h(x+t)-\varepsilon t,&x<x_\varepsilon-t,\\
+ \varepsilon x-g(\varepsilon),&x_\varepsilon-t\leq x\leq x_\varepsilon,\\
+ h(x),&x>x_\varepsilon.
+ \end{cases}                                                \tag{3.3}
+\] The values and first derivatives in \((x,t)\) agree on the
+interfaces. It is convex jointly in \((x,t)\) because (3.1) is a
+supremum of affine functions. Its real Hessian has rank at most one on
+each region. On each compact finite-time cylinder it is \(C^{1,1}\),
+including the interfaces. Near \(z=0\),
+\(u_t=\log(1+e^t|z|^2)-\varepsilon t-\log(1+|z|^2)\), which extends
+smoothly for finite time. Near infinity \(u_t=0\). The total toric
+potential is therefore locally bounded psh on
+\(\mathbf P^1\times\Delta^*\) and solves the homogeneous complex
+Monge--Ampère equation: on \(\mathbf C^*\times\Delta^*\) the determinant
+is zero almost everywhere; the \(C^{1,1}\) Bedford--Taylor
+identification gives the equation; near \(z=0\) it follows from the
+displayed smooth expression. On a finite annulus comparison and
+uniqueness identify it with the weak geodesic with its boundary values.
+Uniform continuity on finite-time compact sets gives strong continuity
+at zero. The bounds follow immediately from
+\(0\leq(\varepsilon-y)_+\leq \varepsilon\) in (3.1).
+
+For energy, \(\partial_t h_t=-(\varepsilon-y_t)_+\) almost everywhere,
+where \(y_t=\partial_xh_t\). The energy derivative is the MA integral of
+\(\dot u_t\). On the left region \(y_t=h'(x+t)\) runs from zero to
+\(\varepsilon\); the middle region has MA measure zero; the right region
+contributes zero to this derivative. Hence \[
+ \frac{d}{dt}E(u_t)=-\int_0^\varepsilon(\varepsilon-y)\,dy=-\varepsilon^2/2.
+\] The energy derivative is legitimate for this locally Lipschitz path
+of bounded potentials by bounded product approximation (or by directly
+differentiating the curve energy
+\(E(u)=\frac12\int u(\omega+\omega_u)\)). Since \(E(u_0)=0\), the energy
+claim follows.
+
+Let \(k(x)=h''(x)=e^x/(1+e^x)^2\). The MA density relative to \(\omega\)
+is \(k(x+t)/k(x)\) on \(x<x_\varepsilon-t\), zero on the middle annulus,
+and one on \(x>x_\varepsilon\). There is no interface atom, since
+\(\partial_xh_t\) is continuous. Therefore, with \(q=x+t\), \[
+ \begin{split}
+ H(u_t)&=\int_{-\infty}^{x_\varepsilon}
+      \log\frac{k(q)}{k(q-t)}\,k(q)\,dq\\
+ &=\varepsilon t+2\int_{-\infty}^{x_\varepsilon}
+       \{\log(1+e^{q-t})-\log(1+e^q)\}\,k(q)\,dq.
+ \end{split}                                                \tag{3.4}
+\] The second term is between \(-2\varepsilon\log(1+e^{x_\varepsilon})\)
+and zero. In particular every finite-time entropy is finite and the
+slope is \(\varepsilon\).
+
+It remains to identify the actual total-space datum. Formula (3.3) shows
+in the three regions, near \((0,0)\), that the total potential differs
+by a bounded function from \(\varepsilon\log(|z|^2+|\zeta|^2)\). On the
+region \(|z|^2\leq e^{x_\varepsilon}|\zeta|^2\) use the first formula;
+on the middle region use \(h_t=\varepsilon x-g(\varepsilon)\) and
+\(|z|^2\geq e^{x_\varepsilon}|\zeta|^2\); the final region is bounded
+away from \(z=0\). Thus the ideal \((z,\zeta)\) gives coefficient
+\(\varepsilon E\) after the blow-up, and
+\(U+\log|f_{-\varepsilon E}|^2\) is bounded there. This identifies the
+datum on every higher divisor too, by pullback of the bounded remainder.
+
+On the blown-up surface let \(B\) denote the pullback of a fiber and
+\(A\) the pullback of \([\omega]\). Then \[
+ A^2=B^2=A\cdot E=B\cdot E=0,\quad A\cdot B=1,\quad E^2=-1.
+\] The central fiber is \(B'+E\), with \(B'=B-E\) and both
+multiplicities one. For \(\Gamma=A-\varepsilon E\), \[
+ \Gamma\cdot B'=1-\varepsilon,\qquad\Gamma\cdot E=\varepsilon,
+ \qquad\Gamma^2/2=-\varepsilon^2/2.                                 \tag{3.5}
+\] The exceptional discrepancy over the smooth surface is \(a_E=1\), so
+(1.5) gives \(A_X(v_E)=1\); the strict component has discrepancy zero
+and trivial restriction. This proves the NA measure and entropy
+assertions from (1.6). The configuration is relatively Kähler:
+\(A+cB-\varepsilon E\) is Kähler for \(c>\varepsilon\) and
+\(\varepsilon<1\). Here is a direct verification of that last fact. For
+rational \(c,\varepsilon\), clear denominators to obtain integers
+\(a,b,d>0\) with \(a,b>d\). The monomials of \(\mathcal O(a,b)\) whose
+exponents satisfy \(i+j\geq d\) give sections of
+\(\mathcal O(aA+bB-dE)\) on the blow-up. They have no common zero. On
+the chart \(y=xr\) over the blown-up corner, division by the vertex
+section \(x^d\) gives the two ratios \(x\) and \(r\) from \(x^{d+1}\)
+and \(x^{d-1}y\). They recover the local coordinates. The other
+exceptional chart gives \(y\) and \(x/y\) in the same way. At each of
+the other three corners the vertex section and its two adjacent
+monomials recover the ordinary affine coordinates. These five charts are
+the nonvanishing loci of the five vertex sections and cover the blow-up.
+On each locus the section map is an embedding because the two coordinate
+ratios recover its point and tangent directions; points on different
+loci are separated by the nonvanishing pattern and those coordinates.
+Properness then gives a projective embedding. Pulling back a
+Fubini--Study form and dividing by \(a\) proves the rational class is
+Kähler. Any real \((c,\varepsilon)\) with the same strict inequalities
+is a convex combination of finitely many rational pairs in that open
+region. The corresponding positive combination of the constructed forms
+proves the real case. Adding \(cB\) translates the ray by \(ct\), and
+changes neither entropy nor the model masses. \(\square\)
+
+\textbf{Product extension.} For any compact Kähler \((Y,\eta)\) of
+dimension \(m\geq0\), the ray \(p_1^*u_t\) on \(\mathbf P^1\times Y\)
+with form \(\Theta=p_1^*\omega+p_2^*\eta\) has exactly the energy and
+entropy in (3.2). It is an actual product weak ray. To see the last
+assertion, restrict a Perron competitor to each
+\(\mathbf P^1\times\{y\}\) and its time annulus; the restriction is a
+curve competitor or is identically \(-\infty\). The curve comparison
+bounds it above by \(u_t\); the pullback supplies the reverse
+inequality. The products are \[
+ \Theta_{p_1^*u}^{m+1}=(m+1)\omega_u\wedge\eta^m,
+ \qquad V_\Theta=(m+1)\int_Y\eta^m,
+\] and hence the MA probabilities are a tensor product with the same
+\(Y\) probability for the reference and the ray. The energy equality
+follows from its derivative along \(s\mapsto p_1^*(su)\) and the value
+at \(s=0\). The total model is the product of the surface blow-up with
+\(Y\), so the same normalized weights and discrepancy values follow by
+the identical intersection cancellation. This applies in transcendental
+product classes and on nonprojective products whenever \(Y\) has those
+properties. It is still a specific model ray.
+
+\section{4. A bounded infinite-entropy starting
+potential}\label{a-bounded-infinite-entropy-starting-potential}
+
+The starting hypothesis cannot be silently removed even for bounded
+starting potentials.
+
+\textbf{Theorem 4.1.} There is a bounded \(\omega\)-psh function \(w\)
+on \(\mathbf P^1\), with \(\omega\) as in Section 3, for which
+\(H(w)=+\infty\). Its stationary actual weak ray \(w_t=w\) has ordinary
+NA datum zero, \(H^{\rm NA}(0)=0\), energy slope zero, and
+\(H(w_t)/t=+\infty\) for every \(t>0\). The construction also works on
+\(\mathbf P^1\times Y\) in every product class of Section 3.
+
+\textbf{Proof.} Use the coordinate \(y=|z|^2/(1+|z|^2)\) and the uniform
+angular probability. Write \(Z=\sum_{j\geq1}j^{-2}\),
+\(m_j=(2Zj^2)^{-1}\), and \(\ell_j=2^{-j-4}e^{-j^3}\). Choose disjoint
+intervals \[
+ I_j=\left[\tfrac13+2\sum_{i<j}\ell_i,
+               \tfrac13+2\sum_{i<j}\ell_i+\ell_j\right].
+\] All are inside \([1/3,1/2)\), since \(2\sum\ell_j<1/8<1/6\). Define
+\[
+ \rho(y)=\tfrac12+\sum_{j\geq1}\frac{m_j}{\ell_j}\mathbf1_{I_j}(y),
+ \qquad \sigma=\rho\,\omega.
+                                                               \tag{4.1}
+\] Its mass is \(1/2+\sum m_j=1\). On each interval \(m_j/\ell_j>1\);
+since \(r\log r\) is increasing for \(r\geq1\), its contribution to
+entropy is at least \(m_j\log(m_j/\ell_j)\). The sum diverges because
+its summands grow like a positive constant times \(j\). The negative
+contribution on the complement is finite. Thus
+\(\operatorname{Ent}(\sigma\mid\omega)=+\infty\).
+
+Let \[
+ G(z,a)=\log\frac{|z-a|^2}{(1+|z|^2)(1+|a|^2)},
+ \qquad w(z)=\int G(z,a)\,d\sigma(a).                       \tag{4.2}
+\] Then \(dd^c_CG(\cdot,a)=\delta_a-\omega\). The background half of
+\(\sigma\) has constant finite Green potential, by the invariance of
+\(\omega\) and the chordal kernel. Each spike is angularly uniform at
+radii in a fixed compact interval \([r_-,r_+]\subset(0,\infty)\). The
+elementary circle mean formula is \[
+ \frac1{2\pi}\int_0^{2\pi}G(z,re^{i\theta})\,d\theta
+ =\log\max\{|z|^2,r^2\}-\log(1+|z|^2)-\log(1+r^2).
+\] The right-hand side is uniformly bounded for all \(z\in\mathbf P^1\)
+and \(r\in[r_-,r_+]\). For example \(\max(R^2,r^2)/(1+R^2)\) is between
+\(\min(1,r_-^2)/2\) and \(\max(1,r_+^2)\). It follows that (4.2) is
+bounded. Fubini with the locally integrable logarithmic kernel gives
+\(\omega+dd^c_Cw=\sigma\) distributionally and the bounded psh
+representative, so \(w\in E^1\) and \(H(w)=+\infty\).
+
+The total function of the stationary ray is independent of \(\zeta\), is
+bounded, and has homogeneous Monge--Ampère measure zero in dimension
+two. Comparison on each finite annulus gives the actual weak geodesic.
+It remains bounded on every modification, so every total-space generic
+coefficient is zero. Thus the datum is zero. The trivial model measure
+is \(\delta_{v_{\rm triv}}\) and its entropy is zero. The remaining
+statements, including the product extension, follow from Section 3's
+product calculation. \(\square\)
+
+This rules out a formula for all \(E^1\) starting potentials with no
+entropy hypothesis. It does not refute a theorem for finite-entropy
+\(E^1\) starts. Section 8 gives a sufficient transfer mechanism covering
+such starts, with its unproved global inputs expressly retained.
+
+\section{5. Exponential floors on an arbitrary compact Kähler
+manifold}\label{exponential-floors-on-an-arbitrary-compact-kuxe4hler-manifold}
+
+\textbf{Theorem 5.1.} Let \(u_t\) be an actual bounded weak ray from
+zero on \((X,\omega)\), with \(u_t\leq0\). Suppose a fixed
+\(\omega\)-psh function \(\psi\) satisfies \[
+ u_t\geq\psi\quad(t\geq0),\qquad
+ C_b:=\int_Xe^{-b\psi}\,d\mu_0<\infty\quad\text{for every }b>0.
+                                                               \tag{5.1}
+\] Write \(E(u_t)=-ct\). Then \(c\geq0\). If \(c=0\), the ray is zero.
+If \(c>0\), \(H(u_t)/t\to+\infty\) and its actual ordinary datum is
+zero.
+
+\textbf{Proof.} By (1.7) with \(v=0\),
+\(\int(-u_t)\operatorname{MA}(u_t)\geq ct\). For any probability \(\nu\)
+and reference probability \(\mu\), and every bounded measurable \(f\),
+\[
+ \operatorname{Ent}(\nu\mid\mu)\geq\int f\,d\nu-\log\int e^f\,d\mu.
+                                                               \tag{5.2}
+\] If entropy is finite, Jensen with the probability \(\nu\) gives this
+inequality by applying concavity of log to \(e^f/(d\nu/d\mu)\) on its
+positive density set. If entropy is infinite it is automatic; singular
+measures also have infinite entropy by definition. Applying (5.2) to the
+bounded function \(f=-bu_t\) gives \[
+ H(u_t)\geq bct-\log C_b.                                  \tag{5.3}
+\] First take \(t\to\infty\) at each fixed \(b\), and then take
+\(b\to\infty\). This proves the infinite limit for \(c>0\) without
+uniformity in \(b\) and without claiming finite entropy at every time.
+
+The total function \(U(x,\zeta)=u_{-\log|\zeta|^2}(x)\) is locally
+bounded above and psh after adding a smooth local potential. It extends
+across the central divisor by removability. The lower bound by \(\psi\)
+holds off that divisor, which suffices for Fubini: \[
+ \int_{X\times\Delta}e^{-bU}\,d\mu_0\,dA(\zeta)<\infty
+                 \quad\text{for every }b>0.                 \tag{5.4}
+\] On a smooth modification, let a prime divisor be \(\{w_1=0\}\) at a
+generic point, and let the Jacobian order be \(k\). A positive
+coefficient \(\lambda\) would give \(U\circ\pi\leq\lambda\log|w_1|^2+C\)
+by divisorial current subtraction. Change of variables in (5.4) would
+then require integrability of \(|w_1|^{-2b\lambda+2k}\), which fails for
+\(b\lambda\geq k+1\). Since every \(b>0\) is allowed, all generic
+divisorial coefficients are zero, including those over the time divisor.
+The ordinary datum consequently vanishes on every divisorial valuation;
+divisorial determination in the NA psh space identifies it with zero (or
+this last statement may be read directly as vanishing of its ordinary
+divisorial datum).
+
+If \(c=0\), every term in the sum (1.2) is nonpositive. Its sum zero
+forces the \(j=0\) term \(\int_Xu_t\omega^n\) to vanish. Thus \(u_t=0\)
+almost everywhere. Equality of psh representatives from
+almost-everywhere equality implies \(u_t=0\) everywhere. \(\square\)
+
+The theorem is a sufficient analytic criterion. It does not assert that
+all nonmaximal rays have floors of this kind, or independently
+reconstruct the general maximalization theorem. The previously supplied
+polar counterexample is consistent with it but is not needed in its
+proof.
+
+\section{6. The SNC log-canonical defect, including nonreduced
+fibers}\label{the-snc-log-canonical-defect-including-nonreduced-fibers}
+
+\textbf{Proposition 6.1.} Let \(p:\mathcal Y\to\mathcal X\) be a
+modification between smooth manifolds, an isomorphism off a divisor
+\(B\) on \(\mathcal X\), with \(B_{\rm red}\) SNC. Put
+\(B_{\mathcal Y}=p^*B\) and suppose its reduced support is SNC. Define
+\[
+ C_{\mathcal X}=K_{\mathcal X/(X\times\mathbf P^1)}+B_{\rm red}-B,
+\] and \(C_{\mathcal Y}\) similarly. Then \[
+ C_{\mathcal Y}=p^*C_{\mathcal X}+\Delta,
+ \quad\Delta=K_{\mathcal Y/\mathcal X}
+       +(B_{\mathcal Y})_{\rm red}-p^*B_{\rm red},
+ \quad 0\leq\Delta\leq K_{\mathcal Y/\mathcal X}.           \tag{6.1}
+\]
+
+\textbf{Proof.} The identity follows from \(B_{\mathcal Y}=p^*B\) and
+transitivity of canonical divisors. Strict transforms have coefficient
+zero in \(\Delta\). At an exceptional prime \(F\), its center lies in
+\(B\); set \(a=\operatorname{ord}_FK_{\mathcal Y/\mathcal X}\) and
+\(m=\operatorname{ord}_Fp^*B_{\rm red}\geq1\). The coefficient is
+\(a+1-m\). We give the local proof of its nonnegativity. Near a smooth
+point of the center write \(B_{\rm red}=\{z_1\cdots z_r=0\}\) and
+consider
+\(dz_1/z_1\wedge\cdots\wedge dz_r/z_r\wedge dz_{r+1}\wedge\cdots\wedge dz_N\).
+At the generic point of \(F\), the pullback of each logarithmic
+differential has at most a \(dw_1/w_1\) pole plus a holomorphic term. In
+their exterior product at most one such pole can occur, since
+\(dw_1\wedge dw_1=0\). Its order is consequently at least \(-1\). But
+that order is \(a-m\), so \(a+1-m\geq0\). The bound above by \(a\)
+follows from \(m\geq1\). There are no horizontal exceptional divisors
+under the hypothesis. This proves (6.1). \(\square\)
+
+If \(\beta_k\) are Kähler classes on such \(\mathcal Y_k\) and
+\(\beta_k^n\cdot K_{\mathcal Y_k/\mathcal X}\to0\), positivity gives \[
+ 0\leq\beta_k^n\cdot\Delta_k
+     \leq\beta_k^n\cdot K_{\mathcal Y_k/\mathcal X}\to0.     \tag{6.2}
+\] This implication is valid. It does not follow from convergence of
+\(\beta_k^{n+1}\) alone. The multiplicities of \(B\) have not been
+replaced by one in either \(C\); omitting \(B_{\rm red}-B\) destroys
+(1.5).
+
+\section{7. Exactly what model recovery would
+prove}\label{exactly-what-model-recovery-would-prove}
+
+We state a conditional result in the genuine compact-Kähler NA theory.
+Its extra hypothesis is an explicit input, not a solution of the
+original atom.
+
+The external positive-product formulas used in this section are {[}MPWN,
+arXiv:2509.09442v1, Propositions 9.1.3 and 9.1.5{]}: on a smooth
+dominating SNC model and for a real vertical \(D\) with \(f_D\geq1\),
+writing \(\Gamma=A+D\), \(\phi=P_\alpha(f_D)\), they assert \[
+ E^{\rm NA}(\phi)=\frac{\operatorname{Vol}(\Gamma)}{(n+1)V},\qquad
+ H^{\rm NA}(\phi)=V^{-1}\langle\Gamma^n\rangle\cdot C_{\mathcal X}.
+                                                               \tag{7.1}
+\] Here the underlying mass formula, their Proposition 4.2.2, is
+\(\operatorname{MA}^{\rm NA}(\phi)=V^{-1}\sum b_i\langle\Gamma^n\rangle\cdot E_i\,\delta_{v_{E_i}}\).
+The coefficient calculation (1.5) proves the entropy formula from that
+mass formula. Their energy formula follows from their mixed
+positive-product formula. The source constructs relatively Kähler
+approximants increasing uniformly to the continuous envelope, and
+identifies their intersections with positive products. Thus (7.1) is
+used for PL obstacles in its precise fixed-smooth-\(X\) scope; it is not
+entropy convergence for arbitrary rays. Central translations allow
+\(f_D\geq1\) and are undone at the end.
+
+\textbf{Theorem 7.1 (model recovery from specified special data).} Fix
+such \(\mathcal X,D,\Gamma,\phi\). Suppose actual smooth vertical SNC
+modifications and effective vertical defects have been supplied: \[
+ p_k:\mathcal Y_k\to\mathcal X,\quad E_k\geq0,\quad
+ \beta_k=p_k^*\Gamma-E_k\text{ Kähler}.
+\] Assume the modifications and defects are \(\mathbf C^*\)-equivariant,
+and assume the three exact convergence statements \[
+ \begin{split}
+ \beta_k^{n+1}&\longrightarrow\operatorname{Vol}(\Gamma),\\
+ \beta_k^n\cdot K_{\mathcal Y_k/\mathcal X}&\longrightarrow0,\\
+ \beta_k^n\cdot p_k^*\xi&\longrightarrow\langle\Gamma^n\rangle\cdot\xi
+       \quad\text{for every fixed smooth real closed $(1,1)$ class }\xi.
+ \end{split}                                                  \tag{7.2}
+\] Then the actual relatively Kähler model metrics
+\(\phi_k=f_{p_k^*D-E_k}\) satisfy \(\phi_k\leq\phi\),
+\(E^{\rm NA}(\phi_k)\to E^{\rm NA}(\phi)\), and
+\(H^{\rm NA}(\phi_k)\to H^{\rm NA}(\phi)\). They converge strongly,
+using the strong quasi-metric and fixed-output integration facts stated
+below.
+
+\textbf{Proof.} Effectivity gives \(\phi_k\leq f_D\) and \(\phi_k\) is
+psh, so it lies below \(P_\alpha(f_D)\). Model energy and (7.1) give
+energy convergence from the first line of (7.2). Model entropy,
+Proposition 6.1 and the other two lines give \[
+ H^{\rm NA}(\phi_k)=V^{-1}\beta_k^n\cdot(p_k^*C_{\mathcal X}+\Delta_k)
+     \longrightarrow V^{-1}\langle\Gamma^n\rangle\cdot C_{\mathcal X}
+     =H^{\rm NA}(\phi).                                     \tag{7.3}
+\] Every fixed real class has a smooth representative, and can be
+written as a difference of positive classes by adding a sufficiently
+large Kähler class. Thus the third line applies to \(C_{\mathcal X}\)
+even when its representative is not positive.
+
+For strong convergence, the source strong theory uses the
+translation-invariant gap \[
+ J(a,b)=E^{\rm NA}(a)-E^{\rm NA}(b)+\int(b-a)\operatorname{MA}^{\rm NA}(a).
+\] For \(b=\phi_k\leq a=\phi\), its nonnegativity and the energy
+convergence give
+\(0\leq J(\phi,\phi_k)\leq E^{\rm NA}(\phi)-E^{\rm NA}(\phi_k)\to0\).
+After normalizing suprema to zero, the strong quasi-metric result
+{[}MPWN, Theorem 5.2.2{]} gives strong convergence. Write
+\(c_k=\sup\phi_k\), \(c=\sup\phi\). The normalized energy convergence
+and the unnormalized energy convergence then imply \(c_k\to c\), since
+\(E^{\rm NA}(\phi_k-c_k)=E^{\rm NA}(\phi_k)-c_k\). Restoring constants
+proves unnormalized strong convergence. \(\square\)
+
+The abstract three convergence assumptions in (7.2) are not counted as
+established globally here. Trusiani's September preprint {[}T26, Theorem
+B and Lemmas 3.4--3.5{]} asserts special Kähler Fujita approximations,
+and its Section 5 asserts that for a big test configuration their
+defects and centers can be made vertical and \(\mathbf C^*\)-invariant.
+This is the intended route to (7.2) in dimension \(n+1\). The source's
+proof of its discrepancy input has the flaw in Section 10; in this paper
+that chain is not promoted to an independently verified unconditional
+theorem.
+
+MPWN's constructive proof of Theorem 9.2.1 gives an additional two-stage
+recovery: retract an MA measure to SNC dual complexes with strong and
+discrepancy-integral convergence (Corollary 7.2.3); solve their NA MA
+equations by Theorem B and their continuity Theorem 8.2.1; approximate
+the retraction-invariant continuous obstacle by PL functions on
+subdivisions of the \emph{same} dual complex. The discrepancy is
+continuous and PL on that fixed complex, so weak measure convergence
+there gives entropy convergence. An arbitrary new model with new
+exceptional valuations would not have that justification. Combining this
+procedure with a validated Theorem 7.1 input would give a diagonal
+relatively Kähler model recovery on \(E^{1,\rm NA}\) with finite
+entropy. That final unconditional model recovery is not asserted here.
+
+\section{8. Fixed-output integration and transfer to actual
+rays}\label{fixed-output-integration-and-transfer-to-actual-rays}
+
+This section isolates a logically sufficient mechanism, including
+finite-entropy \(E^1\) starting points. It explicitly avoids treating
+the maximum of two rays as a geodesic.
+
+The NA background facts used here are {[}MPWN, Lemma 5.0.5 and Theorem
+5.2.2{]}: strong convergence means weak convergence on divisorial
+valuations together with energy convergence; \(J(\phi_j)\) is bounded
+for a strongly convergent sequence; and if \(\phi_j\) converges weakly
+with bounded \(J\), then \[
+ \int|\phi_j-\phi|\,\operatorname{MA}^{\rm NA}(\psi)\to0
+       \quad(\psi\in E^{1,\rm NA}).                         \tag{8.1}
+\] Here is the check on the relevant proof. Normalize the suprema,
+approximate \(\psi\) decreasingly by model \(\psi_k\), and write
+\(\mu_k=\operatorname{MA}^{\rm NA}(\psi_k)\). At fixed \(k\), their
+finite model support makes integrals converge by divisorial convergence.
+The NA energy-pairing estimate (MPWN Proposition 5.0.1/Corollary 5.0.2)
+bounds both errors with \(\mu-\mu_k\) uniformly in \(j\), by a constant
+times \(J(\psi_k,\psi)^{2^{-n}}\) and a uniformly bounded energy factor.
+This tends to zero. Thus signed integrals converge. Apply the same
+argument to \(\widetilde\phi_j=\max(\phi_j,\phi)\), which converges
+weakly and has bounded \(J\) by normalized order and energy
+monotonicity. Finally use \[
+ |\phi_j-\phi|=2(\widetilde\phi_j-\phi)-(\phi_j-\phi).
+                                                               \tag{8.2}
+\] This is the required minus sign; the plus sign in the supplied text's
+final identity is a typographical error. The proof establishes (8.1),
+not arbitrary entropy continuity.
+
+\textbf{Proposition 8.1 (common upper actual ray).} Let
+\(\eta_j\to\phi\) strongly in the preceding NA theory. Assume that the
+associated \emph{actual} maximal rays from a fixed \(w\in E^1\) exist,
+preserve order in the NA datum, and obey \[
+ E(r_t^{w,\theta})=E(w)+tE^{\rm NA}(\theta).                \tag{8.3}
+\] Then \(d_1(r_t^{w,\eta_j},r_t^{w,\phi})\to0\), uniformly on bounded
+time intervals. The assertion is conditional on the calibrated
+actual-ray correspondence (8.3), not on an unspecified roof isometry.
+
+\textbf{Proof.} Let \(\lambda_j=\max(\eta_j,\phi)\) and let \(s_j\) be
+its maximal ray from \(w\). The NA supporting inequality and (8.1) give
+\[
+ 0\leq E^{\rm NA}(\lambda_j)-E^{\rm NA}(\phi)
+ \leq\int(\lambda_j-\phi)\operatorname{MA}^{\rm NA}(\phi)
+ \leq\int|\eta_j-\phi|\operatorname{MA}^{\rm NA}(\phi)\to0.
+\] Order preservation implies
+\(s_{j,t}\geq r_t^{w,\eta_j},r_t^{w,\phi}\). The triangle and ordered
+metric identities, followed by (8.3), yield \[
+ d_1(r_t^{w,\eta_j},r_t^{w,\phi})
+ \leq t\{2E^{\rm NA}(\lambda_j)-E^{\rm NA}(\eta_j)-E^{\rm NA}(\phi)\}\to0.
+                                                               \tag{8.4}
+\] The same estimate is uniform for \(0\leq t\leq T\). \(\square\)
+
+The precise source of the proposed correspondence is {[}MP, Theorem
+5.1.7{]}: for each \(w\in E^1\) and each \(\phi\in E^{1,\rm NA}\) it
+constructs a unique maximal geodesic ray from \(w\) with datum \(\phi\).
+Its definition of maximality implies the order comparison. Its proof
+takes decreasing smooth starts and decreasing model data, then uses
+energy affinity and decreasing energy continuity. For squared-log
+convention (1.1), its model slope identities must first be calibrated as
+in Section 2. Proposition 8.1 states that requirement explicitly rather
+than granting a mismatched formula.
+
+Here is a transfer result independent of an entropy continuity claim.
+Let \(G_C=M_C-H\), and write \(G^{\rm NA}\) for its calibrated
+mixed-energy slope functional.
+
+\textbf{Theorem 8.2 (a sufficient entropy upper transfer).} Fix \(\phi\)
+with finite \(H^{\rm NA}(\phi)\) and a finite-entropy \(w\in E^1\).
+Suppose the actual maximal rays exist, preserve order in both their
+starting potentials and their NA data, and satisfy (8.3). Suppose model
+data \(\eta_j\) satisfy strong and entropy convergence to \(\phi\), with
+\(G^{\rm NA}(\eta_j)\to G^{\rm NA}(\phi)\). Assume also the following
+two calibrated analytic inputs:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  From each smooth starting potential, the actual ray for \(\eta_j\) has
+  \(M_C\) slope
+  \(M^{\rm NA}(\eta_j)=H^{\rm NA}(\eta_j)+G^{\rm NA}(\eta_j)\).
+\item
+  The target maximal ray has finite \(G_C\) slope equal to
+  \(G^{\rm NA}(\phi)\).
+\end{enumerate}
+
+Then the maximal ray from \(w\) satisfies \[
+ \limsup_{t\to\infty}\frac{H(r_t^{w,\phi})}{t}
+      \leq H^{\rm NA}(\phi).                               \tag{8.5}
+\] This is a proved implication with explicit additional hypotheses. It
+does not establish those inputs on all of the original residual domain.
+
+\textbf{Proof.} Choose smooth \(w_j\) with \(d_1(w_j,w)\to0\) and
+\(H(w_j)\to H(w)\) using {[}BDL, Theorem 3.2{]}. Continuity of the
+energy terms then gives \(M_C(w_j)\to M_C(w)<\infty\). We verify that
+changing the start causes no hidden time-dependent error. If two actual
+maximal rays have the same datum but starts \(a,b\), compare both to the
+maximal ray from \(\max(a,b)\); order in the start follows from the
+defining maximality. By (8.3), the ordered metric bound is independent
+of time: \[
+ d_1(r_t^{a,\theta},r_t^{b,\theta})
+    \leq 2E(\max(a,b))-E(a)-E(b).                           \tag{8.6}
+\] The right-hand side tends to zero when \(a=w_j\to b=w\) strongly. To
+check this fact directly, let \(p_j=P(w_j,w)\). The rooftop metric
+identity and monotonicity show \(E(w)-E(p_j)\to0\) and
+\(E(w_j)-E(p_j)\to0\). More directly, {[}D, arXiv:1409.2072v2, Theorem
+5.5{]} gives \(\int|w_j-w|\operatorname{MA}(w)\leq C d_1(w_j,w)\to0\).
+The supporting inequality (1.7) therefore gives
+\(0\leq E(\max(w_j,w))-E(w)\leq\int(w_j-w)_+\operatorname{MA}(w)\to0\).
+This proves the required maximum continuity; it is not a statement about
+entropy.
+
+Now set \(r_j=r^{w_j,\eta_j}\). Combine (8.6) with (8.4) for start \(w\)
+to get \(d_1(r_{j,t},r_t^{w,\phi})\to0\) for every fixed \(t\).
+Convexity and the finite model slope give \[
+ M_C(r_{j,t})\leq M_C(w_j)+tM^{\rm NA}(\eta_j).
+\] Fix \(t\) before taking \(j\to\infty\). Lower semicontinuity {[}BDL,
+Theorem 4.7{]} gives \[
+ M_C(r_t^{w,\phi})
+   \leq M_C(w)+t\{H^{\rm NA}(\phi)+G^{\rm NA}(\phi)\}.
+                                                               \tag{8.7}
+\] Only after this inequality has been established for every fixed time
+do we divide by \(t\) and take \(t\to\infty\). Subtract the assumed
+finite matching \(G_C\) slope; the fixed finite constant \(M_C(w)\)
+disappears. This proves (8.5). \(\square\)
+
+For \(w=0\) this proof reduces exactly to the fixed-time
+lower-semicontinuity argument proposed in Own178, once its global inputs
+and normalization are corrected. Finite-entropy \(E^1\) starts can
+therefore be accommodated by this same transfer mechanism.
+Infinite-entropy starts cannot be inserted into (8.7): its starting
+constant would be infinite, as Theorem 4.1 makes concrete.
+
+\section{9. The model log-volume exponent and the entropy lower
+bound}\label{the-model-log-volume-exponent-and-the-entropy-lower-bound}
+
+This section verifies the exponent that an ordinary entropy lower-bound
+argument must use. It does not assume that the lower bound's stated
+proof in {[}MP{]} already has compatible factors.
+
+\textbf{Proposition 9.1 (SNC integrability with multiplicities).} Let
+\(\rho:\mathcal X\to X\times\Delta\) be a smooth dominating modification
+with SNC central support, \(B=\sum b_iE_i\), and relative canonical
+divisor \(K_{\mathcal X/(X\times\Delta)}=\sum a_iE_i\). Put
+\(c_i=a_i+1-b_i\). Let \(F_t\) be a smooth-on-the-generic-fiber model
+log-volume weight such that locally \[
+ F\circ\rho=-\sum c_i\log|z_i|^2+O(1),                    \tag{9.1}
+\] where the bounded remainder is smooth on the model. Then for large
+\(t=-\log|\zeta|^2\), \[
+ \int_Xe^{F_t}\,d\mu_0\leq C(1+t)^n.                     \tag{9.2}
+\]
+
+\textbf{Proof.} Near a point where \(r\) central components meet, choose
+coordinates with \(\zeta=\prod_{i=1}^rz_i^{b_i}\). A holomorphic unit in
+this expression is absorbed in one coordinate by taking a local root.
+The pullback of a smooth positive total volume from \(X\times\Delta\) is
+comparable to \(\prod|z_i|^{2a_i}\) times Euclidean volume, since the
+Jacobian divisor is the stated relative canonical divisor.
+Multiplication by \(e^F\) therefore gives the radial factor \[
+ \prod|z_i|^{2(a_i-c_i)}=\prod|z_i|^{2(b_i-1)}.
+                                                               \tag{9.3}
+\] This is the exact cancellation; replacing \(c_i\) by \(a_i\) when
+\(b_i>1\) would give a different measure.
+
+Write \(q_i=-\log|z_i|^2\). Euclidean radial area contributes
+\(e^{-q_i}dq_i\), so (9.3) contributes \(\prod e^{-b_iq_i}dq_i\). The
+base satisfies \(t=\sum b_iq_i\), and its Euclidean area contributes
+\(e^{-t}dt\). The fiber density after division by base area is bounded
+by a constant times the volume of the simplex slice \(\sum b_iq_i=t\),
+\(q_i\geq L_i\), namely \(O((1+t)^{r-1})\). Angular integration has a
+finite multiplicity depending on the fixed integers \(b_i\), and the
+remaining coordinates range in a bounded polydisk. This can also be
+obtained by convolution of the \(r\) exponential radial densities; the
+resulting base density is \(e^{-t}\) times a polynomial bound of degree
+\(r-1\). A finite coordinate cover and partition of unity gives (9.2),
+because \(r-1\leq n\). Smooth weights and coordinate units change only
+the comparison constants. \(\square\)
+
+The smooth product pair with its central fiber is log canonical: the
+logarithmic-form argument of Proposition 6.1 gives \(c_i\geq0\). Thus
+(9.1) also bounds \(F_t\) below uniformly. Consequently
+\(\log\int e^{F_t}\mu_0=O(\log(1+t))\), in particular the upper estimate
+required for entropy duality. For a maximal ray for which the calibrated
+fixed-output mixed slope gives \[
+ \lim_{t\to\infty}\frac1t\int F_t\operatorname{MA}(r_t)
+       =\int f_C\,\operatorname{MA}^{\rm NA}(\phi),          \tag{9.4}
+\] (5.2) and (9.2) prove the corresponding model entropy lower bound.
+Taking the supremum over SNC retractions gives the full NA entropy lower
+bound if (9.4) is available on that ray. This last mixed-slope input is
+exactly where {[}MP, Theorem 5.3.4{]} enters its Proposition 6.2.2.
+Equation (9.4) is not established anew on all rays in this paper.
+
+In the logarithmic convention of (2.5), the compatible weight is half of
+\(F\) and one must use \(e^{2F_L}\) in entropy duality. The paired
+output must consequently be multiplied by two when probability entropy
+is used. BHJ's \(e^{2\Psi}\) convention reflects this. Own178's use of
+squared-log divisor coefficients, unsquared time, and unchanged
+probability entropy cannot simply import an \(e^{F_L}\) bound and a unit
+slope simultaneously.
+
+\section{10. A local defect in the imported analytic discrepancy
+proof}\label{a-local-defect-in-the-imported-analytic-discrepancy-proof}
+
+Theorem B of {[}T26{]} invokes its Proposition 4.1, which in turn
+imports the analytic proof of {[}Tproj, Proposition 3.1{]}. We inspected
+that proof, including its determinant estimate. There is a concrete
+false geometric assertion in the step making its residual form Kähler
+near a generic exceptional point.
+
+\textbf{Proposition 10.1.} A normalized blow-up of an ideal on a smooth
+compact Kähler surface need not have a differential injective in the
+normal direction of an exceptional divisor. In the example below, the
+residual form used by the cited analytic proof has zero normal value
+there, for every multiple of the background form.
+
+\textbf{Proof.} In a bidisk around a point on
+\(\mathbf P^1\times\mathbf P^1\), take \(I=(x^2,y^3)\). This defines a
+global coherent ideal supported at that point by using \(\mathcal O\)
+off the point; on the punctured overlap it is the unit ideal. Near the
+generic exceptional divisor of its normalized blow-up, a smooth toric
+chart has coordinates \((w,v)\) with \(v\ne0\) and \[
+ x=w^3v,\qquad y=w^2v.                                    \tag{10.1}
+\] Here the primitive valuation is
+\((\operatorname{ord}_Ex,\operatorname{ord}_Ey)=(3,2)\). To verify the
+chart without appealing to a diagram, start with the blow-up chart where
+the ratio \(T=y^3/x^2\) is nonzero. Its function field has \(v=T\) and
+\(w=x/y\). The relations give \(y=w^2v\), \(x=w^3v\); \(w\) is integral
+over the chart, since \(w^2=y/v\). The resulting ring
+\(\mathbf C[w,v,v^{-1}]\) is normal, finite and birational over that
+chart. It is its normalization. Thus \(w=0\) is a genuine generic
+exceptional divisor on a normalized blow-up.
+
+Along \(E=\{w=0\}\) both \(\partial x/\partial w=3w^2v\) and
+\(\partial y/\partial w=2wv\) vanish. In fact the entire differential is
+zero there. No pullback of a smooth background Kähler form can be
+positive on \(\partial_w\) at \(E\).
+
+The ideal norm gives exactly \[
+ \log(|x|^4+|y|^6)
+ =6\log|w|^2+\log(|v|^4+|v|^6).                           \tag{10.2}
+\] After subtracting \(6[E]\), the local curvature of this potential is
+\(dd^c_C\log(|v|^4+|v|^6)\), which has no normal component. Adding any
+\(C\rho^*\omega\) does not change that fact. One can choose the global
+partition of unity in the cited construction to have one chart weight
+identically one near the point, making (10.2) precisely its local
+residual potential. More generally smooth generator changes or partition
+weights contribute terms through \((x,y)\); their first and mixed normal
+second derivatives at \(w=0\) vanish as well. Thus the residual form
+cannot be made Kähler there by increasing the background coefficient.
+
+For comparison the ordinary Jacobian determinant in (10.1) is \(w^4v\),
+so \(a_E=4\). The identity (10.2) has ideal order \(6\). The cited proof
+needs nonvanishing of the full residual determinant to cancel it in its
+inequality (3.4); here that determinant vanishes. \(\square\)
+
+This is a counterexample to a proof step, \textbf{not} to the
+discrepancy estimate
+\(a_E\leq N(\operatorname{ord}_EI-\operatorname{ord}_E\mathcal J(I))\)
+or to Theorem B. There is also an algebraic proof in {[}Tproj, Appendix
+A, Proposition A.1{]}. That argument uses relative Nadel vanishing to
+generate \(\mathcal O(K-ND)\) at a generic Rees divisor and the
+subadditivity inclusion \(\mathcal J(I^N)\subset\mathcal J(I)^N\). Its
+printed domain is smooth algebraic varieties. A repair for analytic
+ideals on arbitrary compact Kähler manifolds would require an exact
+analytic relative vanishing statement and its application to this
+generation argument, or a different local analytic proof. We have not
+supplied such a repair. Importing the appendix with its algebraic
+hypotheses suppressed would not satisfy the assignment's
+source-application rules.
+
+\section{11. Audit of Own178 and the precise unresolved original
+scope}\label{audit-of-own178-and-the-precise-unresolved-original-scope}
+
+The following audit concerns actual assertions, not its author's
+confidence or an earlier review result.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Step in Own178
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Outcome of this audit
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(dd^c=i/(2\pi)\), time \(-\log|\zeta|\), squared-log coefficients, unit
+energy slope & Refuted as a coherent combination by Proposition 2.1. Use
+(1.1), or (2.5)--(2.6) with half entropy. \\
+\(0\leq\Delta\leq K_{\rm relative}\) & Proved in Proposition 6.1 with
+the nonreduced correction retained. \\
+Fixed-form convergence plus canonical-defect control implies model
+entropy recovery & Proved in Theorem 7.1 under the exact supplied-data
+hypotheses (7.2); volume alone is insufficient. \\
+Ordered model energy convergence implies strong convergence & Valid
+using the explicitly stated NA strong theory; removal and restoration of
+suprema is necessary. \\
+Two-stage MPWN obstacle recovery & Source-supported within its fixed
+smooth Kähler/dual-complex scope; it does not by itself give relatively
+Kähler model entropy recovery. \\
+Fixed-output integration and common upper ray & The scalar sign in the
+supplied Lemma 5.0.5 text needs correction (8.2). The transfer estimate
+(8.4) is valid under the calibrated actual-ray identities. \\
+Fixed-time Mabuchi lower semicontinuity before the time limit & Valid
+sufficient mechanism, Theorem 8.2. No entropy continuity along arbitrary
+strong sequences is used. \\
+Model Mabuchi/mixed slope imported from SD and MP & Must be normalized
+anew; SD's printed Green--Riesz factor fails the constant-model test.
+This paper does not certify the whole source chain for all rays. \\
+Finite-Mabuchi-slope maximality & MP Proposition 6.3.1 states the
+compact-Kähler transfer; its proof refers to Li's local integrability
+argument. The local structure is plausible and consistent with
+squared-log time, but a full transported proof on every starting-point
+scope is not submitted here. \\
+All data of an arbitrary \(E^1\) ray have finite NA energy & Proposed
+maximalization/truncation proof requires the actual dominance and energy
+identities with their precise normalization; it is not established as an
+unconditional new theorem here. \\
+Global maximal entropy equality and arbitrary-ray dichotomy & Not
+established by this audit. The preceding partial results do not close
+P19.1. \\
+\end{longtable}
+
+For finite-entropy starts, the proof of Theorem 8.2 shows concretely how
+starting-point approximation can preserve the initial finite Mabuchi
+constant. It is therefore not correct to list ``smooth start versus
+finite-entropy start'' as an inevitable obstruction to this mechanism.
+However its global calibrated model recovery and mixed-slope hypotheses
+still need to be established. For infinite-entropy starts, Theorem 4.1
+gives an actual bounded stationary obstruction, so no formula may
+discard that case without an additional term or a restriction.
+
+Li's proof of nonmaximality implying infinite entropy can be isolated as
+follows. If a ray and its maximalization from the same start have
+positive affine energy gap \(ct\), and if
+\(\int_{X\times\Delta}\exp(b(\widehat U-U))<\infty\) for every \(b>0\),
+then Fubini in squared-log time yields a sequence \(t_j\to\infty\) on
+which \(\int_Xe^{b(\widehat u_{t_j}-u_{t_j})}\mu_0\leq e^{t_j}\).
+Entropy duality, truncation of the nonnegative test function, and (1.7)
+give \(H(u_{t_j})\geq bct_j-t_j\). If the entropy slope exists, allowing
+\(b\) to increase forces it to be infinite. This is the analytic
+deduction in {[}Li, Lemma 3.1 and proof of Theorem 1.2{]}; the
+all-exponential integrability assertion for arbitrary transcendental
+rays remains an imported prerequisite if this deduction is used
+globally. The floor theorem of Section 5 has its own directly proved
+integrability and does not use that import.
+
+The residual catalogue calls for the entropy-slope statement for
+arbitrary finite-energy weak rays outside the already known smooth
+polarized maximal-ray case. This paper establishes neither all maximal
+finite-NA-entropy recovery nor the complete arbitrary-ray classification
+on that domain. The model theorem in Section 3 is a special case, and
+the conditional transfer theorems cannot be counted as a full atom by
+the completion criterion. No fixed-\(X\) result here supplies the finer
+singularity preservation of P19.2, the genuinely degenerating-family
+compactness of P19.3, or the equivariant/singular metric signatures of
+P19.4.
+
+Concrete remaining requirements are: (i) repair or replace the analytic
+Rees-discrepancy proof underlying the September special-Fujita input,
+with all analytic hypotheses checked; (ii) finish the normalized model
+ray and mixed-slope source audit and then establish the unconditional
+relatively Kähler energy/entropy recovery in the full NA domain; (iii)
+transport the general maximalization and nonmaximal integrability proof,
+including the entropy-slope existence argument and finite-entropy
+\(E^1\) starting points; (iv) state separately the treatment of
+infinite-entropy starts. They are mathematical gaps, not failures of TeX
+compilation or of numerical tests.
+
+\section{12. References and application
+boundaries}\label{references-and-application-boundaries}
+
+{[}BT{]} E. Bedford and B. A. Taylor, \emph{The Dirichlet problem for a
+complex Monge--Ampère equation}, Invent. Math. 37 (1976), 1--44; \emph{A
+new capacity for plurisubharmonic functions}, Acta Math. 149 (1982),
+1--40. Only bounded local product, comparison and Dirichlet uniqueness
+facts are imported here.
+
+{[}Dem{]} J.-P. Demailly, \emph{Complex Analytic and Differential
+Geometry}, version of 21 June 2012,
+\href{https://people.math.harvard.edu/~demarco/Math274/Demailly_ComplexAnalyticDiffGeom.pdf}{public
+primary-text mirror}. Chapter I Theorem 5.24 and its polar-set proof,
+Chapter III Section 8 Proposition 8.16 and the ensuing decomposition
+proof were inspected in full. The generic-divisor subtraction is applied
+to closed positive \((1,1)\) currents on smooth local charts. Chapter
+III Section 3 also records the bounded local product and local uniform
+convergence facts used above. The author's current hosting endpoints
+failed to fetch; the dated primary text at this mirror supplied the
+actual proof units, rather than a search-result description.
+
+{[}D{]} T. Darvas, \emph{The Mabuchi geometry of finite energy classes},
+Adv. Math. 285 (2015), 182--219,
+\href{https://arxiv.org/pdf/1409.2072v2}{arXiv:1409.2072v2}, 1 November
+2014. Corollary 4.14 gives the \(E^1\) rooftop metric formula and
+Theorem 5.5 gives comparison with
+\(I_1(u,v)=\int|u-v|(\operatorname{MA}(u)+\operatorname{MA}(v))\).
+Ordered energy distance follows from the rooftop formula; Section 8
+derives the needed maximum continuity from that comparison. No ray
+isometry theorem is used.
+
+{[}BDL{]} R. J. Berman, T. Darvas and C. H. Lu, \emph{Convexity of the
+extended K-energy and the large time behaviour of the weak Calabi flow},
+\href{https://arxiv.org/pdf/1510.01260v2}{arXiv:1510.01260v2}, 7
+February 2016, Theorems 3.2 and 4.7, and Sections 2 and 4.2. The
+pertinent entropy approximation and lower-semicontinuity/convexity proof
+units were inspected; their Monge--Ampère existence and finite-energy
+continuity foundations remain external. The scale to (1.1) is explicit
+in Section 2.
+
+{[}BHJ{]} S. Boucksom, T. Hisamoto and M. Jonsson, \emph{Uniform
+K-stability, Duistermaat--Heckman measures and singularities of pairs:
+the differential-geometric aspects},
+\href{https://arxiv.org/pdf/1603.01026v4}{arXiv:1603.01026v4}, Lemma
+3.11 and its local proof. Its logarithmic metric convention uses half
+probability entropy and \(e^{2\Psi}\); only its local volume calculation
+is compared here, and Section 9 gives an independent derivation with
+arbitrary multiplicities.
+
+{[}SD{]} Z. Sjöström Dyrefelt, \emph{K-semistability of cscK manifolds
+with transcendental cohomology class},
+\href{https://arxiv.org/pdf/1601.07659v2}{arXiv:1601.07659v2}, Section
+2.1, Lemma 4.6, Theorem 4.9, Theorem 5.6 and Remark 5.7. Its domain is
+smooth compact Kähler \(X\) and smooth dominating relatively Kähler
+cohomological configurations, with compatible rays. Its printed \(dd^c\)
+and time require the calibration in Section 2. Theorems 4.9 and 5.6 are
+not silently imported with their printed unit factor.
+
+{[}MP{]} P. Mesquita--Piccione, \emph{A non-Archimedean theory of
+complex spaces and the cscK problem},
+\href{https://arxiv.org/pdf/2409.06221v2}{arXiv:2409.06221v2}, 18
+September 2025, Definitions 5.1.2 and 5.1.6, Theorems 5.1.4, 5.1.7 and
+5.3.4, Propositions 6.2.2 and 6.3.1. Divisorial determination is Theorem
+4.3.8. Its log-\(|f|\) compatibility and time convention were inspected;
+its ray correspondence is used only with explicit calibration
+requirements in Section 8.
+
+{[}MPWN{]} P. Mesquita--Piccione and D. Witt Nyström, \emph{A
+transcendental non-Archimedean Calabi--Yau theorem with applications to
+the cscK problem},
+\href{https://arxiv.org/pdf/2509.09442v1}{arXiv:2509.09442v1}, 11
+September 2025, Lemma 5.0.5, Theorem 5.2.2, Corollary 7.2.3,
+Propositions 9.1.3 and 9.1.5, constructive proof of Theorem 9.2.1. The
+exact hypotheses and formulas used are stated in Sections 7 and 8. Their
+fixed-manifold NA foundations are imports; a catalogue description is
+not their proof.
+
+{[}Tproj{]} A. Trusiani, \emph{A solution to the Yau--Tian--Donaldson
+conjecture through special Fujita approximations}, with an appendix by
+S. Boucksom,
+\href{https://arxiv.org/pdf/2605.30063v2}{arXiv:2605.30063v2}, 17 August
+2026, Proposition 3.1 and Appendix A Proposition A.1. The complete
+relevant analytic proof and the algebraic alternative were inspected.
+Section 10 isolates a false geometric step without asserting that the
+theorem is false. The already known projective claims are not renamed
+transcendental results.
+
+{[}T26{]} A. Trusiani, \emph{On the transcendental Yau--Tian--Donaldson
+conjecture},
+\href{https://arxiv.org/pdf/2609.31089v1}{arXiv:2609.31089v1}, 25
+September 2026, Theorem B, Lemmas 3.4--3.5, Proposition 4.1 and Section
+5. Its asserted compact-Kähler special-Fujita statement is recorded as a
+recent source claim; the unresolved supporting analytic proof
+application is expressly retained. Theorem A's trivial-automorphism
+restriction is not a restriction in Theorem B, and no stability theorem
+from Theorem A is used here.
+
+{[}Li{]} C. Li, \emph{Geodesic rays and stability in the cscK problem},
+author
+\href{https://sites.math.rutgers.edu/~cl1412/papers/maximal.pdf}{primary
+PDF}, corresponding to Ann. Sci. Éc. Norm. Supér. 55 (2022), 1529--1574,
+Lemmas 2.35 and 3.1 and proof of Theorem 1.2. The inspected argument
+explicitly uses squared-log time. It is discussed as a transfer
+prerequisite, not as a projective theorem already proved here in the
+transcendental domain.
+
+\section{13. Reproduction and evidence}\label{reproduction-and-evidence}
+
+The staged \texttt{input.json} and \texttt{input-original.json} are
+byte-identical. \texttt{assignment-original.txt} is the exact decoded
+assignment; \texttt{task-original.json} records the decoded original
+task. The preserved source units are mathematical data. Public source
+browser responses, with exact-version URLs and retrieval coordinates,
+are retained in the workspace; no other campaign or private output was
+read. The failed direct PDF retrieval did not cause a change to proxy,
+credentials or runtime configuration.
+
+\texttt{source-application-ledger.json} records each imported theorem,
+its full application signature, inspected proof units, normalization
+transport and unresolved limitations. \texttt{verify.py} checks input
+preservation, the exact status schema, the closed-form surface
+intersection identities and several numerical values of the explicit
+entropy formula (3.4). The numerical checks are diagnostic observations,
+not a proof of any theorem. All mathematical claims above are justified
+by the displayed proofs and identified external inputs.
+
+Rerun \texttt{python\ verify.py}, then \texttt{bash\ build-paper.sh}.
+The build converts this Markdown to standalone \texttt{P19.1-paper.tex}
+with the existing Pandoc and invokes the existing \texttt{pdflatex}
+twice, saving both actual logs and console diagnostics. Build success
+establishes document buildability only. The paper remains an unverified
+research draft with PARTIAL status and candidate=false.
+
+\end{document}
