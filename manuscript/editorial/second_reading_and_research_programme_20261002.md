@@ -4154,3 +4154,32 @@ Hessian and J-equation discussion. Metadata alone do not establish
 its proof or permit integration; read its actual edition and relevant
 dependencies before changing the book. Check incoming author progress
 under the standing GitHub authorization.
+
+### Hessian/null-Lagrangian comparison sources, 6 October 2026
+
+The [exact-source audit](Hessian_null_lagrangian_source_review_20261006.md)
+reads all twelve pages of Dinew–Myga–Sroka 2610.06313v1, all sixteen
+physical pages of Dinew's published 2022 paper including its cover,
+six Guan course-note pages and ten Ball author-scan pages: 44 actual
+pages in 22 displayed sheets. Guan's Codazzi assumption and Ball's
+finite-versus-smooth differentiability statements are kept with their
+acquired-edition locators; no complete Ball proof review is claimed.
+
+Twelve elementary diagnostics distinguish missing constant normalization,
+proper admissible subcones, arbitrary-field Newton divergence, real and
+complex fourth-jet coefficients, the product-positive set and the printed
+branch examples. The published product-operator obstruction has its own
+full proof reading. The preprint's global C1 classification, maximal-branch
+uniqueness and weak-measure construction remain separate obligations.
+No active TeX, bibliography, original result, independent model call,
+verification receipt or canonical status changes at this checkpoint.
+All 425 active and 108 protected inputs, the current/native PDFs, 88
+prior manifests and 154 prior exports retain baseline bytes.
+
+Push this audit under the standing GitHub authorization. Next integrate
+the attributed Hessian/Codazzi Newton identity with an explicit admissible
+segment, and Dinew's published product-operator comparison obstruction.
+Keep unweighted integral comparison separate from viscosity comparison,
+raw quotient equations, approximation-independent weak measures and
+non-Archimedean closure. Continue fetching both main and work for author
+updates and auditing related recent primary papers.

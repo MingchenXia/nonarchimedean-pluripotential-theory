@@ -10,6 +10,15 @@ The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
 The current research-integration build has **4,432 pages**.
+The [Hessian/null-Lagrangian source audit](manuscript/editorial/Hessian_null_lagrangian_source_review_20261006.md)
+reads Dinew–Myga–Sroka 2610.06313v1, the complete published Dinew
+comparison obstruction, and selected Guan/Ball dependencies: 44 actual
+pages in 22 displayed sheets. It retains Hessian/Codazzi and admissible
+segment hypotheses, identifies missing affine normalization and branch
+maximality, and distinguishes real from complex quartic jets. Twelve
+elementary checks pass; the new classification's C1 proof and unrestricted
+weak-measure consequences are not imported. The checked book and all
+canonical statuses are preserved by this source-only checkpoint.
 The [reference precision audit](manuscript/editorial/bibliography_reference_polish_audit_20261006.md)
 unifies the four duplicate Nadel citations and protects six proper-name
 titles from bibliography case conversion. The LXZ publication entries
