@@ -9,7 +9,18 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,366 pages**.
+The current research-integration build has **4,372 pages**.
+The [determinantal capacity audit](manuscript/editorial/determinantal_capacity_audit_20261006.md)
+connects Fang–Ma–Wu's relative bounds to the preceding Hessian and entropy
+discussion in Chapter 68. It keeps big-class volume, strict entropy
+exponents, singular-set and regularization hypotheses, the corrected
+viscosity comparison buffer, and positive volume in degenerating families.
+The matrix capacity criterion uses complex subspace ranks and a uniform
+coefficient argument over unitary bases; a balanced partial-trace example
+explains its sharp obstruction. The complete 41-page main preprint,
+65 selected dependency pages and 41 matching final book pages were read
+and displayed. Build and navigation checks pass. These known results
+preserve the canonical problem statuses and native catalogue.
 The [positive-characteristic symplectic source review](manuscript/editorial/symplectic_Fsplitting_source_review_20261006.md)
 reads Zou's September preprint in full and checks sixteen selected
 dependency pages. It separates good reduction from the full coherent

@@ -2761,3 +2761,39 @@ no production-model receipt. All 425 active inputs, 108 protected inputs,
 as do the native catalogue and inactive toric candidate. The checked
 book remains 4,366 pages; no fresh compilation is claimed. Continue
 GitHub synchronization and directly relevant pluripotential research.
+
+### Determinantal capacity and relative bounds — 6 October
+
+After `d993f33`, Chapter 68 and Appendix L integrate a checked explanatory
+account of Fang–Ma–Wu's arXiv:2609.24078v1. The
+[new audit](determinantal_capacity_audit_20261006.md) reads the complete
+41-page preprint, including its proofs and references. Sixty-five actual
+dependency pages from nine source files were selected and displayed;
+these include the complete six-page EGZ viscosity erratum. Fang–Ma's
+Gårding revisions and Brändén–Huh's published Lorentzian arguments retain
+their checked version-specific locators. This is 106 fresh source pages;
+the Guedj–Zeriahi book's exact locators remain uncleared.
+
+The relative estimate uses big-class volume and a density that need not
+have probability mass. Strict entropy exponents, qualitative integrability,
+extended continuity, the singular set, relative L1 control and paired local
+regularization remain explicit. Corrected local comparison keeps its strict
+plurisubharmonic buffer. A semipositive-family consequence retains a positive
+volume lower bound and gives no Hessian estimate or zero-volume limit.
+Conic Gårding derivative nesting precedes the complex subspace-polymatroid
+criterion. Uniform determinant capacity uses a positive coefficient and
+compactness of the unitary group. The balanced partial-trace example checks
+both capacity one and the anisotropic obstruction to positivity.
+
+The corrected 4,372-page build passes references, bibliography, index and
+PDF navigation checks with zero overfull boxes. A long equivalence in the
+first build was repaired by moving its quantifiers to adjacent prose;
+the earlier draft, gate and layout diagnostic remain historical. All 41
+matching final pages were displayed and reread, including the full index
+and bibliography. The other 423 active TeX inputs, all 108 protected inputs,
+46 existing formal blocks in the edited files, 49 earlier frozen manifests
+and 97 earlier exports retain their bytes. The canonical 42 status rows,
+native catalogue and inactive toric candidate retain their scope and bytes.
+No original result, production-model receipt, Siu/closure repair or solved
+canonical problem is admitted. Continue authorized work-branch synchronization
+and accurate research on directly related pluripotential questions.
