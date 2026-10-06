@@ -9,7 +9,17 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,384 pages**.
+The current research-integration build has **4,386 pages**.
+The [fixed divisor trace audit](manuscript/editorial/fixed_divisor_trace_audit_20261006.md)
+explains in Chapter 46 how the Morse estimate and volume derivative give
+intersection convergence against a fixed Cartier divisor. The approximant
+limit precedes the parameter limit. Chapter 68 distinguishes the fixed
+canonical trace from the remaining relative canonical intersection and
+entropy inputs; Appendix L records the primary locators. The preceding
+full Trusiani reading and selected BFJ reading are reused. All 43 matching
+final book pages were displayed and reread; build, references, index and
+navigation pass. Full special-Fujita and entropy regularization retain
+their separate scope, as do canonical statuses and the Siu/closure boundary.
 The [fixed ideal error audit](manuscript/editorial/fixed_ideal_error_audit_20261006.md)
 records the imported graded/antigraded argument in Chapter 46 and its
 conditional integral consequence. Chapter 68 makes the zero limiting

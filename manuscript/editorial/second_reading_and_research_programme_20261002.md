@@ -2936,3 +2936,32 @@ original theorem, independent model call or new verification receipt.
 Continue by checking the fixed-divisor trace convergence argument and
 the projection and relative-polarization requirements separately from
 the remaining full entropy and Calabi–Yau chains.
+
+### Fixed divisor traces and the canonical reduction — 6 October
+
+Chapter 46 now explains the fixed-divisor step of Trusiani v2 Lemma 4.3,
+using the published BFJ09 Proposition 3.3 Morse estimate and Theorem A
+volume derivative. Domination and the nef binomial expansion give two
+volume bounds at one fixed small parameter. First take the approximant
+limit, then the parameter limit. Writing a fixed Cartier divisor as a
+difference of ample divisors gives its trace convergence. Applying this
+to the canonical divisor on a fixed smooth variety isolates the relative
+canonical intersection on the varying smooth resolution. Its nonnegativity
+does not prove its vanishing. Chapter 68 keeps this remaining discrepancy
+term and the additional entropy data explicit; Appendix L.53 records
+the source scope. See the [integration audit](fixed_divisor_trace_audit_20261006.md).
+
+The preceding full 25-page Trusiani v2 reading and the BFJ09 eighteen-page
+subset of the historical 58-page selected dependency record are reused.
+No new full dependency reading is claimed. All 43 matching final book
+pages were displayed and their extracted text reread in 22 sheets.
+The clean 4,386-page build and post-render reference, index, navigation
+and inventory checks pass; this draft required no layout repair.
+All 141 existing statement, explanatory and proof blocks in the edited
+files, 422 other active inputs, 108 protected inputs, 55 prior frozen
+manifests, 109 prior exports, all 42 canonical statuses and the native
+catalogue retain their bytes and scope. This is an imported trace argument
+and its direct canonical reduction, with no original theorem, independent
+model call or new verification receipt. Continue with the projection,
+relative-polarization and support requirements, and further related
+primary-paper reading before any full regularization-theorem admission.
