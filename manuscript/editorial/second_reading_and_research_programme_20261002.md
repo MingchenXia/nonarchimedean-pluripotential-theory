@@ -4183,3 +4183,46 @@ Keep unweighted integral comparison separate from viscosity comparison,
 raw quotient equations, approximation-independent weak measures and
 non-Archimedean closure. Continue fetching both main and work for author
 updates and auditing related recent primary papers.
+
+### Smooth Hessian comparison integration, 6 October 2026
+
+The [integration audit](Hessian_integral_comparison_integration_audit_20261006.md)
+records Appendix H.9, Appendix L.65 and the Chapter 68 connection.
+The coordinate operator uses unweighted Lebesgue measure; conversion
+to the book's wedge densities retains both degree and binomial factors.
+The attributed polynomial sufficiency proof uses a Hessian/Codazzi
+field, regular comparison boundary and the entire admissible segment.
+Dinew's published product-operator obstruction retains universal
+comparison and its two separate exponent tests; radial and viscosity
+scopes remain distinct. No global C1 classification, maximal-domain
+uniqueness or approximation-independent weak measure is promoted.
+
+The preceding source review supplies 44 actual pages, 22 displayed
+sheets and twelve elementary diagnostics; this integration adds zero
+fresh primary-page audits. Four exact-edition bibliography entries,
+sixteen labels, eight equation tags H.8–H.15 and three index entries
+are added. All 57 old formal blocks and 23 proof blocks in the three
+edited active inputs retain their bytes and order. The 422 other
+active inputs, 108 protected inputs, 89 prior frozen manifests and
+154 prior exports retain their bytes. Canonical statuses and the
+native catalogue/editor remain unchanged.
+
+The final 4,438-page build passes required validation, references,
+index and navigation. All 48 selected matching final pages were
+read as complete text and displayed in 24 sheets, including the full
+index and bibliography. A duplicate plural index heading was merged
+into the existing singular heading; its superseded candidate's
+26-page reading is recorded separately. Every physical page was
+text-compared with that candidate: only page 4415 changes, with
+4,437 page texts and the pagination unchanged. This is a scoped
+final review, not a fresh whole-book rereading.
+
+Save immutable book/review/source artifacts and the 427-input closure,
+verify every archive member, fetch main and work, push normally and
+update the existing draft PR. Then read the exact eight-page edition
+2610.05173v1 on algebraic entropy of birational automorphism groups
+in hyper-Kähler families and check relevant dependencies before any
+Chapter 66 integration. Continue recent primary-source research and
+incoming author progress. No new original result, independent model
+call, verification receipt or general BJ22 Siu/envelope closure repair
+is added by this checkpoint.

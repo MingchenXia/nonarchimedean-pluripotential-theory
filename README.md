@@ -9,7 +9,17 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,432 pages**.
+The current research-integration build has **4,438 pages**.
+The [smooth Hessian comparison integration](manuscript/editorial/Hessian_integral_comparison_integration_audit_20261006.md)
+adds Appendix H.9, Appendix L.65 and a Chapter 68 connection. It explains
+the coordinate normalization, Hessian/Codazzi Newton identity and boundary
+flux with an explicit admissible segment, and Dinew's published obstruction
+for intermediate products of eigenvalue sums. Affine normalization,
+branch maximality, finite regularity and weak-measure construction remain
+explicit boundaries of the new preprint's classification. Four exact-edition
+references are appended. All 48 selected final pages were read and displayed;
+required compilation, references, index, navigation and inventory pass.
+Canonical statuses and the native catalogue remain unchanged.
 The [Hessian/null-Lagrangian source audit](manuscript/editorial/Hessian_null_lagrangian_source_review_20261006.md)
 reads Dinew–Myga–Sroka 2610.06313v1, the complete published Dinew
 comparison obstruction, and selected Guan/Ball dependencies: 44 actual

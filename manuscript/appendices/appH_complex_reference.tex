@@ -9,8 +9,8 @@ theorems are given in the supplied book \cite{XiaBook}, while
 \Cref{chap:complex-prerequisites,chap:rays-test-curves} establish the
 interfaces needed here.
 
-Except in the local-domain setting of
-\Cref{sec:appH-local-maximality}, \(X\) is a connected compact
+Except in the local-domain settings of
+\Cref{sec:appH-local-maximality,sec:appH-smooth-integral-comparison}, \(X\) is a connected compact
 K\"ahler manifold of complex dimension \(n\). We use
 \[
              \dc=\frac{\rmi}{4\pi}(\bar\partial-\partial),
@@ -26,6 +26,9 @@ nonpluripolar products. They are not divided by the volume of a cohomology
 class. The local Cegrell products in
 \Cref{sec:appH-local-maximality} are explicitly full products and can
 charge pluripolar sets.
+The spectral expressions in \Cref{sec:appH-smooth-integral-comparison}
+are classical smooth coordinate operators; their signed polynomial
+combinations are not assigned a nonpluripolar interpretation.
 
 \section{Potentials and the three singularity orders}
 \label{sec:appH-singularity-orders}
@@ -1102,6 +1105,267 @@ fails, as Błocki's Kiselman example shows. These complex results
 do not supply the general homogeneous non-Archimedean Siu
 division input discussed in \Cref{app:provenance}; the BJ22
 Siu/envelope-closure boundary remains separate.
+
+\section{Smooth spectral operators and integral comparison}
+\label{sec:appH-smooth-integral-comparison}
+\index{Hessian operators!integral comparison}
+\index{Newton tensor!Hessian divergence identity}
+\index{plurisubharmonic function!on complex planes}
+
+The smooth comparison used in a Hessian estimate and the construction
+of a measure on singular potentials are different inputs. We record
+the constant-coefficient local mechanism, following the sufficiency
+argument in \cite[\S3]{DinewMygaSroka26IntegralV1}, and the published
+obstruction in \cite[Theorem~4.1]{Dinew22SadullaevPublished}.
+Their exact source scopes are in
+\Cref{sec:provenance-Hessian-integral-comparison}.
+
+\subsection{The coordinate operator and its comparison set}
+\label{sec:appH-coordinate-comparison}
+
+For a real potential on \(\Omega\subset\mathbf R^n\), write
+\(H_u=D^2u\). For a real potential on
+\(\Omega\subset\mathbf C^n\), write
+\(H_u=(\partial_i\bar\partial_j u)_{i,j=1}^n\), using the
+standard complex coordinates. In either case \(\sigma_k\) denotes
+the unnormalized elementary symmetric polynomial of the eigenvalues,
+and \(\sigma_0=1\). These matrices, rather than an endomorphism
+defined by a variable Hermitian background, are the arguments below.
+
+Let \(\mathcal G\) be an open conjugation-invariant domain in the
+appropriate symmetric or Hermitian matrix space. A smooth potential
+is admissible when \(H_u(x)\in\mathcal G\) everywhere. For a spectral
+operator \(F\) on \(\mathcal G\), integral comparison means
+\[
+ \tag{H.8}\label{eq:appH-smooth-integral-comparison}
+ \int_{\{u<v\}}F(H_v)\,dV
+       \leq\int_{\{u<v\}}F(H_u)\,dV,
+ \qquad \{u<v\}\Subset\Omega,
+\]
+where \(dV\) is ordinary, unweighted Lebesgue measure. This is an
+inequality for every admissible pair, rather than comparison only
+between solutions of one equation with the same right-hand side.
+Addition of a constant to F preserves
+\eqref{eq:appH-smooth-integral-comparison}: both sides gain the
+same constant times the volume of the comparison set.
+
+The complex coordinate convention is compatible with the book's
+\(\ddc\), but is not a new convention for it. With
+\(\beta=\ddc|z|^2\), diagonalization gives
+\[
+ \tag{H.9}\label{eq:appH-coordinate-Hessian-form}
+ (\ddc u)^k\wedge\beta^{n-k}
+   =\frac{\sigma_k(H_u)}{\binom nk}\,\beta^n,
+ \qquad \beta^n=\frac{n!}{\pi^n}\,dV.
+\]
+Thus a coefficient in a polynomial in \(H_u\) is not the same
+coefficient in a polynomial of wedge-product densities without this
+binomial factor. Replacing \(\ddc\) by a scalar multiple also rescales
+different degrees differently; a mixed-degree equation must retain
+those factors.
+
+\subsection{Newton tensors and the admissible segment}
+\label{sec:appH-Newton-segment}
+
+For a smooth real Hessian field, the Newton tensor satisfies
+\[
+ \tag{H.10}\label{eq:appH-Hessian-Newton-divergence}
+ T_{k-1}^{ij}(D^2u)
+      =\frac{\partial\sigma_k}{\partial A_{ij}}(D^2u),
+ \qquad \sum_j\partial_jT_{k-1}^{ij}(D^2u)=0.
+\]
+This is the Euclidean Hessian instance of the Codazzi identity in
+\cite[Lemma~2.1, course-note pp.~5--6]{GuanCIMECourseNotes}.
+The symmetry of the third derivatives of u is essential.
+It is false for an arbitrary symmetric matrix field: for
+\(A(x)=\operatorname{diag}(1,x_1)\) in dimension two,
+\(T_1(A)=\operatorname{diag}(x_1,1)\) has first-row divergence one.
+The complex Hessian tensors have the analogous holomorphic and
+antiholomorphic divergence identities. Equivalently, their
+polarizations are built from the closed forms \(\ddc u\) and
+the fixed flat form \(\beta\).
+
+Here is the smooth-pair sufficiency argument of
+\cite[(3.2) and Remark~3.2]{DinewMygaSroka26IntegralV1}, with its
+Hessian hypothesis stated and the harmless constant included.
+
+\begin{proposition}\label{prop:appH-polynomial-smooth-comparison}
+Let
+\(F(A)=c_0+\sum_{k=1}^n c_k\sigma_k(A)\).
+Let u and v be smooth real admissible potentials and suppose
+\(D=\{u<v\}\Subset\Omega\) has a smooth boundary on which
+\(d(u-v)\ne0\). Assume every
+\(tD^2u+(1-t)D^2v\), \(0\leq t\leq1\), belongs to
+\(\mathcal G\), and the linearization of F is positive semidefinite
+at each of these matrices. Then
+\eqref{eq:appH-smooth-integral-comparison} holds.
+\end{proposition}
+
+\begin{proof}[From the Hessian Newton identity]
+Put \(h=u-v\) and \(w_t=tu+(1-t)v\). The fundamental theorem
+of calculus and \eqref{eq:appH-Hessian-Newton-divergence} give
+\[
+ \tag{H.11}\label{eq:appH-Newton-boundary-flux}
+ \begin{aligned}
+ \int_D\bigl(F(D^2u)-F(D^2v)\bigr)\,dV
+  &=\int_0^1\int_D F^{ij}(D^2w_t)h_{ij}\,dV\,dt\\
+  &=\int_0^1\int_{\partial D}
+       F^{ij}(D^2w_t)\eta_i\eta_j\partial_\eta h\,dS\,dt
+    \geq0.
+ \end{aligned}
+\]
+Repeated indices are summed here. On the regular boundary of
+\(\{h<0\}\), tangential derivatives vanish and the outward
+normal derivative is positive. The matrix in the integrand is
+positive semidefinite by assumption, giving the sign. The constant
+coefficient has zero linearization and cancels from the difference.
+\end{proof}
+
+A convex matrix domain \(\mathcal G\) and ellipticity throughout it
+provide the segment hypothesis. Neither membership of the two
+endpoints alone nor connectedness of a nonconvex domain provides it.
+The proof imposes no separate sign on each \(c_k\); the required
+sign is that of the full linearization on the chosen segment.
+The complex smooth-pair counterpart follows from the Hermitian
+Newton identities, as in the cited Remark~3.3, or by applying Stokes
+to the polarized forms in \eqref{eq:appH-coordinate-Hessian-form}.
+No direct appeal to Sard's theorem for arbitrary C2 differences in
+all dimensions is used in this regular-boundary statement.
+
+For example, the complex dimension-four polynomial
+\(F=\sigma_3-\sigma_1\) has positive linearization on the branch
+\[
+ \tag{H.12}\label{eq:appH-critical-polynomial-branch}
+ \sum_{i\ne j}\lambda_i>
+       \sqrt{2+\sum_{i\ne j}\lambda_i^2},
+ \qquad j=1,\ldots,4.
+\]
+Each condition is a convex inequality; their intersection contains
+\((1,1,1,1)\). This is the positive component in
+\cite[Example~4.1]{DinewMygaSroka26IntegralV1}. It gives a selected
+smooth elliptic branch with the segment property. Taking all
+components of the ellipticity locus together would give a different
+domain. The same source's real dimension-three Example~4.2 shows
+failure of comparison between quadratics on different components.
+
+\subsection{A product of eigenvalue sums has a different scope}
+\label{sec:appH-product-eigenvalue-obstruction}
+
+In \(\mathbf C^n\), a smooth function is p-plurisubharmonic when
+its restriction to every affine complex p-plane is subharmonic.
+Equivalently, the sum of its p smallest complex Hessian eigenvalues
+is nonnegative. This notion differs from the usual m-subharmonic
+conditions \(\sigma_j(H_u)\geq0\), \(1\leq j\leq m\), on the
+closure of the appropriate G\"arding branch. In particular,
+p=1 gives psh functions and p=n gives ordinary subharmonic functions.
+
+For \(1\leq p\leq n\), define
+\[
+ \tag{H.13}\label{eq:appH-product-eigenvalue-sums}
+ \mathcal M_p(H_u)=
+       \prod_{\substack{I\subset\{1,\ldots,n\}\\|I|=p}}
+                          \left(\sum_{i\in I}\lambda_i(H_u)\right).
+\]
+On the strict positive-sum branch this is a nonnegative elliptic
+spectral operator. The branch is defined by positivity of each
+factor, not merely positivity of their product. For instance,
+\(\lambda_1\lambda_2>0\) alone also includes two negative eigenvalues.
+The endpoints of \eqref{eq:appH-product-eigenvalue-sums} are
+\(\mathcal M_1=\sigma_n\) and \(\mathcal M_n=\sigma_1\).
+Already in dimension three,
+\(\mathcal M_2=\sigma_1\sigma_2-\sigma_3\); this is nonlinear
+in the elementary symmetric invariants.
+
+The following is the published result of
+\cite[Theorem~4.1, pp.~1004--1008]{Dinew22SadullaevPublished}.
+Its index m is written p here to keep the complex-plane convention visible.
+
+\begin{theorem}\label{thm:appH-Dinew-product-comparison}
+Fix \(\alpha>0\). If \(\mathcal M_p^\alpha\) satisfies the
+universal unweighted integral comparison principle for smooth
+p-plurisubharmonic functions on bounded complex domains, then
+\(\alpha=1\) and \(p=1\) or \(p=n\). Conversely, these endpoint
+operators with \(\alpha=1\) satisfy the classical comparison principle.
+\end{theorem}
+
+\begin{proof}[From Dinew's two test families]
+We recall the two necessary inequalities in the published proof.
+First take a large positive diagonal quadratic and add a negative
+smooth perturbation \(\chi\) whose value and gradient vanish at
+the boundary of the unit ball. Sending n-p diagonal coefficients
+to infinity reduces comparison to a power of the trace on the
+remaining p coordinates. The linear term in a small multiple of
+\(\chi\) integrates to zero. Its quadratic term has sign
+\(\alpha(\alpha-1)\), so comparison requires \(\alpha\geq1\)
+\cite[Claim~4.3, pp.~1005--1006]{Dinew22SadullaevPublished}.
+
+For the other inequality, set
+\(\chi_A(t)=\tfrac12((t+A)^2/(1+A)-1-A)\), \(A\geq0\),
+and \(u_A(z)=\chi_A(|z|^2)\). These are psh, vanish on the
+unit sphere, and decrease as A increases. Their Hessian eigenvalues
+are \(\chi_A'\), repeated n-1 times, and
+\(\chi_A'+|z|^2\chi_A''\). Computing the two integrals for
+\(u_0\) and the limit of \(u_A\) gives
+\[
+ \tag{H.14}\label{eq:appH-Dinew-exponent-test}
+ \left(1+\frac1p\right)^b\leq1+\frac bp,
+ \qquad b=\binom{n-1}{p-1}\alpha.
+\]
+Strict Bernoulli inequality rules this out for b>1. Thus
+\(\alpha\leq\binom{n-1}{p-1}^{-1}\), by
+\cite[Claim~4.4, pp.~1006--1007]{Dinew22SadullaevPublished}.
+Together with \(\alpha\geq1\), this leaves only p=1 or n
+and \(\alpha=1\). The endpoints are the ordinary complex
+Monge--Amp\`ere and Laplace comparison principles.
+\end{proof}
+
+The statement concerns all admissible smooth pairs. A radial-only
+comparison can have the exponent
+\(\binom{n-1}{p-1}^{-1}\), as discussed in the same source's
+Remark~4.5, without contradicting it. Nor does failure of this
+integral principle exclude viscosity comparison for a fixed equation.
+
+\subsection{What comparison leaves to the weak theory}
+\label{sec:appH-smooth-comparison-weak-boundary}
+
+For a general smooth F, compact nonnegative perturbations of an
+admissible u give a useful necessary test for universal comparison.
+Differentiating \(v_t=u+t\phi\), \(\phi\geq0\) compactly supported,
+and integrating by parts yields
+\[
+ \tag{H.15}\label{eq:appH-comparison-adjoint-test}
+ \sum_{i,j}\partial_i\partial_jF^{ij}(D^2u)\leq0
+\]
+in the real setting, in the distributional sense; for smooth
+coefficients it is a pointwise inequality. This is the first-variation
+test in \cite[(3.3)--(3.6)]{DinewMygaSroka26IntegralV1}.
+It is an obstruction test, not a construction of a weak nonlinear
+measure. The remaining invariant-coordinate jet expansion requires
+more regularity than the merely differentiable F declared in that
+edition; the exact audit in
+\Cref{sec:provenance-Hessian-integral-comparison} records this boundary.
+
+The literal zero-constant classification formula in that preprint
+also needs a normalization: comparison cannot detect an additive
+constant. Its homogeneous branch equality needs a domain selection
+condition, since comparison survives restriction to a proper
+admissible subcone. We use its sufficiency mechanism with the
+displayed hypotheses, rather than importing those unrestricted
+classification statements.
+
+Similarly, the fixed equation
+\(\sigma_n/\sigma_{n-k}=c\), where the denominator is positive,
+can be rewritten as \(\sigma_n-c\sigma_{n-k}=0\).
+The polynomial and the raw quotient are different operators in
+\eqref{eq:appH-smooth-integral-comparison}. A branch comparison
+for one does not automatically supply that integral principle for
+the other. For singular potentials one still needs a domain of
+definition, approximation independence, local mass control and
+the relevant continuity and comparison theorems. The variable-background
+Hermitian setting of \Cref{sec:ytd-direct-gradient-compactness}
+requires its own analytic inputs. None of these local spectral
+observations supplies general non-Archimedean Siu division or
+envelope closure.
 
 \section{Unit tests and failure modes}
 \label{sec:appH-unit-tests}
