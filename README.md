@@ -9,7 +9,17 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,426 pages**.
+The current research-integration build has **4,432 pages**.
+The [local maximality integration audit](manuscript/editorial/Do_Hiep_complex_reference_integration_audit_20261006.md)
+records Appendix H.8 and Appendix L.64. Analytic spread distinguishes
+divisor poles from isolated poles; compact comparison requires common
+potential transitions and retains full polar mass. The complex-surface
+criterion uses the full residual Cegrell square under its local energy
+sandwich, with no higher-dimensional extension. Normalizations and
+external proof inputs are explicit. All 47 selected final pages were
+read and displayed; compilation, references, index, navigation and
+canonical inventory pass. The [locator addendum](manuscript/editorial/Do_Hiep_source_locator_addendum_20261006.md)
+corrects approximate locators in the preceding frozen source audit.
 The [Do–Hiep exact-source review](manuscript/editorial/Do_Hiep_local_maximality_comparison_source_review_20261006.md)
 reads both new local maximality/comparison papers in full and a precise
 dependency selection: 78 displayed edition/page pairs, four full PDFs.

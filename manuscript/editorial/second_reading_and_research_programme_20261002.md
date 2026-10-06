@@ -4053,3 +4053,52 @@ attributed complex-reference exposition on analytic spread, surface
 residual mass and the compact comparison interface, preserving all
 external inputs and the conditional general BJ22 Siu/envelope boundary.
 Build the book and read the matching final additions and transitions.
+
+### Local maximality and full residual mass integration, 6 October 2026
+
+The [integration audit](Do_Hiep_complex_reference_integration_audit_20261006.md)
+records Appendix H.8 and Appendix L.64. The attributed analytic-singularity
+theorem distinguishes ordinary mass off the poles from the strict
+analytic-spread bound at poles. The normalized ideal blow-up, powers,
+integral closures and matched local coefficients retain their actual
+scope. McAdam's original proof, complex Siu decomposition and normal-space
+extension remain external inputs.
+
+Compact comparison uses local Cegrell potentials with common
+pluriharmonic transitions, full Radon products and finite signed
+integrals on compact support. General domination keeps the positive
+almost-everywhere density hypothesis of Lemma 4.3. On complex surfaces,
+the local E-sandwich yields a residual current with local E-potentials;
+maximality is equivalent to vanishing of its full square. The isolated
+squared-log example has a unit atom even though its nonpluripolar square
+is zero. No higher-dimensional residual criterion is inferred.
+
+The [locator addendum](Do_Hiep_source_locator_addendum_20261006.md)
+corrects approximate introductory page locators and the nonexistent
+Example 4.7 in the preceding frozen audit. The general compact domination
+input is Lemma 4.3; Corollary 4.4 is its zero-mass specialization. The
+original frozen audit and manifest retain their bytes, and the current
+text uses corrected locators. Source evidence reuses the preceding 78
+edition/page pairs, 42 sheets and nineteen scoped records; no new
+primary-page audit or complete general mixed-capacity repair is claimed.
+
+The 4,432-page book passes required repository validation, complete
+compilation, references, bibliography, index, navigation and the
+unchanged canonical inventory. All 47 selected matching final pages
+were read as complete text and displayed in 24 sheets, including
+additions, transitions and the complete index and bibliography. This
+is not another whole-book rereading. Six edition-specific bibliography
+entries, sixteen labels, six equation tags and three index entries are
+added. The 423 other active inputs, all 22 old formal blocks and eight
+old proof blocks in the changed appendices, 108 protected inputs,
+86 preceding frozen manifests and 148 prior exports retain their bytes.
+The native catalogue/editor and canonical statuses are unchanged.
+
+Save immutable book/review/source artifacts and the closure ledger,
+verify every archive member, fetch main and work, push normally and
+update the existing draft PR. Then check inherited bibliography
+duplicates and title-case losses while preserving distinct editions
+and proof-source bindings; continue recent primary-source research
+and incoming author progress. This integration adds no original
+result, independent model call or production receipt, and supplies
+no general BJ22 homogeneous Siu/envelope division input.
