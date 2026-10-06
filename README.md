@@ -9,7 +9,18 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,361 pages**.
+The current research-integration build has **4,366 pages**.
+The [isolated hypertoric audit](manuscript/editorial/isolated_hypertoric_audit_20261006.md)
+checks Namikawa's rank-one family and Beauville's form-extension criteria
+against complete arXiv readings. Chapter 68 explains the free quotient,
+simply connected smooth locus, finite-quotient partial resolution and
+parity-dependent effective minimizing grading. The two-pair cyclic surface
+has a separate topology. The recent Coulomb-branch classification keeps
+its conjectural correspondence and local fundamental-group assertions;
+matching generating functions are not treated as an isomorphism proof.
+All thirty-eight new primary pages and forty-four matching final book
+pages were displayed. The build and navigation checks pass; canonical
+open-problem statuses and the native catalogue retain their prior scope.
 The [Calabi–Yau finiteness source review](manuscript/editorial/calabi_yau_finiteness_source_review_20261006.md)
 reads the new arXiv framework in full and checks all 34 actual pages.
 It records missing capacity hypotheses, an invalid printed diameter

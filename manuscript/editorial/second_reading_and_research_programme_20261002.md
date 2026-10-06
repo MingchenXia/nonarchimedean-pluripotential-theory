@@ -2701,3 +2701,34 @@ receipt. All 425 active inputs, 46 earlier frozen manifests, exports,
 native catalogue, inventory and toric candidate retain their bytes.
 The checked book remains 4,361 pages; no fresh book build is claimed.
 Continue GitHub synchronization and accurate related-source research.
+
+### Isolated hypertoric topology and effective gradings — 6 October
+
+After `4763429`, one explanatory Chapter 68.8 subsection and Appendix
+L.48 continue the known symplectic examples. The
+[new audit](isolated_hypertoric_audit_20261006.md) fully reads Namikawa's
+eleven-page arXiv v3, Beauville's nine-page arXiv v1 and the eighteen
+actual pages of Bourget–Lamouret–Soysüren–Sperling v2. All 38 primary
+pages were displayed. The different journal PDFs are not claimed read.
+
+The rank-one family retains positive pairwise coprime weights and at
+least three coordinate pairs. The chapter checks free quotient charts,
+finite symplectic quotient partial resolutions and the explicit quadratic
+link topology. The partial model need not be smooth. Primitive kernel
+rows put the standard scaling within the previously checked minimizing
+theorem; parity determines its finite kernel and effective form weight.
+The two-pair surface has codimension-one removal and a nontrivial cyclic
+fundamental group. General-matrix depth and contact classification are
+not imported. The recent quiver classification keeps its conjectural
+correspondence; equal generating functions do not prove geometric or
+Poisson isomorphism, and the new families' local groups remain conjectural.
+
+The final 4,366-page build passes references, bibliography, index and
+PDF navigation checks, with zero overfull boxes. Forty-four matching
+final pages were displayed and reread, including all index and bibliography
+pages. All 108 protected inputs, 46 preceding integration manifests,
+the separate Calabi–Yau source-review manifest, 94 recorded earlier
+exports, 42 complete canonical status rows, native catalogue and toric
+candidate retain their bytes. No original result, new production-model
+receipt, Siu/closure repair or A2–A4 solution is admitted. Continue routine
+work-branch synchronization and the accurate related-paper search.
