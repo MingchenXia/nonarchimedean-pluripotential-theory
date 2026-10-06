@@ -3223,3 +3223,47 @@ build, original result, independent model call, verification receipt
 or general Siu/closure repair is claimed. Continue with the remaining
 bounded background-class comparison and specialized uniform-estimate
 inputs before admitting broader Hermitian Hessian regularity.
+
+### Bounded background Hessian theory and continuity: completed readings — 6 October
+
+Read and displayed every previously unread page of the published
+Kołodziej--Nguyen background-form paper and Fang's continuity v1.
+The new selection has 56 physical pages in 29 sheets: 45 from the
+published PDF, including two publisher end pages, and eleven from
+the preprint. Together with 29 earlier physical pages, including
+the publisher cover, this gives cumulative complete readings of
+the exact sixty-page published paper and twenty-two-page preprint.
+The old selections remain frozen and are not claimed freshly reread.
+See the [completed source review](Hessian_bounded_background_source_review_20261006.md).
+
+The bounded operator uses currents of order zero, lower-degree wedge
+products, weighted energy estimates, capacity convergence and
+quasicontinuity. The background extension retains the smooth remainder
+alpha-ddc rho. The paper states transfer of local results, but its
+local background Dirichlet proof is omitted and global boundary
+uniqueness has separate hypotheses. Fang's global proof invokes that
+background comparison beyond the zero-background corollary's literal
+domain. Its bounded-obstacle contact step also needs more than the
+quoted continuous-obstacle statement. The continuity-to-smoothness
+chain retains these explicit gates and the specialized uniform estimates.
+
+Seven exact diagnostics record an endpoint product prefactor, a wedge
+degree, a difference-of-powers summation range, a wrongly repeated
+unknown in an exponential hypothesis, an impossible scale-independent
+norm/modular inequality, a false quarter coefficient in dimension
+three, and norm-tail convergence inferred from Orlicz membership
+without all-scale integrability. The source's chi(1) normalization
+clears a possible Holder-constant objection. The tail obstruction
+disappears for bounded densities; the smooth-density problem still
+requires its comparison and limit arguments. These checks do not
+refute either main PDE theorem or certify a complete external repair.
+
+This source-only checkpoint preserves all 425 active inputs, 108
+protected inputs, 64 prior frozen manifests, 121 prior exports,
+the checked 4,394-page book and every generated book file, all 42
+complete canonical statuses, and the native catalogue. Inventory and
+whitespace checks pass. No unchanged-book build, new book PDF review,
+native compile, editor/tab change, original admission, independent
+model call or verifier receipt is claimed. Continue with the exact
+bounded-density auxiliary theorem and background comparison inputs;
+also check current arXiv versions before importing broader conclusions.

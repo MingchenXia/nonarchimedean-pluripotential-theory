@@ -10,6 +10,17 @@ The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
 The current research-integration build has **4,394 pages**.
+The [bounded background and continuity review](manuscript/editorial/Hessian_bounded_background_source_review_20261006.md)
+completes the precise published background-form paper and Fang's
+continuity preprint, reusing 29 earlier physical pages and reading all
+56 remaining pages. The cumulative scope is 82 research-text pages,
+with publisher matter counted separately. It retains the smooth
+background remainder, the local/global comparison boundary, bounded
+obstacle contact inputs and the distinction between Orlicz membership
+and norm convergence. Seven exact checks concern printed factors,
+powers, an exponential, scaling and a dimensional coefficient; none
+refutes a main PDE theorem. This source-only checkpoint preserves
+the checked book and all canonical statuses.
 The [continuous Hessian audit](manuscript/editorial/continuous_Hessian_audit_20261006.md)
 records Chapter 68.9.5 and Appendix L.56. It explains the known global
 domination argument for continuous admissible potentials, the uniform
