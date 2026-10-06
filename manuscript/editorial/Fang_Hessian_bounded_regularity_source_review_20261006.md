@@ -30,9 +30,11 @@ Hermitian manifold, for 2<=m<=n, of
 with f smooth on X times R. The claimed conclusion is smoothness of
 this existing solution. The claim does not impose monotonicity of f
 in the unknown, and does not itself establish existence or uniqueness
-for arbitrary original right-hand-side dependence. The source uses
-ddc=2i partial barpartial. Any future import must convert potentials
-to the book's ddc=i partial barpartial/(2 pi).
+for arbitrary original right-hand-side dependence. The earlier
+continuity dependency explicitly uses ddc=2i partial barpartial;
+the new paper does not repeat an explicit ddc definition. Any future
+import must state its convention and check the potential conversion
+against the book's ddc=i partial barpartial/(2 pi).
 
 The proof follows the positive-coefficient static scheme used in the
 preceding Monge--Ampère paper. Given smooth decreasing admissible
@@ -264,3 +266,11 @@ input and the specialized estimate before deciding which limited
 Hessian material belongs in the existing Chapter 68 discussion.
 Cloud synchronization explicitly fetches both main and work and
 uses the existing work branch and PR.
+
+The initial audit described the new paper's ddc convention too
+categorically. That wording is corrected above before this checkpoint
+is pushed. The initial manifest and exact initial audit bytes remain
+historical; the separate v2 manifest pins this corrected audit and
+the preserved original snapshot. No mathematical theorem, diagnostic
+data, source reading, book input or problem status changes in this
+correction.
