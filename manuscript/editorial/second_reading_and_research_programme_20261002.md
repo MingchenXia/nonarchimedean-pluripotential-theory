@@ -4226,3 +4226,38 @@ Chapter 66 integration. Continue recent primary-source research and
 incoming author progress. No new original result, independent model
 call, verification receipt or general BJ22 Siu/envelope closure repair
 is added by this checkpoint.
+
+### Hyper-Kähler group entropy sources, 6 October 2026
+
+The [exact-source audit](hyperkahler_group_entropy_source_review_20261006.md)
+reads all eight pages of Denisi–Oguiso–Onorati–Rizzo–Viktorova
+2610.05173v1, all fourteen ASV pages, all twenty DORV pages and an
+exactly recorded older dependency selection: 91 actual physical pages
+in 46 displayed sheets. The 2016 Amerik–Verbitsky author copy is
+separate from its changed-title 2020 publication. The published
+homogeneous-dynamics proof and remaining measure-theoretic inputs
+are not declared verified by reading that old copy.
+
+Eighteen scoped records preserve the H2-level entropy convention,
+polarized family hypotheses, finite common-group exceptions, the
+monodromy image/kernel distinctions and fixed deformation type.
+Six elementary checks include the new binary-vector square, an
+odd-lattice isotropic-partner obstruction and positive-cone scope.
+The exact-v1 theorem is source-attested, with no independently
+certified reconstruction or counterexample. Dense fiberwise
+existence does not choose a relative map or close Chapter 66's
+family-uniform eigenpotential and mixed-product inputs.
+
+The 4,438-page checked book remains unchanged. All 425 active and
+108 protected inputs, both bibliographies, generated book/index,
+90 preceding manifests and 157 exports retain their bytes. The
+native catalogue/editor and canonical problem statuses are preserved.
+No original theorem, independent model call or verification receipt
+is added, and general BJ22 Siu/envelope closure remains conditional.
+
+Fetch both main and work and push this source-only audit normally.
+Next add a short attributed Chapter 66 interface and Appendix L
+provenance account, retaining the source's statement as such and
+the unresolved proof gates. Continue incoming author progress and
+related recent primary-source research; an unconditional proof
+reconstruction first needs the controlling published dependencies.

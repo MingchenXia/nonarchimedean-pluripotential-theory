@@ -10,6 +10,17 @@ The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
 The current research-integration build has **4,438 pages**.
+The [hyper-Kähler group-entropy source audit](manuscript/editorial/hyperkahler_group_entropy_source_review_20261006.md)
+reads Denisi–Oguiso–Onorati–Rizzo–Viktorova 2610.05173v1 and eight
+precisely scoped dependencies: 91 actual pages in 46 displayed sheets.
+It records dense existence of fiberwise positive-entropy birational maps,
+retaining polarization, finite exceptions, monodromy images and the
+fixed deformation type. This does not select a relative automorphism or
+prove hybrid invariant-measure convergence. Eighteen scoped records and
+six elementary checks keep literal defects distinct from the unrefuted
+main theorem. The controlling published homogeneous-dynamics proof remains
+an external gate; the old 2016 author copy is not substituted for it.
+The checked book, native catalogue and canonical statuses are preserved.
 The [smooth Hessian comparison integration](manuscript/editorial/Hessian_integral_comparison_integration_audit_20261006.md)
 adds Appendix H.9, Appendix L.65 and a Chapter 68 connection. It explains
 the coordinate normalization, Hessian/Codazzi Newton identity and boundary
