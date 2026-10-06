@@ -10,6 +10,17 @@ The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
 The current research-integration build has **4,417 pages**.
+The [Favre–Gong exact-source review](manuscript/editorial/Favre_Gong_dynamical_degenerations_source_review_20261006.md)
+reads all 58 pages of 2406.15892v4 and 35 selected Rumely/Luo/Poineau
+pages: 93 displayed source/page pairs. Twenty-seven records separate
+literal auxiliary failures from the unrefuted main measure and intrinsic
+Lyapunov-continuity assertions. The derivative uses the valued scalar
+\(\lvert1/d\rvert\), principal exponents carry their positive scaling,
+and quasi-model integrals require nonzero fibre data. Weak topology,
+path distance, relative reference terms, singular integrability and
+good-ring hypotheses remain explicit; a complete proof repair is not
+certified. This source-only checkpoint preserves the checked book and
+canonical statuses.
 The [K3 hybrid source review](manuscript/editorial/hybrid_K3_dynamics_source_review_20261006.md)
 reads all eighteen pages of Irokawa 2405.12517v1 and 38 selected
 Cantat/Filip/Demailly dependency pages: 56 displayed physical pages.

@@ -3900,3 +3900,46 @@ exact readings, computations and source-only gate; fetch both branches,
 publish on work and update the draft PR. Then continue Favre–Gong v4
 and integrate only source-attested results or an explicitly conditional
 K3 application with its family-uniformity and product-class inputs.
+
+### Sequential hybrid rational dynamics source reading, 6 October 2026
+
+The [exact Favre–Gong review](Favre_Gong_dynamical_degenerations_source_review_20261006.md)
+reads and displays the complete 58-page 2406.15892v4, whose arXiv
+submission date is 20 June 2026 and whose internal PDF date is 23 June.
+Thirty-five selected Rumely/Luo/Poineau pages were also read and
+displayed; the fresh scope is 93 source/page pairs in 48 sheets.
+Only the main paper is fully read. Publication metadata and keyword
+location scans are not counted as published-proof or page reading.
+
+Twenty-seven scoped records keep the positive resultant scale, potential
+good reduction, weak/strong topology, fibrewise proper quasi-model data,
+reference terms and singular integrability explicit. The derivative
+formula must use |J/d| with the scalar inside the valued norm; on C^e
+it gives e log d for z^d, and on the nonprincipal Gauss fibre it gives
+zero. Principal Lyapunov values carry epsilon_n. Literal auxiliary
+claims about bounded families, arbitrary-ring density, all-coordinate
+root lifting and polynomial norm linearity fail concrete tests.
+These do not refute the properly defined main continuity assertions,
+and a full repaired proof is not certified. The singular maximum
+passage and both directions of the Luo-scale comparison retain their
+additional proof inputs.
+
+Poineau's good-ring definition includes local arc connectedness;
+it does not automatically apply to the beta N product spectrum.
+Its separately scoped relative-line theorem and uniform-potential
+test estimate remain useful. Luo's correspondence concerns the
+scaled metric quotient and a branched tree covering. Only selected
+dependency statements/proof passages, not their complete chains,
+are checked.
+
+All 425 active inputs, both bibliographies, 108 protected inputs,
+compiled book/index products, 82 preceding frozen manifests and
+142 exports are preserved. The 4,417-page index-polished book is
+reused without a fresh build or book-page review. Native catalogue
+and editor, canonical statuses and the BJ22 Siu/envelope boundary
+remain unchanged. No original result, model call or receipt is claimed.
+Save the immutable source-review manifest, fetch both remote branches,
+push normally on work and update the draft PR under standing
+authorization. Then integrate scoped sequential/relative-line
+exposition and the known K3 symmetric eigen-current normalization,
+retaining every uniformity, product-class and integrability input.
