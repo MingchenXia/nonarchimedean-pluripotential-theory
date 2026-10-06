@@ -2636,3 +2636,41 @@ claim is made. Continue normal work-branch synchronization and the
 nilpotent/hypertoric examples. A newly acquired 30 September twisted
 loop-slice paper remains outside the active book while its positive
 characteristic and singular-slice hypotheses are investigated.
+
+### Nilpotent and hypertoric minimizing gradings — 6 October
+
+After `ecdb736`, four explanatory Chapter 68.8 subsections and Appendix
+L.47 import the known symmetry applications and Namikawa's algebraic
+hypertoric characterization, with a worked cyclic surface. The
+[new audit](symplectic_examples_audit_20261006.md) reuses the completed
+Xu–Zhuang–Guenancia reading, fully reads the six-page Namikawa II v2,
+and records selected Part I v5 and published Brylinski–Kostant inputs.
+Twenty-seven new actual primary pages were displayed; the different
+Part I journal edition and the 1992 announcement are not substituted
+for checked source locators.
+
+The nilpotent closure is normalized; the symmetry arguments use
+effective image tori and connected centers. The hypertoric swap
+preserves the moment products and changes the form's sign, preserving
+its line. Unimodularity is separated from the minimizer signature.
+The cyclic quotient has volume 4/q, alpha 2/sqrt(q) and critical MT
+exponent 3/sqrt(q), with finite kernels and primitive form weights
+explicit. A comparison among weighted valuations does not exhaust all
+valuations. The weight-two algebraic characterization retains a
+projective symplectic resolution and effective Hamiltonian half-torus;
+the given good action can need a cocharacter correction.
+
+The final 4,361-page build passes references, bibliography, index and
+PDF navigation checks, with zero overfull boxes. Forty-four matching
+final pages were displayed, including the full index and bibliography.
+The first partial PDF rereading caught an erroneous negative sign in
+the new moment-map swap equality; it was corrected before export.
+The contents heading was shortened after visual inspection. All 108
+protected inputs, 45 preceding frozen integration manifests, earlier
+exports, 42 complete canonical status rows, native catalogue and toric
+candidate retain their bytes and scope. No new production-model
+receipt, original theorem or priority claim is made. Continue routine
+work-branch synchronization and the separate related-source search.
+The positive-characteristic loop-slice paper remains research-only;
+the additional September/October search results require primary-source
+and hypothesis checks before any admission.

@@ -9,7 +9,21 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,355 pages**.
+The current research-integration build has **4,361 pages**.
+The [nilpotent and hypertoric examples audit](manuscript/editorial/symplectic_examples_audit_20261006.md)
+checks the known minimizing gradings and Namikawa's 2026 weight-two
+algebraic characterization. Chapter 68 explains the reductive symmetry
+criterion, normalization of nilpotent orbit closures, connected centers,
+finite action kernels and the hypertoric swap's negative form sign.
+A cyclic surface connects the degree formula, primitive weights and
+distinct alpha/critical MT exponents. The algebraic classification
+retains its resolution and effective half-dimensional Hamiltonian torus,
+and can require changing the good action. Namikawa II was read in full;
+Part I and Brylinski–Kostant's printed 1994 paper have selected audits.
+Twenty-seven new primary pages and forty-four matching final book pages
+were displayed. PDF rereading corrected a moment-map sign and shortened
+a crowded contents heading before the final clean build and exports.
+The open-problem inventory and native catalogue are unchanged.
 The [symplectic cone-structure audit](manuscript/editorial/symplectic_conicality_audit_20261006.md)
 checks Namikawa–Odaka's February 2026 v4 in full, with selected primary
 inputs from Kollár and Artin. Chapter 68 now distinguishes algebraization
