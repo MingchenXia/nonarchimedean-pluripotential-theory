@@ -2532,3 +2532,40 @@ receipt or original priority claim is made. Continue normal work-branch
 synchronization, and audit the recent finite-degree normalized-volume
 paper, including its effective boundaries and analytic dependencies,
 before any further import.
+
+### Finite degree and local thresholds — 6 October
+
+After `bdd91fd`, three Chapter 68.8 subsections and L.44 import the
+known finite degree formula from Zhiyu Liu's arXiv:2607.27032v2.
+The [new audit](finite_degree_normalized_volume_audit_20261006.md)
+records a complete twenty-page reading and display of the main source,
+and twenty-nine selected pages of six primary dependencies. The
+local formula, global all-fiber sum, effective rational boundaries,
+degree-preserving degeneration lift, compatible Reeb vectors and
+the lower-semicontinuity direction are explicit. The reverse estimate
+uses a rank-d module injection and a lower-order torsion length.
+Analytic stability inputs remain identified; no arbitrary-cover
+K-polystability or stable-regime delta equality is asserted.
+
+The previously checked zero-boundary isolated algebraic alpha and
+sharp MT thresholds scale by d^(1/n), each with its own admissible
+domain and adapted probability measure. This formal consequence
+does not transfer individual Dirichlet solutions or prove endpoint
+existence, uniqueness or a compact big-class delta transformation.
+The historical claim ledger retains its August cutoff; the chapter
+opening now correctly limits that cutoff to the ledger. Two carriage
+return characters in older primary-ideal subscripts were repaired,
+preserving the mathematical formula and all formal statement blocks.
+
+The final 4,347-page build passes references, bibliography, index and
+PDF navigation checks with zero overfull boxes. Thirty-six matching
+final pages were displayed, including both repaired formulas, all new
+content and the entire seventeen-page bibliography. The forty-two
+complete canonical status rows, native catalogue, toric candidate,
+108 protected inputs, previous frozen manifests and exports remain
+unchanged. No independent production-model receipt or priority claim
+is made. Continue routine work-branch synchronization. The next source
+direction is the differential-form and symplectic stable-degeneration
+part of Xu–Zhuang–Guenancia v2, which has so far been used only for
+selected local stability preliminaries; its further claims must be
+read and checked separately before integration.

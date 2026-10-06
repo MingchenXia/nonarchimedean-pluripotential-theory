@@ -4,12 +4,23 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
-**Active continuation, 5 October 2026:** the ordered second reading of all
+**Active continuation, 6 October 2026:** the ordered second reading of all
 72 chapters, Appendices A--N and nine front-matter files is complete.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,340 pages**.
+The current research-integration build has **4,347 pages**.
+The [finite degree audit](manuscript/editorial/finite_degree_normalized_volume_audit_20261006.md)
+checks Zhiyu Liu's twenty-page arXiv v2 and six selected proof dependencies.
+Chapter 68 now gives the local finite degree formula, the global sum over
+all fiber points, and the two directions of the volume comparison.
+In the previously checked zero-boundary isolated algebraic setting,
+the local alpha and critical MT exponents scale by the nth root of the
+degree. The boundary hypotheses, analytic stability input and distinct
+arXiv/journal locators are explicit. All twenty main-source pages,
+twenty-nine selected dependency pages and thirty-six final book pages
+were displayed. Two primary-ideal subscript typography errors were
+also repaired. The whole build and PDF navigation checks pass.
 The [local klt comparison audit](manuscript/editorial/local_klt_normalized_volume_audit_20261005.md)
 checks the known normalized-volume and integrability formulas for isolated
 complex algebraic klt singularities. Chapter 68 explains how simultaneous
