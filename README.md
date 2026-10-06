@@ -10,6 +10,16 @@ The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
 The current research-integration build has **4,394 pages**.
+The [Xu regularization source review](manuscript/editorial/Xu_Hessian_regularization_source_review_20261006.md)
+reads the current v3 in all 42 actual pages and 27 primary dependency
+pages. It separates canonical bounded representatives, heat/envelope
+regularization, complex Hessian bounds, Liouville gradient estimates,
+the quantitative Hölder exponent and auxiliary identification. Six
+literal checks concern proof formulas, endpoint barriers and the
+scope of a cited quantitative subsolution estimate; the exponent is
+checked and no main regularity counterexample is claimed. Background
+comparison and uniform weak Lp inputs remain explicit gates. This
+source-only checkpoint preserves the book and canonical statuses.
 The [bounded background and continuity review](manuscript/editorial/Hessian_bounded_background_source_review_20261006.md)
 completes the precise published background-form paper and Fang's
 continuity preprint, reusing 29 earlier physical pages and reading all

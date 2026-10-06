@@ -3267,3 +3267,49 @@ native compile, editor/tab change, original admission, independent
 model call or verifier receipt is claimed. Continue with the exact
 bounded-density auxiliary theorem and background comparison inputs;
 also check current arXiv versions before importing broader conclusions.
+
+### Xu regularization and quantitative Hölder continuity — 6 October
+
+Read and individually displayed all 42 actual pages of Xu's current
+arXiv:2608.15552v3, including proofs and references. The current metadata
+reports forty pages; the acquired PDF has forty-two. Also read thirteen
+selected pages of Cheng--Xu's precise v2, including the entire printed
+smooth-solvability argument, and all fourteen pages of Guo--Phong's
+quantitative-subsolution v1. This is 69 new physical pages in 35 sheets;
+the other 29 Cheng--Xu pages remain unread and its distinct published
+PDF is not claimed read. See the [source review](Xu_Hessian_regularization_source_review_20261006.md).
+
+The heat argument retains the fixed metric and invariant Gauduchon
+adjoint density; bounded use needs a canonical representative and the
+pointwise heat-limit argument. The penalty estimate controls the complex
+Hessian, with a separate gradient bound proved by Gamma-Liouville
+blow-up. The canonical cone operator uses a dual-cone characteristic
+integral. The determinant-domination conversion's full short proof
+is now read. The strict Hölder exponent and its normalized Hessian
+Lp substitution agree under an exact fixed-point check.
+
+For a given bounded Hessian solution, the final identification uses
+positive-exponent auxiliary equations, a noncollapse condition, upper
+and lower normalizer control, uniform Hölder compactness, bounded
+background comparison and uniform Hessian-measure continuity. It does
+not rely on uniqueness of the original equation. The cited smooth
+general theorem needs endpoint barriers, satisfied by these affine
+auxiliary nonlinearities. The cited Guo--Phong estimate concerns C2
+solutions with a quantitative subsolution radius; its constants cannot
+be replaced by an Lp-only bound without another input. The exact weak
+Lp estimate and background local transfer therefore remain gates.
+
+Six literal diagnostics distinguish representative spikes, an incorrect
+obstacle-extremum comparison, missing general endpoint barriers, a wrong
+supersolution test direction, the dependence on a subsolution radius
+and an intermediate missing beta factor. They do not refute Xu's
+main theorem or certify a complete external repair. The Hölder exponent
+objection is cleared. No active TeX or canonical status changes.
+
+This source-only checkpoint preserves all 425 active inputs, 108
+protected inputs, 65 prior frozen manifests, 121 prior exports, the
+checked 4,394-page book and its generated files, and the native catalogue.
+No repeated unchanged-book build, editor change, native compilation,
+original admission, independent model call or verification receipt is
+claimed. Continue with the current Guo--Song direct gradient paper and
+the remaining exact comparison and weak uniform-estimate inputs.
