@@ -3943,3 +3943,44 @@ push normally on work and update the draft PR under standing
 authorization. Then integrate scoped sequential/relative-line
 exposition and the known K3 symmetric eigen-current normalization,
 retaining every uniformity, product-class and integrability input.
+
+### Sequential rational and K3 dynamics integration, 6 October 2026
+
+The [integration audit](hybrid_sequential_K3_dynamics_audit_20261006.md)
+records Chapter 66.7–66.8 and Appendix L.62–L.63. The sequential
+resultant scale, product-ring base and Robinson fields are distinct
+from the good-base relative-line theorem and the chapter's integral-base
+range. Uniform Green tails and dense proper tests explain weak
+continuity; intrinsic derivatives retain |J/d| and principal scaling.
+The singular integral limit keeps continuous truncations and uniform
+integrability explicit. Different ultrafilters need not give one
+ordinary limit. No full Favre–Gong proof repair is certified.
+
+K3 fixed-fibre approximants use Lambda^{-n} in both directions.
+Their mixed mass tends to abq; probabilities divide by their own mass.
+Cantat's continuous-potential theorem and Filip's compact torsor,
+changing-character and positivity results keep their exact locators.
+The hybrid application still assumes family-uniform relative weights,
+compatible references and a real nef mixed-product continuity interface.
+The raw approximant failure does not refute Irokawa's correctly defined
+main measure assertion. No original theorem or repaired-proof certificate
+is admitted.
+
+The 4,426-page final book passes compilation, references, bibliography,
+index, navigation and the unchanged canonical inventory. All 52 matching
+final pages were read and displayed in 26 sheets, including affected
+contents, full additions/source notes/provenance and complete index and
+bibliography. This is not a new whole-book rereading. Eight version-specific
+bibliography entries are added; the distinct existing published Poineau
+entry is newly cited. The 423 other active inputs, 35 old formal blocks,
+eleven proof blocks, 108 protected inputs, native catalogue/editor,
+83 prior frozen manifests and 142 prior exports are preserved.
+
+Save immutable book/review/source artifacts and current closure ledger;
+verify archive member bytes, fetch both remote branches, push work and
+update the draft PR. Then polish the two inherited index display spellings
+Kolodziej and Hodge–Poincare, preserving their keys/page arguments and
+all active source mathematics. Continue exact-primary-source research and
+incorporate incoming author progress under the standing GitHub authorization.
+No model call, verifier receipt or general BJ22 Siu/envelope-closure repair
+is claimed by this integration.

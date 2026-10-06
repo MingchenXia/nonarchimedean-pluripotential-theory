@@ -9,7 +9,17 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,417 pages**.
+The current research-integration build has **4,426 pages**.
+The [sequential/K3 integration audit](manuscript/editorial/hybrid_sequential_K3_dynamics_audit_20261006.md)
+records Chapter 66.7–66.8 and Appendix L.62–L.63. It separates the
+product-ring sequential line, good-base relative-line theorem and integral
+Banach-family range. Uniform Green tails explain weak measure continuity;
+intrinsic derivatives retain the valued scalar and singular-integrability
+input. K3 forward/backward approximants both use the decaying dynamical
+factor and their own mixed-mass normalization. The family limit retains
+uniformity and real nef mixed-product inputs; no complete proof repair
+is certified. All 52 matching final pages were read and displayed.
+Compilation, references, index, navigation and canonical inventory pass.
 The [Favre–Gong exact-source review](manuscript/editorial/Favre_Gong_dynamical_degenerations_source_review_20261006.md)
 reads all 58 pages of 2406.15892v4 and 35 selected Rumely/Luo/Poineau
 pages: 93 displayed source/page pairs. Twenty-seven records separate
