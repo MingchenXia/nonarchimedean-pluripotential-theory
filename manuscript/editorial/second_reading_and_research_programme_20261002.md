@@ -3838,3 +3838,30 @@ preserved. The next mathematical source queue contains Irokawa's
 20 June 2026. Their exact metadata and PDF acquisition are checked;
 their text and proofs have not yet been read or admitted. Continue
 source review and incoming author-progress checks afterwards.
+
+### Generated index spelling, 6 October 2026
+
+The [index audit](index_spelling_polish_audit_20261006.md) records a
+derived-input MakeIndex wrapper. It normalizes 25 Monge–Ampère keys and
+one Stokes key, merging the split equation and formula headings while
+preserving all 773 raw entries and their ordered page arguments. All
+425 active TeX inputs, both bibliography files, 108 protected inputs,
+80 prior frozen manifests and 139 exports remain byte-identical.
+Canonical problem statuses, the Siu/envelope boundary and the native
+catalogue/editor are unchanged; no source reading, original result,
+model call or receipt is added.
+
+The final book remains 4,417 pages. All twelve selected pages in six
+sheets were read and displayed: contents page 69 and physical pages
+4389–4399, comprising the complete index and bibliography transition.
+A comparison of extracted text on every physical page finds differences
+only on eight index pages; all other 4,409 page texts are byte-identical.
+That comparison is not a new entire-book rereading. Compilation,
+references, bibliography, index, navigation and inventory pass without
+warnings, unresolved references, overfull boxes or invalid destinations.
+
+Save immutable book/review/source artifacts, fetch both remote branches,
+push work and update the draft PR. Then read the exact acquired editions
+Irokawa 2405.12517v1 and Favre–Gong 2406.15892v4. Acquisition alone is not
+proof review; admit only content supported by checked statements and
+dependencies, and continue checking incoming author research.

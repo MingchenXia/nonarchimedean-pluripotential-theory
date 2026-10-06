@@ -10,6 +10,14 @@ The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
 The current research-integration build has **4,417 pages**.
+The [index spelling audit](manuscript/editorial/index_spelling_polish_audit_20261006.md)
+unifies Monge–Ampère and Stokes’ formula in the generated index. All
+773 raw entries and their ordered page arguments are retained; all
+425 active TeX inputs and both bibliography files are byte-preserved.
+The full index and its transitions were read and displayed in twelve
+matching final pages. A comparison of extracted text on every book page
+finds changes only on eight index pages; this is not another whole-book
+rereading. Compilation, references, index and navigation pass.
 The [hybrid polynomial integration audit](manuscript/editorial/hybrid_polynomial_dynamics_audit_20261006.md)
 records Chapter 66.6 and Appendix L.61. Balanced forward/inverse
 escape approximants define degree-normalized relative metrics; positive
