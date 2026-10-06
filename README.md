@@ -1191,3 +1191,13 @@ and records nine literal diagnostics. Exact stability powers and the
 unrestricted compact comparison formula remain qualified. The checked
 4,398-page book and all canonical statuses are preserved. Details are in
 [the dependency source review](manuscript/editorial/Hessian_gradient_capacity_dependency_source_review_20261006.md).
+
+The subsequent local Hölder/non-spectral checkpoint fully reads three
+exact PDFs: Delloque 2610.06529v1, an author-posted GKZ early preprint,
+and Kołodziej–Nguyen 2407.13130v2, 63 physical pages in 32 sheets.
+It explains localization with potentially infinite boundary mass and
+records fourteen version-specific diagnostics. The original 2002
+iteration lemma and published GKZ proof remain source gates; the new
+non-spectral structural proof is not imported into active TeX. See
+[the source review](manuscript/editorial/Hessian_iteration_nonspectral_source_review_20261006.md).
+The checked book, native catalogue and canonical statuses are preserved.

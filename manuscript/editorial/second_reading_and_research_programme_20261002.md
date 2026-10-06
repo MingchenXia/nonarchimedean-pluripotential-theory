@@ -3459,3 +3459,38 @@ fresh book PDF review, native compile, original admission, independent
 model call or verification receipt is claimed. Fetch main and work and
 publish on work; continue the remaining analytic dependencies and recent
 polynomial Hessian research.
+
+### Local Hölder subsolutions and non-spectral equations — 6 October
+
+Read and displayed three exact PDFs completely: Delloque 2610.06529v1
+(40 pages), author-posted GKZ math/0607314v1 (10 pages), and
+Kołodziej–Nguyen 2407.13130v2 (13 pages). All 63 physical pages were
+displayed in 32 sheets. The author-posted early GKZ file is neither
+certified as the journal edition nor as byte-identical to arXiv.
+See the [source review](Hessian_iteration_nonspectral_source_review_20261006.md).
+
+The local subsolution proof permits infinite mass near the boundary by
+tracking negative powers of the collar distance. Local trace control,
+Jensen regularization and weighted comparison have separate roles.
+The zero-boundary reduction can lower the Hölder exponent. Compact
+curvature and normalization hypotheses do not disappear. The original
+Kołodziej 2002 iteration PDF request returned HTML; its Lemma 4.3 and
+the exact cited stability power remain unread gates.
+
+Fourteen diagnostics retain their exact scope and versions. The early
+GKZ boundary, gluing, sup-norm and determinant checks do not refute the
+published Hölder theorem. Kołodziej–Nguyen's scaling, citation-range,
+large-capacity branch, wedge degree and signed remainder require precise
+bookkeeping. Delloque's concavity, full normal, omitted B derivatives,
+eigenbasis switch and translation-sign checks prevent admission of the
+unrepaired structural chain. Its later polynomial numerical criteria
+are future motivation, not Part I results.
+
+This source-only checkpoint preserves 425 active inputs, 108 protected
+inputs, seventy preceding frozen manifests, 124 preceding exports,
+the 4,398-page book and fourteen generated files, native catalogue and
+all canonical statuses. No active TeX, new original admission, model
+call or verification receipt is added. Fetch main and work and publish
+on work; next read Nguyen's published 2020 boundary argument,
+Benali–Zeriahi's erratum and the mean/sup regularization source before
+a scoped local-boundary explanation enters Chapter 68.
