@@ -1,0 +1,14 @@
+from pathlib import Path
+from datetime import datetime, timezone
+import json,hashlib
+R=Path('/workspace/research');G=R/'github-checkpoint'
+p=G/'push-receipt-continuation144.json';receipt=json.loads(p.read_text())
+assert receipt['commit_sha']=='88133a2226e0456a6d8ffa3b471128718cce5ba9'
+assert receipt['parent_sha']=='3b5e173c0f701705727e20d4212147cb67269a68'
+assert receipt['manifest_sha256']==hashlib.sha256((G/'upload-manifest-continuation144.json').read_bytes()).hexdigest()
+assert all(receipt[k] for k in ['remote_ref_verified','all_file_blob_bindings_verified_remote','independent_native_git_tree_verified'])
+for name in ['active-work.json','checklist-current.json']:
+ p=R/name;d=json.loads(p.read_text());assert len(d['fully_solved_original_atoms'])==7 and d['historical_reviewed_scoped_papers']==50
+ d['github_checkpoint']=receipt;d['github_pending_checkpoint']=None;d['updated_utc']=datetime.now(timezone.utc).isoformat()
+ p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n')
+print(json.dumps({'verified_checkpoint':144,'commit_sha':receipt['commit_sha'],'originals_solved':7,'accepted_scoped_papers':50},indent=2))
