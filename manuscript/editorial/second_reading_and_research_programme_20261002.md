@@ -4337,3 +4337,43 @@ Compile the ensuing manuscript change, read matching changed pages and
 its bibliography/index transitions, and publish its separate integration
 audit. Continue recent related primary-source research and incoming
 author progress.
+
+### Unbounded obstacle and divisor Green integration, 6 October 2026
+
+The [integration audit](Dao_Nguyen_boundary_envelopes_integration_audit_20261006.md)
+records Appendix H.10, Chapter 68.13.4 and Appendix L.67. The account keeps
+the real-superharmonic interior obstacle, comparison class, one-sided
+deformation control and closed moving-boundary barriers. A reduced
+principal divisor uses the book's half-current normalization for unsquared
+logs. Sectorial inward deformation and finite-order escape give the
+attributed canonical truncation result; B-regularity and continuity enter
+with their stated scopes. The old general residual comparison remains
+unproved in the controlling 2001 erratum. Homogeneous radial geometry,
+point Lelong weights and higher-codimensional ideals are distinguished.
+
+Seven exact-edition references, fifteen labels, six equation tags and two
+index entries are appended. No formal or proof environment is added.
+All 59 old formal and 25 proof blocks in the edited TeX inputs retain
+their bytes and order, as do 422 other active inputs, 108 protected inputs,
+93 preceding frozen manifests and 160 preceding exports. Canonical
+statuses and the native catalogue/editor are preserved. The 119-page-pair,
+62-sheet source review, twenty-four scoped records and twelve diagnostics
+are reused, with no fresh primary-page reading or full proof certification.
+
+The corrected 4,452-page book passes required compilation, references,
+inventory, existing unit tests, index and navigation. Both initial overfull
+boxes were repaired without changing the mathematics. A partial eighteen-
+page reading found a plural-verb error; after correction and validation,
+all 53 selected final pages were read as full text and displayed in 27
+sheets, including the complete index and bibliography. The 954 underfull
+boxes equal baseline; other build warnings, overfull boxes and invalid
+destinations are zero. The partial reading and failed layout gates remain
+separate from the successful final release.
+
+Save immutable book/review/source artifacts with the complete 427-input
+closure and verify all 746 archive members. Fetch both main and work,
+push normally and update the existing draft PR. Continue recent related
+primary-source research and incoming author progress. The four complex
+literature directions add no canonical problem atoms. No original result,
+independent model call, production receipt, general ideal Green identity
+or BJ22 Siu/envelope closure repair is added by this checkpoint.

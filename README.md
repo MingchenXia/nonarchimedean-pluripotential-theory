@@ -9,7 +9,18 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,443 pages**.
+The current research-integration build has **4,452 pages**.
+The [unbounded obstacle and divisor Green integration](manuscript/editorial/Dao_Nguyen_boundary_envelopes_integration_audit_20261006.md)
+adds Appendix H.10, a Chapter 68 comparison-class connection and Appendix L.67.
+It keeps the one-sided obstacle and moving-boundary hypotheses, principal
+divisor normalization, sectorial inward deformation, canonical truncation
+and older residual-comparison erratum explicit. General B-regular continuity
+and higher-codimensional ideal identification remain literature directions.
+Seven exact-edition references and two index entries are added. All 53 selected
+matching final pages were read and displayed, including the complete index
+and bibliography; required compilation, references and navigation pass.
+The preceding primary-source audit is reused. No original theorem,
+complete external proof certification or canonical-status change is claimed.
 The [unbounded boundary-envelope and divisor-source audit](manuscript/editorial/Dao_Nguyen_boundary_envelopes_source_review_20261006.md)
 reads both Dao--Nguyen October preprints in full and a precise original
 dependency selection: 119 actual source/page pairs in 62 displayed sheets,
