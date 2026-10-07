@@ -4925,3 +4925,44 @@ work show no incoming commits at this checkpoint; the CLI credential
 failure is not described as a successful fetch. Publish normally with an
 expected-head check and update draft PR 2. Continue checking incoming author
 progress and recent related research in the cloud.
+
+### Affine toric analytic multiplier source checkpoint, 7 October 2026
+
+The [source review](Seo_toric_multiplier_source_review_20261007.md)
+reads all 33 pages of Seo 2610.08741v1 and 45 selected pages from eight
+dependency files: 78 distinct source/page pairs in 41 individually displayed
+sheets, with complete selected text and sequential notes. Four PDFs are
+complete readings, including both short Rockafellar--Wets errata files;
+five are partial. This does not certify the entire recursive proof chain.
+
+Twenty source records retain the normal affine complex-pair signature,
+adapted pluricanonical measure, factor-two weight normalization, actual
+character lattice and positive canonical shift. Effective and negative
+boundaries distinguish ordinary ideals from fractional modules. Fourier
+projection acts on global Stein sections; finite jets and Krull intersection
+supply finite generation before extension from a closed-orbit neighbourhood.
+A lower-dimensional cone has a torus factor and need not have a fixed point.
+Negative ideal weights retain positive rational coefficients in their
+Q-Cartier pair reduction. Ordinary multiplier interior membership remains
+separate from maximal non-lc closed-boundary rounding.
+
+The literal main-proof logarithmic neighbourhood equality needs cofinal
+inclusions; no main-statement counterexample or independent repair receipt
+is claimed. The smooth antecedents retain archived-version sign and proof-text
+qualifications. Checked Rockafellar--Wets locators replace unread 1970
+convexity locators without declaring the latter cleared. Published
+Guan--Zhou strong openness is normalized separately from obsolete conjecture
+language. Exact integer/rational diagnostics check the singular A1 example,
+its index four and its minimal generators; two 1,681-point grids accompany
+explicit unbounded semigroup cases. No floating threshold is credited as
+a certificate.
+
+All 425 active inputs, 108 protected inputs, 108 previous frozen manifests,
+184 frozen exports, the 4,495-page generated book/index and historical native
+catalogue/editor remain unchanged. No new original theorem, model call,
+receipt, solved status or general BJ22 Siu/envelope repair is added. No fresh
+book compile is claimed for this source-only checkpoint. Publish with a
+normal expected-head update, inspect both main/work for incoming author
+progress, then integrate only attributed content and compile/read its final
+changed pages. The new Kähler--Einstein/plurigenera and Segre/Lê candidates
+remain metadata-only, and the already audited Fang source is not recounted.

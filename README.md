@@ -10,6 +10,19 @@ The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
 The current research-integration build has **4,495 pages**.
+The [toric multiplier source review](manuscript/editorial/Seo_toric_multiplier_source_review_20261007.md)
+reads Seo 2610.08741v1 completely and eight dependency files in exact
+scopes: 78 source/page pairs in 41 individually displayed sheets, four
+complete PDFs including two short errata files and five partial readings.
+It checks adapted pair volumes, the positive canonical shift, fractional
+modules, finite character generation and cones with a torus factor.
+The singular A1 example is verified in its even-sum character lattice,
+including clearing index four. Cofinal logarithmic neighbourhoods replace
+a literal open/closed equality in the proof; early antecedent sign and
+version issues are recorded without accusing an uninspected journal edition.
+This source-only checkpoint preserves the checked book, canonical problem
+statuses and native catalogue/editor. Attributed integration follows the
+source review and requires a fresh build and actual final-page reading.
 The [positive-pluriharmonic Siu integration](manuscript/editorial/Dinh_Nguyen_Nguyen_Siu_integration_audit_20261007.md)
 adds Appendix H.16, a Chapter 51 connection and Appendix L.74. It explains
 the attributed compact-Kähler analyticity theorem, fixed-component Siu
