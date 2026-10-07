@@ -9,7 +9,20 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,509 pages**.
+The current research-integration build has **4,518 pages**.
+The [Segre and integral-dependence integration](manuscript/editorial/Segre_finite_pullback_integration_audit_20261007.md)
+adds C.9, F.9, H.19 and L.77. The published ample nested-ideal
+criterion, its big-nef boundary and stabilized homogeneous zeta
+criterion connect ideal singularities with intersection data. The local
+finite-pullback section distinguishes degree bounds, lexicographic
+comparison, generic/prepolar coordinates and the equivalent open
+componentwise Segre/Lê comparisons, including arbitrary multiplicity.
+Two formal additions are attributed imports; no original result or
+canonical-status promotion is made. Required validation passes, and
+all 67 selected final pages have matching complete-text/image reading:
+51 freshly read and 16 reused only after exact text and image identity.
+Historical statements/proofs, prior releases and the native catalogue/editor
+remain preserved. The general BJ22 critical Siu-division input stays open.
 The [finite-pullback and Segre source review](manuscript/editorial/Segre_finite_pullback_source_review_20261007.md)
 reads 2610.07528v1 completely and twelve related/dependency PDFs in exact
 scopes, including Cid-Ruiz's complete published 2026 integral-dependence
@@ -19,9 +32,8 @@ bounds, lexicographic ideal comparison, generic slicing and the equivalent
 componentwise Segre/Lê frontier. The global degree criterion retains
 nested ideals and an ample polarization; its published big-nef
 counterexample and stabilized homogeneous zeta criterion are checked.
-This source-only checkpoint preserves the current book, historical proofs,
-canonical statuses and native catalogue/editor. Attributed integration
-follows the review and still requires a build and actual final-page reading.
+The frozen source-only checkpoint preserves its preceding book and statuses.
+Its source evidence is reused by the separately validated integration above.
 The [canonical KE normalization integration](manuscript/editorial/LPWZ_KE_plurigenera_integration_audit_20261007.md)
 adds H.18, a Chapter 51 connection and L.76. Exponential constants,
 canonical reference-volume covariance and family estimates retain their

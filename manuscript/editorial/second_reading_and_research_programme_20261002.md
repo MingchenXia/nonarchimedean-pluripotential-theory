@@ -3,7 +3,30 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
-## Latest source checkpoint, 7 October 2026
+## Latest integration checkpoint, 7 October 2026
+
+The [Segre and integral-dependence integration audit](Segre_finite_pullback_integration_audit_20261007.md)
+records C.9, F.9, H.19 and L.77 in the final 4,518-page book.
+The global ample nested-ideal criterion, its published big-nef boundary
+and homogeneous zeta stabilization are attributed to the controlling
+published Cid-Ruiz source. The finite-pullback connection keeps local
+index conventions, degree bounds, lexicographic comparison, generic
+coordinates and the equivalent arbitrary-multiplicity componentwise
+frontier separate. Two formal blocks are imported, with no new original
+proof or independent-model receipt. All 84 prior formal blocks and 39
+proof blocks in the four appendices remain byte-identical; all prior
+source lines remain in order. The other 421 active inputs, 108 protected
+inputs, 113 prior frozen manifests, 190 exports and native catalogue/editor
+are preserved. Required validation and references/index/navigation pass.
+All 67 selected final pages are actually covered by complete text and
+matching image reading: 51 freshly read, 16 admitted only by exact
+complete-text and image identity with the preceding actual reading.
+This scoped check is not another whole-book reread or certification
+of every imported proof. No canonical status is promoted and the BJ22
+critical division input remains open. Next read related mixed Segre
+zeta/log-concavity sources in exact primary versions before integration.
+
+## Preceding source checkpoint, 7 October 2026
 
 The [finite-pullback and Segre source review](Segre_finite_pullback_source_review_20261007.md)
 now completes 2610.07528v1 and reads twelve related/dependency PDFs in
