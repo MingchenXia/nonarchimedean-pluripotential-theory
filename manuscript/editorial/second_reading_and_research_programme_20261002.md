@@ -4998,3 +4998,38 @@ Save immutable releases, verify every source-archive member, inspect both
 GitHub branches for incoming author progress and publish with an expected-head
 check. Continue cloud research on the metadata-only KE/plurigenera and
 Segre/Lê candidates; no unread proof is credited as suitable for integration.
+
+### Singular KE variation and plurigenera source checkpoint, 7 October 2026
+
+The [source review](LPWZ_KE_plurigenera_source_review_20261007.md)
+reads LPWZ 2610.07826v1 completely and thirteen dependency PDFs in
+selected scopes: 144 distinct source/page pairs in 76 individually
+displayed sheets. Two documents are complete, including the published
+five-page DGG corrigendum; twelve are partial. The cached BEGZ bytes
+are exact, but their four selected pages are freshly read. No
+reading-attestation reuse or recursive proof certificate is claimed.
+
+The audit retains the Theorem 1.3 reference-volume mismatch, the
+fibrewise canonical-pseudoeffectivity premise for Theorem 8.1,
+nonexponential/exponential auxiliary normalizations, parameter order,
+exceptional-fibre truncations and original-disk extension scope.
+The scalar-volume special case is distinguished from independent
+reference volumes. Green conjugation and the Berman--Berndtsson
+kernel factorial are cleared transcription/normalization concerns.
+Smooth-family uniform estimates, one-sided stability and fixed
+Dirichlet regularizations keep their exact hypotheses. The MMP,
+class-descent and extension inputs that remain unread are not
+authenticated by metadata or failed PDF requests. The acquired
+DHY file is explicitly unread. The proposed elliptic-density test
+remains UNVERIFIED and is not used as a counterexample or receipt.
+
+All 425 active inputs, 108 protected inputs, 110 preceding frozen
+manifests, 187 exports, canonical statuses and the historical native
+catalogue/editor remain unchanged. The checked book still has
+4,503 pages; no new book build or final-page reading is claimed
+at this source checkpoint. No original-result promotion or BJ22
+Siu/critical-division/envelope repair is added. Inspect both
+GitHub branches and publish through a normal expected-head
+update. Then integrate only the qualified background and
+conditional family discussion, compile, read its final pages,
+and continue with the metadata-only Segre/generic-Lê candidate.

@@ -9,7 +9,20 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,495 pages**.
+The current research-integration build has **4,503 pages**.
+The [Kähler--Einstein/plurigenera source review](manuscript/editorial/LPWZ_KE_plurigenera_source_review_20261007.md)
+reads all 40 pages of Li--Păun--Wang--Zhou 2610.07826v1 and thirteen
+dependency PDFs in exact scopes: 144 distinct source/page pairs in 76
+individually displayed sheets, two complete PDFs and twelve partial readings.
+It separates the announced all-dimensional result from the unresolved
+reference-volume mismatch in Theorem 1.3, the canonical-pseudoeffectivity
+premise, additive/exponential normalization and local/global extension scope.
+Uniform smooth-family estimates retain their hypotheses; the DGG corrigendum
+is not a blanket withdrawal of those estimates. MMP and extension inputs
+that remain unread are explicit. An elliptic-family density diagnostic
+remains unverified. This source-only checkpoint preserves the book,
+canonical statuses and native catalogue/editor; no original result or
+general BJ22 Siu/envelope repair is promoted.
 The [toric multiplier source review](manuscript/editorial/Seo_toric_multiplier_source_review_20261007.md)
 reads Seo 2610.08741v1 completely and eight dependency files in exact
 scopes: 78 source/page pairs in 41 individually displayed sheets, four
