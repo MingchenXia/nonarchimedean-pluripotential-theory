@@ -1,0 +1,58 @@
+from pathlib import Path
+from datetime import datetime, timezone
+import hashlib, json
+
+R=Path('/workspace/research');K=R/'root-checks'
+C=next((R/'campaigns/round-175').iterdir())
+sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
+x=json.loads((K/'round175-completed-inspection-LOCALONLY.json').read_text())
+ca=x['campaign'];assert ca['status']=='completed' and ca['error'] is None
+kernel=ca['result'];assert kernel['verdict']=='FAIL'
+request=next(t['data']['payload'] for t in x['records'] if t['kind']=='xean.call.request')
+message=next(t['data']['message'] for t in x['records'] if t['kind']=='xean.call.settled')
+assert message['exitCode']==0 and not message['failed'] and not message['isCanceled']
+finals=[]
+for line in message['stdout'].splitlines():
+ item=json.loads(line)
+ if item.get('type')=='item.completed' and item.get('item',{}).get('type')=='agent_message':
+  try:f=json.loads(item['item']['text'])
+  except (ValueError,TypeError):continue
+  if isinstance(f,dict) and set(f)=={'verdict','report','premises','passages'}:finals.append(f)
+assert len(finals)==1;native=finals[0]
+assert native['verdict']==kernel['verdict'] and native['report']==kernel['report'] and native['premises']==kernel['premises']
+assert len(kernel['premises'])==4 and len(native['passages'])==len(kernel['passages'])==8
+normalizations=[]
+for i,(a,b) in enumerate(zip(native['passages'],kernel['passages'])):
+ assert {k:b[k] for k in ('premise','url','quote')}==a
+ assert b['id']==kernel['operationId']+'/'+str(i)
+ assert 0<=b['premise']<4 and b['statement']==kernel['premises'][b['premise']]
+ normalizations.append({'index':i,'id':b['id'],'unchanged_model_fields':['premise','url','quote'],'kernel_added_fields':['id','statement']})
+coverage=[]
+for i,statement in enumerate(kernel['premises']):
+ passages=[p for p in kernel['passages'] if p['premise']==i and p['url'].startswith(('http://','https://'))]
+ assert passages
+ coverage.append({'premise_index':i,'exact_statement':statement,'external_passage_ids':[p['id'] for p in passages],'primary_urls':sorted(set(p['url'] for p in passages))})
+prompt=json.loads(request['prompt']);assert set(prompt)=={'task','argument'}
+assert prompt['task']==json.loads((C/'task.json').read_text()) and prompt['argument']==(C/'argument.md').read_text()
+assert request['model']=='gpt-6.1-sol' and request['reasoning']=='xhigh' and request['sandbox']=='read-only' and request['shell'] is False
+freeze=json.loads((C/'freeze.json').read_text())
+for name,key in [('task.json','task_sha256'),('argument.md','argument_sha256'),('settings.json','settings_sha256')]:assert sha(C/name)==freeze[key]
+canonical=K/'P14.4-round175-actual-canonical-independent-review-20261007.json'
+native_file=K/'P14.4-round175-native-model-final-review-20261007.json'
+binding=K/'P14.4-round175-whole-partial-review-binding-20261007.json'
+assert not any(p.exists() for p in (canonical,native_file,binding))
+canonical.write_text(json.dumps(kernel,ensure_ascii=False,indent=2)+'\n')
+native_file.write_text(json.dumps(native,ensure_ascii=False,indent=2)+'\n')
+record={'recorded_utc':datetime.now(timezone.utc).isoformat(),'round':175,'atom':'P14.4','verdict':'FAIL','operation_id':kernel['operationId'],'reported_at':kernel['reportedAt'],
+ 'canonical_review':str(canonical),'canonical_review_sha256':sha(canonical),'native_model_final':str(native_file),'native_model_final_sha256':sha(native_file),
+ 'entire_report_all_premises_and_passages_root_read':True,'premises':4,'passages':8,'all_zero_based_exact_statement_bindings_verified':True,'external_coverage':coverage,'passage_normalization':normalizations,
+ 'task_only_passages_excluded_from_external_coverage':[p['id'] for p in kernel['passages'] if not p['url'].startswith(('http://','https://'))],
+ 'kernel_report_premises_and_quotes_equal_native_final':True,'exact_decoded_native_task_and_argument_equal_entire_frozen_inputs':True,
+ 'native_prompt_sha256':hashlib.sha256(request['prompt'].encode()).hexdigest(),'frozen_task_sha256':freeze['task_sha256'],'frozen_argument_sha256':freeze['argument_sha256'],'frozen_settings_sha256':freeze['settings_sha256'],
+ 'model':request['model'],'reasoning':request['reasoning'],'child_sandbox':request['sandbox'],'caller_grants':['B'],
+ 'defect':'Proposition5.4 generalized total-variation-to-L1 continuity omits the primitive coordinates a and kappa. The same zero measure and alternating kappa=0,-1 violate L1 convergence in the same big non-nef class. Fixed-state approximation is valid; entire manuscript not accepted.',
+ 'proposed_repair_not_accepted':'Specify a_j->a and kappa_j->kappa together with total variation nu_j->nu on common compact affine support, or hold those primitive coordinates fixed. Include full estimate with |a_j-a| norm(e composed p) and |kappa_j-kappa| volume. Reverify entire amended manuscript independently.',
+ 'verified_partial_findings':'Prescribed-fibration admissible polar-measure sector; positive currents; bigness/non-nefness; genuine ideals and first/top products on every given smooth modification; fixed-state approximation; Cantor full-tower equal-ideal/product/mass but distinct P-ceiling example; stationary rational B model and raw2bc delta_generic within exact trivial-field grant domain. These findings do not confer a whole-manuscript PASS.',
+ 'original_closed':False,'new_accepted_supporting_paper':False,'root_recursive_source_proof_reading_claimed':False,'private_active_output_read':False,'hot_feedback_sent':False,'existing_editor_unchanged':True}
+binding.write_text(json.dumps(record,ensure_ascii=False,indent=2)+'\n')
+print(json.dumps({'round':175,'verdict':'FAIL','binding':str(binding),'binding_sha256':sha(binding)},indent=2))
