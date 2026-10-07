@@ -21,6 +21,11 @@ factorial normalization for global intersection polynomials
 used by the mixed Segre construction in
 \cref{sec:appC-mixed-Segre-zeta}.
 
+Its operator discussion also explains the Chern and Richardson
+constructions in \cref{sec:appF-total-Chern-volume,sec:appF-Richardson-volume}.
+Those constructions establish geometric realization, which imposes
+more than the Lorentzian signature condition alone.
+
 \section{Closed convex functions}
 \label{sec:appD-closed-convex}
 
@@ -1055,6 +1060,152 @@ about the modified numerator for one multihomogeneous ideal
 on a multiprojective space does not follow just from covolume.
 Its source-era status and the scope of the mixed sequence
 result are recorded in \cref{sec:appL-mixed-Segre-source-gates}.
+
+\subsection{Geometric realization and differential operators}
+\label{sec:appD-volume-operators}
+\index{volume polynomial!realization}
+\index{covolume polynomial!differential operator}
+
+For the operator results we fix an algebraically closed field $k$.
+The terminology below follows Definitions~1.1--1.2 of
+\cite{GrundHuhMichalekSuessWang25VolumeV1}. It distinguishes an
+actual intersection construction from a limit of such constructions.
+Write $x^{[\alpha]}=x^\alpha/\alpha!$.
+
+\begin{definition}
+\label{def:appD-realizable-volume}
+A homogeneous polynomial is a \emph{realizable volume polynomial}
+over $k$ if it has the form
+\[
+ f(\mathbf x)=\frac{a}{d!}
+       \deg_X\bigl((x_1D_1+\cdots+x_nD_n)^d\bigr),
+ \qquad a\in\mathbf Q_{\geq0},
+\tag{D.37}\label{eq:appD-realizable-volume}
+\]
+where $X$ is a reduced irreducible projective $d$-fold over $k$
+and the $D_i$ are semiample Cartier divisors. A \emph{volume
+polynomial} is a coefficientwise limit of these polynomials in
+a fixed homogeneous degree and a fixed set of variables.
+For a homogeneous differential polynomial
+$g=\sum_\alpha c_\alpha\partial^\alpha$, choose a vector
+$\mu\in\mathbf N^n$ dominating every exponent in its support.
+It is \emph{realizable covolume} if
+\[
+ g(\partial)\mathbf x^{[\mu]}
+       =\sum_\alpha c_\alpha\mathbf x^{[\mu-\alpha]}
+\tag{D.38}\label{eq:appD-covolume-cutoff}
+\]
+is realizable volume; replacing realizable volume by volume
+defines covolume. These properties are independent of a sufficiently
+large cutoff. Zero is allowed.
+\end{definition}
+
+The divided powers in \eqref{eq:appD-covolume-cutoff} are essential.
+The expression is an exponent reversal followed by normalization,
+and is not $\mathcal N(\sum c_\alpha\mathbf x^\alpha)$.
+The rational scalar in \eqref{eq:appD-realizable-volume} belongs
+to exact realization. Arbitrary nonnegative real scales are available
+in the closed cone by taking limits. Nef rational divisor-volume
+polynomials belong to that closed cone by ample approximation;
+this does not turn every nef class into a semiample class.
+
+Theorem~1.3 and Corollary~1.4 of the same source give the
+following characterization.
+\begin{theorem}
+\label{thm:appD-covolume-preserver}
+A homogeneous constant-coefficient differential polynomial $g$
+is realizable covolume over $k$ if and only if $g(\partial)$
+preserves realizable volume polynomials over $k$.
+It is covolume if and only if $g(\partial)$ preserves volume
+polynomials over $k$.
+\end{theorem}
+
+This is an attributed geometric theorem. In particular, monomial
+differentiation preserves realization. It justifies removing the
+projective-bundle shift in \cref{sec:appF-total-Chern-volume}.
+The proof uses translated intersections on complete homogeneous
+spaces and algebraic equivalence of general-fibre components.
+It does not require those intersections to have a single component.
+The relevant proper-fibre input is
+\cite[Lemma~2.6]{HuangHuhMichalekWangWang25RealizationsV2}.
+
+There is also a useful sufficient symbol test, Theorem~1.12 of
+\cite{GrundHuhMichalekSuessWang25VolumeV1}. Let $T$ be a linear
+map on the space spanned by $\mathbf x^{[\alpha]}$ with
+$0\leq\alpha\leq\mu$, taking values in polynomials in
+independent variables $\mathbf z$. Assume that $T$ is homogeneous
+with a fixed degree shift. Its symbol is
+\[
+ S_T(\mathbf z,\mathbf y)
+    =\sum_{0\leq\alpha\leq\mu}
+            T(\mathbf x^{[\alpha]})(\mathbf z)
+                       \mathbf y^{[\mu-\alpha]}.
+\tag{D.39}\label{eq:appD-volume-symbol}
+\]
+If this symbol is realizable volume, $T$ preserves realizable
+volume polynomials in its domain. The volume version holds as
+well. This is a sufficient condition; no converse is stated here.
+The source's separate dual characterization uses auxiliary variables
+in its converse, and cannot be replaced by an unrestricted
+same-variable test.
+
+The resulting closure operations include products of volume
+polynomials, rational nonnegative substitutions, polarization and
+the stated coefficient truncations. Another exact consequence is
+that $\mathcal N(f_1f_2)$ is realizable volume when both
+$\mathcal N(f_i)$ are. One must normalize the product:
+$\mathcal N$ is not multiplicative in shared variables.
+Proposition~4.4's mixing operation
+$t f(x_1,x_2,\ldots)+(1-t)f(x_2,x_1,\ldots)$ requires
+\emph{multiaffine} inputs and rational $0\leq t\leq1$.
+Without multiaffinity the average of $x_1^2$ and $x_2^2$
+already fails the one-positive-eigenvalue criterion.
+
+\subsection{A necessary inequality beyond Lorentzianity}
+\label{sec:appD-reverse-KT}
+\index{reverse Khovanskii--Teissier inequality}
+
+Geometric volume polynomials satisfy further inequalities.
+The following is Theorem~1.1 of the controlling arXiv version of
+\cite{JiangLi23ReverseKTV3}; its more general mixed form is
+Theorem~3.5.
+\begin{theorem}
+\label{thm:appD-reverse-KT}
+Let $X$ be a reduced irreducible projective $d$-fold over an
+algebraically closed field of arbitrary characteristic, and let
+$A,B,C$ be nef Cartier divisors. For $1\leq q\leq d-1$,
+\[
+ (A^qB^{d-q})(A^{d-q}C^q)
+   \geq\binom dq^{-1}(A^d)(B^{d-q}C^q).
+\tag{D.40}\label{eq:appD-reverse-KT}
+\]
+The inequality is strict for ample $A,B,C$. The nef constant
+is sharp, as products of projective spaces show.
+\end{theorem}
+
+Here every parenthesis denotes an intersection degree on $X$.
+The source's proof uses multipoint Okounkov bodies and ample
+approximation, including a base-field extension to make
+very-general choices. It does not assume a resolution in positive
+characteristic. Coefficient inequalities obtained from
+\eqref{eq:appD-reverse-KT} pass to the volume cone by continuity.
+The binomial factor remains after using divided-power coefficients.
+
+Huh's survey \cite[Section~3, physical pp.~14--15]{Huh26VolumeSurveyV4}
+gives the Lorentzian cubic
+\[
+ f=14x_1^3+6x_1^2x_2+24x_1^2x_3
+                  +12x_1x_2x_3+6x_1x_3^2+3x_2x_3^2.
+\tag{D.41}\label{eq:appD-Lorentzian-nonvolume}
+\]
+Writing $f=\sum c_\alpha\mathbf x^{[\alpha]}$, the choice
+$A=D_1$, $B=D_3$, $C=D_2$, $d=3$, $q=1$ would require
+$3c_{102}c_{210}\geq c_{300}c_{012}$. Instead,
+$3\cdot12\cdot12=432<84\cdot6=504$.
+Thus this source example is outside the volume cone, even though
+its support is $M$-convex and its three first-derivative Hessians
+have at most one positive eigenvalue. A signature argument alone
+cannot replace a realization in the constructions that follow.
 
 \section{Normalization checks}
 \label{sec:appD-unit-tests}

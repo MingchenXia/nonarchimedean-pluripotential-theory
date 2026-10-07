@@ -9,7 +9,31 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,524 pages**.
+The current research-integration build has **4,535 pages**.
+The [volume and Richardson integration](manuscript/editorial/Volume_Covolume_Richardson_integration_publication_audit_v2_20261007.md)
+adds D.8.1--D.8.2, F.9.2--F.9.3, G.9.8 and L.79. It connects
+factorial normalization with exact volume realization, covolume differential
+operators, total Chern intersections, Richardson models for skew Schur
+and skew Schur P/Q polynomials, and projection-dimension support.
+The reverse Khovanskii--Teissier obstruction distinguishes Lorentzian
+polynomials from geometric volume polynomials. Field hypotheses,
+projective-bundle conventions, finite alphabets and characteristic-two
+limitations remain explicit. Six formal additions are attributed imports
+or definitions; no original result or canonical-status promotion is made.
+Required validation passes, and all 72 selected final pages were freshly
+read with complete text and 36 individually displayed matching images,
+including the complete index and bibliography. This is an incremental
+review. Historical statements/proofs, prior releases and the native
+catalogue/editor remain preserved; the general BJ22 critical Siu-division
+input stays open.
+The [volume and Richardson source review](manuscript/editorial/Volume_Covolume_Richardson_source_review_20261007.md)
+provides 158 distinct source/page pairs in 81 displayed matching sheets:
+six complete PDFs and four partial readings, including both main papers
+in their exact editions. Its nine exact arithmetic diagnostics are reused
+without claiming fresh primary reading in this integration. The June
+survey's historical questions are not certified as currently open.
+The September Chern-flow revision has been acquired as a subsequent
+candidate; its abstract claims have not been admitted to the book.
 The [mixed Segre zeta integration](manuscript/editorial/Mixed_Segre_zeta_integration_audit_20261007.md)
 adds C.9.2, D.8, F.9.1 and L.78. It connects the stabilized mixed
 series, multinomial product specialization and integral-closure invariance

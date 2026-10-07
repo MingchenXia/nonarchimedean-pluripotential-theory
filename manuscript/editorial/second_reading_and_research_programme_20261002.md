@@ -5,6 +5,44 @@ editorial second draft in commit `f0d7942`.
 
 ## Latest integration checkpoint, 7 October 2026
 
+The [volume and Richardson integration audit](Volume_Covolume_Richardson_integration_publication_audit_v2_20261007.md)
+records D.8.1--D.8.2, F.9.2--F.9.3, G.9.8 and L.79 in the
+4,535-page book. Exact rational realization, closed coefficient limits,
+covolume operators and sufficient symbol conditions have separate scopes.
+Total Chern polynomials use quotient projective bundles and explicit
+factorial shifts. Richardson models for skew Schur and skew P/Q
+polynomials retain field, modified-class and characteristic-two boundaries.
+Projection dimensions give algebraic multidegree support; the reverse
+Khovanskii--Teissier obstruction shows why support and Lorentzianity alone
+do not imply volume realization. Six formal additions are attributed
+imports or definitions, with no new original proof or model receipt.
+All 80 historical formal blocks, 30 proof blocks and 89 old tagged
+equation numbers in the four appendices are preserved; all old lines
+remain in order. The other 421 active inputs, 108 protected inputs,
+117 prior frozen manifests, 198 exports and native catalogue/editor are
+preserved. Required validation, references, index and navigation pass.
+All 72 selected final pages were freshly read with complete text and
+36 individually displayed matching images, including the complete index
+and bibliography. This scoped review is not another whole-book reading.
+Canonical statuses and the general BJ22 critical division boundary remain
+unchanged; the LPWZ elliptic-density candidate remains unverified.
+
+The [preceding source review](Volume_Covolume_Richardson_source_review_20261007.md)
+supplies 158 distinct source/page pairs in 81 matching displayed sheets,
+six complete PDFs, four partial readings and nine exact arithmetic
+diagnostics. The integration reuses that frozen evidence and adds zero
+primary-source reading credit. The September paper arXiv:2609.02850v4,
+*Chern flow and Chern moment algebras*, by Nguyen-Dang and Wang, has
+been acquired in its exact seventy-four-page revision. It is unread at
+this checkpoint; the abstract's broad realization claims are not imported.
+Next read its full statements and proofs and necessary dependencies, then
+assess integration. The related tropical multidegree arXiv:2608.25987v2
+is a metadata-only candidate. Historical June questions are not certified
+as currently open. Continue cloud-only and publish normal work-branch
+checkpoints, inspecting incoming author commits before each publication.
+
+## Earlier Segre integration checkpoint, 7 October 2026
+
 The [Segre and integral-dependence integration audit](Segre_finite_pullback_integration_audit_20261007.md)
 records C.9, F.9, H.19 and L.77 in the final 4,518-page book.
 The global ample nested-ideal criterion, its published big-nef boundary
