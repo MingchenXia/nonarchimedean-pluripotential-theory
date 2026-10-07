@@ -9,7 +9,22 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,518 pages**.
+The current research-integration build has **4,524 pages**.
+The [mixed Segre zeta integration](manuscript/editorial/Mixed_Segre_zeta_integration_audit_20261007.md)
+adds C.9.2, D.8, F.9.1 and L.78. It connects the stabilized mixed
+series, multinomial product specialization and integral-closure invariance
+with the modified numerator, multi-index factorial normalization and
+globally generated Chern-cycle volume derivatives. Worked source examples
+separate raw diagonal substitution from the product ideal, and covolume
+normalization from exponent reversal. The published volume input uses
+Brändén--Huh Theorem 4.6. Three formal additions are attributed imports;
+no original result or canonical-status promotion is made. Required
+validation passes with no overfull boxes or unresolved references, and
+all 72 selected final pages were freshly read with complete text and
+36 individually displayed matching images, including the complete index
+and bibliography. This is an incremental review, not another whole-book
+rereading. Prior statements/proofs, releases and the native catalogue/editor
+are preserved; the general BJ22 critical Siu-division input stays open.
 The [Segre and integral-dependence integration](manuscript/editorial/Segre_finite_pullback_integration_audit_20261007.md)
 adds C.9, F.9, H.19 and L.77. The published ample nested-ideal
 criterion, its big-nef boundary and stabilized homogeneous zeta

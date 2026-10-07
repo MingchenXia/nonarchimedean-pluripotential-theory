@@ -5144,3 +5144,34 @@ author progress and publish normally with an expected-head check.
 Then integrate only the qualified attributed discussion, run
 required validation and read its changed final pages before
 freezing the next release. Continue cloud-only research.
+
+### Mixed Segre zeta book integration, 7 October 2026
+
+The [integration audit](Mixed_Segre_zeta_integration_audit_20261007.md)
+records C.9.2, D.8, F.9.1 and L.78. The mixed stabilized series,
+multinomial product specialization and integral-closure invariance retain
+their generator/field premises. Positivity concerns the modified numerator
+after multi-index factorial normalization; volume and covolume coefficients,
+direct normalization and exponent reversal stay distinct. The published
+Brändén–Huh volume locator is Theorem 4.6. The equal-dimension Chern
+specialization retains positive kernel ranks and the zero-pushforward case.
+Source-era multiprojective and local Segre/Lê questions receive no solved
+status. Three formal additions are attributed imports/definitions; seventeen
+equations and three exact-edition references are added, with no new proof
+environment, original result, independent-model call or receipt.
+
+The sixty-primary-page-pair/thirty-one-sheet source audit is reused without
+fresh-primary reading. All 81 historical formal blocks, 38 proof blocks and
+95 old manual tags in C/D/F/L are retained; the other 421 active inputs,
+108 protected inputs, 115 preceding frozen manifests and 193 exports are
+preserved. Canonical statuses and the native catalogue/editor remain
+unchanged. The final 4,524-page build passes required validation, references,
+index and navigation, with zero overfull boxes and 954 existing underfull
+boxes. All 72 selected final pages were freshly read using complete text
+and 36 individually displayed matching images, including the complete
+index/bibliography. This is not a whole-book reread. Earlier layout and
+preparation diagnostics are preserved. Freeze immutable exports, check
+every archive member and publish with an expected-head check; continue
+cloud research on the current multiprojective conjecture and related
+recent arXiv material. The BJ22 critical Siu-division/envelope boundary
+and UNVERIFIED LPWZ diagnostic remain unchanged.

@@ -16,6 +16,11 @@ duality, \Cref{chap:bj-homogeneity-bdivisors} for test curves, and
 \Cref{chap:transcendental-okounkov-dh} for concave transforms and
 Duistermaat--Heckman measures.
 
+\Cref{sec:appD-Lorentzian-normalization} also fixes the
+factorial normalization for global intersection polynomials
+used by the mixed Segre construction in
+\cref{sec:appC-mixed-Segre-zeta}.
+
 \section{Closed convex functions}
 \label{sec:appD-closed-convex}
 
@@ -900,6 +905,156 @@ continuity extends the inequality to arbitrary fixed bodies.  The limiting
 form may have no positive direction: when \(n\geq3\), a point among the
 fixed bodies makes the form identically zero.
 \end{proof}
+
+\section{Lorentzian polynomials and factorial normalization}
+\label{sec:appD-Lorentzian-normalization}
+\index{Lorentzian polynomial}
+\index{covolume polynomial}
+\index{volume polynomial}
+
+The same intersection numbers can appear as coefficients in
+different polynomial conventions. The factorials determine
+which quadratic forms satisfy a signature condition. We use
+the published \cite{BrandenHuh20Lorentzian}; this terminology
+is distinct from the Lorentzian bilinear form in the proof of
+Alexandrov--Fenchel above.
+
+For $\alpha\in\mathbf N^{m+1}$, put
+$\alpha!=\prod_{i=0}^m\alpha_i!$. The normalization operator is
+\[
+ \mathcal N\left(\sum_\alpha c_\alpha\mathbf t^\alpha\right)
+      =\sum_\alpha\frac{c_\alpha}{\alpha!}\mathbf t^\alpha.
+\tag{D.31}\label{eq:appD-Lorentzian-normalization}
+\]
+It divides by each monomial's multi-index factorial, rather
+than by one scalar depending only on total degree.
+
+The following definitions and characterization follow
+Definition~2.6 and Theorem~2.25 of the published source.
+\begin{definition}
+\label{def:appD-Lorentzian-polynomial}
+A set $S\subset\mathbf N^{m+1}$ of vectors of the same total
+degree is $M$-convex if, for every $\alpha,\beta\in S$ and
+every $i$ with $\alpha_i>\beta_i$, some $j$ satisfies
+\[
+ \alpha_j<\beta_j,\qquad
+ \alpha-e_i+e_j\in S,\qquad \beta-e_j+e_i\in S.
+\tag{D.32}\label{eq:appD-M-convex-exchange}
+\]
+The empty set is allowed. A homogeneous polynomial $h$ of
+degree $d\geq2$ is Lorentzian if its coefficients are
+nonnegative, its support is $M$-convex, and every derivative
+$\partial^\gamma h$ with $|\gamma|=d-2$ has a Hessian with
+at most one positive eigenvalue. Nonnegative constant and
+linear polynomials are Lorentzian as well. The zero polynomial
+is allowed in each degree. A homogeneous polynomial $h$ is
+\emph{denormalized Lorentzian} if $\mathcal N(h)$ is Lorentzian.
+\end{definition}
+
+Coordinate derivatives preserve the Lorentzian property;
+so do directional derivatives with nonnegative directions,
+by published Corollary~2.11. Published Corollary~3.7 says
+that $h$ Lorentzian implies $\mathcal N(h)$ Lorentzian.
+The converse fails. For example,
+$h=x^2+xy+y^2$ has Hessian
+$\left(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\right)$,
+with two positive eigenvalues, while
+$\mathcal N(h)=\tfrac12x^2+xy+\tfrac12y^2$ has Hessian
+$\left(\begin{smallmatrix}1&1\\1&1\end{smallmatrix}\right)$
+and is Lorentzian. The full quadratic support is $M$-convex.
+Thus an assertion about a normalization cannot in general be
+restated for the unnormalized polynomial.
+
+The algebraic volume input is published Theorem~4.6 of
+\cite{BrandenHuh20Lorentzian}.
+\begin{theorem}
+\label{thm:appD-nef-volume-Lorentzian}
+Let $Y$ be an irreducible projective variety of dimension $d$
+over an algebraically closed field. If $H_0,\ldots,H_m$ are
+nef $\mathbf Q$-Cartier divisors, then
+\[
+ V(\mathbf t)
+   =\deg_Y\bigl((t_0H_0+\cdots+t_mH_m)^d\bigr)
+   =\sum_{|\alpha|=d}\frac{d!}{\alpha!}
+       \deg_Y(H_0^{\alpha_0}\cdots H_m^{\alpha_m})\mathbf t^\alpha
+\tag{D.33}\label{eq:appD-nef-volume-polynomial}
+\]
+is Lorentzian, including the zero-polynomial case.
+\end{theorem}
+
+This is an attributed import, not a new Hodge-index proof.
+The source passes from nef to ample divisors, cuts the
+degree-two derivatives to an irreducible surface, and uses
+Hodge index on a surface resolution. Irreducibility matters:
+a sum of volume polynomials of unrelated components need not
+have the same signature property. In particular, this theorem
+does not identify every effective Chow-class polynomial with
+a volume polynomial.
+
+\paragraph{The degree of homogenization.}
+For a polynomial $Q(\mathbf t)$ of degree $s$ and $N\geq s$,
+write $h_N(Q)=\sum_\alpha q_\alpha
+t_0^{N-|\alpha|}\mathbf t^\alpha$. Termwise differentiation gives
+\[
+ \partial_{t_0}^{N-s}\mathcal N(h_N(Q))
+     =\mathcal N(h_s(Q)).
+\tag{D.34}\label{eq:appD-homogenization-derivative}
+\]
+Both normalizations include the $t_0$ factorial. This identity,
+together with derivative closure, explains why a denormalized
+Lorentzian degree-$N$ coefficient polynomial in an intersection
+construction yields the usual degree-$s$ homogenization.
+It does not justify arbitrary nonnegative coordinate changes
+for denormalized Lorentzian polynomials: the normalization
+operator need not commute with such changes.
+
+\paragraph{Covolume records different coefficients.}
+For an irreducible subvariety $W\subset\prod_i\mathbf P^{n_i}$,
+write its Chow class as $\sum a_\alpha H^\alpha$ in the
+ambient Chow ring. Aluffi's covolume polynomial records
+$\sum a_\alpha\mathbf t^\alpha$, a \emph{codimension}-degree
+polynomial. Definition~2.1 of \cite{Aluffi23CovolumeV4}
+allows limits of positive real multiples of these polynomials.
+The volume polynomial of $W$ instead records intersections
+on $W$ and has degree $\dim W$.
+
+Even factorial normalization does not in general turn a
+covolume polynomial into a Lorentzian one. Source Example~2.7
+embeds $(\mathbf P^1)^3$ in
+$\mathbf P^7\times\mathbf P^3\times\mathbf P^1$ by the
+Segre maps and projection. Its degree-eight covolume polynomial
+has normalization whose indicated derivative is
+\[
+\begin{aligned}
+ \partial_{t_0}^{5}\partial_{t_1}\mathcal N(P_{[W]})
+    &=t_0^2+2t_0t_1+2t_0t_2+t_1^2+4t_1t_2,\\
+ \operatorname{Hess}
+    &=\begin{pmatrix}2&2&2\\2&2&4\\2&4&0\end{pmatrix}.
+\end{aligned}
+\tag{D.35}\label{eq:appD-covolume-signature-example}
+\]
+The determinant is $-8$ and exact congruence gives two
+positive and one negative eigenvalue. This is the source's
+existing example, not a counterexample to the mixed-zeta
+theorem in \cref{sec:appC-mixed-Segre-zeta}.
+
+Proposition~2.8 of the same exact preprint supplies a different
+operation. Choose integers $n_i$ large enough that
+\[
+ R(\mathbf u)=\left(\prod_i u_i^{n_i}\right)
+                         P(1/u_0,\ldots,1/u_m)
+\tag{D.36}\label{eq:appD-covolume-exponent-reversal}
+\]
+is a polynomial. For a covolume polynomial $P$,
+$\mathcal N(R)$ is Lorentzian. When $P=P_{[W]}$ in its
+actual ambient product, the source identifies this normalized
+exponent reversal with the volume polynomial of $W$ divided
+by $(\dim W)!$. Direct normalization and exponent reversal
+are therefore distinct operations. The source's conjecture
+about the modified numerator for one multihomogeneous ideal
+on a multiprojective space does not follow just from covolume.
+Its source-era status and the scope of the mixed sequence
+result are recorded in \cref{sec:appL-mixed-Segre-source-gates}.
 
 \section{Normalization checks}
 \label{sec:appD-unit-tests}

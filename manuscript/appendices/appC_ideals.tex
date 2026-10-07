@@ -29,6 +29,11 @@ Its projective criterion uses an ample polarization. The local
 finite-pullback comparison in \cref{sec:appH-finite-pullback-Segre}
 uses different invariants and retains its generic-slicing hypotheses.
 
+The mixed zeta discussion in \cref{sec:appC-mixed-Segre-zeta}
+organizes global intersection coefficients of several ideals.
+Its positivity concerns a modified, normalized numerator;
+\cref{sec:appD-Lorentzian-normalization} explains that normalization.
+
 \section{Complex analytic multiplier ideals}
 \label{sec:appC-analytic-multiplier}
 
@@ -1001,6 +1006,189 @@ A single Segre class in $\mathbf P^n$ can miss information at
 the homogeneous vertex. The stabilized datum in
 \eqref{eq:appC-Segre-zeta-stabilization} is therefore essential
 to this stated criterion.
+
+\subsection{Mixed zeta functions and the modified numerator}
+\label{sec:appC-mixed-Segre-zeta}
+\index{Segre zeta function}
+
+Several ideal singularities can be recorded together. This is a
+global intersection construction, rather than a tuple of local
+Jacobian multiplicities. We follow the exact revised preprint
+\cite{CidRuiz26MixedSegreV2}. Let $k$ be a field and let
+$I_1,\ldots,I_m$ be nonzero proper homogeneous ideals in
+$R=k[x_0,\ldots,x_n]$, with $m\geq1$. Choose nonzero homogeneous
+generators $f_{i,0},\ldots,f_{i,r_i}$ of positive degrees $d_{i,j}$.
+The ideals are fixed; changing these generating lists can change
+the numerator and denominator presentation below.
+
+For $N\geq n$, extend the ideals to $k[x_0,\ldots,x_N]$.
+Let $b_N:B_N\to\mathbf P^N$ be the blowup of their product.
+Write $E_{i,N}$ for the Cartier divisor satisfying
+$I_i\mathcal O_{B_N}=\mathcal O_{B_N}(-E_{i,N})$ and
+$H=c_1(\mathcal O_{\mathbf P^N}(1))$. For a multi-index
+$\alpha\in\mathbf N^m$, put $|\alpha|=\sum_i\alpha_i$ and
+$\mathbf t^\alpha=\prod_i t_i^{\alpha_i}$.
+The blowup formula of the source, Theorem~3.7, gives
+\[
+\begin{split}
+ [\mathbf P^N]-b_{N*}\left(
+     \prod_{i=1}^m(1+E_{i,N}t_i)^{-1}\cap[B_N]\right)
+  =\sum_{|\alpha|\leq N}
+      a_\alpha\mathbf t^\alpha H^{|\alpha|}\cap[\mathbf P^N].
+\end{split}
+\tag{C.35}\label{eq:appC-mixed-zeta-blowup}
+\]
+Every inverse is expanded formally in Cartier intersections;
+terms of total degree greater than $N$ vanish in the Chow group.
+The source's Definition~5.2 and Lemma~5.4 show that the integers
+$a_\alpha$ agree as $N$ increases, once $N\geq|\alpha|$.
+The resulting series is
+\[
+ \zeta_{I_1,\ldots,I_m}(\mathbf t)
+   =\sum_{\alpha\in\mathbf N^m}a_\alpha\mathbf t^\alpha,
+ \qquad a_0=0.
+\tag{C.36}\label{eq:appC-mixed-zeta-series}
+\]
+This defines the pushed global invariant used here. The source's
+supported mixed class uses a joint deformation construction;
+its transform is not in general a Cartier divisor.
+Equation~\eqref{eq:appC-mixed-zeta-blowup} uses the ordinary
+joint blowup and its Cartier divisors, so does not impose that
+extra Cartier assertion on the deformation transform.
+
+For one ideal the construction recovers
+\eqref{eq:appC-Segre-zeta-stabilization}. For several ideals,
+the ordinary zeta function of their product instead satisfies
+\[
+ \zeta_{I_1\cdots I_m}(t)
+  =\sum_{q\geq0}\left(
+       \sum_{|\alpha|=q}\frac{q!}{\alpha_1!\cdots\alpha_m!}
+                    a_\alpha\right)t^q.
+\tag{C.37}\label{eq:appC-mixed-zeta-multinomial}
+\]
+This is Corollary~3.9 and Proposition~5.7 of the source.
+The multinomial weights are essential: substituting
+$t_1=\cdots=t_m=t$ in the raw mixed series omits them.
+
+The following three statements are attributed respectively to
+Theorem~5.3, Proposition~5.8 and Theorem~6.3 of
+\cite{CidRuiz26MixedSegreV2}. The last uses the definition of
+denormalized Lorentzian in \cref{def:appD-Lorentzian-polynomial}.
+\begin{theorem}
+\label{thm:appC-mixed-zeta-import}
+Under the homogeneous-ideal assumptions above, put
+$D(\mathbf t)=\prod_{i=1}^m\prod_{j=0}^{r_i}(1+d_{i,j}t_i)$.
+Then:
+\begin{enumerate}
+\item There is a polynomial $P\in\mathbf Z_{\geq0}[\mathbf t]$
+      such that
+      \[
+       \zeta_{I_1,\ldots,I_m}=\frac{P}{D}.
+       \tag{C.38}\label{eq:appC-mixed-zeta-rationality}
+      \]
+\item Replacing every ideal by its integral closure leaves the
+      series unchanged:
+      \[
+       \zeta_{I_1,\ldots,I_m}
+        =\zeta_{\overline I_1,\ldots,\overline I_m}.
+       \tag{C.39}\label{eq:appC-mixed-zeta-integral-closure}
+      \]
+\item If $k$ is algebraically closed, set $Q=D-P$ and $s=\deg Q$.
+      Then the degree-$s$ homogenization
+      \[
+       h_s(Q)(t_0,\mathbf t)
+          =\sum_\alpha [\mathbf t^\alpha]Q\,
+                         t_0^{s-|\alpha|}\mathbf t^\alpha
+       \tag{C.40}\label{eq:appC-mixed-zeta-modified-numerator}
+      \]
+      is denormalized Lorentzian.
+\end{enumerate}
+\end{theorem}
+
+Here $Q(0)=1$, so its degree is defined, including $s=0$.
+Only the numerator $P$ of the chosen rational presentation is
+nonnegative in the first assertion; the expansion of $P/D$
+can have negative coefficients. Factors of $D$ can cancel and
+are only candidate poles. The second assertion is invariance,
+not a converse for arbitrary mixed sequences. The nested-ideal
+criterion \eqref{eq:appC-Segre-zeta-dependence} uses its separate
+published numerical theorem.
+
+\paragraph{Why the modified numerator has positivity.}
+The source's Lemma~5.5 computes the stabilized rational function
+in a projective dimension at least the total number
+$g=\sum_i(r_i+1)$ of chosen generators. On this joint blowup,
+the tautological line subbundle is
+$\mathcal O_{B_N}(-e_i)=\mathcal O_{B_N}(E_{i,N})$,
+where $e_i$ denotes the $i$th multigrading basis vector.
+It embeds in
+$b_N^*\mathcal E_i$, with
+$\mathcal E_i=\bigoplus_{j=0}^{r_i}\mathcal O(d_{i,j})$.
+The quotient $\mathcal Q_i$ has rank $r_i$ and is globally
+generated. The Whitney formula identifies the coefficients of
+$Q$ with pushed products of the Chern classes of these quotients.
+The construction in \cref{sec:appF-Chern-volume-bridge} then
+turns their factorial normalization into derivatives of a nef
+volume polynomial. Irreducibility of the blowup is used here.
+The degree-$N$ homogenization arising in that construction
+passes to \eqref{eq:appC-mixed-zeta-modified-numerator} through
+\eqref{eq:appD-homogenization-derivative}. This describes the
+attributed proof mechanism and its normalization; it is not an
+independent proof of the source's intersection-theoretic inputs.
+
+\paragraph{A diagonal check.}
+For $I_1=(x_0)$ and $I_2=(x_1)$, the disjoint-variable
+complete-intersection formula in source Example~7.1 gives
+\[
+\begin{aligned}
+ \zeta_{I_1,I_2}(t_1,t_2)
+   &=\frac{t_1+t_2+t_1t_2}{(1+t_1)(1+t_2)},\\
+ \zeta_{I_1,I_2}(t,t)&=2t-3t^2+O(t^3),\\
+ \zeta_{I_1I_2}(t)&=\frac{2t}{1+2t}
+                          =2t-4t^2+O(t^3).
+\end{aligned}
+\tag{C.41}\label{eq:appC-mixed-zeta-diagonal-check}
+\]
+The cross coefficient is $a_{(1,1)}=-1$ and receives the
+factor two in \eqref{eq:appC-mixed-zeta-multinomial}.
+The different quadratic terms illustrate the weighting directly.
+This worked specialization uses two complete intersections in
+disjoint variables; it is not a formula for arbitrary pairs.
+
+Source Example~7.6 takes
+$I_1=(x_0^2,x_1^2)$ and $I_2=(x_2^2,x_3^3)$ in disjoint
+variables. For its chosen generator lists,
+\[
+\begin{aligned}
+ D&=(1+2t_1)^2(1+2t_2)(1+3t_2),\\
+ P&=4t_1^2+6t_2^2+20t_1^2t_2
+                          +24t_1t_2^2+24t_1^2t_2^2,\\
+ Q&=1+4t_1+5t_2+20t_1t_2,\\
+ \mathcal N(h_2(Q))
+   &=\tfrac12t_0^2+4t_0t_1+5t_0t_2+20t_1t_2.
+\end{aligned}
+\tag{C.42}\label{eq:appC-mixed-zeta-example}
+\]
+The last quadratic has Hessian
+$\left(\begin{smallmatrix}1&4&5\\4&0&20\\5&20&0\end{smallmatrix}\right)$.
+Exact congruence gives diagonal pivots $1,-16,-25$, hence one
+positive and two negative eigenvalues. Its support satisfies
+the exchange condition in \cref{def:appD-Lorentzian-polynomial}.
+This is a check of the displayed source example, not a
+Macaulay2 computation or a new theorem.
+
+Aluffi's multivariable zeta function in
+\cite{Aluffi23CovolumeV4} concerns one multihomogeneous ideal
+on a product of projective spaces. Its factors are
+$1+\sum_j e_{j,k}t_j$, unlike $D$ above. The conjecture about
+the normalized modified numerator in that setting is not
+formally solved by \Cref{thm:appC-mixed-zeta-import}.
+\Cref{sec:appD-Lorentzian-normalization} separates its covolume
+construction from a volume polynomial, and
+\cref{sec:appL-mixed-Segre-source-gates} records the version
+and proof boundaries. None of these global statements yields
+the local componentwise finite-pullback comparisons in
+\cref{sec:appH-finite-pullback-Segre}.
 
 \section{Dependency map}
 \label{sec:appC-dependency-map}
