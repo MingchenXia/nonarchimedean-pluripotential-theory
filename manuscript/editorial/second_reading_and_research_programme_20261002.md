@@ -4875,3 +4875,53 @@ are recorded accurately without calling them a successful fetch. Publish
 through an authorized normal expected-head update if needed, inspect
 incoming author changes, then compile and actually review any attributed
 book integration before its next checkpoint.
+
+### Positive-pluriharmonic Siu integration, 7 October 2026
+
+The [integration audit](Dinh_Nguyen_Nguyen_Siu_integration_audit_20261007.md)
+records Appendix H.16, a Chapter 51 connection and Appendix L.74. The
+attributed compact-Kähler positive-pluriharmonic analyticity theorem and
+fixed-component decomposition retain their bidimension, threshold and
+residual-dimension hypotheses. Ordinary Lelong normalization, total versus
+strict transforms, compact difference regularization, closed pointwise
+Lelong domination, the divisor tangent and the proper analytic full-fibre
+locus are explained. Closed-current potentials and non-pluripolar products
+keep their original scope. The unavailable Ngu26 density-mass input is
+separate from the main analyticity induction and is not independently
+derived. Surface energy keeps its self-energy term; local-kernel, numerical
+and version-specific source defects retain precise qualifications.
+
+The nef transcendental Morse inequality is attributed to Tosatti's exact
+v2. A common fixed determinant lower-bound survives the needed weak limit;
+this is distinct from the false literal pointwise limsup formula in the
+older cited proposition. The source-audit counterexample to that literal
+formula is not presented as a counterexample to Tosatti's theorem. The
+frozen 213-primary-page-pair/111-sheet audit, its 31 scoped records and 15
+elementary diagnostics are reused, with five complete PDFs and eight
+partial readings. No fresh primary reading is claimed in this integration.
+
+Eleven version-specific references, thirteen labels, H.55--H.61 and two
+index entries are appended. All 115 historical formal blocks and 46 proof
+blocks in the three changed active inputs retain their bytes. One explicitly
+attributed theorem and no new proof environment are added; the other 422
+active inputs, 108 protected inputs, 107 preceding frozen manifests and
+181 exports remain unchanged. Canonical inventory and the open historical
+catalogue/editor remain preserved. No original theorem, independent model
+call, receipt, solved status or general BJ22 Siu/envelope repair is added.
+
+The 4,495-page build passes required repository validation, references,
+index and navigation, with 954 pre-existing underfull boxes and no other
+warnings or overfull boxes. The first layout diagnostic, subsequent helper
+diagnostic and complete 68-page/34-sheet pre-punctuation fresh reading
+remain preserved. The final repair changes only page 4081's text. Final
+selected reading covers all 68 pages: two freshly read in one displayed
+sheet and 66 reused across 33 sheets only after exact full-text and
+matching-image identity checks against actual prior reading. This selected
+review is not a new whole-book rereading.
+
+Save immutable book/review/source artifacts and verify every source-archive
+member against its live bytes. Connector observations of both main and
+work show no incoming commits at this checkpoint; the CLI credential
+failure is not described as a successful fetch. Publish normally with an
+expected-head check and update draft PR 2. Continue checking incoming author
+progress and recent related research in the cloud.

@@ -9,7 +9,25 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,486 pages**.
+The current research-integration build has **4,495 pages**.
+The [positive-pluriharmonic Siu integration](manuscript/editorial/Dinh_Nguyen_Nguyen_Siu_integration_audit_20261007.md)
+adds Appendix H.16, a Chapter 51 connection and Appendix L.74. It explains
+the attributed compact-Kähler analyticity theorem, fixed-component Siu
+decomposition, total/strict transforms, closed Lelong domination and the
+full-fibre induction. Ordinary trace/Lelong normalization is explicit;
+closed-current potentials and non-pluripolar products retain their hypotheses.
+The unavailable density-mass input belongs to a separate movable-class
+application. Surface energy, local-kernel and numerical qualifications are
+retained. A fixed determinant lower-bound limit step is distinguished from
+a false literal pointwise limsup claim in an older cited proposition.
+Eleven version-specific references, thirteen labels, H.55--H.61 and two
+index entries are added. All 68 matching final pages are covered by complete
+text/image reading: two pages freshly read after the punctuation repair,
+and 66 reused only after complete text and matching-image identity checks.
+The preceding 68-page fresh reading and initial layout diagnostic remain
+preserved. Required validation, references, index and navigation pass.
+Historical proofs, canonical statuses and the native editor remain unchanged;
+no general non-Archimedean BJ22 Siu or envelope-closure repair is claimed.
 The [positive-pluriharmonic Siu source review](manuscript/editorial/Dinh_Nguyen_Nguyen_Siu_source_review_20261007.md)
 reads both Dinh--Nguyen--Nguyen 2606.29680 versions completely and eleven
 exactly selected dependencies: 213 distinct source/page pairs in 111
@@ -19,9 +37,9 @@ route and from a movable-class application with an unavailable density
 mass input. Fixed analytic coefficients, total/strict transforms,
 closed Lelong domination and the full-fibre induction retain their
 hypotheses. Auxiliary locator, weak-limit and numerical-factor defects
-are recorded in their source scopes. This source-only checkpoint preserves
-the current book, canonical statuses and native catalogue/editor; it
-does not repair the non-Archimedean BJ22 Siu or envelope-closure gap.
+are recorded in their source scopes. Its source-only checkpoint preserved
+the preceding 4,486-page book, canonical statuses and native catalogue/editor;
+the attributed integration above reuses that frozen qualified audit.
 The [globally bounded-minorant integration](manuscript/editorial/Wikstrom_restricted_Perron_integration_audit_20261007.md)
 adds Appendix H.15, a Chapter 68 connection and Appendix L.73. It explains
 the real subharmonic regularization theorem, an exact B-regular Hartogs
