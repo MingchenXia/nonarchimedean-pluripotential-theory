@@ -4377,3 +4377,39 @@ primary-source research and incoming author progress. The four complex
 literature directions add no canonical problem atoms. No original result,
 independent model call, production receipt, general ideal Green identity
 or BJ22 Siu/envelope closure repair is added by this checkpoint.
+
+### Unbounded-domain Perron and comparison sources, 7 October 2026
+
+The [exact-source review](Pawlaschyk_unbounded_domain_source_review_20261007.md)
+reads all thirteen pages of Pawlaschyk 2606.16584v1, all twenty-five returned
+Nguyen--Hung 2008 publisher pages and Słodkowski's exact actual 1--5 and
+16--22 selection. Fifty source/page pairs were read as full selected texts
+and displayed in twenty-six sheets. Two enlarged main-paper details repeat
+existing pages and add no page count. Fifteen exact elementary checks pass.
+
+The source account distinguishes capped bounded solutions from arbitrary
+growth at infinity. Theorem 4.19(5)'s literal uncapped uniqueness fails on
+the exterior disk with zero boundary data and solutions c log|z|; this does
+not refute bounded/capped existence. The full r/q range, Hunt--Murray
+eigenvalue convention, interior-continuous negative infinity witness and
+local-versus-global comparison classes are retained. An enlarged source
+view corrects the initial overreading of C(D) as closure continuity.
+The literal relative-hull exhaustion, arbitrary-map log-norm assertion,
+zero-degree polynomial case and older negative-obstacle Jensen/mollifier
+defects keep their separate scopes. No entire proof chain is certified.
+
+The checked 4,452-page book remains unchanged. All 425 active and 108
+protected inputs, both bibliographies, generated book/index, 94 preceding
+manifests and 163 exports retain their bytes. The native catalogue/editor
+and all canonical problem statuses are preserved. No original result,
+independent model call or production receipt is added. General BJ22
+homogeneous Siu/envelope closure remains conditional.
+
+Fetch both main and work and push this source-only checkpoint normally.
+Next add a short attributed infinity-comparison interface near Appendix H.10
+and the exact-source qualifications in Appendix L. Keep unbounded domains
+with bounded data distinct from bounded domains with unbounded obstacles;
+do not assign a Bedford--Taylor positive measure to the general non-psh
+q-class. Compile the manuscript edit, read matching final pages and publish
+its separate integration audit. Continue recent related primary-source
+research and incoming author progress.

@@ -4,12 +4,22 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
-**Active continuation, 6 October 2026:** the ordered second reading of all
+**Active continuation, 7 October 2026:** the ordered second reading of all
 72 chapters, Appendices A--N and nine front-matter files is complete.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
 The current research-integration build has **4,452 pages**.
+The [unbounded-domain Perron source review](manuscript/editorial/Pawlaschyk_unbounded_domain_source_review_20261007.md)
+reads Pawlaschyk 2606.16584v1, the full Nguyen--Hung publisher PDF and an
+exact Słodkowski selection: fifty actual source/page pairs in twenty-six
+displayed sheets. Fifteen elementary checks distinguish bounded/capped
+existence from the false literal uncapped uniqueness clause; the exterior
+disk admits the same zero boundary trace for all multiples of log modulus.
+The full r/q range, generalized eigenvalue convention, infinity witness,
+literal hull defect and older Jensen signature gaps remain explicit.
+No complete proof-chain certification or canonical-status change is claimed.
+This source-only checkpoint preserves the checked book and native catalogue.
 The [unbounded obstacle and divisor Green integration](manuscript/editorial/Dao_Nguyen_boundary_envelopes_integration_audit_20261006.md)
 adds Appendix H.10, a Chapter 68 comparison-class connection and Appendix L.67.
 It keeps the one-sided obstacle and moving-boundary hypotheses, principal
