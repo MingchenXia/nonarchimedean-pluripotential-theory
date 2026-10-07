@@ -10,6 +10,18 @@ The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
 The current research-integration build has **4,486 pages**.
+The [positive-pluriharmonic Siu source review](manuscript/editorial/Dinh_Nguyen_Nguyen_Siu_source_review_20261007.md)
+reads both Dinh--Nguyen--Nguyen 2606.29680 versions completely and eleven
+exactly selected dependencies: 213 distinct source/page pairs in 111
+displayed sheets, five complete PDFs and eight partial readings. The
+revised compact-Kähler theorem is separated from its older projective
+route and from a movable-class application with an unavailable density
+mass input. Fixed analytic coefficients, total/strict transforms,
+closed Lelong domination and the full-fibre induction retain their
+hypotheses. Auxiliary locator, weak-limit and numerical-factor defects
+are recorded in their source scopes. This source-only checkpoint preserves
+the current book, canonical statuses and native catalogue/editor; it
+does not repair the non-Archimedean BJ22 Siu or envelope-closure gap.
 The [globally bounded-minorant integration](manuscript/editorial/Wikstrom_restricted_Perron_integration_audit_20261007.md)
 adds Appendix H.15, a Chapter 68 connection and Appendix L.73. It explains
 the real subharmonic regularization theorem, an exact B-regular Hartogs

@@ -4841,3 +4841,37 @@ Dinh--Nguyen--Nguyen 2606.29680v2 and comparison v1 are acquired for the next
 source audit; their thirteen-/forty-page PDF proofs have not yet been read.
 The latest three-author compact-Kähler scope must be checked directly and
 is not an automatic non-Archimedean Siu repair.
+
+### Positive-pluriharmonic Siu source checkpoint, 7 October 2026
+
+The [source review](Dinh_Nguyen_Nguyen_Siu_source_review_20261007.md)
+records the complete thirteen-page controlling v2 and forty-page comparison
+v1, plus eleven dependencies in explicit scopes. All 213 distinct primary
+source/page pairs were actually read as complete selected text with 111
+matching individually displayed sheets and sequential notes. Five PDFs
+are complete readings, eight partial. Thirty-one scoped records separate
+the compact-Kähler theorem, fixed-component decomposition, total/strict
+transforms, closed Lelong domination and the full-fibre locus needed in
+the induction. The movable-class application additionally imports an
+unavailable Ngu26 density-mass theorem; the main analyticity induction
+does not. Compact pluriharmonic difference regularization is anchored in
+the official DS04 PDF rather than an uncleared local bootstrap.
+
+Tosatti's Morse/cone dependency was read completely. Its fixed determinant
+lower-bound limit step remains separate from the false literal pointwise
+limsup claim in the cited 2002 proposition. Tangent numerical factors,
+signed boundary convergence, whole-fibre Liouville, surface energy and
+version-specific locators retain explicit qualifications. Older v1
+estimate/degree defects are diagnostic records, not counterexamples to
+the v2 main theorem. Unread recursive support/resolution inputs remain
+attributed. No original result, model call, receipt, solved status or
+non-Archimedean BJ22 repair is added.
+
+This source-only checkpoint preserves all 425 active inputs, 108 protected
+inputs, earlier frozen manifests/exports, generated book/index and the
+4,486-page book. The historical catalogue/editor is unchanged. Git CLI
+authentication failed; connector observations of PR 2's work/base refs
+are recorded accurately without calling them a successful fetch. Publish
+through an authorized normal expected-head update if needed, inspect
+incoming author changes, then compile and actually review any attributed
+book integration before its next checkpoint.
