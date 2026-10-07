@@ -4640,3 +4640,46 @@ Next integrate an attributed Appendix H comparison, Chapter 68 connection
 and Appendix L source note; compile and read the matching final pages
 before publishing that integration. Continue recent primary-source research
 and incoming author progress afterward.
+
+### Bergman boundary-rigidity integration, 7 October 2026
+
+The [integration audit](Ebenfelt_Ganguly_Bergman_integration_audit_20261007.md)
+records Appendix H.13, the Chapter 68 comparison and Appendix L.71.
+The attributed one-patch extremal/cscK/Einstein result retains its bounded
+domain assumptions and the positive-kernel locus in the possibly unbounded
+extension. The text separates the MA critical order n+2 from harmonic
+root n, explains the dimension-two logarithmic cancellation, translates
+the complex/real metric conventions and keeps the Carleman cutoff limits
+in their justified order. Neither obstruction flatness alone nor one
+boundary patch supplies a global ball characterization.
+
+Nine exact-edition references, twelve labels, seven formulas H.34--H.40
+and two index entries are added. All 59 old formal blocks and 25 old
+proof blocks in the three changed active files retain their bytes and
+order. The 422 other active inputs, 108 protected inputs, 101 preceding
+frozen manifests and 172 exports remain byte-identical. The preceding
+101-source-page-pair, 53-sheet audit is reused without a fresh primary-page
+audit or a complete external proof-chain certificate.
+
+The final v4 book has 4,476 pages. Required validation, reference checks,
+canonical inventory, existing unit tests, full build, index and navigation
+pass. All 53 matching complete selected final texts/images were read in
+27 individually displayed sheets, including the complete index and
+bibliography: 45 pages freshly read and eight reused only after complete
+text and image digest matches to actually read v2 views. V1's compound
+equation reference was repaired; partial v2 reading led to four explicit
+notation clarifications. An unsuccessful v3 edit attempt made no book
+change and is not a final certificate. Earlier records remain preserved.
+Underfull boxes stay at 954; other warnings and overfull boxes are zero.
+This is a selected integration review, not another full ordered reading.
+
+Save immutable book/review/source artifacts with the 427-input closure
+and verify all 770 source-archive member bytes. Explicitly fetch main and
+work, push normally and update the existing draft PR. Continue with the
+acquired Ganguly--Sahi 2607.14621v1 primary paper on finite ball quotients
+and singular Stein spaces: acquisition alone is not proof reading or
+permission to import its conclusions. Continue incoming-author progress
+and related recent primary-source research. No original theorem, new
+independent model call, production receipt, canonical-status change or
+general BJ22 Siu/envelope-closure repair is added. The native editor,
+catalogue and historical receipt scopes remain unchanged.
