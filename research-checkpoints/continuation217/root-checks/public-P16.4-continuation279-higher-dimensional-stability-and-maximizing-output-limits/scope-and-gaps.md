@@ -1,0 +1,17 @@
+# New theorem and retained original
+
+The new paper treats every smooth geometrically integral projective X of dimension n>=2, actual ample rational L, complete real-valued characteristic/residue-characteristic-zero K, arbitrary valuation and arbitrary-support intrinsic Radon target of raw mass V=(L^n). Its prerequisites are exactly O217 and M257 among the nine whole caller grants; all nine whole bodies and all clarifications were read and registered.
+
+New proved draft results: nonnegative singular mixed Dirichlet coefficients; nonordered PL-test estimates; exact supporting-plane and midpoint-defect identities with c_n=(1-2^(-n))/(2(n+1)); equivalence of zero defect with equality of genuine pure/all successive mixed measures; convexity of genuine operator fibres and equality of every mixed output of fibre elements; quantitative stability at a known solution; existence and uniqueness of a weak genuine-output limit for every maximizing net of every intrinsic target, including mixed outputs; intrinsic finite energy and an explicit test bound for that limit; reference independence; exact competitor-direction Euler inequalities.
+
+The original equation is MA(u)=mu for every intrinsic target, with actual attained dual and every-solution every-point equality modulo a finite constant. It is unchanged. The paper does not prove it. A limit lambda_mu of genuine output measures is not an inverse-defined replacement operator. No equality lambda_mu=mu is claimed for a general target; no actual maximizing potential is produced. Even equal genuine pure/all mixed measures do not establish u=v+c at every point.
+
+Three sufficient missing inputs for this route are: actual maximizing-potential realization; identification lambda_mu=mu (or both-sign outer differentiation with the necessary actual envelope/orthogonality inputs); and I(u,v)=0 implying every-point equality modulo a finite constant. Finite-U coercivity and the new measure convergence do not establish potential compactness or all-point psh closure. Neither a field change nor C comparison supplies the missing statements. D descent requires actual singular invariance first. The new proofs make no use of a product/tropical ansatz or a fixed skeleton.
+
+T171 settles the already granted trivial-field boundary; S269 settles all-genus curves only. Those are not new results and do not close the nontrivially valued higher-dimensional original. No residual original problem is declared solved. candidate=false.
+
+# Verification boundary
+
+All 26 whole mathematical packet files and all 62 authorized primary byte/hash bindings match. Whole bodies were read in bounded native output; the complete ordinary immediate BE units actually read are in the source ledger. Recursive CLD smooth/Stokes/positivity, intersection/regularization and compact Hausdorff/Riesz foundations were not reconstructed from every ultimate source. The new singular arguments use the caller's full O theorem with all clarifications. No missing higher-dimensional primary theorem is silently imported.
+
+Small exact polynomial checks are diagnostic finite observations. Native execution, compilation and hashes do not establish mathematical correctness. This is an unverified draft. No supervised heavy-compute or requested Xean/model-selection service is exposed; none was invoked. No native web search, nested agents/providers, other private campaign outputs, external contact, installation, runtime/auth changes, or editor action occurred. Only this fresh artifact directory was written.

@@ -1,0 +1,3 @@
+Unreviewed continuation279: higher-dimensional stability and maximizing-output limits
+
+The original P16.4 remains open. This draft proves energy-defect/PL-measure estimates, mixed-measure rigidity and a canonical intrinsic limit of maximizing outputs. It does not identify that limit with every target, produce an actual maximizing potential or prove every-point potential uniqueness. ROOT read the whole source/argument/ledger/scope and four exact native notes, checked26 mathematical/62primary bindings, reproduced136 exact coefficient rows and1089 formal grid rows, exact markdown conversion and two clean local builds. No mathematical acceptance follows from these acts. Complete independent mathematical/source review follows. Protected editor stays unchanged; no new tab.
