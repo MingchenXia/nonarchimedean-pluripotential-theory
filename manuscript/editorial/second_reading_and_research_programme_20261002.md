@@ -4610,3 +4610,33 @@ recent primary-source research and incoming-author progress. No original
 theorem, independent model call, production receipt, canonical-status
 change or general BJ22 Siu/envelope-closure repair is added. The native
 catalogue/editor and historical receipt scopes remain unchanged.
+
+### Bergman extremal and cscK rigidity: source review, 7 October 2026
+
+The [exact-source review](Ebenfelt_Ganguly_Bergman_source_review_20261007.md)
+reads all 37 Ebenfelt--Ganguly 2610.04590v1 pages and 64 dependency pages
+from seven exact files. All 101 distinct source/page pairs were read as
+complete selected texts with matching images in 53 sheets. EG and Li--Liu
+are complete readings; six PDFs retain partial selections. The unavailable
+EX2024 chapter, original kernel/invariant inputs, original Fefferman--Phong
+proof and unpublished finite-type input remain externally attributed.
+
+Twenty-four scoped records and twenty exact elementary diagnostics separate
+the n=2 logarithmic cancellation, MA critical order n+2, harmonic root n,
+real/complex metric normalizations, local Hörmander estimate and its uniform
+noncompact ACH globalization. The radial cutoff is removed at fixed weight
+before the weight parameter increases. Adjacent source formula slips and
+an initial matrix-orientation helper failure are preserved separately from
+the unrefuted EG main argument. No full external proof-chain certificate
+or original theorem is claimed.
+
+All 425 active inputs, 108 protected inputs, both bibliographies, the
+checked 4,469-page book/index, 100 prior frozen manifests and 172 exports
+remain byte-identical. Canonical statuses and the native catalogue/editor
+are unchanged. No independent model call, production receipt, Xean run or
+general BJ22 Siu/envelope-closure repair is added. Fetch both branch
+references explicitly, push normally and update the existing draft PR.
+Next integrate an attributed Appendix H comparison, Chapter 68 connection
+and Appendix L source note; compile and read the matching final pages
+before publishing that integration. Continue recent primary-source research
+and incoming author progress afterward.

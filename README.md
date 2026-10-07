@@ -10,6 +10,16 @@ The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
 The current research-integration build has **4,469 pages**.
+The [Bergman rigidity source review](manuscript/editorial/Ebenfelt_Ganguly_Bergman_source_review_20261007.md)
+reads all 37 Ebenfelt--Ganguly 2610.04590v1 pages and 64 precisely selected
+dependency pages: 101 exact-source/page pairs in 53 displayed sheets, two
+complete PDFs and six partial files. Twenty-four scoped records and twenty
+elementary diagnostics retain the dimension-two cancellation, distinct MA
+and harmonic indicial roots, ACH scaling and Carleman cutoff order. Auxiliary
+formula issues remain separate from the unrefuted main argument; unread
+external proof inputs remain attributed. This source-only checkpoint preserves
+the current book, canonical statuses and native catalogue/editor. Attributed
+Appendix H and Chapter 68 integration follows with compilation and page review.
 The [Griffiths/Chern-form integration](manuscript/editorial/Du_Griffiths_Chern_integration_audit_20261007.md)
 adds Appendix H.12, a Chapter 17 connection and Appendix L.70. It explains
 the rank-nine negative coefficient, strict trace perturbation and logarithmic
