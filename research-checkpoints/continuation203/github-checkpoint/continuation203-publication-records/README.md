@@ -1,0 +1,7 @@
+Checkpoint203: material contact failure preserved; whole direct-formal manuscript under independent review
+
+9/42 originals solved,33 open,76 independently accepted partial/supporting papers. No new acceptance. Independent196 returned FAIL on unchanged247: strict affine floor omitted the PC hypothesis, and the endpoint was separable on cross times z. Preserve exact native/canonical review and failed source. ROOT249 explicitly changes the hypothesis and constructs a new coupled endpoint/reference, with raw candidate masses12,6,6/reference24/contact-3. Author197 must independently reconstruct it and continue the full original classification.
+
+Native195 candidate=false produced whole18-page250 paper. Complete1320-line TeX,440-line argument,73-line ledger and six exact registered notes read; all69 native hashes and22 original primary bindings valid. Fresh exact-source finite checks match and two local builds have no warnings. Root visually inspected only PDF pages1/18. Built-in compiler requested but no diagnostics at this checkpoint. Entire independent198 reader launched with exactly six whole accepted grants and all unchanged clarifications. General positive-genus and higher-dimensional original equations remain open.
+
+ROOT248 degree-slope/conditional M0 and actual original-reference working route is unreviewed. Full third-party primary files, original dossier bodies, private inspection/stdout/SQLite and active streams remain private. At most two native61xhigh campaigns; protected current editor and native authentication retained.
