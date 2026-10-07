@@ -4570,3 +4570,43 @@ normally. Next write an attributed Appendix H explanation, a Chapter 17
 connection and Appendix L provenance note; compile and read the matching
 changed pages before publishing the integration. Continue incoming-author
 progress and related recent primary-source research afterward.
+
+### Griffiths positivity and Chern-form integration, 7 October 2026
+
+The [integration audit](Du_Griffiths_Chern_integration_audit_20261007.md)
+records Appendix H.12, a Chapter 17 orientation connection and Appendix L.70.
+The attributed rank-nine negative coefficient, strict trace perturbation
+and logarithmic metric patching distinguish a pointwise Chern--Weil form
+from its positive top Chern number. The normalized rank-three comparison
+retains exact scaling and pointwise principal curvature compression;
+arbitrary induced subbundle positivity is not assumed. Source-scoped
+candidate ranks four through eight remain a literature direction.
+
+Six exact-edition references, fifteen labels, nine equations H.25--H.33
+and two index entries are appended. All 112 old formal blocks and 63
+old proof blocks retain their bytes and order; no new formal or proof
+environment is added. The 422 other active inputs, 108 protected inputs,
+99 preceding frozen manifests and 169 exports remain byte-identical.
+The preceding 68-source-page-pair, 35-sheet audit, 24 scoped records and
+21 exact elementary checks are reused, without a new primary-page audit
+or complete external proof-chain certificate.
+
+The final v3 book has 4,469 pages and passes required compilation,
+reference checks, canonical inventory, existing unit tests, index and
+navigation. All 54 matching complete selected final texts and images
+were freshly reviewed in 27 individually displayed sheets, including
+the complete index and bibliography. Partial v1 reading found duplicate
+formula numbering; v2 explicit tags exposed duplicate automatic anchors.
+V3 explicitly tagged starred equations preserve legacy H.1--H.24 and
+give nine distinct valid destinations. Earlier records remain preserved.
+Underfull boxes stay at 954; other warnings, overfull boxes and invalid
+internal destinations are zero. This is a selected integration review,
+not another full ordered reading.
+
+Save immutable book/review/source artifacts with the 427-input closure,
+and check all 764 source-archive members. Explicitly fetch both main and
+work, push normally and update the existing draft PR. Continue related
+recent primary-source research and incoming-author progress. No original
+theorem, independent model call, production receipt, canonical-status
+change or general BJ22 Siu/envelope-closure repair is added. The native
+catalogue/editor and historical receipt scopes remain unchanged.
