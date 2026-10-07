@@ -4453,3 +4453,45 @@ uncapped envelopes, an exact boundary hull and general weak q-equations
 remain directions requiring separate inputs. No original theorem,
 independent model call, verification receipt, canonical-status change
 or general BJ22 Siu/envelope closure repair is added.
+
+
+### Conifold contraction sources, 7 October 2026
+
+The [exact-source review](Guyett_McGowan_conifold_source_review_20261007.md)
+reads all 28 pages of Guyett--Mc Gowan 2610.00942v1 and all 21 pages
+of Song's exact 2012 v1, together with precise published Zhang, BGL and
+GL2 selections and additional GL3 v1 pages. There are 113 distinct
+source/page pairs in 58 sheets: 98 fresh pairs in 50 sheets, plus
+fifteen previously read GL3 pages in eight reused sheets. Two repeated
+main-paper sheets add no pages. Twenty-four scoped records and twelve
+exact elementary checks are recorded. Song's 2015 and GL3's 2023
+publisher PDFs were unavailable and are not declared read.
+
+The source scopes retain non-closed lower/upper mass, Chern--Ricci versus
+Riemannian Ricci, general subsequences versus closed-background
+uniqueness, the threefold ordinary-double-point and locally Kähler
+hypotheses, and separate source intrinsic / target extrinsic diameters.
+Zhang's bounded-potential non-positive KE theorem supplies conical
+asymptotics only with its stated cone and link assumptions. A mistaken
+initial assessment of the torsion absolute-value formula is corrected
+in a separate immutable addendum; both sides are barred and the step
+is valid. No main-theorem counterexample or complete proof-chain
+certificate is claimed. Literal auxiliary presentation defects retain
+separate scopes, without assertions about unread journal editions.
+
+The checked 4,458-page book is preserved. All 425 active and 108
+protected inputs, both bibliographies, generated book/index, 96 prior
+frozen manifests and 166 exports retain their bytes. The native
+catalogue/editor and canonical statuses remain unchanged. No original
+result, independent model call, production receipt or general BJ22
+Siu/envelope closure repair is added.
+
+Fetch main and work with explicit destination references and push
+normally. Next integrate a short attributed Chapter 66 discussion and
+Appendix L provenance account, retaining the fixed-resolution parameter
+versus hybrid complex-structure parameter distinction. Keep non-closed
+uniqueness, general Hermitian metric convergence, family curvature rates
+and positive-KE cone asymptotics as separately gated literature directions.
+Compile the book edit, read matching changed pages with bibliography and
+index transitions, and publish a separate integration record. Continue
+related recent primary-source research and incoming author progress.

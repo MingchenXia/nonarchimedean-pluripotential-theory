@@ -10,6 +10,17 @@ The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
 The current research-integration build has **4,458 pages**.
+The [conifold-contraction source review](manuscript/editorial/Guyett_McGowan_conifold_source_review_20261007.md)
+reads Guyett--Mc Gowan 2610.00942v1 and five exact dependency files:
+113 distinct source/page pairs in 58 sheets, including 98 fresh pairs
+and fifteen previously read Guedj--Lu pages. Two complete PDFs and
+four partial selections retain their version scopes. Twenty-four
+scoped records and twelve elementary checks separate non-closed
+Chern--Ricci-flat subsequences, closed-background full-family limits
+and the nodal threefold GH theorem. An initial torsion-formula reading
+is explicitly corrected after checking both absolute-value bars.
+The checked book and native catalogue remain unchanged; no complete
+external proof-chain certificate or canonical-status change is claimed.
 The [unbounded-domain comparison integration](manuscript/editorial/Pawlaschyk_unbounded_domain_integration_audit_20261007.md)
 adds Appendix H.11, a Chapter 68 connection and Appendix L.68. It retains
 finite caps, the Hunt--Murray eigenvalue convention, the full peak range
