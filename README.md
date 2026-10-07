@@ -9,7 +9,21 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,535 pages**.
+The current research-integration build has **4,543 pages**.
+The [Chern-flow integration](manuscript/editorial/Chern_flow_integration_publication_audit_v3_20261007.md)
+adds D.8.3--D.8.4, F.9.4--F.9.5, G.9.9--G.9.10 and L.80. It connects
+normalized packets, generated quotient flags, creation-state balance,
+full Chern moment algebras and finite tropical certificates. An explicit
+toric quartic separates Lorentzian volume realization from the complete
+Hodge--Riemann package of a smaller apolar algebra. Classical foundation
+gates and exact field/sign conventions remain explicit. Required validation
+passes with zero overfull boxes, unresolved references or invalid internal
+links. The final scoped review covers 72 selected pages: six revised pages
+were freshly read after repair, and 66 reuse byte-identical images and
+complete text from the initial actual review. This is an incremental review;
+all identified defects are resolved, and no original result or canonical
+status promotion is claimed. The preceding volume/Richardson build has
+4,535 pages.
 The [volume and Richardson integration](manuscript/editorial/Volume_Covolume_Richardson_integration_publication_audit_v2_20261007.md)
 adds D.8.1--D.8.2, F.9.2--F.9.3, G.9.8 and L.79. It connects
 factorial normalization with exact volume realization, covolume differential
@@ -43,9 +57,10 @@ explicit dependencies. An exact toric quartic distinguishes Lorentzian
 volume realization from all Hodge--Riemann signs in a smaller apolar algebra.
 Nine exact finite diagnostic groups pass; a failed transcription is retained,
 and 2,141 bounded balance profiles are checked without a universal-proof
-claim. This source-only checkpoint preserves the 4,535-page book, canonical
-statuses and native catalogue/editor. Attributed integration follows its
-own build and actual rendered-page review.
+claim. That source-only checkpoint preserved the then-current 4,535-page
+book, canonical statuses and native catalogue/editor. Its source evidence
+is reused by the checked Chern-flow integration with zero fresh primary
+reading credit.
 The [mixed Segre zeta integration](manuscript/editorial/Mixed_Segre_zeta_integration_audit_20261007.md)
 adds C.9.2, D.8, F.9.1 and L.78. It connects the stabilized mixed
 series, multinomial product specialization and integral-closure invariance

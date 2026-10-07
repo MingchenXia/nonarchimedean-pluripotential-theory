@@ -5213,3 +5213,32 @@ every archive member and publish with an expected-head check; continue
 cloud research on the current multiprojective conjecture and related
 recent arXiv material. The BJ22 critical Siu-division/envelope boundary
 and UNVERIFIED LPWZ diagnostic remain unchanged.
+
+### Chern-flow book integration, 7 October 2026
+
+The [integration audit](Chern_flow_integration_publication_audit_v3_20261007.md) records
+D.8.3--D.8.4, F.9.4--F.9.5, G.9.9--G.9.10 and L.80. Actual quotient flags,
+creation-state balance, integral incidence, full multiplication-annihilator
+moments and finite tropical witnesses retain their separate hypotheses.
+The toric quartic distinguishes smaller apolar Hodge signs from geometric
+volume/Lorentzianity. Classical boundary descent stays a cited foundation.
+Seven new formal blocks are attributed imports/definition/example; eleven
+exact-edition references, nineteen equations and twelve index entries are
+added, with no new original theorem, proof environment or model receipt.
+
+The 182-page-pair/94-image source review is reused with zero fresh primary
+reading. Historical 86 formal blocks, 30 proofs and 103 manual tags in
+D/F/G/L, the other 421 active inputs, 108 protected inputs, 120 preceding
+frozen manifests and 204 exports are preserved. The canonical 42-atom/
+12-problem inventory and native catalogue/editor are unchanged. Required
+validation produces 4,543 pages with zero errors, unresolved references,
+overfull boxes or invalid internal links; 954 existing underfull boxes remain.
+The initial actual selected reading covers 72 pages/36 images and records
+repair findings. After repair/build, six changed pages/three images were
+freshly read and 66 pages/33 images reuse byte-identical complete text and
+images. The composite final review resolves all findings and is not a new
+whole-book reread. Freeze checked exports and upload the authorized evidence
+using a normal expected-head update after inspecting both GitHub branches.
+Continue cloud-only with Cid-Ruiz 2608.25987v2; acquisition alone gives no
+mathematical reading credit or book-import authority. The general BJ22
+critical Siu/envelope input stays open and LPWZ remains UNVERIFIED.

@@ -951,6 +951,269 @@ inequalities concern cumulative multiplicities. None implies
 log-concavity of each individual Littlewood--Richardson coefficient
 or negative association.
 
+\subsection{Actual quotient flags and Chern flow}
+\label{sec:appF-Chern-flow}
+\index{Chern flow!generated envelope}
+\index{quotient flag!creation state}
+
+The packets of \cref{sec:appD-Chern-packets} require generated
+bundles representing products that contain nongenerated kernel lines.
+The construction in \cite[\S\S3--4]{NguyenDangWang26ChernFlowV4}
+retains actual quotient flags and groups whole rows before using
+incidence. A formal list of divisor roots would lose the generation
+argument.
+
+For $u\in S_n$ let
+$c_a=\#\{b>a:u^{-1}(a)>u^{-1}(b)\}$ and
+$B_a=(a,a+1,\ldots,a+c_a-1)$, omitting empty rows.
+The word $r(u)=B_{n-1}\cdots B_1=(i_1,\ldots,i_\ell)$ is reduced;
+row starts decrease. Begin over
+$B=\prod_{j=1}^n\mathbf P^{m_j}\times\mathbf P^{m_z}$
+with generated lines $L_j$, an additional generated line $M$,
+and the split quotient flag $F_j^{(0)}=L_1\oplus\cdots\oplus L_j$,
+with $F_0^{(0)}=0$.
+At step $t$, with $i=i_t$, form the rank-two bundle
+$K_t=\ker(F_{i+1}^{(t-1)}\to F_{i-1}^{(t-1)})$
+and its quotient projective bundle. If $S_t$ is the tautological
+kernel line, the new prefix is
+$F_i^{(t)}=\pi_t^*F_{i+1}^{(t-1)}/S_t$.
+Thus one has the literal exact sequence
+\[
+ 0\longrightarrow S_t\longrightarrow
+       \pi_t^*F_{i+1}^{(t-1)}\longrightarrow F_i^{(t)}
+       \longrightarrow0.
+\tag{F.31}\label{eq:appF-Chern-flag-sequence}
+\]
+Every prefix remains a quotient of the pulled-back original split
+bundle and hence is generated. This does not make $S_t$ or each
+successive root generated. The source's row bundles are generated
+as whole bundles at row completion; for atoms, the co-row bundles
+are generated at row start and use the old upper roots at that time.
+The polynomial Gysin divided difference needs no inverse divisor
+class $1/(x_i-x_{i+1})$ in the Chow ring.
+
+The identity that collects the kernel factors is
+\cite[Proposition~4.1]{NguyenDangWang26ChernFlowV4}.
+\begin{proposition}
+\label{prop:appF-Chern-flow-envelope}
+Let $Y$ be a separated finite-type scheme over a field. A finite
+directed multigraph has constant-rank generated bundles $F_v$ at
+its vertices and, for each edge $e:v\to w$, an exact sequence
+$0\to E_e\to F_w\to F_v\to0$. Choose nonnegative integral edge
+multiplicities $\kappa_e$ and root multiplicities $r_v$. If
+\[
+ b_v=r_v+\sum_{e:t(e)=v}\kappa_e
+              -\sum_{e:s(e)=v}\kappa_e\geq0,
+\tag{F.32}\label{eq:appF-Chern-divergence}
+\]
+then $U=\bigoplus_v F_v^{\oplus b_v}$ is generated and
+\[
+ c_t(U)=\prod_v c_t(F_v)^{r_v}\prod_e c_t(E_e)^{\kappa_e}.
+\tag{F.33}\label{eq:appF-Chern-flow-class}
+\]
+The ranks agree, so the top coefficient is the product of the
+top Chern classes of all the bundles on the right, with those
+multiplicities. No acyclicity assumption is required.
+\end{proposition}
+
+The equality follows in the source by summing actual $K^0$ relations
+$[E_e]=[F_{t(e)}]-[F_{s(e)}]$ and applying the total Chern operation.
+It is interpreted operationally on Chow homology when necessary.
+Equalities of ranks alone do not establish those relations.
+All factors in \eqref{eq:appF-Chern-flow-class} use one common
+Chern parameter $t$. Independent parameters can destroy positivity:
+the evaluation sequence on $\mathbf P^1$ has kernel $\mathcal O(-1)$,
+and separate parameters give
+$(1+uh)(1-vh)=1+(u-v)h$, whose integral is $u-v$.
+
+The flag graph also retains creation times. For rank $j$ put
+$\tau_j(t)=\max(\{0\}\cup\{q\leq t:i_q=j\})$.
+Only the passive pullbacks between two creations are identified.
+At step $t$, its edge goes from the newly created state
+$(i_t,t)$ to the existing state
+$(i_t+1,\tau_{i_t+1}(t-1))$; this is precisely
+\eqref{eq:appF-Chern-flag-sequence}. Collapsing all states of
+one rank can join unrelated bundles.
+For the all-kernel canonical word let $m_j$ count occurrences of
+colour $j$, $L_j$ be its last time, and $L_j=-\infty$ if absent,
+with $L_0=-\infty$. The source's Lemma~4.6 says that terminal
+supply $d_j$ balances every state exactly when
+\[
+ d_j\geq\mathbf1_{\{m_j>0,\ L_j>L_{j-1}\}}\quad(j<n).
+\tag{F.34}\label{eq:appF-Chern-terminal-balance}
+\]
+Rank $n$ has no outgoing edge. Staircase differences suffice.
+Supply at the terminal state cannot repair an internal deficit
+in a different profile.
+
+For a partition $\mu$ the terminal multiplicities are
+$d_j=\mu_j-\mu_{j+1}$, with $\mu_{n+1}=0$.
+Let $\epsilon_t\in\mathbf Z_{\geq0}$ be the multiplicity of the
+kernel line $S_t$ on the edge created at step $t$.
+Under the actual balance condition, Theorem~4.7 constructs the
+generated packet bundle by adjoining the whole twisted row bundles
+to the divergence bundle. Its rank is
+$\ell+|\mu|+\sum_t\epsilon_t$, whereas the tower has relative
+dimension $\ell$. Its top-Chern pushforward has the predicted
+codimension $|\mu|+\sum_t\epsilon_t$.
+Finite complement and cap-aware reciprocity then give
+\cref{thm:appD-Chern-packet-volume}.
+
+This last step uses the integral universal incidence bundle,
+not an asserted integral general zero scheme. With a generated
+bundle $V$ of rank $R$ on an integral projective source, choose
+$0\to K\to W\otimes\mathcal O\to V\to0$ with positive kernel
+rank. On $\mathbf P(K^\vee)$ the generated tautological class $H$
+satisfies $p_*H^{\dim W-1}=c_R(V)$.
+Differentiating the normalized divisor-volume polynomial to that
+order and setting the corresponding variable to zero extracts
+the finite-dual top-Chern insertion without an extra factorial
+\cite[Proposition~2.8]{NguyenDangWang26ChernFlowV4}.
+A general generated-bundle section can have a reducible zero scheme.
+The incidence source remains integral and works over the original
+field; the smooth refinement is a characteristic-zero statement.
+
+\subsection{Full Chern moments and positive inverse certificates}
+\label{sec:appF-Chern-moments}
+\index{Chern moment algebra}\index{inverse Chern certificate}
+\index{Hodge--Riemann relations!Chern moments}
+
+The full moment algebra retains base classes that a scalar polynomial
+may omit. Its formal construction and positivity are separate steps
+\cite[\S6]{NguyenDangWang26ChernFlowV4}.
+Let $A$ be a finite graded real Poincar\'e-duality algebra of formal
+dimension $d$, with degree on $A^d$, and let $C_{i,a}\in A^a$,
+$C_{i,0}=1$, vanish outside $0\leq a\leq d$.
+Give each $z_i$ degree one. Define a functional on $A[\mathbf z]$ by
+\[
+ \Lambda_C(a\mathbf z^\alpha)
+     =\deg_A\left(a\prod_i C_{i,\alpha_i}\right)
+       \quad\text{if }\deg(a)+|\alpha|=d,
+\tag{F.35}\label{eq:appF-Chern-moment-functional}
+\]
+and zero in other degrees.
+\begin{definition}
+\label{def:appF-Chern-moment-algebra}
+The Chern moment algebra is the marked graded algebra
+\[
+ R_C=A[\mathbf z]/I_C,\qquad
+ I_C=\{p:\Lambda_C(pq)=0\text{ for every }q\in A[\mathbf z]\},
+\tag{F.36}\label{eq:appF-Chern-moment-algebra}
+\]
+with the degree induced by $\Lambda_C$ and the labelled generators
+$z_i$. Thus $I_C$ is the multiplication annihilator of the functional.
+\end{definition}
+
+This is not its linear kernel, and no radical is taken.
+Proposition~6.4 of the source gives perfect complementary pairings,
+an injective marked copy of $A$, and uniqueness among duality
+algebras with those marked moments. Those assertions are algebraic;
+they do not yet assert a Hodge cone.
+
+Put $C_i(t)=\sum_{a=0}^d C_{i,a}t^a$ and choose finite inverse
+series $K_i(t)C_i(t)=1$, where
+$K_i(t)=1+\sum_{j=1}^{s_i}k_{i,j}t^j$, $s_i\geq1$.
+The monic presentation and its fibre-top element are
+\[
+ B=\frac{A[\xi_1,\ldots,\xi_m]}
+ {\bigl(\xi_i^{s_i}+k_{i,1}\xi_i^{s_i-1}
+                          +\cdots+k_{i,s_i}\bigr)_i},
+ \qquad\eta=\prod_i\xi_i^{s_i-1}.
+\tag{F.37}\label{eq:appF-Chern-monic-certificate}
+\]
+Coefficient extraction of $\eta$ gives the degree in dimension
+$d+\sum_i(s_i-1)$ and
+$\pi_*\prod_i\xi_i^{s_i-1+\alpha_i}=\prod_i C_{i,\alpha_i}$.
+There are no alternating signs or factorials in this extraction.
+The source's Proposition~6.6 identifies
+$R_C=B/\operatorname{Ann}_B(\eta)$, with weighted degree
+$[b]\mapsto\deg_B(\eta b)$.
+
+A positive inverse-Chern certificate additionally requires the
+full K\"ahler package on an open convex cone in $B^1$, with each
+$\xi_i$ and every specified base direction in its closure.
+For a duality algebra $H$ of dimension $D$, that package means
+Hard Lefschetz for each interior $L$ and positivity of
+$(-1)^j\deg_H(abL^{D-2j})$ on
+$\ker(L^{D-2j+1}:H^j\to H^{D-j+1})$, as well as duality.
+A monic inverse relation by itself supplies none of these signs.
+
+The descent used here is the classical boundary-polarization
+result imported in \cite[Lemma~4.6]{AminiHuhLarson25DecompositionV1}
+and \cite[Theorem~3.2]{Cattani08MixedLefschetzV2}.
+It replaces a module by its multiplication-annihilator quotient
+for a closure class, changes the pairing by insertion of that class,
+and lowers the formal dimension by one. In Cattani's grading
+the image is regraded as $\widetilde V_l=T V_{l+1}$, with pairing
+$\widetilde Q(Tu,Tv)=Q(u,Tv)$; its hypothesis is that
+$T+\lambda N_0$ is Lefschetz for every $\lambda>0$.
+A closure class plus a positive interior class satisfies that
+hypothesis. The underlying Cattani--Kaplan--Schmid descent proof
+remains a cited classical input, as recorded in
+\cref{sec:appL-Chern-flow-sources}.
+Successive descent by the factors of $\eta$ gives the package
+on $R_C$ from a positive certificate.
+
+For actual bundles the source constructs that certificate
+geometrically. Its Proposition~6.11 and Corollary~6.10 give:
+\begin{theorem}
+\label{thm:appF-geometric-Chern-moments}
+Let $X$ be a smooth integral complex projective $d$-fold and use
+$A_X^j=H^{2j}(X,\mathbf R)\cap H^{j,j}(X,\mathbf C)$,
+with integration. For globally generated bundles $E_i$, set
+$C_{i,a}=c_a(E_i)$. The full moment algebra has the K\"ahler
+package for the image of the cone
+$\{L+\sum_i t_i z_i:L\in\mathcal K_X,\ t_i>0\}$.
+If $r_i=\operatorname{rank}E_i$ and
+$\theta=\prod_i c_{r_i}(E_i)\ne0$ in $A_X$, then
+$A_X/\operatorname{Ann}_{A_X}(\theta)$, with degree
+$[a]\mapsto\int_X\theta a$, has the package in dimension
+$d-\sum_i r_i$ for the image of the base K\"ahler cone.
+\end{theorem}
+
+The coefficient algebra is real diagonal Hodge cohomology,
+not an arbitrary Chow ring assumed to satisfy the standard
+conjectures. The proof uses the generated evaluation-kernel duals
+of \eqref{eq:appF-Chern-evaluation}, padded to ranks at least two.
+On their quotient projective bundles, the tautological
+Fubini--Study forms are semipositive and positive in relative
+directions. A base K\"ahler form plus positive relative multiples
+is positive on every nonzero tangent vector. This constructs the
+required open cone and its boundary directions.
+The arbitrary-field intersection realization is separately
+Proposition~2.10 of the source; it does not use complex cohomology.
+
+For instance $X=\mathbf P^2$, $A_X=\mathbf R[h]/(h^3)$,
+$\deg(h^2)=1$, and $E=\mathcal O(1)^{\oplus2}$ give
+\[
+ R_X(E)=\mathbf R[h,z]/(h^3,\ hz-2h^2,\ z^2-h^2).
+\tag{F.38}\label{eq:appF-P2-Chern-moments}
+\]
+Its Hilbert vector is $(1,2,1)$ and the degree-one pairing is
+$\left(\begin{smallmatrix}1&2\\2&1\end{smallmatrix}\right)$.
+For $L=h+z$ the primitive class $h-z$ has square $-2$.
+The inverse series $1-2ht+3h^2t^2$ reconstructs the moments
+algebraically, without asserting evaluation kernels of every
+auxiliary rank. In contrast, $\xi^2+h\xi=0$ produces the inverse
+array $(1,-h,h^2)$ and scalar polynomial
+$x^2/2-xy+y^2/2$; its negative coefficient rules out a
+certificate with both displayed directions boundary-polarized.
+
+If a duality algebra $H$ is generated by $H^1$ and chosen classes
+$\ell_1,\ldots,\ell_N$ span $H^1$, its degree polynomial
+$\deg_H((\sum y_i\ell_i)^D)/D!$ recovers $H$ as its apolar
+algebra \cite[Proposition~6.12]{NguyenDangWang26ChernFlowV4}.
+Canonical-row towers satisfy the generation condition; ample
+integral source directions can complete the displayed packet
+directions to recover the full weighted algebra. The spanning
+condition cannot be deleted. In particular, the quartic of
+\cref{ex:appD-volume-apolar-HR} has a volume model while its
+smaller apolar algebra fails a middle Hodge sign.
+Fixed nonzero insertion gives an annihilator quotient; general
+nonflat coefficient base change is a different operation and
+need not commute with the moment construction
+\cite[Appendix~D.1]{NguyenDangWang26ChernFlowV4}.
+
 \section{Projection-formula audit}
 \label{sec:appF-audit}
 
