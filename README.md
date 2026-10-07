@@ -10,6 +10,18 @@ The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
 The current research-integration build has **4,509 pages**.
+The [finite-pullback and Segre source review](manuscript/editorial/Segre_finite_pullback_source_review_20261007.md)
+reads 2610.07528v1 completely and twelve related/dependency PDFs in exact
+scopes, including Cid-Ruiz's complete published 2026 integral-dependence
+article: 131 distinct source/page pairs in 70 displayed sheets, five
+complete PDFs and eight partial readings. It separates finite-degree
+bounds, lexicographic ideal comparison, generic slicing and the equivalent
+componentwise Segre/Lê frontier. The global degree criterion retains
+nested ideals and an ample polarization; its published big-nef
+counterexample and stabilized homogeneous zeta criterion are checked.
+This source-only checkpoint preserves the current book, historical proofs,
+canonical statuses and native catalogue/editor. Attributed integration
+follows the review and still requires a build and actual final-page reading.
 The [canonical KE normalization integration](manuscript/editorial/LPWZ_KE_plurigenera_integration_audit_20261007.md)
 adds H.18, a Chapter 51 connection and L.76. Exponential constants,
 canonical reference-volume covariance and family estimates retain their

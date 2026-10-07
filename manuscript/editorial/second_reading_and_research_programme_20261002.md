@@ -3,6 +3,28 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest source checkpoint, 7 October 2026
+
+The [finite-pullback and Segre source review](Segre_finite_pullback_source_review_20261007.md)
+now completes 2610.07528v1 and reads twelve related/dependency PDFs in
+exact scopes: 131 distinct source/page pairs in 70 individually displayed
+sheets, five complete PDFs and eight partial readings. The published
+2026 Cid-Ruiz article is completely read. Its integral-dependence
+criterion requires nested subschemes, an equidimensional projective
+ambient scheme and an ample line bundle. The big-nef counterexample and
+stabilized Segre zeta criterion retain their actual hypotheses.
+Finite pullback bounds, lexicographic ideal monotonicity, compatible
+transversal cuts and generic/prepolar distinctions remain separate.
+The two componentwise Segre/Lê conjectures are equivalent and include
+arbitrary multiplicity; the weaker lexicographic frontier is known for
+multiplicity one and for isolated singularities. No canonical problem
+entry or solved status is added. All current 4,509-page book artifacts,
+425 active inputs, 108 protected inputs, 112 prior frozen manifests,
+190 exports and the native editor remain unchanged at this source-only
+checkpoint. Next integrate the attributed C/F/H/L connections, retaining
+historical statements/proofs, then build and actually read final pages.
+No original theorem or independent-model receipt is manufactured.
+
 ## Objective and controlling instructions
 
 Read the entire book again from the beginning and polish its coherence and
