@@ -10,7 +10,7 @@ theorems are given in the supplied book \cite{XiaBook}, while
 interfaces needed here.
 
 Except in the local-domain settings of
-\Cref{sec:appH-local-maximality,sec:appH-smooth-integral-comparison,sec:appH-boundary-envelopes,sec:appH-unbounded-domain-comparison,sec:appH-Bergman-rigidity,sec:appH-ball-quotients}
+\Cref{sec:appH-local-maximality,sec:appH-smooth-integral-comparison,sec:appH-boundary-envelopes,sec:appH-unbounded-domain-comparison,sec:appH-Bergman-rigidity,sec:appH-ball-quotients,sec:appH-bounded-minorants}
 and the smooth curvature calculations of \Cref{sec:appH-Griffiths-Chern}, \(X\) is a connected compact
 K\"ahler manifold of complex dimension \(n\). We use
 \[
@@ -2661,6 +2661,281 @@ The exact source versions, partial dependency scopes and
 auxiliary convention corrections are recorded in
 \Cref{sec:provenance-ball-quotients}.
 
+\section{Pointwise envelopes with globally bounded minorants}
+\label{sec:appH-bounded-minorants}
+\index{Perron--Bremermann envelope!globally bounded minorants}
+\index{strong majorant!pole set and pointwise recovery}
+
+Boundary regularity and the admissible family play separate roles.
+Wikstr\"om's revised paper
+\cite{Wikstrom26BoundedMinorantsV2} shows that even a bounded B-regular
+domain can lose interior values when every competitor must have a
+global upper bound. The obstacle may be finite and smooth throughout
+the domain. We explain the exact restricted envelope, its regularization
+and the role of poles in a strong majorant. These are attributed complex
+and real potential-theoretic results; their version and dependency scopes
+are recorded in \Cref{sec:provenance-bounded-minorants}.
+
+For a domain $\Omega$, an obstacle $f$ and a class $\mathcal A$ of
+subharmonic or plurisubharmonic functions, write
+\begin{equation*}
+\begin{aligned}
+ V_f^{\mathcal A}(p)
+   &=\sup\{u(p):u\in\mathcal A,\ u\leq f,\ \sup_\Omega u<+\infty\},\\
+ (V_f^{\mathcal A})^*(p)
+   &=\limsup_{\Omega\ni q\to p}V_f^{\mathcal A}(q).
+\end{aligned}
+\tag{H.48}\label{eq:appH-restricted-envelope}
+\end{equation*}
+The supremum of an empty family is $-\infty$. Each admissible function
+has its own finite upper bound. A common prescribed cap would define
+a different family. In this section the identically $-\infty$ function
+is allowed in the upper-bounded family; it is excluded when two-sided
+boundedness is required.
+
+\subsection{What the real subharmonic theorem recovers}
+\label{sec:appH-subharmonic-restricted-envelope}
+
+Theorem~1.1 of \cite[actual pp.~1, 3--4]{Wikstrom26BoundedMinorantsV2}
+gives the following result, with the global boundedness condition retained.
+
+\begin{proposition}
+\label{prop:appH-subharmonic-restricted-envelope}
+Let $\Omega\subset\mathbf R^d$ be a domain, $d\geq2$, and let
+$f:\Omega\to[-\infty,+\infty)$ be upper semicontinuous. For
+$\mathcal A=\operatorname{SH}(\Omega)$, the envelope in
+\eqref{eq:appH-restricted-envelope} equals its upper regularization.
+It is subharmonic or identically $-\infty$. The same holds when the
+competitors are required to be bounded on both sides.
+\end{proposition}
+
+\begin{proof}
+The obstacle supplies local upper bounds. Standard subharmonic envelope
+theory gives $W=V^*$ subharmonic unless $W\equiv-\infty$, and
+upper semicontinuity of $f$ gives $W\leq f$. In the nontrivial case,
+Choquet selection and finite maxima give increasing nontrivial
+competitors $u_j\to W$ quasi-everywhere. Fix $p$ with $W(p)>-\infty$
+and a ball $B$ centered at $p$, compactly contained in $\Omega$.
+Its normalized surface harmonic measure $\sigma$ does not charge the
+polar exceptional set.
+
+The restrictions of $W,u_j$ to $\partial B$ are integrable.
+For completeness, truncating a nontrivial subharmonic function below
+at $-m$ and applying Poisson comparison shows that a boundary integral
+of $-\infty$ would force that function to be $-\infty$ throughout $B$,
+and hence throughout the connected domain. Local upper bounds then
+give the asserted integrability. Let $P_B$ denote Poisson extension and
+put $h_j=P_B[u_j]-P_B[W]$. This is an ordinary real harmonic function,
+$h_j\leq0$, and $h_j(p)=\int_{\partial B}(u_j-W)\,d\sigma\to0$
+by monotone convergence applied to the integrable differences.
+
+Poisson comparison gives $W-P_B[W]\leq0$. Therefore
+$s_j=W+h_j\leq W$, and the upper boundary limits of $s_j$ are at most
+$u_j$: the first term in $s_j=(W-P_B[W])+P_B[u_j]$ is nonpositive,
+and the usc boundary data bound the second. The usual subharmonic
+pasting lemma joins $\max(u_j,s_j)$ on $B$ to $u_j$ outside $B$.
+The result is below $W\leq f$, is globally bounded above, and preserves
+the lower bound of $u_j$ when it has one. Its value at $p$ tends to
+$W(p)$, so $V(p)\geq W(p)$. Points where $W=-\infty$ are immediate.
+\end{proof}
+
+The conclusion is $V=V^*$, not recovery of every obstacle $f$.
+For the disk Poisson kernel, every globally bounded-above subharmonic
+minorant is at most zero; its restricted envelope is zero and is
+already upper semicontinuous. This older example appears in
+\cite[Example~1.2, actual p.~1]{NilssonWikstrom20QuasiboundedV1}.
+By contrast, if increasing bounded minorants of a subharmonic $W$
+converge to $W$ quasi-everywhere, the proposition recovers $W$
+everywhere, as in \cite[Corollary~2.1]{Wikstrom26BoundedMinorantsV2}.
+An obstacle allowed to take $+\infty$ needs the separate hypothesis
+that its regularized envelope is subharmonic. In $\mathbf C^n$, $n\geq2$,
+the real harmonic correction above need not be pluriharmonic and need
+not preserve plurisubharmonicity.
+
+\subsection{A B-regular Hartogs domain and an exact defect set}
+\label{sec:appH-Hartogs-envelope-defect}
+
+Theorem~1.2 and Remark~3.6 of \cite{Wikstrom26BoundedMinorantsV2}
+give an explicit example in every complex dimension $n\geq2$.
+For $w\in\mathbf D$ and $z\in\mathbf C^{n-1}$, use the Euclidean norm
+and set
+\begin{equation*}
+\begin{aligned}
+ P(w)&=\frac{1-|w|^2}{|1-w|^2}
+       =\operatorname{Re}\frac{1+w}{1-w},
+       \qquad \Phi(w)=P(w)^2+\frac1{1-|w|^2},\\
+ \Omega_n&=\{(z,w):w\in\mathbf D,\ \|z\|<e^{-\Phi(w)}\},\\
+ H&=\{0\}\times\mathbf D,\qquad W(z,w)=P(w).
+\end{aligned}
+\tag{H.49}\label{eq:appH-Hartogs-domain}
+\end{equation*}
+Here $W$ is positive and pluriharmonic, finite at every interior point,
+and unbounded as $w\to1$. The fibres collapse at every point of
+$\partial\mathbf D$ because $\Phi\to+\infty$ there. The domain is
+bounded and B-regular. Its boundary has a smooth strongly pseudoconvex
+side and a cuspidal circle; global smoothness is not asserted.
+B-regularity means that every finite continuous boundary datum extends
+to a psh function continuous on the closure.
+
+\begin{example}
+\label{ex:appH-Hartogs-restricted-envelope}
+For $\mathcal A=\PSH(\Omega_n)$ the exact envelope is
+\begin{equation*}
+\begin{aligned}
+ u_\varepsilon&=\max\{0,P(w)+\varepsilon\log\|z\|\},
+ &0\leq u_\varepsilon&\leq\frac1{4\varepsilon},\\
+ V_W^{\mathcal A}(z,w)
+   &=\begin{cases}P(w),&z\ne0,\\0,&z=0,\end{cases}
+ &(V_W^{\mathcal A})^*&=W.
+\end{aligned}
+\tag{H.50}\label{eq:appH-Hartogs-envelope}
+\end{equation*}
+Set $u_\varepsilon(0,w)=0$. In particular $V(0,0)=0<1=V^*(0,0)$,
+although $u_{1/j}\nearrow W$ off the pluripolar analytic disc $H$.
+The same formula holds with two-sided bounded competitors.
+\end{example}
+
+To check the boundary assertion, put $r=\log\|z\|+\Phi(w)$ near
+the side. Its Levi form on a tangent vector $(a,b)$ is
+\[
+ \frac{\|z\|^2\|a\|^2-|\langle a,z\rangle|^2}{2\|z\|^4}
+       +\Phi_{w\bar w}|b|^2,
+ \qquad
+ \frac{\langle a,z\rangle}{2\|z\|^2}+\Phi_w b=0.
+\]
+Here $\langle a,z\rangle=\sum_i a_i\bar z_i$.
+The first term is nonnegative and the second is positive for $b\ne0$;
+if $b=0$, tangency makes $a$ orthogonal to $z$, giving positivity
+for $a\ne0$. Indeed
+$\Phi_{w\bar w}=2/|1-w|^4+(1+|w|^2)/(1-|w|^2)^3>0$.
+Smooth strongly pseudoconvex side points have local negative psh peaks,
+globalized by max-pasting with a negative constant. At a cuspidal point
+$(0,\zeta)$, $|\zeta|=1$, there is the global peak
+\begin{equation*}
+\begin{aligned}
+ b_\zeta(z,w)&=\operatorname{Re}(\bar\zeta w)-1,\\
+ \rho(z,w)&=\max\{\log\|z\|+\Phi(w),\ |w|^2-1\}.
+\end{aligned}
+\tag{H.51}\label{eq:appH-Hartogs-peaks}
+\end{equation*}
+The first function is pluriharmonic, zero only at the selected point
+of $\overline\Omega_n$ and negative elsewhere. A strong peak does not
+require a positive Levi form. The second is a continuous negative psh
+exhaustion with zero boundary values: near the axis it equals $|w|^2-1$,
+and at the collapsed circle this term tends to zero. Thus the domain
+is hyperconvex. A boundary Jensen measure tested against a continuous
+global peak must be supported at that peak point. The B-regularity
+criterion in \cite[Corollary~3.8, printed p.~188]{Wikstrom01JensenPublished}
+therefore applies. Taking $\Omega_2$ times extra discs would introduce
+boundary analytic discs and would not give this B-regular construction.
+
+For the envelope, restrict any admissible $u$ to $H$. Its restriction
+$v(w)=u(0,w)$ is subharmonic or identically $-\infty$, globally bounded
+above and at most $P$. Away from $1$, its boundary limsup is at most zero.
+The circle submean inequality and reverse Fatou, using the global upper
+bound, give $v\leq0$; a disk automorphism gives the estimate at every
+center. The zero competitor gives $V=0$ on $H$.
+The functions $u_\varepsilon$ in \eqref{eq:appH-Hartogs-envelope} are psh,
+including across the axis, and satisfy $u_\varepsilon\leq W$.
+The defining inequality gives
+$\log\|z\|<-\Phi\leq-P^2$, hence the bound follows from
+$t-\varepsilon t^2\leq1/(4\varepsilon)$.
+They tend increasingly to $W$ off $H$. Density of that complement and
+continuity of $W$ give $V^*=W$. Their bounds grow as $j/4$ for
+$\varepsilon=1/j$; no common global cap is being imposed.
+
+\subsection{Where a strong majorant gives pointwise recovery}
+\label{sec:appH-strong-majorant-recovery}
+
+A positive plurisuperharmonic $G$ is allowed to take $+\infty$, but is
+not identically $+\infty$. Call it a strong majorant from above when,
+for every $\varepsilon>0$, $W\leq\varepsilon G+M_\varepsilon$ with
+a finite constant $M_\varepsilon$. In the example,
+\begin{equation*}
+ G=-\log\|z\|>\Phi\geq W^2,
+ \qquad W\leq\varepsilon G+\frac1{4\varepsilon}.
+\tag{H.52}\label{eq:appH-Hartogs-majorant}
+\end{equation*}
+The pole set of $G$ is exactly $H$. A superlinear scalar transform
+with a nontrivial plurisuperharmonic majorant makes $W$ tame in
+\cite[Theorem~3.2, actual pp.~4--5]{NilssonWikstrom20QuasiboundedV1};
+here the transform is $W^2$.
+The strong-majorant equivalence is also
+\cite[Lemma~2.1, printed p.~3961]{Nilsson22EnvelopesPublished}.
+For this positive $W$, \eqref{eq:appH-Hartogs-majorant} gives the
+absolute-value domination in
+\cite[Definition~3.1, actual p.~7]{Nilsson25QuasiboundedSolutionsV1}.
+Nontriviality of $G$ does not mean finiteness on the axis.
+
+Proposition~3.4 of \cite[actual pp.~7--8]{Wikstrom26BoundedMinorantsV2}
+identifies the exact pointwise condition.
+
+\begin{proposition}
+\label{prop:appH-strong-majorant-recovery}
+Let $\Omega\subset\mathbf C^n$ be a domain and $W\in\PSH(\Omega)$.
+A positive strong majorant $G$ gives $V_W^{\PSH}=W$ wherever $G$ is
+finite. If $W$ is finite and pluriharmonic, then $V_W^{\PSH}(p)=W(p)$
+if and only if some positive strong majorant is finite at $p$.
+\end{proposition}
+
+\begin{proof}
+For sufficiency, $W-\varepsilon G$ is psh, bounded above by
+$M_\varepsilon$ and below $W$. Its values tend to $W(p)$ when
+$G(p)<+\infty$.
+For the converse, choose bounded-above competitors with deficit at $p$
+less than $2^{-k}$, and take finite maxima to make them increasing.
+Write $M_k=\sup_\Omega u_k$. Pluriharmonicity makes $W-u_k$
+nonnegative plurisuperharmonic. Therefore
+\begin{equation*}
+ G=1+\sum_{k=1}^\infty(W-u_k),\qquad
+ G(p)<2,\qquad NW\leq\sum_{k=1}^NM_k+G.
+\tag{H.53}\label{eq:appH-majorant-deficit-sum}
+\end{equation*}
+The negative partial sums decrease as psh functions and are finite in
+the limit at $p$, so $G$ is nontrivial plurisuperharmonic. Dividing
+the last inequality by $N$ and choosing $N\geq1/\varepsilon$ gives
+the strong-majorant bound, with a finite constant.
+\end{proof}
+
+The converse uses pluriharmonicity and is not asserted for arbitrary psh
+$W$. In the example, every strong majorant has a pole at every point
+of $H$. Restricting $G$ to that disc gives the identically infinite
+function, so it supplies no nontrivial disk majorant of the Poisson kernel.
+The raw-envelope failure is consistent with tameness. It is also consistent
+with continuity of a maximal Dirichlet solution: $V^*=W$ itself is already
+continuous and maximal in the interior.
+
+\subsection{A boundary Jensen bound without exchanging limits}
+\label{sec:appH-restricted-Jensen-bound}
+
+On a bounded domain let $\mathcal J_p^b(\partial\Omega)$ consist of
+probability measures supported on the boundary such that
+$u(p)\leq\int u^*\,d\mu$ for every globally bounded-above psh $u$;
+the star here includes the upper boundary trace. On a B-regular domain
+this class agrees with the boundary-supported continuous-closure Jensen
+class by \cite[Corollary~4.3, printed p.~192]{Wikstrom01JensenPublished}.
+For an usc $f:\Omega\to[-\infty,+\infty]$, the one-sided estimate in
+\cite[Proposition~3.2]{Wikstrom26BoundedMinorantsV2} is
+\begin{equation*}
+ V_f^{\PSH}(p)\leq
+ \lim_{M\to+\infty}\inf_{\mu\in\mathcal J_p^b(\partial\Omega)}
+              \int_{\partial\Omega}(\min\{f,M\})^*\,d\mu.
+\tag{H.54}\label{eq:appH-restricted-Jensen-bound}
+\end{equation*}
+For any fixed competitor, $M$ eventually exceeds its global bound,
+so its boundary trace is below the truncated obstacle's trace.
+The Jensen inequality, followed by the infimum and then the monotone
+limit, gives the estimate. An empty measure class has infimum $+\infty$.
+Equality of Jensen classes does not justify exchanging a limit and an
+infimum over varying measures.
+
+For $p\in H$, harmonic measure on its disk lifts to the collapsed
+boundary circle and is a Jensen measure for the bounded family.
+The trace of $\min(W,M)$ is zero there except at $(0,1)$, which has
+harmonic measure zero. Its integral is zero for every finite $M$.
+Thus one fixed measure detects the axis loss at every truncation.
+These local-domain statements neither replace compact obstacle/energy
+theorems nor provide a non-Archimedean Siu or envelope-closure argument.
 \section{Unit tests and failure modes}
 \label{sec:appH-unit-tests}
 

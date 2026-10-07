@@ -4801,3 +4801,43 @@ work pushes and explicit fetches of both branches. Dinh--Nguyen--Nguyen
 2606.29680v2, revised 1 October 2026, is queued as exact metadata only;
 the added author and general compact-Kähler bidimension scope supersede
 older search summaries. No PDF/proof reading for that candidate is claimed.
+
+
+### Globally bounded-minorant integration, 7 October 2026
+
+The [integration audit](Wikstrom_restricted_Perron_integration_audit_20261007.md)
+records Appendix H.15, the Chapter 68 connection and Appendix L.73. It
+explains the attributed SH regularization theorem, the exact all-n>=2
+B-regular Hartogs disc defect, pole-valued strong majorants and a one-sided
+boundary Jensen estimate. Each competitor retains its individual bound;
+pointwise necessity requires a finite pluriharmonic obstacle. The cusp
+geometry, tangential Levi form and exhaustion replace an invalid product
+shortcut. No limit/infimum interchange or full general Dirichlet-chain
+certificate is inferred. The 51-pair/27-sheet source audit and its 26 scoped
+records/24 diagnostics are reused with exact edition boundaries.
+
+Five version-specific references, sixteen labels, H.48--H.54 and two index
+entries are added. All 59 old formal blocks and 25 proof blocks in the
+three changed active inputs retain their bytes; the other 422 active inputs,
+108 protected inputs, 105 preceding frozen manifests and 178 exports remain
+unchanged. Canonical inventory and the open historical catalogue/editor
+are preserved. No original result, model call, production receipt or general
+BJ22 Siu/envelope-closure repair is added.
+
+The final 4,486-page book passes required validation, references, index and
+navigation. An initial H.49 overfull line, cache-path diagnostic and four-page
+v3 partial reading remain preserved. The final phrase regularized envelope
+narrows the connection to its verified scope. All 53 complete final texts
+and matching images were freshly read in 27 v4 sheets, including the entire
+index and bibliography; prepared unread sheets are not credited. Underfull
+boxes remain 954, with no other warnings or overfull boxes. This is a
+selected integration review rather than a new full ordered book reading.
+
+Save immutable book/review/source artifacts with the 427-input closure and
+verify every archive member. Both main/work refs have been explicitly fetched
+without incoming commits at this checkpoint; push normally and update draft
+PR 2. Continue incoming author progress and recent research. Exact
+Dinh--Nguyen--Nguyen 2606.29680v2 and comparison v1 are acquired for the next
+source audit; their thirteen-/forty-page PDF proofs have not yet been read.
+The latest three-author compact-Kähler scope must be checked directly and
+is not an automatic non-Archimedean Siu repair.

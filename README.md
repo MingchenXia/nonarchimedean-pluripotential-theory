@@ -9,7 +9,20 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,480 pages**.
+The current research-integration build has **4,486 pages**.
+The [globally bounded-minorant integration](manuscript/editorial/Wikstrom_restricted_Perron_integration_audit_20261007.md)
+adds Appendix H.15, a Chapter 68 connection and Appendix L.73. It explains
+the real subharmonic regularization theorem, an exact B-regular Hartogs
+defect in every complex dimension at least two, finite-point recovery by
+pole-valued strong majorants and the one-sided boundary Jensen estimate.
+The converse retains a finite pluriharmonic obstacle, and no limit/infimum
+exchange is asserted. Five version-specific references, sixteen labels,
+formulas H.48--H.54 and two index entries are appended. All 53 matching
+final pages were freshly read in 27 displayed sheets, including the full
+index and bibliography. A formula line break and a connection phrase were
+repaired before the final build; earlier diagnostics and partial reading
+remain preserved. Required validation, index and navigation pass, with
+historical proofs, canonical statuses and the native editor unchanged.
 The [globally bounded-minorant source review](manuscript/editorial/Wikstrom_restricted_Perron_source_review_20261007.md)
 reads both Wikström 2607.24139 versions completely and five selected
 dependency files: 51 source/page pairs on 27 displayed sheets, with 24
@@ -17,9 +30,10 @@ exact elementary diagnostics. It distinguishes the raw pointwise envelope,
 upper regularization, individual global bounds and pole-valued strong
 majorants. The published Nilsson numbering is checked against its preprint;
 ancillary Edwards-direction and old Dirichlet proof-text issues are retained
-without declaring the corresponding theorem statements false. The next
-attributed Appendix H continuation will keep those source qualifications.
-This source-only checkpoint preserves the current book and native editor.
+without declaring the corresponding theorem statements false. The
+attributed integration above keeps those source qualifications and reuses
+the frozen audit; its preceding source-only checkpoint preserved the
+4,480-page book and native editor.
 The [finite ball-quotient integration](manuscript/editorial/Ganguly_Sahi_ball_quotient_integration_audit_20261007.md)
 adds Appendix H.14, a Chapter 68 connection and Appendix L.72. It explains
 the determinant-weighted top-form kernel, quotient Jacobian and conjugate
