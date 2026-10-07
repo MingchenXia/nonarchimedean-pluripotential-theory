@@ -5106,3 +5106,41 @@ review-selector diagnostics remain preserved. Save immutable releases,
 verify archive members and publish with an expected-head check. Continue
 the finite-pullback Segre/Le primary-source audit; uninspected inputs do not
 become certified theorems by citation.
+
+### Mixed Segre zeta source checkpoint, 7 October 2026
+
+After the published Segre/finite-pullback integration in `56b08a7`,
+the [source review](Mixed_Segre_zeta_source_review_20261007.md)
+reads Cid-Ruiz 2507.06424v2 completely and three dependencies in
+explicit scopes: 60 distinct source/page pairs in 31 individually
+displayed sheets. Every pair has complete selected-text reading,
+matching-image inspection and a sequential note. One PDF is fully
+read; three are partial. Previously acquired published Brändén--Huh
+bytes are pinned, but all eleven selected pages are freshly read;
+no reading attestation is reused.
+
+Fifteen records distinguish joint deformation transforms, signs,
+multinomial product specialization, graph equal-degree premises,
+join dimension bounds, stabilized vertices, positive-degree
+generators and integral-closure invariance. The chosen modified
+numerator is denormalized Lorentzian after a stated homogenization;
+raw numerators and local Jacobian Segre tuples receive no such
+assertion. The published volume theorem is Brändén--Huh 4.6,
+not the literal main v2 citation 4.16. Covolume and exponent-reversed
+normalizations remain distinct from volume. The multiprojective
+one-ideal conjecture is source-era and is not declared currently
+open or solved by the mixed sequence theorem. Exact arithmetic
+checks source examples and quadratic signatures; no M2 run,
+independent-model receipt or recursive foundation certificate
+is claimed.
+
+All 425 active inputs, both bibliographies, 108 protected inputs,
+114 preceding frozen manifests, 193 frozen exports, generated
+4,518-page book/index and native catalogue/editor remain unchanged.
+Canonical atomic statuses and the general BJ22 Siu/critical-division
+boundary remain unchanged. No new book compile or final-page
+reading is claimed. Inspect both GitHub branches for incoming
+author progress and publish normally with an expected-head check.
+Then integrate only the qualified attributed discussion, run
+required validation and read its changed final pages before
+freezing the next release. Continue cloud-only research.

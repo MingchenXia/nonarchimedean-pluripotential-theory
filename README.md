@@ -23,6 +23,16 @@ all 67 selected final pages have matching complete-text/image reading:
 51 freshly read and 16 reused only after exact text and image identity.
 Historical statements/proofs, prior releases and the native catalogue/editor
 remain preserved. The general BJ22 critical Siu-division input stays open.
+The [mixed Segre zeta source review](manuscript/editorial/Mixed_Segre_zeta_source_review_20261007.md)
+reads 2507.06424v2 completely and three dependencies in exact scopes:
+60 source/page pairs in 31 displayed sheets. It checks the modified
+numerator, factorial normalization, multinomial specialization and
+integral-closure invariance. The published Brändén--Huh volume locator
+is corrected to Theorem 4.6. Mixed sequences on one projective space
+remain distinct from one multihomogeneous ideal on a product; the
+latter source-era conjecture is not claimed solved. Exact arithmetic
+checks the displayed examples. This source-only checkpoint preserves
+the 4,518-page book, canonical statuses and native catalogue/editor.
 The [finite-pullback and Segre source review](manuscript/editorial/Segre_finite_pullback_source_review_20261007.md)
 reads 2610.07528v1 completely and twelve related/dependency PDFs in exact
 scopes, including Cid-Ruiz's complete published 2026 integral-dependence
