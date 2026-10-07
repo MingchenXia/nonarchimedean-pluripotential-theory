@@ -4683,3 +4683,46 @@ and related recent primary-source research. No original theorem, new
 independent model call, production receipt, canonical-status change or
 general BJ22 Siu/envelope-closure repair is added. The native editor,
 catalogue and historical receipt scopes remain unchanged.
+
+### Finite ball quotients and singular Stein spaces: source review, 7 October 2026
+
+The [exact-source review](Ganguly_Sahi_ball_quotient_source_review_20261007.md)
+reads Ganguly--Sahi 2607.14621v1 completely: eleven pages on six sheets.
+Four dependency selections add 33 fresh exact-source/page pairs on eighteen
+sheets, giving 44 pairs and 24 actually displayed sheets in total. The EXX
+controlling file is the 2021 advance publication numbered 1--31; Huang--Li
+and Huang are official author copies, and Ganguly--Sinha is exact v3.
+Their locators are not transferred to other journal layouts.
+
+Twenty-four scoped records retain intrinsic L2 top forms, determinant
+weights, the conjugate group, the first restriction to the identity divisor,
+the selected two-divisor point, its nonzero pole coefficient, and the scalar
+numerator root. The scalar degree inequality needs N at least two, while
+the disk quotient is a separate smooth exception. The singular Stein ball
+characterization retains isolated normal singularities and algebraic CR
+realization of a compact smooth strongly pseudoconvex boundary. Removing
+that algebraic assumption remains a literature direction, not a changed
+canonical problem status.
+
+Ancillary source defects in the quotient Jacobian, Ricci sign, principal
+versus full determinant, smooth-term sign and root-sum normalization are
+recorded separately from the unrefuted main rational argument. The older
+tangent-tube sphericity argument is not imported; local CR homogeneity
+alone does not supply that conclusion. Original localization, algebraicity,
+continuation, classification and finite-type proof chains retain their
+unread scopes. No complete external-chain certificate is claimed.
+Twenty exact elementary diagnostics pass in v3. Two incomplete symbolic
+attempts remain preserved; clearing determinant denominators and evaluating
+the finite pole sum termwise avoids unnecessary rational expansion without
+changing the identities. Those earlier attempts are not certificates.
+
+All 425 active inputs, 108 protected inputs, both bibliographies, the
+checked 4,476-page book/index, 102 preceding frozen manifests and 175
+exports remain byte-identical. The canonical inventory, native catalogue
+and editor are unchanged. No original theorem, independent model call,
+production receipt, Xean run or general BJ22 Siu/envelope repair is added.
+Fetch both branch refs explicitly, push normally and update the existing
+draft PR. Next add an attributed Appendix H continuation, Chapter 68
+connection and Appendix L provenance; compile and read the matching final
+pages before publishing that integration. Continue related recent primary
+research and incoming author progress afterward.

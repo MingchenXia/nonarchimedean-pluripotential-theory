@@ -10,6 +10,20 @@ The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
 The current research-integration build has **4,476 pages**.
+The [finite ball-quotient source review](manuscript/editorial/Ganguly_Sahi_ball_quotient_source_review_20261007.md)
+reads Ganguly--Sahi 2607.14621v1 completely and four precisely selected
+dependency files: 44 exact-source/page pairs in 24 displayed sheets,
+one complete PDF and four partial readings. Twenty-four scoped records
+separate the canonical top-form kernel, determinant character, conjugate
+group, two successive polar-divisor restrictions, scalar numerator root
+and dimension-one exception. The singular Stein consequence retains its
+algebraic CR boundary assumption; the general conjecture remains separate.
+Ancillary Jacobian, Ricci, dimensional and tangent-tube issues retain
+explicit qualifications. Twenty exact elementary diagnostics pass; two
+incomplete symbolic attempts remain preserved without a final certificate.
+The source-only checkpoint preserves the checked
+book, canonical inventory and native catalogue/editor. Attributed integration
+follows after compilation and matching-page review.
 The [Bergman boundary-rigidity integration](manuscript/editorial/Ebenfelt_Ganguly_Bergman_integration_audit_20261007.md)
 adds Appendix H.13, a Chapter 68 connection and Appendix L.71. It explains
 the one-patch extremal/cscK/Einstein result, dimension-two cancellation,
