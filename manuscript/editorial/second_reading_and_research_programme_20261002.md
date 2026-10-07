@@ -4537,3 +4537,36 @@ uniform contraction/smoothing rates and positive-KE cone asymptotics
 remain separately gated literature directions. No original theorem,
 independent model call, production receipt, canonical-status change or
 general BJ22 homogeneous Siu/envelope-closure repair is added.
+
+### Griffiths positivity and top Chern forms: source review, 7 October 2026
+
+The [exact-source review](Du_Griffiths_Chern_source_review_20261007.md)
+reads all fourteen Du 2610.05931v1 pages and fifty-four dependency pages
+in the exact published Finski/CSS and Hall v1, Wan v2, Idel v1 editions.
+All 68 source/page pairs were read as complete selected texts and matching
+images in 35 sheets. Two PDFs are fully read, four are partial selections.
+Twenty-four scoped records and twenty-one exact elementary diagnostics
+retain the i/(2pi) convention, bilinear apolar pairing, coefficient
+-1536, strict trace perturbation, logarithmic metric patching and
+low-rank matrix normalization.
+
+The main Du construction is unrefuted. Negative pointwise top Chern forms
+on O(1)^{direct sum r}, r>=9, remain consistent with its positive top
+Chern number. Adjacent dependency formula slips are separately recorded;
+no full external proof-chain certificate is claimed. The arbitrary-rank
+c3 interface uses pointwise principal compression, without a blanket
+subbundle positivity assertion. The minimum-rank direction is source-scoped,
+with no exhaustive intervening-literature claim or canonical problem atom.
+The failed raw-symbolic diagnostic and corrected exact-text scouting
+workflow are retained as procedural records, not source defects.
+
+All 425 active inputs, 108 protected inputs, both bibliographies, the
+generated 4,463-page book/index, 98 prior frozen manifests and 169 exports
+are byte-preserved. The native catalogue/editor and canonical statuses
+remain unchanged. No new original result, independent model call,
+production receipt, Xean run or BJ22 Siu/envelope-closure repair is added.
+Fetch both branch references explicitly and push the source record
+normally. Next write an attributed Appendix H explanation, a Chapter 17
+connection and Appendix L provenance note; compile and read the matching
+changed pages before publishing the integration. Continue incoming-author
+progress and related recent primary-source research afterward.

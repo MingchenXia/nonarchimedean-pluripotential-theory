@@ -10,6 +10,17 @@ The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
 The current research-integration build has **4,463 pages**.
+The [Griffiths/Chern-form source review](manuscript/editorial/Du_Griffiths_Chern_source_review_20261007.md)
+reads Du 2610.05931v1 and five precisely scoped dependency files:
+68 actual source/page pairs in 35 displayed sheets, two complete PDFs
+and four partial selections. Twenty-four scoped records and twenty-one
+exact elementary checks distinguish negative pointwise top Chern forms
+from positive ample-bundle Chern numbers. The rank-nine coefficient,
+strict perturbation, logarithmic metric patching and low-rank comparison
+retain their normalizations and external-input boundaries. Adjacent
+dependency slips are recorded separately from the unrefuted Du construction.
+This source-only checkpoint preserves the checked book, native catalogue
+and canonical statuses; integration is the next step.
 The [conifold-contraction integration](manuscript/editorial/Guyett_McGowan_conifold_integration_audit_20261007.md)
 adds Chapter 66.10.1 and Appendix L.69. It separates non-closed
 Chern--Ricci-flat subsequences from closed-background full-family limits,
