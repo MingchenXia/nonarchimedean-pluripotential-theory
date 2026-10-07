@@ -4726,3 +4726,43 @@ draft PR. Next add an attributed Appendix H continuation, Chapter 68
 connection and Appendix L provenance; compile and read the matching final
 pages before publishing that integration. Continue related recent primary
 research and incoming author progress afterward.
+
+### Finite ball-quotient integration, 7 October 2026
+
+The [integration audit](Ganguly_Sahi_ball_quotient_integration_audit_20261007.md)
+records Appendix H.14, the Chapter 68 connection and Appendix L.72.
+It keeps intrinsic L2 top forms, determinant weights, projection versus
+quotient-kernel constants, the quotient Jacobian and the conjugate group.
+The first pole restriction retains its cancellation and sign; the second
+retains unitarity and sphere freeness. The scalar numerator root argument
+uses dimension at least two and arbitrary root multiplicity, with a direct
+N=2 cyclic check and a separate smooth disk exception. The global Stein
+ball result retains normal isolated singularities and compact smooth strong
+algebraic CR boundary. Removing algebraicity remains a literature direction.
+
+Five exact-version references, thirteen labels, formulas H.41--H.47 and two
+index entries are appended. All 59 old formal blocks and 25 proof blocks
+in the three changed active inputs remain byte-identical; the 422 other
+active inputs, 108 protected inputs, 103 preceding frozen manifests and
+175 exports retain their bytes. The 44-primary-page-pair/24-sheet source
+audit is reused with its 24 scoped records and 20 exact diagnostics; no
+fresh primary-page reading or complete external proof chain is claimed.
+
+Required validation and full build pass for the 4,480-page book. Index,
+bibliography, references, navigation and explicit equation destinations pass.
+All 58 matching complete final texts/images were freshly read in 29 sheets,
+including the entire index/bibliography and existing Guo--Song citation
+occurrences after the GS26a/GS26b label change. V1's selection-only record
+is retained; v2 expands the selection without changing source/book bytes.
+No final-book repair was needed. Underfull boxes remain at 954, with no
+other warnings or overfull boxes. This is a selected integration review.
+
+Save immutable book/review/source artifacts with the 427-input closure and
+verify every inherited/appended archive member. Fetch both branch refs
+explicitly, push normally and update the existing draft PR. Continue incoming
+author progress and recent primary-source research; exact-source candidates
+include Dinh--Nguyen 2606.29680 and Wikström 2607.24139, whose search
+metadata has not yet been promoted to proof reading. No original theorem,
+new independent model call, production receipt, canonical-status change or
+general BJ22 Siu/envelope repair is added. The native catalogue/editor and
+historical receipt scopes remain unchanged.

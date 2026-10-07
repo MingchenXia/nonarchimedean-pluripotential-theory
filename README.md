@@ -9,7 +9,20 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,476 pages**.
+The current research-integration build has **4,480 pages**.
+The [finite ball-quotient integration](manuscript/editorial/Ganguly_Sahi_ball_quotient_integration_audit_20261007.md)
+adds Appendix H.14, a Chapter 68 connection and Appendix L.72. It explains
+the determinant-weighted top-form kernel, quotient Jacobian and conjugate
+group, two successive pole restrictions, scalar root and smooth disk
+exception. The singular Stein ball characterization retains compact smooth
+strongly pseudoconvex algebraic CR boundary and normal isolated singularities;
+removing algebraicity remains a separately attributed open direction.
+Five version-specific references, thirteen labels, formulas H.41--H.47
+and two index entries are added. All 58 matching final pages were freshly
+read in 29 displayed sheets, including the complete index/bibliography and
+the existing Guo--Song citation pages affected by GS26a/GS26b labels.
+Required full compilation, references, canonical inventory, index and
+navigation pass; historical proofs, receipts and native editor are preserved.
 The [finite ball-quotient source review](manuscript/editorial/Ganguly_Sahi_ball_quotient_source_review_20261007.md)
 reads Ganguly--Sahi 2607.14621v1 completely and four precisely selected
 dependency files: 44 exact-source/page pairs in 24 displayed sheets,
@@ -21,9 +34,9 @@ algebraic CR boundary assumption; the general conjecture remains separate.
 Ancillary Jacobian, Ricci, dimensional and tangent-tube issues retain
 explicit qualifications. Twenty exact elementary diagnostics pass; two
 incomplete symbolic attempts remain preserved without a final certificate.
-The source-only checkpoint preserves the checked
-book, canonical inventory and native catalogue/editor. Attributed integration
-follows after compilation and matching-page review.
+That source-only checkpoint preserved the preceding 4,476-page
+book, canonical inventory and native catalogue/editor; the attributed
+integration above reuses its qualified source records.
 The [Bergman boundary-rigidity integration](manuscript/editorial/Ebenfelt_Ganguly_Bergman_integration_audit_20261007.md)
 adds Appendix H.13, a Chapter 68 connection and Appendix L.71. It explains
 the one-patch extremal/cscK/Einstein result, dimension-two cancellation,
