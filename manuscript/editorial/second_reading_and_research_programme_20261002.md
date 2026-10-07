@@ -4766,3 +4766,38 @@ metadata has not yet been promoted to proof reading. No original theorem,
 new independent model call, production receipt, canonical-status change or
 general BJ22 Siu/envelope repair is added. The native catalogue/editor and
 historical receipt scopes remain unchanged.
+
+### Globally bounded minorants and pointwise Perron sources, 7 October 2026
+
+The [exact-source review](Wikstrom_restricted_Perron_source_review_20261007.md)
+reads controlling Wikström 2607.24139v2 (nine pages) and comparison v1
+(eight pages) completely, plus 34 selected primary dependency pages:
+51 source/page pairs on 27 individually displayed sheets across seven PDFs.
+Twenty-six scoped records and 24 exact algebra/sign/quantifier diagnostics
+separate V=V* in real potential theory from V=f, the B-regular Hartogs
+counterexample in every complex dimension at least two, quasi-everywhere
+approximation, pointwise recovery where a strong majorant is finite, and
+the converse for finite pluriharmonic obstacles. The Jensen estimate is
+one-sided; equality of Jensen classes does not exchange limit and infimum.
+
+Published Nilsson Lemma 2.1/Proposition 2.2 are matched to preprint
+Lemma 2.2/Proposition 2.3. Nilsson--Wikström's reversed general-Borel
+Edwards inequality and omitted obstacle condition, and Nilsson 2025's
+literal sign/comparison/truncation slips, remain explicit source-local
+findings. None is presented as a counterexample to its corrected theorem
+statement. The unavailable 2026 Wiley PDF, original Sibony article and
+Ransford chapter are not credited as readings. Published Wikström's
+B-regular/Jensen criterion and an explicit Hartogs exhaustion provide
+an inspected route for the domain's boundary property. No full general
+unbounded Dirichlet chain is certified or imported.
+
+The baseline 4,480-page book, all 425 active inputs, 108 protected inputs,
+both bibliographies, index, 104 preceding frozen manifests, 178 preceding
+exports and native catalogue/editor remain unchanged. The canonical
+42/12 inventory and 0/3/7/15/17 status totals are preserved. Next integrate
+the qualified restricted-envelope example and majorant/Jensen mechanisms,
+then compile and actually read the matching final pages. Continue ordinary
+work pushes and explicit fetches of both branches. Dinh--Nguyen--Nguyen
+2606.29680v2, revised 1 October 2026, is queued as exact metadata only;
+the added author and general compact-Kähler bidimension scope supersede
+older search summaries. No PDF/proof reading for that candidate is claimed.
