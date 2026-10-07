@@ -1,0 +1,808 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm,mathrsfs,geometry,hyperref,longtable}
+\geometry{margin=26mm}
+\setlength{\emergencystretch}{3em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\ddc}{dd^c}
+\newcommand{\PSH}{\operatorname{PSH}}
+\newcommand{\cI}{\mathcal I}
+\newcommand{\MA}{\operatorname{MA}}
+\newcommand{\PP}{\mathbf P^1}
+\newcommand{\R}{\mathbf R}
+\newcommand{\TV}{\operatorname{TV}}
+\title{A geometric polar-measure sector for P14.4\\
+\large Reconstruction, modification compatibility, and a birational loss-of-data test}
+\author{Corrected research draft; independent verification pending}
+\date{7 October 2026; continuation 215}
+\begin{document}
+\maketitle
+\begin{abstract}
+The unchanged P14.4 construction in arbitrary big non-nef real
+Bott--Chern classes is not solved here. We construct an independently
+admissible cone of geometric measure data over the valuative carrier
+for a separated-current sector on
+$\operatorname{Bl}_{(\infty,\infty)}(\PP\times\PP)$.
+Its inputs are diffuse positive measures with an explicit logarithmic
+kernel condition, not complex potentials. They reconstruct positive
+currents, their primitives and ordinary singularity envelopes in this
+sector, with order, scaling, constants, actual decreasing approximation
+and functorial pullback to every given smooth modification.
+The construction retains a diffuse polar current that ideal data and
+nonpluripolar products discard. We independently reconstruct the
+mandatory equal-ideal/equal-product/equal-positive-mass example and
+strengthen its equality to the entire tower of smooth modifications.
+This is an analytic geometric sector, not an intrinsic characterization
+of a full non-Archimedean cone. No DXZ/BJ/MP operator identification,
+arbitrary transcendental extension, or P14.5/P14.6 result is claimed.
+\end{abstract}
+
+\section{Scope, conventions, and external inputs}
+This edition corrects the primitive-continuity scope in
+Proposition~\ref{approx}: convergence is imposed on the actual
+primitive coordinates as well as the diffuse measure, with the
+full local estimate given in its proof. The earlier edition remains
+preserved. This amended paper is still an unverified partial result;
+it does not solve the unchanged original P14.4.
+
+Let $\ddc=(i/2\pi)\partial\bar\partial$, so that
+$\ddc\log|z|^2=\delta_0$. A $\theta$-psh function has the canonical
+representative whose sum with each smooth local potential of $\theta$
+is psh; upward changes at individual points are excluded. Write
+$T_u=\theta+\ddc u$,
+$\cI(tu)=\{f:|f|^2e^{-tu}\text{ locally integrable}\}$ for $t>0$,
+and $M_\theta(u)=\int_X\langle T_u^2\rangle$.
+Masses are raw, not probabilities.
+The ordinary envelope is
+\[
+ P_\theta[u]=\left(\lim_{C\to\infty}P_\theta(u+C,0)\right)^*,
+ \quad
+ P_\theta(f,g)=
+ \left(\sup\{v\in\PSH(X,\theta):v\leq\min(f,g)\}\right)^*.
+ \tag{1.1}
+\]
+For the positive-mass comparison below, ordinary $P$-equivalence
+means equality of these normalized envelopes.
+
+Only the complete supplied body B is a caller grant. Its domain is
+smooth integral projective varieties over algebraically closed
+trivially valued characteristic-zero fields, with actual big rational
+bundles. Section~\ref{Bboundary} uses its stationary generated moving
+system and raw intersection conventions in that domain only.
+The earlier P14.4 paper and catalogue receipts supply no proof grants.
+
+Here are the precise advanced analytic imports used in this paper.
+Their complete pertinent statement/proof units were read in the literal
+versions below. The ledger identifies local renderer payloads and
+their hashes; these hashes are not full-PDF hashes.
+\begin{enumerate}
+\item BEGZ, arXiv:0812.3674v2, Section 1.2, Definition 1.1,
+Propositions 1.4 and 1.6: for local psh $u_j$, the nonpluripolar
+product is determined by the increasing truncation currents
+\[
+ \mathbf1_{\cap_j\{u_j>-N\}}\bigwedge_j
+ \ddc\max(u_j,-N).
+\]
+When defined, it depends only on the currents, is local in the
+plurifine topology, and charges no pluripolar set.
+It is defined for closed positive $(1,1)$-currents on a compact
+K\"ahler manifold. We use locality on ordinary open smooth loci
+and the noncharging property. The discussion after Definition 1.2
+also gives this local criterion: for potentials locally bounded off
+a closed complete pluripolar set, the product is well-defined exactly
+when its Bedford--Taylor product on the complement has locally finite
+mass; it is then the trivial extension. This criterion applies on our
+smooth modifications without assuming they are K\"ahler.
+\item DDL, arXiv:1705.05796v3, Theorems 1.1/2.4:
+on a compact K\"ahler $n$-fold, for smooth closed real forms
+$\theta_j$ with pseudoeffective classes and
+$u_j,v_j\in\PSH(X,\theta_j)$, if $v_j\leq u_j+C_j$, then
+\[
+ \int_X\left\langle\bigwedge_j(\theta_j+\ddc u_j)\right\rangle
+ \geq
+ \int_X\left\langle\bigwedge_j(\theta_j+\ddc v_j)\right\rangle.
+ \tag{1.2}
+\]
+No small-unbounded-locus hypothesis is required.
+\item DDL, Section 3.2, the membership assertion and its proof before
+Lemma 3.7: in a big class, if $\phi\leq0$ is $\theta$-psh, then
+$\phi\leq P_\theta[\phi]\leq0$ and
+$M_\theta(P_\theta[\phi])=M_\theta(\phi)$.
+We use this assertion only when $M_\theta(\phi)>0$.
+For clarity, the stronger Theorem 3.12, whose complete proof was also
+read, says in that positive-mass range that the envelope is the
+maximum of
+$\{v:\phi\leq v\leq0,\ M_\theta(v)=M_\theta(\phi)\}$ and is idempotent.
+We do not need that stronger characterization.
+\end{enumerate}
+The source DDL uses $i\partial\bar\partial$; applying its assertions to
+$u/(2\pi)$ and scaling all obstacles and constants by $1/(2\pi)$
+gives exactly the stated convention, with the same currents.
+Its Section 3.2 membership proof uses Theorem 2.3 (capacity lower
+semicontinuity, and weak convergence when limiting mass dominates
+the limsup) and Theorem 2.4; their complete proof units were read.
+We invoke the published theorems, not a purported independent proof
+of their cited background. No source theorem concerning DXZ, MP,
+analytic Zariski approximation, or projective resolution is imported.
+
+\section{Independent geometric data on a curve}
+Fix the unit Fubini--Study form $\omega$ on $\PP$ and its affine
+coordinate $z$. For finite $t$ set
+\[
+ G(z,t)=\log\frac{|z-t|^2}{(1+|z|^2)(1+|t|^2)}\leq0,\qquad
+ \ddc_zG(z,t)=\delta_t-\omega.
+ \tag{2.1}
+\]
+The formula extends at infinity in coordinate $1/z$. Its sign follows
+from $|z-t|^2\leq(1+|z|^2)(1+|t|^2)$.
+
+\begin{definition}
+In this paper an admissible measure is a finite positive Borel measure
+$\nu$ on $\PP$, with no atoms, whose support $S$ is a compact subset
+of the finite affine chart, and which satisfies
+\[
+ \int_\PP G(x,t)\,d\nu(t)=-\infty\quad\text{for every }x\in S.
+ \tag{2.2}
+\]
+The zero measure is admissible, with empty support.
+\end{definition}
+This is a condition on a measure and a fixed geometric kernel.
+It presupposes neither a complex psh input nor a $P$-envelope.
+It is restrictive: arbitrary polar measures or arbitrary singularities
+are not asserted to satisfy it. Positive sums and positive scalar
+multiples are admissible. Indeed their supports are the finite union
+of the incoming supports, and the nonpositive kernel makes an infinite
+negative contribution at every point of that union.
+
+\begin{lemma}\label{curvelemma}
+For an admissible $\nu$ of mass $m$, the integral
+$U_\nu(z)=\int G(z,t)d\nu(t)$ is nonpositive, locally integrable,
+has the canonical quasi-psh representative, and
+$\ddc U_\nu=\nu-m\omega$. It is smooth and finite off $S$,
+and its pole set is precisely $S$. For every $h>0$,
+$e^{-hU_\nu}$ is locally integrable.
+\end{lemma}
+\begin{proof}
+The local $L^1$ norms of logarithmic kernels with $t$ in a compact
+set are uniformly bounded, by translating their singularities into
+a fixed larger disc. Fubini proves integrability and the Hessian
+identity. Fatou applied to $-G$ proves upper semicontinuity.
+Integrating the submean inequalities for $\log|z-t|^2$ proves the
+canonical local subharmonic condition after adding $m\log(1+|z|^2)$.
+Away from the support all kernel derivatives are locally uniformly
+bounded. Condition (2.2) identifies the poles. The function is finite
+near infinity, hence nontrivial. In particular $S$ is polar and has
+area zero, since it is contained in the infinite locus of a locally
+integrable function.
+
+At a point $z_0\in S$, atomlessness lets us choose a disc $B(z_0,r)$
+with mass $\delta<1/h$. On the smaller disc $B(z_0,r/2)$ the
+complementary potential and spherical terms are bounded.
+If $\delta>0$, Jensen for the normalized restricted measure gives
+\[
+ \exp\left(-h\int_{B(z_0,r)}\log|z-t|^2\,d\nu(t)\right)
+ \leq\frac1\delta\int_{B(z_0,r)}|z-t|^{-2h\delta}\,d\nu(t).
+ \tag{2.3}
+\]
+Truncating the logarithm first justifies the extended-value formula.
+The integrals of the right side on the smaller disc are uniformly
+bounded by $\int_{|w|<2r}|w|^{-2h\delta}dA(w)<\infty$.
+Fubini proves the assertion. The case $\delta=0$ and points off
+the support are immediate.
+\end{proof}
+
+\begin{lemma}[Pullback integrability without a birational grant]\label{pulllemma}
+If $f$ is a nonconstant holomorphic map from a connected complex
+manifold to $\PP$, then $U_\nu\circ f$ has its canonical quasi-psh
+pullback representative and $e^{-hU_\nu\circ f}$ is locally
+integrable for every $h>0$.
+\end{lemma}
+\begin{proof}
+Near a point with image outside $S$, including infinity, this is
+smooth. At a point with image $t_0\in S$, choose a local complex
+line direction in which $f(z,0)-t_0$ has a finite order $d\geq1$.
+Such a direction exists by the first nonzero homogeneous term of
+the holomorphic Taylor series. Choose a small circle $|z|=R$
+on which this function has no zero, with all its $d$ zeros
+strictly inside $R/2$. For nearby other coordinates $w$ and $t$,
+the argument principle, or its homotopy proof, gives exactly $d$
+zeros $r_i(w,t)$ inside $R/2$.
+Factoring them, including multiplicities, gives
+\[
+ f(z,w)-t=u(z,w,t)\prod_{i=1}^d(z-r_i(w,t)).
+ \tag{2.4}
+\]
+For each fixed $w,t$, $u$ is holomorphic and zero-free on the disc.
+On the boundary its modulus is uniformly bounded below: the numerator
+is bounded below and the product is bounded above.
+The maximum principle for $1/u$ gives the same lower bound inside.
+This argument does not require holomorphic choices of the roots.
+H\"older therefore gives a uniform integral bound on a smaller disc
+for $|f(z,w)-t|^{-2\epsilon}$ whenever $d\epsilon<1$, using
+the $d$ factors and the bounds for
+$\int|z-r|^{-2d\epsilon}dA(z)$.
+Integrating over $w$ gives the corresponding local bound.
+
+Choose the restricted measure near $t_0$ to have
+$\delta<1/(hd)$, possible by atomlessness. Jensen as in (2.3),
+now with $z$ replaced by $f(z,w)$, and the uniform bound just proved
+give the required exponential integrability.
+The complementary part is bounded after shrinking the image.
+The same factorization bounds local logarithmic $L^1$ norms
+uniformly in $t$, so Fubini defines the pullback primitive.
+Alternatively its psh local primitives are compositions of psh
+functions with $f$, verified by their restriction to holomorphic
+discs and the submean inequality. They are nontrivial: a nonconstant
+holomorphic scalar has open local image, whereas $S$ has no interior.
+These arguments also establish the canonical representative.
+\end{proof}
+
+\section{An enriched carrier and a geometric sector cone}
+Let $Y=\PP_z\times\PP_w$ and
+$\pi:X=\operatorname{Bl}_{p}Y\to Y$, $p=(\infty,\infty)$,
+with exceptional curve $E$. Put
+$q=\operatorname{pr}_z\circ\pi$, $r=\operatorname{pr}_w\circ\pi$.
+Let $h_E$ be a smooth metric, $\rho=c_1(\mathcal O(E),h_E)$,
+$e=\log|\sigma_E|_{h_E}^2\leq0$, so $\ddc e=[E]-\rho$.
+Define $H_z=\{q^*\omega_z\}$ and $H_w=\{r^*\omega_w\}$.
+
+Let $\mathscr V_X$ be the centered coherent-ideal semivaluation
+carrier appearing in the question, retaining supports and
+$+\infty$. We use only this specified point set and evaluations
+$v(\mathcal I_E)$, not a theorem identifying a topology or a
+DXZ image. Let $v_0$ be the generic trivial semivaluation.
+The precise enriched carrier used here is
+\[
+ \mathscr C_X=\mathscr V_X\times\PP(\mathbf C),\qquad
+ \operatorname{pr}_1:\mathscr C_X\longrightarrow\mathscr V_X.
+ \tag{3.1}
+\]
+The additional geometric datum is the positive measure $\nu$ on the
+slice $\{v_0\}\times\PP$, or equivalently its positive functional
+$F_\nu(g)=\int g\,d\nu$ on $C(\PP)$.
+Using all continuous tests determines a finite Borel measure:
+for a compact metric space, continuous cutoffs approximate indicators
+of closed sets, and then regularity determines Borel sets.
+No potential on $X$ is part of the input.
+This deliberately adds complex geometry; it is not a claim that the
+MP spectrum alone contains that geometry.
+
+Define $\mathscr D$ by the independently checkable inputs
+\[
+ D=(a,b,c,\nu,\kappa),\quad a,b,c\geq0,\quad
+ m:=\nu(\PP)\leq b,\quad \nu\text{ admissible},\quad\kappa\in\R.
+ \tag{3.2}
+\]
+Addition adds all five entries, positive scaling scales all entries,
+and the zero element has $\nu=0$.
+For the big non-nef sector we require $a,b,c>0$.
+The geometric output, not an input, is
+\[
+ \begin{split}
+ \alpha_D&=bH_z+cH_w+a\{E\},\\
+ \theta_D&=bq^*\omega_z+cr^*\omega_w+a\rho,\\
+ \Phi_D&=ae+U_\nu\circ q+\kappa,\\
+ T_D&=a[E]+(b-m)q^*\omega_z+cr^*\omega_w+q^*\nu.
+ \end{split}\tag{3.3}
+\]
+Here $q^*\nu$ is defined by the local psh primitives of
+Lemma~\ref{pulllemma}: $q^*\nu=\ddc(U_\nu\circ q)+m q^*\omega_z$.
+It is positive, not an unjustified pullback of a distribution.
+
+\begin{theorem}[Sector realization]\label{sectorthm}
+The data (3.2) form a convex geometric cone with a constants action.
+For $a,b,c>0$, $\alpha_D$ is big and non-nef and
+$\Phi_D\in\PSH(X,\theta_D)$.
+On a fixed $(a,b,c)$ leaf, the exact order is the kernel-test order
+\[
+ D\leq D'\quad\Longleftrightarrow\quad
+ U_\nu(z)+\kappa\leq U_{\nu'}(z)+\kappa'
+ \quad\text{for every }z\in\PP.
+ \tag{3.4}
+\]
+It is equivalent to $\Phi_D\leq\Phi_{D'}$ on $X$.
+The state determines its ordinary $P$-envelope by (1.1);
+this does not characterize the image of that envelope operator.
+Addition and positive scaling of data give the corresponding sums
+and scalings of actual currents and primitives.
+The measure is reconstructible from $T_D$ and the fixed geometric
+parameters, independently of $\kappa$.
+\end{theorem}
+\begin{proof}
+The cone assertions follow from the sign of $G$ and support unions.
+Lemma~\ref{curvelemma} and the local psh pullback prove (3.3).
+All coefficients of the displayed positive current are nonnegative.
+
+For the geometry, let $H=H_z+H_w$.
+The class $A=2H-\{E\}$ is ample: the Segre embedding
+$Y\hookrightarrow\mathbf P^3$ and the three hyperplanes through $p$
+embed its blowup as the graph in $Y\times\mathbf P^2$.
+The hyperplane pullbacks are $H$ and $H-\{E\}$, and their
+Segre sum is $A$. Locally the three hyperplanes generate the
+ideal of $p$, since their differentials generate its cotangent space;
+outside $p$ they have no common zero. This verifies the graph
+description by the local Rees algebra of that ideal.
+For $t=\min(b,c)>0$,
+\[
+ \alpha_D=\frac t2 A+(b-t)H_z+(c-t)H_w+
+                 (a+t/2)\{E\}.
+ \tag{3.5}
+\]
+A K\"ahler representative of the first term, the semipositive
+pullback forms, and the effective exceptional current give a
+K\"ahler current in $\alpha_D$.
+The exceptional normal bundle is $\mathcal O_{\PP}(-1)$, hence
+$E^2=-1$, while $H_zE=H_wE=0$; thus $\alpha_DE=-a<0$.
+Nef classes have nonnegative degrees on curves by their
+K\"ahler approximants, so this class is non-nef.
+
+Off $E$ the common term $ae$ is finite, and $q$ has points off $E$
+above every point of $\PP$. This proves both directions in (3.4);
+on $E$ both primitives are $-\infty$ when $a>0$.
+If $a=0$, the term $ae$ is defined as zero, not $0(-\infty)$.
+Linearity of kernel integrals proves the operation assertions
+at finite points and with literal negative infinities at poles.
+For zero scaling the primitive is zero, by convention.
+
+On the product away from $p$, integrate $T_D-a[E]$ against
+the unit form in the $w$ direction. The resulting measure in $z$
+is $(b-m)\omega_z+\nu$.
+Its singular part relative to area is exactly $\nu$, since the
+support of $\nu$ has area zero. The computation is legitimate
+on neighborhoods of $S\times\PP$, which avoid $p$.
+Thus the geometric current recovers $\nu$.
+In particular, on a fixed leaf different measures cannot give
+the same current. The constants coordinate fixes the explicitly
+reconstructed primitive, not merely its current.
+\end{proof}
+
+\section{All given smooth modifications and reference covariance}
+\begin{theorem}\label{modthm}
+For every given smooth connected proper bimeromorphic
+$p:W\to X$ and every $D\in\mathscr D$ with $a,b,c>0$,
+the actual pullback primitive is $\Phi_{D,W}=\Phi_D\circ p$ and
+\[
+ T_{D,W}=a[p^*E]+(b-m)(q\circ p)^*\omega_z+
+ c(r\circ p)^*\omega_w+(q\circ p)^*\nu.
+ \tag{4.1}
+\]
+These data are compatible with further smooth modifications.
+No existence or projectivity of a resolution is needed for this
+assertion: it quantifies over each modification already given.
+\end{theorem}
+\begin{proof}
+The total pullback $p^*E$ is the zero divisor of the actual pulled
+section. In local frames, $\ddc\log|p^*\sigma_E|^2=[p^*E]$
+with its full multiplicities. Lemma~\ref{pulllemma} applies to
+$q\circ p$, a nonconstant holomorphic map. Adding the pulled
+smooth local potentials proves the canonical psh condition and
+(4.1). For a second modification composition of functions,
+pulled sections and smooth forms is literal.
+The definition of the polar current by those same local primitives
+then proves composition compatibility. There is no subtraction of
+two infinite values and no replacement of $p^*E$ by its strict transform.
+\end{proof}
+
+At the point-set carrier level the compatible map is
+$\mathscr C_W\to\mathscr C_X$, $(v,z)\mapsto(p_*v,z)$, where
+$(p_*v)(\mathfrak a)=v(\mathfrak a\mathcal O_W)$.
+Pullback preserves ideal sums, products and units, so this is a
+centered semivaluation with its support retained by contraction.
+It composes under further modifications, sends the generic trivial
+point to the generic trivial point, and keeps the geometric measure
+on that slice unchanged. Moreover
+$v(\mathcal I_{p^*E})=(p_*v)(\mathcal I_E)$.
+This is not a claim about a new identification of MP topologies.
+
+The data are actual geometric data, so changing a smooth representative
+by $\theta'=\theta+\ddc f$, $f$ smooth, transports the primitive
+to $\Phi'=\Phi-f$ and keeps $T$ unchanged.
+Changing the exceptional metric is a special case.
+All multiplier ideals remain unchanged by this bounded perturbation.
+For a transported reference obstacle $h-f$, rooftop competitors
+give the exact formula
+\[
+ P_{\theta'}(\Phi-f+C,h-f)=P_\theta(\Phi+C,h)-f.
+ \tag{4.2}
+\]
+Limits and upper semicontinuous regularization commute with the
+smooth subtraction. Thus the singularity-envelope construction is
+covariant with simultaneous transport of the reference.
+Resetting the obstacle to zero after changing $\theta$ is a different
+reference choice, not the equality in (4.2).
+The cone was defined using fixed geometric forms and a fibration;
+we do not assert independence of those actual geometric data,
+or perturbation independence of a full real-class NA cone.
+On this fixed sector no auxiliary ample perturbation enters (3.2)--(4.1).
+
+\section{Projection, products, mass, and an actual approximation}
+\begin{theorem}\label{shadowthm}
+For $D$ in the big non-nef sector and $t>0$,
+\[
+ \cI(t\Phi_D)=\mathcal O_X(-\lfloor ta\rfloor E),\qquad
+ Q_D(v):=-\lim_{\ell\to\infty}
+   \ell^{-1}v(\cI(\ell\Phi_D))=-a\,v(\mathcal I_E).
+ \tag{5.1}
+\]
+The formula includes supported semivaluations. The normalized
+ideal shadow has $Q_D(v_0)=0$ and forgets $\nu$ and $\kappa$.
+For any smooth modification in Theorem~\ref{modthm},
+\[
+ \cI(t\Phi_{D,W})=\cI(ta\,e\circ p).
+ \tag{5.2}
+\]
+If $p^*E$ is simple normal crossing, the latter is
+$\mathcal O_W(-\lfloor ta\,p^*E\rfloor)$, componentwise.
+No such formula is asserted for a non-normal-crossing divisor.
+
+With $S_D=(b-m)q^*\omega_z+cr^*\omega_w$, for $k=1,2$,
+\[
+ \langle T_D^k\rangle=S_D^k,\quad
+ \langle T_{D,W}^k\rangle=(p^*S_D)^k,\quad
+ M_{\theta_D}(\Phi_D)=2c(b-m).
+ \tag{5.3}
+\]
+The modification has that same top raw mass.
+\end{theorem}
+\begin{proof}
+Near $E$, $q$ is near infinity and $U_\nu\circ q$ is smooth.
+For a defining coordinate $\zeta$, $\Phi_D=a\log|\zeta|^2+O(1)$.
+A monomial $\zeta^j$ is integrable exactly when $j+1>ta$.
+The least integer is $\lfloor ta\rfloor$, including integral $ta$.
+For arbitrary holomorphic germs expand in $\zeta$: a first nonzero
+coefficient below that degree is bounded below on an open subset
+of the other coordinate, where the radial integral diverges.
+Away from $E$, exponential integrability in
+Lemma~\ref{curvelemma}, and Fubini, give the unit ideal.
+This proves the sheaf equality.
+For $w=v(\mathcal I_E)<\infty$, the ideal value is
+$\lfloor\ell a\rfloor w$. For $w=\infty$, it is infinity for
+all sufficiently large $\ell$. The unit ideal has value zero,
+so no $0\cdot\infty$ is evaluated. This proves (5.1) on every
+specified semivaluation, not by divisorial density.
+
+On $W$, $p^{-1}E$ maps under $q\circ p$ to infinity.
+The polar term is therefore bounded near that divisor.
+Off it, Lemma~\ref{pulllemma} makes all exponentials of the
+polar term locally integrable, and the exceptional term is smooth.
+This proves (5.2) locally everywhere. In an SNC chart the
+logarithmic divisor is a sum of coordinate logarithms, and
+separate radial integrals give the componentwise floor formula.
+
+The closed pole set on $W$ is
+$Z_W=p^{-1}E\cup(q\circ p)^{-1}S$.
+It is pluripolar by the actual quasi-psh primitive (when $\nu=0$
+only the first set is required).
+Off it the current is the smooth form $p^*S_D$.
+BEGZ locality and noncharging give (5.3) if the smooth forms
+have no coefficient mass on $Z_W$.
+For the analytic divisor this is immediate from area zero.
+For $(q\circ p)^{-1}S$, outside the critical locus use a
+holomorphic submersion coordinate and Fubini; $S$ has area zero.
+The critical locus has area zero: some derivative of the
+nonconstant holomorphic scalar is not identically zero, so this
+locus is contained in the zero set of a nonzero holomorphic function.
+Such a zero set has area zero by slicing and the one-variable
+isolated-zero theorem. This proves the assertion also at critical points.
+
+The forms from either curve have square zero, so
+$S_D^2=2c(b-m)\pi^*(\omega_z\wedge\omega_w)$.
+The last volume form has integral one, by the isomorphism off
+$E$ and $p$. A bimeromorphic map between smooth surfaces is
+an isomorphism off proper analytic subsets; changing variables
+there shows $\int_W(p^*S_D)^2=\int_XS_D^2$.
+This proves both raw mass assertions. BEGZ applies on $W$:
+one may use its local definition and finite mass directly here,
+so no theorem that an arbitrary smooth modification is K\"ahler
+is needed. The smooth extension calculation already proves
+well-definedness and locality suffices.
+\end{proof}
+
+For fixed $a,b,c$ the ideal-shadow projection is constant, so it
+preserves order trivially and cannot reflect it. Positive scaling
+and addition descend to its asymptotic profiles $Q$, with the
+literal extended-value conventions above. Exact multiplier ideals
+do not have an additive floor law:
+$\lfloor t(a+a')\rfloor$ need not be
+$\lfloor ta\rfloor+\lfloor ta'\rfloor$.
+Constants act trivially on ideals; the separate coordinate
+$\kappa$ acts on the primitive by addition. There is no assertion
+that $\kappa$ is the endpoint of a compatible DXZ test curve.
+Neither the raw mass (5.3), the polar measure, nor the ordinary
+$P$-envelope descends to the ideal shadow.
+
+\begin{proposition}[Replacement topology and decreasing approximation]\label{approx}
+For every fixed $D$, set
+\[
+ \nu_j=(1-1/j)\nu,\quad
+ D_j=(a,b,c,\nu_j,\kappa),\qquad j\geq2.
+ \tag{5.4}
+\]
+These are actual admissible states in the same class,
+$\Phi_{D_j}\downarrow\Phi_D$ everywhere, and their raw products
+and masses converge to (5.3). More generally, let
+$D_j=(a_j,b_j,c_j,\nu_j,\kappa_j)$ and
+$D=(a,b,c,\nu,\kappa)$ be admissible states whose measures have
+support in a common compact affine set. If
+\[
+ (a_j,b_j,c_j,\kappa_j)\longrightarrow(a,b,c,\kappa),
+ \qquad \|\nu_j-\nu\|_{\TV}\longrightarrow0,
+\]
+then their reconstructed primitives converge locally in $L^1$
+on $X$ and every fixed smooth modification. This gives a product
+topology on each fixed compact-support admissible sector;
+no formal completion is used. The hypothesis on $a_j,\kappa_j$
+is essential for a statement about actual primitives.
+\end{proposition}
+\begin{proof}
+$G\leq0$ gives the pointwise decrease, including at all poles.
+The measure error is $m/j$ in total variation. The smooth products
+depend polynomially on $b-m_j,c$, where $m_j=(1-1/j)m$;
+this proves product and mass convergence without a general
+Monge--Amp\`ere continuity assertion.
+Uniform local $L^1$ kernel bounds give
+$\|U_\nu-U_{\nu'}\|_{L^1(K)}\leq C_K\|\nu-\nu'\|_{\TV}$
+on the curve. On a fixed modification $p:W\to X$, the uniform
+logarithmic bounds from Lemma~\ref{pulllemma} and a finite chart
+cover give the corresponding estimate for the composed kernels.
+Fix a compact coordinate region $K_0\Subset W$ and a smooth
+volume form there. The divisor logarithm $e\circ p$ is locally
+integrable: locally it is the logarithm of the squared norm of a
+nonzero holomorphic defining function, plus a smooth function.
+The exact primitive formula (3.3) therefore yields
+\[
+\begin{split}
+ \|\Phi_{D_j}\circ p-\Phi_D\circ p\|_{L^1(K_0)}
+ &\leq |a_j-a|\,\|e\circ p\|_{L^1(K_0)}\\
+ &\quad+C_{K_0}\|\nu_j-\nu\|_{\TV}
+       +|\kappa_j-\kappa|\,\operatorname{Vol}(K_0).
+\end{split}
+\]
+Differences are taken almost everywhere; common pole sets have
+volume zero. The three terms tend to zero under the stated
+hypotheses. The identity modification proves the assertion on $X$.
+The parameters $b,c$ determine the smooth background form and
+do not occur in this primitive formula; their stated convergence
+also transports that form continuously. No density of finite
+ideals or ordinary PL models is asserted. Admissibility is not
+asserted to be closed in arbitrary weak measure limits.
+
+For clarity, convergence of $\nu_j$ alone is insufficient.
+The admissible states $(1,1,1,0,\kappa_j)$, with $\kappa_j=0$
+for even $j$ and $-1$ for odd $j$, have identical zero measures
+in one big non-nef class. On a positive-volume compact region
+outside $E$ their primitives alternate between $e$ and $e-1$,
+so no $L^1$ limit exists. Actual primitives are not being
+identified modulo constants.
+\end{proof}
+
+At positive $\lambda$, competitor scaling gives
+$P_{\lambda\theta}[\lambda u]=\lambda P_\theta[u]$;
+constant shifts of $u$ leave $P_\theta[u]$ unchanged by reindexing
+$C$. Rooftop comparison proves monotonicity of this envelope
+map. The current and raw mass scale by $\lambda$ and $\lambda^2$,
+respectively. These are sector statements about actual complex
+currents and ordinary envelopes.
+
+\section{Explicit measures and separation on the entire birational tower}
+Set $\ell_0=1$, $\ell_j=e^{-4^j}$ for $j\geq1$.
+At every level retain the two closed intervals of the next length
+at the endpoints of every retained interval, starting from $[0,1]$.
+The inequality $2\ell_{j+1}<\ell_j$ makes the children disjoint.
+The intersection is a compact set $C$.
+The Bernoulli measure $\mu_0$ assigns each level-$j$ interval
+mass $2^{-j}$; its singletons have mass at most $2^{-j}$ for
+every $j$, so it is atomless. Let $D=C+2$ and $\mu_1$ be the
+translated probability.
+For $x$ in its level-$j$ interval,
+\[
+ U_{\mu_0}(x)\leq 2^{-j}\,2\log\ell_j=-2\,2^j\longrightarrow-\infty.
+ \tag{6.1}
+\]
+This uses $G\leq0$ on the complement and denominators at least one.
+The same proof holds on $D$. Thus both measures are admissible,
+their supports are disjoint, and all curve and pullback
+integrability assertions above apply.
+
+\begin{theorem}[Mandatory test, strengthened]\label{mandatory}
+Fix $a,b,c>0$ and $0<s<b$. In the fixed class
+$\alpha=bH_z+cH_w+a\{E\}$ use the states
+$D_i=(a,b,c,s\mu_i,0)$, $i=0,1$.
+Their complete real-scale multiplier-ideal families coincide on
+$X$ and on every given smooth modification $W\to X$.
+Their entire first and second nonpluripolar currents coincide
+on every such $W$, and their positive raw mass is
+$2c(b-s)$.
+Nevertheless their normalized ordinary $P$-envelopes on $X$ differ.
+The enriched measure data distinguish them.
+\end{theorem}
+\begin{proof}
+The equalities are (5.1)--(5.3), since the parameters and masses
+of the two measures agree. The measures themselves differ,
+as they have disjoint supports and positive mass.
+
+The maximum of $U_{\mu_0}$ and $U_{\mu_1}$ is bounded:
+near either compact support the other function is smooth and
+bounded below, and on the remaining compact set both are smooth.
+Thus
+$W_0=\max(\Phi_{D_0},\Phi_{D_1})$
+differs by a bounded function from $ae$.
+It is $\theta$-psh by the local psh maximum rule.
+Mass monotonicity (1.2) in both directions, and the $\nu=0$
+case of (5.3), give $M_\theta(W_0)=2bc$.
+Both inputs are nonpositive and have strictly positive mass.
+If their ordinary envelopes were a common $P$, the DDL membership
+assertion would give $\Phi_{D_i}\leq P$ and
+$M_\theta(P)=2c(b-s)$.
+Then $W_0\leq P$ and (1.2) gives
+$2bc\leq2c(b-s)<2bc$, a contradiction.
+Every DDL hypothesis is now checked: $X$ is compact K\"ahler,
+the class is big, all competitors are $\theta$-psh,
+and the two inputs have positive mass. No zero-mass envelope
+assertion and no commutation of envelopes with maxima was used.
+\end{proof}
+
+In particular, $b=c=1$, $a=s=1/2$ gives the precise mandatory
+class $\alpha=H+\frac12E$ with mass one,
+$\cI(t\Phi_i)=\mathcal O_X(-\lfloor t/2\rfloor E)$,
+first product $\frac12q^*\omega_z+r^*\omega_w$, and top measure
+$\pi^*(\omega_z\wedge\omega_w)$.
+The ordinary self-intersection is $2-a^2=7/4$, not the raw mass.
+The strengthened conclusion concerns only the specified birational
+ideal/product tower. It does not assert equality of every conceivable
+movable datum, and is not a negative answer to original P14.4.
+The full polar currents $(q\circ p)^*\nu$, retained here,
+already escape this equality.
+
+\section{The actual moving system permitted by B}\label{Bboundary}
+For rational $a,b,c>0$, let
+$L=\pi^*\mathcal O_Y(b,c)+aE$ on the complex projective surface,
+viewed over the trivially valued field $\mathbf C$.
+For cleared degrees $\ell$, every section of $\ell L$ restricts
+to a line bundle of negative degree $-\ell a$ on $E$, so vanishes
+there. Repeating this argument after each division gives
+\[
+ H^0(X,\ell L)=\sigma_E^{\ell a}
+      H^0(X,\pi^*\mathcal O_Y(\ell b,\ell c)).
+ \tag{7.1}
+\]
+The remaining space descends to $Y$.
+One elementary justification is to view it as rational sections:
+a pole downstairs along a prime divisor would remain a pole
+upstairs, and a holomorphic section on $Y\setminus\{p\}$ extends
+across the smooth surface point by the local Hartogs expansion.
+The remaining bundle is generated since both degrees are positive.
+Thus the actual full moving pair is
+$A=\pi^*\mathcal O_Y(b,c)$, $T=aE$.
+This is an actual positive part, not a relatively nef lift of $L$.
+
+In B's permitted rational-bundle domain the full zero-weight
+section system has the genuine all-point scalar
+$q_T(v)=-a\,v(\mathcal I_E)$.
+At each centered analytic semivaluation some moving generator is
+a unit, since the system is generated; the equality includes
+supported points. Every normalized FS scalar on the fixed $L$
+is at most $q_T$, by (7.1) and its nonpositive weights.
+For B's varying-bundle endpoints the same inequality holds:
+at a fixed divisorial valuation the degree computation forces
+a vanishing coefficient at least
+$\delta_i=-c_1(B_i)\cdot E$ for a nearby actual bundle $B_i$,
+up to degree-rounding error. After removing $kE$, the restriction
+degree is $\ell B_i\cdot E+k$, and it remains negative until
+$k\geq-\ell B_i\cdot E$. Thus $\delta_i\to a$.
+The remaining canonical section norms are at most one, and the
+incoming generic constants tend to zero. At each fixed divisorial
+$v$ this bounds the endpoint by $-a v(E)$.
+B's all-point order determination, with its $v_0$ coordinate,
+gives the inequality everywhere.
+Since the zero-weight system itself realizes $q_T$,
+it is B's normalized minimal reference in this sector.
+
+For completeness the product moving model $X\times\mathbf P^1$
+with $C=\operatorname{pr}_X^*A+dF$, $d>0$ rational, has
+\[
+ A^2=2bc,\qquad C^3=3d(2bc),\qquad
+ e_A(0)=C^3/3-dA^2=0.
+ \tag{7.2}
+\]
+Its sole central component has multiplicity one, valuation $v_0$,
+and restriction square $2bc$. B's exact finite component formula
+therefore gives the raw measure $2bc\,\delta_{v_0}$.
+The physical horizontal factor is still $aE$.
+This is a calculation of the permitted operator, not only a
+numerical volume identity. Positive scaling by rational bundle
+powers gives the displayed raw normalization.
+The complex state with $\nu=0$ has raw measure
+$2bc\,\pi^*(\omega_z\wedge\omega_w)$ on a different carrier.
+We assert no equality of these two measures or canonical
+pushforward between those carriers.
+
+For $\nu=s\mu_i$ with $s>0$, the identical ideal profile still
+equals $q_T$, but its complex raw mass is $2c(b-s)$.
+Consequently B cannot supply a $P$-sensitive complex comparison
+by identifying these single-weight ideal profiles with its reference
+operator. These are not compatible DXZ test curves, and no
+non-Archimedean operator is defined by transporting that complex mass.
+Grant B gives neither this transport nor an extension to real
+transcendental or nonprojective classes. Its internal G0/G1 are
+not invoked as separate grants.
+
+\section{Precise unsolved requirements and evidence}
+This construction is more than appending an original complex potential:
+its admissibility is (2.2), its cone is (3.2), its geometric state is
+a positive measure functional, and reconstruction and modification
+compatibility have been proved. It is nonetheless only a sector
+construction with prescribed fibration and geometric forms.
+Its real coefficients lie in the real N\'eron--Severi space of
+this projective surface; irrational coefficients do not establish
+a genuinely transcendental case.
+It is not the independently characterized full NA positivity theory
+asked for in unchanged P14.4.
+
+There is even a concrete missing cone operation in this sector:
+the maximum of the two reconstructed curve weights in
+Theorem~\ref{mandatory} is bounded and nonconstant.
+It cannot be $U_\nu+\kappa$ for an admissible nonzero $\nu$,
+which has poles, or for zero $\nu$, which is constant.
+To see nonconstancy, near a support point one weight is very negative
+while the other is smooth; on a nonempty ordinary open set the
+winner has Hessian $-\omega$, hence cannot be constant.
+Thus the sector is not closed under maxima in a fixed class.
+Its decreasing approximation is (5.4), not a decreasing PL or
+moving-model approximation theorem.
+
+The following requirements remain unresolved here:
+\begin{enumerate}
+\item An intrinsic admissible geometric cone for every compact
+K\"ahler manifold and every big non-nef real Bott--Chern class,
+including genuinely transcendental and nonprojective classes.
+\item Reconstruction of arbitrary prescribed ordinary $P$-types,
+independent of fibration and kernel choices, with the requisite
+maxima/envelopes and full approximation theory.
+\item A projection from such states to compatible DXZ objects or
+the actual MP potential cone, with all-point comparison and the
+required endpoint and perturbation conventions.
+\item Positive-volume operator comparison with DXZ/BJ/MP in
+genuine common domains, retaining raw singularity-dependent mass
+and the correct reference. No energy extension is attempted here.
+\end{enumerate}
+Known full K\"ahler image, upper semicontinuity, and strict-interior
+filtration maximality from the catalogue are not relisted as open;
+we simply do not use them as unsupplied proofs. No other active
+P14 atom is claimed solved.
+The relative-nef generic-fibre obstruction is not avoided by a
+false nef total-space lift: (7.1) explicitly keeps its horizontal
+fixed factor and generated moving part. No analogue of that full
+section-system decomposition in arbitrary real analytic classes
+is established here.
+
+The earlier author172 manuscript, native notes and source ledger
+remain preserved as historical unverified research data. This
+corrected edition replaces the generalized continuity statement
+and its proof and records the amended mathematics separately.
+The unchanged author source-application ledger accompanies this
+edition as provenance. Its literal renderer ranges concern the
+author's primary readings, not a new claim that every primary
+proof was read again when making this correction.
+The complete amended manuscript requires independent reconstruction,
+including the new estimate and every unchanged dependency.
+Compilation and local byte hashes are not mathematical certification.
+The protected existing editor remains open and unchanged;
+the original atom remains open.
+
+\begin{thebibliography}{9}
+\bibitem{BEGZ} S. Boucksom, P. Eyssidieux, V. Guedj and A. Zeriahi,
+\emph{Monge--Amp\`ere equations in big cohomology classes},
+Acta Math. 205 (2010), 199--262.
+Literal version \href{https://arxiv.org/pdf/0812.3674v2}{arXiv:0812.3674v2}.
+\bibitem{DDL} T. Darvas, E. Di Nezza and C. H. Lu,
+\emph{Monotonicity of non-pluripolar products and complex
+Monge--Amp\`ere equations with prescribed singularity},
+Analysis \& PDE 11 (2018), 2049--2087.
+Literal version \href{https://arxiv.org/pdf/1705.05796v3}{arXiv:1705.05796v3}.
+\end{thebibliography}
+\end{document}
