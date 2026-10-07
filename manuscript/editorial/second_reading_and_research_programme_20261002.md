@@ -4413,3 +4413,43 @@ do not assign a Bedford--Taylor positive measure to the general non-psh
 q-class. Compile the manuscript edit, read matching final pages and publish
 its separate integration audit. Continue recent related primary-source
 research and incoming author progress.
+
+
+### Unbounded-domain comparison integration, 7 October 2026
+
+The [integration audit](Pawlaschyk_unbounded_domain_integration_audit_20261007.md)
+records Appendix H.11, the Chapter 68.13.4 connection and Appendix L.68.
+The account separates unbounded domains with bounded data from bounded
+domains with unbounded obstacles. It explains the Hunt--Murray eigenvalue
+branch, finite capped envelope, full 0≤r≤q≤n-r-1 peak range and a negative
+infinity witness continuous on the open domain. Bounded uniqueness is a
+direct consequence of the attributed addition and maximum principles.
+The exterior-disk family c log|z| diagnoses the false literal uncapped
+uniqueness clause without refuting bounded existence. General non-psh
+q-functions are not assigned a positive Bedford--Taylor measure.
+
+Three exact-edition references, nine labels, three equation tags H.22–H.24
+and two index entries are added. No formal or proof environment is added.
+All 59 old formal blocks and 25 proof blocks retain their bytes and order;
+422 other active inputs, 108 protected inputs, 95 prior frozen manifests
+and 163 prior exports remain byte-identical. The fifty-source-page-pair,
+twenty-six-sheet reading, twenty scoped records and fifteen elementary
+checks are reused with their exact qualifications. No complete external
+proof-chain certification is claimed.
+
+The 4,458-page book passes required compilation, reference checks,
+inventory, existing unit tests, index and navigation. All 51 matching
+selected final pages were read as complete selected texts and displayed
+in 26 sheets, including the complete index and bibliography. Underfull
+boxes remain at 954; other warnings, overfull boxes and invalid
+internal destinations are zero. This is a selected integration review,
+not another complete ordered reading of the book.
+
+Save immutable book/review/source artifacts with the complete 427-input
+closure and verify all 752 archive members. Fetch both main and work,
+push normally and update the existing draft PR. Continue recent related
+primary-source research and incoming author progress. Growth-selected
+uncapped envelopes, an exact boundary hull and general weak q-equations
+remain directions requiring separate inputs. No original theorem,
+independent model call, verification receipt, canonical-status change
+or general BJ22 Siu/envelope closure repair is added.

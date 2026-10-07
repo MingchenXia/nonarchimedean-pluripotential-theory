@@ -9,7 +9,18 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,452 pages**.
+The current research-integration build has **4,458 pages**.
+The [unbounded-domain comparison integration](manuscript/editorial/Pawlaschyk_unbounded_domain_integration_audit_20261007.md)
+adds Appendix H.11, a Chapter 68 connection and Appendix L.68. It retains
+finite caps, the Hunt--Murray eigenvalue convention, the full peak range
+and an open-domain-continuous negative witness at infinity. Bounded
+uniqueness follows from the cited comparison inputs; the exterior-disk
+family diagnoses the false literal uncapped uniqueness clause. Three
+exact-edition references and two index entries are added. All 51 selected
+matching final pages were read and displayed, including the complete
+index and bibliography. Required compilation, references and navigation
+pass. The preceding fifty-page-pair source audit is reused with its
+proof qualifications; canonical statuses and the native catalogue are preserved.
 The [unbounded-domain Perron source review](manuscript/editorial/Pawlaschyk_unbounded_domain_source_review_20261007.md)
 reads Pawlaschyk 2606.16584v1, the full Nguyen--Hung publisher PDF and an
 exact Słodkowski selection: fifty actual source/page pairs in twenty-six
