@@ -10,7 +10,7 @@ theorems are given in the supplied book \cite{XiaBook}, while
 interfaces needed here.
 
 Except in the local-domain settings of
-\Cref{sec:appH-local-maximality,sec:appH-smooth-integral-comparison,sec:appH-boundary-envelopes,sec:appH-unbounded-domain-comparison,sec:appH-Bergman-rigidity,sec:appH-ball-quotients,sec:appH-bounded-minorants}
+\Cref{sec:appH-local-maximality,sec:appH-smooth-integral-comparison,sec:appH-boundary-envelopes,sec:appH-unbounded-domain-comparison,sec:appH-Bergman-rigidity,sec:appH-ball-quotients,sec:appH-bounded-minorants,sec:appH-toric-multiplier-pairs}
 and the smooth curvature calculations of \Cref{sec:appH-Griffiths-Chern}, \(X\) is a connected compact
 K\"ahler manifold of complex dimension \(n\). We use
 \[
@@ -3172,6 +3172,358 @@ is preserved nevertheless. This auxiliary distinction neither refutes
 \eqref{eq:appH-Tosatti-Morse} nor supplies a representative-level
 positive subtraction. Further numerical and edition boundaries are
 listed in \Cref{sec:provenance-pluriharmonic-Siu}.
+
+
+\section{Analytic multiplier ideals on affine toric pairs}
+\label{sec:appH-toric-multiplier-pairs}
+\index{multiplier ideal!affine toric pair}
+\index{Newton body!analytic toric weight}
+
+The smooth monomial calculation in \Cref{prop:ch51-howald} has a
+singular affine counterpart. Here the canonical divisor changes the
+translation of the Newton body, and the character lattice determines
+which exponents exist. Seo's \cite[Theorem~6.1, actual pp.~28--29]{Seo26ToricMultiplierV1}
+gives the criterion below for arbitrary toric psh weights, including
+cones with a torus factor. This section explains that imported result
+and its source qualifications. Its ambient space is a normal affine
+complex analytic toric space, rather than the compact K\"ahler space
+used in the earlier global formulas of this appendix.
+
+\subsection{The pair, its volume and the weight convention}
+\label{sec:appH-toric-pair-volume}
+
+Let $N$ be a lattice, $M=\operatorname{Hom}(N,\mathbf Z)$ its actual
+dual lattice, and $\sigma\subset N_{\mathbf R}$ a strongly convex
+rational polyhedral cone. Put
+$X=X_\sigma=(\operatorname{Spec}\mathbf C[\sigma^\vee\cap M])^{\rm an}$.
+The cone need not span $N_{\mathbf R}$. For its primitive ray vectors
+$v_\rho$, write $D_\rho$ for the invariant prime divisors. Fix a
+rational invariant Weil divisor $D=\sum_\rho a_\rho D_\rho$ such that
+$K_X+D$ is $\mathbf Q$-Cartier, using $K_X=-\sum_\rho D_\rho$.
+There is $u_D\in M_{\mathbf Q}$ satisfying
+\begin{equation*}
+\begin{aligned}
+ \langle u_D,v_\rho\rangle&=1-a_\rho,\\
+ q(K_X+D)&=\operatorname{div}(\chi^{-q u_D}),\qquad q u_D\in M.
+\end{aligned}
+\tag{H.62}\label{eq:appH-toric-canonical-shift}
+\end{equation*}
+The integer $q>0$ must clear the Cartier index in $M$. Integral
+coordinates in a larger covering lattice are insufficient. When
+$\sigma$ is not full-dimensional, $u_D$ is determined only modulo
+the annihilator of $\sigma$; the criterion below is independent of
+that choice.
+
+The weight $\phi$ is invariant under the compact torus $K_N$, is psh
+in the local ambient-extension sense on $X$, and is not identically
+$-\infty$. The convention in this source is
+$\phi_{\mathfrak a}=\tfrac12\log\sum_j|f_j|^2+O(1)$.
+Thus the squared-norm potential $\psi$ used in Chapter~51 is $2\phi$.
+A local generator $\beta$ of $\omega_X^{[q]}(qD)$ defines an adapted
+volume on the regular locus. In local smooth coordinates, if
+$\beta=b\,(dz_1\wedge\cdots\wedge dz_n)^{\otimes q}$, its density
+is $|b|^{2/q}$ times the usual positive coordinate volume.
+Changing the generator multiplies this density by a locally bounded
+positive unit. Definition~3.1 of \cite{Seo26ToricMultiplierV1} uses
+\begin{equation*}
+ \mathcal I(X,D;\phi)_x
+ =\{f\in\mathcal M_{X,x}:
+       |f|^2\exp(-2\phi)\text{ is locally }dV_\beta\text{-integrable}\}.
+\tag{H.63}\label{eq:appH-toric-adapted-module}
+\end{equation*}
+Here $\mathcal M_X$ denotes meromorphic germs. Integrability is tested
+on the regular locus away from the divisorial poles of the density.
+Li's \cite[Definition~2.2 and Remark~2.3, actual p.~3]{Li22KollarArchivedV1}
+give the checked adapted-volume antecedent; the integer generator
+used here retains the $\mathbf Q$-Cartier hypothesis.
+
+The module is coherent, by Seo's Corollary~3.8, and is contained in
+$\mathcal O_X$ when $D$ is effective, by Proposition~3.3. Negative
+boundary coefficients can allow poles. On $\mathbf C$, with
+$D=-[0]$ and $\phi=0$, the density is $|z|^2$ times area, so $1/z$
+is integrable and $\mathcal I=\mathcal O([0])$. Calling the general
+module an ordinary holomorphic ideal would exclude this elementary
+case.
+
+\subsection{The logarithmic Newton domain}
+\label{sec:appH-toric-Newton-domain}
+
+On the dense torus define $\operatorname{Log}$ by
+$\langle m,\operatorname{Log}t\rangle=\log|\chi^m(t)|$.
+Seo's Lemma~5.1 writes $\phi=g\circ\operatorname{Log}$, where
+$g:N_{\mathbf R}\to\mathbf R$ is finite, convex and increasing in
+cone directions. These are global weights on $X$; a local psh germ
+is not assumed to have a global extension. With $\delta_{-\sigma}$
+the convex indicator, the Newton domain of Definition~5.2 is
+\begin{equation*}
+\begin{aligned}
+ P(\phi)&=\operatorname{dom}(g+\delta_{-\sigma})^*\\
+ &=\left\{p\in M_{\mathbf R}:
+       \sup_{x\in-\sigma}\bigl(\langle p,x\rangle-g(x)\bigr)<+\infty\right\}.
+\end{aligned}
+\tag{H.64}\label{eq:appH-toric-Newton-domain}
+\end{equation*}
+This convex domain need not be closed. Its closure and its ordinary
+interior in $M_{\mathbf R}$ have different threshold tests. If
+$g^\infty$ is the recession function of $g$, Seo's Lemma~4.4 and
+Proposition~5.3 give
+\begin{equation*}
+\begin{aligned}
+ \overline{P(\phi)}
+   &=\{p:\langle p,x\rangle\leq g^\infty(x)
+                              \text{ for all }x\in-\sigma\},\\
+ \operatorname{int}P(\phi)
+   &=\{p:\langle p,x\rangle<g^\infty(x)
+                              \text{ for all }0\ne x\in-\sigma\}.
+\end{aligned}
+\tag{H.65}\label{eq:appH-toric-recession-tests}
+\end{equation*}
+An infinite recession value makes the corresponding inequality
+automatic. Cone monotonicity implies $P(\phi)\subset\sigma^\vee$.
+For the zero cone, $P(\phi)=M_{\mathbf R}$ and the inequalities in
+the interior test are vacuous.
+
+The needed convex facts have checked primary anchors in
+\cite[Theorems~3.21, 3.26(a), 11.1, 11.5 and 11.23(a)]{RockafellarWets09Author}:
+recession slopes, uniform linear growth, biconjugacy, the support
+function of a conjugate domain, and conjugation of a sum. Since $g$
+is finite on the whole vector space, the domain-interior qualification
+for the sum holds even if $\sigma$ has smaller dimension. These
+anchors are an alternative to the 1970 Rockafellar locators cited
+by Seo; they do not certify the unread controlling 1970 edition.
+
+\subsection{The character criterion}
+\label{sec:appH-toric-character-criterion}
+
+The following statement is Seo's imported affine-pair result, in the
+normalization \eqref{eq:appH-toric-adapted-module}.
+
+\begin{theorem}
+\label{thm:appH-toric-analytic-multiplier}
+Under the pair and weight hypotheses of
+\Cref{sec:appH-toric-pair-volume}, the coherent fractional module
+$\mathcal I(X,D;\phi)$ is globally generated by finitely many
+meromorphic characters. The characters belonging to it are exactly
+\begin{equation*}
+ \chi^m\in\mathcal I(X,D;\phi)
+ \quad\Longleftrightarrow\quad
+ m\in M\ \text{ and }\ m+u_D\in\operatorname{int}P(\phi).
+\tag{H.66}\label{eq:appH-toric-character-criterion}
+\end{equation*}
+Equivalently, it is the $\mathcal O_X$-module generated by these
+characters, and a finite subset suffices. When $D\geq0$, this module
+is a coherent ideal in $\mathcal O_X$.
+\end{theorem}
+
+For $X=\mathbf C^n$ and $D=0$, the actual lattice is $\mathbf Z^n$
+and $u_D=(1,\ldots,1)$. The criterion becomes the familiar strict
+translation by the all-ones vector. Guenancia's archived v2
+\cite[Theorem~1.13, actual pp.~7--8]{Guenancia11ToricArchivedV2}
+supplies the smooth analytic antecedent. A local smooth comparison
+uses a polydisk and its logarithmic tails, rather than asserting a
+global extension of every germ. For algebraic ideal weights, Seo's
+Theorem~3.2 identifies the analytic module with the analytification
+of the pair multiplier module. The archived algebraic antecedent
+\cite{Blickle03ToricArchivedV1} needs the sign qualification in
+\Cref{sec:provenance-toric-analytic-multiplier} before its formulas
+can be compared with \eqref{eq:appH-toric-canonical-shift}.
+
+\subsection{Coherence and finite monomial generation}
+\label{sec:appH-toric-coherence-generation}
+
+The source proof first establishes the analytic sheaf properties.
+For a log resolution $\mu:Y\to X$, put
+$A=K_Y-q^{-1}\mu^*(q(K_X+D))$. Lemma~3.4 and Proposition~3.5 give
+the birational transformation
+\begin{equation*}
+\begin{aligned}
+ \mathcal I(X,D;\phi)
+   =\mu_*\bigl(&\mathcal O_Y(\lceil A\rceil)\otimes\\
+              &\mathcal I(Y,0;\phi\circ\mu+
+                                  \phi_{\lceil A\rceil-A})\bigr).
+\end{aligned}
+\tag{H.67}\label{eq:appH-toric-birational-module}
+\end{equation*}
+The remainder $\lceil A\rceil-A$ is effective with coefficients in
+$[0,1)$; the weight of a divisor of coefficient $b$ is $b\log|z|$
+in this normalization. Pullback volume powers $|z|^{2a}$ fix the
+rounding sign. Integer poles are absorbed into
+$\mathcal O_Y(\lceil A\rceil)$. For analytic ideal weights, the
+analogous rounding is $\lceil a_i-cb_i\rceil$, leaving integrable
+powers with exponents in $(-1,0]$. Meromorphic descent and proper
+direct-image compatibility are part of the imported resolution route.
+
+Local denominator clearing and Cartier twisting reduce the general
+boundary to an effective one. Smooth Nadel coherence and Grauert's
+theorem then give coherence. A finite covering of a compact
+resolution fibre must be taken before the base neighbourhood is
+shrunk. Smooth strong openness, applied to $2\phi$, also gives
+Seo's Corollary~3.9: locally,
+$\mathcal I(X,D;\phi)=\mathcal I(X,D;(1+\varepsilon)\phi)$
+for all sufficiently small $\varepsilon>0$, with $D$ fixed.
+The controlling smooth input is
+\cite[Theorem~1.1, printed p.~606]{GuanZhou15AnnalsPublished}.
+Scaling the boundary as well would be a different assertion.
+
+Sections~5.3--5.4 of \cite{Seo26ToricMultiplierV1} establish finite
+generation on the affine analytic space, which is Stein. Compact-torus
+invariance first becomes full-torus invariance by holomorphic
+one-parameter families and the identity theorem in the quotient of
+global section spaces. Fourier projection of a \emph{global} section
+$f$ has the form
+$\int_{K_N}\chi^{-m}(k)f(kx)\,dk$. On the dense torus a nonzero
+projection is a constant multiple of $\chi^m$. Coherence makes these
+projections compatible with the quotient module. One does not average
+an individual germ while moving its base point.
+
+In the finite jet quotients at the closed orbit, vanishing of all
+Fourier coefficients forces the class to vanish. Krull intersection
+then recovers the germ from all jets. Cartan A supplies enough global
+sections, and Noetherianity yields finitely many monomial generators.
+Torus translates of a closed-orbit neighbourhood cover $X$, so the
+generators extend to the whole affine space. For a fractional module,
+the invariant coherent colon module $(\mathcal O_X:\mathcal I)$
+supplies a global character denominator, reducing to the ideal case.
+These are the proof mechanisms of Theorem~5.5, Lemma~5.6,
+Corollary~5.8 and Theorem~5.9 of the source. Cartan A, Krull
+intersection, smooth coherence, resolution and normal psh extension
+remain attributed foundations, rather than new proofs in this book.
+
+\subsection{Logarithmic tails and a torus factor}
+\label{sec:appH-toric-local-tails}
+
+For a full-dimensional cone in its integration vector space, the
+radial character integral has the form
+\begin{equation*}
+ \int_{-\sigma}
+       \exp\bigl(2\langle m+u_D,x\rangle-2g(x)\bigr)\,dx.
+\tag{H.68}\label{eq:appH-toric-exponential-integral}
+\end{equation*}
+The compact angular integral contributes only a positive constant.
+Seo's Theorem~4.6 makes finiteness equivalent to the strict recession
+test in \eqref{eq:appH-toric-recession-tests}. For sufficiency,
+the convex function $g-\langle m+u_D,\cdot\rangle+
+\delta_{-\sigma}$ has strictly positive recession in every nonzero
+direction. The uniform linear lower bound of
+\cite[Theorem~3.26(a)]{RockafellarWets09Author} gives exponential
+decay with a common positive rate. For necessity, a failed direction
+produces a half-tube of positive volume, not just a measure-zero ray.
+Remark~4.7 retains uniformity over compact transverse parameters.
+
+For a non-full cone, $N_\sigma=N\cap\operatorname{span}_{\mathbf R}\sigma$
+is saturated. Choose a lattice complement $N'$; then
+$X_\sigma=X_{\sigma,N_\sigma}\times T_{N'}$. The unique closed
+orbit is $\{z_0\}\times T_{N'}$, generally of positive dimension.
+The cone integral is taken in $N_{\sigma,\mathbf R}$, while transverse
+torus coordinates range over compact annuli. Fubini and the source's
+uniform tail estimate give the same character criterion. An element
+annihilating $\sigma$ changes neither Newton membership nor this
+local integrability condition. If $\sigma=\{0\}$, the space is a
+torus, the weight is locally bounded, and the module is $\mathcal O_X$.
+
+One literal neighbourhood equality in the proof of Theorem~6.1
+requires qualification. The logarithm of an open monomial neighbourhood
+is not exactly a closed translated cone. In dimension one, the
+logarithm of an open disk omits the translated ray's endpoint.
+The comparison needed for local integrability uses cofinal inclusions.
+In the full cone span choose nonzero semigroup generators $m_j$ and
+put $S_L=\{x:\langle m_j,x\rangle<-L\text{ for every }j\}$.
+For $b\in\operatorname{int}\sigma$ with every
+$\langle m_j,b\rangle>L$, and for fixed
+$b_0\in\operatorname{int}\sigma$ followed by
+$L>\max_j\langle m_j,b_0\rangle$, respectively,
+\begin{equation*}
+ -b-\sigma\subset S_L,
+ \qquad S_L\subset-b_0-\sigma.
+\tag{H.69}\label{eq:appH-toric-cofinal-tails}
+\end{equation*}
+The two inclusions use different choices of translation. They give
+the local comparison with logarithmic monomial polydisks; translation
+preserves recession slopes. Compact transverse annuli are retained
+in the product case. This elementary explanation qualifies the
+printed equality; it is not a separate original repair theorem.
+
+\subsection{A singular surface calculation in its actual lattice}
+\label{sec:appH-toric-A1-calculation}
+
+Seo's Example~6.2 uses $X=\{z_1z_2=z_3^2\}$, with covering
+coordinates $z_1=s^2$, $z_2=t^2$, $z_3=st$. Thus
+$M=\{(a,b)\in\mathbf Z^2:a+b\text{ even}\}$ and
+$N=\mathbf Z^2+\mathbf Z(\tfrac12,\tfrac12)$, with the positive
+quadrant cone. Let $E=\{z_1=z_3=0\}$, $D=\tfrac12E$ and
+$\phi=\max\{\sqrt2\log|z_1|,2\log|z_2|\}$. Then
+$u_D=(\tfrac12,1)$, but $2u_D=(1,2)\notin M$.
+The minimal index is $4$, and
+$4(K_X+D)=-\operatorname{div}(z_1z_2^2)$.
+The logarithmic function is
+$g(x_1,x_2)=\max\{2\sqrt2x_1,4x_2\}$, with
+$P(\phi)=\operatorname{conv}\{(2\sqrt2,0),(0,4)\}
++\mathbf R_{\geq0}^2$. The translated strict test becomes
+\begin{equation*}
+\begin{aligned}
+ &(a,b)\in\mathbf Z_{\geq0}^2,\quad a+b\text{ even},\qquad
+   \frac{a+1/2}{2\sqrt2}+\frac{b+1}{4}>1,\\
+ &\mathcal I(X,\tfrac12E;\phi)=(z_1,z_3,z_2^2),\qquad
+   \mathcal I(X,0;\phi)=(z_1,z_2,z_3).
+\end{aligned}
+\tag{H.70}\label{eq:appH-toric-A1-ideals}
+\end{equation*}
+For the first ideal the minimal exponents are $(2,0)$, $(1,1)$
+and $(0,4)$. If $a\geq2$, subtract $(2,0)$; if $a=1$, parity
+forces odd $b\geq1$, so subtract $(1,1)$. If $a=0$, the even
+values $b=0,2$ fail the strict test and every even $b\geq4$ is
+divisible by $(0,4)$. This accounts for all allowed exponents,
+not merely a bounded search. For $D=0$, the shift is $(1,1)$;
+$(0,0)$ fails, whereas $(2,0)$, $(1,1)$ and $(0,2)$ pass and
+generate every remaining allowed semigroup point. The irrational
+coefficient is handled by exact inequalities in $\sqrt2$. Neither
+rounding an exponent nor replacing $M$ by $\mathbf Z^2$ is legitimate.
+
+\subsection{Subtracting an ideal weight and keeping thresholds distinct}
+\label{sec:appH-toric-negative-ideal-weight}
+
+Let a nonzero invariant coherent ideal have finite character generators
+$\chi^{a_j}$, and put
+$\phi_{\mathfrak a}=\tfrac12\log\sum_j|\chi^{a_j}|^2$.
+For positive \emph{rational} $c$, Seo's Proposition~5.10 and
+Corollary~6.3 allow the weight $\phi-c\phi_{\mathfrak a}$, which
+need not be psh. Finite sum comparability gives
+\begin{equation*}
+\begin{aligned}
+ \mathcal I(X,D;\phi-c\phi_{\mathfrak a})
+   &=\bigcap_j\mathcal I(X,D-c\operatorname{div}(\chi^{a_j});\phi),\\
+ \chi^m\in\mathcal I(X,D;\phi-c\phi_{\mathfrak a})
+   &\Longleftrightarrow
+       m+u_D+ca_j\in\operatorname{int}P(\phi)\quad\text{for every }j.
+\end{aligned}
+\tag{H.71}\label{eq:appH-toric-negative-ideal-criterion}
+\end{equation*}
+Rationality keeps the shifted pair $\mathbf Q$-Cartier; the displayed
+pair proof does not establish an irrational extension. Strong openness
+in this formulation scales $\phi$ only, with $D$, $c$ and the ideal
+fixed. A finite intersection permits a common small perturbation.
+
+Ordinary multiplier and maximal non-lc ideals have different boundary
+conventions. With effective $D$, maximal non-lc rounding moves negative
+integer discrepancies off their ordinary multiplier threshold. The
+checked antecedent is
+\cite[Definition~7.1 and Lemmas~7.2, 7.5, actual pp.~10--12]{FujinoSchwedeTakagiAuthorRevision}.
+On $\mathbf C$, $D=[0]$ and $\phi=0$ give ordinary multiplier ideal
+$(z)$ but maximal non-lc ideal $\mathcal O$. The closed Newton
+membership used for the latter cannot replace the strict interior
+in \eqref{eq:appH-toric-character-criterion}.
+
+Finally, a locally bounded perturbation of the weight changes neither
+the integrability module nor the relevant finite-supremum Newton domain
+on relatively compact logarithmic cone neighbourhoods. Seo's
+Remark~6.4 allows psh plus a locally bounded measurable function;
+that class is broader than the psh-plus-smooth convention for
+quasi-psh functions in this book. It is stated explicitly here without
+changing the earlier definition. These local convex tests concern
+multiplier integrability. They supply neither a compact partial
+Okounkov-body mass formula at zero volume nor a general envelope
+closure argument. Exact version boundaries are recorded in
+\Cref{sec:provenance-toric-analytic-multiplier}.
 
 \section{Unit tests and failure modes}
 \label{sec:appH-unit-tests}

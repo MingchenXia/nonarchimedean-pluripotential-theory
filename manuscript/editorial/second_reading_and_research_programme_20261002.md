@@ -4966,3 +4966,35 @@ normal expected-head update, inspect both main/work for incoming author
 progress, then integrate only attributed content and compile/read its final
 changed pages. The new Kähler--Einstein/plurigenera and Segre/Lê candidates
 remain metadata-only, and the already audited Fang source is not recounted.
+
+### Affine toric multiplier book integration, 7 October 2026
+
+The [integration audit](Seo_toric_multiplier_integration_audit_20261007.md)
+records the attributed H.17 criterion, H.62--H.71, Chapter 51.5.4,
+Chapter 55 local convex connection and L.75 version ledger. The actual
+lattice, half-log factor, adapted volume, fractional-module scope, finite
+global generation, non-full cone, cofinal tails, index-four A1 calculation
+and positive rational negative ideal weights retain their hypotheses.
+Ordinary strict interior membership stays distinct from maximal non-lc
+rounding. The H opening, Chapter 51 standing hypotheses and L.2 proof
+boundary now explicitly accommodate the local/source-attributed material.
+
+The 78-primary-page-pair/41-sheet source audit is reused, with 20 scoped
+records and 6 exact diagnostic groups, 4 complete PDFs and 5 partial
+readings. No fresh primary reading, original result, independent model call,
+receipt or solved-status promotion is added. All 162 historical formal
+blocks and 69 proof blocks in the four changed active inputs retain their
+bytes. The other 421 active inputs, 108 protected inputs, 109 preceding
+frozen manifests, 184 exports, canonical inventory and historical native
+catalogue/editor remain preserved.
+
+The 4,503-page final build passes required repository validation,
+index, bibliography and navigation. Final selected reading covers all 103
+pages in 52 sheets: 43 freshly read and 60 reused only after exact
+complete-text and matching-image identity against documented actual reading.
+Structure and two source-scope coherence diagnostics are retained in their
+superseded records. This review is not a fresh whole-book rereading.
+Save immutable releases, verify every source-archive member, inspect both
+GitHub branches for incoming author progress and publish with an expected-head
+check. Continue cloud research on the metadata-only KE/plurigenera and
+Segre/Lê candidates; no unread proof is credited as suitable for integration.

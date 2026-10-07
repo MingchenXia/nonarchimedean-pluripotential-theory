@@ -1618,3 +1618,12 @@ iteration lemma and published GKZ proof remain source gates; the new
 non-spectral structural proof is not imported into active TeX. See
 [the source review](manuscript/editorial/Hessian_iteration_nonspectral_source_review_20261006.md).
 The checked book, native catalogue and canonical statuses are preserved.
+
+The 7 October affine toric multiplier integration adds sourced Appendix H.17,
+connections in Chapters 51 and 55, and version-qualified Appendix L.75.
+It retains actual character lattices, adapted pair volumes, fractional-module
+scope, torus factors and strict Newton thresholds. The required 4,503-page
+build and 103-page final selected review pass; prior formal proofs, canonical
+statuses and the native catalogue are preserved. No original theorem or
+general BJ22 Siu/envelope repair is claimed. See
+[the integration audit](manuscript/editorial/Seo_toric_multiplier_integration_audit_20261007.md).
