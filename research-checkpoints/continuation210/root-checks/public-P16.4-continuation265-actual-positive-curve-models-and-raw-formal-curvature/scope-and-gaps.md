@@ -1,0 +1,13 @@
+# Material changes and retained gaps
+
+The new proved draft assertions concern the actual original polarized curve over a complete algebraically closed nontrivially real-valued field. The compatible horizontal section is established at every quotient by a^j using the actual evaluation section of an étale zero fibre. A single residual point and open section image give the quotient isomorphism; flatness and completeness give the closed principal regular ideal. Its generic point and residual multiplicity are specified.
+
+An original section divisor then extends the SAME original integral multiple of L. Shared Gamma-valued heights and rational upward bends give positive degrees on EVERY final component. Explicit Cartier factors glue by units around cycles. Frame orders fix the outgoing-slope sign; the entire kd denominator restores raw degree deg(L). The actual pair has whole-mod-a relative ampleness.
+
+For the actual canonical vertex charts, the type-II Shilov norming point verifies the spectral norm range. Normalization and fraction approximation prove the whole residual-field equality. Literal CLDv1's full coefficient/calibration theorem then identifies the genuine PL first Chern measure with raw component degrees. It is positive but is not claimed to be an O output without FS recognition.
+
+The elementary nonnegative-flat-Cech and compatible-lifting criteria are proved. Their unconditional high-section-generation application on the constructed whole-mod-a pair remains unaudited: a finite Noetherian descent stage retaining properness, flatness and relative ampleness is required, followed by actual base change, formal lifts, and field H0 comparison of the original bundle. No guessed carrier is substituted.
+
+The positive-genus curve equation remains unproved. Actual atom/kernels in the fixed-bundle psh cone, arbitrary-support intrinsic-target realization, a genuine decreasing finite-energy endpoint and attainment, and EVERY-solution equality at EVERY analytic point including poles/type-IV limits still require complete applications. Non-AC descent requires an already actual invariant singular solution; none is asserted here. General-dimensional nontrivial nondiscrete equation/attainment/all-point uniqueness also remain open. The trivial and genus-zero grants, and the general M target criterion, retain their complete accepted scopes and are not reproved.
+
+Native status is candidate=false. No new mathematical acceptance, parent campaign, or publication is claimed. The source/read ledger states incomplete recursive foundations. Finite checks and builds are evidence only.

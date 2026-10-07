@@ -1,0 +1,39 @@
+from pathlib import Path
+from datetime import datetime,timezone
+import hashlib,json,os,subprocess
+
+R=Path('/workspace/research');C=next((R/'campaigns/round-205').iterdir())
+sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
+assert not (C/'work.sqlite').exists() and not (C/'launch-record.json').exists()
+f=json.loads((C/'freeze.json').read_text())
+for name,key in [('task.json','task_sha256'),('original-task.json','original_task_sha256'),('input.json','input_sha256'),('settings.json','settings_sha256')]:assert sha(C/name)==f[key]
+pb=C/'private-primary-packet-bindings.json';assert sha(pb)==f['private_primary_packet_bindings_sha256']
+for e in json.loads(pb.read_text()):assert sha(e['path'])==e['sha256'] and Path(e['path']).stat().st_size==e['bytes']
+lines=json.loads((C/'input.json').read_text())['assignment'].splitlines()
+for e in json.loads((C/'mathematical-data-bindings.json').read_text()):
+    assert sha(e['source'])==e['sha256'] and Path(e['source']).stat().st_size==e['bytes']
+    lo,hi=e['assignment_inclusive_lf'];assert lines[lo-1:hi]==Path(e['source']).read_text().splitlines()
+s=json.loads((C/'settings.json').read_text())
+assert s['codex']['model']=='gpt-6.1-sol' and s['codex']['reasoning']=='xhigh' and s['limits']==dict(concurrency=1,attempts=1,providerCalls=1)
+states=[]
+for n in [202,203,204]:
+    old=next((R/f'campaigns/round-{n}').iterdir())
+    st=json.loads(subprocess.run(['bash','scripts/cloud.sh','xean','--records','status',str(old/'work.sqlite')],cwd='/workspace/xean',capture_output=True,text=True,check=True).stdout)
+    if st['status']=='blocked':assert st['calls']['unsettled']==st['work']['active']==st['work']['queued']==0
+    states.append(dict(round=n,public_status=st))
+assert sum(e['public_status']['calls']['unsettled'] for e in states)<=1
+assert next(e for e in states if e['round']==203)['public_status']['calls']['settled']==1
+args=['bash','scripts/cloud.sh','xean','--records','role','codex',str(C/'input.json'),str(C/'work.sqlite'),str(C/'settings.json')]
+with (C/'controller-output-LOCALONLY.log').open('xb') as out:
+    pid=subprocess.Popen(args,cwd='/workspace/xean',stdin=subprocess.DEVNULL,stdout=out,stderr=subprocess.STDOUT,start_new_session=True).pid
+os.kill(pid,0)
+d=dict(recorded_utc=datetime.now(timezone.utc).isoformat(),round=205,pid=pid,argv=args,role='original-author-research',
+       scope='Unchanged entire P16.4: reconstruct actual formal FS recognition and whole all-genus arbitrary-support curve inverse/EVERYsolution EVERYpoint uniqueness/actual invariant descent, then remaining general-dimensional original. Eight whole grants/all clarifications only; entire265/exact203/267/268 UNREVIEWED data, whole250/198 FAIL retained. New literal62file original packet.',
+       route='Xean native Codex',model='gpt-6.1-sol',reasoning='xhigh',maximum_concurrent_campaigns=2,
+       frozen_task_sha256=f['task_sha256'],frozen_math_input_sha256=f['input_sha256'],frozen_settings_sha256=f['settings_sha256'],
+       only_mathematical_grants=f['only_complete_grants'],complete_math_units=f['complete_mathematical_units'],private_primary_files=f['private_primary_packet_files'],
+       original_closed=False,private_active_output_read=False,hot_feedback_sent=False,account_auth_runtime_environment_changed=False,
+       parent_execution_permissions='require_escalated only for exact authorized native initialization; child remains workspace-write research sandbox',
+       prior_public_states=states,reserved_current_batch=[e['round'] for e in states if e['public_status']['calls']['unsettled']>0]+[205])
+(C/'launch-record.json').write_text(json.dumps(d,indent=2)+'\n')
+print(json.dumps(dict(round=205,pid=pid,input_sha256=f['input_sha256'],reserved_current_batch=d['reserved_current_batch']),indent=2))

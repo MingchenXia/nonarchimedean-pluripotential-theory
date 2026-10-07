@@ -1,0 +1,3 @@
+Unreviewed 12-page actual positive curve formal-model paper.
+
+Whole source, Markdown, source/application ledger, scope and six exact native final notes ROOT-read. All frozen provenance and exact source conversion verified; independent finite checker and two local builds reproduced. Finite algebra and successful compilation do not certify the mathematics. Whole-mod-a vanishing/generation remains an explicit antecedent of FS recognition; prescribed-target existence and every-point uniqueness remain open. ROOT267 is newer unreviewed work, absent from this native author input. No new acceptance or original closure. Protected current editor stays open and unchanged.
