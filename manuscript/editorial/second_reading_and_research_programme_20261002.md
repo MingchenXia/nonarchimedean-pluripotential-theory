@@ -5033,3 +5033,31 @@ GitHub branches and publish through a normal expected-head
 update. Then integrate only the qualified background and
 conditional family discussion, compile, read its final pages,
 and continue with the metadata-only Segre/generic-Lê candidate.
+
+### Canonical KE family normalization book integration, 7 October 2026
+
+The [integration audit](LPWZ_KE_plurigenera_integration_audit_20261007.md)
+records H.18, H.72--H.79, Chapter 51.6.5 and L.76. Exponential
+normalization, canonical-volume covariance and the total-space constant
+retain positive-mass and family premises. DGG smooth estimates, its
+published corrigendum, Guedj--Lu Theorem 2.6 and the conditional LPWZ
+route retain exact scopes. The live locator corrects an earlier frozen
+environment-name error without overwriting that audit. The announced
+plurigenera theorem, independent-density, canonical-pseudoeffectivity,
+finite-parameter and extension/disk gates remain qualified. HX/HLR MMP
+signatures do not retire general terminal, termination or ordinary abundance
+questions. No original result, model call or verification receipt is added.
+
+The frozen 144-primary-page-pair/76-sheet audit is reused, not recounted.
+All 117 prior formal and 46 proof blocks in the three changed active inputs,
+422 other active inputs, 108 protected inputs, 111 preceding frozen manifests
+and 187 exports are preserved. Canonical statuses and the historical native
+catalogue/editor remain unchanged. The final 4,509-page build passes
+required validation, references, index and navigation. All 66 selected final
+pages were freshly read with complete text and 33 individually displayed
+images, including affected GL25 suffix occurrences and all index/bibliography.
+This is not a fresh whole-book rereading. Failed/superseded layout and
+review-selector diagnostics remain preserved. Save immutable releases,
+verify archive members and publish with an expected-head check. Continue
+the finite-pullback Segre/Le primary-source audit; uninspected inputs do not
+become certified theorems by citation.

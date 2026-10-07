@@ -9,7 +9,15 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,503 pages**.
+The current research-integration build has **4,509 pages**.
+The [canonical KE normalization integration](manuscript/editorial/LPWZ_KE_plurigenera_integration_audit_20261007.md)
+adds H.18, a Chapter 51 connection and L.76. Exponential constants,
+canonical reference-volume covariance and family estimates retain their
+hypotheses; the plurigenera announcement and unresolved proof interfaces
+remain qualified. The required build and 66-page fresh selected review pass.
+Guedj--Lu stability is correctly cited as Theorem 2.6, and existing Orlicz
+citation suffixes are checked. Canonical statuses and the native editor remain
+unchanged; no original theorem or general BJ22 Siu/envelope repair is claimed.
 The [Kähler--Einstein/plurigenera source review](manuscript/editorial/LPWZ_KE_plurigenera_source_review_20261007.md)
 reads all 40 pages of Li--Păun--Wang--Zhou 2610.07826v1 and thirteen
 dependency PDFs in exact scopes: 144 distinct source/page pairs in 76
