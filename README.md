@@ -9,7 +9,22 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,458 pages**.
+The current research-integration build has **4,463 pages**.
+The [conifold-contraction integration](manuscript/editorial/Guyett_McGowan_conifold_integration_audit_20261007.md)
+adds Chapter 66.10.1 and Appendix L.69. It separates non-closed
+Chern--Ricci-flat subsequences from closed-background full-family limits,
+and explains the locally Kähler nodal-threefold GH argument with distinct
+source intrinsic and target extrinsic diameters. The fixed-resolution
+parameter is kept separate from the complex-structure hybrid parameter.
+Six exact-edition references and two index entries are appended.
+All fifty matching selected final pages were reviewed in twenty-five
+sheets, including the complete index and bibliography: forty pages
+freshly read and ten reused only after exact complete-text and image
+digest matches. A source-notes transition was corrected and recompiled.
+Required compilation, references, index and navigation pass. The preceding
+113-source-page-pair audit is reused with its image-controlled torsion
+correction and external-proof qualifications. Canonical statuses and
+the native catalogue/editor remain unchanged.
 The [conifold-contraction source review](manuscript/editorial/Guyett_McGowan_conifold_source_review_20261007.md)
 reads Guyett--Mc Gowan 2610.00942v1 and five exact dependency files:
 113 distinct source/page pairs in 58 sheets, including 98 fresh pairs
@@ -19,8 +34,9 @@ scoped records and twelve elementary checks separate non-closed
 Chern--Ricci-flat subsequences, closed-background full-family limits
 and the nodal threefold GH theorem. An initial torsion-formula reading
 is explicitly corrected after checking both absolute-value bars.
-The checked book and native catalogue remain unchanged; no complete
-external proof-chain certificate or canonical-status change is claimed.
+That source-only checkpoint preserved the preceding book and native
+catalogue; no complete external proof-chain certificate or canonical-status
+change was claimed.
 The [unbounded-domain comparison integration](manuscript/editorial/Pawlaschyk_unbounded_domain_integration_audit_20261007.md)
 adds Appendix H.11, a Chapter 68 connection and Appendix L.68. It retains
 finite caps, the Hunt--Murray eigenvalue convention, the full peak range

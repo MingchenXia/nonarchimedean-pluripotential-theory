@@ -4495,3 +4495,45 @@ and positive-KE cone asymptotics as separately gated literature directions.
 Compile the book edit, read matching changed pages with bibliography and
 index transitions, and publish a separate integration record. Continue
 related recent primary-source research and incoming author progress.
+
+
+### Conifold contraction integration, 7 October 2026
+
+The [integration audit](Guyett_McGowan_conifold_integration_audit_20261007.md)
+records Chapter 66.10.1 and Appendix L.69. It explains non-closed lower/upper
+mass and Chern--Ricci-flat subsequences, closed-background pushed-volume
+and full-family uniqueness, and the locally Kähler ordinary-double-point
+threefold GH conclusion. Source intrinsic and target extrinsic diameters,
+ruling trace and independent radius coordinates are explicit. Epsilon on
+a fixed resolution remains separate from the hybrid complex-structure t;
+a smoothing or joint limit requires separate family estimates.
+
+Six exact-edition references, eight labels, six equation tags 66.34g--l
+and two index entries are appended. No formal or proof environment is
+added. All 35 old formal blocks and eleven proof blocks keep their bytes
+and order; 423 other active inputs, 108 protected inputs, 97 preceding
+frozen manifests and 166 exports remain byte-identical. The 113-source-
+page-pair, 58-sheet source reading, 24 scoped records and twelve elementary
+checks are reused with the explicit image-controlled correction of the
+initial torsion-formula assessment. No full external proof chain is certified.
+
+The 4,463-page final v2 book passes required compilation, references,
+canonical inventory, existing unit tests, index and navigation. All fifty
+matching complete selected final texts were reviewed in twenty-five sheets,
+including the complete index and bibliography: forty pages freshly read,
+ten reused only after exact complete-text and image digest equality.
+A legacy source-notes transition was corrected after partial v1 reading,
+and the required checks rerun; earlier version records are preserved.
+Underfull boxes remain at 954; other warnings, overfull boxes and invalid
+internal destinations are zero. This is a selected integration review,
+not another complete ordered reading.
+
+Save immutable book/review/source artifacts with the 427-input closure
+and verify all 758 source-archive members. Fetch both main and work with
+explicit destination references, push normally and update the existing
+draft PR. Continue recent related primary-source research and incoming
+author progress. Wider non-closed uniqueness, Hermitian metric limits,
+uniform contraction/smoothing rates and positive-KE cone asymptotics
+remain separately gated literature directions. No original theorem,
+independent model call, production receipt, canonical-status change or
+general BJ22 homogeneous Siu/envelope-closure repair is added.
