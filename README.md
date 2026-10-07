@@ -32,8 +32,20 @@ six complete PDFs and four partial readings, including both main papers
 in their exact editions. Its nine exact arithmetic diagnostics are reused
 without claiming fresh primary reading in this integration. The June
 survey's historical questions are not certified as currently open.
-The September Chern-flow revision has been acquired as a subsequent
-candidate; its abstract claims have not been admitted to the book.
+The [Chern-flow source review](manuscript/editorial/Chern_flow_source_review_20261007.md)
+reads Nguyen-Dang--Wang 2609.02850v4 completely and ten dependencies in
+exact scopes: 182 distinct source/page pairs in 94 individually displayed
+matching sheets, three complete PDFs and eight partial readings. It checks
+actual generated row bundles, creation-state balance, cap-aware reciprocal
+normalization, full Chern moment algebras and tropical generating witnesses.
+Classical boundary descent and the combinatorial Hodge inputs retain their
+explicit dependencies. An exact toric quartic distinguishes Lorentzian
+volume realization from all Hodge--Riemann signs in a smaller apolar algebra.
+Nine exact finite diagnostic groups pass; a failed transcription is retained,
+and 2,141 bounded balance profiles are checked without a universal-proof
+claim. This source-only checkpoint preserves the 4,535-page book, canonical
+statuses and native catalogue/editor. Attributed integration follows its
+own build and actual rendered-page review.
 The [mixed Segre zeta integration](manuscript/editorial/Mixed_Segre_zeta_integration_audit_20261007.md)
 adds C.9.2, D.8, F.9.1 and L.78. It connects the stabilized mixed
 series, multinomial product specialization and integral-closure invariance
