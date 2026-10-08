@@ -9,8 +9,22 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current cloud research-integration build has **4,587 pages**; its
+The current cloud research-integration build has **4,597 pages**; its
 GitHub publication remains pending. The checked
+[curve section-ball preview](manuscript/editorial/Wu_section_ball_rates_staged_integration_audit_20261008.md)
+adds H.25 and L.87, linking restriction entropy to finite-degree real-volume
+errors and Fekete measures. Degree/root transport, determinant normalization,
+theta-safe perturbations and the admissible Green-trace boundary construction
+retain their hypotheses. The entire Wu volume v1 and published DMN paper,
+plus four partial sources, cover 96 actually read pages in 48 matching images.
+The final scoped book review has 41 freshly read pages in 21 images, including
+the complete index and selected bibliography continuations. All 563 preceding
+citation labels and 299 tracked paired equation numbers are preserved.
+The [curve-section cloud activation record](manuscript/editorial/Wu_section_ball_rates_cloud_activation_20261008.json)
+pins the validated source/PDF bytes copied into the working tree. This is an
+attributed complex account; the 42-atom inventory is unchanged, general BJ22
+Siu division stays OPEN and LPWZ density stays UNVERIFIED.
+The preceding checked
 [holomorphic restriction entropy preview](manuscript/editorial/Finski_holomorphic_metric_entropy_staged_integration_audit_20261008.md)
 adds H.24 and L.86, retaining strict hyperconvexity, the actual Runge
 approximation input, the local capacity operator conversion and ordinary

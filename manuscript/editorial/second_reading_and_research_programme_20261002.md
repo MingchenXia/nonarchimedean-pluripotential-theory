@@ -3,7 +3,44 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
-## Latest cloud integration checkpoint, 8 October 2026
+## Latest curve-section cloud integration checkpoint, 8 October 2026
+
+The validated 4,597-page cloud book adds H.25 and L.87 after the holomorphic
+restriction-entropy account. The [integration audit](Wu_section_ball_rates_staged_integration_audit_20261008.md)
+records degree-one/genus/large-index scope, real-volume factor two, compatible
+root/index/field transport, the single Gram determinant and negative volume
+logarithm, the fixed -2g correction, ordered collision penalties, theta-safe
+product boxes, admissible Green-trace balayage and the Fekete variation argument.
+The sphere boundary counterexample explicitly gives the maximum-principle
+comparison before using the source's asserted harmonicity and contact.
+
+The [source checkpoint](Wu_section_ball_rates_source_review_20261008.md)
+actually covers the complete 28-page Wu volume v1 and 34-page published DMN
+paper, plus four partial sources: 96 pages in 48 matching images. Six finite
+groups contain 38 fixtures and six symbolic checks. The final actual book
+review covers 41 unique selected pages in 21 fresh matching images, including
+the DMN bibliography continuation. No old view is reused and no new whole-book
+reread is claimed. The frozen v1 overflow, v2 partial reading, bookmark helper
+failure and preparation/export discrepancies are preserved and qualified.
+
+Validation has zero errors, missing characters, overfull boxes, unresolved
+references/citations, rerun requests or invalid internal links; 954 inherited
+underfull boxes remain recorded. All 563 preceding citation labels and 299
+tracked paired equation numbers are preserved. Five new references and ten
+new equation tags have valid destinations. The [cloud activation record](Wu_section_ball_rates_cloud_activation_20261008.json)
+identifies the exact validated book bytes copied into the working tree.
+Historical source-only and staged-preview records are not rewritten.
+
+The 42 canonical atoms in twelve formal problems retain their statuses.
+General critical homogeneous BJ22 Siu division/envelopes stay OPEN and LPWZ
+density stays UNVERIFIED. No original result or independent model receipt is
+promoted; the native catalogue and its PDF are byte-preserved. Publication is
+still blocked by automatic review's earlier full Chapter 68 upload rejection,
+pending the already requested repository-ownership confirmation. Do not retry
+that action through another route. Continue cloud-only primary-source research
+and read-only incoming-author checks; metadata alone is not a source import.
+
+## Earlier metric and holomorphic entropy cloud checkpoint, 8 October 2026
 
 The validated 4,587-page cloud manuscript now includes the checked metric
 entropy and holomorphic restriction entropy additions: H.23–H.24,
