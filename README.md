@@ -16,9 +16,23 @@ It separates minimum existence, split attainment and harmonic graded
 semistability; exact D4 examples distinguish auxiliary hinge descent from
 the original ramp potential. Source proof qualifications and the sorted
 minor explanation are recorded. Portable cloud evidence is byte-verified;
-no new theorem, canonical status or GitHub upload is claimed. Book integration
-of this attributed account is next.
-The current cloud research-integration build has **4,616 pages**; its
+no new theorem, canonical status or GitHub upload is claimed. The checked
+[book integration](manuscript/editorial/Ben_Bassat_harmonic_quiver_staged_integration_audit_20261008.md)
+adds Section 50.9.5 and L.89. It separates all-norm minimum existence,
+split attainment and graded harmonic semistability over any complete field.
+Direct D4, nonsplit identity-arrow and two-radius examples retain the determinant
+term, one common scaling and exact profile calculations. The projective
+normalization, scope table and dictionary explicitly retain their own domain.
+The final scoped book review covers 57 pages: 45 fresh pages in 23 individually
+displayed views and twelve reused pages in six views after exact complete-text
+and rendered-RGB identity. All 13,346 preceding numbered label values and
+582 citation labels remain identical. Fourteen semantic labels, five cited
+references and four index terms are added; the complete index and all new
+reference entries pass. No new whole-book pass or independent-model receipt
+is claimed. The [cloud activation record](manuscript/editorial/Ben_Bassat_harmonic_quiver_cloud_activation_20261008.json)
+controls the exact source/PDF update; frozen staged records retain their
+pre-activation state.
+The current cloud research-integration build has **4,626 pages**; its
 GitHub publication remains pending. The checked
 [geometric-norm account](manuscript/editorial/Temkin_Zutler_geometric_norms_staged_integration_audit_20261008.md)
 adds Sections 4.6.1--4.6.2: tensor and spectral norm distinctions, exact

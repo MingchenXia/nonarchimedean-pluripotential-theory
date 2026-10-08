@@ -3,6 +3,67 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest harmonic-quiver cloud integration checkpoint, 8 October 2026
+
+The current validated cloud edition has 4,626 pages. The
+[integration audit](Ben_Bassat_harmonic_quiver_staged_integration_audit_20261008.md)
+records Section 50.9.5 and L.89: finite quivers over arbitrary complete K,
+theta(E)=0, all-norm minimum existence for polystable representations,
+split replacement preserving arrow profiles, and harmonic graded semistability.
+One common scaling is removed; the full norm spaces and unnormalized Euclidean
+distance retain the vertex scalar directions. This is attributed integration
+and direct explanatory calculation, with no original general theorem promotion.
+
+The [source audit](Ben_Bassat_harmonic_quiver_source_review_20261008.md)
+covers 138 actual source/page pairs in 72 matching images: three complete
+sources and three partial selections. The full Ben-Bassat v1 is the controlling
+recent source. The triangular principal-minor explanation, Parreau metric and
+stabilizer qualifications, projective closed-image incidence input and maximally
+complete immediate extension remain explicit. The pointwise diagonal stabilizer
+sentence in the book expressly lies in the determinant-absolute-value-one group.
+No source-page count, locator or proof receipt is silently extended.
+
+The examples distinguish semistability from polystability and attainment,
+split minima from nonsplit minima, and auxiliary minimization from original
+potential descent. The zero-dimensional determinant is normalized at its
+standard vector 1. Projective normalization/envelope preludes, the scope table,
+dictionary and source clauses prevent projective hypotheses from covering the
+independent quiver discussion. Existing formal assertions, proofs, warnings,
+important boxes and manual equation tags remain byte-preserved.
+
+The final scoped rendered gate covers 57 physical pages: 45 fresh pages in
+23 individually displayed views and twelve reused in six views after exact
+complete-PDF-text and rendered-RGB-pixel identity. It includes all new content,
+changed scope sentences and neighboring seams, new contents rows, the complete
+index and five new bibliography entries plus BE21. The partial v2 reading and
+earlier layout diagnostics remain frozen; final v3 has no remaining repair.
+This is not a new whole-book pass; 4 October remains the last ordered complete
+reading of all 72 chapters, Appendices A--N and nine front-matter files.
+
+Validation and the post-render reference/inventory gates pass. There are zero
+errors, missing characters, overfull boxes, unresolved references/citations,
+rerun requests and invalid internal links; 954 inherited underfull diagnostics
+remain recorded. All 13,346 prior numbered label values and 582 prior citation
+labels remain identical; fourteen semantic labels and five cited references
+are added. Prior contents hierarchy is preserved with the declared title change
+Four worked examples to Worked examples, plus five new entries. The index
+accepts 871 entries, rejects none and has zero warnings, adding four terms.
+The unavailable legacy writing-audit command is replaced by recorded direct
+semantic, normalization, delimiter, source, whitespace and rendered checks.
+
+The source and book evidence archives, selected review PDFs and minimal
+reproducible sources are byte-verified. Exports give no reading credit. The
+[activation record](Ben_Bassat_harmonic_quiver_cloud_activation_20261008.json)
+controls the exact cloud source/PDF update. Earlier checkpoint entries below
+retain their historical baselines. The 42 atoms in twelve formal problems,
+general OPEN BJ22 critical homogeneous Siu/envelope boundary and UNVERIFIED
+LPWZ density are unchanged. No independent gpt-6.1-sol xhigh receipt is claimed.
+The native catalogue and editor are preserved. GitHub publication remains
+blocked by the previously recorded automatic-review ownership requirement;
+the pending confirmation is not repeated and the rejected upload is not
+retried through another route. Continue cloud research and read-only author
+update checks, then audit the next relevant primary source.
+
 ## Latest harmonic-quiver source checkpoint, 8 October 2026
 
 The [source audit](Ben_Bassat_harmonic_quiver_source_review_20261008.md)
