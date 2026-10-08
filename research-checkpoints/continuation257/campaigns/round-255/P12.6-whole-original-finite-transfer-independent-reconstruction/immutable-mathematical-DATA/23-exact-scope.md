@@ -1,0 +1,19 @@
+# Exact proved scope
+
+Every excellent reduced local ring is allowed in the cone and projection statements, with arbitrary characteristic/residue field and ALL semivaluation supports. Nilpotents are first reduced. The independent geometry is that of qualified G331/G345 on actual PRIMARY blowups and auxiliary finite normalizations; arbitrary-proper-model cofinality is not claimed.
+
+Finite geometric pullback uses the actual source primary blowup closed in finite base change, regular actual Cartier constituents and the proper contracted-curve degree rule. Full positive C and actual decreasing D descent for injections is used only through G331, on complete fibres. A noninjection descends to its reduced exact image. No extension from the exact image to the original target cone is asserted.
+
+Raw envelopes are pointwise competitor suprema, with no implicit upper-semicontinuous regularization or assumed admissibility. For every finite injection the fibre-admissible identity and unrestricted inequality hold. Admissible unrestricted equality is equivalent to full fibre constancy. General existence/positivity transfers only for the fibre-admissible envelope.
+
+Unrestricted raw envelope equality is proved for finite DOMAIN extensions over excellent normal local domains, for reduced extensions over a normal target having no vertical minimal components, and for reduced finite FLAT maps over arbitrary excellent reduced local targets. Generic inseparability, nonminimal supports and nonreduced flat support fibres are included. It is false for general finite normalization: R=C[x,y,z]_(x,y,z)/(xy), continuous f=-1-1/v(y), gives exact gap ONE at the shared conductor-INFINITE point for C and D. The entire upstairs envelope is (-1,-2); the downstairs envelope value at the identified point is exactly -2.
+
+The general product formula has ambient arity dim R-1 and varying top-component generic ranks d_P, with EXACT closed residue degrees f_q. All smaller positive-dimensional source points remain; their ambient top-degree contribution is zero, not their intrinsic lower-arity measure. Dense ALL-support tests and actual prescribed-limit nets identify the independently geometric operator. It includes constant generic ranks, normal domains, reduced finite-flat rank, full normalization, towers, and one-factor primary gauges. Noninjective lower-dimensional images can have zero ambient degree without having zero intrinsic product.
+
+With one arbitrary bounded upstairs slot and all remaining slots pulled back, geometric norm-trace projection is proved for normal-domain extensions and reduced finite-flat maps. For reduced sources over a normal domain, only dominating components supply the ambient trace; no full support on vertical fibres is asserted. On normalized primary models, core traces have proper pushforward Weil coefficients; a finite Cartier determination downstairs is not claimed. General nonnormal/nonflat one-slot traces and products of several arbitrary traces are not asserted.
+
+Products use bounded G331 D inputs, ordinary OPEN locality and weak uniform/prescribed-D-limit decreasing-NET continuity as in G345. Bottom and other unbounded inputs are outside their domain. Dimension one is zero arity, dimension zero has empty boundary/zero measure. Smooth comparison is ONLY the published BFJ affine CLOSED algebraically closed characteristic-zero scope, with direct DVR/empty cases.
+
+No P12.3 regularity, P12.5 energy, plurifine locality, generic nilpotent mass or literal classical/CLD radial identification is imported. The new surface envelope obstruction is separate from the already-known curve mixed-zero radial obstruction and continuous-degree-trace obstruction.
+
+This is a complete scoped paper and an unverified draft; exact original P12.6 and entire-family closure are NOT claimed. Candidate=false.
