@@ -1,0 +1,11 @@
+# Preserved diagnostics and evidence boundaries
+
+Initial filtered file discovery returned exit1 with no matching filenames; this was a search observation, not an input absence conclusion. An initial combined immutable-packet inventory/display was truncated. The compact inventory and required bodies were subsequently displayed in bounded chunks. A combined S272 display was truncated; the affected middle chunks were re-read separately. The complete used qualified papers/annotations and immediate primary applications were then read as data. Read-range records are provenance, not mathematical evidence; initial ad hoc original/problem reads are not retroactively manufactured into tool receipts.
+
+Own bounded exact checks passed: 390 line certificate cases, 32 full signed/zero raw-plane cases, 24 strict shift cases, two saturation/index calibrations, and one barycenter-only illegal split rejected. These exhaust only check-input.json. No program decides the infinite criterion or certifies the continuum proofs.
+
+The initial LaTeX pass had undefined references and rerun warnings and produced13pages. The second had a label-rerun warning and produced14pages. A third pass completed without undefined-reference/rerun warnings. All original logs are retained. All passes retain the expected epstopdf warning that shell escape is disabled; no shell escape was enabled. There are no observed overfull/underfull boxes in the queried build logs. Pandoc conversion exited0. These are current author build observations, not mathematical acceptance or historical compiler receipts.
+
+The available environment had existing Python3.12.14, pdflatex/TeXLive2025-dev and pandoc3.1.11.1. No installation, resource-heavy computation, network/provider/agent invocation, source script execution/import, protected editor or private ACTIVE output was used. There was no need to seek a supervised compute facility. Requested model/effort labels are operator metadata, not independently attested runtime facts.
+
+All supplied historical FAIL and INCONCLUSIVE records remain unchanged. In particular no claim of whole-primary visual reading, every historical operation/read, hidden provider identity, ROOT execution, canonical review or new acceptance is made from hashes or source flags.

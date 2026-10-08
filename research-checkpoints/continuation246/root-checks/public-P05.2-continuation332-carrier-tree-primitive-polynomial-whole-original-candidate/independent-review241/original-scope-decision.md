@@ -1,0 +1,20 @@
+# Independent original-closure recommendation
+
+Subject: ENTIRE ORIGINAL P05.2 candidate native239 / continuation332, unchanged authoritative TeX SHA256 d6fbbffcaaa533a425524e9b582e2c7eb1712cfbe63d3e8fbe745c3108a3b896 and actual five-note FINAL SHA256 f06a901aea61d4f1349c1562035f79287f42241a9581efdc8d8e9b262803e102.
+
+| Separate question | Verdict | Reason |
+| --- | --- | --- |
+| Mathematical correctness | PASS | Raw identity includes all original competitors; exact finite PC rows and primitive polynomials; both directions of PA equivalence; global decreasing domain constructed before MA; independent ALL-C_b domain bridge and fixed-C local/tail contact passage; literal/d=0/empty/compact cases. |
+| Essential new source applications | PASS | Qualified R230/O323/S272 scopes checked individually; immediate full BMPS/BBGS units independently read; every-dimensional covolume/sign conversion; complete3.15 ending read; no automatic continuity, broad density, AR10 delegation or absent bibliography grant. Dense ambient compact PA tests meet S272 exact scope. |
+| WHOLEORIGINALSCOPE / noncircularity | PASS | Actual defined finite embedded category, all faces/dependencies/overlaps/loops/REAL coefficients/positive REAL weights/nonseparable obstacles; three explicit nontrivial eliminations and constructive domain proof yield an infinite input-only certificate. No unstated finite algorithm/taxonomy demand. Compact d>0 excluded by independently checked definitions and divergence. |
+| Bounded evidence | PASS for current identities/recorded bounded observations | 46 current math,4 primaries,17 evidence files,33 own,43 frozen+4 controls,8 note texts verified; exact saved/actual object equality and differing serialization. One asserted assignment difference is specifically FAIL: decoded assignments/full objects equal. Universal retrospective/provider facts remain INCONCLUSIVE. |
+
+Per-note mathematical verdicts for ALL FIVE actual author notes: n1 PASS; n2 PASS; n3 PASS; n4 PASS; n5 PASS. These are distinct from eight unchanged qualified imported support Notes. AuthorcandidateTRUE, hashes, read flags and compiler success were not acceptance premises.
+
+I recommend acceptance of the complete unchanged original solution within its EXACT defined category. It characterizes real pairs by the explicit infinite T criterion and the all-C_b equivalence; it does not assert universal real contact. All positive-dimensional admitted literal pairs fail the domain antecedent, all zero-dimensional pairs have direct zero-fold contact, and empty/compact branches are handled. P05.5 remains separate. No essential author mathematical revision is required.
+
+Useful reader precision: the localized source auxiliary is needed only for the dense compact AMBIENT rational-PA restriction family actually constructed in the proof. No broader intrinsic-test grant is required. ROOT328 is separately proved as an optional finite-vertex formulation. Translating a single non-strict vertex certificate into actual all-root trees at the SAME numerical tolerance can encounter a nonattained infimum; equivalence of the universally-error-quantified criteria uses a smaller error to provide a strict margin. This does not alter or rescue the frozen candidate, whose every-root finite-tree clause is explicit already.
+
+Current original status remains OPEN until later ROOT whole acceptance. This is an independent recommendation, not canonical/automatic acceptance, a provider attestation, or a mutation of original counts. Historical source FAIL/combined FAIL, retrospective evidence INCONCLUSIVE and native231 registration failure remain unchanged. No missing cited body is an extra grant.
+
+Evidence report: bounded-evidence-report.json; full source ledger: whole-source-application-ledger.md; proof reconstruction: independent-review.md; all-note coverage: whole-proof-coverage.md; scope and ROOT328 proof: original-scope-and-noncircularity.md. Owned reruns: `python verify-review-inputs.py`, `python finalize-review.py`.

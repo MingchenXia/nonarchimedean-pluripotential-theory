@@ -1,0 +1,40 @@
+{
+  "build": [
+    "python",
+    "build_owned.py"
+  ],
+  "steps": [
+    [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "check_owned.py"
+    ],
+    [
+      "pandoc",
+      "-f",
+      "latex",
+      "-t",
+      "markdown",
+      "P05.2-paper.tex",
+      "-o",
+      "argument.md"
+    ],
+    [
+      "pdflatex",
+      "-no-shell-escape",
+      "-interaction=nonstopmode",
+      "-halt-on-error",
+      "P05.2-paper.tex"
+    ],
+    [
+      "pdflatex",
+      "-no-shell-escape",
+      "-interaction=nonstopmode",
+      "-halt-on-error",
+      "P05.2-paper.tex"
+    ]
+  ],
+  "bindings": [
+    "python",
+    "bind_owned.py"
+  ]
+}
