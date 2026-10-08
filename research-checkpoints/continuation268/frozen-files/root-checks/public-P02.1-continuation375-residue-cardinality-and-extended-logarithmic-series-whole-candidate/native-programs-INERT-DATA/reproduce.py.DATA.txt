@@ -1,0 +1,108 @@
+"""Own rerun driver. Reads supplied files as bytes; never executes them."""
+import hashlib
+import json
+import pathlib
+import platform
+import shutil
+import subprocess
+import sys
+
+ROOT = pathlib.Path(__file__).resolve().parent.parent
+PACKET = ROOT.parent.parent
+
+
+def sha(p):
+    return hashlib.sha256(p.read_bytes()).hexdigest()
+
+
+def save(name, obj):
+    (ROOT / "evidence" / name).write_text(json.dumps(obj, indent=2, ensure_ascii=False) + "\n")
+
+
+def command(args, log):
+    p = subprocess.run(args, cwd=ROOT, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+    (ROOT / "evidence" / log).write_text(p.stdout)
+    return {"command": args, "exit_code": p.returncode, "log": "evidence/" + log}
+
+
+def main():
+    for d in ["evidence", "build", "LOCALONLY/bound-history", "LOCALONLY/bound-book", "LOCALONLY/bound-primary"]:
+        (ROOT / d).mkdir(parents=True, exist_ok=True)
+    manifests = []
+    for name, dest in [
+        ("mathematical-packet-bindings.json", "bound-history"),
+        ("book-context-bindings.json", "bound-book"),
+        ("private-primary-packet-bindings.json", "bound-primary"),
+    ]:
+        src = PACKET / name
+        shutil.copyfile(src, ROOT / "evidence" / name)
+        rows = json.loads(src.read_text())
+        out = []
+        for row in rows:
+            p = pathlib.Path(row["path"])
+            actual = sha(p)
+            ok = actual == row["sha256"] and p.stat().st_size == row["bytes"]
+            assert ok, str(p)
+            target = ROOT / "LOCALONLY" / dest / p.name
+            shutil.copyfile(p, target)
+            out.append({"name": p.name, "path": str(p), "bytes": p.stat().st_size, "sha256": actual, "matches": ok, "LOCALONLY_copy": str(target.relative_to(ROOT))})
+        manifests.append({"manifest": name, "files": out})
+    save("manifest-verification.json", manifests)
+    # Explicit pure-primary caches discovered in the shared source directory.
+    shared = pathlib.Path("/workspace/research/shared-sources")
+    copies = [
+        (shared / "GR-2506.13548v2-20261004.pdf", "GR-classical-v2.pdf"),
+        (shared / "GR-2506.13548v2-20261004.txt", "GR-classical-v2.txt"),
+        (shared / "new-primary-2609.27610v1-20261004.pdf", "Wu-local-v1.pdf"),
+        (shared / "new-primary-2609.27610v1-20261004.txt", "Wu-local-v1.txt"),
+    ]
+    added = []
+    for src, name in copies:
+        target = ROOT / "LOCALONLY" / name
+        shutil.copyfile(src, target)
+        added.append({"source": str(src), "file": "LOCALONLY/" + name, "sha256": sha(target), "bytes": target.stat().st_size})
+    save("additional-primary-hashes.json", added)
+    extract_rows = []
+    for pdf, cached in [
+        ("LOCALONLY/GR-classical-v2.pdf", "LOCALONLY/GR-classical-v2.txt"),
+        ("LOCALONLY/Wu-local-v1.pdf", "LOCALONLY/Wu-local-v1.txt"),
+        ("LOCALONLY/bound-primary/GR-pdf.pdf", "LOCALONLY/bound-primary/GR-literal_extract.txt"),
+        ("LOCALONLY/bound-primary/GJR-pdf.pdf", "LOCALONLY/bound-primary/GJR-literal_extract.txt"),
+    ]:
+        fresh = pdf[:-4] + "-fresh-extract.txt"
+        p = subprocess.run(["pdftotext", "-layout", pdf, fresh], cwd=ROOT, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+        assert p.returncode == 0, p.stdout
+        extract_rows.append({"pdf": pdf, "fresh_text": fresh, "cached_text": cached, "fresh_sha256": sha(ROOT / fresh), "cached_sha256": sha(ROOT / cached), "byte_identical": (ROOT / fresh).read_bytes() == (ROOT / cached).read_bytes(), "command": ["pdftotext", "-layout", pdf, fresh]})
+    save("fresh-primary-extraction.json", extract_rows)
+    save("input-hash.json", {"file": "input.json", "sha256": sha(ROOT / "input.json"), "bytes": (ROOT / "input.json").stat().st_size})
+    env = {"python": sys.version, "platform": platform.platform(), "cwd": str(ROOT), "supervised_compute": "not needed or used; all diagnostics are bounded standard-library work"}
+    for tool in ["pandoc", "pdflatex", "pdftotext"]:
+        option = "-v" if tool == "pdftotext" else "--version"
+        p = subprocess.run([tool, option], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+        assert p.returncode == 0, p.stdout
+        env[tool] = p.stdout.splitlines()[0]
+    save("environment.json", env)
+    commands = []
+    commands.append(command([sys.executable, "programs/check_formulas.py"], "formula-checks.json"))
+    commands.append(command(["pandoc", "P02.1-whole-proof.md", "--standalone", "--from=markdown+tex_math_dollars", "--to=latex", "--output=P02.1-paper.tex"], "pandoc.log"))
+    if commands[-1]["exit_code"] == 0:
+        for j in [1, 2]:
+            commands.append(command(["pdflatex", "-interaction=nonstopmode", "-halt-on-error", "-output-directory=build", "P02.1-paper.tex"], f"latex-pass-{j}.log"))
+            if commands[-1]["exit_code"] != 0:
+                break
+    save("commands.json", commands)
+    artifacts = []
+    for name in ["P02.1-whole-proof.md", "P02.1-paper.tex", "build/P02.1-paper.pdf", "programs/check_formulas.py", "programs/reproduce.py"]:
+        p = ROOT / name
+        if p.exists():
+            artifacts.append({"file": name, "bytes": p.stat().st_size, "sha256": sha(p)})
+    save("build-artifacts.json", artifacts)
+    if all(r["exit_code"] == 0 for r in commands):
+        commands.append(command([sys.executable, "programs/assemble_delivery.py"], "delivery-assembly.json"))
+        save("commands.json", commands)
+    print(json.dumps({"manifest_files": sum(len(m["files"]) for m in manifests), "hashes_match": True, "commands": commands, "artifacts": artifacts}, indent=2))
+    return 0 if all(r["exit_code"] == 0 for r in commands) else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

@@ -1,0 +1,3773 @@
+\chapter{Compactness and decreasing regularization}
+\index{compactness!BFJ psh functions}
+\index{regularization!decreasing BFJ}
+\index{equicontinuity!on dual complexes}
+\label{chap:bfj-compactness}
+
+Two theorems turn the skeletal definition into an analytic theory.
+Normalized psh functions form a compact space, and every singular psh
+function can be approached monotonically from above by model psh functions.
+Their proofs have different engines.  Compactness comes from relative
+intersection bounds and toroidal subdivisions; regularization comes from
+envelopes and multiplier ideals.
+
+The difference between the two engines is worth stating before either is
+run, because it governs which hypotheses are needed where.  The
+fixed-skeleton estimate underlying compactness is, at bottom, an inequality
+between intersection numbers on one fixed model, propagated along the
+incidence graph of its special fibre.  It uses no vanishing theorem and no
+ideal sheaf, and is characteristic-free once that SNC model is given.
+Passing from this estimate to the global BFJ space additionally uses the
+cofinal supply of SNC models: Arzel\`a--Ascoli acts on each dual complex,
+while Tychonoff acts on their product and reconstruction identifies the
+compatible limit.  The regularization theorem is of a different nature.
+It asserts that an arbitrary upper semicontinuous
+object, possibly with a polar set, is the limit of finite piecewise affine
+data.  No inequality between fixed intersection numbers can produce such a
+statement; what produces it is the continuity of psh envelopes, and the only
+known proof of that continuity in the present generality runs through
+asymptotic multiplier ideals on models.  That is where residue
+characteristic zero enters, and \Cref{sec:ch22-char-zero} says exactly
+where and exactly how far the statement is presently known to extend.
+
+A second theme runs through the chapter and is, if anything, more likely to
+be mishandled than the algebra.  The index set of the theory is the system
+of models, and that system is directed but in general has no countable
+cofinal subsystem.  Compactness of the normalized psh space is therefore a
+statement about \emph{nets}: every net has a convergent subnet, and the
+regularizing family is a decreasing net, not a decreasing sequence.  We keep
+this visible at every step, use the net toolkit proved in
+\Cref{chap:topological-tools}, and mark each place where a sequential
+formulation would require a hypothesis that has not been proved.  The
+distinction is not pedantic: \Cref{ex:ch22-countable-blind-spot} exhibits two
+psh functions at uniform distance one from each other whose restrictions to
+every skeleton in a prescribed countable family coincide, so that a diagonal
+extraction over countably many skeleta cannot even identify a limit.
+
+\paragraph{Standing hypotheses.}
+We retain the original BFJ hypotheses of \Cref{chap:bfj-model-forms}: the
+field $K$ is complete and discretely valued with residue characteristic
+zero and $v(\pi)=1$; the variety $X$ is smooth, connected and projective
+of dimension $n$ over $K$; models are normal, flat and projective over
+$R=K^\circ$.  We retain the form $\theta$ of
+\eqref{eq:ch21-standing-theta}, with ample generic class $\{\theta\}$, and
+the class $\PSH(X,\theta)$ of \Cref{def:ch21-bfj-psh}.  On each face of
+every dual complex, choose once and for all a Euclidean norm compatible with
+its rational affine structure in the sense of
+\Cref{sec:ch22-moduli}.  Different choices change the constants below but
+not the statements.
+
+\paragraph{What the reader should learn.}
+The reader should understand how intersection inequalities bound vertex
+values and slopes, with constants that can be computed on an example; why
+compactness uses products and nets rather than a diagonal sequence; what
+the multiplier-ideal package on models actually asserts and where it is
+used; and exactly where characteristic zero enters decreasing
+regularization.  The prerequisites are
+\Cref{chap:bfj-model-forms,chap:bfj-psh}, the skeletal material of
+\Cref{chap:skeleta} --- dual complexes, retractions, integral affine
+structures, projective subdivisions, and cofinality of SNC models --- and
+the material on nets, Dini's theorem, upper semicontinuous regularization
+and Choquet selection in \Cref{chap:topological-tools}, summarized in
+\Cref{app:nets}.  The multiplier and test ideal algebra is collected in
+\Cref{app:ideals}; \Cref{sec:ch22-multiplier} states precisely which of its
+statements are used here and in which form.
+
+\section{Orientation: two theorems, two engines}
+\label{sec:ch22-orientation}
+
+\subsection{The two statements in advance}
+\label{sec:ch22-statements-preview}
+
+The chapter proves the two implications
+
+\[
+ \begin{aligned}
+ &\text{intersection inequalities on one model}\\[-1mm]
+ &\qquad\Longrightarrow
+   \text{equicontinuity on every dual complex}\\[-1mm]
+ &\qquad\Longrightarrow
+   \text{compactness of }\PSH(X,\theta)/\mathbf R,\\[1mm]
+ &\text{continuity of psh envelopes}\\[-1mm]
+ &\qquad\Longrightarrow
+   \text{pointwise decreasing model regularization},
+ \end{aligned}
+\tag{22.1}\label{eq:ch22-architecture}
+\]
+
+and organizes their inputs so that no later chapter can attribute to one
+engine what belongs to the other.  In detail, the outcome is the following.
+
+\begin{enumerate}
+\item \emph{Skeletal estimate.}  For every SNC model $\mathcal X$ on which
+$\theta$ is determined there is a constant $C(\mathcal X,\theta)$ such
+that the restriction to $\Delta_{\mathcal X}$ of every $\theta$-psh
+function is $C$-Lipschitz on each face, and lies in $[-C,0]$ once
+normalized by $\sup\varphi=0$.  This is
+\Cref{thm:bfj-skeletal-equicontinuity}, and the constant is made explicit in
+\Cref{prop:ch22-vertex-estimate,prop:ch22-slope-estimate}.
+\item \emph{Compactness.}  The normalization map is proper for the topology
+of uniform convergence on all dual complexes, and the normalized space
+$\PSH_0(X,\theta)$ is compact; equivalently
+$\PSH(X,\theta)/\mathbf R$ is compact.  This is
+\Cref{thm:ch22-proper-normalization} and
+\Cref{thm:bfj-psh-compactness}, in net form throughout.
+\item \emph{Decreasing regularization.}  Every $\varphi\in\PSH(X,\theta)$
+is the pointwise limit of a decreasing net of $\theta$-psh model
+functions, and a continuous $\varphi$ is a uniform limit of a decreasing
+sequence of them.  This is
+\Cref{thm:bfj-decreasing-regularization} and
+\Cref{cor:ch22-continuous-decreasing-sequence}.
+\end{enumerate}
+
+\subsection{Why the two proofs cannot be merged}
+\label{sec:ch22-two-engines}
+
+It is tempting to hope that compactness alone yields regularization: the
+model psh functions dominating $\varphi$ form a net in a compact space, so
+some subnet converges, and one only has to identify the limit.  The hope
+fails at the identification step, and it fails for a reason that is
+structural rather than technical.  Compactness produces a limit in
+$\PSH(X,\theta)$; it says nothing about \emph{which} psh function the
+limit is.  To force the limit to be $\varphi$ one must know that model psh
+majorants come arbitrarily close to $\varphi$ at each prescribed point,
+which is exactly the assertion that the psh envelope of a continuous
+obstacle is approximable by model functions.  That assertion is the
+multiplier-ideal theorem \Cref{thm:bfj-envelope-regularity}, proved in
+\Cref{chap:bfj-envelopes}.
+
+The converse temptation is equally common: to hope that regularization makes
+compactness elementary, since a decreasing net of model functions is
+determined by finitely many numbers at each stage.  This also fails: the
+numbers in question are the vertex values and slopes of the approximants,
+and it is precisely the uniform bound on those numbers, valid for all
+approximants simultaneously, that the skeletal estimate provides.  Without
+it, a decreasing net of model functions may have infimum $-\infty$, and
+\Cref{thm:ch21-decreasing-stability} would be vacuous.
+
+The two engines are therefore genuinely independent, and we run them in the
+order dictated by their dependencies: the intersection estimate first,
+because \Cref{chap:bfj-envelopes} uses it; the order-theoretic
+consequences of envelope regularity afterwards, with the envelope theorem
+quoted with its exact hypotheses.
+
+\subsection{Hypothesis signature of the chapter}
+\label{sec:ch22-signature}
+
+The margin code of \Cref{chap:bfj-model-forms} applies to every statement
+below.  The following table records what each block of the chapter actually
+consumes; the last column is the one that changes when the ground field is
+changed, and it is the subject of \Cref{sec:ch22-char-zero}.
+
+\begin{center}
+\small
+\begin{tabular}{p{0.24\textwidth}p{0.30\textwidth}p{0.36\textwidth}}
+\toprule
+Block & Geometric input & Sensitive hypothesis\\
+\midrule
+Vertex estimate
+ & relative nefness, connectedness of $\mathcal X_s$,
+   projection formula
+ & none beyond existence of one SNC model\\
+Slope estimate
+ & projective rational subdivisions, vertical
+   $\mathbf Q$-factoriality, negativity lemma
+ & none beyond existence of one SNC model\\
+Equicontinuity for all psh functions
+ & the two estimates and uniform approximation on a fixed complex
+ & none\\
+Compactness
+ & Arzel\`a--Ascoli, Tychonoff, the estimates
+ & none; but the index set is uncountable\\
+Definition of the topology
+ & the inverse system of dual complexes
+ & cofinality of SNC models, hence resolution\\
+Envelope regularity
+ & log resolutions, asymptotic multiplier ideals, subadditivity,
+   uniform global generation
+ & residue characteristic zero\\
+Decreasing net
+ & order theory, Dini
+ & none, once envelope regularity is available\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Two rows deserve immediate comment.  First, the two intersection estimates
+are characteristic free \emph{as estimates}: they are proved on a given SNC
+model, using a toroidal blowup that exists in any residue characteristic by
+\Cref{thm:skeleton-subdivision}.  What is not characteristic free is the
+supply of SNC models, that is, their cofinality
+(\Cref{prop:snc-cofinal,rem:cofinality-scope}), and it is cofinality that
+makes the collection of dual complexes large enough to define the topology
+and to reconstruct a psh function from its skeletal restrictions.  This is
+isolated as \Cref{prop:ch22-characteristic-free-estimates}.  Second, the
+uncountability in the compactness row is not an artifact of the proof: it is
+the content of \Cref{ex:ch22-no-countable-cofinal}.
+
+\subsection{What is imported}
+\label{sec:ch22-imports}
+
+Four geometric or algebraic inputs beyond the book's established
+topological toolkit are used in this chapter and not reproved here.  Each is
+quoted where it is used, and each is attributed.
+
+\begin{enumerate}
+\item \emph{Realization of projective subdivisions.}  A rational simplicial
+projective subdivision of $\Delta_{\mathcal X}$ is realized by a vertical
+blowup with normal, vertically $\mathbf Q$-factorial total space; this is
+\Cref{thm:skeleton-subdivision}, proved in \Cref{chap:skeleta} after
+\cite[Theorem~3.15]{BFJ16}.
+\item \emph{Cofinality of SNC models}, \Cref{prop:snc-cofinal}, which rests
+on resolution of singularities in the form recorded as
+\Cref{thm:appB-resolution}.
+\item \emph{Envelope regularity}, \Cref{thm:bfj-envelope-regularity}, proved
+in \Cref{chap:bfj-envelopes} from the multiplier-ideal package on models of
+\cite[Appendix~B]{BFJ16}; \Cref{sec:ch22-multiplier} states that package in
+the exact form consumed here.
+\item \emph{Kleiman's criterion} and the projection formula for relative
+intersection numbers, in the form of
+\Cref{thm:appF-projection,cor:appF-generically-finite}.
+\end{enumerate}
+
+The negativity lemma, the simplex lemma, the order-theoretic construction of
+the regularizing net, and the continuous majorant lemma are proved here.
+The standard topological results---Arzel\`a--Ascoli, Tychonoff, Dini, and
+Urysohn---enter through \Cref{chap:topological-tools,app:nets} (with the
+classical source cited there), rather than being silently counted as new
+proofs in this chapter.
+
+\section{Normalization, metrics, and moduli on dual complexes}
+\label{sec:ch22-moduli}
+
+\subsection{The normalization}
+
+Adding a constant changes no slope, and the class $\PSH(X,\theta)$ is
+stable under addition of constants by
+\Cref{prop:ch21-elementary-stability}.  We therefore normalize by
+
+\[
+                         \sup_{X^{\An}}\varphi=0.
+\tag{22.2}\label{eq:ch22-normalization}
+\]
+
+By \eqref{eq:ch21-sup-on-skeleton}, this maximum is visible on every dual
+complex on which $\theta$ is determined: it is attained, and attained
+already on $\Delta_{\mathcal X}$.  Two consequences are used constantly.
+First, $\varphi\leq0$ everywhere, so all the quantities estimated below
+have a sign.  Second, the normalization is \emph{skeletal}: it can be tested
+on any one determining complex, and the test is stable under enlarging the
+complex.  A normalization by the value at a single divisorial point would
+not have the second property, and would produce a family that is bounded on
+one skeleton and unbounded on another.
+
+\subsection{Integral affine structure, lattices, and norms}
+
+Let $\mathcal X$ be an SNC model and $\sigma$ a face of
+$\Delta_{\mathcal X}$, say of dimension $q$.  By
+\Cref{def:integral-affine,prop:integral-affine-intrinsic}, the face carries
+an intrinsic integral affine structure: the lattice
+$\operatorname{Aff}_{\mathbf Z}(\sigma)$ of integral affine functions on
+$\sigma$ is well defined, independently of the model realizing
+$\sigma$, and by \Cref{prop:affine-structure-refinement} it is unchanged
+under refinement.  Its lattice of affine-linear parts is a lattice
+$M_\sigma\simeq\mathbf Z^q$ in the dual $V_\sigma^\vee$ of the direction
+space $V_\sigma$ of $\sigma$, and we write
+$N_\sigma\subset V_\sigma$ for the dual lattice.
+
+\begin{definition}[Compatible norm]
+\label{def:ch22-compatible-norm}
+A Euclidean norm $|\cdot|_\sigma$ on $V_\sigma$ is \emph{compatible with
+the integral affine structure} if some basis of $N_\sigma$ is orthonormal
+for it.  A \emph{system of compatible norms} on $\Delta_{\mathcal X}$ is a
+choice of such a norm on every face.
+\end{definition}
+
+Compatible norms exist on each face by definition of a lattice.  We do
+\emph{not} require the norm of a face to restrict to the norm of a subface,
+and in general no system has that property: on the standard triangle with
+lattice $\mathbf Z^2$, the primitive vector $(1,-1)$ of the lattice of
+the diagonal edge has Euclidean length $\sqrt2$, so the compatible norm of
+the edge and the restricted norm of the triangle differ.  Nothing below
+needs the two to agree: the facewise Lipschitz constant
+\eqref{eq:ch22-facewise-lipschitz} is computed face by face, and any two
+systems of norms on the finitely many faces of a fixed complex differ by
+bounded factors.  This is the meaning of the sentence in the standing
+hypotheses: different choices change the constants, not the statements.
+
+What is stable, and is used, is the integral affine structure under
+refinement.  By \Cref{prop:affine-structure-refinement}, a compatible norm on
+a face restricts to a compatible norm on every full-dimensional cell cut
+out inside that face.  A new lower-dimensional cell may instead carry its
+own compatible norm, just as the diagonal edge in the preceding paragraph
+does.  Since a fixed refinement has only finitely many cells, the old and
+new systems, and the path metrics they define, are uniformly bi-Lipschitz
+equivalent.  Exact equality of the norms under refinement is neither true
+nor needed.
+In dimension one this is the lattice length of
+\Cref{rem:lattice-length}: an edge joining multiplicities $b,b'$
+has length $1/\operatorname{lcm}(b,b')$ in the compatible norm.
+Indeed, if $h$ is a primitive integral affine coordinate, the
+dual lattice generator has unit norm precisely when distance
+along the edge is $|h(x)-h(y)|$.
+
+The intersection length $1/(bb')$ is a different normalization.
+For $g=\gcd(b,b')$, it gives distances $1/g$ times the lattice
+distances and hence Lipschitz constants $g$ times as large.
+On a fixed finite complex these factors are bounded, so they do
+not change equicontinuity.  They must nevertheless be retained
+in numerical slope estimates.  The model Laplacian uses node
+residue weights in intersection length and $g$ times those
+weights in lattice length
+(\Cref{rem:ch20-multiplicities-lengths}).
+
+\begin{example}
+\label{ex:ch22-edge-normalization}
+For the node chart $xy=\pi$ of \Cref{ex:refinement-segment}, the edge is
+parametrized by $t=v(x)\in[0,1]$ and the integral affine functions are
+$ct+d$ with $c,d\in\mathbf Z$; the compatible norm is $|\rd t|$, and the
+edge has length $1$.  After the single blowup of the node, the two
+half-edges have lattice length $\tfrac12$ each and the parameter $t$ is
+still the compatible coordinate, so the compatible norms of the refined
+complex glue to the original one.  Had one instead declared each half-edge
+to have length $1$, the Lipschitz constants of one and the same function
+would drop by a factor of two solely because of the subdivision.
+Those norms would no longer be restrictions of the fixed norm
+on the original segment.
+
+For the edge with multiplicities $(2,2)$ in
+\Cref{rem:lattice-length}, a primitive affine function changes by
+$1/2$ across the edge.  Its Lipschitz constant is one in the
+compatible lattice norm and two in intersection length $1/4$.
+Blowing up that node inserts multiplicity four: the new lattice
+lengths are $1/4,1/4$, and the intersection lengths are $1/8,1/8$.
+Both metrics restrict consistently, while the factor of two
+between them persists.
+\end{example}
+
+\subsection{Facewise Lipschitz functions and the path metric}
+
+\begin{definition}[Facewise Lipschitz constant]
+\label{def:ch22-facewise-lipschitz}
+For $u:\Delta_{\mathcal X}\to\mathbf R$ put
+
+\[
+ \operatorname{Lip}_{\mathrm f}(u)
+ :=\max_{\sigma}\ \sup_{x\neq y\in\sigma}
+       \frac{|u(x)-u(y)|}{|x-y|_\sigma},
+\tag{22.3}\label{eq:ch22-facewise-lipschitz}
+\]
+
+the maximum being over the finitely many faces of
+$\Delta_{\mathcal X}$.
+\end{definition}
+
+Arzel\`a--Ascoli requires equicontinuity on the compact space
+$\Delta_{\mathcal X}$, not merely on each of its faces separately.  The two
+are equivalent here, and the elementary comparison is worth recording once,
+because it is what converts the facewise estimate of
+\Cref{thm:bfj-skeletal-equicontinuity} into a genuine modulus of continuity.
+
+\begin{lemma}
+\label{lem:ch22-path-metric}
+Let $\Delta$ be a connected finite polyhedral complex equipped with a
+system of compatible norms, and define
+
+\[
+ d_\Delta(x,y):=\inf\Bigl\{\sum_{k=1}^{N}|x_{k}-x_{k-1}|:
+     x_0=x,\ x_N=y,\ [x_{k-1},x_k]\subset\text{some face}\Bigr\}.
+\tag{22.4}\label{eq:ch22-path-metric}
+\]
+
+where the length of a segment is measured in the norm of the smallest face
+containing it.  Then $d_\Delta$ is a metric inducing the topology of
+$\Delta$, and every $u$ with
+$\operatorname{Lip}_{\mathrm f}(u)\leq C$ satisfies
+
+\[
+     |u(x)-u(y)|\leq C\,d_\Delta(x,y),
+     \qquad x,y\in\Delta .
+\tag{22.5}\label{eq:ch22-global-lipschitz}
+\]
+
+Moreover $d_\Delta$ is bounded by a constant $\delta(\Delta)$ depending
+only on the complex and the chosen norms.
+\end{lemma}
+
+\begin{proof}
+Realize the finite polyhedral complex with a piecewise Euclidean metric
+whose face metrics agree on common subfaces, and let $d_0$ be its path
+metric.  This is a bounded metric inducing the topology of $\Delta$.  On
+each face, the chosen norm and the auxiliary Euclidean norm are equivalent.
+There are only finitely many faces, so constants $0<c\leq C_0<\infty$
+work simultaneously on all of them.  Comparing the length of every
+admissible segment and then taking infima gives
+\[
+                  c\,d_0\leq d_\Delta\leq C_0d_0.
+\]
+Thus $d_\Delta$ is a bounded metric inducing the given topology; in
+particular, admissible chains exist between any two points because
+$\Delta$ is connected.
+
+For \eqref{eq:ch22-global-lipschitz}, apply the facewise bound to each
+segment of a chain and sum; then take the infimum over chains.  Finally,
+the boundedness assertion has already been obtained from
+$d_\Delta\leq C_0d_0$.
+\end{proof}
+
+\begin{remark}[Why the path metric and not a chordal one]
+\label{rem:ch22-path-metric-choice}
+A dual complex is usually pictured inside a Euclidean space, and one is
+tempted to use the ambient distance.  That distance depends on the
+embedding.  The metric \eqref{eq:ch22-path-metric} instead records the
+intrinsic facewise affine structures together with the explicitly chosen
+norms.  It is not literally unchanged when a refinement introduces new
+lower-dimensional faces with new norms, but the metric before and after any
+fixed finite rational refinement is bi-Lipschitz equivalent.  This is the
+precise invariance class needed by the equicontinuity estimates.
+\end{remark}
+
+\subsection{Convexity on faces}
+
+We recall from \Cref{chap:bfj-psh} the two structural facts that make the
+estimates below meaningful, and record the elementary consequences used
+later.
+
+\begin{lemma}
+\label{lem:ch22-convexity-consequences}
+Let $\varphi\in\PSH(X,\theta)$ and let $\mathcal X$ be an SNC model on
+which $\theta$ is determined.  Then
+$u:=\varphi|_{\Delta_{\mathcal X}}$ is finite, continuous, and convex on
+each face, and:
+\begin{enumerate}
+\item\label{itm:ch22-cvx:max} the maximum of $u$ on a face is attained at
+a vertex of that face, and the maximum of $u$ on
+$\Delta_{\mathcal X}$ equals $\sup_{X^{\An}}\varphi$;
+\item\label{itm:ch22-cvx:slope} for each face $\sigma$, each
+$v\in\sigma$ and each $w\in V_\sigma$ with $v+w\in\sigma$, the
+one-sided derivative
+$\frac{\rd}{\rd t}\big|_{t=0+}u(v+tw)$ exists in
+$[-\infty,+\infty)$ and is nondecreasing in $t$ along the segment;
+\item\label{itm:ch22-cvx:osc} if $\max_{\Delta_{\mathcal X}}u=0$ and
+$\operatorname{Lip}_{\mathrm f}(u)\leq C$, then
+$-C\,\delta(\Delta_{\mathcal X})\leq u\leq0$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Finiteness, continuity and facewise convexity are
+\Cref{thm:bfj-skeletal-characterization}\,(1).  Assertion
+\cref{itm:ch22-cvx:max} is the standard fact that a convex function on a
+simplex is bounded above by the affine interpolation of its vertex values,
+together with \Cref{prop:ch21-sup-on-skeleton} for the second half.
+Assertion \cref{itm:ch22-cvx:slope} is the monotonicity of difference
+quotients of a one-variable convex function.  For
+\cref{itm:ch22-cvx:osc}, pick $x$ with $u(x)=0$ and apply
+\Cref{lem:ch22-path-metric}.
+\end{proof}
+
+\subsection{The simplex lemma}
+
+Convexity bounds a function above by its vertex values, but it does not
+bound it below, and it does not bound its slope near the boundary of a face.
+The convex function $t\mapsto-\sqrt t$ on $[0,1]$ is the reminder: it is
+bounded, convex and continuous, has a finite value at both endpoints, and
+has infinite one-sided derivative at $t=0$.  Any estimate on the Lipschitz
+constant of a convex function on a simplex must therefore feed on
+information at the boundary.  The correct such information is the
+derivative measured \emph{from} the opposite face \emph{toward} the vertex.
+
+\begin{definition}[Derivative from the opposite face]
+\label{def:ch22-directional-derivative}
+Let $\tau$ be a face with vertex $e$, let $\sigma$ be the opposite
+face of $\tau$, that is, the convex hull of the remaining vertices, and
+let $v\in\sigma$.  For a convex continuous $u$ on $\tau$ put
+
+\[
+ D_v u(e)
+   :=\left.\frac{\rd}{\rd t}\right|_{t=0+}
+      u\bigl((1-t)v+te\bigr)\in[-\infty,+\infty).
+\tag{22.6}\label{eq:ch22-directional-derivative}
+\]
+\end{definition}
+
+The parameter $t$ in \eqref{eq:ch22-directional-derivative} is the affine
+one, not arclength: $D_vu(e)$ is the derivative of $u$ at $v$ in the
+direction of the vector $e-v$, whose length depends on $v$.  This is the
+normalization in which the estimate of \Cref{prop:ch22-slope-estimate} is an
+intersection number, and we keep it.
+
+\begin{definition}[Simplex gauge]
+\label{def:ch22-simplex-gauge}
+For a nondegenerate $q$-simplex $\sigma$ with vertices
+$e_0,\ldots,e_q$ and direction space $V$ equipped with a Euclidean norm,
+put
+
+\[
+ W(\sigma):=\{e_j-e_i:\ i\neq j\},
+ \qquad
+ B(\sigma):=\operatorname{conv}W(\sigma),
+\tag{22.7}\label{eq:ch22-gauge-body}
+\]
+
+and let
+
+\[
+ \Lambda(\sigma)
+   :=\max_{|w|=1}\ \|w\|_{B(\sigma)}
+   =\frac1{\operatorname{dist}\bigl(0,\partial B(\sigma)\bigr)},
+\tag{22.8}\label{eq:ch22-gauge}
+\]
+
+where $\|\cdot\|_{B}$ is the Minkowski gauge of the symmetric convex body
+$B$.
+\end{definition}
+
+The set $W(\sigma)$ is symmetric and contains the basis
+$\{e_j-e_0\}_{j\geq1}$ of $V$, so $B(\sigma)$ is a symmetric convex
+body and \eqref{eq:ch22-gauge} is a finite positive number.  The identity in
+\eqref{eq:ch22-gauge} is the standard description of the gauge of a
+symmetric body; we shall use it in the following form: for $w\in V$,
+
+\[
+ \|w\|_{B(\sigma)}
+ =\min\Bigl\{\sum_k\lambda_k:\ w=\sum_k\lambda_kw_k,\
+       \lambda_k\geq0,\ w_k\in W(\sigma)\Bigr\}.
+\tag{22.9}\label{eq:ch22-gauge-positive-combination}
+\]
+
+Indeed, if $w=\sum\lambda_kw_k$ with $\sum\lambda_k=t>0$, then
+$w/t\in B(\sigma)$, so $\|w\|_{B(\sigma)}\leq t$; conversely, if
+$\|w\|_{B(\sigma)}=t$, then $w/t$ is a convex combination of elements of
+$W(\sigma)$, and multiplying that combination by $t$ exhibits $w$ as
+in \eqref{eq:ch22-gauge-positive-combination}.
+
+\begin{lemma}
+\label{lem:ch22-simplex}
+Let $u$ be convex and continuous on a nondegenerate $q$-simplex
+$\sigma$ with vertices $e_0,\ldots,e_q$, and let $\lambda\geq0$ be
+such that
+
+\[
+ D_vu(e_i)\geq-\lambda
+ \quad\text{for every vertex }e_i\text{ and every }
+ v\in\RelInt(\sigma_i),
+\tag{22.10}\label{eq:ch22-simplex-hypothesis}
+\]
+
+where $\sigma_i$ is the face opposite $e_i$.  Then:
+\begin{enumerate}
+\item\label{itm:ch22-simplex:vertices} the vertex values satisfy
+$|u(e_i)-u(e_j)|\leq\lambda$;
+\item\label{itm:ch22-simplex:osc} the oscillation of $u$ satisfies
+\[
+ \max_\sigma u-\min_\sigma u\leq(q+1)\lambda;
+\tag{22.11}\label{eq:ch22-simplex-oscillation}
+\]
+\item\label{itm:ch22-simplex:lip} $u$ is Lipschitz, with
+\[
+ |u(x)-u(y)|\leq(q+2)\,\Lambda(\sigma)\,\lambda\,|x-y|,
+ \qquad x,y\in\sigma .
+\tag{22.12}\label{eq:ch22-simplex-lipschitz}
+\]
+\end{enumerate}
+No hypothesis other than \eqref{eq:ch22-simplex-hypothesis} is used; in
+particular no a priori bound on $u$ is assumed.
+\end{lemma}
+
+\begin{proof}
+\emph{Step 1: the hypothesis on the closed opposite face.}
+Fix $i$ and $v\in\RelInt(\sigma_i)$, and put
+$g(t)=u((1-t)v+te_i)$, a finite convex function on $[0,1]$.  Difference
+quotients of a convex function decrease as the increment decreases, so
+
+\[
+ \frac{g(t)-g(0)}{t}\ \downarrow\ g'(0+)=D_vu(e_i)\geq-\lambda
+ \qquad(t\downarrow0),
+\]
+
+whence
+
+\[
+ u\bigl((1-t)v+te_i\bigr)\geq u(v)-\lambda t,
+ \qquad t\in[0,1].
+\tag{22.13}\label{eq:ch22-segment-lower-bound}
+\]
+
+Both sides of \eqref{eq:ch22-segment-lower-bound} are continuous in $v$
+because $u$ is continuous on $\sigma$, so
+\eqref{eq:ch22-segment-lower-bound} holds for every $v$ in the closed face
+$\sigma_i$; taking $t\downarrow0$ again, the hypothesis
+\eqref{eq:ch22-simplex-hypothesis} itself holds for every
+$v\in\sigma_i$, vertices included.
+
+\emph{Step 2: vertex values and oscillation.}  Taking $t=1$ in
+\eqref{eq:ch22-segment-lower-bound} gives
+$u(e_i)\geq u(v)-\lambda$ for every $v\in\sigma_i$, that is,
+
+\[
+ \max_{\sigma_i}u\leq u(e_i)+\lambda .
+\tag{22.14}\label{eq:ch22-facet-max-bound}
+\]
+
+With $v=e_j$ this is
+\cref{itm:ch22-simplex:vertices}.  For the oscillation, we prove by
+induction on $q$ that
+$\min_\sigma u\geq\min_iu(e_i)-q\lambda$.  For $q=0$ there is nothing to
+prove.  For $q\geq1$, every $y\in\sigma$ lies on a segment
+$[v,e_i]$ with $v\in\sigma_i$ for any prescribed $i$, so
+\eqref{eq:ch22-segment-lower-bound} gives
+$u(y)\geq u(v)-\lambda\geq\min_{\sigma_i}u-\lambda$; the inductive
+hypothesis applies to the $(q-1)$-simplex $\sigma_i$: for a vertex
+$e_j\in\sigma_i$, its opposite face inside $\sigma_i$ is contained in
+the full opposite face $\sigma_j$, so the restriction $u|_{\sigma_i}$
+inherits \eqref{eq:ch22-simplex-hypothesis}.  Since its vertices are
+vertices of $\sigma$, the hypothesis bounds $\min_{\sigma_i}u$ below by
+$\min_iu(e_i)-(q-1)\lambda$.  Since
+$\max_\sigma u=\max_iu(e_i)$ by facewise convexity and
+$\max_iu(e_i)\leq\min_iu(e_i)+\lambda$ by
+\cref{itm:ch22-simplex:vertices}, we obtain
+\eqref{eq:ch22-simplex-oscillation}.
+
+\emph{Step 3: two-sided bounds on subgradients.}  Let
+$x\in\RelInt(\sigma)$ and let $p$ be a subgradient of $u$ at $x$,
+so that $u(y)\geq u(x)+\langle p,y-x\rangle$ for all $y\in\sigma$; such
+a $p$ exists because $u$ is convex and finite near $x$ in the affine
+hull of $\sigma$.  Fix $i$, let $v\in\RelInt(\sigma_i)$ be the point
+where the ray from $e_i$ through $x$ meets $\sigma_i$, and write
+$x=(1-t_0)v+t_0e_i$ with $t_0\in(0,1)$.  Restricting the subgradient
+inequality to the segment shows that $\langle p,e_i-v\rangle$ is a
+subgradient at $t_0$ of the convex function $g$ of Step 1; hence
+
+\[
+ \langle p,e_i-v\rangle\geq g'(0+)=D_vu(e_i)\geq-\lambda .
+\]
+
+Since $e_i-x=(1-t_0)(e_i-v)$ with $1-t_0\in(0,1)$,
+
+\[
+ \langle p,e_i-x\rangle\geq-\lambda .
+\tag{22.15}\label{eq:ch22-subgradient-lower}
+\]
+
+In the other direction, the subgradient inequality at $y=e_i$ and
+\eqref{eq:ch22-simplex-oscillation} give
+
+\[
+ \langle p,e_i-x\rangle\leq u(e_i)-u(x)\leq(q+1)\lambda .
+\tag{22.16}\label{eq:ch22-subgradient-upper}
+\]
+
+\emph{Step 4: the gauge bound.}  For $i\neq j$, subtracting
+\eqref{eq:ch22-subgradient-lower} for the index $i$ from
+\eqref{eq:ch22-subgradient-upper} for the index $j$ yields
+
+\[
+ \langle p,e_j-e_i\rangle
+   =\langle p,e_j-x\rangle-\langle p,e_i-x\rangle
+   \leq(q+1)\lambda+\lambda=(q+2)\lambda .
+\tag{22.17}\label{eq:ch22-subgradient-edges}
+\]
+
+Thus $\langle p,w\rangle\leq(q+2)\lambda$ for every $w\in W(\sigma)$,
+hence, by linearity, for every $w\in B(\sigma)$, hence
+$\langle p,w\rangle\leq(q+2)\lambda\|w\|_{B(\sigma)}$ for every
+$w\in V$.  Taking for $w$ the unit vector representing $p$ under the
+Euclidean structure gives
+$|p|\leq(q+2)\Lambda(\sigma)\lambda$.
+
+\emph{Step 5: conclusion.}  A convex function whose subgradients at interior
+points have norm at most $M$ is $M$-Lipschitz on $\RelInt(\sigma)$:
+for interior $x,y$ the subgradient inequalities at $x$ and at $y$ give
+$\langle p_y,x-y\rangle\leq u(x)-u(y)\leq\langle p_x,x-y\rangle$.  By
+continuity of $u$ on $\sigma$ the bound extends to the closed simplex,
+which is \eqref{eq:ch22-simplex-lipschitz}.
+\end{proof}
+
+\begin{remark}[How far the constant is from optimal]
+\label{rem:ch22-simplex-constant}
+The factor $\Lambda(\sigma)$ in
+\eqref{eq:ch22-simplex-lipschitz} cannot be improved: if $p_0$ is a linear
+form with $\langle p_0,w\rangle\leq\lambda$ for all $w\in W(\sigma)$ and
+$|p_0|=\lambda\Lambda(\sigma)$ --- such a form exists because the support
+function of $B(\sigma)$ attains the value $\lambda$ in the direction
+realizing the gauge in \eqref{eq:ch22-gauge} --- then the affine function
+$u=\langle p_0,\cdot-e_0\rangle$ satisfies
+\eqref{eq:ch22-simplex-hypothesis} and has Lipschitz constant
+$\lambda\Lambda(\sigma)$.  The dimensional factor $q+2$ is an artifact
+of the proof.  In dimension one it can be removed entirely: on a segment,
+\eqref{eq:ch22-simplex-hypothesis} says that the right derivative at one
+endpoint is $\geq-\lambda$ and the left derivative at the other is
+$\leq\lambda$, and convexity makes every intermediate slope lie between
+these two, so that the sharp bound
+$\operatorname{Lip}(u)\leq\Lambda(\sigma)\lambda=\lambda/\ell$ holds.  We
+use the sharp one-dimensional form in
+\Cref{ex:ch22-modulus-segment} and the general form of
+\Cref{lem:ch22-simplex} everywhere else; since only the existence of a
+constant depending on $\mathcal X$ is asserted in
+\Cref{thm:bfj-skeletal-equicontinuity}, nothing later depends on the
+difference.
+\end{remark}
+
+\begin{example}[The gauge of a segment and of the standard triangle]
+\label{ex:ch22-gauge-computed}
+Two computations are used verbatim in
+\Cref{sec:ch22-worked-moduli}.
+
+\emph{A segment.}  Let $\sigma=[e_0,e_1]$ with
+$|e_1-e_0|=\ell$.  Then $W(\sigma)=\{\pm(e_1-e_0)\}$, so
+$B(\sigma)$ is the segment of half-length $\ell$ and
+
+\[
+ \Lambda(\sigma)=\frac1\ell .
+\tag{22.18}\label{eq:ch22-gauge-segment}
+\]
+
+In the coordinate $t\in[0,1]$ of \Cref{ex:ch22-edge-normalization} one has
+$\ell=1$ and $\Lambda=1$: a convex function on the unit edge whose
+endpoint derivatives toward the opposite endpoint are $\geq-\lambda$ has
+all slopes in $[-\lambda,\lambda]$.
+
+\emph{The standard triangle.}  Let
+$\sigma=\operatorname{conv}\{(0,0),(1,0),(0,1)\}\subset\mathbf R^2$ with
+the Euclidean norm; by \Cref{ex:dual-complex-triangle} and
+\Cref{ex:toric-triangle-chart} this is the compatible normalization of the
+dual complex of the chart $xyz=\pi$, in the coordinates
+$(\alpha_x,\alpha_y)$.  Then
+
+\[
+ W(\sigma)=\{\pm(1,0),\ \pm(0,1),\ \pm(1,-1)\},
+\]
+
+and $B(\sigma)$ is the hexagon whose vertices, in cyclic order, are
+\[
+ (1,0),\ (0,1),\ (-1,1),\ (-1,0),\ (0,-1),\ (1,-1).
+\]
+Its boundary meets the
+diagonal direction $(1,1)/\sqrt2$ on the edge joining $(1,0)$ to
+$(0,1)$, at distance $1/\sqrt2$ from the origin; by the central symmetry
+just noted the opposite edge, joining $(-1,0)$ to $(0,-1)$, lies at the
+same distance, while the remaining four edges lie at distance $1$.  Hence
+
+\[
+ \Lambda(\sigma)=\sqrt2 .
+\tag{22.19}\label{eq:ch22-gauge-triangle}
+\]
+\end{example}
+
+\section{The vertex estimate}
+\label{sec:ch22-vertex}
+
+Throughout this section and the next, $\mathcal X$ is an SNC model on which
+$\theta$ is determined, with
+
+\[
+            \mathcal X_s=\sum_{i\in I}b_iE_i,
+            \qquad e_i=x_{E_i}\in\Delta_{\mathcal X},
+\tag{22.20}\label{eq:ch22-vertices}
+\]
+
+where $e_i=b_i^{-1}\ord_{E_i}$ is the divisorial point of $E_i$, as in
+\Cref{rem:divisorial-normalization}.  We fix once and for all a relatively
+ample \emph{line bundle} $\mathcal A$ on $\mathcal X$; integrality of
+$\mathcal A$ is what makes the intersection numbers below integers, and it
+costs nothing since a positive multiple of a relatively ample
+$\mathbf Q$-class is such a bundle.
+
+\subsection{The incidence data}
+
+\begin{lemma}
+\label{lem:ch22-incidence-signs}
+Set
+
+\[
+ w_{ij}:=b_j\bigl(E_i\cdot E_j\cdot\mathcal A^{n-1}\bigr),
+ \qquad i,j\in I .
+\tag{22.21}\label{eq:ch22-incidence-weights}
+\]
+
+Then:
+\begin{enumerate}
+\item\label{itm:ch22-inc:integrality} every $w_{ij}$ is an integer;
+\item\label{itm:ch22-inc:offdiag}
+\[
+ w_{ij}\geq0\quad(i\neq j),
+\tag{22.22}\label{eq:ch22-off-diagonal-positive}
+\]
+with $w_{ij}\geq1$ whenever $E_i\cap E_j\neq\varnothing$;
+\item\label{itm:ch22-inc:rowsum}
+\[
+ \sum_{j\in I}w_{ij}
+       =\bigl(E_i\cdot\mathcal X_s\cdot\mathcal A^{n-1}\bigr)=0;
+\tag{22.23}\label{eq:ch22-row-sum-zero}
+\]
+\item\label{itm:ch22-inc:connected} the graph on $I$ with an edge
+$\{i,j\}$ whenever $E_i\cap E_j\neq\varnothing$ is connected.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Integrality holds because $\mathcal A$ and the $E_i$ are integral
+divisors on the projective $R$-scheme $\mathcal X$ and the special fibre
+is proper over the residue field.  For
+\cref{itm:ch22-inc:offdiag}, distinct components of an SNC divisor meet
+transversally along an effective cycle $E_i\cap E_j$ of dimension
+$n-1$, and $\mathcal A$ restricts to an ample bundle on each of its
+components; hence the intersection number is a sum of positive degrees, and
+it is a positive integer as soon as the cycle is nonzero.  Assertion
+\cref{itm:ch22-inc:rowsum} holds because
+$\mathcal O_{\mathcal X}(\mathcal X_s)$ is trivial: the special fibre is
+the divisor of $\pi$.  This is the same row-sum identity that produced the
+graph Laplacian in \eqref{eq:ch20-graph-laplacian} and the relative Hodge
+form \eqref{eq:ch20-hodge-laplacian}.
+
+For \cref{itm:ch22-inc:connected}, recall from the proof of
+\Cref{thm:ch20-ddc-exact} that $\mathcal X_s$ is connected: otherwise the
+theorem on formal functions would split
+$H^0(\mathcal X,\mathcal O_{\mathcal X})$ into a nontrivial product, while
+its restriction to the generic fibre is a domain because $X$ is connected
+and smooth.  A connected SNC divisor has connected incidence graph, since a
+connected topological space that is a finite union of closed connected
+subsets has connected nerve.
+\end{proof}
+
+The three signs in \Cref{lem:ch22-incidence-signs} are the whole mechanism of
+this section: a nonnegative off-diagonal part, a vanishing row sum, and
+connectedness.  The matrix $(w_{ij})$ is, up to the positive factors
+$b_i$, the Laplacian of a connected weighted graph, and everything below is
+a maximum-principle argument for that Laplacian in the presence of the
+inhomogeneous term supplied by $\theta$.
+
+\subsection{The estimate}
+
+\begin{proposition}
+\label{prop:ch22-vertex-estimate}
+Put
+
+\[
+ c:=\max_{i\in I}\bigl|\bigl(\theta_{\mathcal X}\cdot E_i\cdot
+       \mathcal A^{n-1}\bigr)\bigr|,
+ \qquad
+ \lambda:=\max_{i\in I}\Bigl(-b_i\bigl(E_i^2\cdot
+       \mathcal A^{n-1}\bigr)\Bigr).
+\tag{22.24}\label{eq:ch22-lambda}
+\]
+
+If $\#I\geq2$, then $\lambda\geq1$, and every $\theta$-psh model
+function $\varphi$ normalized by \eqref{eq:ch22-normalization} satisfies
+
+\[
+ 0\geq\varphi(e_i)\geq-C_{\mathrm{vert}},
+ \qquad
+ C_{\mathrm{vert}}:=c\sum_{m=0}^{\#I-2}\lambda^m,
+ \qquad i\in I .
+\tag{22.25}\label{eq:ch22-vertex-lower-bound}
+\]
+
+If $\#I=1$, then $\Delta_{\mathcal X}$ is a point and
+$\varphi(e_i)=0$.
+\end{proposition}
+
+\begin{proof}
+The case $\#I=1$ is immediate from
+\eqref{eq:ch22-normalization} and
+\Cref{prop:ch21-sup-on-skeleton}, so assume $\#I\geq2$.  By
+\eqref{eq:ch22-row-sum-zero},
+
+\[
+ -b_i\bigl(E_i^2\cdot\mathcal A^{n-1}\bigr)
+ =-w_{ii}
+ =\sum_{j\neq i}w_{ij}
+ =\sum_{j\neq i}b_j\bigl(E_i\cdot E_j\cdot\mathcal A^{n-1}\bigr),
+\]
+
+a sum of nonnegative integers which is positive as soon as $E_i$ meets
+another component.  Connectedness and $\#I\geq2$ guarantee that some $E_i$ does,
+so $\lambda\geq1$.
+
+\paragraph{The vertex calculation.}
+Let $\varphi$ be a $\theta$-psh model function.  Choose a domination
+$\pi:\mathcal Y\to\mathcal X$ and a vertical $\mathbf R$-Cartier divisor
+$G$ on $\mathcal Y$ with $\varphi=\varphi_G$ and
+$\pi^*\theta_{\mathcal X}+[G]$ relatively nef; such data exist by
+\Cref{cor:ch20-reference-change} and the definition of model
+semipositivity.  Adding to $G$ a real multiple of $\mathcal Y_s$ changes
+$\varphi$ by a constant and changes no positivity, so we may and do assume
+the normalization \eqref{eq:ch22-normalization}.  By
+\Cref{lem:ch21-model-skeletal-properties} the restriction
+$\varphi|_{\Delta_{\mathcal X}}$ is convex on each face, and by
+\Cref{prop:ch21-sup-on-skeleton} its maximum is the global supremum; a
+convex function on a simplex attains its maximum at a vertex, so
+
+\[
+                         \max_{i\in I}\varphi(e_i)=0 .
+\tag{22.26}\label{eq:ch22-vertex-max}
+\]
+
+The coefficient of $E_j$ in $\pi_*G$ is
+$\ord_{E_j}(G)=b_j\varphi_G(e_j)$, because
+$e_j=b_j^{-1}\ord_{E_j}$ and $\varphi_G(x)=v_x(f_G)$ by
+\eqref{eq:ch20-sign}.  Hence
+
+\[
+             \pi_*G=\sum_{j\in I}b_j\varphi(e_j)E_j.
+\tag{22.27}\label{eq:ch22-pushforward-divisor}
+\]
+
+The class $\pi^*\theta_{\mathcal X}+[G]$ is nef on the special fibre.
+Intersect it with the effective divisor $\pi^*E_i$ and with
+$(\pi^*\mathcal A)^{n-1}$.  The result is nonnegative: restricting to the
+components of the effective cycle $\pi^*E_i$, one is intersecting a nef
+class with $n-1$ nef classes on a projective variety over the residue
+field.  Now apply the projection formula
+\eqref{eq:appF-projection} to push the computation down to $\mathcal X$,
+using that $\theta_{\mathcal X}$, $E_i$ and $\mathcal A$ are pulled
+back and that $\pi_*$ of $G$ is \eqref{eq:ch22-pushforward-divisor}.
+The result is
+
+\[
+ \sum_{j\in I} b_j\varphi(e_j)
+       \bigl(E_i\cdot E_j\cdot\mathcal A^{n-1}\bigr)
+ \geq
+ -\bigl(\theta_{\mathcal X}\cdot E_i\cdot\mathcal A^{n-1}\bigr)
+ \geq-c,
+\tag{22.28}\label{eq:ch22-vertex-intersection}
+\]
+
+valid for every $i\in I$.  All quantities other than the vertex values
+$\varphi(e_j)$ depend only on the fixed data
+$(\mathcal X,\theta,\mathcal A)$.
+
+\paragraph{Propagation along a path.}
+By \eqref{eq:ch22-vertex-max} all vertex values are nonpositive and at least
+one vanishes.  Choose a vertex $i_0$ with $\varphi(e_{i_0})=0$ and a
+vertex $i_M$ with $\varphi(e_{i_M})=\min_i\varphi(e_i)$, and, using
+\Cref{lem:ch22-incidence-signs}\,\cref{itm:ch22-inc:connected}, a path
+
+\[
+             i_0,i_1,\ldots,i_M
+             \quad\text{with}\quad
+             E_{i_m}\cap E_{i_{m+1}}\neq\varnothing
+\tag{22.29}\label{eq:ch22-vertex-path}
+\]
+
+in the incidence graph with pairwise distinct vertices; then
+$M\leq\#I-1$.  Fix $m<M$ and apply
+\eqref{eq:ch22-vertex-intersection} at $i=i_m$.  Separating the diagonal
+term and using \eqref{eq:ch22-row-sum-zero},
+
+\[
+ -\Bigl(\sum_{j\neq i_m}w_{i_mj}\Bigr)\varphi(e_{i_m})
+ +\sum_{j\neq i_m}w_{i_mj}\varphi(e_j)\geq-c .
+\]
+
+Every term of the second sum is nonpositive, since $w_{i_mj}\geq0$ and
+$\varphi\leq0$; discarding all of them except the one with
+$j=i_{m+1}$ only increases the right-hand side of the rearranged
+inequality, so
+
+\[
+ \Bigl(\sum_{j\neq i_m}w_{i_mj}\Bigr)\varphi(e_{i_m})
+ \leq c+w_{i_mi_{m+1}}\varphi(e_{i_{m+1}})
+ \leq c+\varphi(e_{i_{m+1}}),
+\]
+
+the last step because $w_{i_mi_{m+1}}\geq1$ and
+$\varphi(e_{i_{m+1}})\leq0$.  Since
+$1\leq\sum_{j\neq i_m}w_{i_mj}\leq\lambda$ and
+$\varphi(e_{i_m})\leq0$, the left-hand side is at least
+$\lambda\varphi(e_{i_m})$, whence
+
+\[
+               \lambda\,\varphi(e_{i_m})
+               \leq c+\varphi(e_{i_{m+1}}).
+\tag{22.30}\label{eq:ch22-path-recursion}
+\]
+
+Equivalently $\varphi(e_{i_{m+1}})\geq\lambda\varphi(e_{i_m})-c$.
+Starting from $\varphi(e_{i_0})=0$ and iterating $M\leq\#I-1$ times,
+
+\[
+ \varphi(e_{i_M})
+ \geq-c\sum_{m=0}^{M-1}\lambda^m
+ \geq-c\sum_{m=0}^{\#I-2}\lambda^m
+ =-C_{\mathrm{vert}} ,
+\]
+
+which is \eqref{eq:ch22-vertex-lower-bound}, since $e_{i_M}$ realizes the
+minimum.
+\end{proof}
+
+\begin{remark}[What the vertex estimate is, and is not]
+\label{rem:ch22-vertex-estimate-nature}
+Three features of the proof deserve to be recorded, because they are what
+make the estimate usable later.
+
+First, no compactness theorem has been used: the bound is a finite
+computation with the fixed matrix $(w_{ij})$ and the fixed vector
+$\bigl((\theta_{\mathcal X}\cdot E_i\cdot\mathcal A^{n-1})\bigr)_i$.  This
+is why the estimate may be quoted inside the proof of
+\Cref{thm:ch21-decreasing-stability} without circularity.
+
+Second, the constant is uniform over \emph{all} $\theta$-psh model
+functions, however high the model on which they are determined.  The reason
+is that a determination on a higher model enters only through the
+pushforward \eqref{eq:ch22-pushforward-divisor}, whose coefficients are the
+values on the fixed complex $\Delta_{\mathcal X}$.
+
+Third, the geometric input is exactly the pair of sign conditions
+\eqref{eq:ch22-off-diagonal-positive}--\eqref{eq:ch22-row-sum-zero} and the
+connectedness of the special fibre.  In particular, the estimate is
+insensitive to the residue characteristic; see
+\Cref{prop:ch22-characteristic-free-estimates}.
+\end{remark}
+
+\begin{remark}[The exponential constant is an artifact]
+\label{rem:ch22-exponential-constant}
+The constant $C_{\mathrm{vert}}$ grows exponentially in the number of
+components.  This is not an accident of a wasteful step: a chain of
+components along which the reference degrees vanish transmits a slope
+without damping, and the recursion \eqref{eq:ch22-path-recursion} with
+$\lambda>1$ then amplifies.  For a \emph{semistable} model in the strict
+sense one has $b_i=1$, but in relative dimension greater than one the
+weights
+$w_{ij}=(E_i\cdot E_j\cdot\mathcal A^{n-1})$ still depend on the chosen
+polarization and need not lie in $\{0,1\}$.  Thus
+$\lambda=\max_i\sum_{j\ne i}w_{ij}$ is the maximum weighted valence in
+general.  Unit weights occur for individual nodes of a semistable curve; if
+parallel nodes are combined into one adjacency, their contributions add.
+The estimate is a weighted discrete maximum principle with the same
+exponential shape.  For the two-component curve of
+\Cref{ex:ch22-two-vertex} the constant is $C_{\mathrm{vert}}=
+\max\{d_0,d_1\}$, and \eqref{eq:ch22-segment-sharp-constants} exhibits a
+normalized $\theta$-psh function attaining it; so the exponential shape,
+not the constant itself, is what is potentially lossy.
+\end{remark}
+
+\section{Toroidal techniques and nef approximation}
+\label{sec:ch22-toroidal}
+
+The vertex estimate used only the incidence numbers of a fixed model.  A
+bound on slopes cannot: a slope is a derivative at a point that is not a
+vertex, and the model must be refined before that derivative becomes an
+intersection number.  The refinements needed are toroidal, they are
+prescribed by convex piecewise affine data on the dual complex, and the
+positivity they must transport is relative nefness.  This section assembles
+the four tools that make this transport legitimate.  All of them are
+independent of the residue characteristic, a point made precise in
+\Cref{prop:ch22-characteristic-free-estimates}.
+
+\subsection{Approximation of relatively nef divisors by relatively ample ones}
+
+\begin{lemma}
+\label{lem:ch22-nef-approximation}
+Let $\mu:\mathcal Y\to\mathcal Z$ be a projective birational morphism of
+normal projective $R$-models of $X$, and let $G$ be a vertical
+$\mathbf R$-Cartier divisor on $\mathcal Y$ that is $\mu$-nef.  For
+every $\mu$-ample $\mathbf R$-Cartier divisor $A$ and every
+$\varepsilon>0$, the divisor $G+\varepsilon A$ is $\mu$-ample.
+Consequently $G$ is the limit, in the finite-dimensional real vector space
+of vertical $\mathbf R$-Cartier divisor classes modulo relative numerical
+equivalence, of $\mu$-ample $\mathbf Q$-Cartier divisors, and for each
+such divisor $A'$ there is $m\geq1$ with
+$\mathcal O_{\mathcal Y}(mA')$ generated relative to $\mathcal Z$.
+\end{lemma}
+
+\begin{proof}
+Relative nefness and relative ampleness are tested on curves contracted by
+$\mu$; by the relative Kleiman criterion \cite[Section~1.4]{KM08}, the
+relative nef cone is the closure of the relative ample cone in the
+finite-dimensional space $N^1(\mathcal Y/\mathcal Z)_{\mathbf R}$, and the
+ample cone is open.  Hence the sum of a nef class and a positive multiple of
+an ample one is ample, which is the first assertion, and $G$ is a limit of
+ample rational classes because the rational points of an open cone are dense
+in it.  For the last statement, relative ampleness of $A'$ gives, after
+clearing denominators, a line bundle $\mathcal O_{\mathcal Y}(mA')$ that is
+relatively very ample for $m$ divisible enough, hence generated by its
+relative sections.
+\end{proof}
+
+\begin{remark}[Where the finite dimension comes from]
+\label{rem:ch22-nef-approximation-finite-dimensional}
+The vector space in \Cref{lem:ch22-nef-approximation} is finite dimensional
+because $\mathcal Y_s$ has finitely many components and relative numerical
+classes of vertical divisors are detected by finitely many curve classes;
+this is the same finiteness that made $N^1(\mathcal X/R)$ finite
+dimensional in \Cref{chap:bfj-model-forms}.  Nothing here requires the
+existence of an SNC model.
+\end{remark}
+
+\subsection{The negativity lemma}
+
+\begin{lemma}
+\label{lem:ch22-negativity}
+Let $\mu:\mathcal Y\to\mathcal Z$ be a projective birational morphism of
+normal projective $R$-models of $X$, with $\mathcal Z$ vertically
+$\mathbf Q$-factorial, and let $G$ be a vertical $\mathbf R$-Cartier
+divisor on $\mathcal Y$ that is $\mu$-nef.  Then
+
+\[
+                 \mu^*\mu_*G-G\geq0 .
+\tag{22.31}\label{eq:ch22-negativity}
+\]
+\end{lemma}
+
+\begin{proof}
+Both sides of \eqref{eq:ch22-negativity} are continuous and linear in $G$
+on the finite-dimensional space of vertical $\mathbf R$-divisors, and the
+conclusion is a closed condition; by
+\Cref{lem:ch22-nef-approximation} it therefore suffices to treat a
+$\mu$-ample $\mathbf Q$-Cartier divisor $G$.  Rescaling, assume that
+$\mathcal O_{\mathcal Y}(mG)$ is a line bundle generated relative to
+$\mathcal Z$, and set
+$\mathfrak a:=\mu_*\mathcal O_{\mathcal Y}(mG)$, a coherent fractional
+ideal on $\mathcal Z$.
+
+Relative global generation says exactly that
+
+\[
+       \mathfrak a\,\mathcal O_{\mathcal Y}
+       =\mathcal O_{\mathcal Y}(mG).
+\tag{22.32}\label{eq:ch22-generation-identity}
+\]
+
+On the other hand, a section of $\mathcal O_{\mathcal Y}(mG)$ over
+$\mu^{-1}(U)$ is a rational function $f$ with
+$\divis_{\mathcal Y}(f)+mG\geq0$; pushing forward divisors preserves
+effectivity, so $\divis_{\mathcal Z}(f)+m\mu_*G\geq0$, that is,
+
+\[
+ \mathfrak a\subset\mathcal O_{\mathcal Z}(m\mu_*G).
+\tag{22.33}\label{eq:ch22-pushforward-inclusion}
+\]
+
+Because $\mathcal Z$ is vertically $\mathbf Q$-factorial, $\mu_*G$ is
+$\mathbf Q$-Cartier and $\mu^*\mu_*G$ is defined; pulling back
+\eqref{eq:ch22-pushforward-inclusion} and using
+\eqref{eq:ch22-generation-identity} gives
+$\mathcal O_{\mathcal Y}(mG)\subset\mathcal O_{\mathcal Y}(m\mu^*\mu_*G)$,
+that is, $mG\leq m\mu^*\mu_*G$.  Dividing by $m$ proves
+\eqref{eq:ch22-negativity}.  This is \cite[Lemma~1.6]{BFJ16}.
+\end{proof}
+
+\begin{warning}{$\mathbf Q$-factoriality is a hypothesis, not a formality}
+Without vertical $\mathbf Q$-factoriality of $\mathcal Z$ the symbol
+$\mu^*\mu_*G$ has no meaning, and the conclusion of
+\Cref{lem:ch22-negativity} cannot even be stated.  This is why the slope
+estimate is run on the model produced by
+\Cref{thm:skeleton-subdivision}, which is normal and vertically
+$\mathbf Q$-factorial by construction, rather than on an arbitrary
+refinement.  The order relation in \eqref{eq:ch22-negativity} is
+coefficientwise effectivity of divisors, not pseudo-effectivity of numerical
+classes; the two orders are separated in
+\Cref{app:intersection-bdivisors}.
+\end{warning}
+
+\subsection{Shrinking a star}
+
+We now construct the subdivision used by the slope estimate.  Let $\sigma$
+be a face of $\Delta_{\mathcal X}$ with vertex set $J\subset I$, let
+
+\[
+ L:=\{j\in I:\ \sigma\cup\{e_j\}\ \text{spans a face of}\
+       \Delta_{\mathcal X}\}\supset J
+\tag{22.34}\label{eq:ch22-star-index}
+\]
+
+index the vertices of the star of $\sigma$, and let $v\in\RelInt(\sigma)$
+be a rational point, written in barycentric coordinates as
+
+\[
+ v=\sum_{j\in J}s_je_j,
+ \qquad s_j>0,\quad\sum_{j\in J}s_j=1 .
+\tag{22.35}\label{eq:ch22-barycentric-v}
+\]
+
+Here, as in \Cref{ex:dual-complex-triangle}, the barycentric coordinate
+$t_i$ of a point of $\Delta_{\mathcal X}$ is
+$t_i=b_i\alpha_i$, so that $t_i$ is the restriction to
+$\Delta_{\mathcal X}$ of the model function $\chi_i:=\varphi_{b_iE_i}$
+of \Cref{prop:vertical-divisor-affine-iso}; in particular each $t_i$ is
+nonnegative, affine on every face, and $\chi_i(e_j)=\delta_{ij}$.
+
+\begin{lemma}
+\label{lem:ch22-star-shrinking}
+For every rational $\varepsilon\in(0,1)$ put
+
+\[
+                 e'_j:=\varepsilon e_j+(1-\varepsilon)v,
+                 \qquad j\in L .
+\tag{22.36}\label{eq:ch22-star-shrink}
+\]
+
+There is a rational projective simplicial subdivision $\Delta'$ of
+$\Delta_{\mathcal X}$ with the following properties.
+\begin{enumerate}
+\item\label{itm:ch22-star:vertices} The points $e'_j$, $j\in L$, are
+vertices of $\Delta'$.
+\item\label{itm:ch22-star:face} The simplex
+$\sigma'_J:=\operatorname{conv}\{e'_j:j\in J\}$ is a face of $\Delta'$,
+it is contained in $\sigma$ and has the same dimension, and
+$v\in\RelInt(\sigma'_J)$.
+\item\label{itm:ch22-star:star} The faces of $\Delta'$ containing
+$\sigma'_J$ are exactly the simplices
+$\operatorname{conv}\{e'_j:j\in J\cup M\}$, where $\sigma\cup\{e_j\}_{j\in
+M}$ spans a face of $\Delta_{\mathcal X}$; in particular the vertices of
+$\Delta'$ adjacent to $\sigma'_J$ are exactly the $e'_j$ with
+$j\in L$.
+\end{enumerate}
+Consequently, by \Cref{thm:skeleton-subdivision}, there is a vertical blowup
+$\rho:\mathcal X'\to\mathcal X$ with $\mathcal X'$ normal and vertically
+$\mathbf Q$-factorial whose strata are indexed by the faces of
+$\Delta'$, and on which vertical Cartier divisors restrict to affine
+functions on the faces of $\Delta'$.
+\end{lemma}
+
+\begin{proof}
+Consider the function
+
+\[
+ h:=\max\Bigl\{\max_{j\in J}\Bigl(-\frac{\chi_j}{s_j}\Bigr),
+       \ -(1-\varepsilon)\Bigr\}
+\tag{22.37}\label{eq:ch22-support-function}
+\]
+
+on $\Delta_{\mathcal X}$.  Each $\chi_j$ is a rational model function,
+affine on every face; hence $h$ is a rational piecewise affine function,
+convex on every face as a maximum of affine functions, and its domains of
+affineness define a subdivision $\Delta_h$ of
+$\Delta_{\mathcal X}$, projective by construction.
+
+Fix a maximal face $F$ of $\Delta_{\mathcal X}$ containing $\sigma$,
+with vertex set $J\cup M$.  On $F$ the region where the constant branch
+realizes the maximum is
+
+\[
+ S_F:=\{t\in F:\ t_j\geq(1-\varepsilon)s_j\ \text{for all }j\in J\}.
+\]
+
+Since $\sum_{i\in J\cup M}t_i=1$ and
+$\sum_{j\in J}(1-\varepsilon)s_j=1-\varepsilon$, the region $S_F$ is the
+image of $F$ under the homothety of ratio $\varepsilon$ centered at
+$v$; its vertices are precisely the points $e'_j$, $j\in J\cup M$, and
+it is a simplex.  Indeed the barycentric coordinates of $e'_k$ are
+
+\[
+              t_j(e'_k)=\chi_j(e'_k)
+              =\varepsilon\delta_{jk}+(1-\varepsilon)s_j,
+              \qquad j\in J\cup M,\ k\in J\cup M,
+\tag{22.38}\label{eq:ch22-coordinate-values}
+\]
+
+with $s_j:=0$ for $j\notin J$, so $e'_k\in S_F$ for every $k$, and a
+point of $F$ lies in $S_F$ if and only if it is a convex combination of
+the $e'_k$.  The faces of $S_F$ include
+$\sigma'_J=\operatorname{conv}\{e'_j:j\in J\}$, which is therefore a common
+face of the cells $S_F$ for all maximal $F\supset\sigma$, and no cell of
+$\Delta_h$ outside the shrunk star contains $\sigma'_J$, because such a
+cell lies in a region where some $-\chi_j/s_j$ exceeds
+$-(1-\varepsilon)$ while every point of $\sigma'_J$ satisfies
+$\chi_j\geq(1-\varepsilon)s_j$, with equality only on the boundary faces of
+$S_F$ not containing $v$.  This proves
+\cref{itm:ch22-star:vertices}--\cref{itm:ch22-star:star} for $\Delta_h$,
+except that the cells of $\Delta_h$ outside the shrunk star need not be
+simplices, and $\sigma'_J\subset\sigma$ with
+$\dim\sigma'_J=\dim\sigma$ and $v=\sum_{j\in J}s_je'_j\in
+\RelInt(\sigma'_J)$ by \eqref{eq:ch22-star-shrink} and
+\eqref{eq:ch22-barycentric-v}.
+
+To make the subdivision simplicial, refine $\Delta_h$ by a pulling
+triangulation at its vertices: fix an ordering of the finitely many vertices
+of $\Delta_h$ and add to $h$ a sufficiently small generic rational convex
+piecewise affine function with the same vertex set.  The resulting function
+is again convex and rational, and its domains of affineness form a
+simplicial subdivision $\Delta'$ refining $\Delta_h$ and using no new
+vertices.  A cell of $\Delta_h$ that is already a simplex is not
+subdivided by such a refinement, so the shrunk-star cells $S_F$, and with
+them $\sigma'_J$ and the incidence description
+\cref{itm:ch22-star:star}, survive unchanged.  Finally
+$\Delta'$ is projective, being defined by a convex rational piecewise
+affine function, and \Cref{thm:skeleton-subdivision} applies.
+\end{proof}
+
+\begin{remark}[What the shrinking is for]
+\label{rem:ch22-why-shrink}
+The point of \eqref{eq:ch22-star-shrink} is to convert a directional
+derivative at $v$ into a divisor coefficient.  After shrinking, the value
+of a psh function at the new vertex $e'_j$ is
+$\varphi(v)+\varepsilon D_v\varphi(e_j)$ whenever $\varphi$ is affine on
+the short segment $[v,e'_j]$; so the vector of derivatives
+$(D_v\varphi(e_j))_{j\in L}$ is, up to the factor $\varepsilon$ and the
+constant $\varphi(v)$, the vector of vertex values on the new model.  The
+vertex mechanism of \Cref{sec:ch22-vertex} can then be applied on
+$\mathcal X'$, where it becomes an inequality between intersection numbers
+on the stratum $E'_J$.  The price is that $\mathcal X'$ is only
+$\mathbf Q$-factorial and toroidal, not SNC; this is precisely why
+\Cref{lem:ch22-negativity} was stated in that generality.
+\end{remark}
+
+\subsection{Two positivity transfers}
+
+\begin{lemma}
+\label{lem:ch22-pullback-positivity}
+Let $g:W\to V$ be a surjective morphism of projective varieties over a
+field, let $\alpha$ be a numerical class on $V$, and suppose that
+
+\[
+                 g^*\alpha=\gamma+F
+\]
+
+with $\gamma$ nef and $F$ an effective $\mathbf R$-divisor class on
+$W$.  Then, for every nef class $\beta$ on $V$,
+
+\[
+                      \bigl(\alpha\cdot\beta^{\dim V-1}\bigr)_V\geq0 .
+\tag{22.39}\label{eq:ch22-pullback-pseudoeffective}
+\]
+\end{lemma}
+
+\begin{proof}
+Both sides are unchanged by base change to an algebraic closure, so assume
+the ground field algebraically closed and infinite.  Set $d=\dim V$.  Cut
+$W$ by $\dim W-d$ general members of a very ample linear system: the
+resulting subvariety $W'$ has dimension $d$, maps onto $V$, and is not
+contained in the support of $F$, because general members avoid any
+prescribed proper closed subset in the relevant sense and the fibres of
+$g$ are cut down to finite sets.  Thus $g|_{W'}:W'\to V$ is generically
+finite and surjective, of some degree $\delta>0$, and $F|_{W'}$ is an
+effective class.  The projection formula
+\eqref{eq:appF-projection} gives
+
+\[
+ \begin{aligned}
+ \delta\bigl(\alpha\cdot\beta^{d-1}\bigr)_V
+ &=\Bigl((g|_{W'})^*\alpha\cdot
+    \bigl((g|_{W'})^*\beta\bigr)^{d-1}\Bigr)_{W'}\\
+ &=\Bigl(\gamma|_{W'}\cdot(g^*\beta)^{d-1}\Bigr)\\
+ &\quad+\Bigl(F|_{W'}\cdot(g^*\beta)^{d-1}\Bigr).
+ \end{aligned}
+\]
+
+The first term is nonnegative because $\gamma$ and $g^*\beta$ are nef;
+the second is nonnegative because $F|_{W'}$ is effective and
+$g^*\beta$ is nef.  Divide by $\delta$.
+\end{proof}
+
+\begin{lemma}
+\label{lem:ch22-restriction-identity}
+Keep the notation of \Cref{lem:ch22-star-shrinking}, let
+$\rho:\mathcal X'\to\mathcal X$ realize $\Delta'$, let
+$\mu:\mathcal Y\to\mathcal X'$ dominate a determination $G$ of a model
+function $\varphi$, and let $E'_J$ be the stratum of $\mathcal X'$
+associated with $\sigma'_J$.  Assume that $\varphi$ is affine on
+$\sigma'_J$ and on each segment $[v,e'_j]$, $j\in L$.  Then
+
+\[
+ \left.
+ \rho^*\!\left(\sum_{j\in L}D_v\varphi(e_j)\,b_jE_j\right)
+ \right|_{E'_J}
+       =\left.\mu_*G\right|_{E'_J}.
+\tag{22.40}\label{eq:ch22-slope-divisor-identity}
+\]
+\end{lemma}
+
+\begin{proof}
+Write $b'_j$ for the multiplicity of the component of
+$\mathcal X'_s$ attached to $e'_j$.  A vertical divisor on
+$\mathcal X'$ with model function $\psi$ has coefficient
+$b'_j\psi(e'_j)$ along that component, by
+\eqref{eq:ch20-sign}.  Applying this to
+$\rho^*(b_iE_i)$, whose model function is $\chi_i$, and restricting to
+$E'_J$, only the components adjacent to $E'_J$ survive; these are indexed
+by $L$ by \Cref{lem:ch22-star-shrinking}\,\cref{itm:ch22-star:star}.  Hence,
+by \eqref{eq:ch22-coordinate-values},
+
+\[
+ \rho^*(b_iE_i)|_{E'_J}
+   =\sum_{j\in L}\bigl(\varepsilon\delta_{ij}
+        +(1-\varepsilon)s_i\bigr)b'_jE'_j\big|_{E'_J}.
+\tag{22.41}\label{eq:ch22-pullback-restriction}
+\]
+
+Since $\varphi$ is affine on $[v,e'_i]$ and
+$e'_i=(1-\varepsilon)v+\varepsilon e_i$,
+
+\[
+ D_v\varphi(e_i)
+   =\varepsilon^{-1}\bigl(\varphi(e'_i)-\varphi(v)\bigr),
+       \qquad i\in L .
+\tag{22.42}\label{eq:ch22-derivative-as-value}
+\]
+
+Insert \eqref{eq:ch22-pullback-restriction} and
+\eqref{eq:ch22-derivative-as-value} into the left-hand side of
+\eqref{eq:ch22-slope-divisor-identity}.  The coefficient of
+$b'_jE'_j|_{E'_J}$ becomes
+
+\[
+ \varepsilon D_v\varphi(e_j)
+ +(1-\varepsilon)\sum_{i\in L}s_iD_v\varphi(e_i)
+ =\bigl(\varphi(e'_j)-\varphi(v)\bigr)
+ +\frac{1-\varepsilon}{\varepsilon}
+   \Bigl(\sum_{i\in J}s_i\varphi(e'_i)-\varphi(v)\Bigr),
+\]
+
+because $s_i=0$ for $i\notin J$.  The last bracket vanishes: by
+\eqref{eq:ch22-star-shrink} and \eqref{eq:ch22-barycentric-v} one has
+$v=\sum_{i\in J}s_ie'_i$ with $\sum_{i\in J}s_i=1$, and $\varphi$ is
+affine on $\sigma'_J$.  Therefore
+
+\[
+ \left.
+ \rho^*\!\left(\sum_{j\in L}D_v\varphi(e_j)b_jE_j\right)\right|_{E'_J}
+ =\sum_{j\in L}\bigl(\varphi(e'_j)-\varphi(v)\bigr)b'_jE'_j\big|_{E'_J}
+ =\bigl(\mu_*G-\varphi(v)\,\rho^*\mathcal X_s\bigr)\big|_{E'_J},
+\]
+
+using once more that the coefficient of $E'_j$ in $\mu_*G$ is
+$b'_j\varphi(e'_j)$ and that
+$\rho^*\mathcal X_s=\mathcal X'_s=\sum_{j}b'_jE'_j$.  The total special
+fibre is the divisor of $\pi$, hence principal, so its restriction to
+$E'_J$ is trivial as a class.  This proves
+\eqref{eq:ch22-slope-divisor-identity}.
+\end{proof}
+
+\section{The slope estimate}
+\label{sec:ch22-slope}
+
+We can now bound the derivative of a model psh function from an arbitrary
+face toward a vertex.  The statement is an induction on the dimension of the
+face; the base case is the vertex estimate of
+\Cref{prop:ch22-vertex-estimate}, and each inductive step is one application
+of the star-shrinking construction followed by one intersection inequality
+on the new stratum.
+
+\begin{proposition}
+\label{prop:ch22-slope-estimate}
+There is a constant $C_{\mathrm{slope}}=C(\mathcal X,\theta,\mathcal A)$
+with the following property.  Let $\varphi$ be a $\theta$-psh model
+function normalized by \eqref{eq:ch22-normalization}, let $\tau$ be a face
+of $\Delta_{\mathcal X}$, let $e$ be a vertex of $\tau$, let $\sigma$
+be the face of $\tau$ opposite $e$, and let $v\in\RelInt(\sigma)$.
+Then
+
+\[
+                    D_v\varphi(e)\geq-C_{\mathrm{slope}} .
+\tag{22.43}\label{eq:ch22-slope-lower-bound}
+\]
+
+Consequently $\operatorname{Lip}_{\mathrm f}(\varphi|_{\Delta_{\mathcal X}})
+\leq C'$ for a constant $C'$ depending only on
+$(\mathcal X,\theta,\mathcal A)$ and the chosen compatible norms.
+\end{proposition}
+
+\begin{proof}
+Put $d=\dim\Delta_{\mathcal X}$.  Write $q=\dim\tau$, so that
+$\dim\sigma=q-1$ and the vertex set
+$J$ of $\sigma$ has $\#J=q$.  We prove
+\eqref{eq:ch22-slope-lower-bound} by induction on $q$, simultaneously with
+the statement
+
+\[
+ \mathrm{(S}_q\mathrm{)}\qquad
+ \begin{aligned}
+ &\text{for every face }\tau'\text{ of dimension}\leq q:\\
+ &\quad\operatorname{Lip}(\varphi|_{\tau'})\leq C_q
+ \quad\text{and}\quad
+ |\varphi|\leq C_q\ \text{on}\ \tau' ,
+ \end{aligned}
+\tag{22.44}\label{eq:ch22-induction-statement}
+\]
+
+with constants $C_q$ depending only on the fixed data.
+
+\paragraph{Base of the induction.}
+For $q=0$ the face $\tau'$ is a vertex, the Lipschitz assertion is
+empty, and the bound on $|\varphi|$ is
+\Cref{prop:ch22-vertex-estimate}; thus $\mathrm{(S}_0\mathrm{)}$ holds
+with $C_0=C_{\mathrm{vert}}$.  The inductive step below is carried out for
+every $q\geq1$; for $q=1$ the face $\sigma$ is a single vertex, the
+point $v$ is that vertex, and the terms indexed by $j\in J$ in
+\eqref{eq:ch22-slope-intersection} vanish because $e_j-v=0$.
+
+\paragraph{The inductive step: reduction to a good $v$.}
+Assume $\mathrm{(S}_{q-1}\mathrm{)}$, and let $\tau,e,\sigma,v$ be as in
+the statement with $\dim\tau=q$.  The function $\varphi$ is piecewise
+affine on $\Delta_{\mathcal X}$: it is determined by a vertical divisor on
+some model dominating $\mathcal X$, hence affine on the faces of a
+refinement of $\Delta_{\mathcal X}$, by
+\Cref{prop:skeleton-model-pa}.  Call $v\in\RelInt(\sigma)$ \emph{good} if
+it is rational and lies in the relative interior of a maximal cell of the
+induced subdivision of $\sigma$.  Good points are dense in
+$\RelInt(\sigma)$.  If $v$ is good, then for all sufficiently small
+rational $\varepsilon>0$ the function $\varphi$ is affine on the simplex
+$\sigma'_J$ of \eqref{eq:ch22-star-shrink} and on each segment
+$[v,e'_j]$, $j\in L$: the first because a whole neighborhood of $v$ in
+$\sigma$ lies in one cell of affineness, the second because for small
+$\varepsilon$ the segment $[v,e'_j]$ lies in the closed cell of the
+refinement that the direction $e_j-v$ enters at $v$.
+
+Any lower bound obtained uniformly for all good $v$ extends to every
+$v\in\RelInt(\sigma)$.  Indeed, for fixed $e$, the function
+$v\mapsto D_v\varphi(e)$ is, by
+\eqref{eq:ch22-directional-derivative} and monotonicity of difference
+quotients, the infimum over $t\in(0,1]$ of the continuous functions
+$v\mapsto t^{-1}(\varphi((1-t)v+te)-\varphi(v))$, hence upper
+semicontinuous on $\RelInt(\sigma)$ by
+\Cref{lem:usc-inf}.  If $v_k\to v$ with $v_k$ good, upper
+semicontinuity gives
+$D_v\varphi(e)\geq\varlimsup_kD_{v_k}\varphi(e)$, so the same uniform
+lower bound survives.  It therefore suffices to treat good $v$.
+
+\paragraph{The inductive step: the intersection inequality.}
+Let $v$ be good and let $\varepsilon$ be small enough for the affineness
+statements above.  Apply \Cref{lem:ch22-star-shrinking} to obtain
+$\Delta'$ and $\rho:\mathcal X'\to\mathcal X$, and let
+$\mu:\mathcal Y\to\mathcal X'$ dominate a determination $G$ of
+$\varphi$, with $\pi=\rho\circ\mu$ and $\pi^*\theta_{\mathcal X}+[G]$
+relatively nef.  Let $E'_J$ be the stratum of $\mathcal X'$ attached to
+$\sigma'_J$.  Since $\sigma'_J\subset\sigma$ has the same dimension and
+$v\in\RelInt(\sigma'_J)$, the morphism $E'_J\to E_J$ is dominant between
+varieties of the same dimension $n+1-q$, hence generically finite, of some
+degree $\delta>0$.
+
+The divisor $G$ is $\mu$-nef: $\pi^*\theta_{\mathcal X}+[G]$ is
+relatively nef, and $\pi^*\theta_{\mathcal X}$ has degree zero on every
+curve contracted by $\mu$, because such a curve is contracted by
+$\pi$ as well.  Since $\mathcal X'$ is vertically
+$\mathbf Q$-factorial, \Cref{lem:ch22-negativity} applies and
+
+\[
+ F:=\mu^*\mu_*G-G\geq0 .
+\tag{22.45}\label{eq:ch22-negativity-application}
+\]
+
+Let $W\subset\mathcal Y$ be the closure of the center of $v$ on
+$\mathcal Y$; it maps onto $E'_J$, the center of $v$ on
+$\mathcal X'$, by \Cref{lem:skeleton-monomial-invariants}.  The model
+functions of $G$ and of $\mu^*\mu_*G$ are both affine on $\sigma'_J$
+and take the same values at its vertices $e'_j$, $j\in J$; hence they
+agree at $v$, so the model function of $F$ vanishes at $v$.  As $F$
+is effective, \eqref{eq:ch20-sign} shows that the center of $v$ is not
+contained in $\Supp F$; therefore $W\not\subset\Supp F$ and $F|_W$ is
+an effective class.  Restricting the identity
+$\mu^*(\rho^*\theta_{\mathcal X}+\mu_*G)
+=\pi^*\theta_{\mathcal X}+G+F$ to $W$ gives
+
+\[
+ (\mu|_W)^*\!\left(
+   (\rho^*\theta_{\mathcal X}+\mu_*G)|_{E'_J}\right)
+   =(\pi^*\theta_{\mathcal X}+G)|_W+F|_W,
+\tag{22.46}\label{eq:ch22-nef-effective-decomposition}
+\]
+
+a sum of a nef class and an effective class.  Now apply
+\Cref{lem:ch22-pullback-positivity} with $g=\mu|_W:W\to V:=E'_J$,
+$\alpha=(\rho^*\theta_{\mathcal X}+\mu_*G)|_{E'_J}$ and
+$\beta=\rho^*\mathcal A|_{E'_J}$, which is nef.  Since
+$\dim V=n+1-q$, the exponent in
+\eqref{eq:ch22-pullback-pseudoeffective} is $\dim V-1=n-q=n-\#J$, and we
+obtain
+
+\[
+ \Bigl(\bigl(\rho^*\theta_{\mathcal X}+\mu_*G\bigr)\cdot E'_J\cdot
+       (\rho^*\mathcal A)^{n-\#J}\Bigr)\geq0 .
+\]
+
+Replace $\mu_*G|_{E'_J}$ by \eqref{eq:ch22-slope-divisor-identity} and
+push forward by $\rho$, using the projection formula
+\eqref{eq:appF-projection} and $\rho_*E'_J=\delta E_J$.  Dividing by
+$\delta>0$ yields
+
+\[
+ \sum_{j\in L}D_v\varphi(e_j)\,b_j
+       \bigl(E_J\cdot E_j\cdot\mathcal A^{n-\#J}\bigr)
+ \geq
+ -\bigl(E_J\cdot\theta_{\mathcal X}\cdot
+                         \mathcal A^{n-\#J}\bigr).
+\tag{22.47}\label{eq:ch22-slope-intersection}
+\]
+
+\paragraph{Isolating the term of $e$.}
+The exponent in \eqref{eq:ch22-slope-intersection} deserves a remark.  In
+the main body of \cite{BFJ16}, $n=\dim X$, while
+$\dim E_J=n+1-\#J$.  Thus the pullback-positivity calculation used in
+the proof requires $\dim E_J-1=n-\#J$ powers of $\mathcal A$.
+Display~\cite[(6.3)]{BFJ16} instead prints $n-\#J-1$; that exponent leaves
+a one-cycle and is already negative in the curve case
+$n=\#J=1$.  With the dimensionally corrected exponent, all terms of
+\eqref{eq:ch22-slope-intersection} are honest intersection numbers on
+$\mathcal X$, and their absolute values are bounded by a constant
+depending only on $(\mathcal X,\theta,\mathcal A)$.
+
+We bound the individual derivatives occurring in
+\eqref{eq:ch22-slope-intersection}.  For $j\in J$, the point $v$ and the
+vertex $e_j$ both lie in the face $\sigma$ of dimension $q-1$, so
+$D_v\varphi(e_j)$ is a directional derivative of
+$\varphi|_\sigma$ and $\mathrm{(S}_{q-1}\mathrm{)}$ gives
+
+\[
+ |D_v\varphi(e_j)|\leq C_{q-1}\,|e_j-v|\leq C_{q-1}\operatorname{diam}
+       (\Delta_{\mathcal X}),
+ \qquad j\in J .
+\tag{22.48}\label{eq:ch22-inductive-derivative-bound}
+\]
+
+For $j\in L\setminus J$, convexity of $\varphi$ along $[v,e_j]$ and
+the normalization $\varphi\leq0$ give the one-sided bound
+
+\[
+             D_v\varphi(e_j)
+             \leq\varphi(e_j)-\varphi(v)\leq-\varphi(v)\leq C_{q-1},
+\tag{22.49}\label{eq:ch22-slope-upper-bound}
+\]
+
+using $\mathrm{(S}_{q-1}\mathrm{)}$ for the bound on $|\varphi(v)|$.
+Moreover, for $j\in L\setminus J$ the divisor $E_j|_{E_J}$ is a nonzero
+effective divisor on $E_J$, so
+
+\[
+ b_j\bigl(E_J\cdot E_j\cdot\mathcal A^{n-\#J}\bigr)\geq1 .
+\tag{22.50}\label{eq:ch22-positive-slope-coefficient}
+\]
+
+Now isolate in \eqref{eq:ch22-slope-intersection} the term with
+$e_j=e$, which occurs because $e\in L\setminus J$.  Moving all other
+terms to the right-hand side, bounding those with $j\in J$ by
+\eqref{eq:ch22-inductive-derivative-bound} and those with
+$j\in L\setminus J$, $j\neq e$, from above by
+\eqref{eq:ch22-slope-upper-bound} multiplied by the nonnegative coefficients
+\eqref{eq:ch22-positive-slope-coefficient}, and using
+\eqref{eq:ch22-positive-slope-coefficient} for the isolated coefficient,
+gives $D_v\varphi(e)\geq-\lambda_q$ with $\lambda_q$ depending only on
+$(\mathcal X,\theta,\mathcal A)$ and $C_{q-1}$; take $\lambda_q$ to be
+the largest such constant over the finitely many faces $\tau$ of
+$\Delta_{\mathcal X}$ \emph{of dimension $q$}.  Ranging instead over
+faces of every dimension would make the recursion circular, $C_{q}$ being
+defined below in terms of the very quantity being maximized.
+
+\paragraph{Closing the induction.}
+The bound just proved verifies the hypothesis
+\eqref{eq:ch22-simplex-hypothesis} of \Cref{lem:ch22-simplex} on each face
+$\tau$ of dimension $q$, with $\lambda=\lambda_q$.  That
+lemma gives
+$\operatorname{Lip}(\varphi|_\tau)\leq(q+2)\Lambda(\tau)\lambda_q$
+and $\max_\tau\varphi-\min_\tau\varphi\leq(q+1)\lambda_q$;
+combined with the vertex bound \eqref{eq:ch22-vertex-lower-bound} at any
+vertex of $\tau$, this proves $\mathrm{(S}_q\mathrm{)}$ with
+
+\[
+ C_q:=\max\bigl\{C_{q-1},\ (q+2)\Lambda_q\lambda_q,\
+       C_{\mathrm{vert}}+(q+1)\lambda_q\bigr\},
+ \qquad
+ \Lambda_q:=\max_{\dim\tau=q}\Lambda(\tau).
+\tag{22.51}\label{eq:ch22-inductive-constant}
+\]
+
+The induction terminates at $q=d$.  Set
+\[
+ C_{\mathrm{slope}}
+ :=\max\bigl(\{0\}\cup\{\lambda_q:1\leq q\leq d\}\bigr).
+\]
+Every configuration in \eqref{eq:ch22-slope-lower-bound} has
+$q\geq1$, so this constant proves that estimate, while the final assertion
+holds with $C'=C_d$.
+\end{proof}
+
+\begin{remark}[Reading the two estimates together]
+\label{rem:ch22-estimates-together}
+The vertex estimate and the slope estimate are not two halves of one
+computation; they are the same computation performed on two different
+models.  In both cases one intersects the relatively nef class
+$\pi^*\theta+G$ with an effective vertical cycle and with powers of a
+fixed relatively ample class, and reads the result as a linear inequality
+between the values of $\varphi$ at the vertices of a complex.  What
+changes is which complex: for the vertex estimate it is
+$\Delta_{\mathcal X}$ itself, and for the slope estimate it is the shrunk
+star of \Cref{lem:ch22-star-shrinking}, whose vertex values encode
+derivatives at $v$.  Everything else --- the sign of the off-diagonal
+terms, the vanishing of the row sums, the propagation --- is common.
+\end{remark}
+
+\section{Equicontinuity on dual complexes}
+\label{sec:ch22-equicontinuity}
+
+\begin{theorem}\label{thm:bfj-skeletal-equicontinuity}
+Let $\mathcal X$ be an SNC model on which $\theta$ is determined.  There
+is a constant $C=C(\mathcal X,\theta)>0$ with the following properties.
+
+\begin{enumerate}
+\item For every $\theta$-psh function $\varphi$, the restriction
+$\varphi|_{\Delta_{\mathcal X}}$ has Lipschitz constant at most $C$ on
+each face.
+\item If \eqref{eq:ch22-normalization} holds, then
+
+\[
+                  -C\leq\varphi\leq0
+                  \quad\text{on }\Delta_{\mathcal X}.
+\tag{22.52}\label{eq:ch22-skeletal-bound}
+\]
+\end{enumerate}
+
+In particular, normalized restrictions form a uniformly bounded,
+equicontinuous family in $C^0(\Delta_{\mathcal X})$.
+\end{theorem}
+
+\begin{proof}
+Fix a relatively ample line bundle $\mathcal A$ on $\mathcal X$ and let
+$C$ be the maximum of the constants $C'$ of
+\Cref{prop:ch22-slope-estimate} and
+$C_{\mathrm{vert}}+C'\delta(\Delta_{\mathcal X})$, where
+$\delta(\Delta_{\mathcal X})$ is the diameter of
+\Cref{lem:ch22-path-metric}.
+
+\emph{Model psh functions.}  For a $\theta$-psh model function normalized
+by \eqref{eq:ch22-normalization}, assertion (1) is the last statement of
+\Cref{prop:ch22-slope-estimate} and assertion (2) follows from
+\Cref{prop:ch22-vertex-estimate} together with
+\Cref{lem:ch22-convexity-consequences}\,\cref{itm:ch22-cvx:osc}: the maximum
+is $0$ by \eqref{eq:ch22-vertex-max}, and the facewise Lipschitz bound
+propagates it along the path metric.  For a model psh function that is not
+normalized, subtract its supremum; assertion (1) is unaffected by adding a
+constant.
+
+\emph{General psh functions.}  Let $\varphi\in\PSH(X,\theta)$.  By clause
+(2) of \Cref{def:ch21-bfj-psh}, the restriction
+$\varphi|_{\Delta_{\mathcal X}}$ is a uniform limit of restrictions
+$\psi_k|_{\Delta_{\mathcal X}}$ of $\theta$-psh model functions
+$\psi_k$.  Each $\psi_k-\sup\psi_k$ satisfies the model case, so
+$\operatorname{Lip}_{\mathrm f}(\psi_k|_{\Delta_{\mathcal X}})\leq C$; a
+uniform limit of $C$-Lipschitz functions is $C$-Lipschitz, which is (1).
+
+For (2), assume $\sup_{X^{\An}}\varphi=0$.  By
+\Cref{prop:ch21-sup-on-skeleton} the supremum of each $\psi_k$ is its
+maximum on $\Delta_{\mathcal X}$; hence
+
+\[
+ \bigl|\sup\nolimits_{X^{\An}}\psi_k\bigr|
+ =\bigl|\max\nolimits_{\Delta_{\mathcal X}}\psi_k
+    -\max\nolimits_{\Delta_{\mathcal X}}\varphi\bigr|
+ \leq\|\psi_k-\varphi\|_{\Delta_{\mathcal X}}\longrightarrow0 .
+\tag{22.53}\label{eq:ch22-normalizing-constants-vanish}
+\]
+
+Applying the normalized model bound to $\psi_k-\sup\psi_k$ and letting
+$k\to\infty$ gives $-C\leq\varphi\leq0$ on
+$\Delta_{\mathcal X}$.  The final sentence of the theorem is the
+combination of (1), (2) and \Cref{lem:ch22-path-metric}.
+\end{proof}
+
+The proof produced more than the statement, and the surplus is used often
+enough to be recorded separately.
+
+\begin{corollary}
+\label{cor:ch22-explicit-modulus}
+With $C$ as in \Cref{thm:bfj-skeletal-equicontinuity}, every
+$\varphi\in\PSH(X,\theta)$ satisfies
+
+\[
+ \bigl|\varphi(x)-\varphi(y)\bigr|\leq C\,d_{\Delta_{\mathcal X}}(x,y),
+ \qquad x,y\in\Delta_{\mathcal X},
+\tag{22.54}\label{eq:ch22-modulus}
+\]
+
+and, if \eqref{eq:ch22-normalization} holds,
+$\operatorname{osc}_{\Delta_{\mathcal X}}\varphi
+\leq C\,\delta(\Delta_{\mathcal X})$.  The modulus in
+\eqref{eq:ch22-modulus} is a genuine modulus of continuity for the compact
+metric space $(\Delta_{\mathcal X},d_{\Delta_{\mathcal X}})$, independent
+of $\varphi$.
+\end{corollary}
+
+\begin{proof}
+Combine \Cref{thm:bfj-skeletal-equicontinuity}\,(1) with
+\Cref{lem:ch22-path-metric}.
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch22-arzela-ascoli}
+For every SNC model $\mathcal X$ determining $\theta$, the set
+
+\[
+ \bigl\{\varphi|_{\Delta_{\mathcal X}}:
+        \varphi\in\PSH(X,\theta),\ \sup\nolimits_{X^{\An}}\varphi=0\bigr\}
+\]
+
+is relatively compact in $C^0(\Delta_{\mathcal X})$ for the uniform norm,
+and its closure is a compact metrizable space.
+\end{corollary}
+
+\begin{proof}
+The family is uniformly bounded and equicontinuous by
+\Cref{thm:bfj-skeletal-equicontinuity} and
+\Cref{cor:ch22-explicit-modulus}.  The dual complex is a compact metric
+space by \Cref{lem:ch22-path-metric}, so the Arzel\`a--Ascoli theorem
+applies; $C^0$ of a compact metric space is a separable Banach space, so
+the closure is compact metrizable.
+\end{proof}
+
+\begin{warning}{One complex at a time}
+\Cref{cor:ch22-arzela-ascoli} is a statement about \emph{one} dual complex,
+and on one dual complex sequences are legitimate: the space is compact
+metrizable, so every sequence of normalized restrictions has a uniformly
+convergent subsequence.  What is not legitimate is to perform such an
+extraction simultaneously for all models by a diagonal argument, because the
+model system is not countably cofinal.  This is the exact division of labour
+underlying the fixed-skeleton selection principle
+\Cref{prop:ch23-fixed-skeleton-selection} and its warning, and it is
+quantified in \Cref{ex:ch22-countable-blind-spot}.
+\end{warning}
+
+\begin{proposition}
+\label{prop:ch22-characteristic-free-estimates}
+Let $K$ be a complete discretely valued field with $v(\pi)=1$, of
+arbitrary residue characteristic, let $X$ be a smooth connected projective
+$K$-variety of dimension $n$, let $\theta$ be a closed model
+$(1,1)$-form, and let $\mathcal X$ be an SNC model on which
+$\theta$ is determined.  Then
+\Cref{prop:ch22-vertex-estimate,prop:ch22-slope-estimate} hold verbatim for
+all $\theta$-psh model functions, hence so do assertions (1) and (2) of
+\Cref{thm:bfj-skeletal-equicontinuity} for every function whose restriction
+to $\Delta_{\mathcal X}$ is a uniform limit of restrictions of
+$\theta$-psh model functions.
+\end{proposition}
+
+\begin{proof}
+We list the inputs of the two propositions and note that each is available
+without a hypothesis on the residue characteristic.  The signs and the row
+sum in \Cref{lem:ch22-incidence-signs} are intersection theory on the
+projective $R$-scheme $\mathcal X$; connectedness of $\mathcal X_s$
+follows from the theorem on formal functions, as in the proof of
+\Cref{thm:ch20-ddc-exact}.  The projection formula and Kleiman's criterion
+are \Cref{thm:appF-projection} and \cite[Section~1.4]{KM08}.  The negativity
+lemma \Cref{lem:ch22-negativity} was proved above using only relative global
+generation.  The realization of a rational projective simplicial subdivision
+by a normal, vertically $\mathbf Q$-factorial vertical blowup is the
+normalized-blowup construction in the proof of
+\Cref{thm:skeleton-subdivision}, which is toroidal and characteristic free;
+the further resolution to an SNC model, which is where that theorem invokes
+residue characteristic zero, is not used in
+\Cref{lem:ch22-star-shrinking} or in
+\Cref{prop:ch22-slope-estimate}.  Finally,
+\Cref{lem:ch22-simplex} and \Cref{lem:ch22-path-metric} are convex geometry.
+\end{proof}
+
+\begin{remark}[What \Cref{prop:ch22-characteristic-free-estimates} does not say]
+\label{rem:ch22-characteristic-free-caveat}
+It does not say that the BFJ theory works in positive residue
+characteristic.  It says that the \emph{estimate} on a given complex does.
+Two things are still missing outside residue characteristic zero: SNC models
+need not be cofinal, so $\Delta_{\mathcal X}$ need not see enough of
+$X^{\An}$ for \Cref{thm:bfj-skeletal-characterization} to reconstruct
+$\varphi$; and the regularization theorem of
+\Cref{sec:ch22-regularization} is unavailable, since its proof runs through
+multiplier ideals.  The precise inventory is
+\Cref{sec:ch22-char-zero}.
+\end{remark}
+
+\section{Two moduli computed}
+\label{sec:ch22-worked-moduli}
+
+The constants of \Cref{prop:ch22-vertex-estimate,prop:ch22-slope-estimate}
+are explicit but generous.  This section computes both the general constants
+and the sharp ones in the two smallest cases: a segment, where the sharp
+constant can be found by convexity alone, and a triangle, where the gauge
+\eqref{eq:ch22-gauge-triangle} is attained.
+
+\begin{example}[The two-vertex estimate]
+\label{ex:ch22-two-vertex}
+Let $X$ be a smooth projective curve whose reduced special fibre on a
+regular semistable model $\mathcal X$ has two components meeting
+transversally at one point, so that $b_0=b_1=1$, $(E_0\cdot E_1)=1$ and
+$(E_i^2)=-1$ by \eqref{eq:ch20-two-component-matrix}.  Write
+
+\[
+              d_i=(\theta\cdot E_i),\qquad i=0,1,
+\]
+
+so that $d_0+d_1=\deg_XL$ by \eqref{eq:ch20-special-fibre-degree}.  For
+vertex values $u_0,u_1$, formula
+\eqref{eq:ch20-curve-nef-test} becomes
+
+\[
+                   -d_0\leq u_1-u_0\leq d_1.
+\tag{22.55}\label{eq:ch22-two-vertex-bound}
+\]
+
+If $\max\{u_0,u_1\}=0$, then
+
+\[
+                   -\max\{d_0,d_1\}\leq u_i\leq0.
+\]
+
+This is \eqref{eq:ch22-skeletal-bound} in its smallest nontrivial form, and
+it agrees exactly with the general constant: here $n=1$, so
+$\mathcal A$ does not appear, $w_{01}=w_{10}=1$, $\lambda=1$,
+$c=\max\{d_0,d_1\}$, $\#I=2$, and
+\eqref{eq:ch22-vertex-lower-bound} gives
+$C_{\mathrm{vert}}=c$.  The higher-dimensional vertex proof is the same
+graph propagation with intersection weights.
+\end{example}
+
+\begin{example}[A modulus on a segment, with numbers]
+\label{ex:ch22-modulus-segment}
+Keep the model of \Cref{ex:ch22-two-vertex} and take
+
+\[
+              d_0=1,\qquad d_1=2,\qquad \deg_XL=3 .
+\]
+
+Parametrize $\Delta_{\mathcal X}$ by the lattice-length coordinate
+$t\in[0,1]$ of \Cref{ex:ch22-edge-normalization}, with $t=0$ at
+$e_0$.
+
+\emph{The nef test in slope form.}  Let $u=\varphi|_{\Delta_{\mathcal X}}$
+for a $\theta$-psh model function $\varphi$ determined on a refinement
+subdividing $[0,1]$ at rational points.  In such a refinement the
+multiplicities of the components and the lattice length of an adjacent edge
+are matched so that, for two adjacent components $F,F'$ at parameters
+$t_F<t_{F'}$,
+
+\[
+ b_Fb_{F'}\bigl(F\cdot F'\bigr)=\frac1{t_{F'}-t_F} .
+\]
+
+For the single blowup of the node this is the computation of
+\Cref{ex:refinement-segment}: there $b_F=2$,
+$b_{E'_0}=b_{E'_1}=1$, each adjacent intersection number is one, and
+each new edge has lattice length $\tfrac12$.  Thus the product of the two
+multiplicities is $2=1/\tfrac12$ on both edges.  The general case follows
+by iterating, as in \Cref{rem:lattice-length}.
+
+Consequently, after multiplying the inequality at $E_i$ in
+\eqref{eq:ch20-curve-nef-test} by the positive number $b_i$, the term
+\[
+ b_i\sum_{j\neq i}b_j(E_j\cdot E_i)(u_j-u_i)
+\]
+is exactly the sum of the outgoing slopes of $u$ at that vertex, computed
+in the coordinate $t$; the reference term becomes $b_id_i$.  On the
+present refinement the two original components have multiplicity one, while
+every inserted component has reference degree zero by the projection
+formula.  Hence these positive rescalings do not change the following nef
+test, which reads
+
+\[
+ \begin{aligned}
+ \text{at an interior vertex:}&\quad
+   u'(t_k^+)-u'(t_k^-)\geq0,\\
+ \text{at }e_0:&\quad d_0+u'(0^+)\geq0,\\
+ \text{at }e_1:&\quad d_1-u'(1^-)\geq0 .
+ \end{aligned}
+\tag{22.56}\label{eq:ch22-curve-slope-form}
+\]
+
+The first line is convexity; the other two are the boundary conditions.
+Hence
+
+\[
+ -1=-d_0\leq u'(0^+)\leq u'(t)\leq u'(1^-)\leq d_1=2
+\]
+
+for every $t$, so $\operatorname{Lip}(u)\leq2$ and, by
+\eqref{eq:ch22-vertex-lower-bound}, $-2\leq u\leq0$ after normalization.
+In the language of \Cref{lem:ch22-simplex}, hypothesis
+\eqref{eq:ch22-simplex-hypothesis} holds with
+$\lambda=\max\{d_0,d_1\}=2$, the gauge is $\Lambda=1$ by
+\eqref{eq:ch22-gauge-segment}, and the sharp one-dimensional form of
+\Cref{rem:ch22-simplex-constant} gives $\operatorname{Lip}(u)\leq2$, which
+is what the boundary conditions gave directly.
+
+\emph{The extremal function.}  Put
+
+\[
+ u_\star(t):=\max\{-d_0t,\ d_1(t-1)\}=\max\{-t,\ 2t-2\}.
+\tag{22.57}\label{eq:ch22-extremal-segment}
+\]
+
+Then $u_\star(0)=u_\star(1)=0$, the two slopes are $-1$ and $2$, the
+two branches cross at
+
+\[
+ t_\star=\frac{d_1}{d_0+d_1}=\frac23,
+ \qquad
+ \min u_\star=u_\star(t_\star)=-\frac{d_0d_1}{d_0+d_1}=-\frac23 ,
+\]
+
+and the slope jumps upward by $d_0+d_1=3$ there, so $u_\star$ is convex
+and both boundary conditions in \eqref{eq:ch22-curve-slope-form} hold with
+equality.  By \Cref{prop:ch20-model-max} and
+\eqref{eq:ch20-nodal-ideal}, $u_\star$ is the restriction of the model
+function $\log|(x,y^2)|$ of a vertical ideal on the node chart
+$xy=\pi$, and it is $\theta$-psh.
+
+\emph{Both general constants are attained.}  Consider instead the affine
+function
+
+\[
+ u_\flat(t):=d_1(t-1)=2t-2 .
+\tag{22.58}\label{eq:ch22-flat-extremal}
+\]
+
+It is convex, its maximum is $0$ at $t=1$, and the two boundary
+conditions of \eqref{eq:ch22-curve-slope-form} read $1+2\geq0$ and
+$2-2=0$, the second with equality.  Hence $u_\flat$ is the restriction
+of a normalized $\theta$-psh model function, and
+
+\[
+ \min u_\flat=-d_1=-2=-C_{\mathrm{vert}},
+ \qquad
+ \operatorname{Lip}(u_\flat)=2=\max\{d_0,d_1\}.
+\tag{22.59}\label{eq:ch22-segment-sharp-constants}
+\]
+
+So in this example both the vertex bound
+\eqref{eq:ch22-vertex-lower-bound} and the facewise Lipschitz bound are
+equalities: the general constants cannot be improved without further
+hypotheses.  The function $u_\star$ is extremal in a complementary sense:
+among normalized restrictions vanishing at \emph{both} vertices, it is the
+deepest, with
+
+\[
+ \min u_\star=-\frac{d_0d_1}{d_0+d_1}=-\frac23 ,
+\]
+
+both boundary conditions holding with equality.  The contrast is worth
+remembering.  The vertex estimate is governed by the worst single vertex and
+gives $\max\{d_0,d_1\}$; the two-sided extremal is governed by a
+harmonic-type mean and gives $d_0d_1/(d_0+d_1)$, which is three times
+smaller here.  A normalization that pins the function at both ends is
+therefore strictly stronger than the normalization
+\eqref{eq:ch22-normalization}.
+\end{example}
+
+\begin{example}[A modulus on a triangle, with numbers]
+\label{ex:ch22-modulus-triangle}
+Let $n=2$ and let $\mathcal X$ contain the chart
+$\mathcal U=\Spec R[x,y,z]/(xyz-\pi)$ of
+\Cref{ex:toric-triangle-chart}, with three components of multiplicity one
+meeting pairwise in curves and all three in one point, so that the
+corresponding face of $\Delta_{\mathcal X}$ is the standard triangle
+$\sigma$ of \Cref{ex:dual-complex-triangle}.  Use the coordinates
+$(t_1,t_2)=(\alpha_x,\alpha_y)$, in which $\sigma$ is
+$\operatorname{conv}\{(0,0),(1,0),(0,1)\}$, and the compatible Euclidean
+norm of \Cref{ex:ch22-gauge-computed}, so that
+$\Lambda(\sigma)=\sqrt2$.
+
+\emph{An explicit convex model function.}  Let
+
+\[
+\mathfrak a:=\bigl(xy,\ yz,\ zx\bigr)^3
+\]
+
+and $u:=\log|\mathfrak a|$.  By \eqref{eq:ch20-max-ideal-function} and
+\Cref{lem:vertical-ideal-convex},
+
+\[
+ u=3\log|(xy,yz,zx)|=\max\{\ell_0,\ell_1,\ell_2\},
+ \qquad
+ \begin{aligned}
+ \ell_0&=-3(\alpha_x+\alpha_y)=-3t_1-3t_2,\\
+ \ell_1&=-3(\alpha_y+\alpha_z)=-3+3t_1,\\
+ \ell_2&=-3(\alpha_x+\alpha_z)=-3+3t_2 .
+ \end{aligned}
+\tag{22.60}\label{eq:ch22-triangle-function}
+\]
+
+The three affine functions sum to $-6=-3\,v(\pi^2)$, consistently with
+$(xy)(yz)(zx)=\pi^2$.  By
+\Cref{lem:ch20-generated-ideal-psh}, $u$ is $\theta$-psh for any
+$\theta$ that is the curvature of a model metric on a line bundle
+$\mathcal L$ with $\mathcal L\otimes\mathfrak a$ relatively globally
+generated.
+
+\emph{The numbers.}  At the three vertices $u=0$; at the barycenter all
+three branches equal $-2$; the gradients are
+$\nabla\ell_0=(-3,-3)$ and $\nabla\ell_1=(3,0)$,
+$\nabla\ell_2=(0,3)$.  Hence
+
+\[
+ \operatorname{osc}_\sigma u=2,
+ \qquad
+ \operatorname{Lip}(u)=|\nabla\ell_0|=3\sqrt2\approx4.243 .
+\tag{22.61}\label{eq:ch22-triangle-numbers}
+\]
+
+\emph{The hypothesis constant.}  We compute the smallest $\lambda$ for
+which \eqref{eq:ch22-simplex-hypothesis} holds.  For $v=(s,1-s)$ on the
+edge opposite $e_0=(0,0)$ one has, for $0<s<1$,
+
+\[
+ D_vu(e_0)=
+ \begin{cases}
+  -3(1-s)&\text{if }s<\tfrac12,\\
+  -3s&\text{if }s>\tfrac12,
+ \end{cases}
+\]
+
+with the value $-\tfrac32$ at $s=\tfrac12$; the infimum over the open
+edge is $-3$, approached as $v$ tends to a vertex.  The same computation
+at the other two vertices gives the same value.  Hence
+$\lambda=3$, and
+
+\[
+ \operatorname{Lip}(u)=3\sqrt2=\Lambda(\sigma)\lambda ,
+\tag{22.62}\label{eq:ch22-triangle-sharp}
+\]
+
+so the gauge factor of \Cref{lem:ch22-simplex} is attained, exactly as
+\Cref{rem:ch22-simplex-constant} predicts.  The general bound of that lemma
+reads $(q+2)\Lambda(\sigma)\lambda=4\cdot\sqrt2\cdot3=12\sqrt2\approx16.97$,
+and its oscillation bound reads $(q+1)\lambda=9$; the true values are
+$3\sqrt2$ and $2$.  The dimensional factor is therefore lossy, but the
+directional factor is not.
+
+\emph{Where the numbers come from geometrically.}  The value $\lambda=3$
+is the exponent chosen in $\mathfrak a$; replacing
+$\mathfrak a$ by $(xy,yz,zx)^k$ multiplies both $\lambda$ and
+$\operatorname{Lip}(u)$ by $k/3$, so the ratio
+\eqref{eq:ch22-triangle-sharp} is a property of the triangle and not of the
+ideal.  The constant $\Lambda(\sigma)=\sqrt2$ is the price of measuring
+lengths with the Euclidean norm of
+\Cref{def:ch22-compatible-norm}; with the $\ell^1$-norm of the barycentric
+coordinates the same computation gives the constant $1$.  This is the
+precise sense in which the choice of compatible norms changes constants and
+nothing else.
+\end{example}
+
+\section{The BFJ topology and compactness}
+\label{sec:ch22-topology}
+
+\subsection{The topology}
+
+\begin{definition}\label{def:ch22-bfj-topology}
+The \emph{BFJ weak topology} on $\PSH(X,\theta)$ is the topology of uniform
+convergence on every dual complex.  Equivalently, it is the subspace
+topology for the map
+
+\[
+ \PSH(X,\theta)\longrightarrow
+ \prod_{\mathcal X}C^0(\Delta_{\mathcal X}),
+ \qquad
+ \varphi\longmapsto
+       (\varphi|_{\Delta_{\mathcal X}})_{\mathcal X},
+\tag{22.63}\label{eq:ch22-product-embedding}
+\]
+
+the product being over all SNC models on which $\theta$ is determined,
+each factor carrying the uniform norm.
+\end{definition}
+
+Three comments fix the meaning of the definition.
+
+First, the index set of \eqref{eq:ch22-product-embedding} is directed by
+domination, and by \Cref{prop:snc-cofinal} the SNC models on which
+$\theta$ is determined are cofinal among all models; so nothing is lost by
+restricting to them, and by \Cref{prop:ch21-cofinal-independence} nothing
+would be gained by enlarging the family.  This is the first, and the most
+easily overlooked, place where residue characteristic zero is used in this
+chapter: not in an estimate, but in the assertion that the coordinates of
+\eqref{eq:ch22-product-embedding} see enough of $X^{\An}$.
+
+Second, the map \eqref{eq:ch22-product-embedding} is injective.  Indeed
+\Cref{thm:bfj-skeletal-characterization}\,(2) reconstructs $\varphi$ from
+its skeletal restrictions through
+\eqref{eq:ch21-skeletal-reconstruction}.  Hence the BFJ topology is
+Hausdorff, being the initial topology of an injective map into a Hausdorff
+space.
+
+Third, the product may be uncountable, and then it is not metrizable.  Thus
+compactness naturally gives convergent subnets, not necessarily
+subsequences, and every statement below is phrased accordingly; see
+\Cref{prop:net-criterion}\,(3) and \Cref{rem:weak-metrizability}.
+
+\begin{lemma}
+\label{lem:ch22-convergence-criterion}
+A net $(\varphi_\alpha)$ in $\PSH(X,\theta)$ converges to $\varphi$ in
+the BFJ topology if and only if
+$\varphi_\alpha|_{\Delta_{\mathcal X}}\to\varphi|_{\Delta_{\mathcal X}}$
+uniformly for every SNC model $\mathcal X$ determining $\theta$.  If the
+net is decreasing and $\varphi=\inf_\alpha\varphi_\alpha$ is not
+identically $-\infty$, then it converges in the BFJ topology.
+\end{lemma}
+
+\begin{proof}
+The first assertion is the definition of the initial topology together with
+\Cref{prop:net-criterion}\,(2).  For the second, fix a determining SNC model
+$\mathcal X$.  By \Cref{thm:ch21-decreasing-stability} the limit
+$\varphi$ is $\theta$-psh, so its restriction to
+$\Delta_{\mathcal X}$ is continuous; the restrictions
+$\varphi_\alpha|_{\Delta_{\mathcal X}}$ form a decreasing net of
+continuous functions on a compact space with continuous pointwise limit, so
+Dini's theorem for nets, \Cref{prop:dini-nets} and
+\Cref{thm:appE-dini}, gives uniform convergence.
+\end{proof}
+
+\subsection{Properness and compactness}
+
+\begin{theorem}\label{thm:ch22-proper-normalization}
+For every model function $\rho$, the map
+
+\[
+ \PSH(X,\theta)\longrightarrow\mathbf R,
+ \qquad
+ \varphi\longmapsto\sup_{X^{\An}}(\varphi-\rho)
+\tag{22.64}\label{eq:ch22-proper-map}
+\]
+
+is continuous and proper.  The BFJ topology is also the topology of
+pointwise convergence on either all divisorial points or all quasimonomial
+points.
+\end{theorem}
+
+\begin{proof}
+\emph{Step 1: the supremum is skeletal.}  Choose one SNC model
+$\mathcal X$ determining $\theta$ and $\rho$.  Since
+$\rho=\rho\circ p_{\mathcal X}$ by
+\Cref{lem:model-function-affine} --- which applies to \emph{every} model
+function determined on $\mathcal X$, with no positivity hypothesis,
+whereas \Cref{lem:ch21-model-skeletal-properties} is stated only for
+$\theta$-psh ones --- and
+$\varphi\leq\varphi\circ p_{\mathcal X}$ by
+\eqref{eq:ch21-retraction-inequality},
+
+\[
+ \sup_{X^{\An}}(\varphi-\rho)
+ =\max_{\Delta_{\mathcal X}}(\varphi-\rho).
+\tag{22.65}\label{eq:ch22-proper-map-skeletal}
+\]
+
+Uniform convergence on this one skeleton therefore proves continuity of
+\eqref{eq:ch22-proper-map}: the maximum over a fixed compact set is a
+$1$-Lipschitz function of the restriction for the uniform norm.
+
+\emph{Step 2: uniform bounds on a sublevel set.}  Fix $A>0$ and let
+$\mathcal F_A$ be the set of $\varphi$ with
+$|\sup(\varphi-\rho)|\leq A$.  Since
+
+\[
+ \bigl|\sup(\varphi-\rho)-\sup\varphi\bigr|
+       \leq\|\rho\|_{\infty},
+\]
+
+the constants $\sup\varphi$ are bounded by
+$A+\|\rho\|_\infty$ on $\mathcal F_A$.  Subtracting them and applying
+\Cref{thm:bfj-skeletal-equicontinuity} and
+\Cref{cor:ch22-explicit-modulus}, we find that for every SNC model
+$\mathcal Y$ the set of restrictions
+$\{\varphi|_{\Delta_{\mathcal Y}}:\varphi\in\mathcal F_A\}$ is uniformly
+bounded and equicontinuous in $C^0(\Delta_{\mathcal Y})$.  Let
+$K_{\mathcal Y}$ be the closure of that set; it is compact by
+Arzel\`a--Ascoli, as in \Cref{cor:ch22-arzela-ascoli}.
+
+\emph{Step 3: the product is compact.}  The product
+$\prod_{\mathcal Y}K_{\mathcal Y}$ is compact by Tychonoff's theorem
+\cite[Chapter~5]{Kel75}, and the image of $\mathcal F_A$ under
+\eqref{eq:ch22-product-embedding} lies in it.  By
+\Cref{def:ch22-bfj-topology}, \eqref{eq:ch22-product-embedding} is a
+homeomorphism onto its image, so it suffices to prove that the image of
+$\mathcal F_A$ is closed in $\prod_{\mathcal Y}K_{\mathcal Y}$.
+
+\emph{Step 4: identifying a limit point.}  Let
+$(f_{\mathcal Y})_{\mathcal Y}$ lie in the closure of that image, and
+choose a net $(\varphi_\beta)$ in $\mathcal F_A$ with
+$\varphi_\beta|_{\Delta_{\mathcal Y}}\to f_{\mathcal Y}$ uniformly for
+every $\mathcal Y$; such a net exists by
+\Cref{prop:net-criterion}\,(1) applied in the product.  Uniform limits
+preserve the two compatibility relations
+
+\[
+ \begin{aligned}
+ f_{\mathcal Z}|_{\Delta_{\mathcal Y}}&=f_{\mathcal Y},\\
+ f_{\mathcal Z}&\leq f_{\mathcal Y}\circ p_{\mathcal Y}
+                    \quad\text{on }\Delta_{\mathcal Z},
+ \end{aligned}
+ \qquad \mathcal Z\geq\mathcal Y,
+\tag{22.66}\label{eq:ch22-product-compatibility}
+\]
+
+the first because $\Delta_{\mathcal Y}\subset\Delta_{\mathcal Z}$ by
+\Cref{prop:skeleton-nesting}, the second because each $\varphi_\beta$
+satisfies \eqref{eq:ch21-retraction-inequality}.  Define
+
+\[
+           f(x):=\inf_{\mathcal Y}
+                  f_{\mathcal Y}(p_{\mathcal Y}(x)),
+           \qquad x\in X^{\An}.
+\tag{22.67}\label{eq:ch22-product-limit-function}
+\]
+
+Each $f_{\mathcal Y}\circ p_{\mathcal Y}$ is continuous, so $f$ is upper
+semicontinuous by \Cref{lem:usc-inf}.  If
+$x\in\Delta_{\mathcal Y}$, the term indexed by $\mathcal Y$ gives
+$f(x)\leq f_{\mathcal Y}(x)$.  Conversely, for an arbitrary model
+$\mathcal W$, choose a common domination
+$\mathcal Z\geq\mathcal W,\mathcal Y$.  The two relations in
+\eqref{eq:ch22-product-compatibility} give
+\[
+ f_{\mathcal Y}(x)=f_{\mathcal Z}(x)
+ \leq f_{\mathcal W}(p_{\mathcal W}(x)).
+\]
+Taking the infimum over $\mathcal W$ proves
+$f|_{\Delta_{\mathcal Y}}=f_{\mathcal Y}$.  The term indexed by
+$\mathcal Y$, now applied to an arbitrary $x\in X^{\An}$, gives
+$f(x)\leq f_{\mathcal Y}(p_{\mathcal Y}(x))=f(p_{\mathcal Y}(x))$, which is
+\eqref{eq:ch21-retraction-inequality}.  Each $f_{\mathcal Y}$ belongs to
+the uniform closure of the restrictions of $\theta$-psh model functions,
+because each $\varphi_\beta$ does and that closure is closed; this is
+clause (2) of \Cref{def:ch21-bfj-psh}.  Since every skeletal restriction is
+finite, $f\not\equiv-\infty$.  Thus $f\in\PSH(X,\theta)$, and
+
+\[
+ \sup_{X^{\An}}(f-\rho)=\max_{\Delta_{\mathcal X}}(f-\rho)
+ =\lim_\beta\max_{\Delta_{\mathcal X}}(\varphi_\beta-\rho)\in[-A,A]
+\]
+
+by \eqref{eq:ch22-proper-map-skeletal}.  Hence $f\in\mathcal F_A$, its
+image is the given point, and $\mathcal F_A$ is compact.  This proves
+properness.
+
+\emph{Step 5: the two coarser topologies.}  Uniform convergence on every
+dual complex implies pointwise convergence at every quasimonomial point,
+since each such point lies on some dual complex by
+\Cref{thm:skeleton-embedding}, and a fortiori at every divisorial point.
+Conversely, let $(\varphi_\alpha)$ converge pointwise at all divisorial
+points to some $\varphi\in\PSH(X,\theta)$, fix a determining SNC model
+$\mathcal X$, and let $\varepsilon>0$.  Pointwise convergence at one
+divisorial vertex bounds the constants $\sup\varphi_\alpha$ beyond some
+index, by \eqref{eq:ch22-skeletal-bound} applied to
+$\varphi_\alpha-\sup\varphi_\alpha$; hence
+\Cref{cor:ch22-explicit-modulus} provides one modulus $C$ valid for all
+sufficiently advanced $\alpha$ and for $\varphi$.  Choose a finite set
+$S\subset\Delta_{\mathcal X}$ of divisorial points that is
+$\varepsilon/(3C)$-dense for $d_{\Delta_{\mathcal X}}$; this is possible
+because divisorial points are dense in every dual complex and the complex is
+compact.  Pointwise convergence on the finite set $S$ is uniform on
+$S$ beyond one index, and the common modulus gives, for
+$x\in\Delta_{\mathcal X}$ and $y\in S$ with
+$d(x,y)\leq\varepsilon/(3C)$,
+
+\[
+ |\varphi_\alpha(x)-\varphi(x)|
+ \leq|\varphi_\alpha(x)-\varphi_\alpha(y)|
+   +|\varphi_\alpha(y)-\varphi(y)|
+   +|\varphi(y)-\varphi(x)|
+ <\varepsilon .
+\]
+
+Thus divisorial pointwise convergence implies uniform convergence on every
+dual complex.  The same argument, with the density step omitted, applies to
+pointwise convergence on all quasimonomial points.
+\end{proof}
+
+\begin{theorem}\label{thm:bfj-psh-compactness}
+The normalized space
+
+\[
+ \PSH_0(X,\theta)
+ :=\{\varphi\in\PSH(X,\theta):
+                    \sup_{X^{\An}}\varphi=0\}
+\tag{22.68}\label{eq:ch22-normalized-space}
+\]
+
+is compact.  Equivalently, $\PSH(X,\theta)/\mathbf R$ is compact.
+\end{theorem}
+
+\begin{proof}
+Take $\rho=0$ in \Cref{thm:ch22-proper-normalization}.  The zero fibre of
+the continuous proper map $\varphi\mapsto\sup\varphi$ is compact, and
+every class modulo constants has a unique representative in that fibre.
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch22-net-compactness}
+Every net in $\PSH(X,\theta)$ whose supremum functional
+$\varphi\mapsto\sup_{X^{\An}}\varphi$ is bounded admits a subnet
+converging in the BFJ topology to some $\psi\in\PSH(X,\theta)$; the
+convergence is uniform on every dual complex.  If in addition the net is
+contained in $\PSH_0(X,\theta)$, then $\psi\in\PSH_0(X,\theta)$.
+\end{corollary}
+
+\begin{proof}
+A bounded supremum places the net in a set $\mathcal F_A$, which is
+compact by \Cref{thm:ch22-proper-normalization}.  Apply
+\Cref{prop:net-criterion}\,(3), or \Cref{thm:appE-net-compactness}, to
+extract a convergent subnet, and \Cref{lem:ch22-convergence-criterion} to
+identify the mode of convergence.  The last assertion holds because
+$\PSH_0$ is the fibre of a continuous map, hence closed.
+\end{proof}
+
+\begin{remark}[Three topologies, and one that is strictly finer]
+\label{rem:ch22-topology-comparison}
+On $\PSH(X,\theta)$ we now have three descriptions of one topology:
+uniform convergence on all dual complexes, pointwise convergence on
+quasimonomial points, and pointwise convergence on divisorial points.  A
+fourth candidate, uniform convergence on $X^{\An}$, is strictly finer and
+is \emph{not} the BFJ topology: \Cref{ex:ch22-countable-blind-spot} produces
+a net converging in the BFJ topology whose members all remain at uniform
+distance $1$ from the limit.  The distinction matters in
+\Cref{chap:bfj-energy}, where the energy functional is proved to be upper
+semicontinuous for the BFJ topology and continuous along decreasing nets;
+those are two different statements, and neither of them is continuity for
+the BFJ topology.
+\end{remark}
+
+\section{Nets, sequences, and a countable blind spot}
+\label{sec:ch22-nets}
+
+Compactness has just been proved in the form: every net with bounded
+supremum has a convergent subnet.  A reader trained on metric spaces will
+want to replace ``net'' by ``sequence'' and ``subnet'' by ``subsequence'',
+and the purpose of this section is to show, on one completely explicit
+family, what that replacement would cost.  The construction is elementary:
+it uses only the blowup of a closed point of the special fibre of a curve.
+
+\subsection{Bumps over closed points of the special fibre}
+
+\begin{lemma}
+\label{lem:ch22-bump}
+Let $k$ be an algebraically closed field of characteristic zero,
+$R=k[[t]]$, $K=k((t))$, $X=\mathbf P^1_K$, and let
+$\mathcal X=\mathbf P^1_R$ with special fibre $E=\mathcal X_s\cong
+\mathbf P^1_k$, a reduced irreducible component.  Let $L=\cO_X(1)$ and let
+$\theta$ be the curvature of the model metric determined by
+$\cO_{\mathcal X}(1)$, so that $(\theta\cdot E)=1$.  For a closed point
+$z\in E(k)$ let $\rho_z:\mathcal X_z\to\mathcal X$ be the blowup of
+$z$, with exceptional divisor $F_z$, and put
+
+\[
+ \varphi_z:=\varphi_{-F_z}\in\mathcal D(X).
+\tag{22.69}\label{eq:ch22-bump-function}
+\]
+
+Then:
+\begin{enumerate}
+\item\label{itm:ch22-bump:psh} $\varphi_z$ is a $\theta$-psh model
+function with
+\[
+ \sup_{X^{\An}}\varphi_z=0,
+ \qquad
+ \min_{X^{\An}}\varphi_z=\varphi_z(x_{F_z})=-1,
+ \qquad
+ \|\varphi_z\|_\infty=1 ;
+\]
+\item\label{itm:ch22-bump:support} $\varphi_z(x)\neq0$ only if the center
+of $x$ on $\mathcal X$ is $z$;
+\item\label{itm:ch22-bump:invisible} if $\mathcal Y$ is a model of $X$
+over $R$ no component of whose special fibre has center $z$ on
+$\mathcal X$, then $\varphi_z$ vanishes identically on
+$\Delta_{\mathcal Y}$;
+\item\label{itm:ch22-bump:centers} for a fixed model $\mathcal Y$, the set
+of $z\in E(k)$ that occur as centers of components of
+$\mathcal Y_s$ is finite.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\cref{itm:ch22-bump:psh}  The special fibre of $\mathcal X_z$ is
+$E'+F_z$, where $E'$ is the strict transform of $E$; both components
+are reduced, $(F_z^2)=-1$, $(E'\cdot F_z)=1$, and the dual complex is
+the segment with vertices $x_{E'}$ and $x_{F_z}$.  By
+\eqref{eq:ch20-sign} the model function of $-F_z$ takes the values
+$0$ at $x_{E'}$ and $-1$ at $x_{F_z}$.  The reference degrees are
+$(\rho_z^*\theta\cdot E')=(\theta\cdot E)=1$ and
+$(\rho_z^*\theta\cdot F_z)=0$, so the nef test
+\eqref{eq:ch20-curve-nef-test} reads
+
+\[
+ \text{at }E':\ 1+(-1-0)=0\geq0,
+ \qquad
+ \text{at }F_z:\ 0+(0-(-1))=1\geq0 .
+\]
+
+Hence $\varphi_z$ is $\theta$-psh at model level, and by
+\Cref{thm:ch21-model-consistency} it lies in $\PSH(X,\theta)$.  Its
+supremum is its maximum on the segment,
+\Cref{prop:ch21-sup-on-skeleton}, which is $0$, and its minimum is
+$-1$.
+
+\cref{itm:ch22-bump:support}  Away from $F_z$ the sheaf
+$\cO_{\mathcal X_z}(-F_z)$ is trivialized by the constant $1$, so
+$\varphi_z$ vanishes at every point whose center on $\mathcal X_z$ is
+not contained in $F_z$.  Since $\rho_z$ is an isomorphism outside
+$F_z$ and contracts $F_z$ to $z$, such points are exactly those whose
+center on $\mathcal X$ differs from $z$.
+
+\cref{itm:ch22-bump:invisible}  Let $x\in\Delta_{\mathcal Y}$, and choose
+a model $\mathcal Z$ dominating both $\mathcal Y$ and
+$\mathcal X$.  By \Cref{lem:skeleton-monomial-invariants}, $x$ is the
+monomial combination of the divisorial valuations attached to the
+components defining its stratum on $\mathcal Y$; compatibility of centers
+through $\mathcal Z$ lets us test its center on $\mathcal X$ with the
+same valuations.  Their centers on
+$\mathcal X=\mathbf P^1_R$ are either the generic point of $E$ or
+closed points different from $z$.  Choose a rational parameter $u$ on
+$E$ with its only zero at $z$ and its pole away from those finitely many
+closed centers.  Every component valuation in the combination has
+$u$-value zero, hence so does $x$.  A valuation centered at $z$ would
+have positive value on the local parameter $u$.  Thus the center of
+$x$ on $\mathcal X$ is not $z$, and
+$\varphi_z(x)=0$ by \cref{itm:ch22-bump:support}.
+
+\cref{itm:ch22-bump:centers}  The special fibre $\mathcal Y_s$ has finitely
+many components, and each has a well-defined center on $\mathcal X$.
+\end{proof}
+
+\subsection{No countable cofinal system of models}
+
+\begin{example}[The model system is not countably cofinal]
+\label{ex:ch22-no-countable-cofinal}
+Keep the notation of \Cref{lem:ch22-bump} and assume in addition that
+$k$ is uncountable, for instance $k=\mathbf C$.  Then $E(k)$ is
+uncountable.  Let $\mathcal Y_1,\mathcal Y_2,\ldots$ be any sequence of
+models of $X$ over $R$.  By
+\Cref{lem:ch22-bump}\,\cref{itm:ch22-bump:centers} the set
+
+\[
+ Z:=\bigcup_{m\geq1}\{z\in E(k):
+      z\text{ is the center of a component of }\mathcal Y_{m,s}\}
+\]
+
+is countable, so we may choose $z\in E(k)\setminus Z$.  No
+$\mathcal Y_m$ dominates $\mathcal X_z$: under a birational morphism
+$\mathcal Y_m\to\mathcal X_z$, the strict transform of the vertical prime
+$F_z$ would be a component of $\mathcal Y_{m,s}$ with center $z$ on
+$\mathcal X$.  Hence $\{\mathcal Y_m\}$ is not cofinal, and the directed
+system of models of $X$ has no countable cofinal subsystem.  Compare
+\Cref{ex:no-cofinal-sequence}, of which this is a geometric instance: the
+relevant directed set is the set of finite subsets of the uncountable set
+$E(k)$.
+\end{example}
+
+\subsection{A compactness argument in which a sequence does not suffice}
+
+\begin{example}[A countable blind spot]
+\label{ex:ch22-countable-blind-spot}
+Keep the hypotheses of \Cref{ex:ch22-no-countable-cofinal}.
+
+\emph{Two psh functions that countably many skeleta cannot separate.}  Let
+$\mathcal Y_1,\mathcal Y_2,\ldots$ be any prescribed sequence of models
+and choose $z\in E(k)\setminus Z$ as above.  By
+\Cref{lem:ch22-bump}\,\cref{itm:ch22-bump:invisible},
+
+\[
+ \varphi_z|_{\Delta_{\mathcal Y_m}}=0=0|_{\Delta_{\mathcal Y_m}}
+ \quad\text{for every }m,
+ \qquad\text{while}\qquad
+ \|\varphi_z-0\|_{\infty}=1 .
+\tag{22.70}\label{eq:ch22-blind-spot}
+\]
+
+Thus the countable family of coordinate maps
+$\varphi\mapsto\varphi|_{\Delta_{\mathcal Y_m}}$ does not separate the
+points $0$ and $\varphi_z$ of $\PSH_0(X,\theta)$; the topology it
+induces is not Hausdorff, and limits taken in it are not unique.
+
+\emph{Consequence for diagonal extraction.}  The standard proof of
+sequential compactness on a countable product would proceed as follows:
+given a sequence $(\psi_j)$ in $\PSH_0(X,\theta)$, use
+\Cref{cor:ch22-arzela-ascoli} on $\Delta_{\mathcal Y_1}$ to extract a
+subsequence converging uniformly there, then a further subsequence on
+$\Delta_{\mathcal Y_2}$, and so on, and finally take the diagonal
+subsequence.  Every step of this argument is correct, and its conclusion is
+correct: the diagonal subsequence converges uniformly on each
+$\Delta_{\mathcal Y_m}$.  What the argument does not do is identify a
+limit in $\PSH_0(X,\theta)$: by \eqref{eq:ch22-blind-spot} the limit is
+determined only up to the ambiguity exhibited there, since $0$ and
+$\varphi_z$ are indistinguishable by the data collected.  The missing
+information is exactly the uncountably many coordinates that the sequence
+$(\mathcal Y_m)$ omits, and by
+\Cref{ex:ch22-no-countable-cofinal} no choice of the sequence removes the
+omission.
+
+\emph{A net that converges while staying at distance one.}  Let $S=E(k)$,
+let $\mathcal A(S)$ be the set of finite subsets of $S$ directed by
+inclusion, and for $F\in\mathcal A(S)$ choose any $z(F)\in S\setminus F$
+and put $u_F:=\varphi_{z(F)}$.  Given a model $\mathcal Y$, let
+$F_0\subset S$ be the finite set of centers of components of
+$\mathcal Y_s$; for $F\supset F_0$ we have $z(F)\notin F_0$, hence
+$u_F|_{\Delta_{\mathcal Y}}=0$.  Therefore
+
+\[
+ u_F\longrightarrow0
+ \quad\text{in the BFJ topology},
+ \qquad\text{while}\qquad
+ \|u_F\|_\infty=1\ \text{ for every }F .
+\tag{22.71}\label{eq:ch22-net-at-distance-one}
+\]
+
+This net has no subsequence in any useful sense: its index set
+$\mathcal A(S)$ has no cofinal sequence by
+\Cref{ex:no-cofinal-sequence}, so a subnet indexed by $\mathbf N$ does not
+exist.  It also shows that the BFJ topology is strictly coarser than
+uniform convergence on $X^{\An}$, as announced in
+\Cref{rem:ch22-topology-comparison}.
+\end{example}
+
+\begin{warning}{What has and has not been proved about sequences}
+\Cref{ex:ch22-countable-blind-spot} shows that the compactness
+\emph{argument} of \Cref{thm:ch22-proper-normalization} cannot be run with
+sequences, and that no countable family of dual complexes determines a
+member of $\PSH(X,\theta)$.  It does not show that
+$\PSH_0(X,\theta)$ fails to be sequentially compact, and we assert
+nothing of the kind.  Nor does it forbid sequential statements proved by
+other means: \Cref{cor:psh-sequential-regularization} does produce, for each
+$\varphi\in\PSH(X,\theta)$, a decreasing \emph{sequence} of model psh
+functions converging to it pointwise, using the Monge--Amp\`ere capacity
+estimates of \Cref{chap:bfj-capacity}, which are unavailable at this stage
+of the theory and which do not produce a countable cofinal model system
+either.  The correct summary is: nets are what the present arguments
+deliver; sequences, when available, are theorems with their own proofs.
+\end{warning}
+
+\begin{remark}[Where sequences are legitimate in this chapter]
+\label{rem:ch22-legitimate-sequences}
+Three places, and no others.  On one fixed dual complex, which is compact
+metrizable, so that \Cref{cor:ch22-arzela-ascoli} and the Choquet selection
+lemma \Cref{lem:choquet-selection} apply; this is the setting of
+\Cref{prop:ch23-fixed-skeleton-selection} and of
+\Cref{prop:ch22-fixed-skeleton-decreasing} below, and it is the reason
+\Cref{rem:choquet-where-countable} lists dual complexes first.  Along the
+divisibility net of multiplier ideals, which has the countable cofinal chain
+$(m!)_{m\geq1}$; this is \Cref{lem:ch22-divisibility-net}.  And in the
+presence of a continuous limit, where Dini's theorem converts a net into a
+sequence; this is \Cref{cor:ch22-continuous-decreasing-sequence}.  A
+checklist of the general net-versus-sequence traps is
+\Cref{rem:net-vs-sequence-checklist}.
+\end{remark}
+
+\section{Multiplier ideals on models: the level actually used}
+\label{sec:ch22-multiplier}
+
+Decreasing regularization is deduced in
+\Cref{sec:ch22-regularization} from one analytic input, the continuity of
+psh envelopes (\Cref{thm:bfj-envelope-regularity}), and that input is proved
+in \Cref{chap:bfj-envelopes} from asymptotic multiplier ideals on models.
+This section states the ideal-theoretic package at the exact level at which
+the main text consumes it, records which parts of
+\Cref{app:ideals} it corresponds to, and isolates the two formal
+consequences that are used here.  We do not reprove the package, and we do
+not restate the appendix in a generality it has not been given.
+
+\subsection{The setting on a model}
+
+Let $\mathcal X$ be a regular projective flat $R$-model of $X$.  A
+\emph{vertical ideal} on $\mathcal X$ is a coherent ideal sheaf
+$\mathfrak a\subset\cO_{\mathcal X}$ whose cosupport is contained in the
+special fibre; equivalently $\mathfrak a\cdot\cO_X=\cO_X$.  Its associated
+model function is $\log|\mathfrak a|$, computed on the normalized blowup as
+in \eqref{eq:ch20-ideal-divisor}, and
+
+\[
+ \log|\mathfrak a\mathfrak b|=\log|\mathfrak a|+\log|\mathfrak b|,
+ \qquad
+ \mathfrak a\subset\mathfrak b
+ \ \Longrightarrow\
+ \log|\mathfrak a|\leq\log|\mathfrak b|\leq0 .
+\tag{22.72}\label{eq:ch22-ideal-function-calculus}
+\]
+
+A graded sequence of vertical ideals is a family
+$\mathfrak a_\bullet=(\mathfrak a_m)_{m\geq1}$ with
+$\mathfrak a_m\mathfrak a_\ell\subset\mathfrak a_{m+\ell}$, as in
+\Cref{def:appC-graded-sequence}; the base ideals
+\eqref{eq:ch23-base-ideal} of a model line bundle form the example that
+matters.
+
+\Cref{app:ideals} develops asymptotic multiplier ideals for a nonzero graded
+sequence on a variety that is \emph{smooth over a field of characteristic
+zero}, and generalized test ideals on a regular $F$-finite scheme of
+characteristic $p>0$.  A model $\mathcal X$ is neither: it is regular
+and of finite type over the excellent complete discrete valuation ring
+$R$.  The statements used in \Cref{chap:bfj-envelopes} are therefore
+imported in the model form proved by
+\cite[Appendix~B]{BFJ16}, whose inputs are log resolutions of regular
+excellent schemes with residue characteristic zero, relative Nadel
+vanishing, and relative Castelnuovo--Mumford regularity over the affine base
+$\Spec R$.  The appendix statements are the corresponding facts over a
+field, recorded there with their own proofs and sources; we do not assert
+that they apply verbatim on $\mathcal X$.
+
+\subsection{The package}
+
+\begin{quote}
+\textbf{(M)} \emph{Asymptotic multiplier ideals on a regular model, residue
+characteristic zero.}  Let $\mathcal X$ be a regular projective flat
+$R$-model with $K$ of residue characteristic zero, and let
+$\mathfrak a_\bullet$ be a nonzero graded sequence of vertical ideals on
+$\mathcal X$.  There are vertical ideals
+$\mathcal J_m:=\mathcal J(\mathfrak a_\bullet^m)$ such that:
+\begin{enumerate}
+\item[(M1)] $\mathfrak a_m\subset\mathcal J_m$ for every $m\geq1$;
+\item[(M2)] $\mathcal J_{m\ell}\subset\mathcal J_m^{\,\ell}$ for all
+$m,\ell\geq1$;
+\item[(M3)] there is an ample line bundle $\mathcal B$ on
+$\mathcal X$, depending only on $\mathcal X$, such that for every line
+bundle $\mathcal M$ with $\mathcal M^{\otimes m}\otimes\mathfrak a_m$
+globally generated at sufficiently divisible levels, the sheaf
+$\mathcal B\otimes\mathcal M^{\otimes m}\otimes\mathcal J_m$ is globally
+generated for every $m$;
+\item[(M4)] $v(\mathcal J_m)\geq m\,v(\mathfrak a_\bullet)-A(v)$ for every
+divisorial valuation $v$ with center on $\mathcal X$, where $A(v)$ is
+the log discrepancy \eqref{eq:appC-log-discrepancy}.
+\end{enumerate}
+\end{quote}
+
+Properties (M1)--(M3) are \cite[Theorem~B.8 and Remark~B.9]{BFJ16}; they are
+exactly the statements quoted before
+\Cref{thm:ch23-base-ideal-approximation}, and their variety analogues are
+\Cref{prop:appC-asymptotic-multiplier-properties} and
+\Cref{thm:appC-uniform-generation-multiplier}.  Property (M4) is the
+valuative estimate \eqref{eq:appC-asymptotic-discrepancy}; it is not needed
+for the BFJ envelope theorem, which uses the sandwich
+\eqref{eq:ch23-uniform-sandwich} instead, but it is the property that the
+positive-characteristic substitutes reproduce, and it is recorded here so
+that \Cref{sec:ch22-char-zero} can compare the two engines.
+
+\subsection{Two formal consequences}
+
+The first consequence explains why the package is stated for
+\emph{asymptotic} ideals: it is what converts subadditivity into
+monotonicity, and it is the only monotonicity in the whole regularization
+chain that is genuinely sequential.
+
+\begin{lemma}
+\label{lem:ch22-divisibility-net}
+Assume \textup{(M1)} and \textup{(M2)} and put
+$u_m:=m^{-1}\log|\mathcal J_m|$ and
+$\varphi_m:=m^{-1}\log|\mathfrak a_m|$.  Then:
+\begin{enumerate}
+\item\label{itm:ch22-div:mono} $u_{m\ell}\leq u_m$ for all
+$m,\ell\geq1$; that is, $(u_m)$ is a decreasing net for the directed set
+$(\mathbf N_{\geq1},\mid)$ ordered by divisibility;
+\item\label{itm:ch22-div:above} $\varphi_m\leq u_m\leq0$ for every $m$;
+\item\label{itm:ch22-div:cofinal} the chain $m\mapsto m!$ is cofinal in
+$(\mathbf N_{\geq1},\mid)$, so the net in
+\cref{itm:ch22-div:mono} may be replaced by the decreasing sequence
+$(u_{m!})_{m\geq1}$ without loss of information.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+By (M2) and \eqref{eq:ch22-ideal-function-calculus},
+
+\[
+ \log|\mathcal J_{m\ell}|\leq\log\bigl|\mathcal J_m^{\,\ell}\bigr|
+ =\ell\log|\mathcal J_m| ,
+\]
+
+and dividing by $m\ell$ gives \cref{itm:ch22-div:mono}.  Assertion
+\cref{itm:ch22-div:above} is (M1) together with
+\eqref{eq:ch22-ideal-function-calculus} and
+$\mathcal J_m\subset\cO_{\mathcal X}$.  For
+\cref{itm:ch22-div:cofinal}, every $m$ divides $m!$, and
+$m!\mid(m+1)!$, so the chain is increasing and cofinal; a decreasing net
+indexed by a directed set with a cofinal chain has the same infimum along
+that chain, by \Cref{lem:monotone-net-converges}.
+\end{proof}
+
+\begin{remark}[Two different directed sets]
+\label{rem:ch22-two-directed-sets}
+It is worth pausing on the contrast between
+\Cref{lem:ch22-divisibility-net}\,\cref{itm:ch22-div:cofinal} and
+\Cref{ex:ch22-no-countable-cofinal}.  Both the divisibility order on
+$\mathbf N$ and the domination order on models are directed sets that are
+not totally ordered, and in both cases the theory is naturally indexed by
+them.  Only one of them has a countable cofinal chain.  A reader who has
+seen the multiplier-ideal argument, where passing from the divisibility net
+to the sequence $(m!)$ is harmless, may transfer the habit to the model
+system, where it is not.  This is the most common route to a false
+sequential statement in this subject.
+\end{remark}
+
+The second consequence is the interface with the present chapter.
+
+\begin{proposition}
+\label{prop:ch22-multiplier-interface}
+The only use of the package \textup{(M)} in
+\Cref{chap:bfj-compactness} is through
+\Cref{thm:bfj-envelope-regularity}: for every $f\in C^0(X^{\An})$ the
+envelope $P_\theta(f)$ is a uniform limit on $X^{\An}$ of
+$\theta$-psh model functions.  No statement of
+\Crefrange{sec:ch22-vertex}{sec:ch22-nets} uses a multiplier ideal, and the deduction
+of \Cref{thm:bfj-decreasing-regularization} in
+\Cref{sec:ch22-regularization} uses no property of the approximating
+functions beyond being $\theta$-psh model functions.
+\end{proposition}
+
+\begin{proof}
+An inspection of the proofs.  The estimates of
+\Cref{sec:ch22-vertex,sec:ch22-slope} use relative intersection theory,
+\Cref{lem:ch22-negativity}, and \Cref{thm:skeleton-subdivision}; the
+topological statements of
+\Cref{sec:ch22-topology} use those estimates, Arzel\`a--Ascoli, and
+Tychonoff; the examples of \Cref{sec:ch22-nets} use only blowups of closed
+points.  In \Cref{sec:ch22-regularization},
+\Cref{thm:bfj-envelope-regularity} is quoted twice --- once to produce a
+model psh majorant close to $\varphi$ at a prescribed point, once to
+produce a common successor in the directed set of majorants --- and
+everything else is order theory, upper semicontinuity, and Dini's theorem.
+\end{proof}
+
+\begin{remark}[The role of the fixed twist]
+\label{rem:ch22-fixed-twist}
+Property (M3) is the one that cannot be weakened to a twist growing with
+$m$.  In the base-ideal argument
+\eqref{eq:ch23-uniform-sandwich} the model function of the twisting bundle
+enters divided by $m$; a bundle $\mathcal B_m$ growing linearly in
+$m$ would contribute a fixed error and destroy the uniformity of the
+convergence, which is precisely the point of
+\Cref{thm:ch23-base-ideal-approximation}.  The same remark, in the
+trivially valued setting and for test ideals, is the checkpoint after
+\Cref{thm:appC-uniform-generation-multiplier}.  Uniformity, not
+monotonicity, is what the deep input supplies: monotonicity along
+divisibility is already given by
+\Cref{lem:ch22-divisibility-net}, which used nothing but (M1) and (M2).
+\end{remark}
+
+\section{Envelopes and monotone regularization}
+\label{sec:ch22-regularization}
+
+The proof of regularization follows the source order
+
+\[
+ \begin{aligned}
+  &\text{upper-envelope stability}
+    \Longrightarrow \text{continuous psh envelopes},\\
+  &\text{continuous psh envelopes}
+    \Longrightarrow \text{model approximation},\\
+  &\text{model approximation}
+    \Longrightarrow \text{decreasing model regularization}.
+ \end{aligned}
+\tag{22.73}\label{eq:ch22-regularization-chain}
+\]
+
+The first two arrows are developed in \Cref{chap:bfj-envelopes}.  We state
+the final theorem here and prove the order-theoretic last arrow, isolating
+the algebraic input as in \Cref{prop:ch22-multiplier-interface}.
+
+\subsection{Continuous majorants of an upper semicontinuous function}
+
+The first arrow of \eqref{eq:ch22-regularization-chain} is applied to
+continuous obstacles, but the function to be regularized is only upper
+semicontinuous.  The passage from one to the other is the following
+elementary lemma, which we prove because it is used three times below and
+because its hypotheses --- compact Hausdorff, not compact metrizable --- are
+exactly the ones available on $X^{\An}$.
+
+\begin{lemma}
+\label{lem:ch22-continuous-majorant}
+Let $Y$ be a compact Hausdorff space and let
+$f:Y\to[-\infty,+\infty)$ be upper semicontinuous.  Then:
+\begin{enumerate}
+\item\label{itm:ch22-maj:point} for every $y\in Y$ and every real
+$c>f(y)$ there is $g\in C^0(Y)$ with $g\geq f$ on $Y$ and
+$g(y)=c$;
+\item\label{itm:ch22-maj:inf} the set $\mathcal C(f)$ of continuous
+majorants of $f$ is nonempty and closed under finite minima, and
+\[
+ f(y)=\inf\{g(y):g\in\mathcal C(f)\}
+ \qquad\text{for every }y\in Y;
+\tag{22.74}\label{eq:ch22-continuous-majorant-inf}
+\]
+in particular $f$ is the limit of a decreasing net of continuous
+functions.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Upper semicontinuity on a compact space bounds $f$ above; set
+$M:=\sup_Yf\in[-\infty,+\infty)$ and, given $y$ and $c>f(y)$, put
+$M':=\max\{M,c\}\in\mathbf R$.  The set $K:=\{f\geq c\}$ is closed
+because $f$ is upper semicontinuous, and $y\notin K$.  If
+$K=\varnothing$, the constant $g\equiv c$ satisfies
+\cref{itm:ch22-maj:point}.  Otherwise, a compact Hausdorff space is normal,
+so Urysohn's lemma provides $h\in C^0(Y,[0,1])$ with $h(y)=0$ and
+$h\equiv1$ on $K$.  Put $g:=c+(M'-c)h$.  On $K$ we have
+$g=M'\geq M\geq f$; off $K$ we have $f<c\leq g$ because $h\geq0$ and
+$M'\geq c$.  Finally $g(y)=c$.
+
+For \cref{itm:ch22-maj:inf}, $\mathcal C(f)$ contains the constant $M'$
+for any $M'\geq M$ real, and the minimum of two continuous majorants is a
+continuous majorant, so $\mathcal C(f)$ is nonempty and downward directed.
+Every $g\in\mathcal C(f)$ satisfies $g(y)\geq f(y)$, and
+\cref{itm:ch22-maj:point} produces majorants with value at $y$ arbitrarily
+close to $f(y)$ from above, or arbitrarily negative when
+$f(y)=-\infty$.  This is \eqref{eq:ch22-continuous-majorant-inf}, and the
+net indexed by $\mathcal C(f)$ with the reverse pointwise order is
+decreasing with pointwise limit $f$, by
+\Cref{lem:monotone-net-converges}.
+\end{proof}
+
+\begin{remark}[Why not a sequence here either]
+\label{rem:ch22-majorant-net-not-sequence}
+On a compact metrizable space the net of
+\Cref{lem:ch22-continuous-majorant}\,\cref{itm:ch22-maj:inf} can be replaced
+by a decreasing sequence, by choosing majorants adapted to a countable base.
+The Berkovich space $X^{\An}$ is metrizable when $K$ has a countable
+dense subfield, and need not be otherwise; see
+\Cref{rem:choquet-where-countable}.  Since nothing below requires a
+sequence at this step, we do not impose the hypothesis.
+\end{remark}
+
+\subsection{The regularization theorem}
+
+\begin{theorem}\label{thm:bfj-decreasing-regularization}
+For every $\varphi\in\PSH(X,\theta)$, there is a decreasing net
+
+\[
+              \varphi_i\in\mathcal D(X)\cap\PSH(X,\theta),
+              \qquad
+              \varphi_i\searrow\varphi
+              \quad\text{pointwise on }X^{\An}.
+\tag{22.75}\label{eq:ch22-decreasing-regularization}
+\]
+
+If $\varphi$ is continuous, it is a uniform limit of a sequence of
+$\theta$-psh model functions.
+\end{theorem}
+
+\begin{proof}
+Throughout we use the envelope-regularity theorem
+\Cref{thm:bfj-envelope-regularity}: for each continuous obstacle $u$ on
+$X^{\An}$, the envelope $P_\theta(u)$ is a uniform limit of
+$\theta$-psh model functions.  Its hypotheses are the standing ones; its
+proof, in \Cref{chap:bfj-envelopes}, uses the package \textup{(M)} of
+\Cref{sec:ch22-multiplier}.
+
+\paragraph{Step 1: pointwise model majorants.}
+Fix $x\in X^{\An}$ and $\varepsilon>0$, and first assume
+$\varphi(x)>-\infty$.  By
+\Cref{lem:ch22-continuous-majorant}\,\cref{itm:ch22-maj:point} applied on the
+compact Hausdorff space $X^{\An}$, there is $u\in C^0(X^{\An})$ with
+$u\geq\varphi$ and $u(x)\leq\varphi(x)+\varepsilon$.  Since $\varphi$
+is a competitor in \eqref{eq:ch23-envelope}, we have
+$\varphi\leq P_\theta(u)\leq u$.  Choose a $\theta$-psh model function
+$\psi_0$ with $\|\psi_0-P_\theta(u)\|_\infty\leq\varepsilon$ and put
+$\psi:=\psi_0+\varepsilon$.  Then $\psi\geq P_\theta(u)\geq\varphi$ and
+
+\[
+                         \psi(x)\leq\varphi(x)+3\varepsilon.
+\tag{22.76}\label{eq:ch22-pointwise-majorant}
+\]
+
+If $\varphi(x)=-\infty$, the same majorant lemma gives, for each
+$A>0$, a continuous $u_A\geq\varphi$ with $u_A(x)=-A$; the preceding
+construction then produces a $\theta$-psh model function
+$\psi_A\geq\varphi$ with $\psi_A(x)\leq-A+1$.  In both cases
+
+\[
+ \varphi(x)=\inf\{\psi(x):
+       \psi\in\mathcal D(X)\cap\PSH(X,\theta),\ \psi\geq\varphi\}.
+\tag{22.77}\label{eq:ch22-inf-majorants}
+\]
+
+\paragraph{Step 2: the index set and its directedness.}
+Let
+
+\[
+ I:=\{\psi\in\mathcal D(X)\cap\PSH(X,\theta):
+       \psi>\varphi\ \text{everywhere on }X^{\An}\},
+\tag{22.78}\label{eq:ch22-index-set}
+\]
+
+ordered by the reverse pointwise order, so that $\psi\preceq\psi'$ means
+$\psi\geq\psi'$.  It is nonempty: if $\psi$ is as in Step 1 then
+$\psi+\delta\in I$ for every $\delta>0$, because model functions are
+finite.
+
+It is directed.  Let $\psi_1,\psi_2\in I$.  The function
+$\min\{\psi_1,\psi_2\}-\varphi$ is lower semicontinuous with values in
+$(0,+\infty]$, being the minimum of two differences of a continuous
+function and an upper semicontinuous one; a lower semicontinuous function
+attains its infimum on the compact space $X^{\An}$, so there is
+$\varepsilon>0$ with
+
+\[
+                   \min\{\psi_1,\psi_2\}\geq\varphi+3\varepsilon .
+\tag{22.79}\label{eq:ch22-strict-gap}
+\]
+
+The obstacle $\min\{\psi_1,\psi_2\}$ is continuous, and
+$\varphi+3\varepsilon$ is $\theta$-psh by
+\Cref{prop:ch21-elementary-stability}; hence
+$P_\theta(\min\{\psi_1,\psi_2\})\geq\varphi+3\varepsilon$.  Choose a
+$\theta$-psh model function $\eta$ within $\varepsilon$ of that
+envelope in the uniform norm.  Then
+
+\[
+       \varphi+\varepsilon
+       \leq\eta-\varepsilon
+       \leq\min\{\psi_1,\psi_2\},
+\tag{22.80}\label{eq:ch22-directed-majorant}
+\]
+
+so $\eta-\varepsilon\in I$ dominates both $\psi_1$ and $\psi_2$ in the
+order of $I$; that is, it is a common successor.
+
+\paragraph{Step 3: the net.}
+Consider the net indexed by $I$ whose value at $\psi$ is $\psi$
+itself.  It is decreasing by construction.  Its pointwise infimum is
+$\varphi$: the inequality $\geq\varphi$ is the definition of $I$, and
+for the reverse inequality, given $c>\varphi(x)$, Step 1 produces
+$\psi\geq\varphi$ with $\psi(x)<c$, and then
+$\psi+\delta\in I$ with $(\psi+\delta)(x)<c$ for small $\delta>0$.
+By \Cref{lem:monotone-net-converges} the net converges pointwise to its
+infimum, which proves \eqref{eq:ch22-decreasing-regularization}.  Note that
+\Cref{thm:ch21-decreasing-stability} is consistent with this: the limit is
+$\varphi$, which is psh by hypothesis and in particular not identically
+$-\infty$.
+
+\paragraph{Step 4: the continuous case.}
+If $\varphi$ is continuous, the decreasing net of continuous functions
+$(\psi)_{\psi\in I}$ has continuous pointwise limit $\varphi$ on the
+compact space $X^{\An}$, so Dini's theorem for nets,
+\Cref{prop:dini-nets}, gives uniform convergence.  For each $m$ there is
+therefore $\psi\in I$ with $\|\psi-\varphi\|_\infty<1/m$, and
+\Cref{cor:ch22-continuous-decreasing-sequence} below organizes these choices
+into a decreasing sequence.  In particular $\varphi$ is a uniform limit of
+a sequence of $\theta$-psh model functions.
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch22-continuous-decreasing-sequence}
+Let $\varphi\in\PSH(X,\theta)$ be continuous.  Then there is a
+\emph{decreasing} sequence $(\varphi_m)_{m\geq1}$ of $\theta$-psh model
+functions with
+$\|\varphi_m-\varphi\|_{\infty}<1/m$ for every $m$; in particular
+$\varphi_m\searrow\varphi$ uniformly on $X^{\An}$.
+\end{corollary}
+
+\begin{proof}
+Let $I$ be as in \eqref{eq:ch22-index-set}.  By Step 4 of the preceding
+proof, for every $m$ the set
+$I_m:=\{\psi\in I:\|\psi-\varphi\|_\infty<1/m\}$ is nonempty.  Choose
+$\varphi_1\in I_1$.  Given $\varphi_{m}$, pick $\eta\in I_{m+1}$ and,
+using directedness of $I$, a common successor
+$\varphi_{m+1}\in I$ of $\varphi_m$ and $\eta$; then
+$\varphi_{m+1}\leq\min\{\varphi_m,\eta\}$ and
+$\varphi_{m+1}\geq\varphi$, so
+$\|\varphi_{m+1}-\varphi\|_\infty\leq\|\eta-\varphi\|_\infty<1/(m+1)$.
+The resulting sequence is decreasing and converges uniformly.
+\end{proof}
+
+\begin{remark}[An improvement on the naive selection]
+\label{rem:ch22-decreasing-selection-improvement}
+A weaker and more common formulation of the continuous case selects, for
+each $m$, some member of the regularizing net within $1/m$ of
+$\varphi$, and then observes that the selected members converge uniformly
+without claiming that they decrease.  \Cref{cor:ch22-continuous-decreasing-sequence}
+shows that directedness of $I$ allows the selection to be made decreasing,
+at no cost.  This matters where monotonicity is used later --- for instance
+in the monotone extension of the Monge--Amp\`ere operator
+(\Cref{thm:bounded-ma-extension}) --- and it is the form in which
+\Cref{thm:ch21-continuous-zhang} uses the present theorem.  What is
+\emph{not} improved is the singular case: there the index set $I$ has no
+countable cofinal subset in general, and no argument in this chapter
+produces a sequence.
+\end{remark}
+
+\subsection{Decreasing selection on a fixed skeleton}
+
+On one dual complex the situation is different, because a dual complex is
+compact metrizable.  The following principle is the decreasing counterpart
+of the fixed-skeleton selection \Cref{prop:ch23-fixed-skeleton-selection},
+and it is proved by the same dense-set, common-modulus and Dini
+architecture.
+
+\begin{proposition}
+\label{prop:ch22-fixed-skeleton-decreasing}
+Let $\mathcal X$ be an SNC model determining $\theta$, write
+$\Delta=\Delta_{\mathcal X}$, and let
+$\mathcal G\subset\PSH(X,\theta)$ be nonempty and downward directed for
+the pointwise order on $X^{\An}$.  Assume that
+
+\[
+ u:=\inf_{\psi\in\mathcal G}\psi|_\Delta
+\]
+
+is finite at one point of $\Delta$.  Then $u$ is finite and continuous
+on $\Delta$, and there is a decreasing sequence
+$(\psi_j)_{j\geq1}$ in $\mathcal G$ with
+$\psi_j|_\Delta\to u$ uniformly on $\Delta$.
+\end{proposition}
+
+\begin{proof}
+\emph{Common modulus.}  Fix $\psi_0\in\mathcal G$ and discard from
+$\mathcal G$ every member not dominated by $\psi_0$; by directedness the
+remaining family is still downward directed with the same infimum.  All
+members now satisfy $\psi\leq\psi_0$, so their suprema are bounded above,
+and by hypothesis $u(y_0)>-\infty$ for some $y_0\in\Delta$, whence
+$\psi(y_0)\geq u(y_0)$ for all $\psi$.  Applying
+\Cref{thm:bfj-skeletal-equicontinuity} to
+$\psi-\sup\psi$ and \Cref{cor:ch22-explicit-modulus}, we obtain one
+constant $C$ such that every $\psi|_\Delta$ is $C$-Lipschitz for
+$d_\Delta$; combined with the two-sided bound at $y_0$ and the bounded
+diameter of $\Delta$, the restrictions are uniformly bounded on
+$\Delta$.  A pointwise infimum of a family of $C$-Lipschitz functions
+with a common bound is $C$-Lipschitz and finite; hence $u$ is continuous
+on $\Delta$.
+
+\emph{Dense set and finite minima.}  The complex $\Delta$ is compact
+metrizable by \Cref{lem:ch22-path-metric}; choose a countable dense set
+$(x_k)_{k\geq1}$.  For all $k,m\geq1$ select
+$\eta_{k,m}\in\mathcal G$ with
+
+\[
+                     \eta_{k,m}(x_k)<u(x_k)+m^{-1},
+\tag{22.81}\label{eq:ch22-dense-selection}
+\]
+
+which is possible by definition of the infimum.  Enumerate the countable
+family $\{\eta_{k,m}\}$ as $(\eta_j)_{j\geq1}$ and construct
+$\psi_j\in\mathcal G$ recursively: let $\psi_1$ be a common successor of
+$\psi_0$ and $\eta_1$, and let $\psi_{j+1}$ be a common successor of
+$\psi_j$ and $\eta_{j+1}$.  Directedness makes this possible, and by
+construction $(\psi_j)$ is decreasing with
+$\psi_j\leq\eta_j$.
+
+\emph{Conclusion.}  The decreasing sequence $(\psi_j|_\Delta)$ has a
+pointwise limit $w\geq u$ on $\Delta$, and $w\leq\eta_j$ forces
+$w(x_k)\leq u(x_k)$ for every $k$ by
+\eqref{eq:ch22-dense-selection}; hence $w=u$ on a dense set.  Both
+functions are $C$-Lipschitz, so $w=u$ on $\Delta$.  Since $u$ is
+continuous and the convergence is monotone on a compact space, Dini's
+theorem \Cref{prop:dini-nets} makes it uniform.
+\end{proof}
+
+\begin{warning}{The selection is skeleton by skeleton}
+\Cref{prop:ch22-fixed-skeleton-decreasing} produces one sequence for one
+prescribed dual complex.  It asserts nothing about all complexes at once,
+and the corresponding global statement is not available: it would require a
+countable cofinal system of models, which does not exist by
+\Cref{ex:ch22-no-countable-cofinal}.  The same restriction is imposed on the
+increasing version \Cref{prop:ch23-fixed-skeleton-selection}, and for the
+same reason.  Whenever a later argument needs a sequence on a skeleton --- a
+measure carried by one complex, an integral against such a measure --- it
+must name the complex first.
+\end{warning}
+
+\begin{remark}[Hypotheses of \Cref{thm:bfj-decreasing-regularization}, in full view]
+\label{rem:ch22-regularization-hypotheses}
+The theorem has been proved under the standing hypotheses, and every one of
+them is used.  The field is complete discretely valued of residue
+characteristic zero: discreteness enters through the model theory of
+\Cref{chap:bfj-model-forms} and residue characteristic zero through
+\Cref{prop:snc-cofinal} and the package \textup{(M)}.  The variety is smooth
+and projective: smoothness supports resolution and the SNC models, and
+projectivity supports the ample class and Serre's theorems.  The class
+$\{\theta\}$ is ample: this is what makes
+$\PSH(X,\theta)$ nonempty (\Cref{prop:ch20-positive-representative}) and
+what the envelope theorem assumes.  No algebraizability of $X$ over a
+function field is assumed here; that hypothesis appears in the original
+solution of the Monge--Amp\`ere equation and is removed in
+\Cref{thm:bggjkm-remove-algebraizability}, for a different reason ---
+orthogonality, not regularization.  Finally, the conclusion is a net; the
+sequential strengthening for continuous $\varphi$ is
+\Cref{cor:ch22-continuous-decreasing-sequence}, and the sequential
+strengthening in general is \Cref{cor:psh-sequential-regularization}, proved
+by capacity in \Cref{chap:bfj-capacity}.
+\end{remark}
+
+\section{The exact role of residue characteristic zero}
+\label{sec:ch22-char-zero}
+
+Residue characteristic zero has been invoked three times in this chapter,
+always by reference and never inside a computation.  Because it is easy to
+attribute more to it than is true, and equally easy to attribute less, this
+section is an inventory: what uses it, what does not, what is known without
+it, and what must not be said.
+
+\subsection{Inventory}
+
+\begin{center}
+\small
+\begin{tabular}{p{0.30\textwidth}p{0.24\textwidth}p{0.36\textwidth}}
+\toprule
+Statement & Uses residue char.\ $0$? & Through what\\
+\midrule
+\Cref{lem:ch22-incidence-signs} & no & intersection theory, formal
+functions\\
+\Cref{prop:ch22-vertex-estimate} & no & the above and connectedness\\
+\Cref{lem:ch22-nef-approximation}, \Cref{lem:ch22-negativity} & no &
+Kleiman's criterion, relative generation\\
+\Cref{lem:ch22-star-shrinking} & no & the toroidal part of
+\Cref{thm:skeleton-subdivision}\\
+\Cref{prop:ch22-slope-estimate} & no & the four items above\\
+\Cref{thm:bfj-skeletal-equicontinuity} & no & the two estimates\\
+\Cref{def:ch22-bfj-topology} & \emph{yes} &
+\Cref{prop:snc-cofinal}: the coordinates must be cofinal\\
+\Cref{thm:ch22-proper-normalization}, \Cref{thm:bfj-psh-compactness}
+ & \emph{yes}, indirectly & through the definition of the topology and
+   \Cref{thm:bfj-skeletal-characterization}\\
+Package \textup{(M)}, \Cref{sec:ch22-multiplier} & \emph{yes} &
+log resolutions, subadditivity, relative Nadel vanishing\\
+\Cref{thm:bfj-decreasing-regularization} & \emph{yes} & only through
+\Cref{thm:bfj-envelope-regularity}\\
+\Cref{prop:ch22-fixed-skeleton-decreasing},
+\Cref{cor:ch22-continuous-decreasing-sequence} & no & order theory and
+Dini, given the input\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The first six rows are \Cref{prop:ch22-characteristic-free-estimates}.  The
+remaining ones split into two genuinely different uses, discussed next.
+
+\subsection{First use: cofinality of SNC models}
+
+The definition of a BFJ psh function quantifies over SNC models
+(\Cref{def:ch21-bfj-psh}), the reconstruction formula
+\eqref{eq:ch21-skeletal-reconstruction} takes an infimum over them, and the
+topology \eqref{eq:ch22-product-embedding} takes a product over them.  All
+three are informative only because SNC models are cofinal among all models,
+which is \Cref{prop:snc-cofinal}, itself an application of resolution and
+principalization in the form \Cref{thm:appB-resolution}.  If cofinality
+fails, the union of the dual complexes of those models that happen to be SNC
+need not be dense in $X^{\An}$, the inverse-limit description
+\Cref{thm:skeleton-inverse-limit} may fail, and the coordinates of
+\eqref{eq:ch22-product-embedding} may lose information --- an uncountable
+version of the blind spot of
+\Cref{ex:ch22-countable-blind-spot}.  This is spelled out in
+\Cref{rem:cofinality-scope}, which is the place in this book where the
+failure is analyzed.
+
+Two further consequences in the immediate neighbourhood should be recorded.
+The exactness of \eqref{eq:ch20-ddc-exact} was proved on regular models and
+then passed to the limit using their cofinality, so it too carries the
+hypothesis.  And the substitute usually proposed --- de Jong's semistable
+alteration theorem, \Cref{thm:appB-de-jong} --- produces a generically
+finite cover rather than a birational modification, hence does not restore
+cofinality of models of the given $X$; it changes the variety.
+
+\subsection{Second use: the multiplier-ideal package}
+
+The package \textup{(M)} of \Cref{sec:ch22-multiplier} uses residue
+characteristic zero in each of its three parts, and for different reasons:
+
+\begin{enumerate}
+\item the definition of $\mathcal J(\mathfrak a_\bullet^m)$ requires a log
+resolution of the pair, \Cref{def:appB-log-resolution}, which is available
+for excellent regular schemes with residue characteristic zero by
+\Cref{thm:appB-resolution}, and is not known in general otherwise;
+\item subadditivity (M2) is the theorem of Demailly, Ein and Lazarsfeld
+\Cref{thm:appC-multiplier-subadditivity}, whose proof restricts to the
+diagonal of a product and uses smoothness there
+\cite[Theorem~2.3]{DEL00};
+\item uniform global generation (M3) is proved from relative Nadel vanishing
+and Castelnuovo--Mumford regularity, \Cref{thm:appC-uniform-generation-multiplier};
+Kodaira-type vanishing theorems are false in positive characteristic, so
+this proof does not transpose.
+\end{enumerate}
+
+By contrast, (M4) is a valuative estimate, and it does have a
+positive-characteristic analogue: the test-ideal discrepancy inequality
+\eqref{eq:appC-test-discrepancy}.  This asymmetry is the reason the
+positive-characteristic theory of \Cref{chap:bfj-continuity} is possible at
+all, and also the reason it is not a formal transcription: the objects
+change, and only their inequalities survive.
+
+\subsection{What is known without residue characteristic zero}
+
+\begin{enumerate}
+\item \emph{The estimates.}  \Cref{prop:ch22-characteristic-free-estimates}:
+vertex and slope bounds, hence facewise equicontinuity, hold on any SNC
+model over any complete discretely valued field.  What is lost is not the
+estimate but the supply of complexes.
+\item \emph{Curves.}  For an ample line bundle on a smooth projective
+geometrically connected curve over an arbitrary complete nontrivially
+valued field, the semipositive metric envelope is continuous
+\cite[Theorem~1.1]{GJKM19}; see
+\Cref{thm:curves-arbitrary-field-continuity}.  This is a rational-model
+envelope statement.  Transporting
+\Cref{thm:bfj-decreasing-regularization} to that setting additionally
+requires its singular-psh class, skeletal hypotheses, and envelope
+identification; it is not a consequence of notation alone.
+\item \emph{Equal positive characteristic.}  Over a complete discretely
+valued field of characteristic $p>0$, for a smooth projective variety of
+geometric origin from a $d$-dimensional family, and assuming resolution
+and embedded resolution over the base field in dimension $d+n$,
+Gubler--Jell--K\"unnemann--Martin prove continuity of envelopes with test
+ideals in place of multiplier ideals and deduce monotone regularization;
+this is \Cref{thm:gjkm-positive-characteristic-cy} and \cite{GJKM19}.  The
+hypotheses are unconditional for surfaces of the stated geometric origin.
+\item \emph{Mixed characteristic.}  Conditionally on resolution for
+projective models and embedded resolution for regular projective models,
+the same architecture runs with perturbation-friendly test ideals; this is
+\Cref{thm:fgk-mixed-characteristic-cy}.
+\item \emph{The trivially valued theory.}  \Cref{part:bj} proves the
+envelope property in arbitrary characteristic by a different route, using
+test ideals on $X\times\mathbf A^1$ in characteristic $p$
+(\Cref{chap:bj-smooth-characteristic}) and finite descent; it is not
+obtained from the present chapter by specialization.
+\end{enumerate}
+
+\begin{warning}{Four statements that would be false or unproved}
+\begin{enumerate}
+\item ``SNC models are cofinal'' --- unproved in positive or mixed residue
+characteristic in dimension $\geq3$; see \Cref{rem:cofinality-scope}.
+\item ``Multiplier ideals may be defined on any regular model'' --- the
+definition \eqref{eq:appC-multiplier-resolution} needs a log resolution.
+\item ``\Cref{thm:bfj-decreasing-regularization} holds over any complete
+discretely valued field'' --- what holds in that generality is
+\Cref{prop:ch22-characteristic-free-estimates}, not the theorem.
+\item ``Test ideals are multiplier ideals in characteristic $p$'' --- the
+comparison \Cref{thm:appC-hara-yoshida} holds only after spreading out and
+excluding finitely many primes, and
+\Cref{ex:ch22-fpt-cusp} shows that the two invariants genuinely differ.
+\end{enumerate}
+\end{warning}
+
+\subsection{The boundary, computed on an example}
+
+The failure in positive characteristic is not a counterexample to
+compactness or to regularization; no such counterexample is known.  It is
+the failure of the \emph{inputs}, and the following classical computation
+shows that the failure is real and quantitative rather than a defect of
+proof technique: the characteristic-$p$ substitute for a multiplier ideal
+computes a different number.
+
+\begin{example}[The cusp: a threshold that depends on $p$]
+\label{ex:ch22-fpt-cusp}
+Let $f=x^2+y^3$ in two variables over an algebraically closed field.  In
+characteristic zero the log canonical threshold at the origin is
+
+\[
+ \lct(f)=\frac12+\frac13=\frac56 ,
+\tag{22.82}\label{eq:ch22-lct-cusp}
+\]
+
+the value at which the multiplier ideal
+$\mathcal J((f)^c)$ first becomes nontrivial; this is
+\Cref{ex:appC-snc} applied to the log resolution of the cusp.  In
+characteristic $p>0$ the corresponding invariant for test ideals is the
+$F$-pure threshold
+$\operatorname{fpt}(f)=\lim_{e\to\infty}p^{-e}\nu(p^e)$, where
+$\nu(p^e)$ is the largest $r$ with
+$f^r\notin(x^{p^e},y^{p^e})$.  Expanding
+$f^r=\sum_k\binom rkx^{2(r-k)}y^{3k}$ and applying Lucas's congruence to
+the binomial coefficients gives
+
+\[
+ \operatorname{fpt}(x^2+y^3)=
+ \begin{cases}
+  \tfrac12,&p=2,\\[1mm]
+  \tfrac23,&p=3,\\[1mm]
+  \tfrac56,&p\equiv1\ (\mathrm{mod}\ 6),\\[1mm]
+  \tfrac56-\dfrac1{6p},&p\equiv5\ (\mathrm{mod}\ 6).
+ \end{cases}
+\tag{22.83}\label{eq:ch22-fpt-cusp}
+\]
+
+Three sample verifications, each a finite computation.  For $p=3$ and
+$e=2$ the admissible pairs $(r,k)$ satisfy $k\leq2$ and
+$r-k\leq4$; the only candidate with $r=6$ is $k=2$, and
+$\binom62=15\equiv0$, while $r=5,k=1$ gives $\binom51=5\equiv2$, so
+$\nu(9)=5$ and $5/9=\tfrac23-\tfrac19$.  For $p=5$ and $e=2$ one
+finds $\nu(25)=19$ and $19/25=\tfrac45-\tfrac1{25}$, consistent with
+$\operatorname{fpt}=\tfrac45=\tfrac56-\tfrac1{30}$.  For $p=7$ one finds
+$\nu(7^e)=5(7^e-1)/6$, so $\operatorname{fpt}=\tfrac56$ exactly, as
+predicted by $6\mid p-1$.
+
+Two conclusions.  First, for the infinitely many primes
+$p\equiv5\ (\mathrm{mod}\ 6)$ the characteristic-$p$ invariant is
+strictly smaller than \eqref{eq:ch22-lct-cusp}, so no characteristic-free
+identity of ideals can hold; this is the quantitative content of the
+firewall \Cref{check:appC-characteristic-firewall}, and it is compatible
+with \Cref{thm:appC-hara-yoshida}.  That theorem fixes a rational exponent
+$c$ and compares the two ideals after spreading out; it does not assert
+equality of the entire threshold as $p$ varies, and the excluded set of
+primes may depend on $c$.  The numerical discrepancy $1/(6p)$ merely
+tends to zero.  Second, what survives uniformly in $p$
+is the \emph{inequality} \eqref{eq:appC-test-discrepancy}, and it is
+precisely the inequalities, not the identities, that the envelope argument
+of \cite{GJKM19} consumes.  The general theory of these thresholds is in
+\cite{HY03} and \cite{ST12}; the computation above is the standard cusp
+example.
+\end{example}
+
+\begin{remark}[How to state a theorem in this chapter]
+\label{rem:ch22-how-to-state}
+The discipline that follows from this section is simple.  An estimate proved
+by intersection theory on a fixed model may be stated for a complete
+discretely valued field of arbitrary residue characteristic.  A statement
+that quantifies over all SNC models, or that uses the reconstruction of a
+psh function from its skeletal restrictions, carries residue characteristic
+zero.  A statement whose proof passes through envelopes carries it twice
+over.  In the rest of \Cref{part:bfj}, the standing hypotheses of
+\Cref{chap:bfj-model-forms} are in force, so the distinction is invisible;
+it becomes visible again in
+\Cref{chap:bfj-continuity}, whose hypothesis atlas should be read together
+with the present inventory.
+\end{remark}
+
+\section{Worked examples}
+\label{sec:ch22-worked-examples}
+
+\begin{example}[A decreasing regularization computed on a curve skeleton]
+\label{ex:ch22-regularization-curve}
+We compute the net of \Cref{thm:bfj-decreasing-regularization} explicitly in
+a case where it can be written down.
+
+\emph{The data.}  Let $k$ be algebraically closed of characteristic zero,
+$R=k[[t]]$, $K=k((t))$, $X=\mathbf P^1_K$ with coordinate $w$, and
+$\mathcal X=\mathbf P^1_R$, so that $\mathcal X_s=E\cong\mathbf P^1_k$ is
+reduced and irreducible and $\Delta_{\mathcal X}$ is the single Gauss point
+$x_E$.  Let $L=\cO_X(1)$, let $\theta$ be the curvature of the model
+metric induced by $\cO_{\mathcal X}(1)$, so $(\theta\cdot E)=\deg L=1$,
+and put
+
+\[
+ \varphi(x):=-\max\{0,v_x(w)\}
+ =\min\{0,\log|w(x)|\},
+ \qquad x\in X^{\An}.
+\tag{22.84}\label{eq:ch22-green-function}
+\]
+
+Thus $\varphi=0$ outside the open disc $\{|w|<1\}$, $\varphi(x)=-v_x(w)$
+inside it, and $\varphi=-\infty$ exactly at the $K$-point $w=0$.
+
+\emph{The models.}  Let $\mathcal X_m$ be obtained from $\mathcal X$ by
+blowing up $m$ times, starting at the reduction of the section
+$\{w=0\}$ and continuing at the intersection of the last exceptional
+divisor with the strict transform of that section.  All exceptional
+components $F_1,\ldots,F_m$ have multiplicity one, and
+
+\[
+ v_{x_{F_j}}(w)=j,\qquad j=1,\ldots,m .
+\]
+
+The dual complex $\Delta_{\mathcal X_m}$ is the chain
+$x_E,x_{F_1},\ldots,x_{F_m}$; in the coordinate $s=v(w)$ it is the
+segment $[0,m]$ with vertices at the integers, each edge of lattice length
+one, as in \Cref{ex:dual-complex-chain-cycle}.
+
+\emph{The regularizing sequence.}  Put
+
+\[
+ \varphi_m:=\max\{\varphi,-m\}
+ =\varphi_{D_m},
+ \qquad
+ D_m:=-\sum_{j=1}^{m}jF_j .
+\tag{22.85}\label{eq:ch22-truncated-green}
+\]
+
+The second equality holds because a model function determined on
+$\mathcal X_m$ is constant on the fibres of $p_{\mathcal X_m}$ and
+because the coefficients of $D_m$ give, by
+\eqref{eq:ch20-sign}, the values $0,-1,\ldots,-m$ at the vertices; on
+$X^{\An}$ both sides equal $-\min\{v_x(w),m\}$ for
+$v_x(w)\geq0$ and $0$ otherwise.
+
+\emph{The nef test, with numbers.}  Write $\rho_m:\mathcal X_m\to\mathcal X$
+for the composed blowup.  The reference degrees on
+$\mathcal X_m$ are $(\rho_m^*\theta\cdot E)=1$ and
+$(\rho_m^*\theta\cdot F_j)=0$, and the incidence graph is a chain, so
+\eqref{eq:ch20-curve-nef-test} reads
+
+\[
+ \begin{aligned}
+ \text{at }E:&\quad 1+(-1-0)=0\geq0,\\
+ \text{at }F_j,\ 1\leq j\leq m-1:&\quad
+   0+\bigl(-(j-1)+j\bigr)+\bigl(-(j+1)+j\bigr)=0\geq0,\\
+ \text{at }F_m:&\quad 0+\bigl(-(m-1)+m\bigr)=1\geq0 .
+ \end{aligned}
+\tag{22.86}\label{eq:ch22-green-nef-test}
+\]
+
+Hence each $\varphi_m$ is a $\theta$-psh model function, and
+$\varphi_m\searrow\varphi$ pointwise.  This is an explicit instance of
+\eqref{eq:ch22-decreasing-regularization}, computed without any appeal to
+envelopes or multiplier ideals.
+
+\emph{The slope is exactly critical.}  The first line of
+\eqref{eq:ch22-green-nef-test} vanishes: the degree $(\theta\cdot E)=1$ is
+exactly consumed by the outgoing slope $-1$.  Consequently
+$c\varphi$ is \emph{not} $\theta$-psh for $c>1$: the same test gives
+$1-c<0$.  The maximal admissible depth rate is a numerical invariant of
+the polarization, not a defect of the construction; for
+$L=\cO_X(d)$ the admissible rate is $d$.
+
+\emph{Why a sequence sufficed here.}  The polar set of $\varphi$ is one
+$K$-point, and the models $\mathcal X_m$ form a countable chain adapted
+to it.  Nothing of the kind is available in general: by
+\Cref{ex:ch22-no-countable-cofinal} the model system has no countable
+cofinal subsystem, and by \Cref{prop:ch22-multiplier-interface} the general
+proof produces only a net.  A general sequential statement does exist, but
+its proof is the capacity argument of
+\Cref{cor:psh-sequential-regularization}, not the argument of this chapter.
+\end{example}
+
+\begin{example}[Why one skeleton is not enough]
+\label{ex:ch22-one-skeleton-insufficient}
+Blow up a closed point $z$ of one component of a regular model, as in
+\Cref{lem:ch22-bump}.  The old dual complex embeds in the refined one by
+\Cref{prop:skeleton-nesting}, but the exceptional component contributes a
+new vertex.  A vertical divisor supported on that exceptional component,
+small enough to be absorbed by the fixed relatively ample reference class,
+has a $\theta$-psh model function that vanishes at every old vertex and is
+nonzero at the new one: this is exactly
+$\varphi_z$ of \eqref{eq:ch22-bump-function}, with
+
+\[
+ \varphi_z|_{\Delta_{\mathcal X}}=0,
+ \qquad
+ \varphi_z(x_{F_z})=-1 .
+\]
+
+Thus convergence on a single skeleton cannot define the BFJ topology; every
+fixed skeleton is only one finite-dimensional coordinate of
+\eqref{eq:ch22-product-embedding}, and by
+\Cref{ex:ch22-countable-blind-spot} countably many coordinates are still not
+enough.
+\end{example}
+
+\begin{example}[Dini selection]
+\label{ex:ch22-dini-selection}
+Suppose a decreasing regularizing net $\varphi_i$ has continuous limit
+$\varphi$.  The open sets
+
+\[
+                     U_i^{(m)}=\{\varphi_i<\varphi+1/m\}
+\]
+
+increase with $i$ and cover the compact Berkovich space $X^{\An}$.
+Directedness gives one index $i(m)$ with
+$U_{i(m)}^{(m)}=X^{\An}$.  Hence
+
+\[
+             0\leq\varphi_{i(m)}-\varphi<1/m
+             \quad\text{uniformly}.
+\]
+
+This is the proof of \Cref{prop:dini-nets} written out in the case at hand,
+and it produces the sequence in the last assertion of
+\Cref{thm:bfj-decreasing-regularization} without assuming that the model
+system is countable.  Combining it with directedness, as in
+\Cref{cor:ch22-continuous-decreasing-sequence}, makes the selected sequence
+decreasing as well.
+\end{example}
+
+\begin{example}[Compactness of a normalized family, tested on the segment]
+\label{ex:ch22-compactness-segment}
+Return to \Cref{ex:ch22-modulus-segment}, with $d_0=1$, $d_1=2$.  By
+\eqref{eq:ch22-curve-slope-form} and
+\Cref{thm:bfj-skeletal-equicontinuity}, the normalized restrictions to the
+segment all lie in
+
+\[
+ \mathcal K=\bigl\{u:[0,1]\to[-2,0]\ \text{convex},\
+       u'(0^+)\geq-1,\ u'(1^-)\leq2,\ \max u=0\bigr\},
+\]
+
+a uniformly bounded, uniformly Lipschitz, closed subset of
+$C^0([0,1])$, hence compact by Arzel\`a--Ascoli, in accordance with
+\Cref{cor:ch22-arzela-ascoli}.  Its deepest member is
+\eqref{eq:ch22-flat-extremal}, with minimum $-2$: if the maximum is
+attained at $t=1$, convexity and $u'(1^-)\leq2$ give
+$u(t)\geq2(t-1)$, and if it is attained at $t=0$, convexity and
+$u'(0^+)\geq-1$ give $u(t)\geq-t$.  Compactness on
+this one complex is elementary and metric.  What
+\Cref{thm:bfj-psh-compactness} adds is the compatibility of all such
+compactness statements across the uncountable system of models, and that is
+where Tychonoff and the net formulation enter.
+\end{example}
+
+\section{Where the deep inputs occur}
+\label{sec:ch22-ledger}
+
+The following ledger prevents later arguments from attributing too much to
+compactness alone.  It refines the table of
+\Cref{sec:ch22-signature} by naming, for each step, the nonformal
+ingredient and the statement in which it is proved or imported.
+
+\begin{center}
+\small
+\begin{tabular}{p{0.26\textwidth}p{0.64\textwidth}}
+\toprule
+Step & Nonformal input \\
+\midrule
+Vertex bounds & Relative nef intersection and connectedness of the special
+fibre; see \eqref{eq:ch22-vertex-intersection} and
+\Cref{lem:ch22-incidence-signs}.\\
+Nef approximation & Kleiman's criterion in the relative form,
+\Cref{lem:ch22-nef-approximation}; relative global generation.\\
+Negativity lemma & Vertical $\mathbf Q$-factoriality and relative
+generation, \Cref{lem:ch22-negativity}; no vanishing theorem.\\
+Slope bounds & Projective toroidal subdivisions
+(\Cref{lem:ch22-star-shrinking}), their realization by vertical blowups
+(\Cref{thm:skeleton-subdivision}), and the negativity lemma; see
+\eqref{eq:ch22-slope-intersection}.\\
+Simplex lemma & Convex geometry only, \Cref{lem:ch22-simplex}; the constant
+is \eqref{eq:ch22-gauge}.\\
+Compactness & The preceding uniform estimates; Arzel\`a--Ascoli and
+Tychonoff are then formal topology, and the index set is uncountable
+(\Cref{ex:ch22-no-countable-cofinal}).\\
+The topology is informative & Cofinality of SNC models,
+\Cref{prop:snc-cofinal}, hence resolution of singularities.\\
+Upper-envelope stability & Skeletal equicontinuity and convexity, in
+\Cref{thm:ch23-upper-envelope}; no multiplier ideal is used.\\
+Envelope regularity & Log resolutions, asymptotic multiplier ideals,
+subadditivity, and uniform global generation on regular models: the package
+\textup{(M)} of \Cref{sec:ch22-multiplier}.\\
+Decreasing net & The elementary order construction
+\eqref{eq:ch22-inf-majorants}--\eqref{eq:ch22-directed-majorant}, once
+envelope regularity is known, together with
+\Cref{lem:ch22-continuous-majorant}.\\
+Decreasing sequence, continuous case & Dini for nets and directedness,
+\Cref{cor:ch22-continuous-decreasing-sequence}; no countability of the model
+system.\\
+Decreasing sequence, general case & Not proved here: it is the capacity
+argument \Cref{cor:psh-sequential-regularization}.\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Residue characteristic zero is used to obtain the cofinal regular and SNC
+models and the multiplier-ideal inputs in the original proof, as itemized in
+\Cref{sec:ch22-char-zero}.  Arzel\`a--Ascoli, Tychonoff, Dini, and the final
+order argument have no characteristic restriction of their own.
+
+\section{Chapter dictionary}
+\label{sec:ch22-dictionary}
+
+\[
+\begin{array}{ccl}
+\text{relative nefness on a model}
+ &\longleftrightarrow&
+ \text{linear inequalities on vertex values},\\[1mm]
+\text{toroidal star shrinking}
+ &\longleftrightarrow&
+ \text{derivatives become vertex values},\\[1mm]
+\text{uniform intersection bounds}
+ &\longleftrightarrow&
+ \text{equicontinuity on }\Delta_{\mathcal X},\\[1mm]
+\text{product over models}
+ &\longleftrightarrow&
+ \text{BFJ topology; nets, not sequences},\\[1mm]
+\text{continuity of envelopes}
+ &\longleftrightarrow&
+ \text{decreasing model regularization}.
+\end{array}
+\]
+
+In more detail, the chapter establishes the following correspondences and
+records where each is used next.
+
+\begin{center}
+\small
+\begin{tabular}{p{0.27\textwidth}|p{0.34\textwidth}|p{0.31\textwidth}}
+\textbf{Object}&\textbf{Established property}&\textbf{First use}\\ \hline
+incidence numbers $w_{ij}$
+ &Laplacian signs \eqref{eq:ch22-off-diagonal-positive},
+  \eqref{eq:ch22-row-sum-zero}
+ &\Cref{prop:ch22-vertex-estimate}\\
+vertex estimate
+ &explicit constant \eqref{eq:ch22-vertex-lower-bound}
+ &\Cref{prop:ch22-slope-estimate}, \Cref{chap:bfj-energy}\\
+star shrinking
+ &\Cref{lem:ch22-star-shrinking}, realized by a
+  $\mathbf Q$-factorial toroidal blowup
+ &\Cref{prop:ch22-slope-estimate}\\
+negativity lemma
+ &\eqref{eq:ch22-negativity}
+ &\Cref{prop:ch22-slope-estimate}\\
+simplex lemma
+ &\eqref{eq:ch22-simplex-lipschitz} with gauge
+  \eqref{eq:ch22-gauge}
+ &\Cref{prop:ch22-slope-estimate},
+  \Cref{ex:ch22-modulus-triangle}\\
+skeletal estimate
+ &\Cref{thm:bfj-skeletal-equicontinuity}
+ &\Cref{thm:ch21-decreasing-stability},
+  \Cref{thm:ch23-upper-envelope},
+  \Cref{chap:bfj-finite-energy-measures}\\
+modulus of continuity
+ &\eqref{eq:ch22-modulus}
+ &\Cref{prop:ch23-fixed-skeleton-selection},
+  \Cref{prop:ch22-fixed-skeleton-decreasing}\\
+BFJ topology
+ &\Cref{def:ch22-bfj-topology}; three equivalent descriptions
+ &\Cref{thm:bfj-psh-compactness}, \Cref{chap:bfj-energy}\\
+properness of $\sup$
+ &\Cref{thm:ch22-proper-normalization}
+ &\Cref{thm:bfj-psh-compactness}\\
+compactness modulo constants
+ &\Cref{thm:bfj-psh-compactness}, in net form
+ &\Cref{chap:bfj-finite-energy-measures},
+  \Cref{chap:bfj-continuity}\\
+continuous majorants
+ &\Cref{lem:ch22-continuous-majorant}
+ &\Cref{thm:bfj-decreasing-regularization}\\
+decreasing regularization
+ &\Cref{thm:bfj-decreasing-regularization}
+ &\Cref{thm:ch21-continuous-zhang},
+  \Cref{thm:bounded-ma-extension},
+  \Cref{chap:bfj-capacity}\\
+decreasing sequence, continuous case
+ &\Cref{cor:ch22-continuous-decreasing-sequence}
+ &\Cref{thm:ch21-continuous-zhang}\\
+characteristic ledger
+ &\Cref{prop:ch22-characteristic-free-estimates},
+  \Cref{sec:ch22-char-zero}
+ &\Cref{chap:bfj-continuity}\\
+\end{tabular}
+\end{center}
+
+\section*{Notes and further reading}
+
+The facewise Lipschitz estimate is \cite[Theorem~6.1]{BFJ16}; its passage to
+general psh functions, the properness of the normalization, compactness, and
+the equivalence of the three descriptions of the topology are in
+\cite[Section~7]{BFJ16}.  Decreasing regularization is
+\cite[Theorem~8.7]{BFJ16}.  Its multiplier-ideal input is presented in
+\Cref{chap:bfj-envelopes}, with the general algebra of asymptotic multiplier
+ideals reviewed in \Cref{app:ideals} and the model-level package quoted in
+\Cref{sec:ch22-multiplier} from \cite[Appendix~B]{BFJ16}.  The negativity
+lemma in the form used here is \cite[Lemma~1.6]{BFJ16}; the realization of
+projective subdivisions by normalized blowups is
+\cite[Theorem~3.15]{BFJ16}, proved in this book as
+\Cref{thm:skeleton-subdivision}.
+
+Three points of presentation depart from the source and should be flagged.
+First, the exponent in the slope--intersection inequality
+\eqref{eq:ch22-slope-intersection} is $n-\#J$.  Indeed,
+$\dim E_J=n+1-\#J$, and the pullback-positivity lemma invoked in the
+source proof pairs one divisor with $\dim E_J-1$ ample classes.  The
+printed display \cite[(6.3)]{BFJ16} has $n-\#J-1$, which leaves a
+one-cycle rather than a number and is negative when $n=\#J=1$.  The
+dimensionally forced correction changes no sign or normalization and is
+recorded in \Cref{app:provenance}.  Second, the simplex
+lemma is proved here with an explicit constant, the gauge
+\eqref{eq:ch22-gauge} of the convex hull of the edge vectors, rather than
+quoted; the gauge is computed in
+\Cref{ex:ch22-gauge-computed} and shown to be attained in
+\Cref{ex:ch22-modulus-triangle}.  Third, the continuous majorant lemma
+\Cref{lem:ch22-continuous-majorant}, which is what allows an upper
+semicontinuous $\varphi$ to be attacked by continuous obstacles, is proved
+here rather than assumed; on a compact Hausdorff space it is a two-line
+consequence of Urysohn's lemma, and it is the only place where normality of
+$X^{\An}$ is used.
+
+The present proof deliberately keeps nets visible.  \Cref{app:nets} records
+the compactness, Dini, and Choquet facts in the form used, and
+\Cref{chap:topological-tools} proves them.  The blind-spot example
+\Cref{ex:ch22-countable-blind-spot} is elementary and is included because
+the temptation to extract a diagonal subsequence over countably many
+skeleta is strong and the failure is invisible in the notation; the
+corresponding general warning is
+\Cref{rem:net-vs-sequence-checklist}.  The fixed-skeleton selection
+principles, in their increasing form
+\Cref{prop:ch23-fixed-skeleton-selection} and their decreasing form
+\Cref{prop:ch22-fixed-skeleton-decreasing}, are the sanctioned way to
+reintroduce sequences; both are restricted to one compact dual complex by
+design.
+
+For the positive-characteristic and mixed-characteristic landscape, and for
+the exact hypotheses under which the analogues of the results of this
+chapter are known, see \Cref{chap:bfj-continuity} and its hypothesis atlas;
+the primary sources are \cite{GJKM19} for equal characteristic $p$ with
+test ideals, \cite{BGGJKM20} for the removal of algebraizability in residue
+characteristic zero, and \cite{GM19} for the comparison of algebraic,
+formal, and piecewise linear semipositivity over more general fields.  The
+threshold computation \Cref{ex:ch22-fpt-cusp} is the standard cusp example
+of the test-ideal literature; see \cite{HY03} and \cite{ST12}.

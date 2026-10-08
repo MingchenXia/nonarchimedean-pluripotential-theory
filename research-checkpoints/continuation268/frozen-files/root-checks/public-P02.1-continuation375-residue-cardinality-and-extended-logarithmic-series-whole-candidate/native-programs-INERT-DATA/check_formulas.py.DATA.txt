@@ -1,0 +1,57 @@
+"""Bounded exact-rational checks; no analytic-space correctness claim."""
+from fractions import Fraction
+from itertools import combinations, product
+import json
+import math
+
+
+def clip(t, threshold):
+    return threshold if t is None else max(t, threshold)
+
+
+def run():
+    # None denotes -infinity. The finite series has three terms; thereafter
+    # its padded terms are zero. This is a bounded diagnostic, not a limit test.
+    values = [None, Fraction(0), Fraction(-1, 3), Fraction(-1), Fraction(-4)]
+    weights = [Fraction(1, 2), Fraction(2, 3), Fraction(3, 5)]
+    series_cases = 0
+    for logs in product(values, repeat=3):
+        target = None if None in logs else sum(w * t for w, t in zip(weights, logs))
+        prev = None
+        for j in range(1, 7):
+            got = sum(weights[i] * clip(logs[i], Fraction(-j)) for i in range(min(j, 3)))
+            assert got <= 0
+            assert target is None or got >= target
+            assert prev is None or got <= prev
+            prev = got
+        series_cases += 1
+
+    # Exact representative logarithmic factor norms. Every subset and every
+    # ordered comparable pair of indices is tested in this finite proxy.
+    factors = [Fraction(0), Fraction(-1, 7), Fraction(-2, 3), None]
+    subsets = [s for n in range(5) for s in combinations(range(4), n)]
+    indices = [(s, m) for s in subsets for m in range(1, 7)]
+
+    def net(s, m):
+        if any(factors[i] is None for i in s):
+            return Fraction(0)
+        return max(Fraction(0), 1 + m * sum(factors[i] for i in s))
+
+    comparable = 0
+    for (s, m), (t, n) in product(indices, repeat=2):
+        if set(s).issubset(t) and m <= n:
+            assert net(t, n) <= net(s, m)
+            comparable += 1
+    return {
+        "series_cases": series_cases,
+        "series_stages_per_case": 6,
+        "net_indices": len(indices),
+        "net_comparable_pairs": comparable,
+        "all_assertions_passed": True,
+        "arithmetic": "fractions.Fraction; None is the symbolic -infinity value",
+        "scope": "Exhaustive only for the displayed finite rational proxies; not a proof over analytic spaces or infinite/cardinality domains.",
+    }
+
+
+if __name__ == "__main__":
+    print(json.dumps(run(), indent=2))

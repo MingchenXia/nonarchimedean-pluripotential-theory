@@ -1,0 +1,52 @@
+[
+  {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "programs/check_formulas.py"
+    ],
+    "exit_code": 0,
+    "log": "evidence/formula-checks.json"
+  },
+  {
+    "command": [
+      "pandoc",
+      "P02.1-whole-proof.md",
+      "--standalone",
+      "--from=markdown+tex_math_dollars",
+      "--to=latex",
+      "--output=P02.1-paper.tex"
+    ],
+    "exit_code": 0,
+    "log": "evidence/pandoc.log"
+  },
+  {
+    "command": [
+      "pdflatex",
+      "-interaction=nonstopmode",
+      "-halt-on-error",
+      "-output-directory=build",
+      "P02.1-paper.tex"
+    ],
+    "exit_code": 0,
+    "log": "evidence/latex-pass-1.log"
+  },
+  {
+    "command": [
+      "pdflatex",
+      "-interaction=nonstopmode",
+      "-halt-on-error",
+      "-output-directory=build",
+      "P02.1-paper.tex"
+    ],
+    "exit_code": 0,
+    "log": "evidence/latex-pass-2.log"
+  },
+  {
+    "command": [
+      "python",
+      "programs/assemble_delivery.py"
+    ],
+    "exit_code": 0,
+    "log": "evidence/delivery-assembly.json"
+  }
+]
