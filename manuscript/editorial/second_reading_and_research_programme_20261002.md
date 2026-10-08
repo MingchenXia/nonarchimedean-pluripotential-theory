@@ -3,6 +3,40 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest relative Hessian cloud integration checkpoint, 8 October 2026
+
+The validated edition has 4,642 pages. The
+[integration audit](Truong_relative_Hessian_staged_integration_audit_20261008.md)
+records a boundary/normalization paragraph in 51.6.5 and new L.94. The operator
+D_0=2 dd^c preserves the binding convention. Smooth examples check comparison,
+injectivity, stability and the global Stokes boundary term. A common-trace
+radial family has bounded signed energy and infinite limiting global mass.
+The constant-shift measure test is separate from the Lp uniqueness example.
+None of arXiv:2609.12032v1's general theorems is imported.
+
+All 26 primary pages were read in thirteen individual matching displays.
+The final book gate freshly reads 24 pages in 12 matching displays.
+The first overfull repair, ten-page partial v2 reading, v3 text-only preflight
+and v4 concise ending remain recorded. The
+[formula-rendering addendum](Truong_relative_Hessian_source_formula_rendering_corrections_20261008.md)
+repairs the frozen source-audit formatting without changing the mathematics.
+Full validation and post-render checks pass; all 955 underfull diagnostics
+are inherited. The 13,374 prior number values and 592 citation labels remain.
+One label, one contents row, TD26H and two index terms are added.
+Other 423 TeX inputs, the NonArchimedean bibliography and historical formal
+blocks/proofs/tags remain unchanged. The native catalogue/editor and all
+42 atoms/twelve formal problems are preserved: general BJ22 critical homogeneous
+Siu/envelopes OPEN, LPWZ density UNVERIFIED. No original result, independent
+receipt or new whole-book pass is claimed; the last complete pass is 4 October.
+
+The authored primary checkpoint is already uploaded and remotely verified.
+The byte-verified book exports and
+[activation record](Truong_relative_Hessian_cloud_activation_20261008.json)
+control the new cloud edition; publication receives a separate record.
+Continue regular author-update checks and related primary reading, next
+arXiv:2610.00361v1 on a pluripotential approach to polarized Calabi–Yau finiteness.
+Its 34-page PDF and seventeen prepared views have zero actual reading credit.
+
 ## Latest relative Hessian source checkpoint, 8 October 2026
 
 The [source audit](Truong_relative_Hessian_source_review_20261008.md)

@@ -4,6 +4,18 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest checked book integration, 8 October 2026:** the
+[relative Hessian boundary audit](manuscript/editorial/Truong_relative_Hessian_staged_integration_audit_20261008.md)
+adds the local normalization paragraph in 51.6.5 and L.94's smooth boundary
+and radial mass tests. The source operator is rescaled explicitly and none of
+the preprint's general theorems is imported. All 24 selected book pages were
+freshly read in 12 matching displays; mechanical and post-render gates pass.
+The [formatting addendum](manuscript/editorial/Truong_relative_Hessian_source_formula_rendering_corrections_20261008.md)
+supplies readable frozen audit formulas. The
+[activation record](manuscript/editorial/Truong_relative_Hessian_cloud_activation_20261008.json)
+controls the 4,642-page cloud edition. No original general theorem, new
+whole-book pass or canonical status change is claimed.
+
 **Latest relative Hessian source checkpoint, 8 October 2026:** the
 [source audit](manuscript/editorial/Truong_relative_Hessian_source_review_20261008.md)
 completes all 26 pages of arXiv:2609.12032v1 in thirteen individually displayed
@@ -148,7 +160,7 @@ citation values are preserved. The [cloud activation record](manuscript/editoria
 controls the source/PDF update. No whole-book new reading, original general
 result or canonical status change is claimed. Its verified artifacts are uploaded.
 
-The current cloud research-integration build has **4,636 pages**; its
+The current cloud research-integration build has **4,642 pages**; its
 source and checked book/audit exports are published on `work`. The checked
 [geometric-norm account](manuscript/editorial/Temkin_Zutler_geometric_norms_staged_integration_audit_20261008.md)
 adds Sections 4.6.1--4.6.2: tensor and spectral norm distinctions, exact
