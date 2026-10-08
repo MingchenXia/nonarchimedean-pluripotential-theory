@@ -1,0 +1,10 @@
+Initial failures are retained, not erased by later successful reads.
+
+1. First working-file read mistakenly requested manifest index 28 (there are indices 0--27). It printed all of indices 26 and 27 and then exited 1 with IndexError. Index 25 was subsequently read explicitly.
+2. A combined annotations/S291 display exceeded the outer tool output budget. It is not a complete annotation read. All annotation files are reread by the bounded reader below; earlier partial displays are not coverage evidence.
+3. A combined display of the two S291 argument chunks was truncated near the primal-roof discussion. The missing region was subsequently displayed separately with the own bounded reader, bytes 32000--41000. The byte-union report counts requested reads; the repaired displays, rather than the initial aggregate, are the evidence for the complete read.
+4. The first two local TeX passes had cross-reference rerun warnings. Their logs are retained in build/pass1.log and build/pass2.log. A third unchanged-source pass in a fresh recorded run resolved them. Fresh builds likewise retain their own first-pass warnings.
+5. Adding full primary hash provenance produced two overfull-box warnings in build/run-002 (124.64667pt and 2.7991pt). Those logs and input/source snapshots are retained. Formatting the hashes in separate paragraphs resolved the overflow in run-003 and later builds. No mathematical assertion was changed by this formatting fix.
+6. The initial own definition described only rational PCC centers. A final check of whole BMPS3.2 confirmed that printed PCC has rational endpoints, real coefficients and a possibly real barycenter, with tau allowed to equal an assigned cell. The final wording now gives that whole definition. L0 actually uses only its rational-center subfamily, so its density proof and theorem conclusion remain valid. Earlier drafts remain in the per-run snapshots; this source-definition precision is not hidden.
+
+Only own programs are executed. Input files are read-only; no supplied historical runner, emitter, binder, or audit program is invoked.

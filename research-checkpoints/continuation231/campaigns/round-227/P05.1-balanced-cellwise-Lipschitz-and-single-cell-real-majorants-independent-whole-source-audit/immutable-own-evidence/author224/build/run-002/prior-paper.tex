@@ -1,0 +1,1017 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  11pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\newcommand{\ri}{\operatorname{ri}}
+\newcommand{\rec}{\operatorname{rec}}
+\newcommand{\conv}{\operatorname{conv}}
+\newcommand{\cone}{\operatorname{cone}}
+\newcommand{\epi}{\operatorname{epi}}
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\Span}{\operatorname{span}}
+\newcommand{\covol}{\operatorname{covol}}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Finite balanced complexes: uniform cellwise slopes and exact single-cell real polyhedral majorants},
+  pdfauthor={Independent scoped verification draft},
+  colorlinks=true,
+  linkcolor={Maroon},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Finite balanced complexes: uniform cellwise slopes and exact
+single-cell real polyhedral majorants}
+\author{Independent scoped verification draft}
+\date{8 October 2026}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+We independently reconstruct the six units of working299, the five units
+of working296, and the three units of working297. On a finite globally
+embedded rational complex with strictly positive actual real balanced
+top weights and no omitted boundary, a continuous
+printed-polyhedrally-concave function within a bounded distance of a
+cellwise affine real function has uniform Euclidean Lipschitz bounds on
+every closed cell. At every face point it admits a uniformly bounded
+ambient affine support on the entire incident cells. The proof uses
+rational feasible-face approximation, an explicit polyhedral distance
+estimate, covolume conversion of balancing into stationary flux, an
+extended-real directional-derivative argument, and induction over all
+faces. On one closed rational cell, the resulting Lipschitz hypothesis
+permits an exact convex extension to the whole affine hull and
+rational-carrier real piecewise-affine majorants with actual recession
+and prescribed finite rational contacts. An unbalanced orthant example
+has optimal uniform approximation error one half for every finite real
+piecewise-affine competitor. These are scoped results. Shared-face trace
+matching and common-support compatibility after approximation remain
+unproved; the original P05.1 and P05.2 classifications remain OPEN. This
+document is an unverified draft, with candidate=false.
+\end{abstract}
+
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{3}
+\tableofcontents
+}
+\section{Status, domain, and the exact
+assertions}\label{status-domain-and-the-exact-assertions}
+
+The inputs working296, working297, and working299 are proposals rather
+than grants. We verify them below without importing their proofs as
+accepted results. The six supplied whole grants are A224, B225, R230,
+S262, S272, and S291, with their supplied source and reader
+qualifications. They are used only at their stated scope. In particular,
+the main argument does not invoke a compact maximum principle on a
+noncompact space. It does not invoke an operator on a lone unbalanced
+cell, or on a non-piecewise-affine intermediate extension. The detailed
+source ledger is a separate artifact. Source quotations and source
+pixels have not been incorporated in this document.
+
+Let \(X\) be a finite pure \(d\)-dimensional rational polyhedral complex
+globally embedded in a finite-dimensional Euclidean space with a fixed
+lattice. All its closed faces are retained. Distinct cells meet in
+common faces. Fix a rational refinement of this complex. For every top
+cell \(\sigma\), its lattice is the saturated lattice in
+\(T_\sigma=\operatorname{span}(\sigma-\sigma)\). The top weights
+\(w_\sigma\) are strictly positive actual real numbers. At every
+codimension-one face \(\rho\), balancing means \[
+\sum_{\sigma\succ\rho} w_\sigma u_{\sigma/\rho}=0
+\quad\hbox{in the ambient quotient by }T_\rho,
+\] where \(u_{\sigma/\rho}\) is the primitive quotient lattice vector
+directed into \(\sigma\). Balancing is required at every such face,
+including every face which would otherwise be a boundary. No rationality
+of the weights is assumed.
+
+A \emph{printed PCC} is the following finite inequality. At a rational
+center \(y\) in a face \(\tau\), choose rational endpoints \(x_i\) in
+assigned cells \(\sigma_i\succeq\tau\) and nonnegative real coefficients
+\(\alpha_i\) such that \(\sum_i\alpha_i=1\) and
+\(\sum_i\alpha_i x_i=y\). The inequality is
+\[ f(y)\leq\sum_i\alpha_i f(x_i). \] The printed-PC hypothesis means
+that these inequalities hold for the rational structures and incidences
+in the definition. We will use the fixed refinement. Continuity of \(f\)
+is a separate, indispensable hypothesis. We do not assume that an
+arbitrary function satisfying only the rational-point inequalities is
+continuous.
+
+Let \(\gamma\) be an actual continuous real piecewise-affine function
+affine on each cell of the fixed refinement. Put \[
+G=\max_\sigma\|a_\sigma\|,
+\qquad \gamma|_\sigma(x)=\langle a_\sigma,x\rangle+b_\sigma,
+\quad a_\sigma\in T_\sigma.
+\] Here \(a_\sigma\) is the intrinsic gradient, orthogonally embedded in
+the ambient space. Faces inherit the same bound. Neither convexity nor
+printed-PC nor positive growth of \(\gamma\) is needed in the main
+assertion.
+
+\textbf{Theorem 1 (working299, all six units).} There are finite
+constants \(A_X,B_X\) depending on the fixed cell geometry and its
+Euclidean metric, and not on \(f\), its location, \(C\), or the values
+of \(\gamma\), with the following property. If \(f\) is continuous and
+printed-PC and \(|f-\gamma|\leq C\) on \(X\), then every closed convex
+cell has global Euclidean Lipschitz constant at most \(A_XC+B_XG\). At
+every \(y\in X\) there is an ambient vector \(p_y\) of norm at most the
+same bound such that \[
+f(x)\geq f(y)+\langle p_y,x-y\rangle
+\quad\hbox{for every }x\hbox{ in every cell incident to the minimal face of }y.
+\] In particular, the support extends over entire incident cells. The
+constants can be enlarged once so that both conclusions use the same
+pair \(A_X,B_X\).
+
+The metric conclusion is cellwise, and consequently bounds variation
+along any finite polygonal path whose segments lie in cells by its
+Euclidean length. It is not an unqualified ambient-distance statement
+across nonincident cells or components. For example, two disjoint
+parallel affine lines, each carrying a positive balanced one-dimensional
+weight, can have different affine slopes. The ambient distance between
+corresponding points stays fixed while their function values separate
+linearly. Their union meets the main hypotheses with \(C=0\).
+
+\textbf{Theorem 2 (working296, all five units).} Let \(\sigma\) be a
+nonempty closed rational convex cell in its rational affine hull \(Q\).
+Let \(\ell\) be an actual real affine function on \(Q\) whose slope is
+strictly positive on every nonzero direction in
+\(\operatorname{rec}(\sigma)\). Suppose \(f\) is finite continuous
+convex on \(\sigma\), \(|f-\ell|\leq C\), and \(f\) has a finite global
+Euclidean Lipschitz constant. There is a proper convex real
+piecewise-affine auxiliary function \(\Gamma\) on all of \(Q\), with
+rational spatial carrier, equal to \(\ell\) on all of \(\sigma\). There
+is a finite continuous convex function \(F\) on all of \(Q\), equal to
+\(f\) on \(\sigma\), with \(|F-\Gamma|\leq C\). For every \(\eta>0\) and
+every prescribed finite set of rational points of \(\sigma\), there is a
+genuine finite convex real piecewise-affine majorant \(P\) on \(Q\),
+with rational spatial carrier, such that \(F\leq P\leq F+\eta\), with
+equality at the prescribed points and with \(P^\infty=\Gamma^\infty\).
+Restriction gives uniform above-approximants on \(\sigma\) with the
+actual cell recession. A common dyadic shift gives uniformly decreasing
+approximants. Exact contacts refer to the unshifted construction.
+
+When \(f\) is as in Theorem 1 and \(\ell=\gamma|_\sigma\) for an
+admitted positive-growth real PA PC reference, the Lipschitz assumption
+in Theorem 2 is supplied by Theorem 1. The auxiliary \(\Gamma\) does not
+replace the actual reference on \(X\).
+
+\textbf{Theorem 3 (working297, all three units).} On the unbalanced
+orthant \(\sigma=\mathbb R_{\geq0}^2\), let \[
+\gamma(x,y)=x+y,
+\qquad f(x,y)=x+y+\max(0,1-\sqrt{xy}).
+\] This is continuous convex, differs from \(\gamma\) by a number in
+\([0,1]\), and has the same recession. Every finite continuous real PA
+function \(a\) on this orthant satisfies \(\|a-f\|_\infty\geq\tfrac12\).
+The bound is attained by \(a=\gamma+\tfrac12\). This is a boundary
+diagnostic outside the balanced domain, not a counterexample to Theorem
+1 or to the original balanced task.
+
+\section{Elementary foundations used in the
+reconstruction}\label{elementary-foundations-used-in-the-reconstruction}
+
+We disclose the following ordinary foundations: completeness of the real
+numbers; compactness of closed bounded subsets of finite-dimensional
+Euclidean space; elementary Gaussian elimination and finite-dimensional
+linear algebra; the product rule and divergence theorem on polyhedral
+domains with spherical truncation; and one-variable convex secant
+inequalities. Here are the additional consequences we need, with proofs
+to specify their scope.
+
+\textbf{Finite cones and a coefficient bound.} For a fixed finite list
+\(v_1,\ldots,v_m\), every vector in their nonnegative cone has a
+representation using a linearly independent sublist. Indeed, if positive
+coefficients have dependent columns, take a nonzero dependence
+\(\sum_i b_i v_i=0\), reversing its sign to have a positive entry.
+Subtract \(s b_i\) from the coefficients, where
+\(s=\min_{b_i>0} a_i/b_i\). Coefficients remain nonnegative, a positive
+coefficient becomes zero, and the represented vector does not change.
+Repeat. For each independent sublist \(I\), its column map has a linear
+inverse on its image. Thus \[ \sum_{i\in I} a_i\leq K_I\|v\|. \] There
+are only finitely many sublists; their maximum \(K\) works for every
+vector in the cone. This also proves that the cone is closed: for a
+convergent sequence of represented vectors choose a subsequence with one
+independent sublist; its coefficients are bounded and converge along a
+further subsequence. The empty cone is \(\{0\}\) and has coefficient
+bound zero.
+
+If a point \(w\) is outside a closed convex cone \(K\), nearest-point
+separation is elementary. A nearest point \(k\in K\) exists by
+restricting the distance minimization to a sufficiently large closed
+ball. First variation gives \(\langle w-k,z-k\rangle\leq0\) for
+\(z\in K\). Scaling \(k\) and using \(0\in K\) gives
+\(\langle w-k,k\rangle=0\). Consequently \(v=w-k\) satisfies
+\(\langle v,z\rangle\leq0\) on \(K\) and
+\(\langle v,w\rangle=\|v\|^2>0\). This is the only cone separation
+needed below.
+
+\textbf{Finite polyhedral generators and projections.} A rational cone
+given by finitely many homogeneous inequalities has a rational basis for
+its lineality space, obtained from the joint kernel of its rows. Split
+off this space using a rational complementary subspace. In the pointed
+quotient, orient the rows as nonnegative functions on the cone. Their
+sum is positive on every nonzero vector; otherwise all rows vanish,
+giving lineality. Its section at value one is bounded: an unbounded
+sequence, normalized and passed to a unit limit, would give a nonzero
+cone vector at value zero. A bounded polyhedron is the convex hull of
+finitely many vertices. To see this without importing a representation
+theorem, at a nonvertex point choose a nonzero direction annihilating
+its active rows. Moving in both signs reaches additional active rows,
+since the polyhedron is bounded. The original point is a convex
+combination of the two endpoints. Induction on active-row rank ends at
+vertices. Vertices solve finitely many independent systems. Rational
+systems have rational solutions. This proves finite rational generation
+of the pointed cone; adjoin both signs of a rational lineality basis.
+
+Homogenizing a nonempty polyhedron \(A x\leq b\) as \(A t\leq\alpha b\),
+\(\alpha\geq0\), gives, by the same cone result,
+\[ P=\operatorname{conv}\{s_1,\ldots,s_r\}+\operatorname{cone}\{r_1,\ldots,r_k\}. \]
+Generators with positive \(\alpha\) yield the \(s_i\); those with zero
+\(\alpha\) yield recession directions. All spatial data are rational
+when the original rows are rational. Conversely, a finite convex hull
+plus a finite cone is a polyhedron: express it using nonnegative
+coefficients, a sum-one equality for hull coefficients, and a linear
+image. Eliminate variables one at a time. For one variable, pair every
+lower bound with every upper bound and retain rows not involving that
+variable. These finite weak inequalities are exactly the condition that
+the interval of allowable values is nonempty; if one side is absent the
+interval is unbounded and still nonempty. Equalities are two
+inequalities. This proves finite elimination, over either real or
+rational coefficients, and rationality of the projected polyhedron when
+the spatial data are rational. These arguments also apply in a relative
+affine hull.
+
+\textbf{Local convex bounds and relative subgradients.} A finite
+continuous convex function \(u\) on a relatively open neighborhood of
+\(q\) has local Lipschitz bounds and a relative subgradient at \(q\).
+Choose a closed cube centered at \(q\) inside that neighborhood.
+Convexity bounds \(u\) above by the largest vertex value. Reflection
+about \(q\) gives a lower bound on a smaller cube. On a still smaller
+cube, extend the segment between any two points a fixed positive
+distance in either direction within the bounded cube; the convex secant
+inequalities bound its slope by the oscillation divided by that
+distance. This proves local Lipschitzness.
+
+For existence of a subgradient, use the closed convex epigraph over this
+cube. Project \((q,u(q)-t)\) to it, and normalize the vector from the
+projection to that point. As \(t\downarrow0\) the projections converge
+to \((q,u(q))\); compactness of the unit sphere supplies a limiting
+nonzero supporting normal. Its vertical component is nonpositive because
+the epigraph contains upward rays. It cannot be zero: a nonzero purely
+spatial functional cannot have its maximum over a spatial neighborhood
+at its center. Dividing by the negative vertical component gives an
+affine lower support. Convex secants extend this local support over the
+entire original convex domain. A zero-dimensional relative domain has
+the zero subgradient. The same argument on full affine space proves that
+a finite continuous convex function is the supremum of all its affine
+supports. In particular its double convex conjugate equals itself. No
+general duality theorem is being imported here.
+
+\section{L0: real endpoint PCC and convexity on inherited closed
+cells}\label{l0-real-endpoint-pcc-and-convexity-on-inherited-closed-cells}
+
+Fix incident cells \(\sigma_i\succeq\tau\) and a real PCC configuration
+with \(\alpha_i>0\); delete zero coefficients first. Write perspective
+variables \[ (\alpha_i,t_i),\qquad t_i=\alpha_i x_i. \] The conditions
+\(x_i\in\sigma_i\), \(\sum\alpha_i=1\), and \(\sum t_i\in\tau\) are
+finitely many rational weak linear inequalities and equalities in these
+variables. For example, \(A_i x_i\leq b_i\) becomes
+\(A_i t_i\leq\alpha_i b_i\). Equations for relative affine hulls are
+included. Add \(\alpha_i\geq0\).
+
+At the given configuration, impose as equations every inequality that is
+active. This is its minimal feasible face. Gaussian elimination gives a
+rational particular solution and a rational basis for the homogeneous
+solution space. Rational combinations are dense in that affine space.
+All inactive rows have strictly positive slack at the given point, and
+there are only finitely many; sufficiently close approximations preserve
+these inequalities. They also preserve \(\alpha_i>0\). Thus the given
+configuration is approximated by rational feasible configurations. Their
+endpoints \(t_i/\alpha_i\) and centers \(\sum_i t_i\) are rational, and
+their coefficients are permitted printed PCC coefficients. Apply printed
+PC there and take limits using continuity of \(f\). This proves PCC for
+real endpoints, real centers, and real coefficients in every fixed face
+incidence.
+
+For two real points in one inherited closed cell \(\sigma\), their
+convex combination belongs to a unique minimal face
+\(\tau\preceq\sigma\). Assign both endpoints to \(\sigma\), and apply
+the just-proved real PCC at that center. This proves convexity of \(f\)
+on \(\sigma\). No face is merged or coarsened. In particular, convexity
+on an inherited closed face follows without any automatic-continuity
+assertion about raw rational-point PC functions.
+
+\section{L1: quantitative distance and uniform
+insets}\label{l1-quantitative-distance-and-uniform-insets}
+
+Let \(P=\{x:n_j\cdot x\leq b_j\}\) be nonempty in a fixed Euclidean
+affine hull, with equality constraints already removed by working in
+that hull. A nearest point \(z\) to \(x\) exists by compactness in a
+sufficiently large ball. Put \(w=x-z\), and let \(J\) be the active rows
+at \(z\). We claim \[ w\in\operatorname{cone}\{n_j:j\in J\}. \]
+Otherwise cone separation proved above gives \(v\) with
+\(n_j\cdot v\leq0\) for all active rows and \(w\cdot v>0\). For
+sufficiently small \(s>0\), \(z+s v\) satisfies the inactive rows, by
+their positive slack, and also every active row. Nearest-point first
+variation would require \(w\cdot v\leq0\), a contradiction.
+
+Independent-column elimination gives \(w=\sum_{j\in J}\lambda_j n_j\)
+with \(\lambda_j\geq0\) and \(\sum\lambda_j\leq H\|w\|\), where \(H\)
+depends only on the finite row list, not on the right-hand sides or
+active subset. Hence, for \(\delta(x)=\max(0,\max_j(n_j\cdot x-b_j))\),
+\[
+\|w\|^2=\sum_j\lambda_j(n_j\cdot x-b_j)
+\leq H\delta(x)\|w\|,
+\qquad \operatorname{dist}(x,P)\leq H\delta(x).
+\] Zero rows cause no difficulty; a nonempty system has their right-hand
+sides nonnegative, and they never help a nonzero representation. An
+empty row list gives the whole affine hull and distance zero. In
+dimension zero the assertion is also immediate. This is a proof of the
+needed distance estimate, including its uniformity; the name of a
+distance theorem is not a substitute for the argument.
+
+For a face \(\tau\), list all its own facet inequalities, together with
+all inequalities of every incident top cell whose restrictions have
+strictly positive slack on \(\operatorname{ri}(\tau)\). Constraints
+identically equal on \(\tau\) are not strengthened. A valid affine
+inequality on \(\tau\) which vanishes at one relative interior point
+vanishes everywhere on \(\tau\); otherwise its affine restriction would
+change sign in a small relative neighborhood. This explains the
+dichotomy and the finite list.
+
+Choose a rational point \(z_0\in\operatorname{ri}(\tau)\), and a
+rational margin \(\delta_\tau>0\) below every listed slack at \(z_0\).
+Strengthen every listed row by that margin, retaining the other defining
+constraints of \(\tau\). The resulting inset \(\tau^\delta\) is
+nonempty. For every \(y\in\tau\), the violation of each strengthened row
+is at most \(\delta_\tau\). The preceding distance estimate gives a
+nearest point \(z\in\tau^\delta\) with
+\[ \|z-y\|\leq D_\tau:=H_\tau\delta_\tau. \] This estimate holds
+uniformly near lower faces and at infinity. A fixed interior anchor
+alone would give no such uniform bound. If the list is empty, take
+\(\tau^\delta=\tau\) and \(D_\tau=0\). A zero-dimensional face also has
+\(z=y\) and \(D_\tau=0\), even when some listed restrictions are
+positive constants.
+
+For any finite list of assigned tangent-cone generators \(v_j\), choose
+one rational \(\varepsilon_\tau>0\) sufficiently small that
+\[ z+\varepsilon_\tau v_j\in\sigma(j)
+\quad\hbox{for every }z\in\tau^\delta.
+\] Indeed, an incident-cell row active on \(\tau\) is respected by the
+assigned cone direction. Every other row has slack at least
+\(\delta_\tau\) on the inset, and its possible positive change is
+bounded by \(\varepsilon_\tau\max_j|n\cdot v_j|\). Affine-hull
+equalities are preserved. Finiteness supplies one choice for all rows
+and generators. Empty-list and zero-dimensional cases are included by
+the same reasoning.
+
+\section{L2: positive real balancing fills the local
+span}\label{l2-positive-real-balancing-fills-the-local-span}
+
+At \(y\in\operatorname{ri}(\tau)\) the tangent cones \(C_{\sigma,\tau}\)
+of incident top cells are independent of the choice of \(y\): they are
+given by the rows active identically on \(\tau\), with lineality
+containing \(T_\tau\). They are rational polyhedral cones of dimension
+\(d\). By the elementary generation result, choose finite rational
+generators for them, including both signs of a rational basis of
+\(T_\tau\), each assigned to an incident top cell. Put
+\[ E_\tau=\operatorname{span}\bigcup_{\sigma\succeq\tau} C_{\sigma,\tau}. \]
+
+The star inherits balancing. A facet of a tangent cone comes from a
+facet of its cell containing \(\tau\), the adjacent star cells are
+exactly the adjacent original cells there, and their tangent lattices
+and quotient primitive normals are unchanged. A rational refinement
+preserves balancing as well: a new facet in the interior of an old cell
+has two opposite primitive quotient directions with equal inherited
+weight; an old facet is subdivided with its old relation unchanged. This
+specifies rather than assumes the local inheritance used here.
+
+For a facet \(\rho\prec\sigma\), write
+\(c_\sigma=\operatorname{covol}(N_\sigma)\) and
+\(c_\rho=\operatorname{covol}(N_\rho)\) in their Euclidean spans.
+Saturation implies \(N_\sigma/N_\rho\) is free of rank one. A lattice
+basis for \(N_\rho\), together with a lift \(u\) of its primitive
+quotient generator, is a basis for \(N_\sigma\). The parallelepiped
+volume identity therefore gives \[ \|u_\perp\|=c_\sigma/c_\rho,
+\qquad u_\perp=(c_\sigma/c_\rho)\nu_{\sigma/\rho}, \] where
+\(\nu_{\sigma/\rho}\) is the inward Euclidean unit conormal.
+Consequently actual real balancing is exactly the stationary
+unit-conormal flux relation \[
+\sum_{\sigma\succ\rho}\rho_\sigma\nu_{\sigma/\rho}=0,
+\qquad \rho_\sigma=w_\sigma c_\sigma>0.
+\] This covolume conversion is essential: replacing primitive normals by
+unit normals without it is generally incorrect.
+
+Let \(K\) be the conical hull of the finite generators in \(E_\tau\). It
+is closed. Suppose \(K\ne E_\tau\). The cone separation argument
+supplies a nonzero linear functional \(\lambda\) on \(E_\tau\) that is
+nonnegative on \(K\). It is positive somewhere on the union of the
+cones, since that union spans \(E_\tau\).
+
+Apply the divergence theorem on each \(C_{\sigma,\tau}\cap B(0,1)\) to
+the constant vector obtained by projecting \(\nabla\lambda\) to
+\(T_\sigma\), with density \(\rho_\sigma\). Its divergence is zero. The
+sum of planar facet fluxes cancels by the preceding stationary relation,
+with outward conormals the negatives of the displayed inward conormals.
+The remaining spherical flux is \[
+\sum_\sigma \rho_\sigma
+\int_{C_{\sigma,\tau}\cap S^{d-1}_{T_\sigma}}\lambda(\theta)\,dS(\theta).
+\] Every term is nonnegative. One is strictly positive: if \(\lambda\)
+is positive on a point of a full-dimensional cone, it is positive on a
+relatively open spherical patch of that cone. Lower-dimensional edges
+have zero boundary measure. This contradicts zero total flux.
+
+In dimension one the same argument is the two-endpoint divergence
+formula on intervals or rays, with counting measure on the unit sphere.
+A whole line has canceling antipodal endpoints. Cones with lineality are
+handled by the same ball truncation; no pointedness assumption is
+needed. If \(T_\tau=E_\tau\), its two-sided tangent basis already proves
+the conclusion. In dimension zero, \(E_\tau=\{0\}\). These observations
+cover zero relative codimension and the degenerate cases without a
+complete-plane hypothesis.
+
+We have proved \(K=E_\tau\). Independent-column elimination now gives
+one finite geometric constant \(K_\tau\) such that both \(v\) and \(-v\)
+admit assigned nonnegative generator representations with coefficient
+sums at most \(K_\tau\|v\|\). The constant is calculated from finitely
+many inverse column maps. Actual weight magnitudes do not enter that
+bound; their positivity and balancing were needed to prove that the cone
+fills the span.
+
+\section{L3: finite directional costs and supports on whole incident
+cells}\label{l3-finite-directional-costs-and-supports-on-whole-incident-cells}
+
+Assume \(f|_\tau\) has global Lipschitz constant \(M_\tau\). For a point
+face set \(M_\tau=0\). Fix \(y\in\operatorname{ri}(\tau)\) and choose
+the inset point \(z\) of L1. Write \(\xi=z-y\), so \(\xi\in T_\tau\) and
+\(\|\xi\|\leq D_\tau\). For a feasible direction
+\(w\in C_{\sigma,\tau}\), define
+\[ h_\sigma(w)=\lim_{t\downarrow0}\frac{f(y+t w)-f(y)}t. \] Convex
+secants show that this limit exists in \([-\infty,\infty)\): a fixed
+feasible positive secant bounds it above, but initially it may equal
+\(-\infty\). Positive homogeneity follows by a change of variable.
+Midpoint convexity, applied to \(y+2t u\) and \(y+2t v\), shows
+\[ h_\sigma(u+v)\leq h_\sigma(u)+h_\sigma(v). \] This extended-real
+inequality is legitimate before finiteness: no term can be \(+\infty\),
+and if one right-hand term tends to \(-\infty\), the midpoint bound
+forces the corresponding upper limit to be \(-\infty\). Tangent
+directions have common derivatives in all incident cells, since a small
+segment in either tangent direction stays in \(\tau\). In particular
+\(h_\sigma(-\xi)\leq M_\tau D_\tau\) and is finite.
+
+For an assigned generator \(v_j\), L1 puts
+\(y+\xi+\varepsilon v_j=z+\varepsilon v_j\) in its cell \(\sigma(j)\).
+The bound to the \emph{same} affine restriction of \(\gamma\) gives
+\[ h_{\sigma(j)}(\xi+\varepsilon v_j)
+\leq 2C+G(D_\tau+\varepsilon\|v_j\|). \] Subadditivity applied to
+\(\varepsilon v_j=(\xi+\varepsilon v_j)+(-\xi)\) gives the uniform
+generator upper bound \[
+h_{\sigma(j)}(v_j)\leq U_\tau,
+\qquad U_\tau=\frac{2C+(G+M_\tau)D_\tau}{\varepsilon_\tau}+G V_\tau,
+\quad V_\tau=\max_j\|v_j\|.
+\] An upper bound here allows a value \(-\infty\); we remove that
+possibility next, instead of assuming it away.
+
+Any finite list of assigned feasible directions \(w_a\) with
+\(\sum_a w_a=0\) has feasible endpoints \(y+t w_a\) for one common
+sufficiently small \(t>0\). Their equal-weight barycenter is \(y\). The
+real-endpoint PCC of L0 gives \[ \sum_a\frac{f(y+t w_a)-f(y)}t\geq0. \]
+If an incident derivative \(h_\sigma(w)\) were \(-\infty\), append a
+fixed-generator representation of \(-w\) from L2, using its nonnegative
+coefficients as scalings of the assigned directions and deleting zeros.
+Every appended directional quotient has a finite upper limit, bounded by
+its coefficient times \(U_\tau\). The sum would tend to \(-\infty\),
+contradicting the displayed PCC. Thus every incident directional
+derivative is finite. Taking limits now shows that every finite zero-sum
+assigned list has nonnegative total derivative cost.
+
+Define, over \emph{all} finite assigned incident-direction
+decompositions, \[
+H_y(v)=\inf\left\{\sum_a h_{\sigma(a)}(w_a):
+w_a\in C_{\sigma(a),\tau},\ \sum_a w_a=v\right\}.
+\] The empty decomposition has cost zero at \(v=0\). The generator
+representation gives \(H_y(v)\leq K_\tau U_\tau\|v\|\). Append a
+generator representation of \(-v\) to any candidate decomposition of
+\(v\); the zero-sum cost inequality gives the opposite bound.
+Consequently
+\[ -K_\tau U_\tau\|v\|\leq H_y(v)\leq K_\tau U_\tau\|v\|. \] There is no
+\(-\infty\) infimum. Scaling decompositions proves positive homogeneity
+for positive scalars; the zero-sum property proves \(H_y(0)=0\).
+Concatenating two decompositions whose costs are within a positive
+tolerance of their finite infima proves subadditivity. These properties
+and the two-sided bound imply that \(H_y\) is globally Lipschitz with
+constant \(K_\tau U_\tau\).
+
+Apply the full-space epigraph-support construction from the foundations
+to this finite continuous sublinear function at zero. It gives a linear
+functional \(p_y\leq H_y\). Testing both \(v\) and \(-v\) gives
+\(\|p_y\|\leq K_\tau U_\tau\). Extend it by zero on \(E_\tau^\perp\) to
+an ambient vector. For every \(x\) in an incident cell,
+\(x-y\in C_{\sigma,\tau}\) and convex secants give \[
+f(x)-f(y)\geq h_\sigma(x-y)\geq H_y(x-y)\geq\langle p_y,x-y\rangle.
+\] The support therefore holds on the entire closed incident cell,
+including its far end and its boundary, rather than only on a germ. When
+\(E_\tau=\{0\}\) take \(p_y=0\), omitting all generator maxima and
+inverse constants. A zero-dimensional face in a positive-dimensional
+complex still has a nonzero local span in general and uses the full
+construction. All uses of real PCC, extended-real limits, subadditivity,
+and supports have now been justified.
+
+\section{L4 and L5: induction over every face and the quantitative
+conclusion}\label{l4-and-l5-induction-over-every-face-and-the-quantitative-conclusion}
+
+Order all the finitely many faces by dimension. Before handling a face
+\(\tau\), supports have been constructed at all points of its proper
+faces, by using each point's minimal face. Let \(B\) be the maximum of
+their norm bounds, or zero if there are no proper faces. These supports
+hold on all of \(\tau\): any top cell containing \(\tau\) is incident to
+the minimal face of each such boundary point.
+
+At \(q\in\operatorname{ri}(\tau)\), relative subgradients exist by the
+foundations. Let \(a\) be \emph{any} such subgradient. If \(a\ne0\), put
+\(e=a/\|a\|\) and consider \(q+t e\). Because \(q\) is relatively
+interior, it is feasible for a positive initial interval. If the ray
+exits at a finite \(t_0\), its endpoint \(z\) belongs to a proper face.
+The subgradient at \(q\) and the already constructed support at \(z\)
+imply \[
+t_0\|a\|\leq f(z)-f(q)\leq t_0\langle p_z,e\rangle\leq t_0 B.
+\] If it never exits, bounded difference from the affine restriction
+gives \[
+\lim_{t\to\infty}\frac{f(q+t e)-f(q)}t=\langle a_\gamma,e\rangle\leq G,
+\] while the subgradient inequality bounds every such secant below by
+\(\|a\|\). Thus every relative subgradient has norm at most
+\(M_\tau=\max(B,G)\). The zero subgradient already satisfies this bound.
+For a zero-dimensional face use the sharper \(M_\tau=0\).
+
+Supports at two relative interior points give the Lipschitz inequality
+there. To pass to arbitrary points of the closed face, mix each point
+with a fixed relative interior point using the same positive mixing
+parameter, then let that parameter decrease to zero and use continuity.
+This proves \emph{global} Lipschitzness on the whole possibly unbounded
+face. L3 now supplies its uniform ambient support bound
+\[ B_\tau=K_\tau\left(\frac{2C+(G+M_\tau)D_\tau}{\varepsilon_\tau}+G V_\tau\right). \]
+
+This is induction over all finite faces, not a vertex-started induction.
+A minimal positive-dimensional face has no proper faces; every relevant
+ray then remains forever, so the recession argument starts the
+induction. Lineality presents no problem. An affine top cell with no
+proper faces is also included. Positivity of \(f\), positive growth of
+\(\gamma\), averaging of references, independence of quotient normals,
+and a complete-plane assumption are absent from the argument.
+
+For explicit dependence, suppose proper-face support bounds have
+coefficients \(A_\rho C+B_\rho G\). Set
+\[ a_\tau=\max_{\rho\prec\tau} A_\rho,\quad
+b_\tau=1+\max_{\rho\prec\tau}B_\rho, \] with empty maxima zero. Then
+\(M_\tau\leq a_\tau C+b_\tau G\). One admissible next support
+coefficient pair is \[
+A_\tau=K_\tau\left(2/\varepsilon_\tau+a_\tau D_\tau/\varepsilon_\tau\right),
+\quad B_\tau^{\rm coeff}=K_\tau\left((1+b_\tau)D_\tau/\varepsilon_\tau+V_\tau\right).
+\] Zero-dimensional faces have Lipschitz bound zero but may have nonzero
+ambient support bounds obtained from L3 when the ambient local span is
+nonzero. Thus one must not set their ambient support bound to zero
+unless the entire local span is zero. This distinction is retained in
+the recursion. Taking maxima of the finitely many Lipschitz and support
+coefficient pairs proves Theorem 1. Summing the cellwise inequality on
+the segments of an admissible polygonal path proves its stated intrinsic
+consequence. This completes L0--L5 of working299; the regularization
+input supplied by L5 is a cellwise input and not a gluing theorem.
+
+\section{C1 and C2: a rational-wall auxiliary reference on one affine
+hull}\label{c1-and-c2-a-rational-wall-auxiliary-reference-on-one-affine-hull}
+
+Identify the rational affine hull \(Q\) with a Euclidean affine space
+and write \[ \sigma=\{x\in Q:A_j\cdot x\leq b_j\},\qquad
+\ell(x)=a\cdot x+b. \] All constraint rows are rational; the slope \(a\)
+and constant \(b\) are actual reals. Put
+\[ \delta(x)=\max(0,\max_j(A_j\cdot x-b_j)),\qquad
+\Gamma(x)=\ell(x)+\kappa\delta(x), \] where \(\kappa\) is a positive
+integer to be chosen. The violation function is convex PA with rational
+walls. Adding the same real affine function to all its pieces leaves
+those walls rational. Thus \(\Gamma\) is a genuine scalar real PA
+function, exactly equal to \(\ell\) on the entire cell.
+
+Let \(r(v)=\max(0,\max_j A_j\cdot v)\). The recession function of
+\(\Gamma\) is \[ h(v)=a\cdot v+\kappa r(v). \] On the compact set
+\(S=\operatorname{rec}(\sigma)\cap\{\|v\|=1\}\), the assumed slope has a
+positive minimum if \(S\) is nonempty. It remains positive in a
+neighborhood of \(S\) on the unit sphere. On the compact complement of a
+smaller such neighborhood, \(r\) has a positive minimum; a sufficiently
+large integer \(\kappa\) makes \(h\) positive there as well. If \(S\) is
+empty, \(r\) is positive everywhere on the unit sphere and the same
+conclusion follows directly. Hence \(h(v)\geq c\|v\|\) for some \(c>0\).
+Since \(\Gamma-h\) is uniformly bounded by the finitely many constant
+terms in its affine pieces, \(\Gamma(x)\geq c\|x\|-D\) after choosing an
+origin. This proves proper coercive growth. The zero-dimensional case is
+a constant on a point and is proper, with the recession condition
+vacuous. A full positive-dimensional affine space cannot satisfy the
+slope assumption on both \(v\) and \(-v\), so there is no overlooked
+full-space example contradicting that assumption.
+
+The L1 distance proof applies verbatim to this cell, with a finite
+constant \(H\) and \(\operatorname{dist}(x,\sigma)\leq H\delta(x)\).
+This independently verifies C1. The preceding construction verifies C2.
+It is an auxiliary extension only; neither its values off \(\sigma\) nor
+its coefficients are substituted for the actual reference on other
+cells.
+
+\section{C3: an exact finite convex extension, with no intermediate
+operator}\label{c3-an-exact-finite-convex-extension-with-no-intermediate-operator}
+
+Choose a rational number \(M\) at least the global Lipschitz constant of
+\(f\) on \(\sigma\). Define on all of \(Q\)
+\[ \widehat f(x)=\inf_{y\in\sigma}\{f(y)+M\|x-y\|\}. \] It is finite: a
+fixed \(y_0\in\sigma\) gives an upper bound, and Lipschitzness and the
+triangle inequality give the lower bound \(f(y_0)-M\|x-y_0\|\). For
+\(x\in\sigma\), every summand is at least \(f(x)\) and the choice
+\(y=x\) gives equality. The triangle inequality inside the infimum
+proves global \(M\)-Lipschitzness. Convexity follows by taking
+approximate minimizers at two points, using their convex combination in
+\(\sigma\), the convexity of \(f\), and the triangle inequality for the
+norm, and then letting the approximation tolerance go to zero.
+Attainment of the infimum is unnecessary and is not asserted.
+
+For a nearest point \(y\in\sigma\), \[
+\widehat f(x)\leq f(y)+M\|x-y\|
+\leq\ell(x)+C+(M+\|a\|)\operatorname{dist}(x,\sigma)
+\leq\Gamma(x)+C
+\] provided the integer \(\kappa\) is also at least \(H(M+\|a\|)\).
+Increasing \(\kappa\) preserves C2. Set
+\[ F(x)=\max\{\widehat f(x),\Gamma(x)-C\}. \] Then \(F\) is finite
+continuous convex on all of \(Q\), \(\Gamma-C\leq F\leq\Gamma+C\), and
+\(F=f\) on the entire \(\sigma\). The last equality uses
+\(\Gamma|_\sigma=\ell\) and \(f\geq\ell-C\). This maximum is a maximum
+of continuous convex functions, with no piecewise-affine claim about
+\(\widehat f\) or \(F\). No Monge--Ampere measure or mixed operator is
+applied to this intermediate function. This completes C3.
+
+\section{C4: full-affine primal majorants, including real heights and
+boundary
+fibers}\label{c4-full-affine-primal-majorants-including-real-heights-and-boundary-fibers}
+
+We reconstruct the full-affine mechanism rather than citing a grant
+label. Let \(Q\) have positive dimension; the point case is immediate. A
+finite convex real PA function \(\Gamma\) on \(Q\) is the maximum of its
+finitely many actual affine pieces. Each full-dimensional piece is a
+global affine support by convex secants; lower-dimensional pieces are
+their continuous traces. Thus \[ \Gamma(x)=\max_j(a_j\cdot x+b_j),\qquad
+h(v)=\Gamma^\infty(v)=\max_j a_j\cdot v. \] Let
+\(D=\operatorname{conv}\{a_j\}\). This compact polytope need not be
+rational. The coercive inequality \(h(v)>0\) for nonzero \(v\) implies
+that zero is in its interior, by nearest-point separation if it were
+not. Both \(\Gamma-h\) and \(F-h\) are bounded on all of \(Q\).
+
+Define the actual conjugate \(F^*(p)=\sup_x(p\cdot x-F(x))\). Its finite
+domain is exactly \(D\). For \(p\in D\), \(p\cdot x\leq h(x)\) bounds
+the supremum uniformly above, while evaluation at a fixed \(x\) bounds
+it below. For \(p\notin D\), separation gives \(v\) with
+\(p\cdot v>h(v)\), and \(x=t v\) makes the supremum infinite. On \(D\)
+the conjugate is convex, lower semicontinuous, finite, and bounded.
+
+The needed continuity includes boundary fibers. More generally a finite
+lower semicontinuous convex function \(g\) on a compact polytope is
+continuous relative to that polytope. It is bounded above by the largest
+value at its finitely many vertices. At \(p\), choose \(r>0\) below
+every inactive facet slack divided by the corresponding row norm. If
+\(q\) is near \(p\) in the polytope, the point \(z=p+r(q-p)/\|q-p\|\)
+stays in it: active rows do not increase, and inactive rows have the
+chosen margin. Convexity gives \[ g(q)\leq g(p)+(\|q-p\|/r)(B-g(p)). \]
+Together with lower semicontinuity this proves continuity at every
+boundary point as well as in the interior. Work in the relative affine
+hull for lower-dimensional polytopes; the single-point case is
+immediate. This proof does not assume rational facets of \(D\).
+
+By continuity of \(F\), rational spatial samples compute the same
+supremum defining \(F^*\). For each \(p\in D\), choose a rational \(s\)
+whose value \(p\cdot s-F(s)\) is within \(\eta/2\) of \(F^*(p)\).
+Continuity of the latter on \(D\) and of the displayed affine function
+makes the error less than \(\eta\) on a neighborhood of \(p\).
+Compactness supplies a finite set of rational samples \(A\) such that
+\[ F^*(p)-\eta\leq g_A(p):=\max_{s\in A}(p\cdot s-F(s))\leq F^*(p)
+\quad(p\in D). \] Append any prescribed finite rational contact set.
+Enlarging \(A\) preserves both inequalities. The sample heights remain
+the \emph{actual real numbers} \(F(s)\); they are not rounded.
+
+The recession epigraph has finitely many exact rays with rational
+spatial projections. Indeed the rational recession cones of the finite
+carrier of \(\Gamma\) cover \(Q\): along a ray a subsequence lies in one
+carrier cell, and its defining inequalities show that the direction lies
+in that cell's recession cone. On each such cone \(h\) is linear. Refine
+them into a finite rational pointed fan, by a rational coordinate
+orthant subdivision if necessary, and use their rational generators
+\(r_k\). Then
+\[ \operatorname{epi}h=\operatorname{cone}\{(r_k,h(r_k)),(0,1)\}. \] For
+a direction in one cone, a nonnegative generator representation gives
+exactly its height because \(h\) is linear there; the vertical ray
+accounts for any additional height. The spatial generators are rational,
+but their heights may be irrational. This is the exact recession cone,
+not a rationalized slope surrogate.
+
+Form the primal polyhedron
+\[ E=\operatorname{conv}\{(s,F(s)):s\in A\}+\operatorname{epi}h. \] It
+is closed: the first set is compact, the cone is closed, and a
+convergent sum sequence has a convergent compact summand and hence a
+convergent cone summand. It is a finite real polyhedron by the
+elementary elimination argument. Its spatial projection is all of \(Q\),
+since the projection of \(\operatorname{epi}h\) is all of \(Q\); every
+fiber contains an upward ray.
+
+Convex secants and bounded \(F-h\) show \(F(x+v)\leq F(x)+h(v)\):
+compare the unit secant along \(v\) with arbitrarily long secants and
+pass to infinity. Convex combinations of the sample lifts followed by
+adding a point of \(\operatorname{epi}h\) therefore remain in
+\(\operatorname{epi}F\). Thus \(E\subseteq\operatorname{epi}F\). Every
+fiber has a finite attained bottom, defining a finite convex function
+\(P\) with \(E=\operatorname{epi}P\). It is continuous by the local
+convex bound proof, since its domain is the full affine space.
+
+Direct optimization over the hull coefficients and cone gives
+\[ P^*(p)=g_A(p)\quad(p\in D),\qquad P^*(p)=+\infty\quad(p\notin D). \]
+For \(p\in D\) the supremum over the cone is zero; outside \(D\) it is
+infinite along a separating recession ray. The double-conjugate identity
+proved from full-space supports in the foundations now gives
+\[ F\leq P\leq F+\eta\quad\hbox{on all of }Q. \] At every retained
+sample, the lift belongs to \(E\), so \(P(s)\leq F(s)\); the lower
+inequality gives equality. This proves finite-contact exactness and a
+global uniform error, not merely convergence on a bounded set.
+
+We must check rational walls despite irrational heights. Every lower
+graph face of \(E\) is exposed by a functional with negative vertical
+coefficient. Full spatial projection rules out vertical facets, and any
+graph face is the intersection of lower facets, so a positive sum of
+their exposing normals has negative vertical coefficient. Its exposed
+hull summands are a subset of the sample points, and its exposed cone
+summands are a subset of the exact rays with zero exposing value. The
+vertical ray is not among them. On the graph face, projection is an
+affine isomorphism, since that face lies on one affine graph. Its
+projected cell is consequently
+\[ \operatorname{conv}\{\hbox{rational sample locations}\}+\operatorname{cone}\{\hbox{rational spatial rays}\}, \]
+a rational polyhedron by the elementary projection proof. Intersections
+project to common faces: the graph over a common projected point is
+unique, and the affine graph projection on each face preserves its face
+lattice. The finite projected lower-face complex covers \(Q\). On it
+\(P\) is real affine and continuous.
+
+Finally this is the genuine scalar-extension notion of real PA, rather
+than a collection of arbitrary irrational-wall formulas. The coefficient
+tuples for continuous affine functions on this rational carrier satisfy
+rational matching equations, obtained by testing equality on rational
+affine bases of shared faces. Their solution space has a rational basis
+by Gaussian elimination. Clear denominators in each basis tuple to make
+its slopes integral on the fixed lattice and its constants rational.
+Every actual real coefficient tuple is a real linear combination of
+these rational PA basis functions. Thus \(P\) belongs to the required
+scalar real PA space. The same argument applies to \(\Gamma\). No
+generic closure of real PA under an arbitrary maximum with irrational
+switching walls has been assumed.
+
+The recession of \(E\) is exactly \(\operatorname{epi}h\). Inclusion of
+this cone is immediate. For the reverse inclusion, divide a recession
+sequence by its parameter; the bounded hull part disappears and
+closedness leaves its direction in the cone. Equivalently use the
+homogenized finite representation. Hence \(P^\infty=h\). Ordinary
+full-space convexity also gives local nonnegative divisor inequalities
+on any positive balanced test cycle: subtract a supporting affine
+function which agrees with the cell's tangent gradient, then each
+incident inward residual slope is nonnegative and the balanced affine
+contribution vanishes. This justifies the PC property when it is
+required on such a test cycle; it does not manufacture a mixed measure
+on an unbalanced cell.
+
+Restrict the rational carrier of \(P\) to \(\sigma\) by intersection.
+The resulting rational carrier is finite, the restriction is convex real
+PA, and \[ f\leq P|_\sigma\leq f+\eta. \] Prescribed rational contacts
+are exact because \(F=f\) on \(\sigma\). On
+\(\operatorname{rec}(\sigma)\), \(r(v)=0\), so \(h(v)=a\cdot v\), the
+actual recession of \(\ell\). Bounded \(f-\ell\) has that same recession
+along every feasible ray. This verifies the actual same cell recession
+without altering the reference. C4 is complete.
+
+\section{C5: decreasing cell approximants and the limits of
+contacts}\label{c5-decreasing-cell-approximants-and-the-limits-of-contacts}
+
+Choose \(\eta_n=2^{-n}\) and unshifted majorants \(p_n=P_n|_\sigma\)
+with \(0\leq p_n-f\leq\eta_n\). They may all preserve the same
+prescribed finite rational contact set. Define \[ g_n=p_n+4\eta_n. \]
+Then \(4\eta_n\leq g_n-f\leq5\eta_n\), while
+\[ g_n-g_{n+1}\geq4\eta_n-5\eta_{n+1}=\tfrac32\eta_n>0. \] Thus \(g_n\)
+decreases uniformly to \(f\) on the whole cell, remains real PA on a
+rational carrier, and has the same recession. The shifted functions do
+not retain exact contacts; the unshifted ones do. On a point cell the
+construction reduces to constants and all assertions are immediate. This
+completes all five units of working296.
+
+Finite contacts do not imply equality of two separately constructed
+traces on an entire shared positive-dimensional face. For a concrete
+finite illustration, the function \(t^2\) on \([0,1]\) has rational-mesh
+chord majorants. Two sufficiently fine rational meshes containing any
+prescribed finite rational contact set give exact agreement with \(t^2\)
+at those contacts, uniform errors as small as requested, but different
+traces between mesh points if the meshes differ. The maximum interval
+error of a chord is its interval length squared divided by four. This
+example proves the logical insufficiency of finite contact constraints
+for entire-face trace matching. Nor do separate convex supports on
+different incident cells ensure a single ambient vector satisfying all
+their support inequalities. The simultaneous direction-cost argument of
+L3 applies to the original printed-PC function; it has not been proved
+for arbitrarily chosen independent PA approximants.
+
+\section{B1--B3: the unbalanced orthant boundary
+diagnostic}\label{b1b3-the-unbalanced-orthant-boundary-diagnostic}
+
+On the positive open quadrant, the Hessian quadratic form of
+\(\sqrt{xy}\) is \[ -\frac{(y\,dx-x\,dy)^2}{4(xy)^{3/2}}. \] Thus the
+geometric mean is concave there. Continuity and inward approximation
+extend its concavity to the closed orthant. Alternatively, the concavity
+inequality follows directly by squaring and the two-term Cauchy--Schwarz
+inequality. Hence \(1-\sqrt{xy}\) is convex and continuous on the closed
+orthant, and so is its maximum with zero. Adding \(x+y\) proves
+continuity and convexity of \(f\). Its difference from \(\gamma\) lies
+in \([0,1]\). The slope of \(\gamma\) is strictly positive on every
+nonzero orthant recession direction. Dividing the bounded difference by
+the ray parameter shows \(f^\infty(v)=v_1+v_2\). These are the full B1
+assertions.
+
+Every continuous finite real PA function on a convex cell is globally
+Lipschitz with the maximum of the norms of its finitely many intrinsic
+gradients. For any segment, each carrier cell cuts it in a closed
+interval, possibly empty or a point. The finitely many interval
+endpoints partition the segment into finitely many subsegments on which
+one affine formula applies. Sum the affine Lipschitz bounds over these
+subsegments, using continuity at their endpoints. This argument allows
+actual real coefficients and even real walls; rational walls are not
+needed for the diagnostic. Apply it also to \(a-\gamma\), obtaining some
+finite constant \(L\).
+
+Let \(z_n=(n^2,0)\) and \(w_n=(n^2,n^{-2})\). Their Euclidean distance
+is \(n^{-2}\), while \((f-\gamma)(z_n)=1\) and \((f-\gamma)(w_n)=0\). If
+\(e=\|a-f\|_\infty\) is finite, the triangle inequality gives
+\[ 1\leq2e+L n^{-2}. \] Letting \(n\to\infty\) proves \(e\geq1/2\). If
+\(e\) is infinite the assertion is immediate. The real PA function
+\(a=\gamma+1/2\) attains exactly \(1/2\), so the floor is sharp. This
+verifies all of B2 on the continuum; bounded exact computations in the
+accompanying program illustrate the limiting inequality but do not
+replace it.
+
+The same pair has \(f(z_n)-f(w_n)=1-n^{-2}\) at distance \(n^{-2}\), so
+\(f\) is not uniformly continuous and is not globally Lipschitz on the
+orthant. At a boundary point \((x,0)\) with \(x>0\), the inward \(y\)
+directional quotient equals \(1-\sqrt{x}/\sqrt t\) for small \(t\) and
+tends to \(-\infty\). A finite convex extension to an open neighborhood
+would be locally Lipschitz by the foundational cube argument and cannot
+have this derivative. This explains why the Lipschitz input to C3 cannot
+be deleted.
+
+A single positive weighted orthant is unbalanced along either axis:
+there is only one inward primitive normal and no opposite contribution.
+Its boundary star lies in a proper halfspace. The positive-flux
+contradiction of L2 therefore does not apply. This verifies B3 and
+precisely locates the diagnostic outside the main theorem. It supplies
+no original balanced counterexample and has no mixed-operator
+interpretation in this paper.
+
+\section{Scope, source qualifications, and the remaining original
+task}\label{scope-source-qualifications-and-the-remaining-original-task}
+
+The original task asks for classifications over balanced complexes and
+admissible reference/obstacle domains, with additional contact and
+operator conclusions. The present results verify the proposed
+finite-geometry Lipschitz theorem, its single-cell consequence, and its
+boundary diagnostic. They do not establish membership in a global joint
+rational-carrier regularization domain on an arbitrary complex with
+positive-dimensional overlaps.
+
+For an admitted actual positive-growth real PA PC reference \(\gamma\),
+R230 supplies continuity of the actual envelope over \emph{all} bounded
+continuous PC competitors. Its upper-only competitor envelope equals its
+two-sided bounded one: for an upper-only competitor \(q\leq\gamma+u\),
+replace it by \(\max(q,\gamma-\|u\|_\infty)\). The maximum preserves
+continuous PC by the PCC inequality, stays below the obstacle, is
+bounded on both sides relative to \(\gamma\), and dominates \(q\). This
+operation proves the envelope equality in the PC domain. It does not
+assert rational-carrier real PA closure for arbitrary maxima.
+
+Such an actual envelope therefore satisfies the hypotheses of Theorem 1
+and, cellwise, Theorem 2. Before applying any completed mixed operator,
+however, one must place it in a genuine global domain of compatible
+uniform PA approximation. Separate cell approximations, finite contacts,
+and original-function supports do not supply that missing step. Entire
+shared-face equality and common ambient supports for the PA approximants
+remain unresolved. We claim no compatible-extension lemma beyond the
+exact single-cell theorem proved here.
+
+The qualified grants retain their original restrictions. A224 is a
+finite actual-PA strict-growth obstruction, not arbitrary real-pair
+classification. B225's finite globally embedded positive-dimensional
+noncompactness is a literal finite-global statement, not a prohibition
+on all abstract compact atlases. S291's compact maximum result belongs
+to its whole boundaryless balanced-atlas domain; only its local
+foundations, independently reconstructed here, are used in the main
+proof. S262's graph regularization and contact sufficiency do not give
+higher-dimensional all-face gluing. S272's real signed and zero
+intermediate weights and its zero-mass behavior are retained; finite PA
+contact necessity is not non-PA contact sufficiency. Uniform
+global-vague control, continuity for ordinary weak nets, and uniform
+weak or bounded-Lipschitz control on a fixed relative bound \(C\) are
+distinct statements. Global weak/BL uniformity without a fixed \(C\) is
+not inferred.
+
+S291 is accepted as a whole mathematical grant with both correction and
+reader records. The historical native218 original-source FAIL, combined
+FAIL, and retrospective-history INCONCLUSIVE remain. Correcting the
+literal LF endpoint of the whole BBGS commutation proof to 670 does not
+retroactively turn those reports into PASS. Original-source rational
+coefficients and weights are not relabeled as real; the real extension
+is supplied separately. Actual nativeFINAL and later saved expansions
+remain separate historical objects. We have read only the bound records,
+not unbound historical reports or runners, and do not certify those past
+runtime events.
+
+No S282, native222/223 outcomes, papers295/298, working293294,
+privateACTIVE, or unbound feedback is used. No source or supplied runner
+was modified or executed. The four frozen original files are the only
+primary sources. Hash and whole-unit LF metadata appear in the ledger.
+All statements here are drafts for mathematical checking: successful
+finite tests and a local TeX build establish reproducibility, not
+independent mathematical acceptance. The original P05.1 and P05.2
+classifications remain OPEN; candidate=false.
+
+\section{Reproducibility and proof
+coverage}\label{reproducibility-and-proof-coverage}
+
+The companion code performs bounded exact-arithmetic sanity checks for a
+spanning balanced star, a nearest-distance example, a uniform inset on
+an unbounded face, the saturated covolume ratio, dyadic shifts, and the
+orthant obstruction inequalities. These are exhaustive finite results
+only over the explicitly enumerated inputs. The general statements above
+are mathematical proofs and do not rely on those finite enumerations. No
+resource-heavy computation was launched; no supervised compute facility
+was supplied or needed for these proofs.
+
+The build uses local Pandoc and pdfLaTeX with shell escape disabled and
+captures the first build, its warnings, and subsequent unchanged-source
+passes. The programs, bounded inputs, outputs, environment report,
+source-reading log, artifact hashes, full notes, and rerun commands are
+retained in the fresh artifact directory. No provider nesting, network
+request, or agent delegation occurs. The visible execution environment
+is recorded without exposing authentication or runtime configuration.
+The operator's requested model identity is task metadata, not a
+separately verifiable backend certificate.
+
+The coverage is: L0 real perspective density and inherited-cell
+convexity; L1 distance and all-slack insets; L2 real covolume flux and
+two-sided generator coefficients; L3 finite costs, sublinear envelope,
+and entire-cell supports; L4 all-face induction and linear constants; L5
+scoped regularization input. C1 distance; C2 coercive auxiliary
+reference; C3 exact full-affine extension; C4 actual-dual full-affine
+primal majorants; C5 decreasing shifts and finite-contact limits. B1
+convexity and recession; B2 the sharp continuum error floor; B3 the
+boundary-domain diagnosis. None of these coverage labels includes
+arbitrary shared-face gluing or either complete original classification.
+
+\end{document}
