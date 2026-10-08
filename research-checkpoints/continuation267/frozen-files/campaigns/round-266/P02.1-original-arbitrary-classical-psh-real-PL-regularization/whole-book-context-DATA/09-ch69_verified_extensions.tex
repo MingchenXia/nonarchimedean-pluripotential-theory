@@ -1,0 +1,1735 @@
+\chapter{Verified extensions and counterexamples}
+\index{verified extension}\index{counterexample!cross-fan}\index{open problem!boundary ledger}
+\label{chap:verified-extensions}
+
+This chapter separates two provenance streams.  Its first-draft extensions
+and counterexamples are restricted to the signatures that survived the
+independent Rethlas audits recorded in the research-question ledger.  The
+trace comparison and uniqueness statements, by contrast, are reconstructed
+from \cite{DX24} and the complete trace chapter supplied with this project;
+they are source imports, not new Rethlas-certified results.  Each theorem
+below has a closed proof or source reconstruction, and each counterexample
+identifies the exact failed implication.  Problems for which an audit found
+only an idea or a missing approximation theorem are listed at the end and
+are not inserted into the theorem narrative.
+
+Verification is statement-specific. A receipt for a PL comparison on a
+good strict nontrivially valued space does not authorize a theorem for a
+trivially valued analytification, and a receipt for an abstract calibrated
+fan does not construct a Berkovich analytic realization.  The historical
+trace audit used an incomplete source packet and established only a weaker
+\(\mathcal I\)-valued consequence.  It is superseded as a description of the
+source frontier: the complete source proves that trace depends on the input
+\(\mathcal I\)-class, has \(\mathcal I\)-good representatives, and is unique
+as an output \(P\)-class.  The current \(P\)-valued formulation rests on that
+source theorem, not on the obsolete receipt.  These firewalls determine the
+wording of the chapter.
+
+The nine outcomes are:
+\begin{enumerate}
+\item a sufficient CLD pluriharmonic-approximation criterion;
+\item a cross-fan counterexample to unbalanced cellwise gluing;
+\item a refined-chart obstruction to realizing the unequal cross weights on
+      a four-punctured smooth projective line;
+\item the fixed-dual-complex positive case of the BJ Radon--Riesz question,
+      contrasted with the global moving-centre counterexample of
+      \cref{thm:ch49-global-radon-riesz-counterexample};
+\item the exact \(P\)-class factorization and split trace solution;
+\item a toric formula for Cao numerical dimension;
+\item a no-go theorem for \(\mathcal I\)-invariant mass bodies;
+\item an equivalence among model, classical, and CLD-v2 positivity for
+      real PL functions on boundaryless good strict spaces; and
+\item a complete-intersection slicing theorem for positive PL currents.
+\end{enumerate}
+
+\section{A sufficient CLD approximation criterion}
+\label{sec:verified-cld-criterion}
+
+Let \(U\) be an open subset of a good Berkovich analytic space on which
+Chambert--Loir--Ducros forms and currents are defined. Let \(T\) be a
+positive closed current on \(U\). Positive currents are of order zero,
+so they extend continuously from smooth compactly supported test forms
+to continuous ones. Consequently multiplication of \(T\) by a
+continuous function is defined by
+\[
+                   \langle hT,\alpha\rangle
+                       :=\langle T,h\alpha\rangle
+\tag{69.1}\label{eq:verified-current-multiplication}
+\]
+for compactly supported smooth test forms \(\alpha\); the expression on
+the right uses that order-zero extension, since \(h\alpha\) need not be
+smooth.
+
+\begin{theorem}\label{thm:verified-cld-criterion}
+Let \(u,v\) be continuous functions on \(U\) and put \(h=u-v\).  Assume
+that there are smooth functions \(h_j\) on \(U\)
+such that
+\[
+                h_j\longrightarrow h
+          \quad\text{locally uniformly},
+       \qquad
+                \dprimeddprime h_j=0.
+\tag{69.2}\label{eq:verified-pluriharmonic-approximation}
+\]
+Then \(h\) is pluriharmonic, so that
+\[
+                            \dprimeddprime u=\dprimeddprime v,
+\tag{69.3}\label{eq:verified-equal-hessians}
+\]
+and moreover
+\[
+                              \dprimeddprime(hT)=0.
+\tag{69.4}\label{eq:verified-independence}
+\]
+Note that \eqref{eq:verified-equal-hessians} is a \emph{consequence} of
+\eqref{eq:verified-pluriharmonic-approximation}, not an independent
+hypothesis: \(\dprimeddprime h_j=0\) and \(h_j\to h\) locally uniformly
+give \(\dprimeddprime h=0\) as currents.  Only
+\eqref{eq:verified-pluriharmonic-approximation} is used below.
+\end{theorem}
+
+\begin{proof}
+Fix a compactly supported smooth test form \(\alpha\) of complementary
+bidegree. Its support lies in a compact set \(K\Subset U\). Positivity
+implies that \(T\) has finite mass on \(K\), hence
+\[
+ \bigl|\langle(h_j-h)T,\alpha\rangle\bigr|
+ \leq
+ \|h_j-h\|_{L^\infty(K)}
+ \,\|T\|_K\,\|\alpha\|_{L^\infty(K)}.
+\tag{69.5}\label{eq:verified-current-uniform}
+\]
+The right side tends to zero, so \(h_jT\to hT\) as currents.
+Differentiation is continuous in the current topology. Since \(T\) is
+closed and \(h_j\) is smooth,
+\[
+ \dprimeddprime(h_jT)
+   =\dprimeddprime h_j\wedge T
+   =0.
+\tag{69.6}\label{eq:verified-smooth-product}
+\]
+Passing to the current limit gives
+\[
+ \dprimeddprime(hT)
+   =\lim_j \dprimeddprime(h_jT)=0.
+\]
+\end{proof}
+
+\begin{remark}[Sufficient, not automatic]
+\label{rem:verified-cld-sufficient}
+Equation \eqref{eq:verified-equal-hessians} does not produce the
+approximants \((h_j)\). The theorem is therefore a conditional
+independence statement. Existence of smooth pluriharmonic
+approximants for every continuous distributionally pluriharmonic
+function remains outside the result.
+\end{remark}
+
+\begin{corollary}\label{cor:verified-cld-smooth}
+If \(h=u-v\) is itself smooth and \(\dprimeddprime h=0\), then
+\(\dprimeddprime(hT)=0\).
+\end{corollary}
+
+\begin{proof}
+Take the constant approximation \(h_j=h\) in
+\Cref{thm:verified-cld-criterion}.
+\end{proof}
+
+\paragraph{One-dimensional check.}
+Let \(U\) be a tropical interval, let \(T\) be its integration current, and
+suppose \(u-v=ax+b\). Taking the constant sequence \(h_j=ax+b\) gives
+\(\dprimeddprime((u-v)T)=0\). If the interval is replaced by a graph with a
+vertex, the same calculation works on every open edge but says nothing
+about the sum of outgoing slopes at the vertex. The next section isolates
+exactly that missing gluing datum.
+
+\section{Cell-interior rigidity and the gluing obstruction}
+\label{sec:verified-cross-fan}
+
+On the relative interior \(\sigma^\circ\) of a tropical cell, choose
+affine coordinates \(x_1,\ldots,x_q\).
+
+\begin{proposition}\label{prop:verified-cell-rigidity}
+Let \(w\in L^1_{\mathrm{loc}}(\sigma^\circ)\). If
+\[
+                              \dprimeddprime[w]=0
+\tag{69.7}\label{eq:verified-cell-harmonic}
+\]
+as a current on \(\sigma^\circ\), then \(w\) agrees almost everywhere
+with an affine function. In particular, it has a unique continuous
+affine representative.
+\end{proposition}
+
+\begin{proof}
+In affine coordinates, the coefficients of \(\dprimeddprime[w]\) are the
+distributional second derivatives \(\partial_i\partial_jw\). Thus
+\[
+                         \partial_i\partial_jw=0
+\tag{69.8}\label{eq:verified-second-derivatives}
+\]
+for all \(i,j\). It follows that each first distributional derivative
+\(\partial_iw\) is constant on the connected cell interior. Let those
+constants be \(a_i\). Then the distributional gradient of
+\[
+                    w-\sum_{i=1}^qa_ix_i
+\]
+vanishes, so this difference is almost everywhere constant. The
+resulting affine function is continuous. Two continuous functions that
+agree almost everywhere on the cell agree everywhere, proving
+uniqueness.
+\end{proof}
+
+The conclusion does not glue through a singular face without a
+balancing law compatible with the current being multiplied.
+
+\begin{proposition}\label{prop:verified-cross-fan}
+Let
+\[
+ \Sigma
+ =\mathbf R_{\geq0}e_1
+   \cup\mathbf R_{\geq0}(-e_1)
+   \cup\mathbf R_{\geq0}e_2
+   \cup\mathbf R_{\geq0}(-e_2)
+       \subset\mathbf R^2.
+\tag{69.9}\label{eq:verified-cross-fan}
+\]
+Regard \(\Sigma\) as an abstract calibrated tropical fan and equip it first
+with unit weights. Define on \(\Sigma\)
+\[
+                  u=2|x_1|,
+       \qquad
+                  v=|x_1|+|x_2|,
+       \qquad
+                  h=u-v.
+\tag{69.10}\label{eq:verified-cross-functions}
+\]
+Then \(u\) and \(v\) are psh for the unit-weighted fan and
+\(\dprimeddprime[u]=\dprimeddprime[v]=4\delta_0\). Now give each horizontal ray weight
+\(2\) and each vertical ray weight \(1\), and let \(T\) be the
+corresponding positive closed skeletal current.  Although the
+\emph{unit-weighted} Laplacians of \(u\) and \(v\) agree, the weights of
+\(T\) are the ones that matter, and for them
+\(\dprimeddprime[u]=8\delta_0\neq6\delta_0=\dprimeddprime[v]\); no family
+\(h_j\) as in \eqref{eq:verified-pluriharmonic-approximation} exists, and
+\[
+                         \dprimeddprime(hT)=2\delta_0\neq0.
+\tag{69.11}\label{eq:verified-cross-defect}
+\]
+\end{proposition}
+
+\begin{proof}
+First we verify psh positivity in the CLD sense, rather than infer it from
+the outgoing Laplacian. Choose \(\varepsilon_j\downarrow0\) and define the
+smooth ambient convex functions
+\[
+ u_j(x_1,x_2)=2\sqrt{x_1^2+\varepsilon_j},
+ \qquad
+ v_j(x_1,x_2)=\sqrt{x_1^2+\varepsilon_j}
+              +\sqrt{x_2^2+\varepsilon_j}.
+\]
+Their restrictions to \(\Sigma\) are smooth psh functions and decrease
+locally uniformly to \(u\) and \(v\), respectively. Closure of the CLD psh
+class under decreasing limits therefore proves that \(u\) and \(v\) are
+psh on the unit-weighted fan.
+
+Both limit functions are convex on each ray. Their outgoing slopes are
+\[
+\begin{array}{c|cccc|c}
+ &+e_1&-e_1&+e_2&-e_2&\text{sum}\\ \hline
+u&2&2&0&0&4\\
+v&1&1&1&1&4\\
+h&1&1&-1&-1&0.
+\end{array}
+\tag{69.12}\label{eq:verified-cross-slopes}
+\]
+Thus the unit-weighted Laplacians of \(u\) and \(v\) are both
+\(4\delta_0\), and the ordinary balancing defect of \(h\) at \(0\)
+vanishes.
+With the weights of \(T\), however, the outgoing defect of \(hT\) is
+\[
+             2\cdot1+2\cdot1+1\cdot(-1)+1\cdot(-1)=2.
+\tag{69.13}\label{eq:verified-cross-weighted-sum}
+\]
+On the interior of every ray, \(h\) is affine, so there is no other
+second-derivative contribution. Therefore
+\[
+                         \dprimeddprime(hT)=2\delta_0.
+\]
+The weighted fan defining \(T\) is balanced because opposite rays have equal
+weights, and its weights are positive; hence \(T\) is positive and closed.
+\end{proof}
+
+\begin{remark}[Exact failed implication]
+\label{rem:verified-cross-failed}
+\Cref{prop:verified-cell-rigidity} remains true on each ray.
+What fails is the passage from cellwise affinity plus an unweighted
+balance to the balance required after multiplication by \(T\).
+The obstruction is the change of face weights.
+This is a counterexample on an abstract calibrated tropical fan. No
+Berkovich analytic realization of this particular weighted configuration is
+asserted here.
+\end{remark}
+
+An analytic realization would require more than drawing the same fan. One
+would need a good analytic domain, a tropicalization chart carrying the four
+rays, an analytic positive closed current whose tropical weights are
+\((2,2,1,1)\), and compatibility of the current product with pushforward to
+the fan. None of these data is supplied by
+\eqref{eq:verified-cross-fan}. Accordingly the proposition disproves an
+abstract tropical gluing principle, not an unqualified statement about all
+Berkovich spaces.
+
+\subsection{The analytic weighted configuration}
+\label{sec:verified-cross-analytic}
+
+There are two different realization questions hidden in the preceding
+paragraph.  The definition of a harmonic tropicalization used in this book
+starts from a compact strict analytic domain, whereas the fan
+\(\Sigma\) in \eqref{eq:verified-cross-fan} is unbounded.  This gives an
+immediate obstruction.
+
+\begin{proposition}
+\label{prop:verified-cross-compact-obstruction}
+There is no harmonic tropicalization
+\[
+                         g:W\longrightarrow\mathbf R^2
+\]
+in the sense of \Cref{sec:ch18-harmonic-trop-def} whose image is the full
+cross \(\Sigma\) of \eqref{eq:verified-cross-fan}.
+\end{proposition}
+
+\begin{proof}
+The source \(W\) in \Cref{sec:ch18-harmonic-trop-def} is compact and
+\(g\) is continuous.  Hence \(g(W)\) is compact.  The set \(\Sigma\)
+contains \((R,0)\) for every \(R>0\), and is therefore unbounded and
+noncompact.  Thus \(g(W)\ne\Sigma\).
+\end{proof}
+
+The compactness obstruction disappears if one asks for a proper
+tropicalization of a noncompact analytic space which is exhausted by
+compact harmonic-tropicalization charts.  In that precise sense, the
+weighted configuration does have an analytic realization.
+
+\begin{proposition}
+\label{prop:verified-cross-analytic-realization}
+Let \(K\) be complete, algebraically closed and nontrivially valued.  In
+\((\mathbf G_{m,K}^2)^{\mathrm{an}}\), put
+\[
+ X=V((x-1)(y-1))^{\mathrm{an}},
+ \qquad
+ Y_h=V(y-1)^{\mathrm{an}},
+ \qquad
+ Y_v=V(x-1)^{\mathrm{an}},
+\]
+and define
+\[
+ \tau=(-\log|x|,-\log|y|):X\longrightarrow\mathbf R^2.
+\]
+Then \(X\) is a reduced, pure one-dimensional, good strict analytic space
+without boundary, and
+\[
+                         \tau(X)=\Sigma.
+\tag{69.13a}\label{eq:verified-cross-analytic-image}
+\]
+The map \(\tau\) is proper and its coordinates are locally integral
+harmonic.  For every \(\rho>1\) in \(\lvert K^\times\rvert\), the compact
+strict domain
+\[
+ X_\rho=X\cap
+ \{\rho^{-1}\leq|x|\leq\rho,
+   \rho^{-1}\leq|y|\leq\rho\}
+\tag{69.13b}\label{eq:verified-cross-truncation}
+\]
+is a harmonic-tropicalization chart whose image is the corresponding
+truncated cross.  The fundamental cycle of \(X\) has weight one on every
+ray.
+
+The effective analytic cycle and its integration current
+\[
+                    Z=2[Y_h]+[Y_v],
+        \qquad      T=\delta_Z
+\tag{69.13c}\label{eq:verified-cross-cycle}
+\]
+are positive and closed, and \(\tau_*T\) is the skeletal current whose
+horizontal ray weights are \(2\) and whose vertical ray weights are \(1\).
+
+For \(u,v\) as in \eqref{eq:verified-cross-functions}, set
+\[
+                        U=u\circ\tau,\qquad
+                        V=v\circ\tau,\qquad H=U-V.
+\]
+The functions \(U,V\) are continuous psh functions and locally uniform
+decreasing limits of smooth psh functions.  If \(q_h\) and \(q_v\) are the
+unit Gauss points of \(Y_h\) and \(Y_v\), then
+\[
+ q_h\ne q_v,\qquad \tau(q_h)=\tau(q_v)=0,
+\]
+and the exact analytic current identities are
+\[
+ \dprimeddprime[U]=4\delta_{q_h},
+ \qquad
+ \dprimeddprime[V]=2\delta_{q_h}+2\delta_{q_v},
+\tag{69.13d}\label{eq:verified-cross-upstairs-curvatures}
+\]
+\[
+                  \dprimeddprime(HT)
+                    =4\delta_{q_h}-2\delta_{q_v}.
+\tag{69.13e}\label{eq:verified-cross-upstairs-defect}
+\]
+Consequently
+\[
+ \tau_*\dprimeddprime[U]
+ =\tau_*\dprimeddprime[V]
+ =4\delta_0,
+ \qquad
+ \tau_*\dprimeddprime(HT)=2\delta_0.
+\tag{69.13f}\label{eq:verified-cross-pushed-identities}
+\]
+\end{proposition}
+
+\begin{proof}
+We give the analytic, calibrated and current-theoretic checks separately.
+
+\emph{The space and the harmonic charts.}
+In the Laurent UFD \(K[x^{\pm1},y^{\pm1}]\), the prime elements
+\(x-1\) and \(y-1\) are nonassociate.  Hence
+\[
+              ((x-1)(y-1))=(x-1)\cap(y-1).
+\tag{69.13g}\label{eq:verified-cross-primary-decomposition}
+\]
+It follows that \(X=Y_h\cup Y_v\) is reduced, its two irreducible
+components have dimension one, and they meet only at the rigid point
+\(p=(1,1)\).  The components are closed copies of
+\(\mathbf G_m^{\mathrm{an}}\).
+
+The sets \(X_\rho\) in \eqref{eq:verified-cross-truncation} are spectra of
+quotients of strict Laurent Tate algebras, and are therefore compact strict
+affinoid domains.  They cover \(X\).  Given \(X_\rho\), the domain
+\(X_{\rho^2}\) contains it in its relative interior.  Thus every point has
+a good strict affinoid neighbourhood and is interior relative to a larger
+one; this proves goodness, strictness and \(\partial X=\varnothing\).
+The functions \(x,y\) are global analytic units.  For an analytic unit
+\(f\), the integral PL function \(-\log|f|\) has trivial residual line
+bundle and is therefore integral harmonic.  Hence the two coordinates of
+\(\tau\) are locally integral harmonic, and \(\tau|_{X_\rho}\) is a
+harmonic tropicalization by definition.
+
+\emph{The image, properness and weights.}
+For \(a\in\mathbf R\), let \(\eta_a\) be the Gauss seminorm on
+\(\mathbf G_m\) defined on Laurent polynomials by
+\[
+ \left|\sum_{\nu\in\mathbf Z}c_\nu T^\nu\right|_{\eta_a}
+       =\max_\nu |c_\nu|\rme^{-a\nu}.
+\]
+The points \(\eta_a\) form the standard skeleton, and
+\(-\log|T(\eta_a)|=a\).  On \(Y_h\) the map \(\tau\) is
+\((-\log|x|,0)\), while on \(Y_v\) it is
+\((0,-\log|y|)\).  This proves
+\eqref{eq:verified-cross-analytic-image} and the claimed image of every
+truncation.
+
+If \(C\subset\Sigma\) is compact, choose \(M\) with
+\(C\subset[-M,M]^2\), and then choose \(\rho\in|K^\times|\) with
+\(\log\rho>M\).  The inverse image \(\tau^{-1}(C)\) is closed in the
+compact domain \(X_\rho\), hence compact.  Thus \(\tau\) is proper.
+On either component, the two skeletal directions have primitive slopes
+\(+1\) and \(-1\), the tangent-lattice index is one, and the generic
+analytic degree is one.  Therefore the fundamental cycle has unit weight
+on all four rays.
+
+\emph{The cycle current.}
+For a compactly supported \((1,1)\)-test form \(\beta\), set
+\[
+ \langle T,\beta\rangle
+   =2\int_{Y_h}\beta|_{Y_h}+\int_{Y_v}\beta|_{Y_v}.
+\tag{69.13h}\label{eq:verified-cross-current-pairing}
+\]
+Restriction preserves strong positivity, so the right side is nonnegative
+for strongly positive \(\beta\).  The calibrated integration formula
+\cite[Proposition~5.10.1(d)]{CLD25} shows at the same time that this is an
+order-zero current and that its proper pushforward has horizontal weights
+\(2\) and vertical weights \(1\).  Stokes' formula
+\cite[Proposition~5.11.1]{CLD25}, applied componentwise to the
+boundaryless curves \(Y_h,Y_v\), gives
+\(\mathrm d'T=\mathrm d''T=0\).  The zero-dimensional intersection point
+has no one-dimensional integration mass and creates no boundary term.
+
+\emph{The psh approximants.}
+For \(\varepsilon_j\downarrow0\), define on \(\mathbf R^2\)
+\[
+ u_j(s,t)=2\sqrt{s^2+\varepsilon_j},
+ \qquad
+ v_j(s,t)=\sqrt{s^2+\varepsilon_j}
+          +\sqrt{t^2+\varepsilon_j}.
+\]
+Since
+\[
+ \frac{\rd^2}{\rd r^2}\sqrt{r^2+\varepsilon}
+       =\frac{\varepsilon}{(r^2+\varepsilon)^{3/2}}>0,
+\]
+these functions are smooth and convex.  The CLD chain rule therefore makes
+\(u_j\circ\tau\) and \(v_j\circ\tau\) smooth psh functions.  They decrease
+to \(U,V\), and
+\[
+          0\leq\sqrt{r^2+\varepsilon_j}-|r|
+             \leq\sqrt{\varepsilon_j}
+\]
+gives locally uniform convergence.  Continuity and psh positivity of the
+limits follow directly.
+
+\emph{The one-dimensional normalization.}
+Let \(G=\mathbf G_m^{\mathrm{an}}\), put
+\(\sigma=-\log|T|\), and write \(q=\eta_0\).  We claim that
+\[
+                         \dprimeddprime[|\sigma|]=2\delta_q
+\tag{69.13i}\label{eq:verified-cross-line-laplacian}
+\]
+against arbitrary compactly supported smooth test functions on \(G\), not
+only against functions which factor through \(\sigma\).
+
+Indeed, cover the support of a test function by finitely many relatively
+compact moment subcharts and use a smooth partition of unity
+\cite[Proposition~15.2.8]{CLD25}.  On each piece, adjoin the global unit
+\(T\) to the moment map.  The calibrated integration formula then computes
+the full analytic pairing on a one-dimensional moment graph.  The standard
+retraction
+\[
+             G\longrightarrow\{\eta_a:a\in\mathbf R\},
+             \qquad \xi\longmapsto\eta_{\sigma(\xi)}
+\]
+contracts open-ball directions on which \(\sigma\) is constant.  Thus
+\(|\sigma|\) has zero slope on all contracted edges.  On the skeleton it is
+affine away from \(q\), and its two primitive outgoing slopes at \(q\) are
+both \(1\), with unit weights.  Subdivide the moment graph at \(q\), at its
+other vertices and outside the test support.  On every oriented edge,
+\[
+ \int F(a)\varphi''(a)\,\rd a
+ =\bigl[F\varphi'-F'\varphi\bigr]_{\partial e}
+  +\int F''(a)\varphi(a)\,\rd a.
+\]
+For \(F=|\sigma|\), the interior terms vanish, the artificial boundary
+terms vanish by compact support, and the terms at all affine vertices
+cancel.  At \(q\), the two remaining terms add to \(2\varphi(q)\).
+This proves \eqref{eq:verified-cross-line-laplacian}.  It also shows directly
+that there is no rigid-point atom and no contribution at either infinite
+end.
+
+\emph{The upstairs and pushed identities.}
+Let \(q_h\) and \(q_v\) be the images of \(q\) on \(Y_h\) and \(Y_v\).
+They both map to the tropical origin, but they are distinct: on the two
+points the pairs of values of \((|x-1|,|y-1|)\) are respectively
+\((1,0)\) and \((0,1)\).  If
+\(s=-\log|x|\) on \(Y_h\) and \(t=-\log|y|\) on \(Y_v\), then
+\[
+\begin{array}{c|cc}
+ &Y_h&Y_v\\ \hline
+U&2|s|&0\\
+V&|s|&|t|\\
+H&|s|&-|t|.
+\end{array}
+\tag{69.13j}\label{eq:verified-cross-component-values}
+\]
+Top-degree integration on the reduced curve \(X\) is the sum over its
+generic components.  Applying \eqref{eq:verified-cross-line-laplacian} to
+\eqref{eq:verified-cross-component-values} gives
+\eqref{eq:verified-cross-upstairs-curvatures}.  Since \(T\) has order zero,
+the product \(HT\) is defined, and
+\[
+                   HT=2|s|\,\delta_{Y_h}
+                         -|t|\,\delta_{Y_v}.
+\]
+Another application of \eqref{eq:verified-cross-line-laplacian} gives
+\eqref{eq:verified-cross-upstairs-defect}.  Near the rigid node \(p\), the
+inequalities \(|x-1|<1\) and \(|y-1|<1\) imply \(|x|=|y|=1\), so all three
+functions are locally constant and there is no node atom.
+
+Finally, \(H=h\circ\tau\), and the defining transpose pairing for proper
+pushforward gives
+\[
+                         \tau_*(HT)=h\,\tau_*T.
+\]
+Proper pushforward commutes with \(\mathrm d'\) and \(\mathrm d''\).
+Moreover \(\tau_*\delta_{q_h}=\tau_*\delta_{q_v}=\delta_0\).
+Pushing forward
+\eqref{eq:verified-cross-upstairs-curvatures} and
+\eqref{eq:verified-cross-upstairs-defect} proves
+\eqref{eq:verified-cross-pushed-identities}.
+\end{proof}
+
+\begin{remark}
+\label{rem:verified-cross-upstairs-firewall}
+\Cref{prop:verified-cross-analytic-realization} realizes the analytic space,
+the locally harmonic tropicalization, the positive closed current, the
+weights, the psh approximation and the defect after proper pushforward.  It
+does not produce an analytic Bedford--Taylor counterexample.  Indeed,
+\eqref{eq:verified-cross-upstairs-curvatures} shows that the two curvature
+currents on \(X\) are unequal; they become equal only because \(\tau\)
+identifies \(q_h\) and \(q_v\).  It remains open whether one can arrange
+equality upstairs while retaining a nonzero weighted product defect.  The
+next proposition tests the most direct smooth connected replacement.  It
+does put both curvature atoms at one analytic point, but a third analytic
+unit detects that the desired unequal weights do not define an intrinsic
+closed current.
+\end{remark}
+
+\begin{proposition}
+\label{prop:verified-four-punctured-cross-obstruction}
+Let \(K\) be a complete algebraically closed nontrivially valued
+non-Archimedean field.  Choose \(a,b,c,d\in K^\circ\) with pairwise distinct
+residue classes, let \(q\) be the standard type--\(2\) Gauss point, and put
+\[
+ X=\bigl(\mathbf P^1_K\setminus\{a,b,c,d\}\bigr)^{\An}.
+\]
+The analytic units
+\[
+ f=\frac{z-a}{z-b},\qquad g=\frac{z-c}{z-d}
+\]
+define a proper tropicalization
+\[
+ \tau=(-\log|f|,-\log|g|):X\longrightarrow\mathbf R^2.
+\]
+Write \((s,t)\) for the standard coordinates on \(\mathbf R^2\).  The image
+of \(\tau\) is the full cross.  Its four primitive rays, in the directions
+toward \(a,b,c,d\), are respectively
+\[
+                         e_1,-e_1,e_2,-e_2,
+\]
+and the tropicalization of the fundamental cycle has weight one on every
+ray.  The functions
+\[
+               U=(2|s|)\circ\tau,
+        \qquad V=(|s|+|t|)\circ\tau
+\]
+are continuous psh and satisfy, as CLD currents and as delta-currents,
+\[
+                  \dprimeddprime[U]
+                  =\dprimeddprime[V]=4\delta_q.
+\tag{69.13k}\label{eq:verified-four-punctured-curvature}
+\]
+
+Nevertheless, there is no positive closed order-zero CLD current \(T\) of
+bidegree \((0,0)\) on \(X\) whose proper tropical pushforward has horizontal
+ray weights \(2\) and vertical ray weights \(1\).  More generally, if the
+four ray weights of \(\tau_*T\), ordered by \(a,b,c,d\), are
+\(w_a,w_b,w_c,w_d\), then
+\[
+                         w_a=w_b=w_c=w_d.
+\tag{69.13l}\label{eq:verified-four-punctured-equal-weights}
+\]
+The same obstruction applies to a positive closed delta-current whenever
+its restriction to smooth test forms has the displayed ray weights.
+Consequently this four-punctured smooth-curve construction does not solve
+\Cref{prob:frontier-cross-fan-upstairs}.
+\end{proposition}
+
+\begin{proof}
+Pairwise distinct reductions give
+\[
+ |a-b|=|a-c|=|a-d|=|b-c|=|b-d|=|c-d|=1.
+\tag{69.13m}\label{eq:verified-four-punctured-distances}
+\]
+The convex hull of the four punctures in the Berkovich projective line is
+therefore the star with central vertex \(q\) and four unbounded open edges,
+one toward each puncture.  Both \(f\) and \(g\) are analytic units on \(X\).
+On the four edges their logarithmic slopes are
+\[
+\begin{array}{c|rrrr}
+ &a&b&c&d\\ \hline
+s\circ\tau=-\log|f|& 1&-1&0&0\\
+t\circ\tau=-\log|g|& 0&0&1&-1.
+\end{array}
+\tag{69.13n}\label{eq:verified-four-punctured-slopes}
+\]
+Outside this star both norms are constant on the fibres of the retraction.
+Thus \(\tau(X)\) is the full cross.  The four displayed slopes are primitive,
+the analytic multiplicities are one, and the tangent-lattice indices are
+one, so the fundamental weights are one.
+
+Properness is algebraic rather than an assumption hidden in the skeletal
+picture.  The M\"obius coordinate \(x=f\) identifies
+\(\mathbf P^1\setminus\{a,b\}\) with \(\mathbf G_m\).  If
+\(\alpha=f(c)\) and \(\beta=f(d)\), then \(\alpha,\beta\in K^\times\) are
+distinct and there is \(C\in K^\times\) such that
+\[
+                         g=C\frac{x-\alpha}{x-\beta}.
+\tag{69.13o}\label{eq:verified-four-punctured-mobius-g}
+\]
+Hence \(X\) is the closed curve
+\(g(x-\beta)=C(x-\alpha)\) in \(\mathbf G_m^2\): at \(x=\alpha\) or
+\(x=\beta\), the equation has no solution in the torus.  Tropicalization of
+a closed subvariety of a torus is proper, so \(\tau\) is proper.
+
+The ambient functions \(2|s|\) and \(|s|+|t|\) are continuous and convex.
+The smooth convex functions
+\[
+ 2\sqrt{s^2+\varepsilon},\qquad
+ \sqrt{s^2+\varepsilon}+\sqrt{t^2+\varepsilon}
+\]
+decrease locally uniformly to them as \(\varepsilon\downarrow0\).  Pullback
+by the moment map proves that \(U,V\) are continuous psh, including the CLD
+approximation requirement.  By the one-dimensional tropical
+Poincar\'e--Lelong formula, the curvature atom of a PL function at an
+interior vertex is the sum of its outgoing slopes, counted with the
+canonical weights.  From \eqref{eq:verified-four-punctured-slopes}, the
+outgoing slopes of \(U\) at \(q\) are \(2,2,0,0\), and those of \(V\) are
+\(1,1,1,1\).  Both sums are four.  The functions are affine on every open
+star edge and constant on every complementary retraction fibre; the
+punctures are not points of \(X\).  There is no further curvature term, so
+\eqref{eq:verified-four-punctured-curvature} follows.  The same corner-cycle
+calculation gives the asserted equality of delta-currents.
+
+It remains to test a proposed current in every refinement, rather than only
+in the coarse chart \((f,g)\).  Adjoin the analytic unit
+\[
+                         k=\frac{z-a}{z-c},
+\]
+and put
+\[
+ \widehat\tau=(-\log|f|,-\log|g|,-\log|k|):X\longrightarrow\mathbf R^3.
+\]
+Write \(r\) for the third standard coordinate.  In the coordinate \(x=f\),
+there is
+\(D\in K^\times\) such that
+\[
+                         k=D\frac{x}{x-\alpha}.
+\tag{69.13p}\label{eq:verified-four-punctured-mobius-k}
+\]
+Equations \eqref{eq:verified-four-punctured-mobius-g} and
+\eqref{eq:verified-four-punctured-mobius-k} exhibit \(X\) as the closed curve
+\[
+ g(x-\beta)=C(x-\alpha),\qquad k(x-\alpha)=Dx
+\]
+in \(\mathbf G_m^3\).  Thus \(\widehat\tau\) is again proper.  Its four
+primitive ray vectors, in the order \(a,b,c,d\), are
+\[
+ v_a=(1,0,1),\quad v_b=(-1,0,0),\quad
+ v_c=(0,1,-1),\quad v_d=(0,-1,0).
+\tag{69.13q}\label{eq:verified-four-punctured-refined-rays}
+\]
+Every vector in \eqref{eq:verified-four-punctured-refined-rays} is primitive,
+and projection to the first two coordinates maps its ray isomorphically,
+with lattice index one, onto the corresponding ray of the coarse cross.
+
+Suppose that \(T\) is a positive closed order-zero CLD current of bidegree
+\((0,0)\), and write \(S=\widehat\tau_*T\).  Proper pushforward makes \(S\)
+a positive closed order-zero supercurrent supported on the fan
+\eqref{eq:verified-four-punctured-refined-rays}.  On the relative interior
+of one ray, choose integral affine coordinates \(y_1,y_2,y_3\), with
+\(y_1\) increasing in the primitive ray direction and the ray given by
+\(y_2=y_3=0\).  An order-zero positive supercurrent of bidimension
+\((1,1)\) is represented there by a positive-semidefinite matrix of Radon
+measures.  The equations \(\mathrm d' S=\mathrm d'' S=0\), tested against
+forms whose coefficients have arbitrary normal first jets, kill every row
+and column except the \(y_1y_1\)-entry.  The remaining equation is the
+distributional identity \(\partial_{y_1}\mu=0\).  Hence
+\(\mu=w_e\,\rd y_1\) for a constant \(w_e\geq0\) on that ray.
+
+An order-zero bidimension-\((1,1)\) remainder at the vertex would have the
+form \(A\delta_0\) for a positive-semidefinite matrix \(A\).  Its
+differential contains first derivatives of \(\delta_0\), whereas the
+boundaries of the four ray currents contain only multiples of \(\delta_0\).
+Tests with prescribed first jet at the origin therefore give \(A=0\).
+Testing closedness against forms constant near the vertex then gives the
+balancing equation
+\[
+                         \sum_{e=a,b,c,d}w_ev_e=0.
+\tag{69.13r}\label{eq:verified-four-punctured-balancing}
+\]
+The weights in \eqref{eq:verified-four-punctured-balancing} agree with those
+of \(\tau_*T\), because the projection has exactly one ray over each coarse
+ray and all four lattice indices are one.  Substitution from
+\eqref{eq:verified-four-punctured-refined-rays} yields
+\[
+ (w_a-w_b,\ w_c-w_d,\ w_a-w_c)=(0,0,0),
+\]
+which proves \eqref{eq:verified-four-punctured-equal-weights}.  In
+particular, \((w_a,w_b,w_c,w_d)=(2,2,1,1)\) is impossible: its refined
+balancing defect is exactly \((0,0,1)\).
+
+Finally, let \(T_\delta\) be a positive closed delta-current with the
+asserted visible ray weights.  Restriction to smooth test forms commutes
+with both differentials and preserves positivity.  Its CLD restriction is
+therefore a positive closed current to which
+\eqref{eq:verified-four-punctured-equal-weights} applies.  Smooth compactly
+supported top-degree forms on the ray interiors detect all four weights, so
+restriction does not discard any of them.  The same contradiction follows.
+\end{proof}
+
+\begin{remark}
+\label{rem:verified-four-punctured-scope}
+\Cref{prop:verified-four-punctured-cross-obstruction} rejects one concrete
+four-punctured smooth-curve realization.  It does not classify positive
+closed bidegree-\((0,0)\) currents on arbitrary connected analytic curves,
+and it does not decide \Cref{prob:frontier-cross-fan-upstairs} for
+higher-dimensional analytic CLD currents or non-PL potentials.  No pullback
+of an arbitrary current occurs in the proof: both tropical currents are
+obtained by proper pushforward, defined as the transpose of pullback on test
+forms.
+\end{remark}
+
+\section{The fixed-dual-complex Radon--Riesz case}
+\label{sec:verified-fixed-complex}
+
+Work in the trivially valued projective setting of
+\Cref{chap:bj-linear-growth}. Let \(X^{\lin}\) be the space of
+linear-growth valuations. Its weak topology is induced from
+\(X^{\An}\), and its strong topology is defined by the metric
+\(d_{\infty,\omega}\) of \eqref{eq:bj-dinfty}. Write
+\[
+                  T_\omega(v)
+                  =d_{\infty,\omega}(v,v_{\mathrm{triv}})
+\tag{69.14}\label{eq:verified-exhaustion}
+\]
+for the standard exhaustion. Strong convergence implies weak
+convergence and convergence of \(T_\omega\). Boucksom--Jonsson
+Question~11.16 asks whether the converse holds on all of \(X^{\lin}\)
+\cite{BJ22}.  The global answer is negative by
+\cref{thm:ch49-global-radon-riesz-counterexample}; this section records the
+positive result on one fixed strongly compact dual complex.
+
+\begin{lemma}\label{lem:verified-compact-hausdorff}
+Let \(K\subset X^{\lin}\) be compact for the strong topology.
+Assume the weak topology is Hausdorff and is coarser than the strong
+topology. Then the two induced topologies on \(K\) coincide.
+\end{lemma}
+
+\begin{proof}
+The identity map
+\[
+     (K,\text{strong})\longrightarrow(K,\text{weak})
+\tag{69.15}\label{eq:verified-identity-topologies}
+\]
+is a continuous bijection from a compact space to a Hausdorff space.
+It is therefore a homeomorphism.
+\end{proof}
+
+\begin{theorem}\label{thm:verified-fixed-dual-complex}
+Assume that the trivially valued ground field has characteristic zero and
+that \(X\) is smooth and projective. Fix an SNC test configuration
+\(\mathcal X\), and let
+\(\Delta_{\mathcal X}\) be its dual complex, viewed as a compact
+subset of \(X^{\lin}\). If a net
+\((v_i)\subset\Delta_{\mathcal X}\) satisfies
+\[
+                        v_i\longrightarrow v
+             \quad\text{weakly},
+       \qquad
+                        T_\omega(v_i)\longrightarrow T_\omega(v),
+\tag{69.16}\label{eq:verified-radon-riesz-data}
+\]
+then \(v_i\to v\) strongly. In fact, weak convergence alone implies
+strong convergence on this fixed dual complex.
+\end{theorem}
+
+\begin{proof}
+The fixed dual complex is a finite compact polyhedral complex.
+Its embedding into \((X^{\lin},d_{\infty,\omega})\) is Lipschitz by
+the PL section formula \eqref{eq:bj-dinfty-sections} and the equi-Lipschitz
+estimate of \cite[Theorem~A.4]{BJ22}. This is where characteristic zero and
+smoothness enter. Its image is therefore strongly compact. The weak topology
+is Hausdorff and coarser than the strong topology. Apply
+\Cref{lem:verified-compact-hausdorff}. Thus weak and strong
+topologies coincide on \(\Delta_{\mathcal X}\), so the first condition
+in \eqref{eq:verified-radon-riesz-data} already gives the conclusion.
+\end{proof}
+
+\begin{corollary}\label{cor:verified-strongly-compact}
+The same conclusion holds on every strongly compact subset of
+\(X^{\lin}\).
+\end{corollary}
+
+\begin{proof}
+Apply \Cref{lem:verified-compact-hausdorff} to that subset.
+\end{proof}
+
+\begin{remark}[Fixed complexes versus escaping models]
+\label{rem:verified-no-global-radon-riesz}
+The compact-to-Hausdorff argument is genuinely local to a strongly compact
+subset.  By \cref{thm:ch49-global-radon-riesz-counterexample}, on
+\(\mathbf P^n\), \(n\ge2\), the exceptional valuations of blowups at
+pairwise distinct points \(p_j\) of a fixed linear line \(C\) converge
+weakly to the line-centred valuation \(v_C\), and
+\[
+ T_\omega(v_j)=T_\omega(v_C)=1,
+ \qquad d_{\infty,\omega}(v_j,v_C)\ge1.
+\]
+Here \(v_C=\ord_C\) for \(n=2\), while for \(n\ge3\) it is the exceptional
+valuation of the blowup along \(C\).  The point centres move, so no fixed
+SNC dual complex contains a tail of this sequence.  Thus
+\cref{thm:verified-fixed-dual-complex} remains valid and is sharp with
+respect to its fixed-complex hypothesis, whereas the global implication in
+Boucksom--Jonsson Question~11.16 is false.
+\end{remark}
+
+\paragraph{Worked compact cell.}
+If a fixed dual complex is an edge with affine coordinate \(s\in[0,1]\),
+the PL section formula bounds
+\(d_{\infty,\omega}(v_s,v_t)\) by \(C|s-t|\). Hence an ordinary convergent
+net \(s_i\to s\) converges strongly. The theorem is the finite-complex
+version of this calculation: finitely many Lipschitz charts replace the
+single interval, and compactness prevents the Lipschitz constants from
+escaping to infinity.
+
+\section{Trace factorization and the split calculation}
+\label{sec:verified-trace}
+
+Return to a smooth compact K\"ahler manifold \(X\) and a closed
+submanifold \(Y\). Recall the natural domain \(D_Y\) from
+\eqref{eq:functor-trace-domain}.
+
+\begin{theorem}\label{thm:verified-trace-factorization}
+The natural trace assignment is
+\[
+ [\varphi]_{\mathcal I}\longmapsto
+ [\Tr_Y(\varphi)]_P.
+\tag{69.17}\label{eq:verified-trace-map}
+\]
+It is a well-defined map
+\(D_Y/{\sim_{\mathcal I}}\to
+\QPSH(\widetilde Y)/{\sim_P}\), and every output has an
+\(\mathcal I\)-good representative.  Consequently its precomposition
+with the quotient from \(P\)-classes factors as
+\[
+\begin{tikzcd}[column sep=large]
+D_Y/{\sim_P}
+ \arrow[r,two heads]
+&
+D_Y/{\sim_{\mathcal I}}
+ \arrow[r]
+&
+\QPSH(\widetilde Y)/{\sim_P}.
+\end{tikzcd}
+\tag{69.18}\label{eq:verified-trace-factorization}
+\]
+Thus the source quotient is \(\mathcal I\)-theoretic, whereas the target
+quotient is the finer \(P\)-quotient.  This asymmetry is the content of
+the trace comparison and uniqueness theorems.
+\end{theorem}
+
+\begin{proof}
+If \(\varphi\sim_{\mathcal I}\psi\), equality of multiplier-ideal
+types gives equality of generic Lelong numbers at divisorial
+valuations on every modification. If \(Y\) is a divisor, use
+\(\ord_Y\); in higher codimension, use the exceptional divisor of the
+blow-up of the smooth center \(Y\). In either case,
+\[
+                       \nu(\varphi,Y)=\nu(\psi,Y),
+\tag{69.19}\label{eq:verified-trace-domain-saturation}
+\]
+so \(D_Y\) is \(\mathcal I\)-saturated. It is \(P\)-saturated because
+\(P\)-equivalence implies \(\mathcal I\)-equivalence.
+
+The trace comparison theorem gives
+\[
+ \varphi\preceq_{\mathcal I}\psi
+       \Longrightarrow
+ \Tr_Y(\varphi)\preceq_P\Tr_Y(\psi).
+\tag{69.20}\label{eq:verified-trace-comparison}
+\]
+Applying this in both directions shows that
+\(\mathcal I\)-equivalent inputs have \(P\)-equivalent traces.  The
+trace uniqueness theorem also says that each representative is
+\(\mathcal I\)-good.  Hence
+the second arrow in \eqref{eq:verified-trace-factorization} is
+well-defined and is precisely \eqref{eq:verified-trace-map}. Precomposing
+with the quotient from \(P\)-classes proves the displayed factorization.
+\end{proof}
+
+\begin{theorem}\label{thm:verified-split-trace}
+Let \(X=Y\times Z\) and
+\[
+                 \alpha=p_Y^*\alpha_Y+p_Z^*\alpha_Z,
+\]
+where both summands are K\"ahler classes. Let
+\(S=\theta_Y+\ddc\psi\in\alpha_Y\) be a K\"ahler current and let
+\(\eta\in\alpha_Z\) be a smooth K\"ahler form. Then
+\[
+                         T=p_Y^*S+p_Z^*\eta
+\tag{69.21}\label{eq:verified-split-current}
+\]
+is K\"ahler and
+\[
+ \Tr_{Y\times\{z_0\}}(T)
+       \sim_P P_{\alpha_Y}[\psi]_{\mathcal I}
+       \sim_{\mathcal I}S.
+\tag{69.22}\label{eq:verified-split-trace}
+\]
+If \(S\) is \(\mathcal I\)-good, its canonical representative
+\(P_{\alpha_Y}[\psi]_{\mathcal I}\) is \(P\)-equivalent to \(S\), and
+hence \(\Tr_{Y\times\{z_0\}}(T)\sim_P S\).
+\end{theorem}
+
+\begin{proof}
+The pullback of \(S\) is strictly positive in horizontal directions,
+and \(p_Z^*\eta\) is strictly positive in vertical directions, so
+their sum is a K\"ahler current in \(\alpha\).
+
+Choose a quasi-equisingular approximation \((\psi_j)\) of \(\psi\).
+Since \(p_Y\) is smooth, local Fubini integration gives
+\[
+ \mathcal I(mp_Y^*\psi_j)
+   =p_Y^{-1}\mathcal I(m\psi_j)\cdot\mathcal O_X
+\tag{69.23}\label{eq:verified-smooth-pullback-ideals}
+\]
+for all \(m\), and likewise for \(\psi\). Thus
+\((p_Y^*\psi_j)\) is quasi-equisingular for \(p_Y^*\psi\). Restriction
+to \(Y\times\{z_0\}\) gives exactly \(\psi_j\), while the smooth
+vertical term restricts to zero. The definition of trace therefore
+gives
+\[
+ \Tr_{Y\times\{z_0\}}(T)
+       \sim_P d_S\text{-}\lim_j\psi_j
+       \sim_P P_{\alpha_Y}[\psi]_{\mathcal I}.
+\tag{69.24}\label{eq:verified-split-limit}
+\]
+The last envelope is \(\mathcal I\)-equivalent to \(S\). If \(S\) is
+\(\mathcal I\)-good, its \(P\)-class equals that of its canonical
+\(\mathcal I\)-model envelope. This proves all assertions.
+\end{proof}
+
+\begin{remark}[Retraction form]
+\label{rem:verified-retraction}
+The same proof applies to a holomorphic submersion
+\(r:X\to Y\) with section \(i\), provided
+\(\alpha=r^*\beta+\gamma\) and \(\gamma\) has a smooth semipositive
+representative \(\eta\) that is strictly positive on \(\ker(\rd r)\) and
+satisfies \(i^*\eta=0\). Then \(T=r^*S+\eta\).
+The transverse positivity and class splitting cannot be deleted.
+\end{remark}
+
+\section{Toric numerical dimension}
+\label{sec:verified-toric-dimension}
+
+Let \(X=X_\Sigma\) be a smooth projective toric variety of dimension
+\(n\). Let \(D\) be an integral or rational big toric divisor and let
+\(\theta\in c_1(D)\) be torus invariant. For a torus-invariant
+\(\theta\)-psh potential \(\varphi\), put
+\[
+                         T=\theta+\ddc\varphi.
+\]
+Its Newton body is the compact convex set
+\[
+                         K=\Delta(T)
+                          =\overline{\operatorname{dom}F_T^*}
+                          \subset M_{\mathbf R}
+\tag{69.25}\label{eq:verified-newton-body}
+\]
+defined from the convex weight on the dense torus.  The closure prevents
+boundary slopes from being lost; compare
+\Cref{def:ok-closed-newton-body}.
+
+\begin{definition}[Cao numerical dimension]
+\label{def:verified-cao-dimension}
+After replacing \((D,T,\varphi,K)\) by
+\((qD,qT,q\varphi,qK)\) for a common denominator \(q\), and retaining
+the notation, regard \(\varphi\) as a singular semipositive metric on
+an integral line bundle. Cao defines
+\[
+ \nu_{\mathrm{Cao}}(T)
+   :=\max\bigl\{j\in\{0,\ldots,n\}:
+       \langle T^j\rangle_{\mathrm{Cao}}\ne0\bigr\},
+\]
+where \(\langle T^j\rangle_{\mathrm{Cao}}\) is the cohomological
+product constructed from quasi-equisingular approximations in
+\cite[Definitions~2--3]{Cao14}. Multiplying \(T\) by a positive
+integer does not change which of these classes vanish, so this also
+defines the rational case.
+\end{definition}
+
+For later use, recall Cao's projective numerical criterion. If \(A\)
+is very ample and \(\varepsilon>0\) is rational, put
+\[
+ S_A(\varepsilon)
+ :=\varlimsup_{\substack{m\to\infty\\m\varepsilon\in\mathbf Z}}
+ \frac{h^0\!\left(X,
+   \mathcal O_X(mD+m\varepsilon A)\otimes
+   \mathcal I(m\varphi)\right)}{m^n}.
+\]
+Then \cite[Proposition~4.4]{Cao14} says that
+\[
+ \lim_{\substack{\varepsilon\downarrow0\\
+                  \varepsilon\in\mathbf Q}}
+       \frac{\log S_A(\varepsilon)}{\log\varepsilon}
+       =n-\nu_{\mathrm{Cao}}(T).
+\tag{69.26}\label{eq:verified-cao-characterization}
+\]
+
+\begin{theorem}\label{thm:verified-toric-dimension}
+Under the integral or rational hypotheses above,
+\[
+                          \nu_{\mathrm{Cao}}(T)=\dim K.
+\tag{69.27}\label{eq:verified-toric-dimension}
+\]
+\end{theorem}
+
+\begin{proof}
+This is the integral/rational case of
+\Cref{thm:ok-toric-real-products}.  We retain the following independent
+section-counting proof because it explains how multiplier ideals detect the
+same convex body when a graded section algebra exists.
+
+Choose a very ample integral toric divisor \(A\) with full-dimensional
+polytope \(Q\). The convex dictionary is additive under addition of
+toric currents, hence
+\[
+               \Delta(T+\varepsilon\omega_A)
+                         =K+\varepsilon Q.
+\tag{69.28}\label{eq:verified-minkowski-perturbation}
+\]
+The complete character-by-character calculation is given in the proof of
+\Cref{thm:ok-toric-zero-mass}; we apply it to the present notation.  More
+precisely, that proof converts the book's squared-norm weight to
+Guenancia's norm weight, identifies the interiors of the local Newton set
+and its closure, and checks that the strict condition automatically makes
+the local Laurent exponent holomorphic.  After those checks, Guenancia's
+criterion \cite[Theorem~1.13]{Guenancia12} says on a maximal smooth chart
+\(U_\sigma\) that the character \(\chi^u\) survives exactly when
+\[
+ u+\kappa_\sigma\in
+ \operatorname{int}\bigl(m(K+\varepsilon Q)+\sigma^\vee\bigr),
+\]
+where \(\kappa_\sigma\) is the fixed all-ones vector in the chart lattice.
+The proof cited above checks the Cartier-data signs, proves the global gluing
+identity
+\[
+ K+\varepsilon Q
+ =\bigcap_{\sigma\in\Sigma(n)}
+   (K+\varepsilon Q+\sigma^\vee),
+\]
+and squeezes the strict conditions with shifts \(m^{-1}\kappa_\sigma\) between
+inner and outer convex bodies.  The lattice Riemann-sum theorem then proves
+that the following inner limit exists and that
+\[
+                         S_A(\varepsilon)
+                         =\vol_n(K+\varepsilon Q),
+\tag{69.29}\label{eq:verified-toric-rr}
+\]
+where \(\vol_n\) is normalized by the character lattice.  Thus in this toric
+case the normalized section count has an actual limit.  The displayed equality
+holds only after that limit, not as a literal finite-level section-count
+identity, and no factor \(n!\) occurs.
+
+Put \(d=\dim K\) and let \(A_K\) be its affine span. After translation,
+decompose
+\[
+                  M_{\mathbf R}=V_K\oplus V_K^\perp,
+       \qquad \dim V_K=d.
+\]
+Because \(K\) has nonempty relative interior in \(A_K\), it contains a
+\(d\)-dimensional ball of radius \(a>0\) in \(V_K\). Since \(Q\) has
+nonempty interior, it contains an \(n\)-dimensional ball of radius
+\(b>0\). Therefore \(K+\varepsilon Q\) contains a product-type body
+with \(d\) directions of fixed size and \(n-d\) directions of size
+\(\varepsilon\). Hence
+\[
+                \vol_n(K+\varepsilon Q)
+                       \geq c\varepsilon^{\,n-d}.
+\tag{69.30}\label{eq:verified-volume-lower}
+\]
+
+Conversely, \(K\) is contained in a bounded \(d\)-dimensional box in
+\(A_K\), and \(Q\) is contained in a bounded \(n\)-dimensional box.
+Their Minkowski sum is contained in a box with \(d\) sides bounded
+independently of \(\varepsilon\) and \(n-d\) sides bounded by
+\(C\varepsilon\). Thus
+\[
+                \vol_n(K+\varepsilon Q)
+                       \leq C'\varepsilon^{\,n-d}.
+\tag{69.31}\label{eq:verified-volume-upper}
+\]
+Equations \eqref{eq:verified-cao-characterization}--
+\eqref{eq:verified-volume-upper} show that the exponent in Cao's
+criterion is \(n-d\). Therefore
+\(\nu_{\mathrm{Cao}}(T)=d\).
+\end{proof}
+
+\begin{example}[Segment in a surface]
+\label{ex:verified-toric-segment}
+If \(n=2\) and \(K\) is a nondegenerate segment, then
+\[
+              \vol_2(K+\varepsilon Q)\asymp\varepsilon.
+\]
+Thus \(\nu_{\mathrm{Cao}}(T)=1\), although the actual top
+nonpluripolar mass \(2!\vol_2(K)\) is zero.
+\end{example}
+
+For a concrete normalization, take
+\(K=[0,a]\times\{0\}\) and \(Q=[0,1]^2\). Then
+\[
+             K+\varepsilon Q=[0,a+\varepsilon]\times[0,\varepsilon],
+ \qquad
+             \vol_2(K+\varepsilon Q)=a\varepsilon+\varepsilon^2.
+\]
+The leading exponent is one, so
+\eqref{eq:verified-cao-characterization} gives
+\(2-\nu_{\mathrm{Cao}}(T)=1\). This computes
+\(\nu_{\mathrm{Cao}}(T)=1\) without confusing numerical dimension with the
+vanishing two-dimensional volume of \(K\) itself.
+
+\begin{remark}[Rationality boundary]
+\label{rem:verified-toric-rationality}
+The proof displayed in this section uses toric section growth and therefore
+stops at integral or rational classes.  This is a boundary of the algebraic
+method, not of the theorem: the analytic fixed-current argument of
+\Cref{thm:ok-toric-real-products} covers arbitrary pseudoeffective real
+classes and identifies both the Cao and non-pluripolar current-level
+dimensions.  It does not use class-varying rational approximation.
+\end{remark}
+
+\section{No \texorpdfstring{\(\mathcal I\)}{I}-invariant body can recover actual mass}
+\label{sec:verified-mass-no-go}
+
+\begin{theorem}\label{thm:verified-mass-no-go}
+There is no rule, defined for every compact K\"ahler manifold \(X\)
+and every pseudoeffective class \([\theta]\), that assigns
+\[
+ \mathfrak B_{X,\theta}:
+ \{\varphi\in\PSH(X,\theta)\}
+       \longrightarrow
+ \{\text{Lebesgue-measurable subsets of }\mathbf R^N\}
+\tag{69.32}\label{eq:verified-body-assignment}
+\]
+for a fixed integer \(N\) and satisfies both:
+\begin{enumerate}
+\item if \(\varphi\sim_{\mathcal I}\psi\), then
+      \(\mathfrak B(\varphi)\) and \(\mathfrak B(\psi)\) agree up to
+      a Lebesgue-null set;
+\item for every \(\varphi\),
+      \[
+          \vol_N(\mathfrak B(\varphi))
+             =\int_X\left\langle
+                    (\theta+\ddc\varphi)^n
+                       \right\rangle.
+      \tag{69.33}\label{eq:verified-body-mass}
+      \]
+\end{enumerate}
+Convexity of \(\mathfrak B(\varphi)\) is not needed for the
+contradiction.
+\end{theorem}
+
+\begin{proof}
+Take \(X=\mathbf P^1\) with the Fubini--Study form \(\omega\),
+normalized by \(\int_X\omega=1\). Let \(K\subset\mathbf P^1\) be a
+polar Cantor set carrying an atom-free probability measure \(\mu\), as
+in \cite[p.~31]{Car83}.
+Solve
+\[
+                           \mu=\omega+\ddc\varphi.
+\tag{69.34}\label{eq:verified-cantor-potential}
+\]
+Because \(\mu\) has no atoms, every Lelong number of \(\varphi\) is
+zero. Skoda integrability then gives
+\(\mathcal I(m\varphi)=\mathcal O_{\mathbf P^1}\) for every
+\(m>0\), and hence
+\[
+                              \varphi\sim_{\mathcal I}0.
+\tag{69.35}\label{eq:verified-cantor-i-equivalence}
+\]
+The measure \(\mu\) is supported on the polar set \(K\). In bidegree
+one, the nonpluripolar product is the nonpluripolar part of the current
+\(\mu\); it is supported in \(K\) but puts no mass on the pluripolar
+set \(K\). Hence it vanishes and
+\[
+               \int_X\langle\omega+\ddc\varphi\rangle=0.
+\tag{69.36}\label{eq:verified-cantor-zero-mass}
+\]
+For the smooth zero potential,
+\[
+                              \int_X\omega=1.
+\tag{69.37}\label{eq:verified-smooth-mass}
+\]
+Property \(1\) says that
+\(\mathfrak B(\varphi)\) and \(\mathfrak B(0)\) have the same volume.
+Property \(2\), together with
+\eqref{eq:verified-cantor-zero-mass}--\eqref{eq:verified-smooth-mass},
+says that these volumes are respectively \(0\) and \(1\), a
+contradiction.
+\end{proof}
+
+\begin{corollary}\label{cor:verified-ideals-insufficient}
+No body constructed only from the collection of multiplier ideals
+\(\{\mathcal I(m\varphi)\}_{m>0}\) can recover the actual
+nonpluripolar mass of every potential.
+\end{corollary}
+
+\begin{proof}
+Such a construction is invariant under
+\(\mathcal I\)-equivalence, so
+\Cref{thm:verified-mass-no-go} applies.
+\end{proof}
+
+\begin{remark}[\(P\)-sensitive refinements are not excluded]
+\label{rem:verified-p-sensitive-body}
+The polar-Cantor argument rules out only
+\(\mathcal I\)-invariant assignments. It does not rule out a body
+depending on the full \(P\)-type. Constructing such a body remains a
+separate problem.
+\end{remark}
+
+\section{Complete-intersection slices of positive PL currents}
+\label{sec:verified-lci-current-slice}
+
+The missing converse from positive CLD current to model semipositivity
+cannot be replaced by an unrestricted pullback of currents.  There is,
+however, a genuine slicing statement when the curve is a regular complete
+intersection.  It uses the Gauss-fibre formula and the
+Bochner--Martinelli specialization of \cite[\S\S18.6--18.7]{CLD25}.  In
+\cite[Proposition~18.7.3]{CLD25}, the displayed hypothesis gives relative
+dimension \(d\), but the next sentence, the dimension computation and the
+proof use relative dimension \(n-d\); the statement below uses that
+proof-correct value.
+
+\begin{proposition}
+\label{prop:verified-lci-current-slice}
+Let \(K\) be complete and nontrivially valued.  Let \(X\) be a good,
+separated, boundaryless, strictly \(K\)-analytic space, pure of dimension
+\(n\geq2\), and let \(h:X\to\mathbf R\) be a continuous real PL function
+such that
+\[
+                            \dprimeddprime[h]\geq0.
+\]
+Let \(V\subset X\) be open, let
+\(f_1,\ldots,f_{n-1}\in\mathcal O_X(V)\) be a regular sequence, and assume
+that
+\[
+ f=(f_1,\ldots,f_{n-1}):V\longrightarrow\mathbf A^{n-1}
+\]
+is purely of relative dimension one.  Give
+\(C=f^{-1}(0)\) its analytic-cycle multiplicities.  Then every nonnegative
+smooth compactly supported function \(\psi\) on \(V\) satisfies
+\[
+ \left\langle\dprimeddprime[h|_C],\psi|_C\right\rangle\geq0.
+\tag{69.37a}\label{eq:verified-lci-slice-positive}
+\]
+
+In particular, suppose that \(\dprimeddprime[h|_C]\) is a discrete signed
+measure on a neighbourhood \(W\) of \(z\in C\), and that such a \(\psi\)
+equals one near \(z\) and satisfies
+\[
+ \operatorname{Supp}(\psi)\cap C\subset W,\qquad
+ \operatorname{Supp}(\psi)\cap
+ \operatorname{Supp}\bigl(\dprimeddprime[h|_C]\bigr)=\{z\}.
+\]
+Then the coefficient of the atom at \(z\) is nonnegative.
+\end{proposition}
+
+\begin{proof}
+Put \(d=n-1\).  For \(r>0\), set
+\[
+               u_r=\log\max\{r,|f_1|,\ldots,|f_d|\}.
+\]
+Let \(M_\varepsilon\) be the smooth convex regularized maximum used in the
+proof of \cite[Proposition~16.9.1]{CLD25}.  It is nondecreasing in every
+variable, satisfies
+\[
+ \max_i s_i\leq M_\varepsilon(s)
+     \leq\max_i s_i+\varepsilon,
+\]
+and is independent of an entry which lies at least \(2\varepsilon\) below
+the maximum.  Define
+\[
+ u_{r,\varepsilon}
+ =M_\varepsilon(\log r,\log|f_1|,\ldots,\log|f_d|).
+\]
+At a zero of \(f_i\), the deletion property makes this expression
+independent of the singular entry \(\log|f_i|\) on a neighbourhood.
+Consequently \(u_{r,\varepsilon}\) is globally smooth on \(V\).  Convexity
+and coordinatewise monotonicity make it psh, and
+\[
+ u_r\leq u_{r,\varepsilon}\leq u_r+\varepsilon.
+\]
+Thus \(u_{r,\varepsilon}\to u_r\) uniformly.
+
+Write
+\[
+ A_{r,\varepsilon}
+   =(\dprimeddprime u_{r,\varepsilon})^d.
+\]
+This is a positive closed smooth \((d,d)\)-form.  Hence
+\(\psi A_{r,\varepsilon}\) is a positive compactly supported smooth test
+form of bidegree \((n-1,n-1)\), and ambient positivity gives
+\[
+ 0\leq
+ \left\langle\dprimeddprime[h],
+        \psi A_{r,\varepsilon}\right\rangle.
+\tag{69.37b}\label{eq:verified-lci-ambient-positive}
+\]
+The current differential has no sign after two applications to the
+degree-zero current \([h]\).  Since \(A_{r,\varepsilon}\) is both
+\(\mathrm d'\)- and \(\mathrm d''\)-closed, integration by parts gives
+\[
+ \left\langle\dprimeddprime[h],
+        \psi A_{r,\varepsilon}\right\rangle
+ =\int_V h\,\dprimeddprime\psi\wedge A_{r,\varepsilon}.
+\tag{69.37c}\label{eq:verified-lci-parts}
+\]
+
+Apply \cite[Proposition~8.7.2]{CLD25} with the constant positive closed
+current \(\delta_V\), with all \(d\) psh factors equal to
+\(u_{r,\varepsilon}\), and with the continuous outer factor \(h\).
+It yields
+\[
+ hA_{r,\varepsilon}
+       \longrightarrow h(\dprimeddprime u_r)^d
+\]
+weakly.  Pairing with the fixed compactly supported form
+\(\dprimeddprime\psi\), and then applying
+\cite[Corollary~18.6.2]{CLD25}, transforms the limit of the right side of
+\eqref{eq:verified-lci-parts} into
+\[
+ \left\langle
+       \delta_{f^{-1}(\eta_r)},h\,\dprimeddprime\psi
+ \right\rangle,
+\tag{69.37d}\label{eq:verified-lci-gauss-fibre}
+\]
+where \(\eta_r\) is the Gauss point of the polydisc of polyradius
+\((r,\ldots,r)\).
+
+We verify the coefficient condition in
+\cite[Proposition~18.7.3]{CLD25}.  On a \(G\)-cover of the compact support,
+the real PL function has the form
+\[
+                         h=\sum_{\nu=1}^N a_\nu\log|g_\nu|,
+             \qquad a_\nu\in\mathbf R,
+\]
+with analytic units \(g_\nu\).  It is therefore the pullback of a continuous
+affine function under a moment map.  Thus
+\(h\,\dprimeddprime\psi\) is a compactly supported \(G\)-form of bidegree
+\((1,1)=(n-d,n-d)\) with locally bounded tropically Borel coefficients.
+The regular-sequence and pure-relative-dimension hypotheses allow
+\cite[Proposition~18.7.3]{CLD25} to be applied to
+\eqref{eq:verified-lci-gauss-fibre}.  For all sufficiently small \(r\),
+it gives
+\begin{align}
+ \left\langle
+       \delta_{f^{-1}(\eta_r)},h\,\dprimeddprime\psi
+ \right\rangle
+ &=\left\langle\delta_C,h\,\dprimeddprime\psi\right\rangle\notag\\
+ &=\left\langle\dprimeddprime[h|_C],\psi|_C\right\rangle.
+\tag{69.37e}\label{eq:verified-lci-specialization}
+\end{align}
+Combining \eqref{eq:verified-lci-ambient-positive},
+\eqref{eq:verified-lci-parts} and
+\eqref{eq:verified-lci-specialization} proves
+\eqref{eq:verified-lci-slice-positive}.
+
+Under the final support hypotheses, \(\psi|_C\) lies in the neighbourhood
+where the current is discrete, meets its support only at \(z\), and equals
+one there.  The pairing in \eqref{eq:verified-lci-slice-positive} is
+therefore exactly the coefficient of the atom at \(z\).
+\end{proof}
+
+\begin{remark}
+\label{rem:verified-lci-slice-scope}
+\Cref{prop:verified-lci-current-slice} tests only restrictions of
+nonnegative smooth ambient functions.  It does not say that every
+nonnegative smooth function on \(C\) has such an extension, and therefore
+does not prove positivity of the restricted current against all curve test
+functions.  It also contains no residual-degree formula.  The attempted
+deduction of the global current-positivity converse from this slice was
+rejected by production verification: the lifted detecting curve was not
+shown to lie in the smooth strict curve scope of the available
+degree--atom formula over the full stated base-field and model generality.
+\end{remark}
+
+\section{Three definitions of PL plurisubharmonicity}
+\label{sec:verified-pl-psh-equivalence}
+
+Let \(K\) be complete and nontrivially valued, and let \(X\) be a good strict
+\(K\)-analytic space.  For a real-valued real PL function \(h\), consider:
+\begin{enumerate}
+\item residue-nef, or model, semipositivity;
+\item classical psh positivity, tested after analytic scalar extension on
+      every analytic curve; and
+\item membership in the CLD-v2 psh sheaf, generated from smooth
+      Hessian-positive functions by transfinitely iterated decreasing
+      sequential closure.
+\end{enumerate}
+These conditions have genuinely different definitions.  The next theorem
+identifies them on the largest domain reached by the presently available
+regularization theorem.
+
+\begin{theorem}\label{thm:verified-pl-psh-equivalence}
+Let \(h\) be as above.
+\begin{enumerate}
+\item On \(X\),
+\[
+ \text{CLD-v2 psh}
+ \quad\Longrightarrow\quad
+ \text{classically psh}
+ \quad\Longleftrightarrow\quad
+ \text{model semipositive}.
+\]
+\item If \(X\) is boundaryless, all three conditions are equivalent:
+\[
+ \text{model semipositive}
+ \quad\Longleftrightarrow\quad
+ \text{classically psh}
+ \quad\Longleftrightarrow\quad
+ \text{CLD-v2 psh}.
+\tag{69.38}\label{eq:verified-pl-psh-equivalence}
+\]
+For general \(X\), this equivalence holds on the relative interior.
+\item If \(X\) is topologically separated, any of the three conditions
+implies positive \(\dprimeddprime\)-current on the relative interior, and
+globally when \(X\) is boundaryless.  No converse from weak current
+positivity is asserted.
+\end{enumerate}
+The statement requires neither smoothness nor reducedness of \(X\).
+\end{theorem}
+
+\begin{proof}
+Model semipositivity is equivalent to classical psh positivity by
+\cite[Theorem~4.3]{GR25Classical}, while every CLD-v2 psh function is
+classically psh by the comparison in \cite[\S1.2]{GR25Classical}.  These are
+the arrows valid without a boundaryless hypothesis.
+
+Assume that \(X\) is boundaryless and that \(h\) is model semipositive.  The
+local regularization theorem of \cite[Introduction and Theorem~5.3]{GR25PL},
+using \cite[Proposition~7.10]{GJR26}, supplies locally Fubini--Study functions
+\(F_j\) converging uniformly to \(h\) on one neighborhood.  The exact local
+normal form from \cite[\S7.9]{GJR26}, after replacing each analytic unit in
+the source convention by its inverse, is
+\[
+ F=c+\sum_{\nu=1}^{N}a_\nu
+       \max_{1\leq i\leq r_\nu}\log|f_{\nu i}|,
+ \qquad a_\nu\geq0,
+\]
+where the \(f_{\nu i}\) are analytic units.  There are no arbitrary
+independent real shifts inside the maxima.
+
+For a positive integer \(p\), replace one maximum by
+\[
+ M_p=\frac1p\log\!\left(
+             \sum_{i=1}^{r}\rme^{p\log|f_i|}\right).
+\]
+The real log-sum-exp function is smooth, convex, and nondecreasing in every
+coordinate.  Since each \(\log|f_i|\) is CLD-smooth and pluriharmonic, the CLD
+chain rule makes \(M_p\) smooth and Hessian-positive.  The unnormalized
+finite-dimensional \(\ell^p\)-norm decreases with \(p\), so \(M_p\) decreases
+to \(\max_i\log|f_i|\).  Finite nonnegative linear combinations preserve both
+properties.  Thus every locally Fubini--Study \(F_j\) is CLD-v2 psh, although
+it need not be CLD-smooth.
+
+It remains to justify that a locally uniform limit is legal in the
+decreasingly generated CLD sheaf.  After passing to a subsequence, arrange
+\(\lVert F_j-h\rVert_\infty\leq e_j:=4^{-j}\), and set
+\[
+ c_j:=\sum_{q=j}^{\infty}(e_q+e_{q+1}).
+\]
+Then \(F_j+c_j\) decreases to \(h\).  Closure of the CLD-v2 sheaf under
+decreasing sequences proves that \(h\) is CLD-v2 psh.  This establishes the
+missing arrow and hence \eqref{eq:verified-pl-psh-equivalence}.  Applying the
+same argument to \(\operatorname{Int}(X)\) proves the relative-interior
+statement.
+
+Finally, \cite[Theorem~7.14]{GJR26} says directly that a semipositive real PL
+function on a separated good strict space has positive current on the
+relative interior, globally in the boundaryless case; it has no
+pure-dimensionality hypothesis.  The cited current theorem is one-way.  Its
+converse would require pulling the singular current back to the analytic
+curves in the curve criterion, an operation not presently available with the
+needed positivity in this generality.
+\end{proof}
+
+\begin{example}[The PL equivalence does not mean smoothness]
+On a strict annulus containing the unit Gauss point,
+\[
+                         h=\max\{0,\log|T|\}
+\]
+is locally Fubini--Study and hence satisfies all three conditions in
+\Cref{thm:verified-pl-psh-equivalence}.  On the skeleton it is
+\(\max\{0,s\}\), so it is not differentiable at \(s=0\) and is not CLD-smooth.
+The log-sum-exp argument above is therefore essential.
+\end{example}
+
+\begin{remark}[Exact remaining arrows]
+At a relative-boundary point, the available model-to-LFS regularization does
+not prove the reverse CLD arrow.  For arbitrary non-PL functions, CLD-v2 psh
+still implies classically psh, but the converse is not established.  The
+trivially valued and non-strict variants also lie outside the cited theorem.
+\end{remark}
+
+\section{The boundary ledger}
+\label{sec:verified-boundary-ledger}
+
+For clarity, the following questions remain outside the theorem text:
+\begin{enumerate}
+\item the general trace Dirichlet problem needs extension in a fixed
+      class with strict positivity;
+\item trace on a singular unibranch ambient space needs equisingular
+      regularization and multiplier ideals;
+\item a general zero-mass Okounkov body needs genuinely
+      \(P\)-sensitive data;
+\item the unrestricted nontrivially valued Monge--Amp\`ere equation
+      still carries support and characteristic restrictions;
+\item global CLD--BFJ psh equivalence needs regularization and
+      local-to-global positivity;
+\item intrinsic non-Archimedean K\"ahler/Kodaira theory needs a viable
+      differential positivity notion;
+\item ordinary compact-K\"ahler YTD still needs the model/ordinary and
+      automorphism bridges; and
+\item the relation between class-level numerical dimension and the Newton
+      bodies of individual singular currents remains distinct from the
+      current-level identity of \Cref{thm:ok-toric-real-products}.
+\end{enumerate}
+
+\begin{remark}[How to read the ledger]
+\label{rem:verified-read-ledger}
+The table is not a conjecture list with presumed positive answers.
+Some entries may require new definitions; others may fail. The only
+claims promoted in this chapter are
+\Cref{thm:verified-cld-criterion,thm:verified-fixed-dual-complex,%
+thm:verified-trace-factorization,thm:verified-split-trace,%
+thm:verified-toric-dimension,thm:verified-mass-no-go,%
+thm:verified-pl-psh-equivalence,prop:verified-lci-current-slice},
+together with the explicit cross-fan counterexample and
+\Cref{prop:verified-four-punctured-cross-obstruction}.
+\end{remark}
+
+\section{Dependency graph}
+\label{sec:verified-dependencies}
+
+The proofs above are independent in the following sense:
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+\text{current topology}
+ \arrow[r]
+&\text{CLD criterion}\\
+\text{polyhedral slopes}
+ \arrow[r]
+&\text{cross-fan counterexample}\\
+\text{refined tropical balancing}
+ \arrow[r]
+&\text{four-punctured obstruction}\\
+\text{strong compactness}
+ \arrow[r]
+&\text{fixed-complex theorem}\\
+\text{trace comparison and uniqueness}
+ \arrow[r]
+&\text{\(\mathcal I\)-input/\(P\)-output trace map}\\
+\text{toric convex mass and Cao products}
+ \arrow[r]
+&\text{numerical dimension}\\
+\text{polar Cantor potential}
+ \arrow[r]
+&\text{mass-body no-go}\\
+\text{LFS regularization and log-sum-exp}
+ \arrow[r]
+&\text{PL psh equivalence}.
+\end{tikzcd}
+\tag{69.39}\label{eq:verified-dependency-graph}
+\]
+No arrow passes through a problem listed in
+\Cref{sec:verified-boundary-ledger}.
+
+\paragraph{Invariant split-toric zero-current regularity, including boundary.}
+On a good strict open inverse image under extended tropicalization in a
+split toric variety, the source-scoped proposition
+\cref{prop:p062-invariant-split-toric-boundary-zero-current-candidate}
+proves that every finite continuous maximal-compact-torus-invariant function
+with vanishing CLD Hessian is locally CLD-smooth with zero Hessian, real PL,
+GJR harmonic, and classically pluriharmonic.  The proof descends the function
+and its current through \cite[(5.5) and Proposition~5.3.10(iv)]{BGJKK25};
+finite continuity on compactified normal rays kills the boundary-normal
+affine slopes.  It then uses the resulting analytic-unit character formula
+and \cite[Proposition~4.2 and Theorem~4.3]{GR25Classical} to obtain both
+classical pluriharmonicity and GJR harmonicity.  The exact dependency-closed
+packet received final independent-verifier verdict \texttt{correct}, with
+zero critical errors and zero gaps, for item
+\texttt{pi\_30ec53e8836ba1d2b08fdf64}.  The direct algebraic-split corollary
+\cref{cor:p062-algebraic-split-invariant-scalar-stable-zero-current} adds a
+good strict analytic form that becomes a split toric open inverse image after
+a complete analytic extension which is the completion of an algebraic
+extension, provided the pulled-back function is invariant and has zero
+Hessian upstairs.  It uses only this explicit scalar-stable assumption and
+real-PL descent, so it does not claim that a downstairs continuous Hessian
+current automatically pulls back to zero.  Its
+analytic-local version
+\cref{cor:p062-local-algebraic-split-invariant-scalar-stable-zero-current}
+transfers the conclusion when a germ becomes such a split toric domain after
+an explicit extension which is the completion of an algebraic extension, with
+the upstairs assumptions imposed there.  It makes no claim for a noninvariant function, an arbitrary
+toroidal chart, or an arbitrary analytic germ; it therefore narrows but does not retire
+\Cref{prob:frontier-pluriharmonic}.
+
+\paragraph{Invariant split-toric Bedford--Taylor independence, including boundary.}
+For an open inverse image under extended tropicalization in a split toric
+variety, the source-scoped
+proposition \cref{prop:p213-invariant-split-toric-continuous-pairs-candidate}
+settles the continuous-pair independence assertion for every positive closed
+CLD current whenever the \emph{difference} of the finite continuous psh
+potentials is invariant under the maximal compact torus; neither potential
+need be invariant on its own.  The result uses the continuous invariant-function
+correspondence and function-current pushforward calculation of
+\cite[(5.5) and Proposition~5.3.10(iv)]{BGJKK25}; on a toric boundary chart,
+finite continuity forces every normal affine slope of the zero-Hessian
+difference to vanish, so the difference is smooth and the closed-current
+Leibniz calculation applies.  The stored packet, which states the weaker
+two-individually-invariant form, received the controlling final local
+independent-verifier verdict \texttt{correct}, with zero critical errors and
+zero gaps, for item \texttt{pi\_96813b21562d920cf411c5a0}; the
+difference-invariant form is the book-level strengthening recorded in
+\Cref{chap:major-open-problems}.  It makes no claim for a pair whose
+difference is noninvariant, a nonsplit torus, an arbitrary toroidal chart, or
+an arbitrary analytic germ, and therefore narrows but does not retire
+\Cref{prob:frontier-cross-fan-upstairs}.
+
+\paragraph{Modulus-controlled local envelopes.}
+For a fixed finite-valued family of classically psh functions, a common local
+modulus makes its raw supremum continuous; finite maxima and the net-limit
+theorem of \cite[Proposition~4.2(3) and Theorem~6.5]{GR25Classical} then give
+the source-scoped proposition
+\cref{prop:p031-modulus-controlled-envelope-candidate}.  Its exact packet
+received final local independent-verifier verdict \texttt{correct}, with zero
+critical errors and zero gaps, for item
+\texttt{pi\_2640874e3c1d992c29bd2646}.  This is a condition on the actual
+competitor family; it neither establishes it for every local envelope nor
+settles its CLD-v2 counterpart.
+
+\section*{Source notes}
+
+The CLD current operations and terminology use \cite{CLD25}; the
+approximation criterion and cross-fan audit are the R2-validated
+outcomes CLD--3 and CLD--4. The weak and \(d_\infty\) topologies on
+\(X^{\lin}\), the exhaustion \(T_\omega\), the section formula, the
+fixed-dual-complex estimate, and Question~11.16 use \cite{BJ22}.  The
+global counterexample is the verified book-level result in
+\cref{thm:ch49-global-radon-riesz-counterexample}. Trace comparison and
+output uniqueness are from
+\cite{DX24} and \Cref{chap:operations-trace}.  The product calculation was
+R2-audited at the weaker \(\mathcal I\)-level; its present \(P\)-target is the
+direct application of the sourced uniqueness theorem, so the obsolete audit
+is not cited as a receipt for the updated formulation.  The toric
+Newton-body dictionary is from the supplied complex manuscript.  The
+real-class theorem in \Cref{thm:ok-toric-real-products} combines Cao's
+current-level product \cite[Definitions~2--3]{Cao14}, gentle
+quasi-equisingular approximation and toric \(\mathcal I\)-goodness from
+\cite{XiaBook}, the local complex/real identity of \cite{CGSZ19}, and the
+non-pluripolar calculus of \cite{BEGZ10}.  The second proof in this chapter
+uses \cite[Proposition~4.4]{Cao14}, Guenancia's multiplier-ideal criterion
+\cite[Theorem~1.13]{Guenancia12}, the toric character decomposition
+\cite[\S4.3]{CLS11}, rational toric asymptotic Riemann--Roch, and elementary
+convex geometry.
+The polar-Cantor potential uses \cite[p.~31]{Car83}, as in the supplied
+comparison chapter. No unresolved R1 attempt is
+stated here as a theorem.  The new PL equivalence combines the published
+arrows in \cite{GR25PL,GR25Classical,GJR26} with the log-sum-exp and
+summable-shift proof above.  Its corrected Pass~R3 Rethlas audit returned
+\texttt{correct} with zero critical errors and zero gaps; the receipt and
+cryptographic digests are recorded in the editorial verification ledger.
+The publication receipt is
+\texttt{cld\_gr\_psh\_comparison\_r3.json}, with statement digest
+\texttt{50c0c6b21d6a\ldots} and proof digest
+\texttt{d44d6b4dc9b0\ldots}; the verifier was
+\texttt{gpt-5.6-sol} at \texttt{xhigh} scrutiny on 14 August 2026. No
+first-draft theorem in this chapter is enlarged beyond its audited
+signature; the separately identified trace reconstruction is governed by
+its source signature.  The four-punctured obstruction in
+\Cref{prop:verified-four-punctured-cross-obstruction} is the exact
+source-aware packet from guarded production run
+\nolinkurl{20260825T034743Z_ea6194f07e86}, item
+\nolinkurl{pi_19c9aad210847a2875a0fe4a}, which returned final
+\texttt{correct}, zero critical errors, and zero gaps.  It is recorded as a
+book-level consequence of the CLD and delta-form calculi, with no novelty or
+priority claim, and does not close the residual problem in
+\Cref{prob:frontier-cross-fan-upstairs}.

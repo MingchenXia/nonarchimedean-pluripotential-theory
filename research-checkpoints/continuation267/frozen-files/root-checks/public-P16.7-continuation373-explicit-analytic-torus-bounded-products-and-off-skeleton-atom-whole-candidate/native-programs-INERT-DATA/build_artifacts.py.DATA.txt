@@ -1,0 +1,94 @@
+#!/usr/bin/env python3
+"""Derive the whole proof companion and perform lexical, non-compilation checks."""
+import hashlib
+import json
+import re
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+tex = (ROOT/'P16.7-paper.tex').read_text()
+body = tex.split(r'\begin{document}',1)[1].rsplit(r'\end{document}',1)[0]
+body = body.replace(r'\maketitle','')
+body = body.replace(r'\begin{abstract}','## Abstract\n').replace(r'\end{abstract}','')
+body = re.sub(r'\\section\{([^{}]+)\}',r'## \1',body)
+body = re.sub(r'\\subsection\{([^{}]+)\}',r'### \1',body)
+body = re.sub(r'\\paragraph\{([^{}]+)\}',r'### \1',body)
+counter = 0
+def statement(match):
+    global counter
+    counter += 1
+    return '\n**'+match.group(1).capitalize()+' '+str(counter)+'.**\n'
+body = re.sub(r'\\begin\{(theorem|proposition|lemma|corollary|definition)\}',statement,body)
+body = re.sub(r'\\end\{(theorem|proposition|lemma|corollary|definition)\}','\n',body)
+body = body.replace(r'\begin{proof}','\n**Proof.**\n').replace(r'\end{proof}','\n□\n')
+body = re.sub(r'\\label\{[^{}]+\}','',body)
+refnames = {'quotient':'1','period':'3','boundedBT':'5','branch':'6','circle':'7','separable':'8'}
+body = re.sub(r'\\ref\{([^{}]+)\}',lambda m:refnames[m.group(1)],body)
+body = re.sub(r'\\emph\{([^{}]+)\}',r'*\1*',body)
+body = re.sub(r'\\texttt\{([^{}]+)\}',lambda m:'`'+m.group(1).replace(r'\_','_')+'`',body)
+body = body.replace(r'\begin{thebibliography}{9}','## References\n')
+body = body.replace(r'\end{thebibliography}','')
+body = re.sub(r'\\bibitem\{([^{}]+)\}',r'\n- [\1]',body)
+macros = {'dd':"d'd''",'MA':r'\operatorname{MA}', 'trop':r'\operatorname{trop}',
+          'an':r'\mathrm{an}','R':r'\mathbb R','Z':r'\mathbb Z'}
+for name,value in macros.items():
+    body = re.sub(r'\\'+name+r'(?![A-Za-z])',lambda m:value,body)
+body = body.replace(r'\[','\n$$\n').replace(r'\]','\n$$\n')
+body = body.replace(r"Amp\`ere",'Ampère')
+body = body.replace(r'L\"utkebohmert','Lütkebohmert')
+body = body.replace(r'Arzel\`a','Arzelà').replace(r"N\'eron",'Néron')
+body = body.replace(r"diff\'erentielles r\'eelles",'différentielles réelles')
+body = re.sub('\n{4,}','\n\n\n',body).strip()
+header = ('# Whole proof: partial P16.7 research\n\n'
+          'This is the complete mathematical body of `P16.7-paper.tex`, including every '
+          'stated partial proof and its audit limitations. It is generated from that file, '
+          'with only markup and notation expansion. It is an unverified draft. '
+          '**Original P16.7 completion: false.**\n\n')
+(ROOT/'whole-proof.md').write_text(header+body+'\n')
+
+# Lexical checks only: these are not a TeX engine, a PDF compilation, or a
+# theorem checker. Strip comments and respect escaped literal braces.
+clean = re.sub(r'(?<!\\)%[^\n]*','',tex)
+stack=[]
+for match in re.finditer(r'\\(begin|end)\{([^{}]+)\}',clean):
+    action, env=match.groups()
+    if action=='begin': stack.append(env)
+    else:
+        assert stack and stack[-1]==env, ('environment mismatch',env,stack)
+        stack.pop()
+assert not stack, stack
+depth=0
+for i,char in enumerate(clean):
+    if char not in '{}': continue
+    n=0; j=i-1
+    while j>=0 and clean[j]=='\\': n+=1; j-=1
+    if n%2: continue
+    depth += 1 if char=='{' else -1
+    assert depth>=0, ('negative brace depth',i)
+assert depth==0, depth
+assert tex.count(r'\[')==tex.count(r'\]')
+assert len(re.findall(r'\\begin\{proof\}',tex))==6
+assert counter==8
+verdict=json.loads((ROOT/'scope-and-verdict.json').read_text())
+assert verdict['candidate'] is False and verdict['original_completion'] is False
+assert (ROOT/'evidence'/'diagnostics.json').is_file()
+check={
+    'tex_compiled':False,
+    'mathematical_certification':False,
+    'lexical_checks': {'balanced_environments':True,'balanced_braces':True,
+                       'balanced_display_math_delimiters':True,
+                       'numbered_statement_count':counter,'formal_proof_environment_count':6,
+                       'companion_generated_from_complete_body':True,
+                       'original_verdict_false':True},
+    'commands':['python scripts/build_artifacts.py']
+}
+(ROOT/'evidence'/'artifact-checks.json').write_text(json.dumps(check,indent=2)+'\n')
+inventory=[]
+for p in sorted(ROOT.rglob('*')):
+    if not p.is_file() or '.git' in p.parts: continue
+    if p==ROOT/'evidence'/'artifact-inventory.json': continue
+    inventory.append({'file':str(p.relative_to(ROOT)),'bytes':p.stat().st_size,
+                      'sha256':hashlib.sha256(p.read_bytes()).hexdigest()})
+(ROOT/'evidence'/'artifact-inventory.json').write_text(json.dumps(inventory,indent=2)+'\n')
+print(json.dumps({'artifacts_inventoried':len(inventory),'lexical_checks':'passed',
+                  'tex_compiled':False,'mathematical_certification':False}))

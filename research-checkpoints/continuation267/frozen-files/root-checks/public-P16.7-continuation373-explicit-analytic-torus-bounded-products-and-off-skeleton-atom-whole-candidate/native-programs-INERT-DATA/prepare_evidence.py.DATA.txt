@@ -1,0 +1,36 @@
+#!/usr/bin/env python3
+"""Preserve authorized inputs and primary evidence; execute no imported programs."""
+import hashlib, json, platform, shutil, sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+PACKET = ROOT.parent.parent
+files = ['original-task.json', 'mathematical-packet-bindings.json',
+         'private-primary-packet-bindings.json', 'book-context-bindings.json']
+records = []
+for name in files:
+    src, dst = PACKET / name, ROOT / 'sources' / name
+    shutil.copyfile(src, dst)
+    records.append({'file': str(dst.relative_to(ROOT)), 'origin': str(src),
+                    'sha256': hashlib.sha256(dst.read_bytes()).hexdigest(),
+                    'bytes': dst.stat().st_size})
+for src_name, dst_name in [
+    ('004-CLD-literal_extract.txt', 'CLD-v2-whole.txt'),
+    ('005-CLD-pdf.pdf', 'CLD-v2-whole.pdf'),
+    ('012-GR-literal_extract.txt', 'GR-2025-v1-whole.txt'),
+    ('013-GR-pdf.pdf', 'GR-2025-v1-whole.pdf')]:
+    src = PACKET / 'private-primary-DATA-LOCALONLY' / src_name
+    dst = ROOT / 'sources' / dst_name
+    shutil.copyfile(src, dst)
+    records.append({'file': str(dst.relative_to(ROOT)), 'origin': str(src),
+                    'sha256': hashlib.sha256(dst.read_bytes()).hexdigest(),
+                    'bytes': dst.stat().st_size, 'local_only': True})
+(ROOT / 'evidence' / 'input-and-primary-manifest.json').write_text(
+    json.dumps(records, indent=2) + '\n')
+(ROOT / 'evidence' / 'environment.json').write_text(json.dumps({
+    'python': sys.version, 'platform': platform.platform(), 'cwd': str(ROOT),
+    'shell': 'bash', 'network': 'Public web retrieval tool worked; inherited shell proxy connection failed. No proxy, CA, auth, or endpoint configuration was modified.',
+    'compute': 'Bounded local rational calculations only. No supervised compute service was exposed or needed.',
+    'tex_compilation': 'Not performed: user reserves compilation to ROOT.'
+}, indent=2) + '\n')
+print(json.dumps({'preserved_files': len(records), 'supplied_programs_executed': 0}))

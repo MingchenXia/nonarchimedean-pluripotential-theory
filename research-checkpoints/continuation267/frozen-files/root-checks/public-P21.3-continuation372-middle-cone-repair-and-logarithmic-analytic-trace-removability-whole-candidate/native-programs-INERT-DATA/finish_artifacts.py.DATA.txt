@@ -1,0 +1,179 @@
+"""Own artifact writer and bounded diagnostic checks; no packet code imports."""
+from pathlib import Path
+import json, hashlib, re, itertools
+
+ROOT=Path(__file__).resolve().parent
+PACKET=ROOT.parent.parent
+def dump(name,obj):
+    (ROOT/name).write_text(json.dumps(obj,ensure_ascii=False,indent=2)+'\n')
+
+source=ROOT/'inputs-LOCALONLY/CLD-v2-full.txt'
+lines=source.read_bytes().split(b'\n')
+ledger=json.loads((ROOT/'source-ledger-independent.json').read_text())
+ledger['units']=[u for u in ledger['units'] if u['id'].startswith('S')]
+literal=json.loads((PACKET/'private-primary-DATA-LOCALONLY/38-P21.3-continuation369-native262-full-source-ledger-LOCALONLY.json').read_text())
+for unit,old in zip(ledger['units'],literal['application_units']):
+    body=(ROOT/'inputs-LOCALONLY'/f"{unit['id']}.txt").read_bytes()
+    assert body==old['literal_complete_immediate_unit'].encode()
+    unit['fresh_independent_reading_status']='complete immediate body and surrounding applied definitions read anew in this run'
+    unit['independent_application_check']='See proof-body.md Section 2 and the complete reconstructed proofs; imported reading grants are not premises.'
+    if unit['id']=='S07':
+        unit['independent_application_check']='7.2.9 strong-domination step not imported. Middle-positive 6.5.2 plus scalar 7.2.8 supplies signed measures and order-zero bounds for the given middle-positive T.'
+    if unit['id']=='S02':
+        unit['independent_application_check']='3.3.10 printed commutation exponent repaired from exterior generators and 1.3.3; PDF page 80 inspected. 3.3.6 proof dk corrected to dtrop.'
+    if unit['id']=='S16':
+        unit['independent_application_check']='Only compact constant-majorant case applied, proved directly with middle PSD matrices; noncompact majorant wording/composition not imported.'
+
+extras=[
+('E01','1.2.6 matrix interpretation',886,936,'Middle positivity is PSD with the exterior sign; used in compact order units and logarithmic cross-block domination.'),
+('E02','1.2.11--13 full proofs',994,1115,'Pullback and wedge preserve middle positivity; interior middle order units. Strong cone only has relative interior and can span a proper subspace.'),
+('E03','1.3.3--4',1165,1188,'Total-degree exterior commutation and J convention; repairs printed 3.3.10.'),
+('E04','5.8.1--6',6733,6833,'Complete calibrated top measure construction; ordinary scalar integration.'),
+('E05','8.5.3--8.6.7',10287,10397,'Scope diagnostic: bidegree/bidimension repair; exact BT definition, locality, integration, closed smooth factors, weak limits, and missing closedness in literal 8.6.7.'),
+('E06','14.2.1--2',20322,20356,'Finite-flat moment degree; identity torus degree one.'),
+('E07','14.3.1--5',20722,20830,'Canonical calibration and independence under changing moments; generic degree retained.'),
+('E08','14.4.1--2',20868,20923,'Calibrated finite pushforward: add fiber degrees using multiplicativity; actual nilreduction degree transported.'),
+('E09','14.5.2--3',20953,21008,'Calibrated moment image coefficient from finite-flat degree. Identity moment has coefficient one.'),
+('E10','15.1.1--3',21543,21604,'Ordinary open moment presentations and smooth logarithmic-unit functions. Used in actual cutoff construction; no reduction of currents.'),
+('E11','13.3.4--7',19232,19308,'Artinian normalization l(M)/l(A), generic length ratio lambda/mu, and inverse generic length for nilreduction.'),
+('E12','15.4.1--3',21735,21778,'Whole finite integral transport proof from calibrated pushforward, applied to explain actual integration multiplicities.'),
+('E13','16.6.3',23434,23462,'Whole component integration proof with actual generic lengths; no unit-weight replacement.'),
+('E14','A.2.7--11',29196,29294,'Whole immediate partition statements/proofs read; only finite compact localization used and reproved directly.'),
+('E15','12.1.2--5',16503,16600,'Actual torus, continuous tropical coordinates and canonical skeleton; no assertion of current descent.'),
+]
+for id,label,first,last,application in extras:
+    body=b'\n'.join(lines[first-1:last])+b'\n'
+    path=ROOT/'inputs-LOCALONLY'/f'{id}.txt'
+    path.write_bytes(body)
+    ledger['units'].append({'id':id,'label':label,'inclusive_LF_interval':[first,last],
+        'current_primary_path':str(source),'current_evidence_path':str(path),
+        'evidence_sha256':hashlib.sha256(body).hexdigest(),'literal_source_body_bytes':len(body),
+        'version':'arXiv:1204.6277v2; header 25 July 2025; internal title 29 July 2025',
+        'fresh_independent_reading_status':'complete applied immediate body read anew',
+        'independent_application_check':application})
+ledger['recursive_background']=[
+ 'Berkovich analytic domains, good affinoid neighborhoods, noetherian affinoid algebras and compactness; no fresh proof of all their foundations.',
+ 'Analytic dimension and the graded residual invariant: 11.2.3, 12.4.2; deeper image-dimension inputs 12.2.8--10 remain published background.',
+ 'Canonical analytic tropical structure: 15.7.1 uses 12.4.7,12.10.6,12.11.1,15.6.1,12.9.14; no independent reconstruction of all recursive chapters.',
+ 'Calibration independence and finite-degree multiplicativity: 14.3--5,13.3 and the cited skeleton/flatness results; their applied immediate units read.',
+ 'Real Radon representation and Stone-Weierstrass; immediate scalar-density/cutoff proofs read and their application hypotheses checked.',
+ 'Real compact-kernel convolution, elementary exterior algebra and finite-dimensional PSD inequalities are proved or explained in this manuscript.',
+]
+ledger['PDF_inspection']=[{'page':80,'purpose':'confirm printed incorrect graded commutation exponent and dk typo','local_image':'inputs-LOCALONLY/page80.png'},
+ {'page':162,'purpose':'confirm printed strong-domination gap in 7.2.9','local_image':'inputs-LOCALONLY/page162.png'}]
+ledger['whole_CLD_read_claim']=False
+ledger['source_bodies_LOCALONLY']=True
+ledger['incoming_mathematical_note_supports']=[]
+dump('source-ledger-independent.json',ledger)
+
+actual=json.loads((PACKET/'immutable-mathematical-DATA/022-actual-native262-final.json').read_text())
+expanded=json.loads((PACKET/'immutable-mathematical-DATA/028-expanded-local-notes-DATA.json').read_text())
+assert actual['candidate'] is False and expanded['candidate'] is False
+comparison=[{'id':a['id'],'actual_equals_expanded':a['text']==b['text']} for a,b in zip(actual['notes'],expanded['notes'])]
+assert len(comparison)==3 and all(not x['actual_equals_expanded'] for x in comparison)
+dump('actual-expanded-comparison.json',comparison)
+
+# Exact finite cone diagnostic, separately from universal mathematical proofs.
+Q=[[0]*6 for _ in range(6)]
+for i,j,c in [(0,5,1),(1,4,-1),(2,3,1)]: Q[i][j]=Q[j][i]=c
+v=[1,0,0,0,0,1]
+quad=lambda w:sum(Q[i][j]*w[i]*w[j] for i in range(6) for j in range(6))
+assert quad(v)==2 and sum(Q[i][i] for i in range(6))==0
+checked=0
+for a in itertools.product([-1,0,1],repeat=4):
+ for b in itertools.product([-1,0,1],repeat=4):
+    w=[a[i]*b[j]-a[j]*b[i] for i,j in itertools.combinations(range(4),2)]
+    assert quad(w)==0
+    checked+=1
+dump('finite-diagnostic.json',{'integer_vector_pairs_exhaustively_checked':checked,
+    'domain':'a,b in {-1,0,1}^4','plucker_quadratic_zero':True,
+    'nondecomposable_v_quadratic':quad(v),'diagonal_order_unit_trace_Q':0,
+    'proof_scope':'finite diagnostic only; universal Plucker identity proved algebraically in the note and manuscript'})
+
+body=(ROOT/'proof-body.md').read_text()
+appendix=['# Complete independent source-application ledger','',
+ 'All intervals are inclusive LF intervals in the bound complete source. Formfeeds are retained. Primary text SHA256: 64846cb00926267c6238d1afac61b5eaed0a0e3a6349725738f9b1bf163de085. PDF SHA256: 5690f999523017d184ab751bb55857ab1637b197d1186ad4fd2edba7e1bda719. Literal bodies remain LOCALONLY.','']
+for u in ledger['units']:
+    first,last=u['inclusive_LF_interval']
+    appendix.extend([f"## {u['id']}: CLD {u['label']}",'',
+        f"Version: {u['version']}. Complete evidence: {u['id']}.txt, LF {first}--{last}, {u['literal_source_body_bytes']} bytes, SHA256 {u['evidence_sha256']}.",'',
+        'Statement and immediate-proof application: '+u.get('statement_used',u['independent_application_check']),'',
+        'Hypothesis check: '+u.get('hypotheses_and_definitions','Original good separated pure ordinary analytic category; see complete checked hypotheses in Section 2 and the corresponding proof.'),'',
+        'Independent use/correction: '+u['independent_application_check'],''])
+appendix+=['## Recursive background and reading limits','']
+for s in ledger['recursive_background']: appendix += [s,'']
+whole=body+'\n'+'\n'.join(appendix)+'\n'
+(ROOT/'whole-proof.md').write_text(whole)
+
+def esc_text(s):
+    # Text-mode escaping only; formulas and displays are preserved verbatim.
+    result=[]; start=0
+    for match in re.finditer(r'\\\(.*?\\\)|\\\[.*?\\\]',s,re.S):
+        result.append(esc_plain(s[start:match.start()])); result.append(match.group()); start=match.end()
+    result.append(esc_plain(s[start:])); return ''.join(result)
+def esc_plain(s):
+    return ''.join({'&':r'\&','%':r'\%','_':r'\_','#':r'\#','$':r'\$','{':r'\{','}':r'\}'}.get(c,c) for c in s)
+tex=[]
+for paragraph in whole.split('\n\n'):
+    if paragraph.startswith('# '): tex.append(r'\section{'+esc_plain(paragraph[2:])+r'}')
+    elif paragraph.startswith('## '): tex.append(r'\subsection{'+esc_plain(paragraph[3:])+r'}')
+    elif paragraph.startswith('### '): tex.append(r'\subsubsection{'+esc_plain(paragraph[4:])+r'}')
+    else: tex.append(esc_text(paragraph))
+preamble=r'''\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\setlength{\emergencystretch}{4em}
+\title{Independent whole review and analytic removability for P21.3}
+\author{Independent research draft}
+\date{8 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+The original every-open, every-current problem remains unresolved. We reconstruct all three supplied whole proofs, repair their source and cone issues, and prove analytic-locus removability with a smooth harmonic trace by constructing uniformly bounded logarithmic cutoff decompositions. Isolated analytic points are removable in every allowed current degree. The smooth-factor results retain their initial Bedford--Taylor hypothesis.
+\end{abstract}
+'''
+paper=preamble+'\n\n'.join(tex)+'\n\\end{document}\n'
+(ROOT/'P21.3-review-paper.tex').write_text(paper)
+dump('whole-proof-coverage.json',{'369':{str(i):f'Item {i} complete statement/proof in sections 3--4' for i in range(1,11)},
+ '367':['signed coefficient measure with cone repair','general Leibniz','scalar identity','exact criterion','scalar net theorem','actual calibrated diagnostic','relative nonconstant weight'],
+ '368':['compatibility and annihilator inheritance','both graded cross terms','every-open criterion','common-chart coefficients to a smooth limit'],
+ 'new':['logarithmic regularized max and concave truncation','fixed-current curvature and energy bounds','actual middle-positive compact decompositions with uniform mass','trace removability','isolated analytic points','actual saturated-coordinate current approximants'],
+ 'universal_original_complete':False})
+dump('independent-whole-review.json',{'ALL369':{'verdict':'conditional conclusions proved with explicit source/sign repairs','all_ten_items_reconstructed':True},
+ 'ENTIRE367':{'submitted_verdict':'requires correction: strong domination of arbitrary symmetric tests','reconstructed_verdict':'conditional statements proved after middle-cone repair','P21.3_counterexample':False},
+ 'ENTIRE368':{'submitted_verdict':'requires correction: same strong-cone decomposition gap','reconstructed_verdict':'conditional statements proved after repair','smooth_limit_required':True},
+ 'original_P21.3':'unresolved','incoming_grants_used':False,'formal_verification':False})
+dump('original-decision.json',{'candidate':False,'original_task_read_in_full_before_scope':True,
+ 'supports_earlier_own_notes_only':True,'counterexample':None,
+ 'new_partial':'analytic-locus smooth-trace removability; isolated analytic points for every allowed degree',
+ 'missing':'arbitrary pairs have not been proved to satisfy off-locus ordinary regularity or analytic-locus smooth-trace hypotheses; no general positive closed exhaustion or compatible harmonic lift',
+ 'all_fields_singularities_nilpotents_preserved':True,'every_open_vs_cover_vs_basis_distinguished':True})
+dump('commands.json',{'rerun':['python audit_inputs.py','python create_notes.py','python finish_artifacts.py'],
+ 'read_only_source_reads':'bounded cat/sed/rg calls of bound immutable data and LF primary units',
+ 'PDF_inspection':['pdftoppm -f 80 -l 80 -scale-to 1800 -png -singlefile inputs-LOCALONLY/CLD-v2.pdf inputs-LOCALONLY/page80',
+ 'pdftoppm -f 162 -l 162 -scale-to 1800 -png -singlefile inputs-LOCALONLY/CLD-v2.pdf inputs-LOCALONLY/page162'],
+ 'supplied_programs_executed_or_imported':False,'compilation':False,'editor_actions':False,'heavy_compute':False})
+
+checks={'source_units':len(ledger['units']),'bound_primary_units_verified':16,'actual_notes_all_different':True,
+ 'finite_diagnostic_pairs':checked,'paper_bytes':len(paper.encode()),'whole_proof_bytes':len(whole.encode()),
+ 'math_inline_balanced':paper.count(r'\(')==paper.count(r'\)'),
+ 'math_display_balanced':paper.count(r'\[')==paper.count(r'\]'),
+ 'document_end_present':paper.endswith('\\end{document}\n'),'TeX_not_compiled':True,
+ 'mathematical_correctness_certified':False}
+assert checks['math_inline_balanced'] and checks['math_display_balanced']
+if (ROOT/'notes.json').exists():
+ notes=json.loads((ROOT/'notes.json').read_text()); seen=set()
+ for n in notes['notes']:
+    assert all(s in seen for s in n['support'])
+    seen.add(n['id'])
+ assert notes['candidate'] is False
+ checks['own_backward_note_supports_checked']=len(seen)
+dump('artifact-bindings.json',[{'path':str(ROOT/f),'bytes':(ROOT/f).stat().st_size,
+    'sha256':hashlib.sha256((ROOT/f).read_bytes()).hexdigest()} for f in
+    ['P21.3-review-paper.tex','whole-proof.md','proof-body.md','source-ledger-independent.json',
+     'input-bindings-verified.json','independent-whole-review.json','original-decision.json']])
+dump('checks-output.json',checks)
+print(json.dumps(checks))
