@@ -1,0 +1,411 @@
+"""Build the independently authored review; no TeX compiler or supplied code runs."""
+import hashlib
+import json
+import pathlib
+import re
+
+OUT = pathlib.Path(__file__).resolve().parent
+
+def write_json(name, obj):
+    (OUT / name).write_text(json.dumps(obj, ensure_ascii=False, indent=2) + '\n')
+
+def sha(raw):
+    return hashlib.sha256(raw).hexdigest()
+
+# These application statements are independently worded after bounded source reading.
+# The literal source bodies and inclusive LF intervals remain separately inspectable.
+APPLICATIONS = {
+ 'S01': (
+  "Jd'=d''J, Jd''=-d'J, J^2=(-1)^(a+b), D commutes with J. Both differentials obey the total-degree graded Leibniz rule on superforms.",
+  "Used for the antisymmetric cross term in the smooth multiplier identity and the two relative-factor derivative relations. Applied in ordinary unit moment charts; the exterior algebra is independent of the field.",
+  "Read the statement, calculation of the J signs, and complete 1.3.7 rule. Current rules are independently obtained by signed transposition, not asserted from a nonsmooth form."),
+ 'S02': (
+  "G-forms restrict to smaller paralin domains, pull back under affine maps, and have ordinary support. A type (a,b) form vanishes where tropical dimension is below max(a,b). Differentials and exterior products are compatible with restriction.",
+  "Used to extend compactly supported ordinary forms by zero and to derive the analytic support theorem with S12/S13.",
+  "The displayed 3.3.6 proof writes d_K where its statement and argument require d_trop. The printed 3.3.10 commutation exponent is inconsistent with generator algebra: the independent proof uses total degrees (a+b)(c+d). Page 80 pixels were inspected."),
+ 'S03': (
+  "On locally differentially separated tropical spaces, compact sets inside opens admit smooth nonnegative plateaus with compact support in that open. Compact continuous scalars are uniformly approximable by compact smooth scalars; localization and partitions have the stated paracompact hypotheses.",
+  "Only the compact, finite localization consequences are used on good separated ordinary domains. No paracompactness of an arbitrary entire open is assumed.",
+  "The complete plateau construction and Stone-Weierstrass density proof were read. Scalar smooth density does not give zero-Hessian density."),
+ 'S04': (
+  "A compact symmetric diagonal form whose support is contained in a paracompact locally differentially separated open is a difference of two compact middle-positive forms. Compact supports on almost-good analytic spaces satisfy that support condition.",
+  "Apply 6.5.2 to the prescribed ordinary open O itself, then extend compact outputs by zero to N. Good ordinary domains are almost good. The output supports remain in O, though they can exceed the original support.",
+  "The proof uses a finite chart localization and E/S16 middle-positive coefficient decomposition. No strong-positive domination is substituted."),
+ 'S05': (
+  "Compact test topologies define currents; restriction is by zero extension of compact tests. Currents form a sheaf on locally differentially separated spaces, and support means vanishing on the complementary open.",
+  "Only ordinary restriction, support, and finite gluing of an already constructed current are used. Analytic hypotheses are supplied by S13/S14.",
+  "No gluing of unrelated changing currents, or pullback of a nonsmooth current, is imported."),
+ 'S06': (
+  "A positive current is symmetric and nonnegative on middle-positive complementary tests. If T and -T are positive, T=0 by positive decomposition. Positivity is local on locally differentially separated spaces.",
+  "This is exactly the positivity convention throughout the review. Fixed-current scalar products and smooth middle-positive factors preserve it.",
+  "Weakly positive currents test the strong cone and are not silently substituted for the positive currents of this assignment."),
+ 'S07': (
+  "Positive complementary tests yield positive scalar Radon measures; multiplication of a positive current by a locally integrable scalar is defined by coefficient measures. Positive currents have order zero and compact signed coefficient measures.",
+  "Signed measures are independently obtained by SAME-open middle-positive decomposition and scalar density; multiplication uniqueness and compact support of those measures are proved in n1.",
+  "The printed 7.2.9 strong-positive domination step is false in middle degree. It is replaced by bounded coefficient domination in the MIDDLE PSD cone for the given middle-positive current. Page 162 pixels were inspected. No general weak-positive recognition theorem is used."),
+ 'S08': (
+  "The canonical integration current delta_X=[1] is strongly positive, hence middle-positive, on a calibrated tropical space.",
+  "Applied to the canonical analytic calibration from E06-E13 and S14. Boundaryless closedness comes from S09/Stokes.",
+  "This supplies only the reference integration current, not a classification of arbitrary positive currents."),
+ 'S09': (
+  "Current derivatives are signed transposes: d'=(-1)^(a+b+1)b', similarly d''. Squares vanish, d'd''=-d''d', D commutes with J, and derivatives commute with ordinary restriction. Boundaryless integration is doubly closed.",
+  "Directly proves correctly complementary D-duality and full total-degree smooth-form/current Leibniz. Both equations d'T=d''T=0 are retained.",
+  "Printed 7.7.5 uses an incorrect complementary test index; printed 7.7.7 mixes degree/dimension labels. Independent typed calculations repair these. Nothing assumes S=hT is closed."),
+ 'S10': (
+  "Analytic spaces have compact domain neighborhood bases, and good spaces have affinoid neighborhood bases; ordinary opens are analytic domains. Topological separation gives Hausdorff support manipulations.",
+  "Used to choose affinoid neighborhoods inside the locally analytic-locus description and relatively compact ordinary subopens.",
+  "This does not assert all ordinary opens are globally affinoid, strict polycylinders, or paracompact."),
+ 'S11': (
+  "Analytic dimension is defined by strictification and the resulting Krull dimension and is unchanged under complete scalar extension or nilreduction. It equals sup_x d_K(x). Thus for a d-dimensional analytic space d_K(x)<=d; the same bound applies on an analytic subspace with its induced dimension.",
+  "Combined with S12 and the exact S13 support theorem, it removes analytic loci with dimension below the test degree.",
+  "The invariant is graded residual transcendence degree, not the dimension of a projected skeleton or an ambient moment-coordinate count."),
+ 'S12': (
+  "For an analytic moment, the local tropical dimension d_trop(x) is at most d_K(x).",
+  "Used only for analytic support, not to bound the number of moment coordinates by analytic dimension.",
+  "Read the complete short proposition; recursive graded analytic dimension foundations are imported honestly."),
+ 'S13': (
+  "On a topologically separated analytic space, a type (a,b) G-form has support in d_K>=max(a,b), and its support misses locally Zariski closed analytic loci of dimension below max(a,b). Good topologically separated spaces are locally holomorphically and differentially separated; compact supports have the prescribed separation/plateau properties.",
+  "Ordinary forms are G-forms; all spaces used are good separated. The dimension conclusion needs an actual analytic locus or the stated pointwise d_K inequality.",
+  "Read the entire immediate proof: separating seminorms by an analytic function, smooth logarithmic separators, zero extension near zeros, then finite compact localization. No global properness or nontrivial valuation is added."),
+ 'S14': (
+  "A topologically separated pure n-dimensional analytic space carries the canonical calibrated tropical level-n calculus, independent of an admissible moment choice and compatible with analytic domains.",
+  "This installs the ordinary analytic CLD calculus on each specified ordinary open and retains nilpotent integration multiplicities.",
+  "No equivalence with harmonic tropicalizations, weak smoothness, or strong-current multiplication is inferred."),
+ 'S15': (
+  "In a Hausdorff locally compact space, a sheaf of continuous functions admitting local plateaus and vector-space operations yields compact plateaus in prescribed opens and compact scalar density by Stone-Weierstrass, under the stated local separation assumptions.",
+  "The analytic smooth sheaf meets these assumptions by S13. Only compact and finite localizations are required.",
+  "The real scalar density theorem is imported with its ordinary topology; no harmonic approximation conclusion follows."),
+ 'S16': (
+  "A symmetric diagonal smooth form on a paralin domain is a difference of two middle-positive smooth forms. On a compact coefficient domain, a finite constant multiple of a standard metric power bounds both signs.",
+  "The independent proof uses exactly the compact constant-majorant argument and E01/E02 matrix positivity. This supplies SAME-open compact decomposition.",
+  "The problematic noncompact scalar majorant/composition wording in 1.10.2 is not used. Strong-positive generators need not span all symmetric forms."),
+ 'E01': (
+  "A symmetric (a,a) superform, written using sigma_a xi_I wedge Jxi_J, is middle-positive exactly when its real symmetric coefficient matrix on the a-th exterior coefficient space is PSD.",
+  "Gives matrix order units lambda^a, cross-block estimates, and the Plucker strong-span obstruction. The ambient vector space is the actual moment-coordinate space.",
+  "The complete cone/matrix discussion was read. The finite Plucker diagnostic is corroboration; the universal annihilator is proved by w wedge w=0."),
+ 'E02': (
+  "Linear pullback preserves all three form cones; surjective pullback detects them. Wedges of middle-positive forms are middle-positive. A positive-definite (1,1) form has powers in the interior of the middle cone, but only relative interior of the strong cone.",
+  "Used for middle order units, energy-form positivity, smooth factors, and FIRST-JET linear pullback of the formal cross-block inequality into genuine refined analytic-unit charts.",
+  "Read all statements and immediate proofs. The formal covector y used for algebra is not an analytic unit, and no current is pulled back."),
+ 'E03': (
+  "J interchanges primed and double-primed generators with the prescribed sign, and exterior multiplication commutes with sign determined by total degrees.",
+  "Used with S01/S09 for every sign in D(gT), graded current Leibniz, and the relative-factor identity.",
+  "No ungraded or bidegree-only commutation convention is used."),
+ 'E04': (
+  "A top-degree G-form on a calibrated tropical space has a measure defined by local chart integrals; compact forms integrate finitely, independently of chart localization, and standard torus calibration is Lebesgue calibration.",
+  "Used for canonical analytic integration and the explicit detecting integral on the actual analytic torus.",
+  "Calibrated multiplicities and paired positive orientation are retained, not replaced by probability normalization."),
+ 'E05': (
+  "8.5.3 gives a smooth-factor identity for closed symmetric currents; 8.6.2 defines BT on every open; 8.6.3 gives locality; delta_X is BT; closed positive smooth-factor BT transfer is stated in 8.6.5.",
+  "These are reconstructed with complementary indices. The review independently proves relative closedness transfer and fixed-current scalar/form-net limits. The original class consists of individually admissible continuous psh pairs.",
+  "8.5.3 contains a degree/dimension indexing mismatch. 8.5.5 uses generated CPsh, which is not assumed to be the full original class. Literal 8.6.7 drops closedness and is false, as the actual analytic torus diagnostic proves. General changing-current 8.6.6 is not used as a density theorem or a substitute for fixed-T measure continuity."),
+ 'E06': (
+  "Near a generic tropical point, a suitable projection of a moment to an n-dimensional split torus is finite flat; canonical calibration is defined through that finite flat degree and the primitive lattice covolume.",
+  "Supplies the generic construction of analytic moment calibration and degree-one normalization for the identity torus moment.",
+  "The stated projection and generic-point conditions are preserved. No arbitrary current is normalized or base changed."),
+ 'E07': (
+  "Canonical calibration is independent of the finite-flat projection and admissible unit-moment choice, using refinements by a common moment and the degree computation on cells.",
+  "Justifies appending actual analytic units in ordinary presentations without altering upstairs integration currents or Artinian weights.",
+  "Read full construction and proof. This is form/integration compatibility, not faithful ascent/descent for arbitrary currents."),
+ 'E08': (
+  "For a finite analytic map, pushforward of canonical tropical calibration equals canonical target calibration multiplied by the appropriate local/generic degree, on the stated calibrated cells.",
+  "Together with E11/E12 this fixes nilreduction and generic nonreduced integration weights.",
+  "Only finite calibrated integration is transported. No use of noninjective tropical equality to decide upstairs BT."),
+ 'E09': (
+  "Degree under finite split-torus homomorphisms agrees with the induced lattice index; its calibration transport has the corresponding multiplicity.",
+  "Checks the identity-moment degree one in the analytic torus detector and normalization consistency.",
+  "Read the full displayed statements/proofs. The identity case can independently be read directly from E06's finite-flat degree-one definition."),
+ 'E10': (
+  "Ordinary analytic forms are locally pulled back by analytic unit moments; smooth functions of their logarithmic norms are ordinary smooth. Nilreduction preserves this form calculus by local lifting of units and refinements.",
+  "Used for the regularized logarithmic maximum only where active f_i are actual units. Near individual zeros, inactive-variable omission is exact before constructing a chart.",
+  "No logarithmic chart across a zero, or unrestricted pullback of a nonsmooth ordinary current, is asserted."),
+ 'E11': (
+  "For a finite module B over an Artinian local A, delta_A(B)=length_A(B)/length_A(A). Local finite-algebra degrees multiply and degrees add over local fibers. Generic calibrated degree is the ratio of the corresponding Artinian lengths.",
+  "Nilreduction has degree 1/m for generic length m; E08/E12 therefore retain integration weights m on reduced components.",
+  "No reduced generic length is silently substituted for the original one; all valuation regimes are allowed."),
+ 'E12': (
+  "Canonical integration of top analytic forms is well defined; integration transports under finite maps with the calibrated degree and respects analytic-domain restriction.",
+  "Used for the Artinian weight calculation, nilreduction, and ordinary compact integration.",
+  "The finite-map hypothesis is used only for canonical forms/integration, not arbitrary current ascent/descent."),
+ 'E13': (
+  "The integration current of a pure analytic space is the locally finite sum of reduced irreducible component currents with their generic Artinian lengths.",
+  "Top-form supports miss lower-dimensional component intersections by S13; the current equality retains the original multiplicities.",
+  "This classifies only the integration current. The arbitrary positive current T is never replaced by a component-diagonal current."),
+ 'E14': (
+  "Smooth partitions subordinate to open covers follow under local compactness, paracompactness, and the stated local plateau sheaf hypotheses; compact portions require only finite localization.",
+  "The independent review constructs the compact finite version explicitly, rather than imposing paracompactness on arbitrary opens.",
+  "Read the surrounding scalar sheaf construction and proof. These partitions do not preserve closedness of arbitrary weighted currents."),
+ 'E15': (
+  "A split analytic torus has logarithmic coordinates and associated closed/polyannular analytic domains with the specified coordinate/radius descriptions.",
+  "Compact tropical support on the two-dimensional Q_ell torus lies in a compact closed analytic polyannulus; the detecting test is an actual upstairs compact smooth form.",
+  "Strictness and boundarylessness refer to the ambient analytic torus. A compact containing domain is not substituted for the ambient space."),
+}
+
+def escape_text(s):
+    mapping = {'\\': r'\textbackslash{}', '&': r'\&', '%': r'\%', '$': r'\$',
+               '#': r'\#', '_': r'\_', '{': r'\{', '}': r'\}',
+               '~': r'\textasciitilde{}', '^': r'\textasciicircum{}'}
+    return ''.join(mapping.get(c, c) for c in s)
+
+def tex_prose(s):
+    chunks = re.split(r'(\\\(.*?\\\)|\\\[.*?\\\])', s, flags=re.S)
+    return ''.join(c if c.startswith((r'\(', r'\[')) else escape_text(c)
+                   for c in chunks)
+
+def tex_section(s):
+    lines = s.splitlines()
+    return r'\section{' + escape_text(lines[0].removeprefix('# ')) + '}\n\n' + tex_prose('\n'.join(lines[1:]))
+
+def validate_math(text):
+    assert text.count(r'\(') == text.count(r'\)')
+    assert text.count(r'\[') == text.count(r'\]')
+    assert not any(ord(c) < 32 and c not in '\n\t' for c in text)
+    for m in re.finditer(r'\\\(.*?\\\)|\\\[.*?\\\]', text, re.S):
+        body = m.group()
+        assert not re.search(r'(?<![A-Za-z\\])(langle|rangle|dim|sup|rho|theta|beta)(?![A-Za-z])', body), body
+        depth = 0
+        for k, c in enumerate(body):
+            if k and body[k-1] == '\\':
+                continue
+            if c == '{':
+                depth += 1
+            if c == '}':
+                depth -= 1
+            assert depth >= 0, body
+        assert depth == 0, body
+
+def main():
+    binding = json.loads((OUT / 'source-unit-bindings.json').read_text())
+    ledger_units = []
+    literal_units = []
+    for unit in binding['units']:
+        statement, application, qualification = APPLICATIONS[unit['id']]
+        revised = dict(unit)
+        revised.update({'exact_applied_statement': statement,
+                        'application_and_hypothesis_check': application,
+                        'independent_source_qualification': qualification,
+                        'source_reading_claim': 'Fresh bounded display of full immediate statement/proof and included surrounding hypotheses; not a claim of reading the whole book.'})
+        ledger_units.append(revised)
+        literal_units.append(dict(revised, literal_body=(OUT / 'inputs-LOCALONLY' / (unit['id'] + '.txt')).read_bytes().decode('utf-8')))
+    source_info = {
+      'bibliography': 'A. Chambert-Loir and A. Ducros, Formes differentielles reelles et courants sur les espaces de Berkovich, arXiv:1204.6277v2; retained 25 July 2025 cover, internal 29 July 2025 0h06 title.',
+      'public_primary_url': 'https://arxiv.org/abs/1204.6277v2',
+      'full_text_local_path': str(OUT / 'inputs-LOCALONLY/primary/039-CLD-v2-full.txt'),
+      'full_pdf_local_path': str(OUT / 'inputs-LOCALONLY/primary/040-CLD-v2.pdf'),
+      'full_text_bytes': 2153101, 'full_pdf_bytes': 4659053,
+      'full_text_sha256': binding['source_sha256'], 'full_pdf_sha256': binding['pdf_sha256'],
+      'line_convention': 'Inclusive LF-only intervals; formfeeds are literal source data, never treated as newlines.',
+      'whole_book_freshly_read': False,
+      'recursive_foundations': [
+        'Berkovich, Spectral theory and analytic geometry over non-Archimedean fields, Mathematical Surveys and Monographs 33 (1990), Chapter 2, sections 2.1--2.2: affinoid algebras over complete K are noetherian; coherent analytic subspace ideals on affinoid neighborhoods are finite ideals. Completeness is retained and no nontrivial valuation or algebraic closure is required here.',
+        'Additional complete immediate CLD 13.3.1--3 reading: points in zero-dimensional analytic fibers are isolated; compact zero-dimensional analytic fibers are finite analytic spaces over the completed residue field of the base point. Apply to a compact piece of a zero-dimensional analytic locus mapping to M(K); its algebra is finite-dimensional over K and Artinian. Analytic dimension from S11 is retained. A general finite-residue-field Nullstellensatz for arbitrary NONSTRICT affinoid rings is not used.',
+        'Standard graded analytic dimension and finite-flat moment foundations explicitly cited recursively in CLD.',
+        'Real finite-dimensional PSD linear algebra, compact Stone-Weierstrass, Riesz representation for Radon measures, and convolution by nonnegative compact smooth kernels.'
+      ],
+      'new_bridges_proved_here': [
+        'Middle-cone repair and SAME-open positive decompositions; signed coefficient measure support and scalar-product uniqueness.',
+        'Correctly typed smooth multiplier and support identities; all ten cutoff/dimension arguments.',
+        'Full graded relative smooth-factor formula, both derivative cross relations, and fixed-T scalar/common-chart smooth-form net transfer.',
+        'Log inactive-variable omission, concave cap energy bounds, actual-unit-chart first-jet block domination, and analytic-trace removability including r=0.'
+      ],
+      'units': ledger_units,
+      'retained_reading_reports_or_PASS_labels_used_as_premises': False,
+    }
+    full_source = (OUT / 'inputs-LOCALONLY/primary/039-CLD-v2-full.txt').read_bytes()
+    foundation_raw = b'\n'.join(full_source.split(b'\n')[19180:19231]) + b'\n'
+    foundation_path = OUT / 'inputs-LOCALONLY/F01.txt'
+    foundation_path.write_bytes(foundation_raw)
+    foundation = {
+      'id': 'F01', 'label': '13.3.1--3 additional zero-dimensional fiber foundation',
+      'inclusive_LF_interval': [19181, 19231], 'bytes': len(foundation_raw),
+      'sha256': sha(foundation_raw), 'literal_body_local_path': str(foundation_path),
+      'fresh_bounded_display': True,
+      'exact_applied_statement': 'For any analytic morphism f:Y->X, a point y of analytic fiber dimension zero is isolated in its fiber and has finite-dimensional local algebra over H(f(y)). A compact zero-dimensional fiber is a finite analytic space over H(x).',
+      'application_and_hypothesis_check': 'Apply to a compact zero-dimensional analytic subspace mapping to M(K). Use ANALYTIC dimension from 11.2.3; ordinary subdomains need not be strict. This avoids a false general Nullstellensatz for nonstrict affinoid fields.',
+      'independent_source_qualification': 'The complete surrounding degree definition, compact-fiber statement, and immediate 13.3.3 base-change proof were freshly read; no current base change is used.'
+    }
+    source_info['supplemental_source_units'] = [foundation]
+    write_json('source-ledger-independent.json', source_info)
+    write_json('full-literal-source-ledger-LOCALONLY.json', dict(source_info, units=literal_units, supplemental_source_units=[dict(foundation, literal_body=foundation_raw.decode('utf-8'))]))
+    summaries = [
+      ("Corrected ordinary CLD foundations: middle PSD domination, signed scalar measures, smooth multiplication, support, and original Artinian weights; strong-cone domination fails.",
+       "Proves the Plucker annihilator obstruction on Lambda^2 R^4, reconstructs the four foundational 369 items on the same ordinary open with q=n-p and r=q-1, repairs printed sign/index/cone problems, and preserves nonreduced integration weights. Imports precisely recorded standard CLD/analytic foundations. The 6561-pair diagnostic is finite evidence, not an analytic proof.", []),
+      ("Reconstructs all remaining 369 cutoff/dimension results with actual same-open positive tests; finite masses alone give no uniform removability, and the dimension method is empty at r=0.",
+       "Proves weighted cutoff estimates and their exact vanishing criterion, test-specific mass infima and inverse-oscillation lower bounds, ordinary cover localization, removal for dim Z<n-p-1, and the necessary analytic detector bound d_K>=n-p-1. Off-locus regularity and the analytic-locus hypotheses remain explicit; the dimensional window supplies no counterexample.", ['n1']),
+      ("Repairs complete scalar367/relative368 transfers: initial BT and actual positive doubly closed smooth-factor products are required; hT need not be closed.",
+       "Proves continuous multiplication compatibility via signed coefficient measures, the full graded D(gamma hT) formula and both cross relations, every-open relative transfer, fixed-T scalar nets, and common-chart coefficient limits to smooth factors. Gives an actual torus detector showing a positive scalar can destroy closedness; that current is ineligible for original P21.3.", ['n1']),
+      ("Analytic-trace removability holds in every original degree under explicit off-locus regularity and local smooth harmonic trace; whole372 conditional chain reconstructed, original P21.3 unresolved.",
+       "Constructs the ordinary logarithmic cutoff, exact omission of inactive zero coordinates, capped concave potentials with mass<=4LM and energy<=24L^2M, genuine refined-unit-chart middle block bounds, and moving positive cutoff masses<=C(F+28M). Continuity of the ordinary analytic trace gives vanishing, including r=0. Also proves the off-locus harmonic-approximation extension, isolated-point consequence, and constructed saturated-torus convolution sector. The verdict distinguishes conditional whole372 correctness from the unproved original universal hypotheses; no admissible analytic counterexample or full original proof is supplied.", ['n1', 'n2', 'n3'])
+    ]
+    notes = []
+    bodies = []
+    for number, (summary, detailed, supports) in enumerate(summaries, 1):
+        body = (OUT / f'n{number}.md').read_text()
+        validate_math(body)
+        bodies.append(body)
+        notes.append({'id': f'n{number}', 'summary': summary,
+                      'detailedSummary': detailed, 'text': body, 'support': supports})
+    final_obj = {'notes': notes, 'candidate': False}
+    write_json('actual-mathematical-notes.json', final_obj)
+    write_json('final.json', final_obj)
+    intro = r"""This independent draft reconstructs the conditional whole372 chain and records a separate original decision. Throughout \(K\) is any complete non-Archimedean field, including trivial valuation, and \(X\) is good, separated, strict, boundaryless and pure of dimension \(n\geq2\). The ORIGINAL target asks whether for every ordinary \(W\subset X\), every positive \(d'\)- and \(d''\)-closed ordinary CLD \((p,p)\)-current \(T\), \(0\leq p\leq n-1\), and separately admissible finite continuous individually psh \(U,V\) on \(W\),
+\[
+ D[U]=D[V]\quad\Longrightarrow\quad D((U-V)T|_W)=0.
+\]
+The original decision is unresolved and candidate=false. The principal proved partial result is removability of an ordinary locally analytic closed locus when the continuous difference is ordinary smooth harmonic off the locus and has a local ordinary smooth harmonic trace on it. The extra hypotheses are not derived from equal curvature.
+
+All previous reports are retained mathematical data. The complete bound original task was read before selecting proof inputs. This review imports published analytic foundations with the application checks below; source-dependent assertions are not established merely by catalogue prose. No supplied program is executed. No TeX compilation is performed.
+"""
+    # Remove diff-like leading pluses from this authored raw introduction.
+    intro = '\n'.join(line[1:] if line.startswith('+') else line for line in intro.split('\n'))
+    ledger_md = ['# Exact source application ledger and recursive foundations\n',
+                 source_info['bibliography'] + '\n',
+                 'The 31 full literal source units, their LF intervals, hashes, and immediate proof bodies are retained in full-literal-source-ledger-LOCALONLY.json. The following statements specify exactly what is applied; source errors are excluded or repaired by the independent arguments above.\n']
+    for u in ledger_units:
+        lo, hi = u['inclusive_LF_interval']
+        ledger_md.append(f"## {u['id']}: CLD {u['label']}, LF {lo}--{hi}\n\n"
+                         + u['exact_applied_statement'] + '\n\n'
+                         + u['application_and_hypothesis_check'] + '\n\n'
+                         + u['independent_source_qualification'] + '\n\n'
+                         + f"Literal body: inputs-LOCALONLY/{u['id']}.txt; {u['bytes']} bytes; SHA-256 {u['sha256']}.\n")
+    ledger_md.append('## Additional F01: CLD 13.3.1--3, LF 19181--19231\n\n' + foundation['exact_applied_statement'] + '\n\n' + foundation['application_and_hypothesis_check'] + '\n\n' + foundation['independent_source_qualification'] + '\n\n' + f"Literal body: inputs-LOCALONLY/F01.txt; {foundation['bytes']} bytes; SHA-256 {foundation['sha256']}.\n")
+    ledger_md.append('## Imported deeper foundations\n\n' + '\n\n'.join(source_info['recursive_foundations']) + '\n')
+    ledger_text = '\n'.join(ledger_md)
+    (OUT / 'source-ledger-independent.md').write_text(ledger_text)
+    companion = '# Independent whole372 reconstruction and original P21.3 decision\n\n' + intro + '\n\n' + '\n\n'.join(bodies) + '\n\n' + ledger_text
+    (OUT / 'P21.3-proof-companion.md').write_text(companion)
+    tex = r"""\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\title{Independent whole372 reconstruction and the original P21.3 decision}
+\author{Independent mathematical draft}
+\date{8 October 2026}
+\begin{document}
+\maketitle
+""" + tex_prose(intro) + '\n\n' + '\n\n'.join(tex_section(b) for b in bodies)
+    tex = '\n'.join(line[1:] if line.startswith('+') else line for line in tex.split('\n'))
+    tex += '\n\n' + r'\section{Exact primary source application ledger}' + '\n\n'
+    tex += tex_prose(ledger_md[1] + '\n' + ledger_md[2]) + '\n\n'
+    for u in ledger_units:
+        lo, hi = u['inclusive_LF_interval']
+        tex += r'\subsection*{' + escape_text(f"{u['id']}: CLD {u['label']}, LF {lo}--{hi}") + '}\n\n'
+        tex += tex_prose(u['exact_applied_statement'] + '\n\n' + u['application_and_hypothesis_check'] + '\n\n' + u['independent_source_qualification']) + '\n\n'
+    tex += r'\subsection*{Additional F01: CLD 13.3.1--3, LF 19181--19231}' + '\n\n'
+    tex += tex_prose(foundation['exact_applied_statement'] + '\n\n' + foundation['application_and_hypothesis_check'] + '\n\n' + foundation['independent_source_qualification']) + '\n\n'
+    tex += r'\subsection*{Imported deeper foundations}' + '\n\n' + tex_prose('\n\n'.join(source_info['recursive_foundations'])) + '\n\n'
+    tex += r'\section{Rerun and integrity evidence}' + '\n\n' + escape_text('Run python audit.py and python build_review.py in this workspace. checks-output.json records 157 matching bound inputs, 31 exact source units, four field-identical actual/expanded372 notes, three differing actual/expanded369 texts, and the 6561-pair finite Plucker diagnostic. No supplied program was executed, no resource-heavy computation or additional model was used, and the TeX is intentionally uncompiled. Execution success and structural checks do not establish mathematical correctness.') + '\n'
+    tex += r'\end{document}' + '\n'
+    validate_math(tex)
+    (OUT / 'P21.3-review-paper.tex').write_text(tex)
+    claims = [
+      ['369.1', 'SAME-open compact middle-positive decomposition', 'n1'],
+      ['369.2', 'Unique compact signed coefficient measures and ordinary scalar multiplication', 'n1'],
+      ['369.3', 'Correctly typed smooth zero-Hessian multiplication', 'n1'],
+      ['369.4', 'Ordinary defect support and localization', 'n1'],
+      ['369.5', 'Weighted cutoff pairing with actual compact positive outputs', 'n2'],
+      ['369.6', 'Constructed weighted-vanishing certificates imply removability', 'n2'],
+      ['369.7', 'Finite test-specific infimum, boundedness criterion, inverse oscillation', 'n2'],
+      ['369.8', 'Ordinary cover localization, with every-open distinction', 'n2'],
+      ['369.9', 'Analytic dimension removal and empty r=0 range', 'n2'],
+      ['369.10', 'Actual analytic detector bound and unexcluded dimensional window', 'n2'],
+      ['367.scalar', 'Initial BT plus actual relative closedness; fixed-T scalar nets', 'n3'],
+      ['368.relative', 'Smooth-factor positivity/closedness, full Leibniz, BOTH cross relations', 'n3'],
+      ['372.form-net', 'Common-chart coefficient convergence to SMOOTH form only', 'n3'],
+      ['372.torus-diagnostic', 'Actual positive scalar loses double closedness', 'n3'],
+      ['372.log', 'Exact inactive-variable omission and actual analytic-unit charts', 'n4'],
+      ['372.cap-energy', 'Concave cap; 4LM and 24L^2M closed-current inequalities', 'n4'],
+      ['372.block', 'Middle PSD formal block algebra plus actual refined FIRST-JET pullback', 'n4'],
+      ['372.cutoff', 'Moving SAME-open compact tests and C(F+28M) mass bound', 'n4'],
+      ['372.trace', 'Ordinary analytic trace continuity; all p including r=0', 'n4'],
+      ['372.points', 'Isolated zero-dimensional analytic loci removable', 'n4'],
+      ['372.torus-sector', 'Constructed coordinate-saturated positive convolution sector', 'n4'],
+      ['new.partial-extension', 'Off-locus harmonic approximation can replace ordinary smoothness', 'n4'],
+    ]
+    coverage = {
+      'claims': [{'id': key, 'statement': statement, 'independent_complete_argument_note': note,
+                  'status': 'conditional theorem reconstructed'} for key, statement, note in claims],
+      'whole372_documents': ['inputs-LOCALONLY/math/050-P21.3-review-paper.tex',
+                             'inputs-LOCALONLY/math/075-whole-proof.md',
+                             'inputs-LOCALONLY/math/053-actual-native263-final.json',
+                             'inputs-LOCALONLY/math/061-local-notes-SAME-actual-fields-DATA.json',
+                             'inputs-LOCALONLY/math/062-mandatory-ROOT-whole-proof-source-scope-qualifications-20261008.json',
+                             'inputs-LOCALONLY/math/077-P21.3-round263-whole-candidate372-ROOT-proof-source-scope-and-binding-20261008.json'],
+      'entire372_TeX_bytes': 72653, 'entire372_proof_bytes': 71103,
+      'actual372_note_bodies': 4, 'actual369_note_bodies': 3,
+      '31_immediate_primary_units_fresh_bounded_read': True,
+      'additional_fresh_foundation_units': ['F01:13.3.1--3'],
+      'prior_history_retained': True,
+      'all_prior_historical_math_freshly_read': False,
+      'prior_history_used_as_mathematical_premise': False,
+      'whole_CLD_book_freshly_read': False,
+      'recursive_foundations_reproved': False,
+      'retained_reading_grants': [],
+      'original_claim_status': 'unresolved'
+    }
+    write_json('whole-proof-coverage.json', coverage)
+    verdict = {
+      'scope': 'All conditional whole372 theorems, including repaired 367/368 and ten-item369 chain',
+      'independent_verdict': 'Conditional mathematical chain reconstructed with explicit middle-cone, sign, degree, and genuine ordinary-chart qualifications',
+      'new_clarification': 'Formal y used in block algebra is not an analytic unit. Append actual active analytic units, then apply a pointwise first-jet linear map in the genuine refined chart.',
+      'additional_foundation_clarification': 'The isolated-point conclusion uses ANALYTIC dimension and the exact compact-zero-dimensional-fiber finiteness theorem CLD 13.3.1--2, not a general finite-residue-field Nullstellensatz for nonstrict affinoid rings.',
+      'required_repairs': [
+        'Strong-positive decomposition/order-unit span is not used; MIDDLE PSD cone only.',
+        'Correct complementary indices q=n-p, r=q-1 and total-degree signs.',
+        'Initial BT assumed for fixed T; actual gamma wedge T positive and doubly closed.',
+        'S=hT may be nonclosed; both cross relations explicitly established.',
+        'Closedness of every approximant and smoothness of the common-chart form limit retained.'
+      ],
+      'not_a_formal_verification_or_catalogue_acceptance': True,
+      'original_P21_3_solved': False,
+      'candidate': False,
+      'remaining_gap': 'No original-pair theorem supplies the off-locus ordinary regularity/approximation, locally analytic exceptional locus and ordinary harmonic trace, or an arbitrary-current BT exhaustion.'
+    }
+    write_json('independent-whole372-verdict.json', verdict)
+    write_json('original-decision.json', {
+      'candidate': False, 'decision': 'Original P21.3 remains unresolved',
+      'positive_result': 'Ordinary analytic-trace removability for all p under the explicit hypotheses proved in n4, and the off-locus harmonic-approximation extension.',
+      'remaining_quantifiers': [
+        'All complete fields including trivial valuation',
+        'All good separated STRICT boundaryless pure n>=2 analytic spaces, including singular/reducible/nonreduced',
+        'Every ordinary open, every p=0,...,n-1',
+        'Every positive d-primed and d-double-primed closed ordinary CLD current',
+        'Separately admissible finite continuous individually psh U,V with exact upstairs D[U]=D[V]',
+        'Original generic Artinian integration weights'
+      ],
+      'missing_constructed_hypotheses': [
+        'Universal ordinary pluriharmonic regularization compatible with every analytic-unit refinement on one fixed neighborhood',
+        'Original differences satisfying analytic-trace removability assumptions',
+        'An actual positive doubly-closed-current BT exhaustion or product-compatible harmonic lifting'
+      ],
+      'admissible_analytic_counterexample_supplied': False,
+      'already_known_subcases_counted_as_original_closure': False
+    })
+    structural = {
+      'math_delimiters_balanced': True, 'math_braces_balanced': True,
+      'no_control_character_transport_errors': True,
+      'note_supports_only_earlier_own_ids': all(set(note['support']) <= {f'n{i}' for i in range(1, j+1)} for j, note in enumerate(notes)),
+      '31_unit_applications_present': len(APPLICATIONS) == len(ledger_units) == 31,
+      'additional_zero_dimensional_foundation_unit': 1,
+      'candidate_false_consistent': True,
+      'compiler_run': False, 'mathematical_verification': False,
+      'paper_bytes': len(tex.encode()), 'proof_companion_bytes': len(companion.encode())
+    }
+    assert structural['note_supports_only_earlier_own_ids']
+    write_json('review-structural-checks.json', structural)
+    deliverables = ['P21.3-review-paper.tex', 'P21.3-proof-companion.md',
+      'actual-mathematical-notes.json', 'source-ledger-independent.json',
+      'full-literal-source-ledger-LOCALONLY.json', 'whole-proof-coverage.json',
+      'independent-whole372-verdict.json', 'original-decision.json',
+      'review-structural-checks.json', 'checks-output.json', 'environment.json',
+      'audit.py', 'build_review.py', 'inspect_packet.py', 'repair_notation.py',
+      'n1.md', 'n2.md', 'n3.md', 'n4.md', 'final.json']
+    write_json('deliverable-bindings.json', [{
+      'filename': name, 'bytes': len((OUT / name).read_bytes()),
+      'sha256': sha((OUT / name).read_bytes())} for name in deliverables])
+    print(json.dumps(structural, indent=2))
+
+if __name__ == '__main__':
+    main()

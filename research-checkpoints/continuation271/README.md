@@ -1,0 +1,7 @@
+Checkpoint271: complete ordinary-current reconstruction and relative generation lemma
+
+Counts16/42 original problems solved,26 OPEN,97 accepted papers; no increase. Whole379 retains the full independent conditional P21.3 reconstruction, with all four distinct actual/expanded texts, exact middle-cone and analytic-trace hypotheses, and original residual. ROOT physically read the entire proof and additional finite-fibre source. No universal pair theorem or admissible original counterexample.
+
+Whole380 proves relative zero-regularity generation over a finite-type affine base over any field, including finite fields. Its Frobenius corollary gives a fixed generation twist for finite lists of coherent source sheaves. The trace application requires exact arbitrarily late-tail finite quotient presentations; it does not assert test-ideal identities or envelope continuity. Complete proof and primary/source/scope qualifications retained; no hot feedback to active269. Both drafts UNREVIEWED.
+
+Frozen270 contains the complete mathematical packet,17 whole book contexts and exact task/settings/launch. Two native Xean gpt-6.1-sol xhigh campaigns continue on P12.3/P16.7. Full primary bodies, source units and pixels LOCALONLY. Native programs inert DATA. Compiler requests pending, no compiled-success claim. Protected editor unchanged. Regular authorized NONFORCE push requires exact independent Git tree, blob and fresh branch verification.

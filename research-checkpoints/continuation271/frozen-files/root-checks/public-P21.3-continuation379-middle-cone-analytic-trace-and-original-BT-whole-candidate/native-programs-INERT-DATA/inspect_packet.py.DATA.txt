@@ -1,0 +1,35 @@
+"""Read only explicitly bound inputs; record displayed, bounded character ranges."""
+import argparse, hashlib, json, pathlib
+
+BASE = pathlib.Path('/workspace/research/campaigns/round-268/P21.3-whole372-and-original-arbitrary-BT-current')
+MANIFESTS = {'math': 'mathematical-packet-bindings.json', 'primary': 'private-primary-packet-bindings.json', 'book': 'book-context-bindings.json'}
+
+def packet(kind):
+    return json.loads((BASE / MANIFESTS[kind]).read_text())
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('kind', choices=MANIFESTS)
+    parser.add_argument('index', type=int)
+    parser.add_argument('start', type=int, nargs='?', default=0)
+    parser.add_argument('end', type=int, nargs='?', default=14000)
+    parser.add_argument('--inventory', action='store_true')
+    args = parser.parse_args()
+    entries = packet(args.kind)
+    if args.inventory:
+        for i, e in enumerate(entries):
+            print(i, e['bytes'], pathlib.Path(e['path']).name)
+        return
+    e = entries[args.index]
+    path = pathlib.Path(e['path'])
+    raw = path.read_bytes()
+    content = raw.decode('utf-8')
+    start, end = args.start, min(args.end, len(content))
+    record = {'kind': args.kind, 'index': args.index, 'path': str(path), 'sha256': hashlib.sha256(raw).hexdigest(), 'characters': len(content), 'start': start, 'end': end}
+    with pathlib.Path('displayed-ranges.jsonl').open('a') as f:
+        f.write(json.dumps(record) + '\n')
+    print(json.dumps(record))
+    print(content[start:end])
+
+if __name__ == '__main__':
+    main()

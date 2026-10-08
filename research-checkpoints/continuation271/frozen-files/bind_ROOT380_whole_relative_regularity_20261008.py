@@ -1,0 +1,30 @@
+from pathlib import Path
+from datetime import datetime,timezone
+import hashlib,json
+
+R=Path('/workspace/research');K=R/'root-checks'
+P=K/'P12.3-continuation380-relative-regularity-and-Frobenius-generation-working-paper-20261008.tex'
+S=R/'primary-data-LOCALONLY/P12.3-relative-CM-foundations-primary-20261008/ROOT380-fresh-full-primary-web-units-LOCALONLY.json'
+B=K/'P12.3-continuation380-ROOT-whole-proof-source-scope-and-binding-20261008.json'
+sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
+assert not B.exists()
+assert sha(P)=='6971c895a138d5dec136ecf177d74dad3c01d997fcfd379dbdf01793eeb200e1'
+assert sha(S)=='b7b47ee5841fff6d31fa2b4a98f595d750edc866b2a05eb8ace371dd238b79b8'
+assert sha(K/'public-P16-round-46-final-reader/P16.4-paper.tex')=='09a83320fbb8fd7f468329307136ccaa146ea4ad07e9a23437ec3dd688ed942a'
+now=datetime.now(timezone.utc).isoformat()
+b=dict(recorded_utc=now,paper=380,atom='P12.3',status='UNREVIEWED complete working lemma and conditional Frobenius-generation bridge; no original closure or accepted paper.',whole_original_solved=False,new_accepted_paper=False,counts=dict(solved=16,open=26,papers=97),
+    whole_paper=dict(path=str(P),bytes=P.stat().st_size,sha256=sha(P),ROOT_entire_saved_mathematical_proof_physically_read=True,initial_untruncated_LF_intervals=[[1,160],[155,340]],all_final_amendments_and_surrounding_context_physically_read=True),
+    full_primary=dict(path=str(S),bytes=S.stat().st_size,sha256=sha(S),LOCALONLY=True,exact_web_tool_primary_responses_NOT_full_raw_HTML=True,new_physical_ROOT_reading=True),
+    exact_applied_sources=[dict(url='https://stacks.math.columbia.edu/tag/01YS',units='30.14.1 ENTIRE statement and immediate proof',tool_view_lines=[22,74],application='Coherent sheaves on P^N over NOETHERIAN R: finite sum of twists surjects, high twists generated, cohomological dimension and finite cohomology; not projective-over-field only.'),dict(url='https://stacks.math.columbia.edu/tag/02OI',units='31.2.2/31.2.5/31.2.10 complete statements and immediate proofs',tool_view_line_intervals=[[27,40],[48,49],[63,70]],application='Coherent associated points finite on quasi-compact noetherian schemes and injection detected at associated points. Chosen constant hyperplane unit at every associated point, so multiplication injective.'),dict(url='https://stacks.math.columbia.edu/tag/0B5U',units='30.17.1 ENTIRE statement and immediate proof',tool_view_lines=[24,30],application='Proper scheme over NOETHERIAN AFFINE base, ample line bundle: coherent higher cohomology eventually vanishes. All exact retained hypotheses.'),dict(url='https://stacks.math.columbia.edu/tag/0B5T',units='30.16.1 ENTIRE statement and immediate proof',tool_view_lines=[22,52],application='Full affine-base Serre proof reduces very ample power to projective space and all finitely many exponent residues; no field-only or flat-sheaf shortcut.')],
+    deeper_foundations='Affine acyclicity/Cech computation, noetherian module and coherent sheaf theory, ample embedding, Frobenius finite for perfect-field finite-type schemes, projection formula are cited standard foundations. Entire recursive proofs are not claimed freshly read or rebuilt.',
+    new_scope='P^N_R, R finite type over ANY field including finite fields, coherent G with H^i(G(-i))=0 for 1<=i<=N: every nonnegative twist is regular, coordinate multiplication surjective, G globally generated. Proof via faithful-flat field extension, finite associated points, constant regular hyperplane, full dimension/twist induction. NO flatness of G over R.',
+    Frobenius_scope='Projective Y over finite-type affine perfect-charp base, actual relatively VERY AMPLE A=O(H) embedding in P^N_R. Fixed Cartier L and c0 with (c0-i)H-L ample for all i<=N, independent of any finite coherent list M_j. For sufficiently large e, F_*^e(M_j tensor O(p^e(c0H-L))) generated; threshold may depend on M_j. No smoothness or CM/local-free assumption.',
+    exact_trace_application='CONDITIONAL: for every integer E, actual target has a finite quotient presentation from (possibly DISTINCT) exponents e>=E and residues j_e=ell ceil(p^e m/ell)-p^e m in 0..ell-1. Full tail presentation suffices, no single exponent stabilization assumed. Generation twist c0 independent m even if ell/D0 vary; all trace/test-ideal identities and quotient existence remain separate premises.',
+    relation_to_377='May choose very ample H and increase c0 so ample conditions extend through embedding dimension N, avoiding an extra dimY cohomological-vanishing argument. Already frozen377 and active269 unchanged; no hot feedback.',
+    not_proved=['Test-ideal trace identity/global test divisor/arbitrarily late tail image','Singular Jacobian subadditivity and finite-field Cartier descent','All-support envelope estimate or positivity recognition','Mixed/nonalgebraic excellent original P12.3','Any original problem closure'],
+    source_documents_and_programs_DATA=True,supplied_or_native_programs_executed_or_imported=False,primary_bodies_pixels_LOCALONLY=True,compiler='Built-in request98 preceded final amendments and remains unverified; final saved-source compile request follows this binding. No success/PDF or new editor tab claimed.',protected_editor_open_unchanged=True)
+B.write_text(json.dumps(b,ensure_ascii=False,indent=2)+'\n')
+for name in ['active-work.json','checklist-current.json']:
+    p=R/name;x=json.loads(p.read_text());assert len(x['fully_solved_original_atoms'])==16 and x['remaining_open_original_atoms']==26 and x['historical_reviewed_scoped_papers']==97
+    x['ROOT380_unreviewed_relative_regularity']=dict(paper=str(P),paper_sha256=sha(P),binding=str(B),binding_sha256=sha(B),whole_original_solved=False,new_accepted_paper=False,no_active_campaign_feedback=True);x['updated_utc']=now;p.write_text(json.dumps(x,ensure_ascii=False,indent=2)+'\n')
+print(json.dumps(dict(paper=380,paper_bytes=P.stat().st_size,paper_sha256=sha(P),binding_sha256=sha(B),no_original_closure=True,solved=16,open=26,papers=97),indent=2))

@@ -1,0 +1,62 @@
+"""Repair drafting transport escapes; run once on the authored Markdown."""
+import pathlib
+import re
+
+COMMANDS = ['sigma', 'lambda', 'Lambda', 'mu', 'operatorname', 'eta', 'alpha',
+            'gamma', 'beta', 'theta', 'chi', 'zeta', 'omega', 'delta', 'mathbb',
+            'mathcal', 'max', 'infty', 'leq', 'geq', 'sum', 'prod', 'wedge',
+            'subset', 'setminus', 'cap', 'cup', 'to', 'ldots', 'rm', 'mathrm',
+            'operatorname', 'rho']
+def restore_commands(s):
+    for name in COMMANDS:
+        s = re.sub(r'(?<![A-Za-z\\])' + name + r'(?![A-Za-z])', lambda m: '\\' + m.group(), s)
+    return s.replace("A=g,d''", r"A=g\,d''")
+
+def inline(s):
+    result = []
+    pos = 0
+    while pos < len(s):
+        if s[pos] != '(':
+            result.append(s[pos]); pos += 1; continue
+        end = pos + 1
+        stack = ['(']
+        while end < len(s) and stack:
+            c = s[end]
+            if c in '([':
+                stack.append(c)
+            elif c in ')]':
+                stack.pop()
+            end += 1
+        if stack:
+            raise ValueError('Unbalanced drafting group: ' + s[pos:])
+        body = s[pos+1:end-1]
+        if re.fullmatch(r'[0-9]+', body):
+            result.append('(' + body + ')')
+        else:
+            result.append(r'\(' + restore_commands(body) + r'\)')
+        pos = end
+    return ''.join(result)
+
+for number in range(1, 5):
+    p = pathlib.Path(f'n{number}.md')
+    s = p.read_bytes().decode('utf-8')
+    if r'\(' in s:
+        continue
+    s = s.replace('\x08eta', r'\beta').replace('\rho', r'\rho')
+    s = s.replace('\theta', r'\theta')
+    s = s.replace('\x0br', r'\vr')
+    assert not any(ord(c) < 32 and c not in '\n\t' for c in s), repr(s[:100])
+    in_display = False
+    lines = []
+    for line in s.split('\n'):
+        if line.strip() == r'\[':
+            in_display = True
+            lines.append(line)
+        elif line.strip() == r'\]':
+            in_display = False
+            lines.append(line)
+        elif in_display or line.startswith('#'):
+            lines.append(line)
+        else:
+            lines.append(inline(line))
+    p.write_text('\n'.join(lines))

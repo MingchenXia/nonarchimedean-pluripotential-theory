@@ -1,0 +1,96 @@
+"""Bounded integrity and arithmetic checks; never executes supplied programs."""
+import hashlib
+import itertools
+import json
+import pathlib
+import platform
+import shutil
+import sys
+
+BASE = pathlib.Path('/workspace/research/campaigns/round-268/P21.3-whole372-and-original-arbitrary-BT-current')
+OUT = pathlib.Path(__file__).resolve().parent
+
+def sha(data):
+    return hashlib.sha256(data).hexdigest()
+
+def write(name, data):
+    (OUT / name).write_text(json.dumps(data, indent=2, ensure_ascii=False) + '\n')
+
+def retained_path(kind, entry):
+    original = pathlib.Path(entry['path'])
+    return original if original.exists() else OUT / 'inputs-LOCALONLY' / kind / original.name
+
+def copy_if_distinct(source, target):
+    if source.resolve() != target.resolve():
+        shutil.copyfile(source, target)
+
+def main():
+    manifests = {}
+    bindings = []
+    for kind, filename in [('math', 'mathematical-packet-bindings.json'), ('primary', 'private-primary-packet-bindings.json'), ('book', 'book-context-bindings.json')]:
+        manifest_path = BASE / filename
+        if not manifest_path.exists():
+            manifest_path = OUT / filename
+        entries = json.loads(manifest_path.read_text())
+        manifests[kind] = entries
+        target = OUT / 'inputs-LOCALONLY' / kind
+        target.mkdir(parents=True, exist_ok=True)
+        for entry in entries:
+            path = retained_path(kind, entry)
+            raw = path.read_bytes()
+            checked = len(raw) == entry['bytes'] and sha(raw) == entry['sha256']
+            assert checked, str(path)
+            local = target / path.name
+            copy_if_distinct(path, local)
+            bindings.append({'kind': kind, 'path': str(path), 'local_path': str(local), 'bytes': len(raw), 'sha256': sha(raw), 'matches_binding': checked})
+        copy_if_distinct(manifest_path, OUT / filename)
+    original_task = BASE / 'original-task.json'
+    if original_task.exists():
+        copy_if_distinct(original_task, OUT / 'original-task.json')
+    primary = manifests['primary']
+    source = retained_path('primary', primary[39]).read_bytes()
+    lines = source.split(b'\n')
+    metadata = json.loads(retained_path('math', manifests['math'][73]).read_text())
+    literal_ledger = json.loads(retained_path('primary', primary[72]).read_text())
+    literal_by_id = {u['id']: u for u in literal_ledger['units']}
+    unit_records = []
+    for old in metadata['units']:
+        lo, hi = old['inclusive_LF_interval']
+        raw = b'\n'.join(lines[lo-1:hi]) + b'\n'
+        expected = old['evidence_sha256']
+        if sha(raw) != expected:
+            raw = raw[:-1]
+        assert sha(raw) == expected, old['id']
+        assert raw.decode('utf-8') == literal_by_id[old['id']]['literal_body']
+        filename = old['id'] + '.txt'
+        (OUT / 'inputs-LOCALONLY' / filename).write_bytes(raw)
+        unit_records.append({'id': old['id'], 'label': old['label'], 'inclusive_LF_interval': [lo, hi], 'bytes': len(raw), 'sha256': sha(raw), 'bound_body_and_full_source_equal': True, 'literal_body_local_path': str(OUT / 'inputs-LOCALONLY' / filename), 'fresh_bounded_display': True})
+    final372 = json.loads(retained_path('math', manifests['math'][53]).read_text())
+    expanded372 = json.loads(retained_path('math', manifests['math'][61]).read_text())
+    expanded372 = expanded372['notes'] if isinstance(expanded372, dict) else expanded372
+    final369 = json.loads(retained_path('math', manifests['math'][22]).read_text())
+    expanded369 = json.loads(retained_path('math', manifests['math'][28]).read_text())['notes']
+    comparisons = {
+        '372': [{'id': u['id'], 'text_equal': u['text'] == v['text'], 'all_fields_equal': u == v} for u, v in zip(final372['notes'], expanded372)],
+        '369': [{'id': u['id'], 'text_equal': u['text'] == v['text']} for u, v in zip(final369['notes'], expanded369)]
+    }
+    vectors = list(itertools.product((-1, 0, 1), repeat=4))
+    pairs = list(itertools.combinations(range(4), 2))
+    count = 0
+    for a in vectors:
+        for b in vectors:
+            w = [a[i]*b[j]-a[j]*b[i] for i, j in pairs]
+            assert w[0]*w[5]-w[1]*w[4]+w[2]*w[3] == 0
+            count += 1
+    v = (1, 0, 0, 0, 0, 1)
+    witness = v[0]*v[5]-v[1]*v[4]+v[2]*v[3]
+    checks = {'binding_count': len(bindings), 'bindings_match': True, 'literal_source_units': len(unit_records), 'all_literal_units_match': True, 'note_comparisons': comparisons, 'finite_diagnostic': {'domain': 'a,b in {-1,0,1}^4', 'exhaustive_pair_count': count, 'plucker_violations': 0, 'nondecomposable_witness_P': witness}, 'mathematical_verification': False, 'heavy_compute': False, 'supervised_compute_facility': 'none supplied; no resource-heavy work launched', 'supplied_programs_executed_or_imported': False}
+    write('input-bindings-verified.json', bindings)
+    write('source-unit-bindings.json', {'source_sha256': sha(source), 'pdf_sha256': primary[40]['sha256'], 'units': unit_records, 'whole_CLD_physically_read': False, 'recursive_foundations_reproved': False, 'PDF_pixels_inspected': ['printed page 80', 'printed page 162']})
+    write('checks-output.json', checks)
+    write('environment.json', {'python': sys.version, 'platform': platform.platform(), 'cwd': str(OUT), 'shell': 'bash', 'network_retrieval': 'none; retained bound primary used', 'compiler_run': False})
+    write('commands.json', ['python audit.py', 'python build_review.py'])
+    print(json.dumps(checks, indent=2))
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,68 @@
+The reconstructed partial theorem is this. Work in n1's original ambient category. Let Z⊂W be ordinary closed and locally Zariski closed in analytic domains. Suppose h∈C(W,R) is ordinary smooth with Dh=0 on W\Z. Suppose every point of Z has an ordinary neighborhood N carrying an ordinary smooth g with Dg=0 and h=g on Z∩N. Then D(hT)=0 for EVERY positive doubly closed ordinary (p,p)-current, 0≤p≤n-1. There is no dimension restriction and no assumed cutoff-mass bound. The conclusion also holds if off Z smooth harmonicity is replaced by local uniform-on-compact approximation by ordinary smooth zero-Hessian functions: n1 proves exactly the same defect-support premise. This extension retains substantial additional hypotheses and does not close original P21.3.
+
+Here is the complete cutoff construction. Localize in an affinoid neighborhood and choose a relatively compact ordinary subopen N carrying g. The locally analytic-locus description and affinoid noetherianity provide finitely many analytic f_1,…,f_m with common zero set Z∩N. Choose a real A at least two above their finite logarithmic upper bounds. Real constants require no nontrivial field scaling.
+
+Let R_m be convolution of max(s_1,…,s_m) with a product of nonnegative smooth probability kernels supported in [-1/4,1/4]. It is smooth convex, translation-equivariant in the all-ones direction, and within1/4 of the maximum. If s_i is at least1 below the largest other coordinate, it cannot attain the maximum after any kernel translation: the gap remains at least1/2. Integrating out that coordinate omits it EXACTLY. Repeated omission allows coordinates -∞. Near a zero of one f_i outside the common zero locus, that coordinate is inactive; the remaining active f_i become ACTUAL analytic units after ordinary shrinking.
+
+Off Z define t=A-R_m(log|f_1|,…,log|f_m|). CLD15.1.1–2 makes it ordinary smooth on these actual unit-moment charts. Its smooth Hessian is nonpositive because logarithmic-unit coordinates are affine and R_m has PSD Hessian. We have t≥0 and t→+∞ at Z. The exponentiated regularized maximum is continuous and vanishes exactly on the common zero locus. These are ordinary-topology assertions; no logarithmic chart crosses a zero.
+
+Choose smooth nondecreasing concave b:[0,∞)→[0,4], equal to the identity on [0,2] and constant after4. Integrate a smooth nonincreasing derivative equal to1 up to2 and0 after4. Set u_L=L b(t/L), L≥1, giving it its constant capped value on Z. For fixed L it is constant on an ordinary neighborhood of Z, hence ordinary smooth on all N, including components contained in Z. The chain rule gives
+0≤u_L≤4L, Du_L≤0, u_L=t when t≤2L.                         (10)
+
+Fix compact symmetric (r,r)-test α and K=supp α. Take finitely many ordinary unit-moment charts U_j⊂N presenting α with coordinates s_j. Refine so that symmetrized smooth ambient representatives and their derivatives are defined near the relevant compact coordinate images. This follows from the local paralin definition and compactness. Choose compact subsets with interiors covering K, and 0≤ρ_j≤1 compact smooth in U_j and equal to1 near those subsets. Every point of K thus has some ρ_j=1 on a neighborhood. No global moment or global presentation is assumed.
+
+Set λ_j=Σ_a d's_{j,a}∧d''s_{j,a} and η_j=λ_j^r, with η_j=1 for r=0. They are smooth positive doubly closed forms on U_j. Analytic pullbacks may be degenerate: domination is proved first in genuine ambient coefficient spaces. Define finite constants
+M_j=|μ(T|U_j,Dρ_j∧η_j)|(U_j), F_j=⟨T|U_j,ρ_jλ_j^q⟩,
+M=Σ_jM_j, F=Σ_jF_j.
+All measures exist by n1. Expressions carrying ρ_j extend by zero to the SAME N.
+
+Define nonnegative quantities
+K_{j,L}=⟨T,ρ_j(-Du_L)∧η_j⟩,
+E_{j,L}=⟨T,ρ_j d'u_L∧d''u_L∧η_j⟩.
+The actual smooth-factor current T|U_j∧η_j is positive doubly closed by ordinary Leibniz; no initial BT premise is required. Closed-current smooth duality and (10) give
+K_{j,L}=-⟨u_LT,Dρ_j∧η_j⟩≤4LM_j.                          (11)
+Since D(u_L²)=2u_LDu_L+2d'u_L∧d''u_L,
+2E_{j,L}=⟨u_L²T,Dρ_j∧η_j⟩-2⟨T,ρ_ju_LDu_L∧η_j⟩
+≤16L²M_j+8LK_{j,L}≤48L²M_j.                              (12)
+Thus K_L=ΣK_{j,L}≤4LM and E_L=ΣE_{j,L}≤24L²M. These estimates arise from FIXED finite signed measures, not unexplained uniform bounds for changing tests.
+
+Choose smooth nondecreasing θ, zero on (-∞,1] and one on [2,∞). Set v_L=θ(t/L), σ_L=θ(2t/L), extended as1 on Z. Constancy near Z makes them ordinary smooth. Take a compact plateau ρ_*=1 near K and χ_L=ρ_*v_L. It equals1 near Z∩K. Plateau derivatives miss K, so
+β_L=D(χ_Lα)=D(v_Lα)
+=v_LDα+d'v_L∧d''α-d''v_L∧d'α+Dv_L∧α.                     (13)
+β_L is compact in K and zero where t≤L. Derivatives of v_L occur only on L≤t≤2L, where u_L=t, and
+Dv_L=L^-1 θ'(t/L)Dt+L^-2 θ''(t/L)d't∧d''t.
+
+The required domination uses MIDDLE forms. On each U_j all coefficients of α,Dα,d'α,d''α in the chosen ambient representative are bounded on the compact image of supp ρ_j. Matrix order units give both-sign bounds by Cλ_j^r for α and Cλ_j^q for Dα. A degree exceeding the actual coordinate dimension has zero exterior coefficient space. No moment-coordinate dimension is inferred from n.
+
+For the symmetric first-derivative cross term append a FORMAL independent covector dy to the old coefficient space, solely for linear algebra. Its q-th exterior space splits into old q-vectors and dy wedged with old r-vectors. The cross terms are off-diagonal blocks between these summands. For a bounded block A_j,
+2|⟨A_jv,w⟩|≤C(|v|²+|w|²).
+Rescaling the new component by L^-1 bounds both signs by
+C(λ_j^q+L^-2 d't∧d''t∧λ_j^r).
+Fixed positive factorial constants are absorbed in C.
+
+Formal y is NOT asserted to be an analytic unit or moment coordinate. At each actual transition-region point, inactive-variable omission supplies actual active units f_i. Append those units to the old moment, obtaining a genuine refined chart in which t=τ(z). On each cell the FIRST-JET linear map sends old covectors to their old-coordinate projections and dy to dτ(z), identically on primed and double-primed copies. PSD pullback preserves the block inequality; the chain rule identifies the actual first-derivative terms. Treat the Hessian separately: -Dt≥0 in this genuine chart, so wedge preservation of middle positivity and the both-sign bounds for α yield
+±(Dv_L∧α)≤C(L^-1(-Du_L)∧η_j+L^-2d'u_L∧d''u_L∧η_j)
+on the transition region. Outside it these derivative terms vanish. At Z the cap and cutoffs are locally constant, leaving only bounded Dα. This establishes positivity in ACTUAL ordinary charts, without pulling back a nonsmooth current or inventing a chart for y.
+
+Take one C valid for the finite old coefficient bounds and fixed θ derivatives, independent of L. The compact smooth positive form
+B_L=CΣ_jρ_jσ_L[λ_j^q+L^-2d'u_L∧d''u_L∧η_j+L^-1(-Du_L)∧η_j]  (14)
+dominates both signs of β_L. Wherever β_L can be nonzero, some ρ_j=1 and σ_L=1; that summand dominates, and the others are positive. Elsewhere β_L=0. Thus η_{L,±}=(B_L±β_L)/2 are positive and their difference is β_L.
+
+All their supports lie in fixed compact H=∪supp ρ_j and t≥L/2, with t=∞ on Z. They are compact inside the SAME ordinary open O_L={t>L/3}∪Z⊂N, with a strict margin. Positivity and (11)–(12) give
+⟨T,η_{L,+}+η_{L,-}⟩≤C(F+L^-2E_L+L^-1K_L)≤C(F+28M).      (15)
+
+Continuity and h=g on the ORDINARY analytic trace Z∩H imply sup_{supp B_L}|h-g|→0. For any small-error neighborhood of that compact trace set, its complement in H is compact and misses Z; there max_i|f_i| has a positive minimum, so t is bounded above. For large L the moving supports miss that complement. If the trace set is empty they eventually are empty. Apply n2's exact weighted estimate to (χ_L,η_{L,±},g). Bound (15) forces every detector pairing to vanish. Finite ordinary localization proves the theorem on W. When r=0, η_j=1 and BOTH energy estimates and the block argument still apply. This conclusion does not come from the empty top-degree dimension-removal range.
+
+For locally zero-dimensional analytic loci, points can be isolated and constant traces suffice. The dimension is ANALYTIC dimension: CLD11.2.3 defines it by strictification and Krull dimension after a suitable complete extension. Krull dimension of a possibly nonstrict affinoid ring alone is insufficient. An additional freshly read primary unit, CLD13.3.1–3, states that a zero-dimensional fiber point is isolated with finite-dimensional local algebra over the completed base residue field, and a compact zero-dimensional fiber is finite analytic over that field. Apply this to a compact piece of the locus mapping to M(K). Its algebra is finite-dimensional over K and Artinian, with finitely many local factors; seminorms kill nilpotents and select a factor, and completeness gives a unique extended norm on each finite residue field. Isolate z and take g=h(z). Therefore isolated analytic points are removable in every allowed degree, including p=n-1, under the stated off-locus assumptions. No general finite-residue-field Nullstellensatz for arbitrary NONSTRICT affinoid rings is imported. Standard affinoid noetherianity/coherent ideal foundations are disclosed from Berkovich, Spectral theory and analytic geometry over non-Archimedean fields, Mathematical Surveys and Monographs33 (1990), Chapter2, §§2.1–2.2. A tropical trace or skeleton is not a substitute for the ordinary analytic locus.
+
+The saturated-torus approximation sector is also constructed. On X=(G_m,K^n)^an, fix I⊂{1,…,n}, |I|=p≤n-1, s_j=-log|T_j|, and
+S_I=(∧_{j∈I}d's_j∧d''s_j)∧δ_X.
+Its smooth factor is positive doubly closed, so n3 transfers tautological BT from δ_X. For continuous A≥0 on R^I, compact nonnegative kernel convolution produces smooth A_i≥0 converging uniformly on compact sets. Put a_i=A_i(s_I). Every differentiated coordinate already appears in S_I, hence d'a_i∧S_I=d''a_i∧S_I=0. Each a_iS_I is positive doubly closed BT. The FIXED-current scalar-net theorem gives the same for the actual ordinary product A(s_I)S_I. Compact-kernel convolution needs no growth bound at infinity. This includes A(s_1)=|s_1| and supplies no density among arbitrary currents. For empty I only constants arise.
+
+Independent whole372 verdict: its CONDITIONAL mathematical chain is reconstructed with the explicit middle-cone, sign, degree, and genuine ordinary-chart qualifications above. This includes all ten369 items, complete scalar367/relative368 transfers, common-chart smooth-form nets, logarithmic trace removability, isolated points, and the torus sector. The original367/368 strong-cone arguments require correction. Four actual372 FINAL notes equal their four expanded notes field by field; all three actual369 text fields differ from their expanded counterparts. These are integrity observations. Whole372's72653-byte TeX,71103-byte proof, source metadata, scope and ROOT binding were examined. Recursive published analytic foundations are imported honestly, not entirely rederived. This verdict is an independent draft, not formal verification or catalogue acceptance.
+
+ORIGINAL decision: candidate=false. No result here establishes the off-locus ordinary smooth harmonicity or approximability, an appropriate locally analytic exceptional locus, and an ordinary smooth harmonic trace for EVERY original h=U-V with D[U]=D[V]. No general positive doubly closed BT-current exhaustion or ordinary-product-compatible harmonic lifting has been constructed. No admissible analytic counterexample supplies separately finite continuous individually psh U,V, a positive doubly closed T, exact upstairs curvature equality, and a nonzero compact smooth detector.
+
+Remaining quantifiers: all complete fields including trivial valuation; arbitrary good separated STRICT boundaryless pure n≥2 spaces including singular, reducible and nonreduced spaces; every ordinary open; every p=0,…,n-1; arbitrary positive doubly closed ordinary CLD currents; separately admissible finite continuous individually psh pairs with exact upstairs curvature equality; and original generic Artinian weights. The dossier's already settled curve, polycylinder, invariant-toric, and specified weak-closure cases are not counted as original closure. Covers and every-open bases remain different. No generated-class tautology, two-nonsmooth-factor symmetry, scalar ascent of arbitrary currents, or unsupported strong-to-ordinary identification is used.
+
+Deliverables in the workspace: P21.3-review-paper.tex (62483 bytes), P21.3-proof-companion.md (65250 bytes), actual-mathematical-notes.json, source-ledger-independent.json, full-literal-source-ledger-LOCALONLY.json, whole-proof-coverage.json, independent-whole372-verdict.json, original-decision.json, and deliverable-bindings.json. The ledger retains all31 mandatory literal source bodies, LF intervals, hashes and application qualifications, plus additional foundation F01. Rerun python audit.py and python build_review.py. Checks verified all157 input bindings and31 mandatory literal units; the finite Plucker diagnostic exhausted6561 pairs. Structural checks verified balanced mathematical delimiters/braces and earlier-own-note supports. The TeX remains uncompiled. No supplied program was executed/imported, no subagent or additional model was used, and no external messages, editor actions, publication or catalogue writes occurred. No supervised heavy-compute facility was supplied and no resource-heavy computation was launched. Execution success does not establish mathematical correctness.

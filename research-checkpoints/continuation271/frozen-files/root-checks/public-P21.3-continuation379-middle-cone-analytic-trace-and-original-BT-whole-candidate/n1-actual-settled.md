@@ -1,0 +1,48 @@
+Fix a complete non-Archimedean field K, including trivial valuation, a good separated strict boundaryless pure n-dimensional analytic space X, n≥2, and an ordinary open N. Write D=d'd''. A positive current means a symmetric current nonnegative on middle-positive complementary tests, as in CLD 7.2.1. For T of bidegree (p,p), set q=n-p and r=q-1. Tests for T have type (q,q); tests for D(hT) have type (r,r). All products below are ordinary CLD products.
+
+The primary reference is Chambert-Loir–Ducros, Formes différentielles réelles et courants sur les espaces de Berkovich, arXiv:1204.6277v2. The retained cover says 25 July 2025; the internal title says 29 July 2025, 0h06. The 31 applied primary units were freshly displayed with their complete immediate statements, proofs, and surrounding hypotheses. The entire book was retained, not read page by page. Earlier reports, PASS labels, and ROOT decisions are data, not premises.
+
+CLD 11.1.7 supplies compact neighborhood bases, affinoid neighborhood bases on good spaces, and analytic-domain structures on ordinary opens. CLD 15.7.1–2 supplies canonical calibrated level-n calculus and analytic-domain restriction. CLD 15.2.2–4 proves local differential separation on good separated spaces: separate seminorms by an analytic function, compose its logarithmic norm with a smooth real separator, and extend by zero near its zeros. CLD 6.2.4–8 and 15.2.5–9 supplies compact smooth plateaus and compact scalar density. These inputs require neither reducedness nor nontrivial valuation. No global paracompactness of an arbitrary N is assumed.
+
+Finite nonnegative localization follows directly. Cover a compact set by finitely many relatively compact smaller neighborhoods inside the desired charts; choose nonnegative plateaus; divide each plateau by their sum where that sum is positive; multiply by another plateau supported there and equal to one near the compact set. The resulting functions have compact supports in the specified charts and sum to one near the set. Uniform approximation of continuous compact scalars follows from Stone–Weierstrass on the one-point compactification followed by a prescribed-open plateau. This is scalar density, not harmonic regularization.
+
+The essential cone correction is elementary. Put σ_a=(-1)^{a(a-1)/2}. CLD 1.2.6 identifies a symmetric (a,a)-form, written in the convention σ_a ξ_I∧Jξ_J, with a symmetric coefficient matrix on the a-th exterior coefficient space; middle positivity is precisely positive semidefiniteness. For λ=Σ_i d's_i∧d''s_i,
+λ^a=a!σ_a Σ_{|I|=a} d's_I∧J(d's_I).
+Thus its matrix is a positive scalar multiple of the identity and dominates both signs of every bounded symmetric coefficient matrix. CLD 1.2.11–12 proves preservation of middle positivity under linear pullback and wedge. The coefficient-space dimension is the actual moment-coordinate dimension, not necessarily analytic dimension.
+
+Strong-positive domination is false. On Λ²R⁴ use coordinates 12,13,14,23,24,34. For a decomposable w=a∧b, w∧w=0 gives
+P(w)=w12 w34-w13 w24+w14 w23=0.
+Consequently L(B)=B12,34-B13,24+B14,23 vanishes on the span of decomposable-square generators of the strong-positive cone. It vanishes on the diagonal matrix representing λ². But for v=e12+e34, L(vvᵗ)=1. Neither cλ²+vvᵗ nor cλ²-vvᵗ can therefore be strongly positive for any c. Middle PSD domination remains valid. This supplies the needed correction to the earlier 367/368 arguments and the printed strong-domination step in CLD 7.2.9. The retained page 162 pixels confirm that wording; CLD 1.2.13 itself asserts only relative interior for the strong cone. No general recognition theorem for arbitrary weakly positive functionals is imported.
+
+The four foundational 369 conclusions follow as follows.
+
+1. SAME-open decomposition. If a compact symmetric (q,q)-form β on N has support inside an ordinary O⊂N, apply CLD 6.5.2 on O itself. Its compact analytic support condition holds because good ordinary domains are almost good. Equivalently, use finite localization and the preceding compact middle-matrix bounds. This gives β=η₊-η₋ with η₊,η₋ middle-positive, compactly supported in O. They extend smoothly by zero to Hausdorff N. Their supports may exceed supp β, but remain inside O. Only the compact constant-majorant argument of CLD 1.10.2 is used; its problematic noncompact majorant wording is unnecessary.
+
+2. Signed scalar measures and multiplication. For every compact diagonal complementary test θ, there is a unique finite signed Radon measure μ(T,θ), supported in supp θ, satisfying ∫f dμ(T,θ)=⟨T,fθ⟩ for compact smooth scalars f. For positive θ this is CLD 7.2.8/11: bound f by its supremum times a plateau, then extend by scalar density and Radon representation. For general θ discard its antisymmetric part and subtract the measures of a middle-positive decomposition. Scalar density proves uniqueness and decomposition independence. Outside supp θ the scalar functional vanishes; density there proves the asserted support even when the decomposition enlarged supports.
+
+Hence ordinary continuous multiplication is uniquely determined by
+⟨bT,θ⟩=∫b dμ(T,θ),
+with absolute value at most sup_{supp θ}|b| times the total variation of this finite measure. The order-zero current justification uses middle positivity throughout: on each compact chart image, a standard metric power dominates both signs of a bounded coefficient matrix; finite localization bounds the functional in the chart C⁰ test topology. This repairs the printed strong-cone step for the middle-positive T under consideration.
+
+For β=η₊-η₋, η=η₊+η₋, measure uniqueness and positivity give the sharper estimate
+|⟨bT,β⟩|≤∫|b| dμ(T,η)≤sup_{supp η}|b|⟨T,η⟩.                 (1)
+A plateau equal to one on the compact supports identifies the measure mass with ⟨T,η⟩. For FIXED T, locally uniform b_i→b therefore implies b_iT→bT on every compact test. No changing-current conclusion is inferred.
+
+3. Smooth multiplier. For ordinary smooth g and positive doubly closed T,
+D(gT)=Dg∧T.                                                   (2)
+For a symmetric compact (r,r)-test α put A=g d''α-d''g∧α, of type (q-1,q). Total-degree Leibniz gives
+Dg∧α-gDα=-d'A+C,
+C=d'g∧d''α+d''g∧d'α.
+The exact identities Jd'=d''J and Jd''=-d'J give JC=-C. Symmetry of T kills C; d'T=0 kills d'A. Signed transposition gives ⟨DS,α⟩=⟨S,Dα⟩, proving (2). Both currents are symmetric, so symmetric tests suffice. Both closedness equations are retained. This directly repairs the complementary indices in printed CLD 8.5.3 and 7.7.5.
+
+4. Defect support. If Z⊂N is ordinary closed and h is continuous, ordinary smooth with Dh=0 off Z, then R=D(hT) is symmetric and supported in Z, by (2), restriction, and CLD 7.1.9. If χ=1 near Z∩supp α, then
+⟨R,α⟩=⟨R,χα⟩,                                               (3)
+because supp((1-χ)α) misses Z. No positivity or order-zero claim is made for R. The same support conclusion holds if off Z, h is locally a uniform-on-compact limit of ordinary smooth zero-Hessian functions: apply (2), fixed-T multiplication continuity, and transposition locally.
+
+All commutations use TOTAL degrees: moving type (a,b) past type (c,d) gives (-1)^{(a+b)(c+d)}. This follows by permuting exterior generators, consistently with CLD 1.3.3. The different printed exponent in 3.3.10 was checked against page 80 pixels. The d_K appearing in the proof of 3.3.6 must be d_trop, as its statement and argument show. These are explicit algebraic corrections.
+
+The exact analytic support theorem used later is CLD 15.2.1: a type (a,b) G-form on a topologically separated analytic space has support in d_K(x)≥max(a,b), and its support misses a locally Zariski-closed analytic locus of dimension below max(a,b). Ordinary forms are G-forms. Its immediate proof combines d_trop≤d_K from 12.4.2, tropical form vanishing in insufficient dimension from 3.3.6, and analytic dimension theory. Here d_K is graded residual transcendence degree, equal to residual transcendence degree plus rational value-group rank. A projected skeleton dimension is insufficient.
+
+Original integration weights survive. For an Artinian local A, CLD 13.3.4 uses δ_A(B)=length_A(B)/length_A(A). Composition series prove multiplicativity through finite local algebras. CLD 13.3.7 sums local fiber modules and gives calibrated degree λ/μ for generic module length λ and base generic Artinian length μ. Nilreduction has degree 1/μ. CLD 14.4.2 transports calibration with that degree; 15.4.2–3 transports top-form integration. Top-form supports avoid lower-dimensional component intersections, so 16.6.3 yields δ_X=Σ_i m_i δ_{X_i,red}, with the ACTUAL generic lengths m_i. Calibration is independent under appending analytic units by the common-moment construction of 14.3.1–5. No normalization or base extension of arbitrary T is performed. Boundaryless Stokes makes δ_X doubly closed, and it is tautologically BT because hδ_X=[h]. This does not classify arbitrary currents.
+
+Artifacts: P21.3-review-paper.tex, P21.3-proof-companion.md, source-ledger-independent.json, full-literal-source-ledger-LOCALONLY.json, and inputs-LOCALONLY. Rerun python audit.py and python build_review.py in the workspace. The arithmetic diagnostic exhaustively checked 6561 pairs a,b∈{-1,0,1}⁴, found no Plucker violations, and recorded P(e12+e34)=1. That is finite evidence; the universal identity was proved above. The TeX is uncompiled. Source integrity and successful execution do not establish mathematical correctness.
