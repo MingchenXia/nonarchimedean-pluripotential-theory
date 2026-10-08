@@ -3,7 +3,46 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
-## Latest integration checkpoint, 7 October 2026
+## Latest integration checkpoint, 8 October 2026
+
+The [tropical multidegree integration audit](Tropical_multidegrees_integration_audit_20261007.md)
+records G.9.11--G.9.12 and L.81 in the 4,552-page book. Positive support
+requires one common facet; the global polymatroid criterion retains both
+projection-purity and facet selection. Two weight-sensitive counterexamples
+separate those support conditions from Lorentzian coefficients. Unit-weight
+augmented polymatroid fans supply a Hodge certificate without a general
+irreducible algebraic-realization assertion. Strict cone compatibility,
+all-star hypotheses, factorial normalization, low degrees and represented
+wonderful compactifications have their own explicit boundaries.
+
+The [source review](Tropical_multidegrees_source_review_20261007.md) and
+[sequential source notes](Tropical_multidegrees_source_reading_notes_20261007.md)
+cover seven exact editions, 93 actual source pages and 48 individually
+displayed matching images; two whole papers and five partial readings.
+The primary Cid-Ruiz v2 and He v2 are completely read. Six bounded exact
+diagnostic groups and two supplementary ADH prefactor cases are checked.
+Classical toric, building-set, factorization and matroid-Hodge foundations
+remain explicit imports. The source-era questions are not certified as
+currently open.
+
+Required validation and the final scoped rendered reading pass. Of the
+39 selected book pages, two revised pages were freshly read after repairing
+G.41; 37 reuse prior actual reading only after exact complete-text and
+image identity. The complete index and all seven new bibliography entries
+are covered. This is not another whole-book reread. All 33 prior formal
+blocks, five proof blocks, 38 historical manual tags, 423 other active
+inputs, 108 protected inputs, 124 prior frozen records, 207 prior exports
+and the native catalogue/editor are preserved. No original result or
+independent-model receipt is claimed. Canonical statuses remain unchanged:
+42 atoms in 12 problem environments, the general BJ22 critical division
+input open and the LPWZ elliptic-density candidate unverified.
+
+Continue cloud-only: check incoming author commits before normal
+work-branch publication and review further related primary papers before
+importing their claims. The earlier checkpoints below retain their dated
+acquisition and reading statuses.
+
+## Earlier volume and Richardson integration checkpoint, 7 October 2026
 
 The [volume and Richardson integration audit](Volume_Covolume_Richardson_integration_publication_audit_v2_20261007.md)
 records D.8.1--D.8.2, F.9.2--F.9.3, G.9.8 and L.79 in the

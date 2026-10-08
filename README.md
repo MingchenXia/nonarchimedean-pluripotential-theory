@@ -4,12 +4,26 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
-**Active continuation, 7 October 2026:** the ordered second reading of all
+**Active continuation, 8 October 2026:** the ordered second reading of all
 72 chapters, Appendices A--N and nine front-matter files is complete.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,543 pages**.
+The current research-integration build has **4,552 pages**.
+The [tropical multidegree integration](manuscript/editorial/Tropical_multidegrees_integration_audit_20261007.md)
+adds G.9.11--G.9.12 and L.81. It separates common-facet positivity and
+polymatroid support from weight-dependent Lorentzian inequalities, with
+two counterexamples and an augmented-polymatroid Hodge certificate.
+Unit weights, strict cone compatibility, factorial normalization, all-star
+conditions and representability boundaries remain explicit. Seven exact
+source editions have 93 actual reading pages and 48 individually displayed
+matching images. Required validation passes, with zero overfull boxes or
+unresolved references and no invalid internal links. The final scoped book
+review covers 39 pages: two repaired pages freshly read, and 37 reused only
+after exact complete-text and image identity. The complete index and all
+seven new bibliography entries are included. All identified repairs are
+resolved; no original result or canonical status promotion is claimed.
+The preceding Chern-flow build has 4,543 pages.
 The [Chern-flow integration](manuscript/editorial/Chern_flow_integration_publication_audit_v3_20261007.md)
 adds D.8.3--D.8.4, F.9.4--F.9.5, G.9.9--G.9.10 and L.80. It connects
 normalized packets, generated quotient flags, creation-state balance,
