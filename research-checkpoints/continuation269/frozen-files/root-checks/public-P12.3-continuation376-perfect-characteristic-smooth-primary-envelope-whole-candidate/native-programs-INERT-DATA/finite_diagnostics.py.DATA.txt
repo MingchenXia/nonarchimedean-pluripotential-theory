@@ -1,0 +1,69 @@
+"""Own bounded standard-library arithmetic diagnostics; not universal proofs."""
+from fractions import Fraction as Q
+from itertools import product, combinations
+from pathlib import Path
+import json
+
+smooth=[]
+for j,r,s in product(range(1,9),range(0,7),range(0,7)):
+    generators=[(i+t,r-i+j*(s-t)) for i in range(r+1) for t in range(s+1)]
+    length=sum(min(y for x,y in generators if x<=a) for a in range(r+s))
+    expected=r*(r+1)//2+r*s+j*s*(s+1)//2
+    assert length==expected,(j,r,s,length,expected)
+    smooth.append([j,r,s,length])
+
+parity=[]
+for n,k in product(range(1,9),range(1,9)):
+    generators=[(2*n*i+2*j,(2*n-2)*j+4*n*(k-i-j)) for i in range(k+1) for j in range(k-i+1)]
+    length=0
+    for a in range(2*n*k):
+        boundary=min(y for x,y in generators if x<=a)
+        # All generator totals are even; membership includes every semigroup shift.
+        length+=sum(1 for b in range(boundary) if (a+b)%2==0)
+    expected=(n*n+n)*k*k+(n*n-n+2)*k
+    assert length==expected,(n,k,length,expected)
+    parity.append([n,k,length])
+
+def inverse(A):
+    n=len(A);B=[[Q(x) for x in row]+[Q(i==j) for j in range(n)] for i,row in enumerate(A)]
+    for i in range(n):
+        pivot=next(j for j in range(i,n) if B[j][i]);B[i],B[pivot]=B[pivot],B[i]
+        q=B[i][i];B[i]=[x/q for x in B[i]]
+        for j in range(n):
+            if j!=i:
+                q=B[j][i];B[j]=[x-q*y for x,y in zip(B[j],B[i])]
+    return [r[n:] for r in B]
+
+matrices=0;principal=0;quadratic=0;maxchecks=0
+for size in range(1,5):
+    for edges in product(range(1,4),repeat=size-1):
+        for strict in range(size):
+            A=[[0]*size for _ in range(size)]
+            for i,c in enumerate(edges):
+                A[i][i]+=c;A[i+1][i+1]+=c;A[i][i+1]=-c;A[i+1][i]=-c
+            A[strict][strict]+=1
+            matrices+=1
+            for mask in range(1,1<<size):
+                inds=[i for i in range(size) if mask>>i&1]
+                inv=inverse([[A[i][j] for j in inds] for i in inds])
+                assert all(x>=0 for row in inv for x in row)
+                principal+=1
+            for t in product(range(-2,3),repeat=size):
+                value=sum(t[i]*A[i][j]*t[j] for i in range(size) for j in range(size))
+                expected=t[strict]**2+sum(c*(t[i]-t[i+1])**2 for i,c in enumerate(edges))
+                assert value==expected and (value>0 or all(x==0 for x in t))
+                quadratic+=1
+            if size<=2:
+                feasible=[c for c in product(range(-4,1),repeat=size) if all(sum(A[i][j]*c[j] for j in range(size))<=0 for i in range(size))]
+                for x,y in product(feasible,repeat=2):
+                    z=tuple(max(a,b) for a,b in zip(x,y))
+                    assert z in feasible
+                    maxchecks+=1
+
+result={'status':'PASS','scope':'Exhaustive only on the displayed finite input boxes; no resolution/envelope/test-ideal certification',
+        'smooth':{'j':[1,8],'r':[0,6],'s':[0,6],'cases':len(smooth),'outputs':smooth},
+        'parity':{'n':[1,8],'k':[1,8],'cases':len(parity),'outputs':parity},
+        'matrices':{'sizes':[1,4],'chain_edges':[1,3],'strict_vertex_weight':1,'matrices':matrices,'principal_inverses':principal,'quadratic_vectors':quadratic,'max_pairs_sizes_le_2':maxchecks}}
+Path('evidence/finite-diagnostics.json').write_text(json.dumps(result,indent=2))
+print(json.dumps({k:v for k,v in result.items() if k not in ['smooth','parity']}))
+print('smooth cases',len(smooth),'parity cases',len(parity))

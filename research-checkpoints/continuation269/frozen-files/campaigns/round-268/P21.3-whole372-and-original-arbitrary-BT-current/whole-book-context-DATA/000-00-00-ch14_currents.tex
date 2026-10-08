@@ -1,0 +1,4073 @@
+\chapter{Currents, positivity, and analytic cycles}
+\index{current!CLD}\index{positivity!current}\index{analytic cycle}
+\label{chap:cld-currents}
+
+Currents are continuous linear functionals on compactly supported smooth
+forms.  This apparently formal definition has three geometric consequences:
+singular curvature becomes meaningful, analytic cycles acquire intrinsic
+integration currents, and weak convergence becomes available.  The price is
+that products of arbitrary currents do not exist.  We shall keep every
+defined product visible in the notation.
+
+Let $X$ be a topologically separated, pure $n$-dimensional analytic space.
+Unless a boundary term is explicitly retained, $X$ is assumed boundaryless.
+
+\section{Orientation: what a current is for}
+\label{sec:ch14-orientation}
+
+The three preceding chapters built a sheaf of smooth forms
+$A_X^{p,q}$ on a Berkovich space, an integral
+$\int_X:A_{X,c}^{n,n}\to\mathbf R$ normalized by lattice measures and
+analytic multiplicities, and a Stokes formula
+(\Cref{cor:analytic-stokes-green}).  The core sheaf and differential
+calculus developed there are \emph{smooth}: locally, a form is the pullback
+of a superform with $C^\infty$ coefficients along a tropical chart.  The
+integration theory also admits the coefficient extensions recorded in
+\Cref{chap:cld-forms}, but smooth forms remain the test objects.  This is
+enough to formulate curvature for a smooth metric, but it is not enough for
+anything singular.  Three demands force the enlargement.
+
+\begin{enumerate}
+\item \emph{Singular curvature.}  The function $u=\max\{0,t\}$ on the
+  tropical line is not smooth, yet it is the local model for the potential
+  of a model metric on a curve.  Its second derivative exists only as a
+  measure, and one wants to write $\dprimeddprime u=\delta_0$.
+\item \emph{Cycles.}  A closed analytic subspace $Y\subset X$ of dimension
+  $r<n$ carries no smooth $(n-r,n-r)$-form on $X$ representing it, but
+  it does define a linear functional
+  $\alpha\mapsto\int_Yi^*\alpha$ on $A_{X,c}^{r,r}$.  Poincar\'e--Lelong
+  (\Cref{chap:cld-poincare-lelong}) is an identity between such
+  functionals.
+\item \emph{Limits.}  Envelopes, monotone limits of psh functions, and
+  Bedford--Taylor products are all constructed by passing to a limit which is
+  not uniform in any fixed $C^k$ norm.  The natural topology retained by the
+  current formalism is the weak one.
+\end{enumerate}
+
+Each demand is met by the same device: replace the object by the functional
+it induces on test forms.  The cost is that a functional cannot in general be
+multiplied by another functional, and this chapter is written so that every
+product it does define is visible in the notation.  Where a product is only
+defined under hypotheses, those hypotheses are displayed in the statement
+rather than deferred to a remark.
+
+\subsection{What is proved here, and what is imported}
+\label{sec:ch14-prerequisites}
+
+The reader needs the superform algebra of \Cref{chap:superforms}---in
+particular the three positivity cones of \Cref{def:ch09-cones}, their matrix
+description \Cref{prop:ch09-positivity-dictionary}, the duality theorem
+\Cref{thm:ch09-positivity-duality}, and the product rules
+\Cref{prop:ch09-positivity-products}---together with the calibrated
+integration theory of \Cref{chap:tropical-integration} and the analytic
+sheaves of \Cref{chap:cld-forms}.  From \Cref{chap:cld-forms} we use above
+all the description of the test-form topology,
+\Cref{prop:test-form-continuity-criterion}, and the existence of smooth
+partitions of unity, \Cref{thm:cld-smooth-partition}.  From general topology
+we use Tychonoff's theorem and the Riesz representation theorem; the latter
+is recalled in \Cref{chap:topological-tools}.
+
+Everything in
+\Crefrange{sec:ch14-definition}{sec:ch14-dictionary} is proved except for the
+following imported inputs, each of which is used with an exact citation at the
+point of use:
+\begin{enumerate}
+\item the piecewise smoothness of fibre integrals on the controlling skeleton
+  in the general, non-skeletal case, \cite[Theorem~16.3.3]{CLD25}, which is
+  the regularity used in the limiting-measure argument of
+  \Cref{thm:cld-fibre-projection};
+\item Lagerberg's Euclidean vanishing theorem for positive closed
+  supercurrents, \cite[Corollary~4.1]{Lag12Super}, used through
+  \cite[Theorem~16.8.5]{CLD25};
+\item Berndtsson's construction of convex Bedford--Taylor products,
+  \cite[Theorem~4.2]{Ber26Convex}, and his minimality criterion,
+  \cite[Corollary~5.2]{Ber19Super}, both quoted verbatim in
+  \Cref{sec:ch14-berndtsson,sec:ch14-convex-bt}.
+\item the analytic-nullity theorem for locally approachable continuous
+  potentials, \cite[Corollary~16.9.4]{CLD25}, together with its
+  positive-curvature input \cite[Lemma~8.5.5]{CLD25} and the analytic
+  component geometry of \cite[Theorem~4.20]{Ducros09Excellence}, used in
+  the source-dependent deduction
+  \Cref{prop:ch14-component-curvature}.
+
+\end{enumerate}
+Apart from these, the chapter quotes without proof only the auxiliary
+results of \cite{CLD25} cited at their point of use.
+
+\subsection{The plan of the chapter}
+\label{sec:ch14-plan}
+
+By the end of the chapter the reader should be able to
+\begin{enumerate}
+\item write down the continuity condition defining a current, and produce a
+  current whose order is not bounded over the test-form stages;
+\item pass between the three positivity cones for forms and the three
+  positivity cones for currents, and know which of the two orderings is
+  reversed;
+\item compute $\dprime T$, $\ddprime T$, and $\dprimeddprime T$ with the
+  correct signs, including the boundary term;
+\item push a current forward along a proper morphism, and say precisely why
+  pullback is unavailable;
+\item recognize the integration current of an analytic cycle and of a
+  skeleton, and compute both on the Berkovich line;
+\item carry out a fibre integration to a number, including the case where a
+  degree appears;
+\item state exactly what fails, in the non-Archimedean setting, of the
+  complex compactness and regularization package, and exhibit the example
+  that fails;
+\item distinguish Berndtsson's metric supercurrent of a real submanifold from
+  the calibrated tropical current of the same support, and compute the
+  discrepancy.
+\end{enumerate}
+The final section collects a dictionary, a table of competing
+normalizations, and the unit tests.
+
+\section{Definition, bidegree, and weak topology}
+\label{sec:ch14-definition}
+
+\subsection{The topology on test forms, restated}
+\label{sec:ch14-test-topology}
+
+Because every later statement about weak convergence refers to it, we restate
+the topology of \Cref{chap:cld-forms} in the exact form in which it will be
+used.  Fix $p,q\ge0$.
+
+\begin{definition}[Test-form stage]
+\label{def:ch14-test-form-stage}
+\index{test-form stage}\index{covering system of tropical charts}
+Retain the notation of \Cref{sec:ch13-topology}.  A \emph{test-form stage}
+on $X$ is a pair $(\mathscr D,F)$ with $\mathscr D\in\Gamma_X$ a covering
+system of tropical charts and $F\in\Phi_c$ a compact support.  The space
+$A_{\mathscr D,F}^{p,q}(X)$ consists of the smooth $(p,q)$-forms supported in
+$F$ and tropicalized by $\mathscr D$.
+\end{definition}
+
+For a compact cell set $C$ in a chart of $\mathscr D$ and an integer
+$r\ge0$, the coefficient seminorm $\|\cdot\|_{C,r}$ is the one defined in
+\Cref{sec:ch13-topology}: it is the maximum of the absolute values of all
+partial derivatives of order at most $r$ of all coefficients on $C$.
+Compatible refinements give equivalent families of seminorms.  The space
+$A_{\mathscr D,F}^{p,q}(X)$ carries their locally convex topology, and
+\[
+ A_{X,c}^{p,q}=\varinjlim_{(\mathscr D,F)}A_{\mathscr D,F}^{p,q}(X)
+\]
+carries the final locally convex topology.  The covering system
+$\mathscr D$ need not be finite.  Finiteness enters only after the support is
+fixed: compactness of $F$ permits a finite chart subcover, and continuity of
+a linear functional on the stage is controlled by finitely many coefficient
+seminorms.  This is precisely the distinction encoded in
+\Cref{prop:test-form-continuity-criterion}.
+
+\begin{definition}
+\label{def:ch14-current}
+A \emph{current of bidimension $(r,s)$} is a continuous linear functional
+\[
+                     T:A_{X,c}^{r,s}\longrightarrow\mathbf R.
+\]
+The space of such currents is denoted $D_{r,s}(X)$.  We put
+\[
+                    D^{p,q}(X)=D_{n-p,n-q}(X)
+\]
+and call its elements currents of bidegree $(p,q)$.  The \emph{weak
+topology} is pointwise convergence on test forms:
+\[
+ T_i\longrightarrow T
+ \quad\Longleftrightarrow\quad
+ \langle T_i,\alpha\rangle\longrightarrow\langle T,\alpha\rangle
+ \quad\text{for every }\alpha\in A_{X,c}^{n-p,n-q}.
+\]
+\end{definition}
+
+Continuity refers exactly to the final $C^\infty$ topology constructed in
+\Cref{chap:cld-forms}.  A current has order at most $r$ on a fixed test-form
+stage if it satisfies the corresponding $C^r$ estimate.  There need not be a
+single order valid for every stage.
+
+\begin{definition}[Relative order]
+\label{def:ch14-relative-order}
+\index{current!order of}
+Let $T\in D_{r,s}(X)$ and let $(\mathscr D,F)$ be a test-form stage.  The
+\emph{order of $T$ relative to $(\mathscr D,F)$} is the least integer
+$m\ge0$, if one exists, for which there are a constant $C>0$ and finitely many
+compact cell sets $C_1,\ldots,C_k$ with
+\begin{equation}
+\label{eq:ch14-order-bound}
+ |\langle T,\omega\rangle|\le C\max_j\|\omega\|_{C_j,m}
+ \qquad\text{for all }\omega\in A_{\mathscr D,F}^{r,s}(X).
+\end{equation}
+We say that $T$ has \emph{global order $\le m$} if the same $m$ works for
+every stage, while the constant and the finitely many controlling seminorms
+may depend on $(\mathscr D,F)$; equivalently, if $T$ is continuous for the
+locally convex colimit of the stagewise $C^m$ topologies on
+$A_{X,c}^{r,s}$.
+\end{definition}
+
+By \Cref{prop:test-form-continuity-criterion} a linear functional is a current
+if and only if it has a finite relative order for each test-form stage.  The
+distinction between relative and global order is not pedantry: it is the
+hinge on which \Cref{sec:ch14-compactness} turns.
+
+\begin{example}[Forms with locally integrable coefficients]
+\label{ex:ch14-l1-current}
+Let $\omega$ be a $G$-form of bidegree $(p,q)$ on $X$ whose coefficients are
+tropically Borel and locally bounded, or more generally locally integrable
+for the measures attached to the charts.  Then
+\[
+ \langle[\omega],\alpha\rangle=\int_X\omega\wedge\alpha,
+ \qquad \alpha\in A_{X,c}^{n-p,n-q},
+\]
+defines a current of bidegree $(p,q)$ of global order $0$: on a stage
+$(\mathscr D,F)$, choose a finite chart subcover of $F$ and a subordinate
+partition of unity.  The resulting finite sum is bounded by the local
+$L^1$ norms of $\omega$ times the corresponding coefficient $C^0$
+seminorms of $\alpha$; the calibration weights are bounded on the relevant
+compact cell sets.  The assignment $\omega\mapsto[\omega]$ is linear and weakly
+continuous, and it is compatible with the notation
+$[\mu]$ for a measure $\mu$ used below.  Its injectivity is a separate matter
+and is discussed in \Cref{rem:ch14-form-injectivity}.
+\end{example}
+
+\begin{example}[Forms and measures]
+\label{ex:ch14-forms-and-measures}
+If $\omega$ is a locally integrable $(p,q)$-form, then
+\[
+               [\omega](\alpha)=\int_X\omega\wedge\alpha
+\]
+defines a current of bidegree $(p,q)$.  A Radon measure $\mu$ defines a
+current of bidimension $(0,0)$ by
+$\langle[\mu],f\rangle=\int f\,\rd \mu$.  Conversely, positive currents of
+bidimension $(0,0)$ are precisely positive Radon measures.
+\end{example}
+
+\begin{proof}[Proof of the last assertion]
+On a compact set choose a nonnegative smooth cutoff $\chi$ equal to one.
+For a smooth test function $f$ supported there,
+$-\|f\|_\infty\chi\leq f\leq\|f\|_\infty\chi$.  Positivity gives
+\[
+                  |T(f)|\leq T(\chi)\|f\|_\infty.
+\]
+Thus $T$ extends continuously from smooth to continuous compactly supported
+functions, using smooth Stone--Weierstrass density, and the Riesz
+representation theorem supplies the Radon measure.  Uniqueness follows from
+the same density.
+\end{proof}
+
+The existence of the cutoff $\chi$ is \Cref{thm:cld-smooth-partition}, and the
+density of smooth compactly supported functions in $C_c(X)$ is the
+Stone--Weierstrass step inside its proof; both need $X$ locally
+holomorphically separated and paracompact, which we assume from here on
+whenever a partition of unity is used.  Observe that the argument used only
+the \emph{positivity} of the linear functional, not its continuity.  That this
+is a general phenomenon is the content of
+\Cref{prop:ch14-automatic-continuity} below.
+
+\subsection{Currents form a fine sheaf}
+\label{sec:ch14-sheaf}
+
+For an open $U\subset X$ let $j:U\hookrightarrow X$ be the inclusion.
+Extension by zero of compactly supported test forms is a continuous linear map
+$j_!:A_{U,c}^{r,s}\to A_{X,c}^{r,s}$: a fixed-support stage on $U$ maps
+continuously into a stage on $X$ after adjoining charts away from its compact
+support.  Its transpose is the \emph{restriction} $T\mapsto T|_U$,
+\[
+ \langle T|_U,\alpha\rangle=\langle T,j_!\alpha\rangle,
+ \qquad \alpha\in A_{U,c}^{r,s}.
+\]
+
+\begin{proposition}
+\label{prop:ch14-currents-sheaf}
+Let $X$ be locally holomorphically separated and paracompact.  Then
+$U\mapsto D_{r,s}(U)$ is a sheaf of $A_X^{0,0}$-modules, and for each integer
+$m$ the currents of global order $\le m$ form a subsheaf.  All these sheaves
+are fine.  In particular the order of a current is a local notion.
+\end{proposition}
+
+\begin{proof}
+\emph{Presheaf.}  Restriction is transitive because extension by zero is, and
+it is linear; so $U\mapsto D_{r,s}(U)$ is a presheaf.  The $A^{0,0}$-module
+structure is $\langle uT,\alpha\rangle=\langle T,u\alpha\rangle$ for a smooth
+function $u$, which is compatible with restriction.
+
+\emph{Separatedness.}  Let $(U_i)$ cover $U$ and let $T\in D_{r,s}(U)$ satisfy
+$T|_{U_i}=0$ for all $i$.  Let $\alpha\in A_{U,c}^{r,s}$.  By
+\Cref{thm:cld-smooth-partition} there are finitely many smooth compactly
+supported functions $\varphi_i$, with $\Supp\varphi_i\subset U_i$, such that
+$\sum_i\varphi_i=1$ on a neighbourhood of $\Supp\alpha$; only finitely many
+are needed because $\Supp\alpha$ is compact.  Then
+$\alpha=\sum_i\varphi_i\alpha$ and each $\varphi_i\alpha$ is compactly
+supported in $U_i$, so $\langle T,\alpha\rangle=\sum_i\langle
+T|_{U_i},\varphi_i\alpha\rangle=0$.  Hence $T=0$.
+
+\emph{Gluing.}  Let $T_i\in D_{r,s}(U_i)$ agree on overlaps.  For
+$\alpha\in A_{U,c}^{r,s}$ choose $(\varphi_i)$ as above and set
+\[
+ \langle T,\alpha\rangle=\sum_i\langle T_i,\varphi_i\alpha\rangle .
+\]
+\emph{Independence of $(\varphi_i)$.}  If $(\varphi'_j)$ is a second such
+family, then $\sum_{i,j}\varphi'_j\varphi_i=1$ near $\Supp\alpha$, and
+$\varphi'_j\varphi_i\alpha$ is compactly supported in $U_i\cap U_j$, so
+\[
+ \sum_j\langle T_j,\varphi'_j\alpha\rangle
+ =\sum_{i,j}\langle T_j,\varphi'_j\varphi_i\alpha\rangle
+ =\sum_{i,j}\langle T_i,\varphi'_j\varphi_i\alpha\rangle
+ =\sum_i\langle T_i,\varphi_i\alpha\rangle,
+\]
+the middle equality being the agreement of $T_i$ and $T_j$ on
+$U_i\cap U_j$.  Thus $T$ is well defined, and it is visibly linear.
+
+\emph{Continuity.}  Fix a stage $(\mathscr D,F)$ on $U$.  By compactness of
+$F$, choose finitely many $U_i$ and a subordinate family $(\varphi_i)$ with
+$\Supp\varphi_i\subset U_i$ and $\sum_i\varphi_i=1$ near $F$.  For
+$\omega\in A^{r,s}_{\mathscr D,F}(U)$ we have
+$\langle T,\omega\rangle=\sum_i\langle T_i,\varphi_i\omega\rangle$, and
+$\omega\mapsto\varphi_i\omega$ is continuous from $A^{r,s}_{\mathscr D,F}(U)$
+into $A_{U_i,c}^{r,s}$ because multiplication by a fixed smooth function is
+continuous for each seminorm by the Leibniz rule.  A finite sum of continuous
+functionals is continuous, so $T$ is a current.
+
+\emph{Restriction.}  If $\Supp\alpha$ is compact in $U_j$, then
+$\Supp(\varphi_i\alpha)\subset U_i\cap U_j$, so
+$\langle T_i,\varphi_i\alpha\rangle=\langle T_j,\varphi_i\alpha\rangle$ and
+$\langle T,\alpha\rangle=\langle T_j,\alpha\rangle$.  Thus $T|_{U_j}=T_j$.
+
+\emph{Order.}  In the continuity estimate just written, if each $T_i$ has
+order $\le m$ with constant $C_i$ on the relevant compacta, then $T$ has order
+$\le m$ with constant $\sum_iC_i\max_i\|\varphi_i\|_{C^m}$.  Hence
+currents of order $\le m$ form a subsheaf.  Conversely a current of order
+$\le m$ restricts to one of order $\le m$.
+
+\emph{Fineness.}  Multiplication by a locally finite smooth partition of unity
+subordinate to a cover gives sheaf endomorphisms with locally finite supports
+summing to the identity, which is the definition of a fine sheaf.  The
+partition exists by \Cref{thm:cld-smooth-partition}.
+\end{proof}
+
+\begin{definition}[Support]
+\label{def:ch14-support}
+\index{current!support of}
+The support $\Supp(T)$ of a current is the complement of the largest open set
+on which $T$ vanishes.  It is well defined by
+\Cref{prop:ch14-currents-sheaf}, and $\langle T,\alpha\rangle=0$ whenever
+$\Supp\alpha$ is compact and disjoint from $\Supp T$.
+\end{definition}
+
+\begin{lemma}
+\label{lem:ch14-phi-support}
+Let $T\in D_{r,s}(X)$ and let $\alpha\in A_X^{r,s}$ be a smooth form, not
+necessarily compactly supported, such that $\Supp\alpha\cap\Supp T$ is
+compact.  Then the number
+\[
+ \langle T,\alpha\rangle:=\langle T,\lambda\alpha\rangle
+\]
+is independent of the choice of a smooth compactly supported $\lambda$ equal
+to $1$ near $\Supp\alpha\cap\Supp T$.  The resulting extension of $T$ is
+linear and continuous for the topology of uniform convergence of all
+derivatives on the family of closed sets meeting $\Supp T$ compactly.  In
+particular, if $\Supp T$ is compact, then $\langle T,\alpha\rangle$ is defined
+for every smooth $\alpha$.
+\end{lemma}
+
+\begin{proof}
+Such a $\lambda$ exists by \Cref{thm:cld-smooth-partition}.  If $\lambda'$ is a
+second choice, then $\lambda-\lambda'$ vanishes near
+$\Supp\alpha\cap\Supp T$, so
+$\Supp((\lambda-\lambda')\alpha)\cap\Supp T=\emptyset$ and
+$\langle T,(\lambda-\lambda')\alpha\rangle=0$ by \Cref{def:ch14-support}.
+Homogeneity is clear.  For additivity, given $\alpha,\beta$ choose one
+$\lambda$ equal to $1$ near
+$(\Supp\alpha\cup\Supp\beta)\cap\Supp T$ and use linearity of $T$.  For
+continuity, fix a closed $F$ with $F\cap\Supp T$ compact and choose $\lambda$
+equal to $1$ near $F\cap\Supp T$; then
+$\langle T,\alpha\rangle=\langle T,\lambda\alpha\rangle$ for every $\alpha$
+supported in $F$, and $\alpha\mapsto\lambda\alpha$ is continuous into
+$A_{X,c}^{r,s}$.
+\end{proof}
+
+\subsection{Extension by zero and removable sets}
+\label{sec:ch14-extension}
+
+The following lemma is the first place at which the non-Archimedean theory
+departs sharply from the complex one.  Its hypothesis is a statement about
+\emph{tropical} dimension, and it will be seen in
+\Cref{sec:ch14-compactness} to make many sets removable that are not removable
+over $\mathbf C$.
+
+\begin{lemma}
+\label{lem:ch14-extension-by-zero}
+Let $U\subset X$ be open, $j:U\hookrightarrow X$ the inclusion, and
+$T\in D_{r,s}(U)$.  Write
+\[
+ d_{\trop}(x):=\sup_f\dim_{\mathrm{trop},x}(f),
+\]
+the supremum of the tropical dimensions of
+\Cref{def:trop-tropical-dimension} over all moment maps $f$ defined near
+$x$; the supremum, and not a single chart, is what is meant, since one small
+chart would otherwise make every point removable.  By
+\eqref{eq:trop-dimension-chain}, $d_{\trop}\le d_K$, with equality off
+$\partial X$.  Suppose that
+\[
+ d_{\trop}(x)<\max\{r,s\}\qquad\text{for every }x\in X\setminus U .
+\]
+Then every smooth compactly supported $(r,s)$-form on $X$ has support
+contained in $U$, the map $\alpha\mapsto\alpha|_U$ is an isomorphism of
+topological vector spaces $A_{X,c}^{r,s}\to A_{U,c}^{r,s}$, and consequently
+restriction
+\[
+ D_{r,s}(X)\longrightarrow D_{r,s}(U)
+\]
+is an isomorphism, with inverse $T\mapsto j_!T$ defined by
+$\langle j_!T,\alpha\rangle=\langle T,\alpha|_U\rangle$.
+\end{lemma}
+
+\begin{proof}
+Let $\alpha\in A_{X,c}^{r,s}$ and let $x\in X\setminus U$.  By
+\Cref{prop:analytic-tropical-dimension} the local tropical dimension at $x$
+is computed on a tropical chart, and by the dimension vanishing recalled in
+\Cref{chap:cld-forms} (see the remark following
+\Cref{prop:cld-form-pullback}) a superform of bidegree $(r,s)$ restricted to a
+polyhedron of dimension $<\max\{r,s\}$ vanishes, because one of its two
+alternating factors has degree exceeding the dimension.  Hence $\alpha$
+vanishes identically on a neighbourhood of $x$.  As $x$ was arbitrary,
+$\Supp\alpha\subset U$.
+
+Therefore restriction $A_{X,c}^{r,s}\to A_{U,c}^{r,s}$ is a bijection with
+inverse $j_!$; both directions are continuous because the corresponding
+fixed-support stages have the same coefficient seminorms.  Dualizing gives
+the assertion about currents; the formula for $j_!T$ is the transpose of the
+inverse map.
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch14-rigid-invisible}
+Let $X$ be a good $K$-analytic space of pure dimension $n$, and let
+$Z\subset X$ be a closed weakly analytic subset with
+$\dim Z<\max\{r,s\}$.  Then restriction
+$D_{r,s}(X)\to D_{r,s}(X\setminus Z)$ is an isomorphism; equivalently, no
+nonzero current of bidimension $(r,s)$ is supported in $Z$.  In particular,
+on the analytification of a smooth projective curve, no nonzero current of
+bidimension $(1,1)$ is supported on the set of rigid points.
+\end{corollary}
+
+\begin{proof}
+A weakly analytic subset of dimension $d$ has tropical dimension $\le d$ at
+each of its points by \Cref{prop:analytic-tropical-dimension}, so
+\Cref{lem:ch14-extension-by-zero} applies with $U=X\setminus Z$.  For the last
+sentence one must not treat the full rigid locus as a closed weakly analytic
+subset; it need not be one.  Instead, if a current $T$ of
+bidimension $(1,1)$ were supported on the rigid points, take
+$U=X\setminus\Supp T$.  The complement is closed, every one of its points is
+rigid, and hence it has local tropical dimension $0$ pointwise.  Thus
+\Cref{lem:ch14-extension-by-zero} makes restriction to $U$ injective; since
+$T|_U=0$, one has $T=0$.
+\end{proof}
+
+\begin{warning}{Removability is not a positivity theorem}
+\Cref{lem:ch14-extension-by-zero} is a statement about \emph{all} currents of
+a given bidimension, and its hypothesis is a dimension inequality that fails
+as soon as $\max\{r,s\}=0$.  It says nothing about bidimension $(0,0)$
+currents, that is, about measures: a Dirac mass at a rigid point is a
+perfectly good positive current of bidimension $(0,0)$.  Nor does it say that
+a current on $X\setminus Z$ of bidimension $(0,0)$ extends.  Extension
+theorems in the borderline case require growth or positivity hypotheses; see
+\Cref{chap:cld-poincare-lelong,chap:cld-bedford-taylor}.
+\end{warning}
+
+\section{Differentials and their signs}
+\label{sec:ch14-differentials}
+
+Let $T\in D^{p,q}(X)$.  The current differentials are defined by
+\[
+\begin{aligned}
+ \langle\dprime T,\alpha\rangle
+   &=(-1)^{p+q+1}\langle T,\dprime\alpha\rangle,\\
+ \langle\ddprime T,\alpha\rangle
+   &=(-1)^{p+q+1}\langle T,\ddprime\alpha\rangle.
+\end{aligned}
+\]
+The exponent uses the \emph{bidegree} of $T$ before applying the operator.
+
+The involution acts on currents by
+\begin{equation}
+\label{eq:ch14-J-current}
+  \langle JT,\alpha\rangle=(-1)^n\langle T,J\alpha\rangle,
+ \qquad T\in D^{p,q}(X),\quad\alpha\in A_{X,c}^{n-q,n-p},
+\end{equation}
+with $n=\dim X$, so that $JT\in D^{q,p}(X)$.  The sign is forced, and it is
+not $+1$: the involution does
+\emph{not} fix the top orientation, but satisfies $J\tau_n=(-1)^n\tau_n$ by
+\eqref{eq:ch09-J-coordinates}.  Since $J^2$ is the identity on forms, it is
+the identity on currents.
+
+\begin{lemma}
+\label{lem:ch14-J-currents}
+Let $X$ be of pure dimension $n$.
+\begin{enumerate}
+\item $\int_XJ\eta=(-1)^n\int_X\eta$ for every $\eta\in A_{X,c}^{n,n}$.
+\item With \eqref{eq:ch14-J-current}, $J[\omega]=[J\omega]$ for every locally
+  integrable form $\omega$.
+\item A current $T$ of bidegree $(p,p)$, that is of bidimension
+  $(q,q)=(n-p,n-p)$, satisfies $JT=(-1)^pT$ if and only if
+  \[
+   \langle T,J\alpha\rangle=(-1)^q\langle T,\alpha\rangle
+   \qquad\text{for every }\alpha\in A_{X,c}^{q,q}.
+  \]
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(1) $A^{n,n}$ is free of rank one on $\tau_n$ and $J\tau_n=(-1)^n\tau_n$, so
+$J\eta=(-1)^n\eta$ pointwise.  (2) Since $J$ is an algebra automorphism with
+$J^2=\operatorname{id}$, one has $J\omega\wedge\alpha=J(\omega\wedge J\alpha)$,
+whence by (1)
+\[
+ \langle[J\omega],\alpha\rangle
+ =\int_XJ(\omega\wedge J\alpha)
+ =(-1)^n\int_X\omega\wedge J\alpha
+ =(-1)^n\langle[\omega],J\alpha\rangle
+ =\langle J[\omega],\alpha\rangle .
+\]
+(3) Substitute $JT=(-1)^pT$ into \eqref{eq:ch14-J-current} and use
+$(-1)^{p-n}=(-1)^{n-p}=(-1)^q$.
+\end{proof}
+
+\begin{definition}[Symmetric current]
+\label{def:ch14-symmetric-current}
+\index{current!symmetric}
+A current $T$ of bidegree $(p,p)$, equivalently of bidimension
+$(q,q)=(n-p,n-p)$, is \emph{symmetric} if $JT=(-1)^pT$; by
+\Cref{lem:ch14-J-currents}\,(3) this says
+$\langle T,J\alpha\rangle=(-1)^q\langle T,\alpha\rangle$ for every test form
+$\alpha\in A_{X,c}^{q,q}$, so that $T$ pairs with $J\alpha$ exactly as a
+symmetric test form of bidegree $(q,q)$ transforms under $J$.
+\end{definition}
+
+The signs here are not decoration.  A symmetric superform
+$\alpha\in A^{q,q}$ satisfies $J\alpha=(-1)^q\alpha$, not $J\alpha=\alpha$
+(\Cref{cor:ch09-symmetric-exchange}); the antisymmetric forms are those with
+$J\alpha=(-1)^{q+1}\alpha$.  Imposing $\langle T,J\alpha\rangle
+=\langle T,\alpha\rangle$ instead would, for odd $q$, force $T$ to annihilate
+every \emph{symmetric} form, hence every positive one, and would make the
+positivity theory below vacuous in odd bidimension.  Under the alternative
+involution of \cite{CLD25} recorded in \Cref{rem:ch09-two-involutions} the
+sign is absorbed and symmetry does read $J\alpha=\alpha$; that is a different
+convention, not a simplification of this one.
+
+\subsection{Where the sign comes from}
+\label{sec:ch14-sign-derivation}
+
+The sign is not a convention that could have been chosen otherwise; it is
+forced by the requirement that the inclusion of smooth forms into currents be
+a morphism of complexes.  We derive it once, in the form that will be reused
+in \Cref{chap:cld-poincare-lelong,chap:delta-forms}.
+
+Write $b'$ for the naked transpose of $\dprime$, that is
+$\langle b'T,\alpha\rangle=\langle T,\dprime\alpha\rangle$, and similarly
+$b''$.  These are the maps that exist for purely formal reasons:
+$\dprime:A_{X,c}^{r,s}\to A_{X,c}^{r+1,s}$ is continuous by
+\Cref{prop:cld-intrinsic-calculus}, so its transpose maps
+$D_{r+1,s}(X)\to D_{r,s}(X)$, and it is weakly continuous because the weak
+topology is the topology of pointwise convergence.  From $\ddprime=J\dprime
+J^{-1}$ on forms one gets $b''=Jb'J^{-1}$ on currents, and from
+$(\dprime)^2=(\ddprime)^2=0$, $\dprime\ddprime=-\ddprime\dprime$ one gets
+$(b')^2=(b'')^2=0$ and $b'b''=-b''b'$.
+
+\begin{lemma}
+\label{lem:ch14-sign-forced}
+Let $\omega$ be a smooth $(p,q)$-form on a boundaryless pure
+$n$-dimensional $X$, and let $\alpha\in A_{X,c}^{n-p-1,n-q}$.  Then
+\[
+ \langle b'[\omega],\alpha\rangle
+ =(-1)^{p+q+1}\langle[\dprime\omega],\alpha\rangle .
+\]
+Consequently the unique constant $\varepsilon(p,q)\in\{\pm1\}$ for which
+$T\mapsto\varepsilon(p,q)b'T$ satisfies $\dprime[\omega]=[\dprime\omega]$ for
+all smooth $\omega$ of bidegree $(p,q)$ is $\varepsilon(p,q)=(-1)^{p+q+1}$.
+\end{lemma}
+
+\begin{proof}
+By the graded Leibniz rule of \Cref{prop:cld-intrinsic-calculus},
+\[
+ \dprime(\omega\wedge\alpha)
+ =\dprime\omega\wedge\alpha+(-1)^{p+q}\omega\wedge\dprime\alpha .
+\]
+The form $\omega\wedge\alpha$ has bidegree $(n-1,n)$ and compact support, so
+$\int_X\dprime(\omega\wedge\alpha)=0$ by
+\Cref{cor:analytic-stokes-green}.  Integrating the displayed identity
+therefore gives
+\[
+ 0=\int_X\dprime\omega\wedge\alpha
+   +(-1)^{p+q}\int_X\omega\wedge\dprime\alpha
+ =\langle[\dprime\omega],\alpha\rangle
+   +(-1)^{p+q}\langle b'[\omega],\alpha\rangle,
+\]
+whence $\langle b'[\omega],\alpha\rangle=(-1)^{p+q+1}
+\langle[\dprime\omega],\alpha\rangle$, because $(-1)^{p+q}$ is its own
+inverse.  Uniqueness of $\varepsilon(p,q)$ is clear since
+$\omega\mapsto[\omega]$ is not identically zero in each bidegree.
+\end{proof}
+
+Accordingly we set, once and for all,
+\begin{equation}
+\label{eq:ch14-dprime-sign}
+ \dprime=(-1)^{p+q+1}b'
+ \quad\text{and}\quad
+ \ddprime=(-1)^{p+q+1}b''
+ \qquad\text{on }D^{p,q}(X),
+\end{equation}
+which is the definition displayed at the head of the section.  This is the
+convention recorded in \Cref{sec:appJ-currents}; the reader who prefers to
+remember a test rather than a sign should remember
+\Cref{lem:ch14-sign-forced} and the boundary formula of
+\Cref{prop:ch14-boundary-current} below.
+
+\begin{proposition}
+\label{prop:current-differential-calculus}
+The operators on currents are continuous for the weak topology and satisfy
+\[
+ (\dprime)^2=(\ddprime)^2=0,
+ \qquad \dprime\ddprime+\ddprime\dprime=0,
+ \qquad \ddprime=J\dprime J^{-1}.
+\]
+Moreover,
+\[
+             \langle\dprimeddprime T,\alpha\rangle
+              =\langle T,\dprimeddprime\alpha\rangle.
+\]
+If $X$ is boundaryless and $\omega$ is smooth, then
+$\dprime[\omega]=[\dprime\omega]$ and
+$\ddprime[\omega]=[\ddprime\omega]$.
+\end{proposition}
+\begin{proof}
+Transpose the identities on test forms, keeping the displayed signs.  The
+two signs in the mixed second derivative multiply to $-1$, which is canceled
+by $\ddprime\dprime=-\dprime\ddprime$ on test forms; this gives the last
+pairing formula.  For a smooth form, integration by parts and
+\Cref{cor:analytic-stokes-green} identify the distributional and
+smooth differentials.  With boundary, the omitted Stokes term is generally
+nonzero.
+
+We give the computations in full.  \emph{Continuity} holds because the weak
+topology is that of pointwise convergence and $\dprime$, $\ddprime$ are
+defined by composing with a fixed continuous operator on test forms.
+
+\emph{Squares.}  On $D^{p,q}$ we have $\dprime=(-1)^{p+q+1}b'$ and, on
+$D^{p+1,q}$, $\dprime=(-1)^{p+q}b'$; hence on $D^{p,q}$,
+\[
+ \dprime\dprime=(-1)^{p+q}(-1)^{p+q+1}(b')^2=-(b')^2=0 .
+\]
+The same computation gives $(\ddprime)^2=0$.
+
+\emph{Anticommutation.}  Starting from $T\in D^{p,q}$, the composite
+$\dprime\ddprime$ picks up $(-1)^{p+q+1}$ from $\ddprime$ and
+$(-1)^{p+q+2}$ from the subsequent $\dprime$ acting on $D^{p,q+1}$, a total
+sign of $-1$; therefore $\dprime\ddprime=-b'b''$.  Symmetrically
+$\ddprime\dprime=-b''b'$.  Since $b'b''=-b''b'$, we get
+$\dprime\ddprime=-\ddprime\dprime$ as claimed.
+
+\emph{Conjugation by $J$.}  If $T\in D^{p,q}$, then $JT\in D^{q,p}$ has the
+same total degree, so the two operators carry the same sign and
+$\ddprime=J\dprime J^{-1}$ follows from $b''=Jb'J^{-1}$.
+
+\emph{The $\dprimeddprime$ pairing.}  By the preceding paragraph
+$\dprimeddprime T=-b'b''T$, and $-b'b''$ is the transpose of
+$-\ddprime\dprime=\dprimeddprime$ on test forms.  Hence
+$\langle\dprimeddprime T,\alpha\rangle=\langle T,\dprimeddprime\alpha\rangle$
+with no sign at all.  This is the identity that makes
+$\dprimeddprime$ symmetric and is the reason it, rather than $\dprime$ or
+$\ddprime$ separately, is the operator of potential theory.
+
+\emph{Smooth forms.}  This is \Cref{lem:ch14-sign-forced} for $\dprime$; for
+$\ddprime$ apply $J$ and use $J[\omega]=[J\omega]$, which is
+\Cref{lem:ch14-J-currents}\,(2).  The sign $(-1)^n$ built into
+\eqref{eq:ch14-J-current} is exactly what absorbs
+$\int_XJ\eta=(-1)^n\int_X\eta$ for a top-degree form; the involution does not
+act trivially on the top orientation \eqref{eq:appJ-lagerberg-orientation},
+but by $J\tau_n=(-1)^n\tau_n$.
+\end{proof}
+
+\begin{proposition}
+\label{prop:ch14-boundary-current}
+Let $X$ be pure $n$-dimensional, possibly with analytic boundary, and let
+$\omega$ be a $G$-form of bidegree $(p,q)$ with tropically $C^1$
+coefficients.  Denote by $[\omega]^\partial$ the current
+$\alpha\mapsto\int_X^\partial\omega\wedge\alpha$ of bidimension
+$(n-p-1,n-q)$ built from the boundary integral of
+\Cref{chap:tropical-integration}.  Then
+\[
+ \dprime[\omega]=[\dprime\omega]-[\omega]^\partial,
+ \qquad
+ \ddprime[\omega]=[\ddprime\omega]-J\bigl[J^{-1}\omega\bigr]^\partial .
+\]
+In particular, if $X$ is boundaryless and $\omega$ is a form (rather than a
+$G$-form), both boundary terms vanish and
+$\dprime[\omega]=[\dprime\omega]$, $\ddprime[\omega]=[\ddprime\omega]$.
+\end{proposition}
+
+\begin{proof}
+Repeat the computation of \Cref{lem:ch14-sign-forced}, but use the Stokes
+formula with boundary term,
+$\int_X\dprime\eta=\int_X^\partial\eta$, of
+\Cref{thm:ch13-stokes}, with the boundary integral of
+\Cref{def:ch13-boundary-integral}, instead of
+\Cref{cor:analytic-stokes-green}.  With
+$\eta=\omega\wedge\alpha$ this gives
+\[
+ \int_X^\partial\omega\wedge\alpha
+ =\int_X\dprime\omega\wedge\alpha
+   +(-1)^{p+q}\int_X\omega\wedge\dprime\alpha,
+\]
+that is $[\omega]^\partial=[\dprime\omega]-\dprime[\omega]$ after multiplying
+by $(-1)^{p+q}$ and using \eqref{eq:ch14-dprime-sign}.  For $\ddprime$ apply
+$J$ to the identity already proved for $J^{-1}\omega$, using
+$J\dprime J^{-1}=\ddprime$ and $J[\eta]=[J\eta]$.  If $X$ is boundaryless and
+$\omega$ is an ordinary form, then the boundary measure attached to any test
+form vanishes, so $[\omega]^\partial=0$.
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch14-delta-x-closed}
+If $X$ is boundaryless, the integration current
+$\delta_X=[1]$ of bidimension $(n,n)$ is $\dprime$- and $\ddprime$-closed.
+\end{corollary}
+
+\begin{proof}
+Apply \Cref{prop:ch14-boundary-current} with $\omega=1$, a smooth
+$(0,0)$-form: $\dprime1=0$ and the boundary term vanishes.
+\end{proof}
+
+\subsection{Multiplication by a smooth form}
+\label{sec:ch14-wedge-smooth}
+
+If $\alpha$ is smooth, set
+\[
+               \langle T\wedge\alpha,\beta\rangle
+                =\langle T,\alpha\wedge\beta\rangle.
+\]
+This is always defined.  By contrast, $T\wedge S$ has no meaning for two
+arbitrary currents.
+
+\begin{lemma}
+\label{lem:ch14-module-leibniz}
+Let $T\in D_{r,s}(X)$ and let $\alpha\in A_X^{p,q}$, $\beta\in A_X^{p',q'}$.
+\begin{enumerate}
+\item $T\wedge\alpha$ is a current of bidimension $(r-p,s-q)$, of order
+  $\le m$ if $T$ is; the map $T\mapsto T\wedge\alpha$ is weakly continuous and
+  $(T\wedge\alpha)\wedge\beta=T\wedge(\alpha\wedge\beta)$.
+\item $J(T\wedge\alpha)=JT\wedge J\alpha$, and setting
+  $\alpha\wedge T=(-1)^{(p+q)(r+s)}T\wedge\alpha$ makes
+  $D_{\bullet,\bullet}(X)$ a graded bimodule over
+  $A_X^{\bullet,\bullet}$.
+\item With $T$ of bidegree $(u,v)$ one has
+  \[
+   \dprime(T\wedge\alpha)=(\dprime T)\wedge\alpha
+    +(-1)^{u+v}T\wedge\dprime\alpha .
+  \]
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(1) and (2) are immediate from associativity and the multiplicativity of $J$
+on forms, \Cref{prop:cld-intrinsic-calculus}; continuity of
+$\beta\mapsto\alpha\wedge\beta$ on each $A^{r,s}_{\mathscr D,F}$ follows from
+the Leibniz rule applied to the coefficients in a chart, which produces a
+bound by the $C^m$ seminorms of $\beta$ times fixed $C^m$ seminorms of
+$\alpha$.
+
+(3) Let $T$ have bidegree $(u,v)$ and let $\beta$ be a test form of
+complementary bidegree for the left-hand side.  Writing $w=u+v$ and
+$w'=p+q$, and using \eqref{eq:ch14-dprime-sign} at the two relevant
+bidegrees together with the Leibniz rule on forms,
+\[
+\begin{aligned}
+ \langle\dprime(T\wedge\alpha),\beta\rangle
+ &=(-1)^{w+w'+1}\langle T\wedge\alpha,\dprime\beta\rangle
+  =(-1)^{w+w'+1}\langle T,\alpha\wedge\dprime\beta\rangle\\
+ &=(-1)^{w+w'+1}(-1)^{w'}
+   \bigl\langle T,\dprime(\alpha\wedge\beta)-\dprime\alpha\wedge\beta
+   \bigr\rangle\\
+ &=(-1)^{w+1}\langle T,\dprime(\alpha\wedge\beta)\rangle
+   +(-1)^{w}\langle T,\dprime\alpha\wedge\beta\rangle\\
+ &=\langle(\dprime T)\wedge\alpha,\beta\rangle
+   +(-1)^{w}\langle T\wedge\dprime\alpha,\beta\rangle,
+\end{aligned}
+\]
+which is the assertion.
+\end{proof}
+
+\section{Positivity cones for currents}
+\label{sec:ch14-positivity}
+
+The duality reverses the strength of positivity.  This is not a quirk of the
+definition but a theorem about cones: by
+\Cref{thm:ch09-positivity-duality} the dual of the strongly positive cone is
+the weakly positive one and conversely, while the positive cone is
+self-dual.  A current is a functional on forms, so testing it against the
+\emph{largest} cone of forms is the \emph{strongest} requirement.  The
+resulting hierarchy therefore reads, for currents,
+\[
+ \{\text{strongly positive}\}\subset\{\text{positive}\}
+   \subset\{\text{weakly positive}\},
+\]
+exactly as for forms, but with the roles of the two extreme test cones
+exchanged.  Getting this exchange wrong is the commonest error in the
+subject, and \Cref{prop:ch14-form-current-cones} below is the statement that
+makes it harmless: for currents defined by forms the two hierarchies agree
+term by term.
+
+\begin{definition}
+\label{def:ch14-current-positivity}
+A symmetric current $T$ of bidimension $(p,p)$ is
+\begin{enumerate}
+\item weakly positive if it is nonnegative on strongly positive test forms;
+\item positive if it is nonnegative on positive test forms;
+\item strongly positive if it is nonnegative on weakly positive test forms.
+\end{enumerate}
+Equivalently, a current of bidegree $(n-p,n-p)$ is tested in the same way.
+\end{definition}
+
+\begin{proposition}
+\label{prop:current-positivity-calculus}
+Positivity is local and weakly closed.  Proper pushforward preserves all
+three positivity notions.  Wedge product with a smooth form has the following
+properties:
+\begin{enumerate}
+\item if $\alpha$ is strongly positive, then $T\wedge\alpha$ has the same
+      positivity type as $T$;
+\item if $\alpha$ and $T$ are positive, then $T\wedge\alpha$ is positive;
+\item if $\alpha$ is weakly positive and $T$ is strongly positive, then
+      $T\wedge\alpha$ is weakly positive.
+\end{enumerate}
+Positive currents are of order zero relative to every test-form stage.
+\end{proposition}
+\begin{proof}
+Locality follows by multiplying a positive test form by a nonnegative
+partition of unity.  Weak closure follows by passing to the limit in every
+nonnegative pairing.  Pullback preserves positivity of test forms, hence its
+transpose, proper pushforward, preserves positivity of currents.  The wedge
+statements follow by combining the corresponding wedge-product rules for
+smooth forms with the reversed test cones in the definition of positivity for
+currents.  In particular, the wedge of two positive smooth superforms is
+positive.  Finally, on a fixed stage a symmetric form is bounded above
+and below, up to a fixed constant, by a fixed strongly positive form times its
+$C^0$ norm.  Testing these two inequalities against $T$ gives an order-zero
+bound.  The wedge-product assertions are
+\cite[Lemma~7.2.7 and Proposition~3.5.5]{CLD25}.
+
+We now supply the details, since each of the four assertions is used later.
+
+\emph{Locality.}  Suppose $T|_{U_i}$ has the given positivity type for a cover
+$(U_i)$ of $X$, and let $\alpha$ be a compactly supported test form in the
+corresponding cone.  Choose smooth $\varphi_i\ge0$ with
+$\Supp\varphi_i\subset U_i$ and $\sum_i\varphi_i=1$ near $\Supp\alpha$
+(\Cref{thm:cld-smooth-partition}).  Each $\varphi_i\alpha$ lies in the same
+cone, because all three cones are stable under multiplication by a
+nonnegative function (\Cref{prop:ch09-positivity-inclusions}) and this is a
+pointwise statement.  Hence
+$\langle T,\alpha\rangle=\sum_i\langle T|_{U_i},\varphi_i\alpha\rangle\ge0$.
+The converse, that restriction preserves positivity, follows because
+extension by zero of a form in a cone stays in that cone.  Thus each
+positivity type defines a subsheaf of $D_{p,p}$.
+
+\emph{Weak closure.}  If $T_i\to T$ weakly and each $T_i$ is nonnegative on a
+fixed cone of test forms, then so is $T$, the inequality
+$\langle T_i,\alpha\rangle\ge0$ passing to the limit.  Symmetry passes to the
+limit as well, since $J$ is weakly continuous.
+
+\emph{Proper pushforward.}  If $g:Y\to X$ is topologically proper, then
+$g^*$ preserves each cone of forms, by
+\Cref{prop:cld-form-pullback} combined with
+\Cref{prop:ch09-positivity-inclusions}, whose pullback statement is proved
+there for affine maps and therefore holds chartwise.  Hence
+$\langle g_*T,\alpha\rangle=\langle T,g^*\alpha\rangle\ge0$ whenever
+$\alpha$ lies in the test cone attached to the positivity type of $T$.
+
+\emph{Wedge products.}  Assertion (1): let $\alpha$ be strongly positive and
+let $T$ be, say, weakly positive; for a strongly positive test form $\beta$
+the product $\alpha\wedge\beta$ is strongly positive by
+\Cref{prop:ch09-positivity-products}\,(1), so
+$\langle T\wedge\alpha,\beta\rangle=\langle T,\alpha\wedge\beta\rangle\ge0$.
+The same argument with \Cref{prop:ch09-positivity-products}\,(2) and (3)
+gives the cases of $T$ positive and $T$ strongly positive.
+Assertion (2): if $\alpha$ and $\beta$ are positive, so is
+$\alpha\wedge\beta$ by \Cref{prop:ch09-positivity-products}\,(2), whence
+$T\wedge\alpha$ is positive when $T$ is.  Assertion (3): if $\alpha$ is
+weakly positive and $\beta$ is strongly positive, then $\alpha\wedge\beta$ is
+weakly positive by \Cref{prop:ch09-positivity-products}\,(3); testing a
+strongly positive $T$ against it gives $\ge0$, so $T\wedge\alpha$ is weakly
+positive.  Notice that in each case the \emph{test} cone of the conclusion is
+determined by which factor was allowed to be the weaker one; this is the
+current-level shadow of the warning after
+\Cref{prop:ch09-positivity-products}.
+
+\emph{Order zero.}  Fix a stage $(\mathscr D,F)$.  Choose finitely many
+charts $f_j:U_j\to\mathbf G_m^{r_j}$ covering $F$ and a subordinate
+partition $(\rho_j)$.  After symmetrizing chart representatives, write a
+symmetric test form as
+$\alpha=\sum_j\rho_j f_{j,\trop}^*\alpha_j$.  Give each target a Euclidean
+norm and put
+$\eta_j=\dprimeddprime\|x\|^2$.  On a compact chart domain $W_j$ containing
+$\Supp\rho_j$, \Cref{lem:ch14-eta-dominates} below gives a constant $c_j>0$
+such that
+$\alpha_j\pm c_j\|\alpha_j\|_{W_j,0}\eta_j^p$ is positive for every
+symmetric coefficient form $\alpha_j$.  Pullback and multiplication by
+$\rho_j\ge0$ preserve positivity, hence
+\[
+ |\langle T,\rho_j f_{j,\trop}^*\alpha_j\rangle|
+ \le c_j\,\langle T,\rho_j f_{j,\trop}^*\eta_j^p\rangle
+       \|\alpha_j\|_{W_j,0}.
+\]
+Summing the finitely many estimates proves order zero relative to
+$(\mathscr D,F)$.  The constants and controlling seminorms may depend on the
+stage, exactly as allowed by \Cref{def:ch14-relative-order}.
+\end{proof}
+
+\begin{lemma}
+\label{lem:ch14-eta-dominates}
+Let $V$ be a real vector space of dimension $r$ with a Euclidean norm, let
+$\eta=\dprimeddprime\|x\|^2$, and let $0\le p\le r$.  Write $|\alpha|$ for
+the operator norm of the normalized coefficient matrix $M(\alpha)$ of
+\Cref{def:ch09-coefficient-matrix}.  Then
+\[
+ M(\eta^{p})=2^{p}p!\,\mathrm{Id},
+\]
+and for every symmetric $\alpha\in A^{p,p}(V)$ with constant coefficients and
+every $c\ge(2^pp!)^{-1}$,
+\[
+ \alpha+c\,|\alpha|\,\eta^{p}\in\mathrm{P}_p(V)\subset\mathrm{WP}_p(V).
+\]
+Thus $\eta^p$ lies in the interior of the positive cone and in the interior
+of the weakly positive cone.
+\end{lemma}
+
+\begin{proof}
+In an orthonormal basis $x_1,\ldots,x_r$ the Hessian convention
+\eqref{eq:appJ-real-hessian} gives
+$\eta=2\sum_i\dprime x_i\wedge\ddprime x_i$.  Expanding the $p$-th power, the
+terms with a repeated index vanish, and the $p!$ orderings of a fixed
+$p$-element set contribute equally because each factor
+$\dprime x_i\wedge\ddprime x_i$ has even total degree and therefore commutes
+with everything, by \Cref{prop:ch09-wedge-signs}.  Hence
+\[
+ \eta^{p}=2^{p}p!\sum_{I\in S_p}
+   \dprime x_{i_1}\wedge\ddprime x_{i_1}\wedge\cdots
+   \wedge\dprime x_{i_p}\wedge\ddprime x_{i_p}
+ =2^{p}p!\sum_{I\in S_p}c_p\,\dprime x_I\wedge\ddprime x_I,
+\]
+the sum being over increasing multi-indices $I=(i_1<\cdots<i_p)$ and the
+second equality being \Cref{lem:ch09-generators}.  In the normalization of
+\Cref{def:ch09-coefficient-matrix} this reads $M(\eta^p)=2^pp!\,\mathrm{Id}$.
+
+By \Cref{prop:ch09-positivity-dictionary}\,(1) a symmetric $(p,p)$-form is
+positive exactly when its matrix is positive semidefinite.  Since
+$M(\alpha)\succeq-|\alpha|\,\mathrm{Id}$ by definition of the operator norm,
+for $c\ge(2^pp!)^{-1}$ we get
+\[
+ M\bigl(\alpha+c|\alpha|\eta^p\bigr)
+ =M(\alpha)+c\,2^pp!\,|\alpha|\,\mathrm{Id}
+ \succeq M(\alpha)+|\alpha|\,\mathrm{Id}\succeq0 .
+\]
+The inclusion $\mathrm{P}_p\subset\mathrm{WP}_p$ is
+\Cref{prop:ch09-positivity-inclusions}.  Finally $\mathrm{Id}$ is positive
+definite, and both the condition ``$M\succeq0$'' of
+\Cref{prop:ch09-positivity-dictionary}\,(1) and the condition
+``$w^{\mathsf T}Mw\ge0$ for $w\in\Gamma_p$'' of
+\Cref{prop:ch09-positivity-dictionary}\,(3) hold strictly at $\mathrm{Id}$ on
+the compact set of unit vectors involved; so $\eta^p$ is an interior point of
+both cones.
+\end{proof}
+
+\begin{warning}{$\eta^p$ is not interior to the strongly positive cone}
+For $r\ge4$ and $2\le p\le r-2$ the cone $\mathrm{SP}_p(V)$ does not span the
+space of symmetric $(p,p)$-forms, and therefore has empty interior in it.
+Indeed the weakly null form $\gamma$ of \Cref{ex:ch14-weakly-null} satisfies
+$\langle M(\gamma),vv^{\mathsf T}\rangle=v^{\mathsf T}M(\gamma)v=0$ for every
+decomposable $v$, so $M(\gamma)\neq0$ is orthogonal to
+$M(\mathrm{SP}_p)$ for the trace pairing.  What is true, and is
+\cite[Proposition~1.2.13]{CLD25}, is that $\eta^p$ lies in the
+\emph{relative} interior of $\mathrm{SP}_p(V)$, that is, in its interior
+inside the linear span of the cone.  Consequently every argument in this book
+that dominates an arbitrary symmetric form by a multiple of $\eta^p$
+concludes positivity or weak positivity, never strong positivity.  This is
+the precise reason why \Cref{prop:ch14-automatic-continuity} is stated for
+functionals nonnegative on positive, or on weakly positive, forms.
+\end{warning}
+
+\begin{proposition}
+\label{prop:ch14-form-current-cones}
+Let $X$ be pure $n$-dimensional and boundaryless, and let $\omega$ be a
+symmetric smooth $(p,p)$-form on $X$.  If $\omega$ is strongly positive
+(respectively positive, weakly positive), then the current $[\omega]$ of
+bidegree $(p,p)$, that is of bidimension $(n-p,n-p)$, is strongly positive
+(respectively positive, weakly positive).
+\end{proposition}
+
+\begin{proof}
+Suppose $\omega$ is strongly positive and let $\beta$ be a weakly positive
+test form of bidegree $(n-p,n-p)$.  By
+\Cref{thm:ch09-positivity-duality}, $\mathrm{WP}_{n-p}$ is the dual cone of
+$\mathrm{SP}_p$, so $\omega\wedge\beta$ is a nonnegative multiple of
+$\tau_n$ at every point of every chart; hence
+$\int_X\omega\wedge\beta\ge0$, because the integral of a nonnegative
+top-degree form against a positive calibration is nonnegative.  Thus
+$[\omega]$ is strongly positive.  The positive case uses the self-duality
+$\mathrm{P}_p=\mathrm{P}_{n-p}^\vee$, and the weakly positive case the
+duality $\mathrm{WP}_p=\mathrm{SP}_{n-p}^\vee$.  Symmetry of $[\omega]$
+follows from $J[\omega]=[J\omega]=(-1)^p[\omega]$, by
+\Cref{lem:ch14-J-currents}\,(2) and $J\omega=(-1)^p\omega$; this is
+\Cref{def:ch14-symmetric-current} in bidegree $(p,p)$.
+\end{proof}
+
+\begin{remark}[Injectivity and the converse]
+\label{rem:ch14-form-injectivity}
+The converse of \Cref{prop:ch14-form-current-cones}---that $[\omega]$
+positive forces $\omega$ positive---requires knowing that a nonzero
+continuous form is detected by a skeleton of full dimension, and this is a
+genuine analytic input about the richness of the space rather than a formal
+consequence of duality.  For a very rich tropical space, in particular for a
+boundaryless Berkovich space of pure dimension $n$, it holds, and the map
+$\omega\mapsto[\omega]$ is injective on forms with tropically continuous
+coefficients; this is \cite[Corollaries~7.3.9 and~7.3.10]{CLD25}.  We use
+only the direction proved above, except in
+\Cref{prop:ch14-positive-and-negative}\,(2),
+\Cref{cor:ch14-weakly-null-currents} and \Cref{sec:ch14-compactness}, where
+the injectivity is quoted with this citation.
+\end{remark}
+
+\begin{proposition}
+\label{prop:ch14-automatic-continuity}
+Let $X$ be locally holomorphically separated and paracompact, let $p\ge0$,
+and let $S:A_{X,c}^{p,p}\to\mathbf R$ be a linear map---\emph{not} assumed
+continuous---which is symmetric in the sense of
+\Cref{def:ch14-symmetric-current}, that is,
+\[
+ S(J\omega)=(-1)^pS(\omega)
+ \qquad\text{for all }\omega\in A_{X,c}^{p,p}.
+\]
+Equivalently, $S$ annihilates every antisymmetric form.
+\begin{enumerate}
+\item If $S(\omega)\ge0$ for every positive $\omega$, then $S$ is a positive
+  current, of order $0$ relative to every test-form stage.
+\item If $S(\omega)\ge0$ for every weakly positive $\omega$, then $S$ is a
+  strongly positive current, of order $0$ relative to every test-form stage.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Only continuity has to be proved; symmetry is the hypothesis
+$S\circ J=(-1)^pS$, and the positivity type of the conclusion is the
+hypothesis read through \Cref{def:ch09-cones}.  We write the proof of (1); for (2) replace
+$\mathrm{P}_p$ by $\mathrm{WP}_p$ throughout, which is legitimate because
+$\eta^p$ is an interior point of both cones by
+\Cref{lem:ch14-eta-dominates}.
+
+By \Cref{prop:test-form-continuity-criterion} it suffices to bound $S$ on
+each $A_{\mathscr D,F}^{p,p}(X)$.  Compactness of $F$ gives a finite chart
+subcover and a subordinate partition of unity, so it suffices to treat forms
+of the shape $\rho\,f_{\trop}^*\alpha$, where
+$f:U\to\mathbf G_m^r$ is one chart, $\rho\ge0$ is smooth with compact
+support in $U$, and $\alpha$ is a symmetric superform on a compact
+polyhedral $W\supset f_{\trop}(\Supp\rho)$.
+
+Let $\eta=\dprimeddprime\|x\|^2$ on $\mathbf R^r$ and let $c$ be the constant
+of \Cref{lem:ch14-eta-dominates}.  Then
+\[
+ \alpha+c\|\alpha\|_{W,0}\,\eta^{p}
+\]
+is positive at every point of $W$, hence so is its pullback by
+\Cref{prop:ch09-positivity-inclusions}, hence so is the product with
+$\rho\ge0$, since multiplying by a nonnegative function preserves
+$\mathrm{P}_p$ pointwise.  Applying $S$ and using its hypothesis,
+\[
+ S\bigl(\rho f_{\trop}^*\alpha\bigr)
+  +c\|\alpha\|_{W,0}\,S\bigl(\rho f_{\trop}^*\eta^p\bigr)\ge0 .
+\]
+Applying the same inequality to $-\alpha$ and combining,
+\[
+ \bigl|S\bigl(\rho f_{\trop}^*\alpha\bigr)\bigr|
+ \le c\,S\bigl(\rho f_{\trop}^*\eta^p\bigr)\,\|\alpha\|_{W,0},
+\]
+which is the required $C^0$ bound; the constant
+$c\,S(\rho f_{\trop}^*\eta^p)$ is finite and nonnegative, being the value of
+$S$ on a fixed positive form.  Thus $S$ is continuous, hence a current of
+order $0$ relative to $(\mathscr D,F)$.
+\end{proof}
+
+\begin{remark}[The missing third case]
+\label{rem:ch14-third-case}
+The case not covered is that of a linear functional nonnegative only on
+\emph{strongly} positive forms, which one would like to conclude is a weakly
+positive current.  This is asserted in \cite[Proposition~7.2.9]{CLD25}; its
+proof there dominates an arbitrary symmetric $\alpha$ by a multiple of
+$\eta^p$ inside the strongly positive cone, using
+\cite[Proposition~1.2.13]{CLD25}.  That proposition places $\eta^p$ in the
+\emph{relative} interior of the strongly positive cone, so the resulting
+estimate controls $S$ on the linear span of that cone; and by the warning
+after \Cref{lem:ch14-eta-dominates} the span is proper as soon as $r\ge4$ and
+$2\le p\le r-2$.  We therefore use only the two cases proved above.  They
+suffice everywhere in this book: every current whose continuity we deduce
+from positivity---measures, integration currents of cycles and skeleta,
+fibre-integration functionals, curvature currents of psh
+metrics---is nonnegative on positive forms, usually because it is strongly
+positive.
+\end{remark}
+
+\begin{remark}
+\label{rem:ch14-positivity-gives-continuity}
+\Cref{prop:ch14-automatic-continuity} is the reason why, in this chapter, a
+positive object is almost never checked for continuity: constructing a
+positive functional constructs a current.  It is used below to see that
+$\delta_X$, the integration current of a cycle, and the fibre-integration
+functionals are currents, without any estimate.  The analogous statement in
+the complex setting is classical; what is not classical is the proof, which
+here rests on \Cref{lem:ch14-eta-dominates} and hence on the fact that a
+tropical chart has a Euclidean target.
+\end{remark}
+
+\begin{proposition}
+\label{prop:ch14-positive-and-negative}
+Let $T$ be a current of bidimension $(p,p)$ on $X$, locally holomorphically
+separated and paracompact.
+\begin{enumerate}
+\item If both $T$ and $-T$ are positive, then $T=0$.
+\item There exist $X$, $p$ and a nonzero $T$ such that both $T$ and $-T$ are
+  weakly positive.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(1)  Let $\omega\in A_{X,c}^{p,p}$.  Since $T$ is symmetric,
+$\langle T,J\omega\rangle=(-1)^p\langle T,\omega\rangle$
+(\Cref{def:ch14-symmetric-current}), whereas an antisymmetric $\omega$
+satisfies $J\omega=(-1)^{p+1}\omega$; so $T$ annihilates every antisymmetric
+form, and we may assume $\omega$ symmetric.  We claim that
+$\omega$ is a difference of two positive compactly supported smooth forms.
+Cover $\Supp\omega$ by finitely many chart domains, choose a subordinate
+partition of unity $(\rho_i)$, and apply
+\Cref{lem:ch14-eta-dominates} on each chart: with
+$\Omega_i=\rho_if_{i,\trop}^*\eta_i^{p}$, which is strongly positive and
+compactly supported, and with $c_i$ large enough,
+$\rho_i\omega+c_i\Omega_i$ is positive.  Summing over $i$,
+\[
+ \omega=\Bigl(\omega+\sum_ic_i\Omega_i\Bigr)-\sum_ic_i\Omega_i
+\]
+exhibits $\omega$ as a difference of two positive compactly supported forms,
+the subtrahend being even strongly positive.  Applying $T$ and $-T$, each term pairs
+nonnegatively with $T$ and with $-T$, so $\langle T,\omega\rangle=0$.
+
+(2)  Take $X=(\mathbf G_{m,K}^4)^{\An}$ with $K$ nontrivially valued,
+$p=2$, and $T=[\gamma]$ where $\gamma$ is the weakly null superform of
+\Cref{ex:ch14-weakly-null} below, pulled back along the tropicalization map.
+By that example, $\gamma$ pairs to zero with every strongly positive
+superform of complementary bidegree, so both $[\gamma]$ and $-[\gamma]$ are
+weakly positive; and $\gamma\neq0$, so $[\gamma]\neq0$ by
+\Cref{rem:ch14-form-injectivity}.
+\end{proof}
+
+\begin{warning}{Two hierarchies, one word}
+\Cref{prop:ch14-positive-and-negative} says that the positive cone of
+currents is \emph{salient}---it contains no line---while the weakly positive
+cone is not.  The failure of saliency is precisely the phenomenon that
+Berndtsson calls a \emph{weakly null direction}
+(\Cref{sec:ch14-convex-bt}), and it is the reason why his convex
+Bedford--Taylor products require an extra hypothesis in the weakly positive
+case.  It is also the reason why ``$T\ge0$ and $T\le0$ imply $T=0$'' is a
+theorem here and not a triviality.
+\end{warning}
+
+\begin{example}[Convex corners]
+\label{ex:ch14-convex-corner-restated}
+On the tropical line let $u(t)=\max\{0,t\}$.  Distributionally,
+\[
+                     \dprimeddprime[u]=\delta_0.
+\]
+Indeed, for a test function $\varphi$,
+\[
+ \langle\dprimeddprime[u],\varphi\rangle
+ =\int_{\mathbf R}\max(0,t)\varphi''(t)\,\rd t=\varphi(0).
+\]
+The two integrations by parts have no sign change in the current convention.
+This is the local model for curvature concentrated on a skeleton.
+\end{example}
+
+The computation deserves to be written once with every step visible, because
+the same two integrations by parts recur in
+\Cref{chap:cld-poincare-lelong,chap:cld-bedford-taylor}.  Here $n=1$, the
+current $[u]$ has bidegree $(0,0)$, and
+$\dprimeddprime[u]$ has bidegree $(1,1)$, so it pairs with test functions.
+By \Cref{prop:current-differential-calculus},
+\[
+ \langle\dprimeddprime[u],\varphi\rangle
+ =\langle[u],\dprimeddprime\varphi\rangle
+ =\int_{\mathbf R}u(t)\,\varphi''(t)\,\rd t,
+\]
+using \eqref{eq:appJ-real-hessian} to write
+$\dprimeddprime\varphi=\varphi''\,\dprime t\wedge\ddprime t$ and
+\Cref{def:ch11-lattice-measure} to evaluate the integral of a top-degree
+superform against the standard lattice on $\mathbf R$.  Two integrations by
+parts, legitimate because $\varphi$ has compact support and $u$ is Lipschitz
+with $u'=\one_{[0,\infty)}$ almost everywhere, give
+\[
+ \int_{\mathbf R}u\varphi''
+ =-\int_{\mathbf R}u'\varphi'
+ =-\int_0^{\infty}\varphi'
+ =\varphi(0).
+\]
+No sign is created: the first parts formula carries $-1$, and the second is
+the fundamental theorem of calculus, which carries the second $-1$.  The
+answer is a positive measure, in accordance with the convexity of $u$ and
+with \Cref{thm:convex-ddc-positive}.
+
+\section{Worked examples on the Berkovich line}
+\label{sec:ch14-line-examples}
+
+Before continuing with the general theory we compute in the smallest
+nontrivial case.  Throughout this section $k$ is algebraically closed and
+\emph{trivially} valued, and
+\[
+ X=\mathbf P^{1,\An}_k .
+\]
+By \Cref{chap:berkovich} and \Cref{chap:skeleta}, $X$ is the compact space
+obtained from the disjoint union
+\[
+ \coprod_{b\in B}\bigl(\{b\}\times[-\infty,0]\bigr),
+ \qquad B=\mathbf P^1(k),
+\]
+by identifying all the points $(b,0)$ to a single point $\eta$, the trivial
+absolute value on $k(\mathbf P^1)$, and topologized so that a set $V$ is open
+if and only if each slice $V_b$ is open in $[-\infty,0]$ and, when
+$\eta\in V$, all but finitely many branches lie entirely in $V$.  We write
+$X_b$ for the branch of index $b$, $x_b=(b,-\infty)$ for its endpoint, which
+is the rigid point $b$, and $t$ for the coordinate on a branch, normalized so
+that $t(\eta)=0$, $t(x_b)=-\infty$, and $t=\log|T-b|$ in a coordinate $T$
+vanishing at $b$.  Note the sign: $t$ is \emph{minus} the tropical coordinate
+$-\log|T-b|$ of \Cref{chap:cld-forms}, chosen so that a branch reads
+$[-\infty,0]$ with the Gauss point at the right-hand end.  Since the metric on
+a branch is $|\rd t|$ either way, no Laplacian sign is affected; a reader who
+prefers the book's default may replace $t$ by $-t$ throughout this section and
+read the branches as $[0,+\infty]$.
+This is a tropical space of level $1$, boundaryless, and its calibration is
+the constant lattice $\mathbf Z$ on each branch.
+
+We record the two structural facts we shall use, both immediate from the
+definitions of \Cref{chap:tropical-spaces} transported by
+\Cref{thm:analytic-is-tropical-space}.
+
+\begin{lemma}
+\label{lem:ch14-star-smooth}
+\begin{enumerate}
+\item A function $f$ on $X$ is smooth if and only if each $f_b:=f|_{X_b}$ is
+  smooth on $[-\infty,0]$ and constant near $-\infty$, all but finitely many
+  $f_b$ are constant on the whole branch, and the slopes at $\eta$ satisfy
+  the harmonicity relation $\sum_bf_b'(0)=0$.  Here $f_b'(0)$ is the
+  derivative in the branch parameter $t$, hence \emph{minus} the slope
+  outgoing from $\eta$; the relation is unaffected by the sign, but the two
+  readings must not be interchanged in a formula that is not a sum to
+  zero.
+\item If $f:U\to\mathbf R^m$ is a tropical chart with $\eta\in U$, then there
+  is a finite $B_1\subset B$ such that $f$ is constant on $X_b\cap U$ for
+  every $b\notin B_1$.
+\item Every compact subset of $X\setminus\{\eta\}$ meets only finitely many
+  branches.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(1) and (2) are the definitions of a smooth function and of a paralinear map
+on the star, read off from the description of its domains: a domain
+containing $\eta$ contains all but finitely many complete branches, and a
+paralinear function on such a domain is required to be constant on all but
+finitely many of them.  The harmonicity relation at $\eta$ is the balancing
+condition of \Cref{def:ch10-weighted-balanced} for the fan with one ray per
+branch, all weights $1$.
+
+(3) Let $K\subset X\setminus\{\eta\}$ be compact.  Its complement is open and
+contains $\eta$, hence contains all but finitely many complete branches; so
+$K$ meets only finitely many branches.
+\end{proof}
+
+\begin{example}[Dirac masses and the Gauss point]
+\label{ex:ch14-line-diracs}
+For any $x\in X$ the evaluation $f\mapsto f(x)$ is a positive linear
+functional on $A_{X,c}^{0,0}$, hence a positive current $\delta_x$ of
+bidimension $(0,0)$ by
+\Cref{prop:ch14-automatic-continuity}\,(1); it is the Radon measure
+$\delta_x$ under the identification of
+\Cref{ex:ch14-forms-and-measures}.  Two features distinguish the endpoints
+from $\eta$.
+
+First, $\delta_{x_b}$ is a weak limit of currents defined by smooth forms.
+Indeed, let $\omega_N$ be the smooth $(1,1)$-form supported in $X_b$ whose
+density with respect to $\dprime t\wedge\ddprime t$ is a fixed bump of mass
+$1$ concentrated near $t=-N$.  For any smooth $f$, part (1) of
+\Cref{lem:ch14-star-smooth} makes $f_b$ constant on
+$[-\infty,-N_f]$ for some $N_f$, so
+$\langle[\omega_N],f\rangle=f_b(-\infty)=f(x_b)$ for $N\ge N_f$; the sequence
+is eventually constant.
+
+Second, $\delta_{x_b}$ is not $\dprimeddprime$ of anything smooth, and it is
+not the restriction of a current of bidimension $(1,1)$: by
+\Cref{cor:ch14-rigid-invisible} the rigid points support no current of
+bidimension $(1,1)$ at all.  There is no contradiction: $\delta_{x_b}$ has
+bidimension $(0,0)$.
+\end{example}
+
+\begin{example}[The Laplacian of a model function]
+\label{ex:ch14-line-model-function}
+Let $b_1,\ldots,b_r\in B$ be distinct and let $c_1,\ldots,c_r>0$.  Define
+$u:X\to\mathbf R$ by $u=0$ outside $X_{b_1}\cup\cdots\cup X_{b_r}$ and, on
+$X_{b_i}$,
+\[
+ u_{b_i}(t)=\max\{-c_i,\,c_it\}
+ \qquad\text{(so }u(\eta)=0,\ u(x_{b_i})=-c_i).
+\]
+Then $u$ is continuous, is a difference of tropically convex functions on
+each branch, and
+\[
+ \dprimeddprime[u]
+ =\sum_{i=1}^rc_i\,\delta_{p_i}
+   -\Bigl(\sum_{i=1}^rc_i\Bigr)\delta_\eta,
+\]
+where $p_i\in X_{b_i}$ is the point with $t=-1$.  Indeed, on each branch the
+computation is that of \Cref{ex:ch14-convex-corner-restated}: a convex corner
+of slope jump $c_i$ at $t=-1$ contributes $c_i\delta_{p_i}$, and at $\eta$
+the outgoing slopes of $u$ are $-c_i$ into the branch $b_i$ and $0$ elsewhere,
+and \Cref{thm:ch11-graph-green}\,(1) together with
+\Cref{lem:ch11-graph-trace} evaluates the atom at a vertex as the sum of the
+outgoing slopes, here $\sum_i(-c_i)$.  The total mass is zero, as it must be for a
+$\dprimeddprime$ of a function on a compact boundaryless space, by
+\Cref{cor:analytic-stokes-green}.
+
+This is the local model of the curvature of a model metric: compare
+\Cref{ex:ch08-p1-tripod} and \eqref{eq:cld-curve-graph-laplacian}.
+\end{example}
+
+\begin{example}[A current with unbounded relative order]
+\label{ex:ch14-star-unbounded-order}
+Suppose $B$ is infinite and fix an injection
+$\mathbf N_{\ge1}\hookrightarrow B$, $k\mapsto b_k$.  Define
+\[
+ \langle T,f\rangle=\sum_{k\ge1}f_{b_k}^{(k)}(-1),
+ \qquad f\in A_{X,c}^{0,0}=C^\infty(X),
+\]
+where $f^{(k)}$ is the $k$-th derivative in the branch coordinate $t$.  Then:
+\begin{enumerate}
+\item the sum has only finitely many nonzero terms, so $T$ is a well-defined
+  linear functional;
+\item $T$ is a current of bidimension $(0,0)$;
+\item $T$ has no global order: for every $m$ there is a test-form stage
+  relative to which $T$ is not of order $\le m$.
+\end{enumerate}
+\end{example}
+
+\begin{proof}
+(1) By \Cref{lem:ch14-star-smooth}\,(1), all but finitely many $f_b$ are
+constant, and a constant function has vanishing derivatives of all positive
+orders.
+
+(2) Let $(\mathscr D,F)$ be a test-form stage.  We claim there is a finite
+$B_0\subset B$ such that every $\omega\in A^{0,0}_{\mathscr D,F}(X)$ is
+constant on $X_b$ for $b\notin B_0$.  If $\eta\notin F$, take for $B_0$ the
+finite set of branches meeting $F$, which is finite by
+\Cref{lem:ch14-star-smooth}\,(3); a form supported in $F$ vanishes on the
+other branches.  If $\eta\in F$, choose a chart $f_j:U_j\to\mathbf R^{m_j}$
+of the covering system $\mathscr D$ with $\eta\in U_j$.  Let $B_1$ be the
+finite exceptional set of \Cref{lem:ch14-star-smooth}\,(2) for $f_j$, and let
+$B_2$ be the finite set of branches not entirely contained in $U_j$; both are
+finite, the second because $U_j$ is an open neighbourhood of $\eta$.  Put
+$B_0=B_1\cup B_2$.  For $b\notin B_0$ the branch $X_b$ lies in $U_j$ and
+$f_j$ is constant on it, so any $\omega$ with
+$\omega|_{U_j}=f_{j,\trop}^*\alpha_j$ is constant on $X_b$.
+
+Set $m=\max\{k:b_k\in B_0\}$, a finite number, with $m=0$ if no $b_k$ lies in
+$B_0$.  Then for $\omega\in A^{0,0}_{\mathscr D,F}(X)$,
+\[
+ |\langle T,\omega\rangle|
+ =\Bigl|\sum_{k:\,b_k\in B_0}\omega_{b_k}^{(k)}(-1)\Bigr|
+ \le\#B_0\cdot\max_{b\in B_0}\|\omega\|_{W_b,m},
+\]
+where $W_b\subset X_b$ is a compact neighbourhood of the point $t=-1$.  By
+\Cref{prop:test-form-continuity-criterion}, $T$ is a current.
+
+(3) Fix $m$ and let $N>m$.  Choose once and for all
+$\chi\in C_c^\infty(\mathbf R)$ with $\Supp\chi\subset[-1,1]$ and
+$\chi^{(N)}(0)=1$; for instance $\chi(u)=u^N\psi(u)/N!$ with $\psi$ a bump
+equal to $1$ near $0$.  For $\lambda\ge2$ put
+\[
+ g_\lambda(t)=\lambda^{-N}\chi\bigl(\lambda(t+1)\bigr),
+\]
+regarded as a function on the branch $X_{b_N}$ and extended by $0$ to the
+rest of $X$.  Each $g_\lambda$ is smooth on $X$: it is supported in
+$\{|t+1|\le1/\lambda\}$, hence away from $\eta$ and away from $-\infty$, so
+the constancy and harmonicity conditions of
+\Cref{lem:ch14-star-smooth}\,(1) hold trivially.  Complete the coordinate
+chart $t$ on the interior of $X_{b_N}$ to a covering system $\mathscr D$ of
+$X$ and take $F=\{|t+1|\le\tfrac12\}$.  All the $g_\lambda$, $\lambda\ge2$,
+lie in the single stage $(\mathscr D,F)$; the larger
+set $\{|t+1|\le1\}$ would contain $\eta$ and is therefore not admissible.
+
+Now $g_\lambda^{(N)}(-1)=\lambda^{-N}\lambda^{N}\chi^{(N)}(0)=1$, so
+$\langle T,g_\lambda\rangle=1$ for every $\lambda$, while for $j\le m<N$
+\[
+ g_\lambda^{(j)}(t)=\lambda^{j-N}\chi^{(j)}\bigl(\lambda(t+1)\bigr),
+ \qquad\text{so}\qquad
+ \|g_\lambda\|_{t(F),m}\le\lambda^{m-N}\|\chi\|_{C^m}
+ \xrightarrow[\lambda\to\infty]{}0 .
+\]
+Hence no bound of the shape \eqref{eq:ch14-order-bound} with this $m$ can
+hold on that datum.  As $m$ was arbitrary, $T$ has no global order.
+\end{proof}
+
+\begin{example}[An order-zero current that is not a measure]
+\label{ex:ch14-star-not-measure}
+Keep $B$ infinite and let $(c_b)_{b\in B}$ be real numbers.  Define
+\[
+ \langle S,f\rangle=\sum_{b\in B}c_b\bigl(f(\eta)-f(x_b)\bigr)
+ =\sum_{b\in B}c_b\bigl(f_b(0)-f_b(-\infty)\bigr).
+\]
+Then $S$ is a current of bidimension $(0,0)$, of order $0$ relative to every
+test-form stage, and $S$ is the current attached to a signed Radon measure if
+and only if $(c_b)$ is summable, in which case
+\[
+ S=\Bigl(\sum_bc_b\Bigr)\delta_\eta-\sum_bc_b\delta_{x_b}.
+\]
+In particular, for $(c_b)$ not summable, $S$ is an order-zero current that is
+not a measure.
+\end{example}
+
+\begin{proof}
+Well-definedness and continuity: by \Cref{lem:ch14-star-smooth}\,(1) all but
+finitely many $f_b$ are constant, and for those
+$f_b(0)-f_b(-\infty)=0$; the argument of
+\Cref{ex:ch14-star-unbounded-order}\,(2) produces, for each test-form stage, a
+finite $B_0$ outside which every admissible $\omega$ is constant on the
+branch, so
+\[
+ |\langle S,\omega\rangle|
+ \le\Bigl(2\sum_{b\in B_0}|c_b|\Bigr)\|\omega\|_{C^0},
+\]
+an order-zero bound with a constant depending on the datum.
+
+Suppose $(c_b)$ is summable.  Then the displayed measure is a finite signed
+Radon measure, and testing it against a smooth $f$ reproduces
+$\langle S,f\rangle$, all sums converging absolutely.
+
+Suppose conversely that $S=[\mu]$ for a signed Radon measure $\mu$ on the
+compact space $X$.  Then there is $C$ with $|\langle S,f\rangle|\le
+C\|f\|_{C^0(X)}$ for every smooth $f$, since $|\mu|(X)<\infty$.  Fix a finite
+$B_0\subset B$.  Choose $\varphi:[-\infty,0]\to[0,1]$ smooth with
+$\varphi\equiv0$ on $[-1,0]$ and $\varphi\equiv1$ on $[-\infty,-2]$, and set
+\[
+ f_b=-\operatorname{sign}(c_b)\,\varphi\quad(b\in B_0),
+ \qquad f_b=0\quad(b\notin B_0).
+\]
+This $f$ is smooth by \Cref{lem:ch14-star-smooth}\,(1): each $f_b$ is smooth
+and constant near $-\infty$, all but finitely many are identically zero, and
+every $f_b$ vanishes identically near $t=0$, so $f(\eta)=0$ and all the
+slopes $f_b'(0)$ vanish, whence the harmonicity relation holds.  Moreover
+$\|f\|_{C^0}\le1$ and $f(x_b)=-\operatorname{sign}(c_b)$ for $b\in B_0$.
+Therefore
+\[
+ \langle S,f\rangle
+ =\sum_{b\in B_0}c_b\bigl(0-(-\operatorname{sign}(c_b))\bigr)
+ =\sum_{b\in B_0}|c_b|\le C .
+\]
+Letting $B_0$ increase gives $\sum_b|c_b|\le C<\infty$.
+\end{proof}
+
+\begin{warning}{Order zero does not mean ``measure coefficients''}
+On a complex manifold, a current of order $0$ is a form whose coefficients
+are Radon measures, by the Riesz representation theorem applied on each
+compact set.  \Cref{ex:ch14-star-not-measure} shows that the corresponding
+statement is \emph{false} on a Berkovich space, even a compact one: the
+constant in the order-zero estimate depends on the stage, and no single
+constant works for the compact space $X$.  The Riesz theorem is not being
+contradicted; its hypothesis, boundedness for one supremum norm on
+$C_c(X)$, simply fails.  This is a first, entirely elementary, instance of
+the phenomena collected in \Cref{sec:ch14-compactness}.
+\end{warning}
+
+\begin{example}[Positive but not strongly positive]
+\label{ex:ch14-positive-not-strong-current}
+Let $K$ be nontrivially valued and let $X=(\mathbf G_{m,K}^4)^{\An}$, whose
+tropicalization map $\trop:X\to\mathbf R^4$ is proper with image all of
+$\mathbf R^4$, calibrated with multiplicity $1$, by
+\Cref{prop:trop-torus-skeleton}.  Let $\omega\in A^{2,2}(\mathbf R^4)$ be the
+constant-coefficient superform
+\[
+ \omega=-\bigl(\dprime x_{12}+\dprime x_{34}\bigr)
+        \wedge\bigl(\ddprime x_{12}+\ddprime x_{34}\bigr)
+\]
+of \Cref{ex:ch09-positive-not-strong}, and set
+$T=[\trop^*\omega]$, a current of bidegree $(2,2)$ and bidimension $(2,2)$
+on $X$.  Then $T$ is positive but not strongly positive.
+\end{example}
+
+\begin{proof}
+$T$ is positive by \Cref{prop:ch14-form-current-cones}, since $\omega$ is
+positive by \Cref{ex:ch09-positive-not-strong} and pullback preserves the
+positive cone (\Cref{prop:ch09-positivity-inclusions}).
+
+Let $\beta\in A^{2,2}(\mathbf R^4)$ be the weakly positive superform of
+\Cref{ex:ch09-weak-not-positive}, for which
+$\omega\wedge\beta=-2\,\tau_4$.  Let $\chi\ge0$ be a smooth compactly
+supported function on $\mathbf R^4$ with $\int_{\mathbf R^4}\chi\,\rd x=1$,
+and put $\alpha=\trop^*(\chi\beta)$.  This is a compactly supported
+weakly positive test form of bidegree $(2,2)$: compact support because
+$\trop$ is proper, weak positivity because pullback preserves
+$\mathrm{WP}_2$ and multiplication by $\chi\ge0$ preserves it.  Now
+\[
+ \langle T,\alpha\rangle
+ =\int_X\trop^*\bigl(\chi\,\omega\wedge\beta\bigr)
+ =-2\int_{\mathbf R^4}\chi\,\rd x=-2<0,
+\]
+the middle equality by \Cref{thm:cld-analytic-integration} and the
+multiplicity-one calibration.  A strongly positive current is nonnegative on
+weakly positive test forms; hence $T$ is not strongly positive.
+\end{proof}
+
+\begin{remark}
+\label{rem:ch14-cones-low-dimension}
+The example uses dimension $4$ and bidegree $(2,2)$ because, by the
+discussion after \Cref{prop:ch09-positivity-inclusions}, the three cones
+coincide for $p\in\{0,1,n-1,n\}$, hence for every $p$ when $n\le3$.  On
+curves and surfaces the distinction between the three positivity notions for
+currents is therefore invisible, which is exactly why it is so often
+mislaid.
+\end{remark}
+
+\section{Two real-geometric incarnations of supercurrents}
+\label{sec:ch14-berndtsson}
+
+The algebra of superforms from \cref{chap:superforms} is not confined to tropical
+geometry.  Two constructions of Berndtsson clarify both its reach and the
+limits of the analogies used in this book.
+
+\subsection{A metric-dependent current attached to a submanifold}
+\label{sec:ch14-berndtsson-submanifold}
+
+Let $E=\mathbf R^N$ carry a Euclidean scalar product, and write
+$\beta=\sum_i \rd x_i\wedge \rd\xi_i$ in an orthonormal coordinate system.  If
+$M\subset E$ is a smooth $m$-manifold of codimension $c$, choose locally an
+orthonormal conormal frame $\nu_1,\ldots,\nu_c$ and let $\nu_i^\#$ be its copy
+in the second exterior factor.  Berndtsson's supercurrent is, up to the
+positive orientation constant fixed by the Berezin convention,
+\[
+ [M]_{\mathrm s}
+ =c_c\,\nu_1\wedge\cdots\wedge\nu_c
+       \wedge\nu_1^\#\wedge\cdots\wedge\nu_c^\#\,*\rd S_M .
+\]
+Here $*\rd S_M$ denotes the ordinary distributional integration density along
+$M$ in the normal-current convention.  An orthogonal change of conormal
+frame leaves the expression unchanged.
+The current is symmetric and positive, and wedging a form with
+$[M]_{\mathrm s}$ discards its normal components
+\cite[\S4]{Ber19Super}.
+
+In the notation of this book, $\nu_i^\#=J\nu_i$ and
+$c_c=(-1)^{c(c-1)/2}$ is the constant \eqref{eq:appJ-cp}, so that
+\[
+ c_c\,\nu_1\wedge\cdots\wedge\nu_c\wedge J\nu_1\wedge\cdots\wedge J\nu_c
+ =\nu_1\wedge J\nu_1\wedge\cdots\wedge\nu_c\wedge J\nu_c
+\]
+by \Cref{lem:ch09-generators}; this is the interlaced normal form, and it is
+manifestly a strongly positive $(c,c)$-superform.  We first make the pairing
+explicit; the computation is elementary and is what makes the comparison of
+\Cref{prop:ch14-berndtsson-vs-tropical} possible.
+
+\begin{lemma}
+\label{lem:ch14-berndtsson-pairing}
+Let $\alpha$ be a smooth compactly supported $(m,m)$-superform on $E$.  At a
+point $x\in M$, let $e_1,\ldots,e_m$ be an orthonormal basis of $T_xM$ and
+complete it by normals $e_{m+1},\ldots,e_N$; write $\theta_1,\ldots,\theta_N$
+for the dual coframe, so that $\nu_i=\theta_{m+i}$.  Let $a(x)$ be defined by
+\[
+ i^*\alpha\bigr|_x
+ =a(x)\,\dprime\theta_1\wedge\ddprime\theta_1\wedge\cdots
+        \wedge\dprime\theta_m\wedge\ddprime\theta_m ,
+\]
+that is, $a$ is the density of the restriction $i^*\alpha$ with respect to
+the Riemannian top orientation of $M$.  Then
+\[
+ \bigl\langle[M]_{\mathrm s},\alpha\bigr\rangle
+ =\int_Ma\,\rd S_M .
+\]
+In particular $[M]_{\mathrm s}$ is the \emph{Riemannian} integration current
+of $M$: it is symmetric, strongly positive, of order $0$, and its value on
+$\alpha$ depends only on the tangential part of $\alpha$ along $M$.
+\end{lemma}
+
+\begin{proof}
+Fix $x$ and expand
+$\alpha=\sum_{|I|=|J|=m}\alpha_{IJ}\,\dprime\theta_I\wedge\ddprime\theta_J$
+in the coframe.  The superform
+$\prod_{i=1}^{c}\bigl(\nu_i\wedge J\nu_i\bigr)
+=\prod_{i>m}\bigl(\dprime\theta_i\wedge\ddprime\theta_i\bigr)$
+contains every index $>m$ in both blocks, so in the product with $\alpha$
+only the term $I=J=\{1,\ldots,m\}$ survives.  Writing that term in interlaced
+form by \Cref{lem:ch09-generators},
+\[
+ \alpha_{[m][m]}\,\dprime\theta_{[m]}\wedge\ddprime\theta_{[m]}
+ =a\prod_{i\le m}\bigl(\dprime\theta_i\wedge\ddprime\theta_i\bigr),
+ \qquad a=c_m\alpha_{[m][m]},
+\]
+we obtain, since each factor $\dprime\theta_i\wedge\ddprime\theta_i$ has even
+total degree and therefore commutes with everything
+(\Cref{prop:ch09-wedge-signs}),
+\[
+ \Bigl(\prod_{i>m}\dprime\theta_i\wedge\ddprime\theta_i\Bigr)\wedge\alpha
+ =a\prod_{i=1}^{N}\bigl(\dprime\theta_i\wedge\ddprime\theta_i\bigr)
+ =a\,\tau_N,
+\]
+with $\tau_N$ the positive top orientation
+\eqref{eq:appJ-lagerberg-orientation}.  Integrating the density
+$a$ against $\rd S_M$ gives the formula.  For symmetry, note that $J$ negates
+each factor $\dprime\theta_i\wedge\ddprime\theta_i$, hence multiplies the
+normal factor $\prod_{i>m}$ by $(-1)^{N-m}$ and $\tau_N$ by $(-1)^N$;
+applying $J$ to $\prod_{i>m}(\dprime\theta_i\wedge\ddprime\theta_i)\wedge
+J\alpha$ therefore gives $a(J\alpha)=(-1)^ma(\alpha)$, which is
+\Cref{def:ch14-symmetric-current} in bidimension $(m,m)$; strong positivity
+and order $0$ follow because the pairing is the integral of $a$, which is
+nonnegative whenever $\alpha$ is weakly positive---by
+\Cref{thm:ch09-positivity-duality} the tangential density of a weakly
+positive form against a strongly positive one is nonnegative---and bounded
+by $\|\alpha\|_{C^0}$ times the volume of $M\cap\Supp\alpha$.
+\end{proof}
+
+\begin{proposition}
+\label{prop:ch14-berndtsson-metric-dependence}
+Let $M\subset E$ be a smooth $m$-submanifold and let $g$ denote the ambient
+scalar product used in the construction.
+\begin{enumerate}
+\item Replacing $g$ by $\lambda^2g$ for a constant $\lambda>0$ replaces
+  $[M]_{\mathrm s}$ by $\lambda^{-m}[M]_{\mathrm s}$.
+\item More generally, let $A\in\operatorname{GL}(N,\mathbf R)$ and let
+  $g_A(u,v)=g(Au,Av)$.  Then, for $M$ a linear subspace,
+  \[
+   [M]_{\mathrm s}^{g_A}
+   =\bigl|\!\det(A|_M)\bigr|^{-1}\,[M]_{\mathrm s}^{g},
+  \]
+  where $\det(A|_M)$ is computed with respect to $g$-orthonormal bases of $M$
+  and of $AM$; in particular $[M]_{\mathrm s}$ is unchanged if and only if
+  $A$ preserves the $m$-dimensional volume of $M$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+By \Cref{lem:ch14-berndtsson-pairing}, $[M]_{\mathrm s}$ is determined by two
+pieces of metric data: the Riemannian volume $\rd S_M$, and the Riemannian
+top orientation of $M$ used to define the density $a$.  Under
+$g\mapsto\lambda^2g$ the volume scales by $\lambda^{m}$, while a
+$g$-orthonormal basis of $T_xM$ becomes $\lambda^{-1}$ times a
+$\lambda^2g$-orthonormal one; hence the coframe scales by $\lambda$, the top
+orientation $\prod_{i\le m}(\dprime\theta_i\wedge\ddprime\theta_i)$ scales by
+$\lambda^{2m}$, and therefore $a$ scales by $\lambda^{-2m}$.  The product
+$a\,\rd S_M$ scales by $\lambda^{m}\lambda^{-2m}=\lambda^{-m}$, which is (1).
+
+For (2) the same bookkeeping applies with the scalar factor $\lambda$
+replaced by the linear map $A|_M$: a $g_A$-orthonormal basis of $M$ is the
+$A$-preimage of a $g$-orthonormal basis of $AM$, the $g_A$-volume of $M$ is
+$|\det(A|_M)|$ times the $g$-volume, and the top orientation acquires
+$|\det(A|_M)|^{2}$.  The two effects combine to
+$|\det(A|_M)|^{1-2}=|\det(A|_M)|^{-1}$.
+\end{proof}
+
+\begin{warning}{$[M]_{\mathrm s}$ is not a metric-free invariant of $M$}
+\Cref{prop:ch14-berndtsson-metric-dependence} shows that
+$[M]_{\mathrm s}$ scales nontrivially under a homothety of the ambient
+metric, whereas the calibrated tropical current $\delta_M$ of a rational
+subspace, being defined by lattice measures, does not move at all.  Any
+statement identifying the two therefore carries a hidden normalization; the
+identification holds only in the unimodular situation described in
+\Cref{prop:ch14-berndtsson-vs-tropical}.
+\end{warning}
+
+\subsubsection{Minimality}
+
+This construction remembers the scalar product twice: it selects
+orthonormal conormals and the Riemannian density $\rd S_M$.  Its derivative is
+controlled by the second fundamental form.  If $\vec H$ is the mean-curvature
+vector in Berndtsson's sign convention, his traced identity gives
+\[
+       \rd\bigl([M]_{\mathrm s}\wedge\beta^{m-1}\bigr)=0
+       \quad\Longleftrightarrow\quad \vec H=0.
+\]
+Thus the traced supercurrent is closed exactly when $M$ is minimal
+\cite[Corollary~5.2]{Ber19Super}.  The untraced $[M]_{\mathrm s}$ is generally
+not closed; its differential retains the full second fundamental form.  The
+paper also derives a variation formula for its trace under mean-curvature
+flow.  We use the corrected 2019 version: the proof in Section~8 of the first
+arXiv version was replaced, while the main results were unchanged.
+
+We do not reprove the identification of $\rd([M]_{\mathrm s}\wedge\beta^{m-1})$
+with the first-variation functional; that is the content of the citation just
+given.  What we do prove is the classical statement to which it reduces, so
+that the reader can see exactly which geometric fact is being asserted.
+Recall that for $x\in M$ and an orthonormal tangent frame
+$e_1,\ldots,e_m$ the second fundamental form is
+$\mathrm{II}(u,v)=(\nabla_uv)^{\perp}$ and the \emph{mean-curvature vector}
+is its unnormalized trace,
+\[
+ \vec H=\sum_{i=1}^m\mathrm{II}(e_i,e_i)
+ =\sum_{i=1}^m\bigl(\nabla_{e_i}e_i\bigr)^{\perp},
+\]
+a normal field independent of the frame.  The manifold $M$ is \emph{minimal}
+if $\vec H\equiv0$.
+
+\begin{proposition}
+\label{prop:ch14-first-variation}
+Let $M\subset\mathbf R^N$ be a smooth properly embedded $m$-submanifold
+without boundary and let $Y$ be a smooth compactly supported vector field on
+$\mathbf R^N$.  Then
+\[
+ \int_M\operatorname{div}_MY\,\rd S_M
+ =-\int_M\langle Y,\vec H\rangle\,\rd S_M ,
+\]
+where $\operatorname{div}_MY=\sum_{i=1}^m\langle\nabla_{e_i}Y,e_i\rangle$.
+Consequently $\int_M\operatorname{div}_MY\,\rd S_M=0$ for every such $Y$ if
+and only if $M$ is minimal.
+\end{proposition}
+
+\begin{proof}
+Decompose $Y=Y^{\mathsf T}+Y^{\perp}$ into its tangential and normal parts
+along $M$; both are smooth and compactly supported on $M$.  Then
+$\operatorname{div}_MY=\operatorname{div}_MY^{\mathsf T}
++\operatorname{div}_MY^{\perp}$.
+
+For the tangential part, $\operatorname{div}_MY^{\mathsf T}$ is the intrinsic
+Riemannian divergence of a compactly supported vector field on the
+boundaryless manifold $M$, so
+$\int_M\operatorname{div}_MY^{\mathsf T}\rd S_M=0$ by the divergence theorem
+on $M$.
+
+For the normal part, differentiate the identity
+$\langle Y^{\perp},e_i\rangle=0$, valid along $M$, in the direction $e_i$:
+\[
+ \langle\nabla_{e_i}Y^{\perp},e_i\rangle
+ =-\langle Y^{\perp},\nabla_{e_i}e_i\rangle
+ =-\bigl\langle Y^{\perp},(\nabla_{e_i}e_i)^{\perp}\bigr\rangle .
+\]
+Summing over $i$ gives
+$\operatorname{div}_MY^{\perp}=-\langle Y^{\perp},\vec H\rangle
+=-\langle Y,\vec H\rangle$, the last equality because $\vec H$ is normal.
+Integrating proves the identity.
+
+If $\vec H\equiv0$ the integral vanishes for all $Y$.  Conversely, if
+$\vec H(x)\ne0$ for some $x$, choose $Y$ supported near $x$ with
+$Y=\chi\vec H$ for a nonnegative bump $\chi$ equal to $1$ at $x$ (extending
+$\vec H$ smoothly to a neighbourhood in $\mathbf R^N$); then
+$-\int_M\chi|\vec H|^2\rd S_M<0$.
+\end{proof}
+
+\begin{remark}[What is imported and what is not]
+\label{rem:ch14-berndtsson-import}
+\Cref{prop:ch14-first-variation} is a statement about $M$ alone.  The
+supercurrent enters through \cite[Corollary~5.2]{Ber19Super}, which
+identifies $\langle \rd([M]_{\mathrm s}\wedge\beta^{m-1}),\cdot\rangle$, tested
+against the forms determined by a compactly supported vector field $Y$, with
+$\int_M\operatorname{div}_MY\,\rd S_M$ up to a positive constant.  Given
+that identification, \Cref{prop:ch14-first-variation} is exactly the
+equivalence displayed above.  We have separated the two halves because only
+the second is specific to the superform formalism, and because the sign of
+$\vec H$ is a convention that must be matched before the equivalence can be
+used quantitatively; ours is the one for which the sphere of radius $R$ in
+$\mathbf R^N$ has $\vec H$ pointing inward with $|\vec H|=(N-1)/R$.
+\end{remark}
+
+\subsubsection{Comparison with the calibrated tropical current}
+
+This is not the calibrated tropical integration current.  A tropical cycle
+uses integral tangent lattices, multiplicities, and balancing; no Euclidean
+scalar product is part of its definition, and balancing supplies closedness.
+Berndtsson's $[M]_{\mathrm s}$ instead applies to arbitrary smooth real
+submanifolds, depends on the chosen metric, and measures failure of
+minimality through its derivative.  The common language is the double
+exterior algebra, not an identification of the two currents.
+
+The relation, where both objects exist, can be written down exactly.  Recall
+from \Cref{def:ch11-lattice-measure} that a rational subspace
+$M\subset\mathbf R^N=N_{\mathbf R}$ with saturated tangent lattice
+$N_M=N\cap M$ carries the lattice measure $\omega_M$, normalized so that a
+lattice parallelotope has measure $1$, and that the associated integration
+current is
+\[
+ \langle\delta_M,\alpha\rangle
+ =\int_M\bigl(\text{density of }i^*\alpha
+   \text{ w.r.t.\ the lattice top orientation}\bigr)\rd\omega_M .
+\]
+
+\begin{proposition}
+\label{prop:ch14-berndtsson-vs-tropical}
+Let $M\subset\mathbf R^N$ be a rational linear subspace of dimension $m$,
+with saturated tangent lattice $N_M$, and let $g$ be a Euclidean scalar
+product on $\mathbf R^N$.  Write
+$\operatorname{covol}_g(N_M)$ for the $g$-volume of a fundamental
+parallelotope of $N_M$ inside $M$.  Then
+\[
+ [M]_{\mathrm s}=\operatorname{covol}_g(N_M)^{-1}\,\delta_M .
+\]
+In particular the two currents agree if and only if $N_M$ is unimodular for
+$g$, that is, has covolume $1$; and if $M$ is not rational, then $\delta_M$
+is not defined at all while $[M]_{\mathrm s}$ is.
+\end{proposition}
+
+\begin{proof}
+Fix a $g$-orthonormal basis $e_1,\ldots,e_m$ of $M$ and a lattice basis
+$v_1,\ldots,v_m$ of $N_M$, and write $v_j=\sum_iA_{ij}e_i$, so that
+$|\det A|=\operatorname{covol}_g(N_M)$.  Let $\theta_i$ and $\mu_j$ be the
+dual coframes of $M^*$.  Then $\mu=(A^{-1})^{\mathsf T}\theta$, and since a
+change of coframe with matrix $C$ multiplies a top-degree $(m,m)$-superform
+by $(\det C)^2$---each of the two exterior blocks contributing one
+factor---we get
+\[
+ \prod_{j\le m}\bigl(\dprime\mu_j\wedge\ddprime\mu_j\bigr)
+ =(\det A)^{-2}\prod_{i\le m}
+   \bigl(\dprime\theta_i\wedge\ddprime\theta_i\bigr).
+\]
+Consequently, if $i^*\alpha=a\prod_i(\dprime\theta_i\wedge\ddprime\theta_i)$
+is the Riemannian expression of \Cref{lem:ch14-berndtsson-pairing}, then its
+lattice expression is
+$i^*\alpha=b\prod_j(\dprime\mu_j\wedge\ddprime\mu_j)$ with
+$b=(\det A)^{2}a$.  On the other hand
+$\omega_M=|\det A|^{-1}\rd S_M$, because the lattice parallelotope has
+$g$-volume $|\det A|$ and lattice measure $1$.  Therefore
+\[
+ \begin{aligned}
+ \langle\delta_M,\alpha\rangle
+ &=\int_Mb\,\rd\omega_M
+   =\int_M(\det A)^2a\,|\det A|^{-1}\rd S_M\\
+ &=|\det A|\int_Ma\,\rd S_M
+   =\operatorname{covol}_g(N_M)\,\langle[M]_{\mathrm s},\alpha\rangle,
+ \end{aligned}
+\]
+using \Cref{lem:ch14-berndtsson-pairing} for the last equality.
+\end{proof}
+
+\begin{example}[The diagonal line: the two currents differ by $\sqrt2$]
+\label{ex:ch14-diagonal-line}
+Take $N=2$ with the standard lattice $\mathbf Z^2$ and standard scalar
+product, and let $M=\mathbf R\cdot(1,1)$, a tropical cycle of dimension $1$
+and weight $1$.  Its saturated tangent lattice is $\mathbf Z\cdot(1,1)$, of
+covolume $\sqrt2$.  We verify $[M]_{\mathrm s}=\tfrac1{\sqrt2}\delta_M$
+directly.
+
+The unit conormal is $\nu=(\dprime x_1-\dprime x_2)/\sqrt2$, so
+\[
+ [M]_{\mathrm s}
+ =\tfrac12\bigl(\dprime x_1-\dprime x_2\bigr)
+   \wedge\bigl(\ddprime x_1-\ddprime x_2\bigr)\otimes\rd S_M .
+\]
+Let $\alpha=a\,\dprime x_1\wedge\ddprime x_1$.  In the expansion of
+$\nu\wedge J\nu$, every term containing $\dprime x_1$ or $\ddprime x_1$ dies
+against $\alpha$, leaving
+\[
+ \nu\wedge J\nu\wedge\alpha
+ =\tfrac a2\,\dprime x_2\wedge\ddprime x_2\wedge
+   \dprime x_1\wedge\ddprime x_1
+ =\tfrac a2\,\tau_2 ,
+\]
+the reordering being free because the blocks have even total degree.
+Parametrizing $M$ by $t\mapsto(t,t)$ we have $\rd S_M=\sqrt2\,\rd t$, so
+\[
+ \langle[M]_{\mathrm s},\alpha\rangle
+ =\int_{\mathbf R}\tfrac{a(t,t)}2\sqrt2\,\rd t
+ =\tfrac1{\sqrt2}\int_{\mathbf R}a(t,t)\,\rd t .
+\]
+On the other hand $i^*\alpha=a\,\dprime t\wedge\ddprime t$ and the lattice
+measure is $\rd t$, because $t$ increases by $1$ across the lattice
+generator $(1,1)$; hence
+$\langle\delta_M,\alpha\rangle=\int a(t,t)\rd t$.  The ratio is
+$1/\sqrt2=\operatorname{covol}(\mathbf Z(1,1))^{-1}$, as predicted.  The same
+computation with $M=\mathbf R\cdot(1,0)$ gives ratio $1$: there the lattice
+is unimodular and the two currents coincide.
+
+Finally, let $M'=\mathbf R\cdot(1,\sqrt2)$.  Then $[M']_{\mathrm s}$ is a
+perfectly good positive closed supercurrent of bidegree $(1,1)$ on
+$\mathbf R^2$, while $M'$ carries no tropical cycle structure whatsoever: it
+has no nonzero rational tangent vector, so $N\cap M'=0$ and
+\Cref{def:ch11-lattice-measure} produces no measure.  No amount of
+renormalization relates the two.
+\end{example}
+
+\begin{remark}[Why closedness is not the same phenomenon]
+\label{rem:ch14-closedness-two-reasons}
+Both $\delta_M$ and $[M]_{\mathrm s}$ are closed when $M$ is a linear
+subspace, but for different reasons.  For $\delta_M$ closedness is
+\Cref{thm:ch11-balancing-iff-stokes}: a single cell has no interior
+codimension-one face, and a balanced complex has cancelling ones.  For
+$[M]_{\mathrm s}$ it is \Cref{prop:ch14-first-variation}: a linear subspace
+is totally geodesic, hence minimal.  For a curved $M$ the second reason
+fails while the first is not even available, and for an irrational
+polyhedral complex the first fails while the second may hold.  The two
+notions of ``closed integration current'' are therefore genuinely different
+theorems about the same word.
+\end{remark}
+
+\subsection{Convex Bedford--Taylor products and homogeneous currents}
+\label{sec:ch14-convex-bt}
+
+The convex theory of \cite{Ber26Convex} sharpens a point already visible in
+\Cref{prop:current-positivity-calculus}.  In intermediate
+bidegrees there are nonzero forms that are both weakly positive and weakly
+negative; Berndtsson calls them \emph{weakly null}.  Consequently weak
+positivity alone does not control every coefficient.  In that paper a form
+is called \emph{strong} when it lies in the linear span of the strongly
+positive cone.  This use of ``strong'' is linear-algebraic and should not be
+confused with ``strongly positive.''
+
+\subsubsection{Weakly null directions, explicitly}
+
+\begin{definition}[Weakly null]
+\label{def:ch14-weakly-null}
+\index{weakly null form}\index{form!weakly null}
+A symmetric superform $\gamma\in A^{p,p}(V)$ is \emph{weakly null} if both
+$\gamma$ and $-\gamma$ are weakly positive, that is, if
+$\gamma\wedge\beta=0$ for every $\beta\in\mathrm{SP}_{n-p}(V)$.  A symmetric
+current $T$ of bidimension $(p,p)$ is weakly null if both $T$ and $-T$ are
+weakly positive.
+\end{definition}
+
+By \Cref{prop:ch09-positivity-dictionary}\,(3) and
+\Cref{thm:ch09-positivity-duality}, $\gamma$ is weakly null exactly when
+$w^{\mathsf T}M(\gamma)w=0$ for every decomposable $w\in\Gamma_p$.  The
+smallest instance is again $n=4$, $p=2$, and it is produced by the Pl\"ucker
+quadratic form.
+
+\begin{example}[A nonzero weakly null $(2,2)$-form on $\mathbf R^4$]
+\label{ex:ch14-weakly-null}
+Let $V=\mathbf R^4$, $p=2$, and let
+\[
+ P(w)=w_{12}w_{34}-w_{13}w_{24}+w_{14}w_{23}
+\]
+be the Pl\"ucker form of \Cref{ex:ch09-weak-not-positive}, with symmetric
+matrix $\widehat P$, so that $w^{\mathsf T}\widehat Pw=P(w)$.  Define
+$\gamma\in A^{2,2}(V)$ by $M(\gamma)=\widehat P$, that is,
+\[
+\begin{aligned}
+ \gamma=-\tfrac12\Bigl[
+  &\bigl(\dprime x_{12}\wedge\ddprime x_{34}
+        +\dprime x_{34}\wedge\ddprime x_{12}\bigr)
+  -\bigl(\dprime x_{13}\wedge\ddprime x_{24}
+        +\dprime x_{24}\wedge\ddprime x_{13}\bigr)\\
+  &+\bigl(\dprime x_{14}\wedge\ddprime x_{23}
+        +\dprime x_{23}\wedge\ddprime x_{14}\bigr)\Bigr],
+\end{aligned}
+\]
+the overall factor being $c_2=-1$.  Then $\gamma\neq0$ and $\gamma$ is weakly
+null.  Moreover, in the notation of \Cref{ex:ch09-weak-not-positive}, the
+weakly positive form there is $\beta=\delta_{\mathrm{Id}}-4\gamma$, where
+$M(\delta_{\mathrm{Id}})=\mathrm{Id}$.
+\end{example}
+
+\begin{proof}
+$\gamma\ne0$ because $\widehat P\ne0$ and $M$ is a linear isomorphism.  If
+$w\in\Gamma_2$ is decomposable, say $w=\eta_1\wedge\eta_2$, then
+$w\wedge w=0$; by the computation of \Cref{ex:ch09-weak-not-positive},
+$w\wedge w=2P(w)\lambda$, so $P(w)=0$, that is,
+$w^{\mathsf T}M(\gamma)w=0$.  By
+\Cref{prop:ch09-positivity-dictionary}\,(3) both $\gamma$ and $-\gamma$ are
+weakly positive.  The last assertion is the identity
+$M(\beta)=\mathrm{Id}-4\widehat P$ recorded in
+\Cref{ex:ch09-weak-not-positive}.
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch14-sp-not-spanning}
+For $V=\mathbf R^4$ and $p=2$, the linear span of $\mathrm{SP}_2(V)$ is a
+proper subspace of the space of symmetric $(2,2)$-forms; equivalently,
+$\mathrm{SP}_2(V)$ has empty interior there.  The same holds for every
+$n\ge4$ and $2\le p\le n-2$.
+\end{corollary}
+
+\begin{proof}
+For $v\in\Gamma_2$ we have
+$\langle M(\gamma),vv^{\mathsf T}\rangle=v^{\mathsf T}M(\gamma)v=0$, so the
+nonzero symmetric matrix $M(\gamma)$ is orthogonal, for the trace pairing, to
+every generator of $M(\mathrm{SP}_2(V))$ as described in
+\Cref{prop:ch09-positivity-dictionary}\,(2), hence to its span.  For general
+$n$ and $p$, embed $\mathbf R^4$ as the span of four of the coordinates and
+wedge $\gamma$ with a strongly positive form in $p-2$ of the remaining
+coordinates; the resulting form is again weakly null by
+\Cref{prop:ch09-positivity-products}\,(3) applied to $\pm\gamma$.
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch14-weakly-null-currents}
+Let $K$ be nontrivially valued and $X=(\mathbf G_{m,K}^4)^{\An}$.  The
+current $[\trop^*\gamma]$ of bidegree $(2,2)$ is nonzero and weakly null.  By
+contrast, by \Cref{prop:ch14-positive-and-negative}\,(1), no nonzero current
+is both positive and negative.
+\end{corollary}
+
+\begin{proof}
+Weak nullity follows from \Cref{prop:ch14-form-current-cones} applied to
+$\pm\trop^*\gamma$, both of which are weakly positive by
+\Cref{ex:ch14-weakly-null} and \Cref{prop:ch09-positivity-inclusions}.
+Nonvanishing is \Cref{rem:ch14-form-injectivity}.
+\end{proof}
+
+\subsubsection{The convex Bedford--Taylor product}
+
+For finite convex functions $\phi_i$ on a Euclidean domain, Berndtsson
+constructs
+\[
+       \rd\rd^\#\phi_1\wedge\cdots\wedge \rd\rd^\#\phi_q\wedge\Omega
+\]
+when $\Omega$ is closed and either positive, or weakly positive and strong.
+The product remains in the corresponding cone and is jointly continuous for
+local uniform convergence of the convex potentials and weak convergence of
+$\Omega$ \cite[Theorem~4.2]{Ber26Convex}.  The strong hypothesis in the
+weakly positive case annihilates the weakly-null directions.  This is a
+second reason not to assert that arbitrary positive-looking intermediate
+forms may always be wedged while preserving positivity.
+
+It is worth isolating the logical shape of that theorem, because the same
+shape recurs in \Cref{chap:cld-bedford-taylor}.
+
+\refstepcounter{theorem}\label{thm:ch14-convex-bt-imported}
+\begin{quote}
+\textbf{Foundational input \thetheorem\ (Berndtsson's convex
+Bedford--Taylor product; source boundary).}
+Let $U\subset\mathbf R^N$ be open and convex, let
+$\phi_1,\ldots,\phi_q$ be finite convex functions on $U$, and let $\Omega$ be
+a closed supercurrent of some bidegree $(a,a)$ with $a+q\le N$ on $U$, which
+is either
+positive, or weakly positive and strong in the sense above.  Then the product
+\[
+ \dprimeddprime\phi_1\wedge\cdots\wedge\dprimeddprime\phi_q\wedge\Omega
+\]
+is defined as the limit of the corresponding products for smooth convex
+regularizations of the $\phi_i$; it is independent of the regularizations, it
+lies in the same cone as $\Omega$, it is closed, and it is jointly continuous
+for local uniform convergence of the $\phi_i$ and weak convergence of
+$\Omega$.  This is \cite[Theorem~4.2]{Ber26Convex}, translated into the
+present conventions by \Cref{rem:ch14-convention-firewall}.  This entire
+statement, including existence, independence, positivity, closedness, and
+joint continuity, is imported from the cited theorem; no part of its proof
+is claimed here.  It is one of the three foundational inputs listed in
+\Cref{sec:ch14-prerequisites}.
+\end{quote}
+
+What we can say without that input is why the hypothesis on $\Omega$ cannot
+simply be ``weakly positive''.
+
+\begin{proposition}
+\label{prop:ch14-why-strong}
+Let $\Omega$ be weakly null and nonzero, as in \Cref{ex:ch14-weakly-null}.
+Then $\Omega$ is weakly positive, the wedge of $\Omega$ with any strongly
+positive form of complementary bidegree is zero, and hence no
+inequality of the shape
+\[
+ \bigl|\langle\Omega,\alpha\rangle\bigr|
+ \le C\,\langle\Omega,\Theta\rangle\,\|\alpha\|_{C^0}
+\]
+with $\Theta$ strongly positive can control $\Omega$: the right-hand side
+vanishes identically while the left-hand side does not.  Consequently the
+mass estimates that drive the Bedford--Taylor construction---all of which
+compare a product against a fixed strongly positive form---carry no
+information for a weakly null $\Omega$, and the construction must exclude
+those directions by hypothesis.
+\end{proposition}
+
+\begin{proof}
+By \Cref{def:ch14-weakly-null} the pairing of $\Omega$ with any strongly
+positive form of complementary bidegree is zero, so
+$\langle\Omega,\Theta\rangle=0$ for every strongly positive $\Theta$.  On the
+other hand $\Omega\ne0$, so by \Cref{thm:ch09-positivity-duality} there is a
+symmetric $\alpha$ with $\langle\Omega,\alpha\rangle\ne0$; such an $\alpha$
+necessarily fails to be strongly positive, and indeed fails to lie in the
+span of the strongly positive cone by \Cref{cor:ch14-sp-not-spanning}.
+\end{proof}
+
+\subsubsection{Strongly homogeneous currents}
+
+For $q=N$ and $\Omega=1$, the measure
+$(\rd\rd^\#\phi)^N/N!$ agrees, with the Euclidean volume normalization, with the
+Alexandrov Monge--Amp\`ere measure defined by the subgradient image.  If
+$h_K$ is the support function of a convex body, the currents $\rd\rd^\#h_K$ are
+strongly homogeneous: they are closed, annihilated by the appropriate radial contraction, and
+homogeneous of degree one under $s_t^*$.  Mixed products
+of such currents encode mixed volumes.  The resulting bilinear form has the
+Lorentzian signature behind the Alexandrov--Fenchel inequality
+\cite[\S\S5--6 and 10]{Ber26Convex}.  This is the real-convex counterpart of
+the toric dictionary in \Cref{sec:toric-convex}; \Cref{chap:cld-bedford-taylor}
+gives the local CLD product, while the convexity appendix returns to support
+functions and mixed volumes.
+
+The appendix treats support functions, mixed volumes, and the identity
+\eqref{eq:appD-current-mixed-volume} in detail; see
+\Cref{sec:appD-supercurrents} and
+\Cref{thm:appD-support-current-mixed-volume}.  Here we prove only the two
+current-theoretic statements that the appendix records as
+\eqref{eq:appD-strong-homogeneity}, because they are statements about
+currents and their proofs belong in this chapter.
+
+We first extend the contraction operators of \Cref{def:ch09-contraction} to
+currents.  Let $E$ denote the Euler, or radial, vector field on
+$V=\mathbf R^N$, so $E(x)=x$; for a superform $\alpha$ put
+$(\iota'_E\alpha)(x)=\iota'_{x}\bigl(\alpha(x)\bigr)$, and similarly for
+$\iota''_E$.  These are $\mathbf R$-linear operators
+$A^{p,q}\to A^{p-1,q}$, respectively $A^{p,q}\to A^{p,q-1}$, continuous for
+each $C^m$ seminorm on a compact set, since their coefficients are
+polynomials of degree $1$ in $x$.
+
+\begin{definition}[Radial contraction of a current]
+\label{def:ch14-radial-contraction}
+For $T\in D^{p,q}(V)$ define $\iota'_ET\in D^{p-1,q}(V)$ and
+$\iota''_ET\in D^{p,q-1}(V)$ by
+\[
+ \langle\iota'_ET,\alpha\rangle=\langle T,\iota'_E\alpha\rangle,
+ \qquad
+ \langle\iota''_ET,\alpha\rangle=\langle T,\iota''_E\alpha\rangle .
+\]
+\end{definition}
+
+Pullback of currents along an \emph{invertible} affine map is available, and
+we record its normalization once, since it is the only pullback of currents
+used in this book; see \Cref{sec:ch14-pullback-failure} for why no more can
+be expected.
+
+\begin{definition}[Pullback along an affine isomorphism]
+\label{def:ch14-affine-pullback}
+Let $F:V\to V$ be an affine isomorphism with linear part $A$.  For
+$T\in D^{p,q}(V)$ set
+\[
+ \langle F^*T,\alpha\rangle
+ =|\det A|\,\bigl\langle T,(F^{-1})^*\alpha\bigr\rangle,
+ \qquad\alpha\in A_c^{N-p,N-q}(V).
+\]
+\end{definition}
+
+\begin{lemma}
+\label{lem:ch14-affine-pullback-compat}
+With this normalization, $F^*[u]=[F^*u]=[u\circ F]$ for every locally
+integrable function $u$, and more generally $F^*[\omega]=[F^*\omega]$ for
+every locally integrable form $\omega$.  Moreover $F^*$ commutes with
+$\dprime$, $\ddprime$ and $J$, and $(F\circ G)^*=G^*F^*$.
+\end{lemma}
+
+\begin{proof}
+Write $\alpha=a\,\tau_N$ for a top-degree test form.  Since
+$(F^{-1})^*\tau_N=(\det A)^{-2}\tau_N$---each of the $2N$ covector factors
+contributing one power of $A^{-1}$, and the two blocks contributing
+$\det(A^{-1})$ each---we get
+\[
+ \bigl\langle[u],(F^{-1})^*\alpha\bigr\rangle
+ =(\det A)^{-2}\int_Vu(y)\,a(A^{-1}y)\,\rd y ,
+\]
+while the affine change of variables $y=F(x)$ gives
+\[
+ \bigl\langle[u\circ F],\alpha\bigr\rangle
+ =\int_Vu(F(x))a(x)\rd x
+ =|\det A|^{-1}\int_Vu(y)a(A^{-1}y)\rd y .
+\]
+Comparing, we obtain
+\[
+ \begin{aligned}
+  \langle[u\circ F],\alpha\rangle
+   &=|\det A|^{-1}(\det A)^{2}
+     \langle[u],(F^{-1})^*\alpha\rangle\\
+   &=|\det A|\,\langle[u],(F^{-1})^*\alpha\rangle,
+ \end{aligned}
+\]
+which is the assertion.  The
+case of a general form is identical with $a$ replaced by the coefficient of
+$\omega\wedge\alpha$.  Compatibility with the operators follows because
+$(F^{-1})^*$ commutes with them on forms
+(\Cref{prop:ch09-pullback-functorial}) and the constant $|\det A|$ does not
+depend on the bidegree; functoriality is the multiplicativity of
+$|\det|$.
+\end{proof}
+
+For $t>0$ we write $s_t(x)=tx$, so that $s_t^*$ is defined by
+\Cref{def:ch14-affine-pullback} with $|\det A|=t^{N}$.
+
+\begin{definition}[Strongly homogeneous]
+\label{def:ch14-strongly-homogeneous}
+\index{current!strongly homogeneous}
+A current $T\in D^{p,p}(V)$ is \emph{strongly homogeneous} if it is closed,
+$s_t^*T=tT$ for every $t>0$, and $\iota'_ET=\iota''_ET=0$.
+\end{definition}
+
+\begin{proposition}
+\label{prop:ch14-strongly-homogeneous}
+Let $h:V\to\mathbf R$ be convex and positively homogeneous of degree $1$, for
+instance the support function $h_K$ of a nonempty compact convex set $K$.
+Then $T_h=\dprimeddprime[h]$ is a closed positive current of bidegree
+$(1,1)$, and it is strongly homogeneous.
+\end{proposition}
+
+\begin{proof}
+$h$ is convex and finite, hence locally Lipschitz and locally integrable, so
+$[h]$ is a current of bidegree $(0,0)$ and $T_h=\dprimeddprime[h]$ is defined.
+It is positive by \Cref{thm:ch09-distributional-convexity} and closed because
+$\dprime T_h=\dprime\dprimeddprime[h]=0$ by
+\Cref{prop:current-differential-calculus}, and likewise for $\ddprime$.
+
+\emph{Scaling.}  Homogeneity of degree $1$ says $h\circ s_t=t\,h$, so
+\Cref{lem:ch14-affine-pullback-compat} gives
+$s_t^*[h]=[h\circ s_t]=t[h]$.  Since $s_t$ is affine, $s_t^*$ commutes with
+$\dprime$ and $\ddprime$ on currents by the same lemma, whence
+\[
+ s_t^*T_h=s_t^*\dprimeddprime[h]=\dprimeddprime s_t^*[h]
+        =\dprimeddprime\bigl(t[h]\bigr)=t\,T_h .
+\]
+
+\emph{Contraction.}  We compute on smooth $h$ first and then pass to the
+limit.  Suppose $h$ is smooth away from the origin and homogeneous of degree
+$1$.  Then $\dprimeddprime h=\sum_{i,j}h_{ij}\dprime x_i\wedge\ddprime x_j$
+by \eqref{eq:appJ-real-hessian}, and by
+\Cref{def:ch09-contraction},
+\[
+ \iota'_E\bigl(\dprimeddprime h\bigr)
+ =\sum_{i,j}h_{ij}(x)\,x_i\,\ddprime x_j .
+\]
+Differentiating the homogeneity relation
+$\partial_jh(tx)=\partial_jh(x)$, valid for all $t>0$ because $\nabla h$ is
+homogeneous of degree $0$, with respect to $t$ at $t=1$ gives
+$\sum_ix_ih_{ij}(x)=0$ for every $j$.  Hence
+$\iota'_E(\dprimeddprime h)=0$, and $\iota''_E(\dprimeddprime h)=0$ follows by
+applying $J$ and using $J\iota'_EJ=(-1)^p\iota''_E$
+(\Cref{lem:ch09-contraction-basic}\,(3)), here with $p=1$, together with the
+symmetry $J\dprimeddprime h=-\dprimeddprime h$ of the $(1,1)$-form
+$\dprimeddprime h$ (\Cref{prop:ch09-symmetry-matrix}\,(4)); the two signs
+cancel, and in any case the conclusion is a vanishing.
+
+For general $h$, Euler's identity holds distributionally.  Indeed, $h$ is
+locally Lipschitz, the identity $\sum_i x_i\partial_i h=h$ holds almost
+everywhere by positive homogeneity, and hence it holds as an identity of
+distributions.  Applying $\partial_j$ distributionally gives
+\[
+ \sum_i x_i\partial_i\partial_j[h]=0
+ \qquad (j=1,\ldots,N).
+\]
+Multiplication by $x_i$ and distributional differentiation are continuous,
+so this calculation needs no homogeneous smoothing.  In the coefficient
+description of $\dprimeddprime[h]$, the displayed identities say precisely
+that $\iota'_ET_h=0$.  Finally $JT_h=-T_h$, since $T_h$ is a symmetric
+current of bidegree $(1,1)$ (\Cref{def:ch14-symmetric-current}), and
+$J\iota'_EJ=-\iota''_E$ in bidegree $(1,1)$; the two signs cancel, so
+$\iota''_ET_h=0$ as well.
+\end{proof}
+
+\begin{remark}
+\label{rem:ch14-homogeneous-appendix}
+\Cref{prop:ch14-strongly-homogeneous} is the current-theoretic content of
+\eqref{eq:appD-support-current} and
+\eqref{eq:appD-strong-homogeneity}.  The mixed-volume identity
+\eqref{eq:appD-current-mixed-volume},
+\[
+ \tfrac1{N!}\,T_{K_1}\wedge\cdots\wedge T_{K_N}
+ =V(K_1,\ldots,K_N)\,\delta_0,
+\]
+is proved in \Cref{thm:appD-support-current-mixed-volume}; its only analytic
+input is \Cref{thm:ch14-convex-bt-imported}, and its combinatorial input is
+\Cref{lem:appD-support-calculus}.  The Lorentzian signature of the resulting
+bilinear form is the Alexandrov--Fenchel inequality
+\Cref{thm:appD-af}.  We do not repeat any of this here; the point of the
+present subsection is that the word ``strongly homogeneous'' refers to three
+separate conditions---closedness, degree-one scaling, and annihilation by
+both radial contractions---and that all three are theorems, not
+normalizations.
+\end{remark}
+
+\begin{warning}{Homogeneity is not a licence to multiply}
+The phrase ``strongly homogeneous'' does not license products of arbitrary
+weakly positive currents, and
+\Cref{prop:ch14-strongly-homogeneous} produces only currents of bidegree
+$(1,1)$, where by \Cref{prop:ch09-positivity-inclusions} the three positivity
+notions coincide anyway.  The products
+$T_{K_1}\wedge\cdots\wedge T_{K_q}$ of intermediate bidegree exist because
+each factor is a $\dprimeddprime$ of a convex function, so
+\Cref{thm:ch14-convex-bt-imported} applies; they do not exist for a general
+strongly homogeneous pair.
+\end{warning}
+
+\begin{remark}[Convention firewall]
+\label{rem:ch14-convention-firewall}
+The formulas in \cite{Ber26Convex} cannot be copied symbol for symbol into
+the Lagerberg--CLD convention.  In its Section~2,
+\[
+       J(\rd x_i)=-\rd\xi_i,\qquad J(\rd\xi_i)=\rd x_i,
+       \qquad \rd^\#=J^{-1}\rd J,
+\]
+and top-degree integration uses a specified Berezin sign.  On functions,
+$\rd\rd^\#\phi$ has Hessian coefficients in the ordered basis
+$\rd x_i\wedge \rd\xi_j$, so it corresponds to our
+$\dprimeddprime\phi$ after identifying $\rd x_i$ with $\dprime x_i$ and
+$\rd\xi_i$ with $\ddprime x_i$.  Identities involving $J$, symmetry, current bidegrees, or
+integration signs must nevertheless be recomputed.  Moreover, the 2019 and
+2026 Berndtsson papers themselves use opposite signs for $J$.  Throughout
+this book, the conventions of \Cref{chap:cld-forms} remain in force.
+\end{remark}
+
+\section{Restriction, support, and extension}
+
+Currents form a sheaf on locally differentially separated tropical spaces,
+hence on the analytic spaces considered here.  The support $\Supp(T)$ is the
+complement of the largest open set on which $T$ vanishes.
+
+\begin{proposition}
+\label{prop:form-restriction-dimension-gap}
+Let $i:Z\hookrightarrow X$ be an analytic subspace.  If the local tropical
+dimension of $Z$ is everywhere smaller than $\max\{r,s\}$, then
+$i^*\alpha=0$ for every $\alpha\in A_X^{r,s}$.
+\end{proposition}
+\begin{proof}
+After passing to a tropical chart, the pullback is the restriction of a
+superform to a polyhedron of dimension smaller than $r$ or smaller than
+$s$.  Its alternating $r$- or $s$-covector factor therefore restricts to
+zero.
+\end{proof}
+
+This restriction statement does not say that $\alpha$ vanishes on a
+neighborhood of $Z$.  Nor does it imply that a current on $X\setminus Z$
+extends, or that an extension is unique: even when an extension exists, one
+may sometimes add a nonzero current supported on $Z$.  Removability requires
+additional hypotheses, such as the precise growth, positivity, or canonical
+extension results used in
+\Cref{chap:cld-poincare-lelong,chap:cld-bedford-taylor}.
+
+\subsection{Support theorems}
+\label{sec:ch14-support-theorems}
+
+We collect the statements that let one recognize a current from its support.
+The first is the exact analogue of the classical fact that a distribution
+supported at a point is a finite combination of derivatives of a Dirac mass;
+the non-Archimedean version is stronger, because \emph{no} derivative of a
+Dirac mass survives in high bidimension.
+
+\begin{theorem}
+\label{thm:ch14-support-dimension}
+Let $X$ be pure $n$-dimensional and let $Z\subset X$ be closed with
+$d_{\trop}(x)<\max\{r,s\}$ for every $x\in Z$.  Then no nonzero current of
+bidimension $(r,s)$ has support contained in $Z$.  Equivalently, restriction
+$D_{r,s}(X)\to D_{r,s}(X\setminus Z)$ is injective, and by
+\Cref{lem:ch14-extension-by-zero} it is even bijective.
+\end{theorem}
+
+\begin{proof}
+Let $\Supp T\subset Z$ and let $\alpha\in A_{X,c}^{r,s}$.  By
+\Cref{lem:ch14-extension-by-zero} the form $\alpha$ has support in
+$X\setminus Z$, hence disjoint from $\Supp T$, so
+$\langle T,\alpha\rangle=0$ by \Cref{def:ch14-support}.
+\end{proof}
+
+\begin{theorem}
+\label{thm:ch14-support-pushforward}
+Let $g:Y\to X$ be a morphism of topologically separated analytic spaces and
+let $T\in D_{r,s}(Y)$ have $g$-compact support, so that $g_*T$ is defined as
+in \Cref{sec:ch14-pushforward}.  Then
+\[
+ \Supp(g_*T)\subset \overline{g\bigl(\Supp T\bigr)}.
+\]
+If $g$ is topologically proper, $g(\Supp T)$ is closed, so the closure may
+be omitted.
+\end{theorem}
+
+\begin{proof}
+Let $x\notin g(\Supp T)$.  If $g$ is proper, $g(\Supp T)$ is closed, so there
+is an open $U\ni x$ with $U\cap g(\Supp T)=\emptyset$; then for
+$\alpha$ compactly supported in $U$ the form $g^*\alpha$ is supported in
+$g^{-1}(U)$, which misses $\Supp T$, so
+$\langle g_*T,\alpha\rangle=\langle T,g^*\alpha\rangle=0$.  Hence
+$g_*T$ vanishes on $U$.  In the merely $g$-compact case, replace
+$g(\Supp T)$ by its closure and run the same argument.
+\end{proof}
+
+\begin{proposition}
+\label{prop:ch14-support-fibre}
+Let $g:Y\to X$ be a morphism and let $T\in D_{r,s}(Y)$ be supported in a
+single fibre $Y_x$.  If $\dim Y_x<\max\{r,s\}$, then $T=0$.
+\end{proposition}
+
+\begin{proof}
+A fibre is a weakly analytic subset of $Y$ in the sense of
+\Cref{def:trop-weakly-analytic}, so its tropical dimension at each point is
+at most its dimension by \Cref{prop:analytic-tropical-dimension}; apply
+\Cref{thm:ch14-support-dimension}.
+\end{proof}
+
+\section{Pushforward and the projection formula}
+\label{sec:ch14-pushforward}
+
+Let $g:Y\to X$ be a topologically proper analytic morphism.  For a current $T$ on $Y$, define
+\[
+                  \langle g_*T,\alpha\rangle
+                    =\langle T,g^*\alpha\rangle.
+\]
+It suffices more generally that $\Supp(T)$ be proper over $X$.
+
+\begin{proposition}
+\label{prop:current-pushforward-formal}
+Proper pushforward preserves bidimension, is weakly continuous, commutes
+with $\dprime$ and $\ddprime$, and satisfies
+\[
+              g_*(T\wedge g^*\alpha)=g_*T\wedge\alpha
+\]
+for every smooth form $\alpha$.  If $X$ and $Y$ have pure dimensions
+$n_X$ and $n_Y$, respectively, their current involutions satisfy
+\[
+                 g_*J_Y=(-1)^{n_Y-n_X}J_Xg_* .
+\]
+Thus $g_*$ commutes with the current involution when $n_Y-n_X$ is even,
+in particular when the dimensions are equal.  It preserves symmetry
+in every dimension.
+\end{proposition}
+\begin{proof}
+Every formula follows by evaluation on a compactly supported test form and
+functoriality of pullback.  Properness ensures that the pulled-back test form
+meets $\Supp(T)$ in a compact set.
+
+In detail.  \emph{$g_*T$ is a current.}  By
+\Cref{prop:cld-form-pullback} the map $g^*$ is continuous
+$A_X^{r,s}\to g_*A_Y^{r,s}$, and topological properness makes it carry
+$A_{X,c}^{r,s}$ into $A_{Y,c}^{r,s}$ continuously: the preimage of a compact
+set is compact, and a test-form stage on $X$ pulls back to one on $Y$ with the
+same seminorm estimates, because $g^*$ of a chart representative is the
+representative for the composed moment map.  Hence the transpose is defined,
+and it preserves relative order.  \emph{Weak continuity} is immediate, the
+weak topology being that of pointwise convergence and $g_*$ being defined by
+composition.
+
+\emph{Commutation with $J$.}  $g^*J=Jg^*$ on forms
+(\Cref{prop:cld-form-pullback}), so, writing $n_Y=\dim Y$, $n_X=\dim X$ and
+applying \eqref{eq:ch14-J-current} on each space,
+\[
+ \begin{aligned}
+ \langle g_*JT,\alpha\rangle
+ &=\langle JT,g^*\alpha\rangle\\
+ &=(-1)^{n_Y}\langle T,Jg^*\alpha\rangle
+  =(-1)^{n_Y}\langle T,g^*J\alpha\rangle\\
+ &=(-1)^{n_Y}\langle g_*T,J\alpha\rangle\\
+ &=(-1)^{n_Y-n_X}\langle Jg_*T,\alpha\rangle ,
+ \end{aligned}
+\]
+This is $g_*J_Y=(-1)^{n_Y-n_X}J_Xg_*$; the sign is positive when
+the dimension difference is even.  Pushforward preserves symmetry in all cases: if $T$ has
+bidegree $(u,u)$ with $JT=(-1)^uT$, then $g_*T$ has bidegree $(u',u')$ with
+$u'=u+n_X-n_Y$, and
+$Jg_*T=(-1)^{n_X-n_Y}g_*JT=(-1)^{u'}g_*T$.  Since $J$ enters the definition
+of $\ddprime$ conjugated, the sign cancels there and
+$g_*\ddprime=\ddprime g_*$ is unaffected.
+
+\emph{Commutation with $\dprime$.}  Let $T$ have bidegree $(u,v)$ on $Y$;
+then $g_*T$ has the same bidegree if $\dim Y=\dim X$, and in general the
+bidimension is preserved, so the bidegree changes by
+$(\dim X-\dim Y,\dim X-\dim Y)$ and the total degree by an even number;
+hence the sign $(-1)^{u+v+1}$ of \eqref{eq:ch14-dprime-sign} is the same on
+both sides.  Since $g^*\dprime=\dprime g^*$,
+\[
+ \langle g_*\dprime T,\alpha\rangle
+ =\pm\langle T,g^*\dprime\alpha\rangle
+ =\pm\langle T,\dprime g^*\alpha\rangle
+ =\langle \dprime g_*T,\alpha\rangle
+\]
+with the same sign throughout.  The case of $\ddprime$ follows by conjugating
+with $J$.
+
+\emph{Projection formula.}  For a test form $\beta$,
+\[
+ \langle g_*(T\wedge g^*\alpha),\beta\rangle
+ =\langle T\wedge g^*\alpha,g^*\beta\rangle
+ =\langle T,g^*\alpha\wedge g^*\beta\rangle
+ =\langle T,g^*(\alpha\wedge\beta)\rangle
+ =\langle g_*T\wedge\alpha,\beta\rangle,
+\]
+using multiplicativity of $g^*$.  This is the current-level form of
+\Cref{cor:ch11-projection-formula}.
+
+\emph{Relaxing properness.}  If $\Supp T$ is $g$-compact, meaning that
+$\Supp T\cap g^{-1}(C)$ is compact for every compact $C\subset X$, then for
+$\alpha$ compactly supported the intersection
+$\Supp T\cap\Supp g^*\alpha$ is compact, and
+\Cref{lem:ch14-phi-support} gives a meaning to
+$\langle T,g^*\alpha\rangle$.  All the formulas above persist verbatim, with
+the same proofs, since each is an identity between pairings against forms
+whose supports meet $\Supp T$ compactly.
+\end{proof}
+
+\begin{example}
+\label{ex:ch14-pushforward-J-sign}
+Let $i:Y=\mathcal M(K)\hookrightarrow X=\mathbf A_K^{1,\mathrm{an}}$
+be the inclusion of a $K$-rational point $p$, and let $S$ be the
+unit mass on $Y$.  Since $n_Y=0$ and $i_*S=\delta_p$,
+\eqref{eq:ch14-J-current} gives
+\[
+       J_YS=S,\qquad J_X\delta_p=-\delta_p .
+\]
+Consequently
+\[
+                 i_*J_YS=\delta_p,\qquad J_Xi_*S=-\delta_p .
+\]
+The two operators do not commute.  The point mass is nevertheless a
+symmetric current of bidegree $(1,1)$, since symmetry in this degree
+requires $J_X\delta_p=-\delta_p$.  For a point embedded in the analytic
+plane, $n_X=2$ and $J_X\delta_p=\delta_p$; commutation then holds even
+though the two dimensions differ.
+\end{example}
+
+
+\begin{corollary}
+\label{cor:ch14-pushforward-functorial}
+If $h:Z\to Y$ and $g:Y\to X$ are topologically proper, then
+$(g\circ h)_*=g_*h_*$ on currents.  Pushforward preserves each of the three
+positivity types, and it preserves relative order.
+\end{corollary}
+
+\begin{proof}
+Functoriality is the transpose of $(g\circ h)^*=h^*g^*$,
+\Cref{prop:cld-form-pullback}.  Positivity is the third paragraph of the
+proof of \Cref{prop:current-positivity-calculus}; order is the first
+paragraph of the proof above.
+\end{proof}
+
+\subsection{Why there is no pullback of currents}
+\label{sec:ch14-pullback-failure}
+
+A general pullback of currents is not available: it would amount to
+restricting a distribution to a possibly characteristic subspace.  We use
+pullback only for smooth forms, continuous potentials before differentiating,
+or in transverse/refined theories where it is separately constructed.
+
+It is worth making the obstruction precise rather than leaving it as a
+slogan, because the exact shape of the obstruction dictates the hypotheses of
+\Cref{thm:cld-fibre-projection} and of the Bedford--Taylor products in
+\Cref{chap:cld-bedford-taylor}.
+
+\begin{proposition}
+\label{prop:ch14-no-pullback}
+Let $X$ be the tropical space $\mathbf R$ of level $1$, let $Y=\{0\}$ be the
+tropical subspace consisting of the origin, and let $g:Y\hookrightarrow X$ be
+the inclusion.  There is no map
+\[
+ g^*:D^{0,0}(X)\longrightarrow D^{0,0}(Y)
+\]
+that is weakly continuous and satisfies $g^*[u]=[u\circ g]$ for every smooth
+function $u$ on $X$.
+\end{proposition}
+
+\begin{proof}
+Note first that $D^{0,0}(Y)=\mathbf R$, since $A^{0,0}_{Y,c}=\mathbf R$;
+under this identification $[c]=c$ for a constant $c$.
+
+Fix $\chi\in C_c^\infty(\mathbf R)$ with $\chi(0)=1$ and
+$\Supp\chi\subset[-1,1]$, and for $\varepsilon>0$ put
+$u_\varepsilon(x)=\chi(x/\varepsilon)$, a smooth compactly supported function
+on $X$.  For a test form $\alpha=a\,\dprime x\wedge\ddprime x$ with
+$a\in C_c^\infty(\mathbf R)$ we have, by
+\Cref{def:ch11-lattice-measure},
+\[
+ \bigl|\langle[u_\varepsilon],\alpha\rangle\bigr|
+ =\Bigl|\int_{\mathbf R}\chi(x/\varepsilon)a(x)\,\rd x\Bigr|
+ \le\|\chi\|_\infty\int_{-\varepsilon}^{\varepsilon}|a|
+ \xrightarrow[\varepsilon\to0]{}0 .
+\]
+Hence $[u_\varepsilon]\to0$ weakly in $D^{0,0}(X)$.  On the other hand
+\[
+ g^*[u_\varepsilon]=[u_\varepsilon\circ g]=u_\varepsilon(0)=\chi(0)=1
+\]
+for every $\varepsilon$.  Weak continuity would give $0=1$.
+\end{proof}
+
+\begin{remark}
+\label{rem:ch14-pullback-obstruction}
+The mechanism is the one familiar from distribution theory: weak convergence
+of currents controls integrals, not pointwise values, and a closed immersion
+asks precisely for a pointwise value in the transverse directions.  Over
+$\mathbf C$ the obstruction is quantified by wave front sets, and pullback is
+available when the conormal of $Y$ avoids the wave front set of $T$.  No
+such microlocal theory is available here, and none of the results of this
+book requires one; the three substitutes of
+\Cref{rem:ch14-pullback-survives} suffice.
+\end{remark}
+
+\begin{remark}[What survives]
+\label{rem:ch14-pullback-survives}
+Three substitutes are used in this book, and they should be kept apart.
+\begin{enumerate}
+\item Pullback along an \emph{affine isomorphism} of a real vector space,
+  \Cref{def:ch14-affine-pullback}: no hypothesis needed, but no new
+  information either.
+\item Pullback of a \emph{potential}: if $u$ is a continuous function on $X$,
+  then $g^*u$ is a continuous function on $Y$ and one \emph{defines}
+  $g^*(\dprimeddprime[u]):=\dprimeddprime[g^*u]$.  This is not a pullback of
+  currents; it depends on the potential, and two potentials with the same
+  curvature current on $X$ may have different curvature currents on $Y$.  It
+  is the mechanism of \Cref{thm:cld-fibre-projection}.
+\item Transverse pullback: when $g$ is transverse to a cycle, the tropical
+  intersection product of \Cref{thm:ch11-transverse-current-product} provides
+  a pullback of the integration current with the correct multiplicity.  This
+  is the route taken in \Cref{chap:delta-forms}.
+\end{enumerate}
+\end{remark}
+
+\section{Integration currents and analytic cycles}
+\label{sec:ch14-cycles}
+
+Let $i:Y\hookrightarrow X$ be a closed analytic subspace, pure of dimension
+$r$.  Define
+\[
+                   \langle\delta_Y,\alpha\rangle
+                         =\int_Yi^*\alpha,
+              \qquad \alpha\in A_{X,c}^{r,r}.
+\]
+This is a current of bidimension $(r,r)$.  If
+$Z=\sum m_jY_j$ is a locally finite analytic $r$-cycle, put
+$\delta_Z=\sum m_j\delta_{Y_j}$.
+
+Three verifications are needed before this definition may be used, and each
+is short with the tools already in place.
+
+\begin{proposition}
+\label{prop:ch14-delta-Y-current}
+Let $Y\subset X$ be closed analytic, pure of dimension $r$, and let
+$i:Y\to X$ be the inclusion.
+\begin{enumerate}
+\item The functional $\alpha\mapsto\int_Yi^*\alpha$ is a well-defined,
+  strongly positive, symmetric current of bidimension $(r,r)$, of order $0$
+  relative to every test-form stage, and $\delta_Y$ is the pushforward along $i$
+  of the integration current of the tropical space $Y$ itself.
+\item For a locally finite $r$-cycle $Z=\sum_jm_jY_j$ the sum
+  $\sum_jm_j\delta_{Y_j}$ is locally finite and defines a current; it is
+  strongly positive when all $m_j\ge0$.
+\item $\Supp\delta_Y=Y$ when $Y$ is reduced.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(1) The integral $\int_Yi^*\alpha$ is defined by
+\Cref{thm:cld-analytic-integration}, applied on the pure $r$-dimensional
+space $Y$ with its canonical calibration, because $i^*\alpha$ is a smooth
+$(r,r)$-form on $Y$ with compact support.  If $\alpha$ is weakly positive,
+then $i^*\alpha$ is weakly positive by
+\Cref{prop:ch09-positivity-inclusions}, and the integral of a weakly positive
+top-degree form is nonnegative, weak positivity in top bidegree being
+ordinary nonnegativity by \Cref{prop:ch09-positivity-inclusions}.  Symmetry
+follows because $i^*$ commutes with $J$ and $J$ acts on top-degree forms of
+the $r$-dimensional $Y$ by $(-1)^r$, so that
+$\langle\delta_Y,J\alpha\rangle=(-1)^r\langle\delta_Y,\alpha\rangle$
+(\Cref{def:ch14-symmetric-current}).  Now
+\Cref{prop:ch14-automatic-continuity}\,(2) applies and delivers continuity and
+order $0$.  The identity $\delta_Y=i_*\delta_{Y}$ is
+\Cref{sec:ch14-pushforward} applied to the proper map $i$, together with
+$\langle\delta_Y,\beta\rangle=\int_Y\beta$ for $\beta$ on $Y$.
+
+(2) Let $\alpha$ have compact support $F$.  By local finiteness only finitely
+many $Y_j$ meet $F$, and for the others $i_j^*\alpha=0$; so the sum is
+finite.  Continuity on a fixed stage follows because the same finite
+subfamily works for every form supported in $F$.
+
+(3) Let $U$ be open and meet $Y$.  Choose $y\in U\cap Y$ at which the local
+tropical dimension of $Y$ equals $r$; such a point exists by
+\Cref{prop:analytic-tropical-dimension}, since $Y$ is pure $r$-dimensional.
+Choose a tropical chart $f$ of $Y$ at $y$ whose tropicalization has dimension
+$r$ near $f_{\trop}(y)$, extend it to a chart of $X$, and set
+$\alpha=\rho\,f_{\trop}^*\eta^{r}$ with $\eta=\dprimeddprime\|x\|^2$ and
+$\rho\ge0$ a smooth cutoff supported in $U$ with $\rho(y)=1$.  Then
+$i^*\alpha$ is a positive $(r,r)$-form on $Y$ with compact support, and it is
+not identically zero, its coefficient at $y$ against the calibrated top
+orientation being positive by \Cref{lem:ch14-eta-dominates}.  Hence
+$\int_Yi^*\alpha>0$ by \cite[Corollary~7.3.7]{CLD25}, and $\delta_Y$ does not
+vanish on $U$.
+\end{proof}
+
+\begin{example}[Length measure on the skeleton of a Tate curve]
+\label{ex:ch14-skeleton-current}
+Let $K$ be a complete nontrivially valued non-Archimedean field, let
+$q\in K^\times$ satisfy $0<|q|<1$, and let $E$ be the Tate elliptic curve
+with
+\[
+ E^{\An}=\mathbf G_{m,K}^{\An}/q^{\mathbf Z},
+ \qquad \ell=-\log|q|=v_K(q)>0.
+\]
+As in \Cref{ex:trop-tate-curve}, its canonical skeleton is
+$\Sigma=\mathbf R/\ell\mathbf Z$.  Write $i:\Sigma\hookrightarrow E^{\An}$
+for the inclusion and $\tau:E^{\An}\to\Sigma$ for the retraction.
+These are maps of topological spaces; in particular, the pushforward
+of a measure along $i$ below is not an analytic pullback of currents.
+The split-uniformization description is also recalled in
+\cite[paragraphs~19.2.1--19.2.2]{CLD25}.
+
+For the normalization, the point $\eta_s$ on the skeleton of
+$\mathbf G_{m,K}^{\An}$ has Gauss seminorm
+\[
+ \left|\sum_ma_mT^m\right|_{\eta_s}
+       =\max_m|a_m|\,\rme^{-ms},\qquad s\in\mathbf R.
+\]
+Multiplication by $q$ sends $\eta_s$ to $\eta_{s+\ell}$.
+Thus the lattice coordinate $s=-\log|T|$ descends locally to $\Sigma$,
+with transition maps given by translations by integer multiples of
+$\ell$.  The lattice measure $\rd s$ of
+\Cref{def:ch11-lattice-measure} consequently descends to the circle,
+and a fundamental interval has length $\ell$.
+
+Define the finite positive Radon measure on $E^{\An}$
+\[
+                         \mu_\Sigma=i_*(\rd s).
+\]
+Its associated current acts on functions, not on $(1,1)$-forms:
+\[
+ \langle[\mu_\Sigma],f\rangle
+       =\int_\Sigma f(i(s))\,\rd s,
+       \qquad f\in A_{E,c}^{0,0}.
+\]
+It has bidimension $(0,0)$ and hence bidegree $(1,1)$ on the curve.
+Indeed, positivity is immediate and
+\[
+ |\langle[\mu_\Sigma],f\rangle|
+       \leq\ell\,\|f\|_\infty.
+\]
+This gives an order-zero current, equivalently the construction of
+\cite[Proposition~7.2.8]{CLD25} and
+\Cref{ex:ch14-forms-and-measures}.  Since $E^{\An}$ is compact, the
+constant function $1$ is an admissible test and
+\[
+                    \langle[\mu_\Sigma],1\rangle=\ell.
+\]
+The identity
+$\int f\,\rd\mu_\Sigma=\int(f\circ i\circ\tau)\,\rd\mu_\Sigma$
+for continuous $f$ follows simply from $\tau\circ i=\mathrm{id}_\Sigma$.
+It is an identity for this supported measure, not a definition of
+$\tau^*$ on arbitrary currents.
+
+By contrast, the integration current of the whole curve is
+\[
+ \langle\delta_E,\alpha\rangle=\int_{E^{\An}}\alpha,
+       \qquad \alpha\in A_{E,c}^{1,1}.
+\]
+It has bidimension $(1,1)$ and bidegree $(0,0)$.
+Thus $[\mu_\Sigma]$ and $\delta_E$ belong to different current spaces;
+they cannot be identified, and $\langle\delta_E,1\rangle$ is not a
+pairing of the required degree.
+
+Nor does every $(1,1)$-form integrate solely on this fixed circle.
+Here is an explicit test.  Let
+$p:\mathbf G_{m,K}^{\An}\to E^{\An}$ be the quotient map and put
+$B=\{|T-1|<1\}$.  On $B$ one has $|T|=1$, whereas every nontrivial
+$q^{\mathbf Z}$-translate has a different value of $|T|$.
+Consequently $p|_B$ is an isomorphism onto an ordinary open subset of
+$E^{\An}$.  This subset is disjoint from $\Sigma$: at a Gauss point
+$\eta_s$ one has $|T-1|_{\eta_s}=\max\{\rme^{-s},1\}\geq1$.
+
+Choose $0<r<R<1$ and a nonnegative, nonzero function
+\[
+                     \chi\in C_c^\infty((-\log R,-\log r)).
+\]
+On the open annulus $r<|T-1|<R$ write $u=-\log|T-1|$ and take
+\[
+                           \alpha=\chi(u)\,\dprime u\wedge\ddprime u.
+\]
+Transport this form by $p|_B$ and extend it by zero to $E^{\An}$.
+This is a smooth compactly supported form: its support is contained
+in the image of a closed subannulus strictly inside $B$.
+The coordinate $T-1$ identifies the annulus with a standard annulus,
+of calibration weight $1$, so
+\[
+ \langle\delta_E,\alpha\rangle
+       =\int_{-\log R}^{-\log r}\chi(u)\,\rd u>0,
+                  \qquad \alpha|_\Sigma=0.
+\]
+Thus the circle length $\ell$ is the mass of the specifically defined
+measure $\mu_\Sigma$, not a function-test mass for the full
+integration current $\delta_E$.
+\end{example}
+
+\begin{example}[Cycle currents on the Berkovich line]
+\label{ex:ch14-line-cycles}
+Return to $X=\mathbf P^{1,\An}_k$ with $k$ trivially valued and
+algebraically closed, as in \Cref{sec:ch14-line-examples}.  Every analytic
+$0$-cycle is a locally finite sum $Z=\sum_bm_b[b]$ over rigid points.
+Since $X$ is compact, this sum is in fact finite.  Its integration current
+is the measure
+\[
+ \delta_Z=\sum_bm_b\,\delta_{x_b},\qquad
+ \langle\delta_Z,f\rangle=\sum_bm_bf(x_b),
+ \qquad f\in A_{X,c}^{0,0}.
+\]
+Thus $\langle\delta_Z,1\rangle=\sum_bm_b$ is a legitimate pairing.
+
+Every analytic $1$-cycle is $m[X]$, and its current is $m\,\delta_X$.
+The current $\delta_X$ has bidimension $(1,1)$, hence bidegree $(0,0)$,
+and acts on $(1,1)$-forms:
+\[
+                 \langle\delta_X,\alpha\rangle=\int_X\alpha,
+                         \qquad \alpha\in A_{X,c}^{1,1}.
+\]
+It does not act on the constant function $1$.  In particular, its
+integration cannot be identified with a \emph{mass against $1$} or with the
+length of a chosen one-point model skeleton.
+
+The calibrated rays in the star description of
+\Cref{sec:ch14-line-examples} give a direct nonzero test.  Fix a branch
+$b\in k$ and use $t=\log|T-b|\in(-\infty,0)$ on its interior.  Choose
+$\chi\in C_c^\infty((-\infty,0))$ with $\chi\ge0$ and $\chi\not\equiv0$.
+The form
+\[
+                        \alpha=\chi(t)\,\dprime t\wedge\ddprime t,
+\]
+extended by zero off that branch interval, is a smooth compactly
+supported $(1,1)$-form on $X$.  The branch calibration has weight $1$, so
+\[
+                 \langle\delta_X,\alpha\rangle
+                     =\int_{-\infty}^{0}\chi(t)\,\rd t>0.
+\]
+This is the actual star geometry over a trivially valued field;
+see \cite[Example~6.7.3]{CLD25}.  A coarser choice of model skeleton
+does not remove these calibrated ray tests.  Closedness of $\delta_X$
+is \Cref{cor:ch14-delta-x-closed}.
+
+Finally, \Cref{ex:ch14-line-model-function}, with $r=1$ and $c_1=1$,
+gives the identity of currents
+\[
+                   \dprimeddprime[u]=\delta_{p_1}-\delta_\eta,
+\]
+where $u=\log\max\{|T-b_1|,\rme^{-1}\}$ on the branch $b_1$ and
+$u=0$ elsewhere.  Here $p_1$ and $\eta$ are nonrigid points:
+their Dirac masses are currents of bidimension $(0,0)$, but they are
+not integration currents of analytic $0$-cycles.  This truncated-potential
+identity must therefore be distinguished from the untruncated
+Poincar\'e--Lelong formula \eqref{eq:appJ-cld-pl} for the analytic divisor of a meromorphic
+function, treated in \Cref{chap:cld-poincare-lelong}.
+\end{example}
+
+\begin{theorem}
+\label{thm:current-fundamental-cycle}
+For every pure-dimensional closed analytic subspace $Y\subset X$,
+\[
+                         \delta_Y=\delta_{[Y]}.
+\]
+Thus nilpotent and embedded structure enters precisely through the generic
+multiplicities of the fundamental cycle.
+\end{theorem}
+\begin{proof}
+We give the calibrated-degree argument of
+\cite[Proposition~16.6.3]{CLD25}.  Put $r=\dim Y$, let
+$i:Y\hookrightarrow X$, and fix $\alpha\in A_{X,c}^{r,r}$.
+Then $\omega=i^*\alpha$ is a smooth compactly supported top-degree
+form on $Y$, and
+\[
+                         \langle\delta_Y,\alpha\rangle=\int_Y\omega.
+\]
+
+Let $(Y_j)_j$ be the locally finite family of reduced irreducible
+components of $Y$, and let $m_j$ be the generic multiplicity of $Y$
+along $Y_j$, so that $[Y]=\sum_jm_j[Y_j]$.
+Let $Y^\circ$ be the Zariski-open subset consisting of points lying
+on exactly one irreducible component.  The complement is the union
+of the pairwise intersections of distinct components and has analytic
+dimension less than $r$.  By
+\cite[Proposition~15.2.1(b)]{CLD25}, the support of $\omega$ is
+disjoint from that complement.  This is ambient vanishing near the
+lower-dimensional analytic set, not merely vanishing of a restriction
+to it.  In particular,
+\[
+                         \int_Y\omega=\int_{Y^\circ}\omega.
+\]
+We do not remove any component on which $Y$ is generically nonreduced.
+
+Write $V_j=Y^\circ\cap |Y_j|$, with its induced open analytic subspace
+structure from $Y$; this structure may still be nonreduced.
+The $V_j$ are disjoint open subspaces of $Y^\circ$.
+Only finitely many meet $\Supp\omega$, and $\omega_j=\omega|_{V_j}$
+has compact support.  Let
+\[
+                       \nu_j:(V_j)_{\mathrm{red}}\longrightarrow V_j
+\]
+be the finite reduction immersion.  Its calibrated degree on the
+generic locus relevant to integration is $1/m_j$, by
+\cite[Proposition~13.3.7]{CLD25}.  Concretely, for an Artinian generic
+local ring $A$ of length $m_j$, the calibrated-degree quotient is
+\[
+                  \frac{\operatorname{length}_A(A_{\mathrm{red}})}
+                       {\operatorname{length}_A(A)}
+                       =\frac{1}{m_j}.
+\]
+This is a calibrated degree; no flatness of the reduction immersion
+or preservation of length under graded reduction is asserted.
+
+The finite-map integration formula
+\cite[Proposition~15.4.3]{CLD25}, applied to $\nu_j$ and $\omega_j$,
+therefore gives
+\[
+             \int_{(V_j)_{\mathrm{red}}}\nu_j^*\omega_j
+                          =\frac1{m_j}\int_{V_j}\omega_j.
+\]
+The same support argument identifies the left-hand integral with
+$\int_{Y_j}i_j^*\alpha$, where $i_j:Y_j\hookrightarrow X$.
+Consequently
+\[
+ \langle\delta_Y,\alpha\rangle
+   =\sum_j\int_{V_j}\omega_j
+   =\sum_jm_j\int_{Y_j}i_j^*\alpha
+   =\langle\delta_{[Y]},\alpha\rangle.
+\]
+The sum is finite for this test form.  Since $\alpha$ was arbitrary,
+the required equality follows.
+\end{proof}
+
+\begin{proposition}
+\label{prop:current-cycle-closed}
+If $X$ is boundaryless, the integration current $\delta_X$ is
+$\dprime$- and $\ddprime$-closed.  More generally, integration currents of
+analytic cycles are closed.
+\end{proposition}
+\begin{proof}
+For $\delta_X$ this is Stokes.  For a cycle, apply Stokes on each pure
+component and sum locally finitely.  Equivalently use proper pushforward from
+each component and \Cref{prop:current-pushforward-formal}.
+\end{proof}
+
+\subsection{Curvature on analytic components}
+\label{sec:ch14-component-curvature}
+
+Equality of canonical curvature need not be separated component by component
+by an algebraic cancellation of currents at their intersections.  The
+following consequence of the analytic-nullity theorem
+\cite[Corollary~16.9.4]{CLD25} supplies a sufficient condition.  It concerns
+curvatures of specified potentials, not arbitrary positive currents.
+
+We use two classes of functions.  Write
+$\operatorname{CPsh}_Y$ for the least subsheaf of the real continuous
+functions on $Y$ containing the ordinary CLD-smooth psh functions and stable
+under locally uniform limits.  This is
+\cite[Definition~8.1.7 and Lemma~8.1.8]{CLD25}, developed further in
+\Cref{sec:ch16-hypotheses,lem:ch16-cpsh-induction}.
+Write $\mathscr A(Y)$ for the real continuous functions which, on one
+ordinary neighbourhood of every point, are uniform limits of a sequence of
+ordinary smooth psh functions defined on that same neighbourhood.
+Compact-uniform convergence gives the same local condition after a
+relatively compact shrinking.  Unrelated shrinking domains for the terms
+of a sequence do not satisfy this definition.
+
+A member of $\mathscr A(Y)$ is locally approachable in the first-stage
+sense of \cite[Definition~8.1.13]{CLD25}.  Indeed, after shrinking, let
+$f_j\to f$ uniformly and put $e_j=\|f_j-f\|_\infty$.  If infinitely many
+$e_j$ vanish, $f$ is smooth psh.  Otherwise discard the zero-error terms
+and choose a subsequence with $e_{j+1}<e_j/3$.  Then
+\[
+ f_{j+1}+2e_{j+1}
+ \leq f+3e_{j+1}
+ \leq f+e_j
+ \leq f_j+2e_j,
+\]
+so these smooth psh functions decrease uniformly to $f$.  In particular
+$\mathscr A$ is contained in $\operatorname{CPsh}$.  We do not identify it
+with the full uniform-closure sheaf.
+
+\begin{proposition}
+\label{prop:ch14-component-curvature}
+Let $K$ be any complete non-Archimedean field, possibly trivially valued.
+Let $X$ be good, separated, usual-strictly $K$-analytic, boundaryless and
+pure of dimension $n\geq1$.  Let $(X_i)_i$ be its reduced analytic
+irreducible components, let $j_i:X_i\hookrightarrow X$, and put
+$\delta_i=(j_i)_*\delta_{X_i}$.  Write $m_i>0$ for the generic
+multiplicities of $X$, and set
+\[
+ B_i=X_i\cap\bigcup_{j\ne i}X_j,
+ \qquad B=\bigcup_iB_i.
+\]
+The components and these unions are understood over the original field
+$K$.  Then the following assertions hold.
+\begin{enumerate}
+\item\label{itm:ch14-component-curvature:approachable}
+For $u,v\in\mathscr A(X)$,
+\begin{equation}
+ \dprimeddprime(u\delta_X)=\dprimeddprime(v\delta_X)
+ \quad\Longleftrightarrow\quad
+ \dprimeddprime(u\delta_i)=\dprimeddprime(v\delta_i)
+ \ \text{for every }i .
+ \label{eq:ch14-component-curvature-equivalence}
+\end{equation}
+\item\label{itm:ch14-component-curvature:common}
+Let $u,v\in\operatorname{CPsh}_X(X)$ have common canonical curvature
+$S=\dprimeddprime[u]=\dprimeddprime[v]$, where $[w]=w\delta_X$.
+Suppose that, for every compactly supported positive smooth
+$(n-1,n-1)$-form $\alpha$, the positive Radon measure $S\wedge\alpha$
+gives zero mass to $B$.  Then
+\begin{equation}
+                 \dprimeddprime(u\delta_i)
+                    =\dprimeddprime(v\delta_i)
+                    \quad\text{for every }i .
+ \label{eq:ch14-component-common-curvature}
+\end{equation}
+The zero-mass hypothesis is equivalent to total-variation nullity on $B$
+for every signed coefficient measure $S\wedge\alpha$.  It is satisfied
+in each of the following cases:
+\begin{enumerate}
+\item\label{itm:ch14-component-curvature:one-side}
+one of $u,v$ belongs locally to $\mathscr A$;
+\item\label{itm:ch14-component-curvature:local-potential}
+every point has an ordinary neighbourhood on which $S=\dprimeddprime[a]$
+for some $a\in\mathscr A$;
+\item\label{itm:ch14-component-curvature:zero}
+$S=0$.
+\end{enumerate}
+\end{enumerate}
+No normality, reducedness, perfectness, discreteness or
+residue-characteristic restriction is imposed.  Component intersections
+may have dimension $n-1$.
+\end{proposition}
+
+\begin{proof}
+\emph{Component geometry and canonical normalization.}
+The component family is G-locally finite by
+\cite[Theorem~4.20]{Ducros09Excellence}; in particular, an affinoid domain
+meets only finitely many components.  A compact set in the good space $X$
+is covered by finitely many affinoid neighbourhoods, so only finitely many
+components occur near any compact test support.  The closed-union and
+dimension statements in
+\cite[\S4, especially Theorem~4.20 and paragraphs~4.21--4.24]{Ducros09Excellence}
+show that $B_i$ is closed analytic in $X$ and in $X_i$, of local dimension
+less than $n$.  The locally finite union $B$ has the same properties.
+These are analytic components over $K$, not geometric components after
+extension of the field.
+
+Each $j_i$ is a finite closed immersion and has no relative boundary.
+Thus $X_i$ is again good, separated, usual-strict and boundaryless, of pure
+dimension $n$.  Its integration current and its proper pushforward are
+positive and separately closed by Stokes and
+\Cref{prop:current-cycle-closed,prop:current-pushforward-formal}.
+The fundamental-cycle identity
+\Cref{thm:current-fundamental-cycle} gives the locally finite equality
+\begin{equation}
+                         \delta_X=\sum_i m_i\delta_i.
+ \label{eq:ch14-component-canonical-sum}
+\end{equation}
+The positive generic lengths $m_i$ are retained also when $X$ is
+nonreduced.
+
+\emph{Positive curvature and the first-stage nullity input.}
+For a positive separately closed current $Q$ and
+$w\in\operatorname{CPsh}$, the current
+$\dprimeddprime(wQ)$ is positive and separately closed by
+\cite[Lemma~8.5.5]{CLD25}.  The full uniform-closure scope is important:
+the continuous functions $w$ for which this current is positive form a
+subsheaf, contain the smooth psh functions, and are stable under locally
+uniform limits.  Continuous multiplication of the fixed positive current
+and differentiation are continuous, and the positive cone is closed.
+Minimality of $\operatorname{CPsh}$ proves the assertion without producing
+one smooth sequence for a general $w$.
+
+For $w\in\mathscr A(X)$ put $S_i^w=\dprimeddprime(w\delta_i)$.
+Pullback by $j_i$ preserves smooth psh functions and their uniform
+approximations on an ordinary neighbourhood.  Only functions and smooth
+forms are pulled back.  Proper pushforward, continuous multiplication and
+differentiation therefore give
+\begin{equation}
+ S_i^w
+    =(j_i)_*\dprimeddprime[w|_{X_i}],
+ \qquad
+ S_i^w\wedge\alpha
+    =(j_i)_*\bigl(\dprimeddprime[w|_{X_i}]
+                              \wedge j_i^*\alpha\bigr).
+ \label{eq:ch14-component-coefficient-pushforward}
+\end{equation}
+The first equality is also \cite[Proposition~8.5.6]{CLD25}.
+For the second, $j_i^*\alpha$ has compact support when $\alpha$ does,
+since $j_i$ is topologically proper.  Testing against compactly supported
+smooth scalar functions proves the displayed identity; density of those
+tests in continuous compact tests identifies the corresponding Radon
+measures.  This is not pullback of an arbitrary current through a singular
+map.
+
+Apply \cite[Corollary~16.9.4]{CLD25}, with one locally approachable
+continuous potential, on $X_i$.  It gives zero mass on $B_i$ for every
+positive coefficient measure on the right of
+\eqref{eq:ch14-component-coefficient-pushforward}.  We use precisely this
+published first-stage analytic-nullity input, not an extension to every
+member of $\operatorname{CPsh}$.  For a general smooth test $\alpha$,
+discard its antisymmetric part, which pairs to zero with a symmetric
+curvature current, and locally write its symmetric part as a difference
+of two positive compact smooth forms.  The total variation of the
+difference of the two resulting measures is bounded by their sum.
+Thus source nullity is total-variation nullity, not merely signed
+cancellation.  Proper pushforward of a signed measure satisfies
+$|(j_i)_*\mu|\leq(j_i)_*|\mu|$, and $j_i^{-1}(B_i)$ is the same crossing
+subset on $X_i$.  Consequently
+\begin{equation}
+                         |S_i^w\wedge\alpha|(B_i)=0
+                         \quad(w\in\mathscr A(X)).
+ \label{eq:ch14-component-curvature-nullity}
+\end{equation}
+Compact smooth partitions and cutoffs justify each localization.
+No global paracompactness or global finite-component assumption is needed.
+
+\emph{The equivalence for two first-stage potentials.}
+Set $R_i=S_i^u-S_i^v$.  Differentiating
+\eqref{eq:ch14-component-canonical-sum} gives
+\begin{equation}
+ \dprimeddprime(u\delta_X)-\dprimeddprime(v\delta_X)
+                              =\sum_i m_i R_i .
+ \label{eq:ch14-component-curvature-difference}
+\end{equation}
+This proves the reverse implication of
+\eqref{eq:ch14-component-curvature-equivalence}.
+For the forward implication, assume the left side of
+\eqref{eq:ch14-component-curvature-difference} is zero.
+The current $R_i$ vanishes outside $X_i$ by support.  On the ordinary
+open $X\setminus\bigcup_{j\ne i}X_j$ the canonical current is
+$m_i\delta_i$, so $m_iR_i=0$ there.  Since $m_i>0$, these two ordinary
+open sets give
+\begin{equation}
+                              \Supp R_i\subseteq B_i .
+ \label{eq:ch14-component-curvature-support}
+\end{equation}
+No division of a current identity at a shared point is involved.
+
+For any compact smooth $(n-1,n-1)$-test $\alpha$, the signed measure
+$R_i\wedge\alpha$ vanishes on $X\setminus B_i$, by
+\eqref{eq:ch14-component-curvature-support} and smooth-test density.
+Its total variation on $B_i$ is zero by applying
+\eqref{eq:ch14-component-curvature-nullity} separately to $u$ and $v$.
+It is therefore the zero measure.  A compact smooth scalar cutoff equal
+to one near $\Supp\alpha$ recovers
+$\langle R_i,\alpha\rangle=0$.  All compact tests have been accounted for,
+so $R_i=0$, proving
+\cref{itm:ch14-component-curvature:approachable}.
+
+\emph{The common-curvature criterion.}
+For arbitrary $u,v\in\operatorname{CPsh}_X(X)$ define
+$S_i^u=\dprimeddprime(u\delta_i)$ and
+$S_i^v=\dprimeddprime(v\delta_i)$ directly on $X$.  They are positive by
+the full-sheaf positivity argument above.  Their common canonical
+curvature has the two positive decompositions
+\begin{equation}
+                 S=\sum_jm_jS_j^u=\sum_jm_jS_j^v .
+ \label{eq:ch14-component-common-sums}
+\end{equation}
+For every compact positive $\alpha$, these are inequalities of positive
+Radon measures:
+\begin{equation}
+ 0\leq S_i^u\wedge\alpha\leq m_i^{-1}(S\wedge\alpha),
+ \qquad
+ 0\leq S_i^v\wedge\alpha\leq m_i^{-1}(S\wedge\alpha).
+ \label{eq:ch14-component-common-domination}
+\end{equation}
+Indeed, removing one summand from either locally finite sum in
+\eqref{eq:ch14-component-common-sums} leaves a positive current.
+Nonnegative smooth scalar tests and then their density among continuous
+compact tests give \eqref{eq:ch14-component-common-domination} as measure
+inequalities.  The assumed nullity on $B$ therefore gives nullity on
+$B_i$ for both component measures.  Decomposition into positive forms
+gives total-variation nullity for all their signed coefficients.
+
+The support argument
+\eqref{eq:ch14-component-curvature-support} used only continuous
+multipliers and equality of canonical curvature, so it still applies.
+Combining it with the just proved nullity proves $R_i=0$ exactly as
+before, and establishes
+\cref{itm:ch14-component-curvature:common}.
+The same decomposition of tests proves the stated equivalence between
+positive-coefficient nullity and signed total-variation nullity.
+
+For \cref{itm:ch14-component-curvature:one-side}, apply the first-stage
+theorem \cite[Corollary~16.9.4]{CLD25} to the one approachable potential
+representing $S$ on $X$.  For
+\cref{itm:ch14-component-curvature:local-potential}, apply it on each
+ordinary neighbourhood with potential $a$; a finite smooth partition
+near each compact test support gives nullity on all of $B$.  The source
+uses canonical integration also on nonreduced spaces.  Equivalently,
+apply it on the reduced components and retain the positive
+multiplicities in \eqref{eq:ch14-component-canonical-sum}.
+Finally, in \cref{itm:ch14-component-curvature:zero},
+\eqref{eq:ch14-component-common-sums} is a positive weighted sum equal
+to zero, so every component curvature already vanishes.
+\end{proof}
+
+All neighbourhoods and tests in this argument are ordinary analytic
+ones.  If the proposition is applied to an ordinary open satisfying its
+ambient hypotheses, its components are the components of that open,
+not presumed to be intersections with a fixed global component family.
+In particular no inheritance of usual strictness by every ordinary open
+over a trivially valued field is asserted.
+Nor does \Cref{prop:ch14-component-curvature} classify arbitrary positive
+closed currents or assert analytic-nullity for an arbitrary common
+$\operatorname{CPsh}$ curvature.  The first-stage condition, or the
+explicit common-curvature nullity condition, remains part of the result.
+
+
+\section{Fibre integration}
+\label{sec:ch14-fibre-integration}
+
+Fibre integration is subtler than formal pushforward because it asserts that
+the pushforward of a form is represented by a function.  Let
+$p:Y\to X$ be a morphism of pure-dimensional topologically separated spaces,
+$\dim X=m$, $\dim Y=n$, and $d=n-m$.  Let $\omega$ be a $(d,d)$-form on $Y$
+whose support is proper over $X$.  On a fibre of pure dimension $d$, set
+\[
+                         u_\omega(x)=\int_{Y_x}\omega;
+\]
+set it equal to zero when the fibre does not have dimension $d$.
+
+\begin{theorem}
+\label{thm:cld-fibre-integration}
+Assume that the flat locus of $p$ is dense in $Y$.  If $\omega$ is a
+$G$-form of bidegree $(d,d)$ with locally bounded tropically Borel
+coefficients and $p$-compact support, then $u_\omega$ is locally integrable
+and
+\[
+              \int_Y\omega\wedge p^*\alpha
+                =\int_Xu_\omega\,\alpha
+\]
+for every compactly supported smooth $(m,m)$-form $\alpha$.  Equivalently,
+\[
+                             p_*[\omega]=[u_\omega].
+\]
+\end{theorem}
+\begin{proof}
+Work first over a relatively compact tropical chart on $X$.  Adjoin to the
+pullbacks of its moment functions finitely many invertible analytic functions
+on $Y$ that represent $\omega$.  This gives a product moment map on $Y$ and
+an integer-affine projection $F$ from its tropicalization to the base
+tropicalization.  Subdivide both complexes so that $F$ is affine of constant
+rank on every cell and every coefficient of $\omega$ is tropically Borel on
+the cells.
+
+On the dense flat locus, a top cell of $Y$ mapping to a top cell of $X$ has
+relative dimension $d$.  In lattice coordinates adapted to $F$, ordinary
+Fubini's theorem gives
+\[
+ \int_\sigma\omega\wedge F^*\alpha
+   =\int_{F(\sigma)}
+       \left(\int_{\sigma_x}\omega\right)\alpha(x).
+\]
+If the adapted coordinates are not unimodular, change of variables
+introduces the index
+$[N_{F(\sigma)}:F(N_\sigma/N_{\sigma_x})]$.  The calibration pushforward
+formula \eqref{eq:analytic-tropical-pushforward} says that the same index,
+together with the residue-field degree, is exactly the ratio between the
+source and target analytic multiplicities.  Thus the displayed equality is
+valid with the canonical calibrations, not only with Euclidean volume.
+
+Cells on which the rank drops have image of lower dimension and contribute
+zero to a top-degree test.  The complement of the flat locus has no
+top-dimensional component by density; its calibrated contribution is
+therefore also zero.  Summing the cellwise identity proves the formula for a
+form supported in the chosen charts.  A partition of unity and common
+product refinements prove it globally.  Local boundedness of the tropical
+coefficients bounds the fibre integrals by finitely many polyhedral volumes
+on compact subsets, so $u_\omega$ is locally integrable.  Approximation by
+simple Borel coefficients and dominated convergence remove the temporary
+cellwise-constant assumption.
+
+This is the calibrated Fubini argument of
+\cite[Theorem~16.5.4 and Corollary~16.5.5]{CLD25}.  Dense flatness is used in
+the dimension and degree step; omitting it would lose the multiplicities of
+nonreduced fibres.
+\end{proof}
+
+\begin{theorem}
+\label{thm:cld-fibre-projection}
+Under the hypotheses of \Cref{thm:cld-fibre-integration}, let
+$u_1,\ldots,u_r$ be tropically differences of convex functions on $X$, let
+$\omega$ be smooth of bidegree $(d,d)$ with $p$-compact support, and let
+$\alpha$ be a compactly supported $(m-r,m-r)$-form.  Then
+\[
+\begin{split}
+ &\left\langle
+   \bigwedge_{j=1}^r\dprimeddprime(p^*u_j),
+   \omega\wedge p^*\alpha\right\rangle\\
+ &\hspace{25mm}=
+ \left\langle\bigwedge_{j=1}^r\dprimeddprime u_j,
+                     u_\omega\alpha\right\rangle .
+\end{split}
+\]
+\end{theorem}
+\begin{proof}
+Assume first that the $u_j$ are smooth.  Pullback commutes with both
+differentials, hence
+\[
+ \dprimeddprime(p^*u_j)=p^*(\dprimeddprime u_j).
+\]
+Apply \Cref{thm:cld-fibre-integration} with
+$\bigwedge_j\dprimeddprime u_j\wedge\alpha$ in place of the base test form.
+The resulting identity is exactly the formula in the statement.
+
+On a tropical chart, a continuous convex function is uniformly approximated
+on relatively compact subsets by smooth convex functions.  A tropically
+difference-of-convex function is the difference of two such approximations.
+Choose approximations $u_{j,k}$ simultaneously on the finitely many charts
+meeting the supports.  The Bedford--Taylor products
+$\bigwedge_j\dprimeddprime u_{j,k}$ converge weakly to the corresponding
+products for $u_j$, and the same is true after pullback to $Y$.  The fibre
+function $u_\omega$ is locally integrable by
+\Cref{thm:cld-fibre-integration}, and its restriction to the controlling
+skeleton is piecewise smooth by \cite[Theorem~16.3.3]{CLD25}.  This is the
+regularity used to pair $u_\omega$ with the limiting measures; one is not
+formally multiplying an arbitrary locally integrable function by a current.
+The uniform local bounds in the Bedford--Taylor construction then justify
+passage to the limit in the smooth identity.  Independence of the
+decompositions into differences follows from the same continuity.  These
+approximation and convergence steps are \cite[Theorem~16.5.7]{CLD25}; the
+local products themselves are constructed in
+\Cref{chap:cld-bedford-taylor}.
+\end{proof}
+
+\subsection{Two fibre integrations carried to numbers}
+\label{sec:ch14-fibre-numbers}
+
+The hypotheses of \Cref{thm:cld-fibre-integration} are opaque until one has
+run the computation once with a degree in it.  We do so twice: first with a
+unimodular projection, where nothing happens, and then with a doubling map,
+where the calibrated degree $2$ of the fibre appears on the nose.  In both
+examples $K$ is nontrivially valued, and we use
+\Cref{prop:trop-torus-skeleton} to identify the tropicalization of an
+analytic torus with $\mathbf R^{\dim}$, calibrated with multiplicity $1$, and
+\Cref{thm:cld-analytic-integration} to compute integrals there.
+
+Throughout, $\rho\in C_c^\infty(\mathbf R)$ is a fixed nonnegative bump with
+\[
+ \int_{\mathbf R}\rho(t)\,\rd t=1,
+ \qquad \Supp\rho\subset[-1,1].
+\]
+
+\begin{example}[A unimodular projection]
+\label{ex:ch14-fibre-projection-numbers}
+Let $Y=(\mathbf G_{m,K}^2)^{\An}$ with tropical coordinates $(t_1,t_2)$, let
+$X=(\mathbf G_{m,K})^{\An}$ with tropical coordinate $s$, and let
+$p:Y\to X$ be given by $p^\#S=T_1$; tropically $F(t_1,t_2)=t_1$.  Here
+$n=2$, $m=1$, $d=1$, and $p$ is flat everywhere, so the density hypothesis of
+\Cref{thm:cld-fibre-integration} holds.  Take
+\[
+ \omega=\trop^*\bigl(\rho(t_1)\rho(t_2)\,\dprime t_2\wedge\ddprime t_2\bigr),
+\]
+a smooth $(1,1)$-form on $Y$ with compact support, hence $p$-compact support.
+
+The fibre $Y_x$ over a point $x$ with $s(x)=\sigma$ is a torus of dimension
+$1$ over $\mathcal H(x)$ with tropical coordinate $t_2$ and multiplicity $1$,
+so
+\[
+ u_\omega(x)=\int_{Y_x}\omega
+ =\rho(\sigma)\int_{\mathbf R}\rho(t_2)\,\rd t_2
+ =\rho(\sigma).
+\]
+Now let $\alpha=\trop^*\bigl(a(s)\,\dprime s\wedge\ddprime s\bigr)$ with
+$a\in C_c^\infty(\mathbf R)$.  Since $p^\#S=T_1$ we have
+$p^*\alpha=\trop^*(a(t_1)\dprime t_1\wedge\ddprime t_1)$, and since
+$\dprime t_2\wedge\ddprime t_2$ has even total degree it commutes past
+$\dprime t_1\wedge\ddprime t_1$, so
+\[
+ \omega\wedge p^*\alpha
+ =\rho(t_1)\rho(t_2)a(t_1)\,\tau_2 .
+\]
+Therefore
+\[
+ \int_Y\omega\wedge p^*\alpha
+ =\int_{\mathbf R^2}\rho(t_1)\rho(t_2)a(t_1)\,\rd t_1\rd t_2
+ =\int_{\mathbf R}\rho(t_1)a(t_1)\,\rd t_1
+ =\int_Xu_\omega\,\alpha .
+\]
+With $a\equiv1$ near $[-1,1]$ both sides equal $1$.  No index appears, because
+$F$ is the projection $\mathbf Z^2\to\mathbf Z$ onto a direct summand.
+\end{example}
+
+\begin{example}[A doubling map: the degree appears]
+\label{ex:ch14-fibre-degree-numbers}
+Keep $Y$ and $X$ as above but let $q:Y\to X$ be given by
+$q^\#S=T_1^2$; tropically $G(t_1,t_2)=2t_1$.  Now
+$G(\mathbf Z^2)=2\mathbf Z\subset\mathbf Z$, of index $2$, and analytically
+the fibre
+\[
+ Y_x=\{T_1^2=S(x)\}\times\mathbf G_m
+\]
+is finite of degree $2$ over a $1$-dimensional torus: the algebra
+$\mathcal H(x)[T_1]/(T_1^2-S(x))$ is a degree-$2$ \'etale
+$\mathcal H(x)$-algebra as soon as $\operatorname{char}\mathcal H(x)\neq2$,
+and in any case its length is $2$.  Hence the calibrated degree of $Y_x$ is
+$2$, by \Cref{thm:trop-degree-graded} and \Cref{def:trop-calibrated-degree}.
+
+Take the same $\omega$ as before.  On the fibre over $s(x)=\sigma$ we have
+$t_1=\sigma/2$ on each of the two sheets, so
+\[
+ u_\omega(x)=\int_{Y_x}\omega
+ =2\,\rho(\sigma/2)\int_{\mathbf R}\rho(t_2)\,\rd t_2
+ =2\,\rho(\sigma/2),
+\]
+the factor $2$ being the calibrated degree.  On the other side,
+$q^\#S=T_1^2$ gives $\dprime s=2\dprime t_1$ and $\ddprime s=2\ddprime t_1$,
+hence
+\[
+ q^*\alpha=4\,a(2t_1)\,\trop^*\bigl(\dprime t_1\wedge\ddprime t_1\bigr),
+\]
+and
+\[
+ \int_Y\omega\wedge q^*\alpha
+ =4\int_{\mathbf R^2}\rho(t_1)\rho(t_2)a(2t_1)\,\rd t_1\rd t_2
+ =4\int_{\mathbf R}\rho(t_1)a(2t_1)\,\rd t_1 .
+\]
+Substituting $\sigma=2t_1$, so $\rd t_1=\rd\sigma/2$,
+\[
+ \int_Y\omega\wedge q^*\alpha
+ =2\int_{\mathbf R}\rho(\sigma/2)a(\sigma)\,\rd\sigma
+ =\int_{\mathbf R}u_\omega(\sigma)a(\sigma)\,\rd\sigma
+ =\int_Xu_\omega\,\alpha,
+\]
+as \Cref{thm:cld-fibre-integration} predicts.  With $a\equiv1$ on
+$[-2,2]$ both sides equal
+\[
+ 2\int_{\mathbf R}\rho(\sigma/2)\,\rd\sigma=4 .
+\]
+Thus the total mass is $4$, not $1$: a factor $2$ from the calibrated degree
+of the fibre and a factor $2$ from the Jacobian of $\sigma\mapsto\sigma/2$ on
+the base.  Had one omitted the calibrated degree and simply written
+$u_\omega=\rho(\sigma/2)$, the two sides would have differed by a factor
+$2$; this is the numerical form of the multiplicity assertion inside the
+proof of \Cref{thm:cld-fibre-integration}, and it is the check that detects
+the commonest error.
+\end{example}
+
+\begin{remark}[Where each hypothesis is used]
+\label{rem:ch14-fibre-hypotheses}
+\Cref{thm:cld-fibre-integration} has three hypotheses, and each fails
+detectably.
+\begin{enumerate}
+\item \emph{$p$-compact support.}  Drop it and take
+  $\omega=\trop^*(\rho(t_1)\dprime t_2\wedge\ddprime t_2)$ in
+  \Cref{ex:ch14-fibre-projection-numbers}: the fibre integral is
+  $+\infty$ and $u_\omega$ is not defined.  This is the fibre-integration
+  analogue of \Cref{ex:ch11-pushforward-nonproper}.
+\item \emph{Dense flat locus.}  Let $Y$ be a nonempty smooth pure-dimensional
+  analytic space and let $X$ be its double thickening, with structure
+  sheaf $\mathcal O_Y[\varepsilon]/(\varepsilon^2)$.
+  For the finite reduction immersion $p:Y\hookrightarrow X$, take
+  $\omega=1$.  Its support is $p$-compact.  Each analytic fibre is one
+  reduced point, so $d=0$ and $u_\omega=1$ on $X$.  On the other hand,
+  \Cref{thm:current-fundamental-cycle} gives
+  \[
+       \delta_X=2p_*\delta_Y,\qquad
+       p_*[\omega]=\tfrac12\delta_X
+                  \ne\delta_X=[u_\omega].
+  \]
+  The multiplicity belongs to the target integration current, not to
+  the reduced source.  There is no dense flat locus: at the generic
+  Artinian local ring of any component, the target has length $2$ and
+  its reduction has length $1$, whereas a finite flat module is free
+  and has length a multiple of $2$.
+\item \emph{Locally bounded tropically Borel coefficients.}  These are what
+  make the cellwise Fubini step legitimate; without a local bound the fibre
+  integral need not be finite even when the support is $p$-compact.
+\end{enumerate}
+\end{remark}
+
+\section{Support and compactness principles}
+\label{sec:ch14-compactness}
+
+The full support theory of positive closed currents uses scalar extension and
+skeletal descriptions.  We record the conclusions needed later and diagnose
+the Hausdorff index in the scalar-extension case.  The next theorem separates
+the nontrivially valued support theorem from the scalar-extension argument
+needed in the trivially valued case; the accompanying remark records the
+resulting index correction.  The statements are grouped before their proofs,
+and each proof is headed by the result it establishes.
+
+\input{editorial/rethlas_packets_20260829/ch14_cld_support_correction_packet_20260829/ch14_cld_support_correction_statement_20260829.tex}
+\input{editorial/rethlas_packets_20260829/ch14_cld_support_correction_packet_20260829/ch14_cld_support_correction_proof_20260829.tex}
+
+\begin{remark}
+\label{rem:ch14-support-route}
+The first proof above is the proper-tropical-pushforward route of
+\cite[Theorem~16.8.5]{CLD25}; its only Euclidean support input is
+\cite[Corollary~4.1]{Lag12Super}.  It asserts no local Berkovich ball-growth
+estimate.  The second proof uses the Gauss--Shilov mechanism of
+\cite[Proposition~16.8.2 and Proposition~8.7.5]{CLD25} and
+\cite[Lemma~16.8.7 and the proof of Corollary~16.8.6]{CLD25}, with the
+Hausdorff exponent corrected as in
+\cref{rem:ch14-cld-support-corrected-index}.
+\end{remark}
+
+\begin{proposition}
+\label{prop:positive-current-compactness}
+Let $(T_i)$ be positive currents of fixed bidegree.  Suppose that on every
+relatively compact chart $U$ there is a smooth strictly positive test form
+$\Omega_U$ of complementary bidegree and a constant $C_U$ such that
+\[
+                 \langle T_i,\chi\Omega_U\rangle\leq C_U
+\]
+for one cutoff $\chi$ equal to one on a prescribed compact subset of $U$.
+Then the family is pointwise bounded on every fixed compact test-form space.
+Consequently every weak cluster point is positive.
+\end{proposition}
+\begin{proof}
+On a fixed compact test-form stage, every symmetric test form $\alpha$ satisfies
+\[
+ -C\|\alpha\|_{C^0}\Omega_U\leq\alpha\leq
+ C\|\alpha\|_{C^0}\Omega_U.
+\]
+Positivity gives a uniform order-zero bound.
+The last assertion follows by passing to the limit on positive tests.  The
+existence of a convergent subnet requires an appropriate locally convex
+compactness theorem and is not asserted here without its hypotheses.
+\end{proof}
+
+\subsection{A compactness theorem that does hold}
+\label{sec:ch14-compactness-positive}
+
+The hypotheses alluded to at the end of the last proof can in fact be
+supplied using nets at this level of generality.  We state the result in the
+form in which it is used in
+\Cref{chap:cld-bedford-taylor,part:bfj}.
+
+\begin{theorem}
+\label{thm:ch14-positive-compactness}
+Let $X$ be locally holomorphically separated and paracompact, and let
+$(T_i)_{i\in I}$ be a net of positive currents of bidimension $(p,p)$ on $X$.
+Assume that for every relatively compact tropical chart $f:U\to\mathbf
+G_m^r$, every compact $L\subset U$, and one nonnegative cutoff $\chi$ equal to
+$1$ on $L$ and compactly supported in $U$, the masses
+\[
+ M_{U,L}:=\sup_i\bigl\langle T_i,\chi\,f_{\trop}^*\eta^{p}\bigr\rangle
+\]
+are finite, where $\eta=\dprimeddprime\|x\|^2$.  Then the net has a subnet
+converging weakly to a positive current $T$ of bidimension $(p,p)$, and $T$
+is of order $0$ relative to every test-form stage.  If moreover every $T_i$ is
+closed, then so is $T$.
+\end{theorem}
+
+\begin{proof}
+\emph{Pointwise bounds.}  Fix $\alpha\in A_{X,c}^{p,p}$.  By definition of
+$A_{X,c}^{p,p}$ there are finitely many relatively compact tropical charts
+$f_j:U_j\to\mathbf G_m^{r_j}$ covering $\Supp\alpha$ and superforms
+$\alpha_j$ with $\alpha|_{U_j}=f_{j,\trop}^*\alpha_j$.  Choose a subordinate
+partition of unity $(\rho_j)$ with $\rho_j\ge0$ and, for each $j$, a compact
+$L_j\supset\Supp\rho_j$ together with the cutoff $\chi_j$ of the hypothesis,
+so that $\chi_j\ge\rho_j$.  The order-zero estimate proved inside
+\Cref{prop:current-positivity-calculus} gives
+\[
+ \bigl|\langle T_i,\rho_j\alpha\rangle\bigr|
+ \le c\,\bigl\langle T_i,\rho_jf_{j,\trop}^*\eta^p\bigr\rangle\,
+   \|\alpha_j\|_{W_j,0},
+\]
+and $\langle T_i,\rho_jf_{j,\trop}^*\eta^p\rangle
+\le\langle T_i,\chi_jf_{j,\trop}^*\eta^p\rangle\le M_{U_j,L_j}$, because
+$(\chi_j-\rho_j)f_{j,\trop}^*\eta^p$ is a positive test form and $T_i$ is
+positive.  Summing over $j$ gives a bound
+$|\langle T_i,\alpha\rangle|\le C_\alpha$ independent of $i$.
+
+\emph{Extraction.}  Consider the product space
+$P=\prod_{\alpha}[-C_\alpha,C_\alpha]$, indexed by
+$\alpha\in A_{X,c}^{p,p}$, with the product topology; it is compact by
+Tychonoff's theorem.  The map $i\mapsto(\langle T_i,\alpha\rangle)_\alpha$
+takes values in $P$, so the net has a convergent subnet
+$(T_{i_\lambda})$; write $\langle T,\alpha\rangle$ for the limit of
+$\langle T_{i_\lambda},\alpha\rangle$.  Convergence in $P$ is exactly
+pointwise convergence on test forms, so $T_{i_\lambda}\to T$ in the weak
+topology, provided $T$ is a current.
+
+\emph{$T$ is a positive current.}  Linearity passes to the limit.  For a
+positive $\alpha$ one has $\langle T_{i_\lambda},\alpha\rangle\ge0$, hence
+$\langle T,\alpha\rangle\ge0$; and, each $T_i$ being symmetric,
+$\langle T,J\alpha\rangle=(-1)^p\langle T,\alpha\rangle$ in the limit.  Thus $T$ is a positive symmetric linear
+functional, and \Cref{prop:ch14-automatic-continuity}\,(1) makes it a current
+of order $0$ relative to every test-form stage, with no further estimate.
+
+\emph{Closedness.}  If $\dprime T_i=0$ for all $i$, then for a test form
+$\beta$ of the appropriate bidegree
+$\langle T,\dprime\beta\rangle=\lim\langle T_{i_\lambda},\dprime\beta\rangle
+=\pm\lim\langle\dprime T_{i_\lambda},\beta\rangle=0$; the sign
+\eqref{eq:ch14-dprime-sign} is the same for all $i$ because the bidegree is
+fixed.  Hence $\dprime T=0$, and likewise for $\ddprime$.
+\end{proof}
+
+\begin{warning}{Why the conclusion is a subnet}
+\Cref{thm:ch14-positive-compactness} uses compactness of a product indexed by
+all test forms, so its conclusion is a convergent subnet.  A subsequence may
+be available under additional countability or metrizability hypotheses, but
+none is assumed or proved here.  Accordingly, the convention of
+\Cref{chap:topological-tools} is to formulate convergence for nets until a
+sequential reduction has been established.
+\end{warning}
+
+\subsection{What fails, relative to the complex case}
+\label{sec:ch14-what-fails}
+
+We now list precisely the parts of the classical package that are unavailable
+here, with the example that obstructs each.  The list is short, and each item
+has been proved above.
+
+\paragraph{(F1) There need not be a single global finite order.}
+On a complex manifold, currents of order $\le m$ with support in a fixed
+compact set form the dual of a Banach space, and Banach--Alaoglu applies.
+Here, by \Cref{ex:ch14-star-unbounded-order}, a compact space---the Berkovich
+projective line over a trivially valued field---carries a current of
+bidimension $(0,0)$ whose order relative to a test-form stage is unbounded as
+the stage varies.  Thus the full current space cannot be placed in one fixed
+$C^m$ dual by definition alone.  Consequently:
+\begin{itemize}
+\item the fixed-order Banach--Alaoglu argument does not apply to all currents;
+\item positive compactness is instead expressed through local mass bounds and
+  the product-compactness argument of \Cref{thm:ch14-positive-compactness};
+\item replacing its subnet by a subsequence requires extra topological
+  hypotheses.
+\end{itemize}
+
+\paragraph{(F2) Order zero does not mean measure coefficients.}
+By \Cref{ex:ch14-star-not-measure} there is a current of bidimension $(0,0)$
+on a compact Berkovich space which is of order $0$ relative to every test-form
+stage but is not induced by any signed Radon measure.  Over $\mathbf C$ this
+cannot happen.  The failure is not exotic: it occurs on
+$\mathbf P^{1,\An}_k$ for $k$ trivially valued.  Note that positivity
+repairs it, by the last assertion of
+\Cref{ex:ch14-forms-and-measures}; the phenomenon is confined to signed
+currents.
+
+\paragraph{(F3) There is no convolution, hence no canonical smoothing.}
+On $\mathbf R^N$ every supercurrent can be regularized: for a nonnegative
+$\rho\in C_c^\infty$ with $\int\rho=1$ and $\rho_\varepsilon(x)
+=\varepsilon^{-N}\rho(x/\varepsilon)$, the convolution
+$\rho_\varepsilon*T$ is the current of a \emph{smooth} form, commutes with
+$\dprime$ and $\ddprime$, preserves each of the three positivity cones, and
+converges weakly to $T$.  In particular every positive closed supercurrent on
+$\mathbf R^N$ is a weak limit of smooth positive closed forms; this is
+Lagerberg's regularization, recalled in \cite[\S1.6]{CLD25}.
+
+Every step of that construction uses the group structure of $\mathbf R^N$
+through three properties: translations act on the space, they act by
+automorphisms of the sheaf of smooth forms, and the addition map is proper on
+the relevant supports.  A Berkovich space has none of them.  There is no
+translation action, the tropical charts have varying dimension, and---the
+sharpest obstruction---the local tropical dimension is not locally constant,
+so there is no ``direction'' in which to smear.  What replaces convolution is
+chartwise smoothing followed by a comparison, and the comparison is exactly
+what is missing: a chart is a map to $\mathbf R^r$ with no section.
+
+Two positive substitutes are available and should not be confused with a
+smoothing theorem.
+
+\begin{proposition}
+\label{prop:ch14-weak-density}
+Let $X$ be boundaryless of pure dimension $n$, and assume the injectivity
+statement of \Cref{rem:ch14-form-injectivity} on $X$, which holds for instance
+whenever \cite[Corollary~7.3.9]{CLD25} applies.  Then the image of
+$\omega\mapsto[\omega]$, from smooth $(p,q)$-forms to $D^{p,q}(X)$, is dense
+in the weak topology.
+\end{proposition}
+
+\begin{proof}
+By the Hahn--Banach theorem it suffices to show that a weakly continuous
+linear functional on $D^{p,q}(X)$ vanishing on all $[\omega]$ vanishes
+identically.  A weakly continuous functional on a space with the topology of
+pointwise convergence on $A_{X,c}^{n-p,n-q}$ is evaluation against a test
+form $\alpha$.  If $\int_X\omega\wedge\alpha=0$ for every smooth $\omega$,
+then $[\alpha]=0$ as a current, whence $\alpha=0$ by the injectivity quoted
+in \Cref{rem:ch14-form-injectivity}.
+\end{proof}
+
+\begin{warning}{Density is not regularization}
+\Cref{prop:ch14-weak-density} says nothing about \emph{positive} or
+\emph{closed} currents: the approximating smooth forms it produces are
+neither.  A regularization theorem would have to produce, for a positive
+closed $T$, smooth positive closed $\omega_\varepsilon$ with
+$[\omega_\varepsilon]\to T$; and no such theorem is known in this
+generality.  The distinction matters because every application in
+\Cref{part:bfj,part:bj} that ``regularizes'' does so at the level of
+\emph{potentials}, not of currents.
+\end{warning}
+
+Regularization of an arbitrary positive current by convolution is likewise
+not intrinsic on a Berkovich space.  CLD define continuous psh functions by
+a transfinite, sheafwise uniform-closure process.  Only the first-stage
+``locally approachable'' class is, by definition, locally uniformly
+approximable by smooth psh functions; stabilization at that stage is not
+known.  Delta-forms and harmonic tropicalizations, treated in
+\cref{chap:delta-forms},
+offer different enlargements; they should not be described as a general
+smoothing theorem for currents.
+
+\paragraph{(F4) Removable sets are larger, not smaller.}
+This is a failure only in the sense that intuition transported from
+$\mathbf C$ misleads.  By \Cref{lem:ch14-extension-by-zero} and
+\Cref{thm:ch14-support-dimension}, a closed set of tropical dimension
+$<\max\{r,s\}$ is \emph{automatically} removable for currents of bidimension
+$(r,s)$, with no growth or positivity hypothesis and with restriction an
+isomorphism.  Over $\mathbf C$ the corresponding statement for a
+$(1,1)$-current across a point on a surface requires positivity and the Skoda
+or El Mir extension theory.  The reason for the discrepancy is that here the
+\emph{test forms} already vanish on the small set, whereas over $\mathbf C$
+they do not.  The two situations are therefore not comparable, and the
+non-Archimedean statement must not be quoted as a strengthening of the
+complex one.
+
+\paragraph{(F5) Mass is not controlled by cohomology.}
+Over a compact K\"ahler manifold the mass of a positive closed current is
+determined by its cohomology class, so families in a fixed class are
+automatically of bounded mass, and \Cref{thm:ch14-positive-compactness}
+becomes unconditional.  Here no such mechanism exists in general: the
+cohomology of the complex $(A_X^{\bullet,\bullet},\dprime,\ddprime)$ is not
+known to be finite-dimensional in general, and the analogue of the Wirtinger
+inequality would require a globally defined strongly positive
+$(1,1)$-form, that is, a K\"ahler form, which a Berkovich space does not
+carry canonically.  The mass hypothesis in
+\Cref{thm:ch14-positive-compactness} therefore has to be verified by hand in
+each application; in \Cref{part:bfj} it is supplied by an intersection
+number on a model, and in \Cref{chap:cld-bedford-taylor} by the
+Chern--Levine--Nirenberg inequalities.
+
+\section{Dictionary, conventions, and unit tests}
+\label{sec:ch14-dictionary}
+
+\subsection{From this chapter to the rest of the book}
+\label{sec:ch14-dict-forward}
+
+\begin{center}
+\small
+\begin{tabular}{p{.30\textwidth}|p{.28\textwidth}|p{.32\textwidth}}
+\textbf{Established here}&\textbf{Used as}&\textbf{Where}\\ \hline
+test-form topology
+  (\cref{def:ch14-test-form-stage})
+  &domain of weak convergence
+  &\cref{prop:test-form-continuity-criterion},
+   \cref{chap:cld-bedford-taylor}\\
+relative order
+  (\cref{def:ch14-relative-order})
+  &substitute for distributional order
+  &\cref{sec:ch14-what-fails}\\
+sheaf property
+  (\cref{prop:ch14-currents-sheaf})
+  &locality of curvature
+  &\cref{chap:cld-poincare-lelong}\\
+extension by zero
+  (\cref{lem:ch14-extension-by-zero})
+  &removability across thin sets
+  &\cref{chap:cld-bedford-taylor},
+   \cref{chap:cld-metrized-bundles}\\
+sign of $\dprime$ on currents
+  (\cref{lem:ch14-sign-forced})
+  &Poincar\'e--Lelong normalization
+  &\eqref{eq:appJ-cld-pl},
+   \cref{chap:cld-poincare-lelong}\\
+boundary current
+  (\cref{prop:ch14-boundary-current})
+  &Stokes with boundary
+  &\cref{chap:cld-forms},
+   \cref{sec:appJ-currents}\\
+positivity hierarchy for currents
+  (\cref{prop:ch14-form-current-cones})
+  &positivity of curvature currents
+  &\cref{chap:cld-metrized-bundles}\\
+automatic continuity
+  (\cref{prop:ch14-automatic-continuity})
+  &construction of $\delta_Y$, $[\mu_\Sigma]$, $u_\omega$
+  &\cref{sec:ch14-cycles},
+   \cref{sec:ch14-fibre-integration}\\
+proper pushforward
+  (\cref{prop:current-pushforward-formal})
+  &projection formula, degrees
+  &\cref{cor:ch11-projection-formula},
+   \cref{chap:cld-metrized-bundles}\\
+cycle current
+  (\cref{thm:current-fundamental-cycle})
+  &right-hand side of Poincar\'e--Lelong
+  &\cref{chap:cld-poincare-lelong}\\
+fibre integration
+  (\cref{thm:cld-fibre-integration})
+  &pushforward of Monge--Amp\`ere measures
+  &\cref{thm:cld-fibre-projection},
+   \cref{chap:cld-metrized-bundles}\\
+support theorem
+  (\cref{thm:ch14-cld-support-corrected-packet})
+  &polar negligibility
+  &\cref{chap:cld-bedford-taylor}\\
+weak compactness
+  (\cref{thm:ch14-positive-compactness})
+  &limits of Monge--Amp\`ere measures
+  &\cref{part:bfj},
+   \cref{chap:cld-bedford-taylor}\\
+weakly null directions
+  (\cref{ex:ch14-weakly-null})
+  &hypothesis in convex products
+  &\cref{thm:ch14-convex-bt-imported},
+   \cref{sec:appD-supercurrents}\\
+strongly homogeneous currents
+  (\cref{prop:ch14-strongly-homogeneous})
+  &mixed volumes, Alexandrov--Fenchel
+  &\cref{thm:appD-support-current-mixed-volume},
+   \cref{thm:appD-af}
+\end{tabular}
+\end{center}
+
+\subsection{The convention dictionary}
+\label{sec:ch14-convention-dictionary}
+
+Four bodies of literature meet in this chapter---the Lagerberg--CLD calculus,
+Berndtsson's 2019 supercurrent paper, his 2026 convex paper, and classical
+complex pluripotential theory---and they do not agree on signs, on the
+meaning of the word ``positive'', or on where a factorial goes.  The table
+below is the promised reconciliation.  Every row is a definition, not a
+theorem; the diagnostic column is the computation that detects a mismatch.
+The binding normalizations of this book are those of
+\Cref{sec:appJ-cld,sec:appJ-currents}, and nothing in this table overrides
+them.
+
+\begin{center}
+\small
+\begin{tabular}{@{}p{.20\textwidth}p{.25\textwidth}p{.25\textwidth}p{.24\textwidth}@{}}
+\toprule
+Datum & This book (Lagerberg--CLD) & Elsewhere & Diagnostic \\
+\midrule
+Bigrading
+ & $\dprime x_i$, $\ddprime x_i$; bidegree $(p,q)$
+ & $\rd x_i$, $\rd\xi_i$ in \cite{Ber19Super,Ber26Convex}
+ & identify $\rd\xi_i\leftrightarrow\ddprime x_i$ \\
+Involution
+ & $J\dprime x_i=\ddprime x_i$, $J\ddprime x_i=\dprime x_i$
+ & $J\rd x_i=-\rd\xi_i$, $J\rd\xi_i=\rd x_i$ in
+   \cite[\S2]{Ber26Convex}; opposite sign in \cite{Ber19Super}
+ & test $J^2$: ours is an involution \\
+Symmetry
+ & $J\alpha=(-1)^p\alpha$ on $A^{p,p}$; $JT=(-1)^pT$ on $D^{p,p}$
+ & $J\alpha=\alpha$ with the CLD involution
+ & \cref{def:ch14-symmetric-current},
+   \cref{rem:ch09-two-involutions} \\
+Second-order operator
+ & $\dprimeddprime u=\sum u_{ij}\dprime x_i\wedge\ddprime x_j$
+ & $\rd\rd^{\#}u$ with $\rd^{\#}=J^{-1}\rd J$
+ & convex $u$ must give a positive form,
+   \eqref{eq:appJ-real-hessian} \\
+Top orientation
+ & $\tau_n=\bigwedge_i(\dprime x_i\wedge\ddprime x_i)$, interlaced
+ & grouped $\dprime x_{[n]}\wedge\ddprime x_{[n]}$; Berezin sign
+ & the constant is $c_n$, \eqref{eq:appJ-cp} \\
+``Positive''
+ & three cones $\mathrm{SP}\subset\mathrm P\subset\mathrm{WP}$,
+   \cref{def:ch09-cones}
+ & complex usage: ``positive'' often means our weakly positive
+ & only bidegrees $2\le p\le n-2$ distinguish them \\
+``Strong''
+ & \emph{strongly positive} $=$ in $\mathrm{SP}$
+ & \emph{strong} in \cite{Ber26Convex} $=$ in the linear span of
+   $\mathrm{SP}$
+ & a weakly null form is neither \\
+Positivity for currents
+ & tested against the \emph{opposite} cone,
+   \cref{prop:current-positivity-calculus}
+ & sometimes tested against the same cone
+ & \cref{prop:ch14-form-current-cones}: $[\omega]$ and $\omega$ agree \\
+Current differential
+ & $\dprime=(-1)^{p+q+1}b'$ on $D^{p,q}$
+ & naked transpose $b'$
+ & $\dprime[\omega]=[\dprime\omega]$,
+   \cref{lem:ch14-sign-forced} \\
+Boundary
+ & $\dprime[\omega]=[\dprime\omega]-[\omega]^\partial$
+ & no boundary term when $\partial X=\emptyset$
+ & \cref{prop:ch14-boundary-current} \\
+Bidegree of a cycle
+ & $\delta_Z$ of codimension-$p$ cycle has bidegree $(p,p)$
+ & bidimension $(n-p,n-p)$
+ & \cref{sec:appJ-currents} \\
+Monge--Amp\`ere factor
+ & $\tfrac1{n!}(\dprimeddprime u)^n=\det(D^2u)\,\rd x$
+ & $(\rd\rd^\#u)^n$ without $1/n!$
+ & \cref{thm:appD-alexandrov-measure},
+   \cref{prop:ch09-ma-coordinates} \\
+Integration current of $M$
+ & calibrated: lattice measure, $\delta_M$
+ & metric: $[M]_{\mathrm s}$ of \cite{Ber19Super}
+ & ratio $\operatorname{covol}_g(N_M)$,
+   \cref{prop:ch14-berndtsson-vs-tropical} \\
+Mean curvature
+ & $\vec H=\sum_i\mathrm{II}(e_i,e_i)$, unnormalized
+ & sometimes divided by $m$
+ & sphere of radius $R$: $|\vec H|=(N-1)/R$ \\
+Complex comparison
+ & $\dprimeddprime\log|f|=\delta_{\operatorname{div}f}$
+ & $\ddc\log|f|^2=[\operatorname{div}f]$
+ & factor $2$ in the weight,
+   \cref{sec:appJ-complex-ddc} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Three rows deserve a sentence of commentary, because they are the ones that
+have caused published confusion.
+
+First, the word \emph{strong}.  In \cite{Ber26Convex} a form is strong when
+it lies in the linear span of the strongly positive cone.  By
+\Cref{cor:ch14-sp-not-spanning} that span is proper in bidegree $(2,2)$ on
+$\mathbf R^4$, so ``strong'' is a genuine restriction and not a synonym for
+``strongly positive'': a strongly positive form is strong, but a strong form
+need not be positive in any sense.  The hypothesis in
+\Cref{thm:ch14-convex-bt-imported} is the linear-algebraic one.
+
+Second, the direction of the positivity hierarchy.  For forms the smallest
+cone is $\mathrm{SP}$; for currents the smallest class is also called
+strongly positive, but it is defined by testing against the \emph{largest}
+cone of forms.  \Cref{thm:ch09-positivity-duality} is what makes the two
+usages compatible, and \Cref{prop:ch14-form-current-cones} is the statement
+that the compatibility is exact on currents defined by forms.
+
+Third, the sign of $J$.  The two Berndtsson papers differ from each other,
+and both differ from the Lagerberg--CLD convention used here.  Since
+$\dprimeddprime$ is defined through $J$, no identity involving $J$ may be
+transported without recomputation; identities involving only
+$\dprimeddprime$ on \emph{functions} may, because all three conventions give
+the Hessian in the ordered basis.  This is the content of
+\Cref{rem:ch14-convention-firewall}.
+
+\subsection{Unit tests}
+\label{sec:ch14-unit-tests}
+
+The chapter contains the following complete checks.  Together they exercise
+every convention in the preceding table at least once.
+
+\begin{center}
+\small
+\begin{tabular}{p{.34\textwidth}|p{.28\textwidth}|p{.30\textwidth}}
+\textbf{Test}&\textbf{Detects}&\textbf{Where}\\ \hline
+$\dprimeddprime\max\{0,t\}=\delta_0$
+  &sign of the current differential
+  &\cref{ex:ch14-convex-corner-restated}\\
+model function on a star
+  &vertex atom is the sum of the outgoing slopes
+  &\cref{ex:ch14-line-model-function}\\
+$k$-th derivative on the $k$-th branch
+  &no global order
+  &\cref{ex:ch14-star-unbounded-order}\\
+nonsummable $(c_b)$ on a star
+  &order zero is not measure
+  &\cref{ex:ch14-star-not-measure}\\
+$\omega=-(\dprime x_{12}+\dprime x_{34})
+   \wedge(\ddprime x_{12}+\ddprime x_{34})$
+  &positive $\neq$ strongly positive
+  &\cref{ex:ch14-positive-not-strong-current}\\
+Pl\"ucker form $\widehat P$
+  &existence of weakly null directions
+  &\cref{ex:ch14-weakly-null}\\
+$T$ and $-T$ positive
+  &saliency of the positive cone only
+  &\cref{prop:ch14-positive-and-negative}\\
+$u_\varepsilon(x)=\chi(x/\varepsilon)$ at $0$
+  &nonexistence of pullback
+  &\cref{prop:ch14-no-pullback}\\
+Tate skeleton length measure
+  &mass equals $v_K(q)$
+  &\cref{ex:ch14-skeleton-current}\\
+projection $\mathbf G_m^2\to\mathbf G_m$
+  &unimodular case, no index
+  &\cref{ex:ch14-fibre-projection-numbers}\\
+doubling $S=T_1^2$
+  &calibrated fibre degree $2$; total mass $4$
+  &\cref{ex:ch14-fibre-degree-numbers}\\
+$M=\mathbf R(1,1)\subset\mathbf R^2$
+  &metric versus lattice normalization
+  &\cref{ex:ch14-diagonal-line}\\
+$g\mapsto\lambda^2g$
+  &$[M]_{\mathrm s}\mapsto\lambda^{-m}[M]_{\mathrm s}$
+  &\cref{prop:ch14-berndtsson-metric-dependence}\\
+$h$ homogeneous of degree $1$
+  &$\iota'_E\dprimeddprime h=0$
+  &\cref{prop:ch14-strongly-homogeneous}
+\end{tabular}
+\end{center}
+
+Five points are worth memorizing on leaving the chapter.
+\begin{enumerate}
+\item Every current has a finite order relative to each test-form stage, but
+  it need not admit one global finite order; compactness statements must be
+  read accordingly.
+\item Duality reverses the two extreme positivity cones for the \emph{test}
+  forms, but not for the objects: a current defined by a positive form is
+  positive.
+\item The only sign created by the current formalism is
+  $(-1)^{p+q+1}$, and it is forced by
+  $\dprime[\omega]=[\dprime\omega]$, not chosen.
+\item Positivity buys continuity and order zero; it does not buy
+  regularization.
+\item ``Integration current of $M$'' means two different things, differing by
+  the covolume of the tangent lattice, and only one of them is metric-free.
+\end{enumerate}
+
+\section*{Source notes}
+
+The current topology, sheaf property, positivity, and differential calculus
+are reconstructed from \cite[Chapter~7]{CLD25}; the analytic cycle and fibre
+integration results are from \cite[Chapter~16]{CLD25}.  Our insistence on
+proper support, dense flat locus, and the nontrivially valued hypothesis in
+the arbitrary-current clause of the support theorem follows the exact
+statements of that source.
+
+\paragraph{Provenance of the individual statements.}
+The definition of a current on a tropical space, the description of
+continuity relative to a covering chart system and compact support, and the
+observation that the resulting orders need not be bounded are
+\cite[\S7.1]{CLD25}; our
+\Cref{ex:ch14-star-unbounded-order} makes that observation explicit on the
+star of \cite[\S6.7.3]{CLD25}, which is the Berkovich projective line over a
+trivially valued algebraically closed field, and
+\Cref{ex:ch14-star-not-measure} is the example of
+\cite[7.2.14]{CLD25} with its summability criterion proved in both
+directions.  The sheaf property and fineness are
+\cite[Proposition~7.1.7 and Corollary~7.1.8]{CLD25}; the extension of a
+current to forms whose support meets $\Supp T$ compactly is
+\cite[Lemma~7.1.10]{CLD25}; extension by zero across a set of small tropical
+dimension is \cite[Lemma~7.1.13]{CLD25}.  The three positivity cones for
+currents, their sheaf property, and the wedge rules are
+\cite[\S7.2]{CLD25}, resting on the superform statements of
+\cite[\S1.2]{CLD25} which we proved in
+\Cref{chap:superforms}.  The identification of positive $(0,0)$-currents with
+positive Radon measures is \cite[Proposition~7.2.8]{CLD25}, and the automatic
+continuity of positive functionals is \cite[Proposition~7.2.9]{CLD25}; on the
+latter see \Cref{rem:ch14-third-case}, where we explain why we prove and use
+only two of the three cases.  Integration currents and their positivity are
+\cite[\S7.3]{CLD25}; the differential calculus, including the boundary term
+of \Cref{prop:ch14-boundary-current} and the sign
+$(-1)^{p+q+1}$, is \cite[\S7.7]{CLD25}.  The cycle statement
+\Cref{thm:current-fundamental-cycle} is
+\cite[Proposition~16.6.3]{CLD25}, fibre integration is
+\cite[Theorem~16.5.4 and Corollary~16.5.5]{CLD25}, the projection formula for
+Bedford--Taylor products is \cite[Theorem~16.5.7]{CLD25}.  The
+arbitrary-current support assertion is \cite[Theorem~16.8.5]{CLD25}.  The
+trivially valued Bedford--Taylor assertion uses
+\cite[Proposition~16.8.2 and Proposition~8.7.5]{CLD25} and
+\cite[Lemma~16.8.7 and the proof of Corollary~16.8.6]{CLD25}, with the
+exponent correction explained in
+\cref{rem:ch14-cld-support-corrected-index}.
+
+\paragraph{The Euclidean support input.}
+The Euclidean vanishing statement used inside
+\cite[Theorem~16.8.5]{CLD25}, and recalled in
+\Cref{rem:ch14-support-route}, is
+\cite[Corollary~4.1]{Lag12Super}; it is Corollary~3.5 in
+arXiv:1008.2856v1.  That paper is also the origin of the
+superform calculus of \Cref{chap:superforms} and of the convolution
+regularization discussed in \Cref{sec:ch14-what-fails}; the reader should
+consult \cite[\S\S1.2 and 1.6]{CLD25} for the statements in the form used
+above.
+
+\paragraph{The two Berndtsson constructions.}
+The metric supercurrent of a real submanifold, its positivity, the
+identification of its traced differential with the first variation of area,
+and the mean-curvature flow variation formula are \cite[\S\S4--5]{Ber19Super};
+we use the corrected 2019 version, in which the argument of Section~8 of the
+first arXiv version was replaced while the main results were unchanged.
+\Cref{lem:ch14-berndtsson-pairing},
+\Cref{prop:ch14-berndtsson-metric-dependence},
+\Cref{prop:ch14-berndtsson-vs-tropical}, and
+\Cref{ex:ch14-diagonal-line} are not in that paper; they are the
+translation into the calibrated language of this book, and the covolume
+factor they isolate appears to be the cleanest way to state that
+$[M]_{\mathrm s}$ and $\delta_M$ are different objects.
+\Cref{prop:ch14-first-variation} is the classical first-variation formula and
+is included so that the imported statement has a visible content.  The
+convex theory---weakly null directions, the notion of a strong form, the
+Bedford--Taylor product for convex potentials, strongly homogeneous
+supercurrents, and the Lorentzian form behind Alexandrov--Fenchel---is
+\cite[\S\S3--6 and 10]{Ber26Convex}.  The mixed-volume identity is proved in
+\Cref{thm:appD-support-current-mixed-volume}, whose only analytic input is
+\Cref{thm:ch14-convex-bt-imported}; the convex-analytic background is
+\cite{Roc70} and \cite{Sch14}.
+
+\paragraph{Departures from the sources.}
+Three points of presentation differ deliberately from
+\cite{CLD25}.  First, we prove automatic continuity only for functionals
+nonnegative on positive, or on weakly positive, forms, because
+\Cref{cor:ch14-sp-not-spanning} shows that the domination argument does not
+reach the third case; this costs nothing, since every current constructed in
+this book by positivity is of the first two kinds.  Second, we make the
+failure of a global order into a numbered example rather than a remark,
+because it is the single fact from which the whole of
+\Cref{sec:ch14-what-fails} follows.  Third, we state and prove the weak
+compactness theorem \Cref{thm:ch14-positive-compactness} in net form, using
+Tychonoff, rather than leaving the hypotheses unstated; the classical
+complex counterpart is in \cite[Chapter~III]{Dem12}, and the comparison
+there is the point of \Cref{sec:ch14-what-fails}.

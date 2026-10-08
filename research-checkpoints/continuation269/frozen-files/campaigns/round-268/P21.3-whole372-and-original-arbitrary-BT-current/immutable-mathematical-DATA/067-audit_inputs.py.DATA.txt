@@ -1,0 +1,49 @@
+"""Own bounded input binding and literal LF extraction; executes no packet code."""
+from pathlib import Path
+import json, hashlib, sys, platform, shutil
+
+ROOT = Path(__file__).resolve().parent
+PACKET = ROOT.parent.parent
+OUT = ROOT / 'inputs-LOCALONLY'
+OUT.mkdir(exist_ok=True)
+records = []
+for name in ('mathematical-packet-bindings.json', 'private-primary-packet-bindings.json', 'book-context-bindings.json'):
+    manifest = json.loads((PACKET / name).read_text())
+    for item in manifest:
+        path = Path(item['path'])
+        data = path.read_bytes()
+        got = hashlib.sha256(data).hexdigest()
+        assert len(data) == item['bytes'] and got == item['sha256'], path
+        records.append({'manifest':name,'path':str(path),'bytes':len(data),'sha256':got})
+        local = OUT / name.removesuffix('.json') / path.name
+        local.parent.mkdir(exist_ok=True)
+        local.write_bytes(data)
+    shutil.copyfile(PACKET / name, OUT / name)
+source = next(Path(r['path']) for r in records if Path(r['path']).name == '31-31-cld-v2-full.txt')
+pdf = next(Path(r['path']) for r in records if Path(r['path']).name == '36-36-CLD-pdf.pdf')
+shutil.copyfile(source, OUT / 'CLD-v2-full.txt')
+shutil.copyfile(pdf, OUT / 'CLD-v2.pdf')
+shutil.copyfile(PACKET / 'original-task.json', ROOT / 'original-task-unchanged.json')
+ledger = json.loads((PACKET / 'immutable-mathematical-DATA/043-whole-source-application-ledger.json').read_text())
+lines = source.read_bytes().split(b'\n')
+unit_records=[]
+for unit in ledger['application_units']:
+    first,last = unit['inclusive_LF_interval']
+    body = b'\n'.join(lines[first-1:last]) + b'\n'
+    # The supplied evidence uses this exact LF convention, with formfeeds intact.
+    assert hashlib.sha256(body).hexdigest() == unit['evidence_sha256'], unit['id']
+    assert len(body) == unit['literal_source_body_bytes'], unit['id']
+    name = unit['id'] + '.txt'
+    (OUT / name).write_bytes(body)
+    unit_records.append({**unit, 'current_primary_path':str(OUT / 'CLD-v2-full.txt'),
+                         'current_evidence_path':str(OUT / name),
+                         'fresh_independent_reading_status':'pending'})
+(ROOT / 'source-ledger-independent.json').write_text(json.dumps({'source':str(OUT / 'CLD-v2-full.txt'),
+    'pdf':str(OUT / 'CLD-v2.pdf'),'LF_only':True,'formfeeds_preserved':True,
+    'units':unit_records},ensure_ascii=False,indent=2)+'\n')
+(ROOT / 'input-bindings-verified.json').write_text(json.dumps(records,indent=2)+'\n')
+(ROOT / 'environment.json').write_text(json.dumps({'python':sys.version,'platform':platform.platform(),
+    'cwd':str(ROOT),'supplied_code_executed':False,'heavy_compute_used':False,
+    'supervised_compute_service':'none supplied; none needed','TeX_compiled':False},indent=2)+'\n')
+print(json.dumps({'verified_inputs':len(records),'literal_units':len(unit_records),
+                  'source_bytes':source.stat().st_size,'artifact_check_only':True}))

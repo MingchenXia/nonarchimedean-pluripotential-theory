@@ -1,0 +1,110 @@
+"""Build proof-bearing delivery files; no compiler or supplied code."""
+from pathlib import Path
+import json
+
+meta=[
+ ('n1','Raw geometric envelopes, LSC, positivity iff continuity, graded primary formula and actual decreasing-net closure.',
+  'For every excellent reduced primary section, finite continuous raw C/D envelopes agree and are LSC/nonexpansive. A greatest or maximal D minorant exists exactly when the raw envelope is continuous, equivalently its USC regularization is positive. Graded integrally closed ideals give a factorial supremum, without increasing-D recognition. Strict insertion constructs one decreasing C-net before energy; exact gauge, support and empty-boundary conventions persist.', ['G331']),
+ ('n2','Global continuous geometric envelopes on every excellent normal surface, all residue fields and characteristics.',
+  'Current Stacks condition (4), normal completions and the full connected fibre yield regular common models. A residue-weighted positive-definite intersection matrix constructs an actual ample exceptional boundary and an actual primary blowup by its integral punctured graph. Actual Cartier pushdown and finite-vertex nef dominance cover every D competitor. Signed density gives all-continuous CE; no higher-dimensional nef pushdown is inferred.', ['G331','n1']),
+ ('n3','Isolated char0 global CE; general normal closed algebraic char0 continuity on the finite-Q open locus only.',
+  'The three-author published BdFF source is reconstructed using only geometric C to source-nef, fixed base trace zero and finite determining vertices. Integral 4.11 applies after denominator clearing in the isolated case. General 3.17 with coherent graded section ideals and possibly nonprimary multiplier ideals gives primary lower-error truncations and continuity on O={v(d(K)Jac)<infinity}; inequalities extend first on O, never by density within a closed K_L. Global infinite-Q positivity remains unresolved. Uniform correction values are bounded on all points or all centred divisors iff the ideal is unit/primary; a nonprimary Jacobian is not a CE counterexample.', ['G331','n1']),
+ ('n4','Exact smooth BFJ envelopes and extended USC/decreasing-net theory after global CE.',
+  'At smooth affine CLOSED algclosed char0 germs, substantive closed-face 3.11 and entire 3.18/3.22 estimates pass through every retraction, giving actual primary uniform approximation on all semivaluations. Only after global CE, continuous obstacle majorants yield one decreasing C-net for every extended USC obstacle; arbitrary decreasing USC nets are stable by proved decreasing-D closure. The local finite-Q result alone does not supply this global conclusion.', ['G331','n1','n2','n3']),
+ ('n5','Actual dominating finite CE covers and exact full-conductor positive-domain criterion for finite continuous obstacles.',
+  'For reduced finite covers of a normal target with EVERY minimal source component dominating, full-support normal-closure orbit maxima preserve C/D, including inseparable and nonminimal supports, and transfer CE from an actual source. Primary conductor masks prove finite-locus raw equality. When all actual normal centres have CE, the regularized downstairs envelope is the full-fibre maximum of source envelopes, positive iff full-fibre constant; without source CE the criterion is raw-source continuity plus fibre constancy. No universal cover or unconditional pole formula is claimed.', ['G331','n1','n2','n3','n4']),
+ ('n6','Actual nonnormal no-maximal-minorant example; complete geometric excellent-curve clipping comparison.',
+  'The double plane k[x,y,z]/(xy), maximal gauge, obstacle -1-1/v(y) has an explicitly discontinuous raw envelope whose regularization violates a normal-branch inequality, so no maximal D minorant exists. On every excellent reduced curve, actual Cartier slopes and full positive descent give all nonpositive branch vectors and the exact envelope min(phi,0), including extended obstacles and gauge/residue weights. Literal analytic/CLD radial mixed-zero compatibility remains distinct.', ['G331','B341','E350','n1','n5']),
+ ('n7','Energy/capacity and exact staircase/parity lengths cannot recognize arbitrary increasing limits as geometric.',
+  'The sign is F>=0, E=-F/2. Universal smooth staircase and parity-semigroup length formulas produce increasing non-USC limits outside D even with controlled energy, mass, all-test capacity estimates and quasicontinuity. The parity capacity proof uses an actual decreasing C test and ordinary sequential Borel monotone convergence without presuming finite energy of that test. Own finite checks cover declared bounded domains only.', ['G331','B341','E350','n1']),
+ ('n8','New perfect-charp fixed ACTUAL smooth-primary-model Cartier envelopes have uniform actual C approximation.',
+  'On normal integral affine finite-type B over PERFECT charp, CLOSED x codim>=2, assume an ACTUAL smooth primary blowup Y=Bl_J, iso off x and principalizing the gauge. Normal Hartogs makes section ideals actual coherent unit/primary; all-index Fekete and the normal height-one criterion give the raw envelope. Entire GJKM4.1-4.6 and corrected Keeler generation produce actual primary profiles g_m with 0<=p(f_C)-g_m<=c v(J)/m<=cN/m on ALL support quotients. This proves C positivity/continuity for integral exceptional Cartier obstacles. No universal model existence, K_B Cartier, Jacobian/energy premise or increasing-D recognition is used.', ['G331','n1']),
+ ('n9','Fully quantified SM implies all-continuous CE; normal perfect-field surfaces satisfy SM, threefold gate open.',
+  'SM requires an actual smooth common PRIMARY blowup for EVERY finite primary collection/gauge after affine shrinking. The fixed-model theorem, homogeneity, signed density and nonexpansivity give all-continuous CE, then USC/net theory. A sequence of actual blowups over the point and finite normalization plus an ample full exceptional boundary supplies a constructive sufficient gate. Current surface resolution and the graph construction prove SM for normal closed algebraic surfaces over perfect charp. Partial Cossart-Piltant theorem/remark inspection does not prove the isolated threefold gate; its full proof was not read or applied.', ['G331','n1','n2','n4','n8']),
+ ('n10','Whole370/371 reconstructed; original P12.3 remains incomplete with exact normal/support/model residuals.',
+  'All fourteen expanded bodies and all fourteen differing actual FINAL objects were independently read; parsed actual captures agree and paper/TeX duplicates are retention evidence. ROOT363/364/371 are DATA reconstructed, not grants. New scoped fixed-model and conditional SM results do not settle general normal excellent dimension>=3, general char0 infinite-Q supports, higher-dimensional positive/mixed characteristic model gates or nonalgebraic/nonclosed scope. No actual normal counterexample is claimed. All 155 records matched and bounded arithmetic checks passed; neither fact proves universal mathematics. Candidate=false; ROOT retains independent review/compilation/acceptance/counts.', ['G331','B341','E350']+[f'n{i}' for i in range(1,10)]),
+]
+notes=[]
+for nid,summary,detail,support in meta:
+    notes.append({'id':nid,'summary':summary,'detailedSummary':detail,'text':Path(nid+'.md').read_text(),'support':support})
+Path('native-notes.json').write_text(json.dumps({'notes':notes,'candidate':False},ensure_ascii=False,indent=2)+'\n')
+front='''# Geometric obstacle envelopes on singular local boundaries
+
+Independent whole370/371 reconstruction and a smooth-primary-model theorem in perfect characteristic p
+
+Unverified mathematical draft, 8 October 2026. Candidate=false for the entire original P12.3.
+
+The complete independent proof chain below constructs raw envelopes, proves global positivity in explicit sectors, gives full conductor positive-domain rules and curve comparison, and proves a new quantitative test-ideal approximation theorem on an actual smooth primary model. General normal higher-dimensional/support/model gates remain open. Only the entire qualified G331/B341/E350 are correctness grants. Their complete bodies are attached to the standalone paper; all old native/ROOT material is DATA. No publication, compilation or acceptance is claimed.
+
+'''
+core=front+'\n\n'.join(n['text'] for n in notes)
+Path('whole-proof.md').write_text(core)
+records=['source-application-ledger.md','exact-scope.md','whole-proof-coverage.md','original-scope-and-noncircularity.md','source-search-decision.md']
+paper=core+'\n\n'+ '\n\n'.join(Path(p).read_text() for p in records)
+paper+='\n\n# Own original-scope decision\n\n```json\n'+Path('acceptance-decision.json').read_text()+'```\n'
+grants={k:Path('inputs/qualified-'+k+'.txt').read_text() for k in ['G331','B341','E350']}
+for k,g in grants.items(): paper+='\n\n# Entire qualified correctness grant '+k+'\n\n'+g
+Path('P12.3-paper.md').write_text(paper)
+
+special={'\\':r'\textbackslash{}','&':r'\&','%':r'\%','$':r'\$','#':r'\#','_':r'\_','{':r'\{','}':r'\}','~':r'\textasciitilde{}','^':r'\textasciicircum{}',
+ '≤':r'\ensuremath{\leq}','≥':r'\ensuremath{\geq}','∞':r'\ensuremath{\infty}','→':r'\ensuremath{\to}','∈':r'\ensuremath{\in}',
+ 'Σ':r'\ensuremath{\Sigma}','Γ':r'\ensuremath{\Gamma}','μ':r'\ensuremath{\mu}','τ':r'\ensuremath{\tau}','φ':r'\ensuremath{\phi}',
+ 'λ':r'\ensuremath{\lambda}','κ':r'\ensuremath{\kappa}','π':r'\ensuremath{\pi}','×':r'\ensuremath{\times}','−':r'\ensuremath{-}',
+ '–':'--','—':'---','’':"'",'‘':"'",'“':'``','”':"''"}
+def escape(s):return ''.join(special.get(c,c) for c in s)
+def prose(s):
+    out=[]
+    for para in s.split('\n\n'):
+        if para.startswith('# '):out.append(r'\section{'+escape(para[2:].replace('\n',' '))+'}')
+        elif para.startswith('## '):out.append(r'\subsection{'+escape(para[3:].replace('\n',' '))+'}')
+        else:out.append(escape(para.replace('\n',' ')))
+    return '\n\n'.join(out)
+tex=r'''% Standalone source. Not compiled; ROOT owns compilation.
+% Suggested engine: LuaLaTeX; fontspec/fvextra/DejaVu fonts are dependencies.
+\documentclass[11pt]{article}
+\usepackage{fontspec}
+\setmainfont{DejaVu Serif}
+\setmonofont{DejaVu Sans Mono}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fvextra}
+\DefineVerbatimEnvironment{ImportedGrantText}{Verbatim}{fontsize=\tiny,breaklines=true,breakanywhere=true}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+\emergencystretch=4em
+\title{Geometric obstacle envelopes on singular local boundaries}
+\author{Independent whole370/371 reconstruction}
+\date{8 October 2026}
+\begin{document}
+\maketitle
+\tableofcontents
+'''
+tex+=prose(core)
+for p in records:tex+='\n\n'+prose(Path(p).read_text())
+tex+='\n'+r'\section{Own original-scope decision}'+'\n'+r'\begin{ImportedGrantText}'+'\n'+Path('acceptance-decision.json').read_text()+'\n'+r'\end{ImportedGrantText}'+'\n'
+for k,g in grants.items():
+    assert '\\end{ImportedGrantText}' not in g
+    tex+='\n'+r'\section{Entire qualified correctness grant '+k+'}'+'\n'+r'\begin{ImportedGrantText}'+'\n'+g+'\n'+r'\end{ImportedGrantText}'+'\n'
+tex+='\n'+r'\end{document}'+'\n'
+Path('P12.3-paper.tex').write_text(tex)
+Path('README.md').write_text('''# P12.3 scoped independent reconstruction
+
+Start with P12.3-paper.md or whole-proof.md. The standalone TeX source is uncompiled. Full proof-bearing native-notes.json and n1.md–n10.md accompany exact scope, source applications, whole coverage and original-scope decision. Original candidate=false.
+
+Offline rerun, executing only own standard-library programs:
+
+    python retain_packet.py
+    python compare_packets.py
+    python extract_literal.py
+    python capture_source_units.py
+    python check_whole_identity.py
+    python finite_diagnostics.py
+    python build_delivery.py
+    python final_audit.py
+
+The optional retrieve_public.py attempt was denied and is not needed for these reruns. Private source bodies/pixels remain LOCALONLY. No supplied program, compiler, agent, publication or editor mutation is part of the rerun. ROOT owns compilation and independent acceptance. Arithmetic passes and hashes do not establish mathematical correctness.
+''')
+print(json.dumps({'notes':len(notes),'whole_proof_bytes':Path('whole-proof.md').stat().st_size,
+                  'paper_markdown_bytes':Path('P12.3-paper.md').stat().st_size,
+                  'paper_tex_bytes':Path('P12.3-paper.tex').stat().st_size,'compiled':False,'candidate':False}))

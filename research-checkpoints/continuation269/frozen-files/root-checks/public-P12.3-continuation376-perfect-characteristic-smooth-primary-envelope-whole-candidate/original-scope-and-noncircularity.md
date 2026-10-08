@@ -1,0 +1,13 @@
+# Original-scope decision and noncircularity
+
+The entire original P12.3 and family statement are retained unchanged in input.json and inputs/original-assignment.json. The assignment's whole370/371 reconstruction requirements are treated as delivery requirements; no old candidateFALSE, new proposed proof claim or acceptance metadata decides this reconstruction.
+
+Only full qualified G331/B341/E350 are correctness grants. The geometric core in G331 is defined by actual Cartier effectivity and all contracted-curve degrees before its ideal comparison. The envelope arguments therefore use a genuinely independently geometric class, not an ideal order completion renamed psh. None of the grants supplies the new envelope property. Energy/capacity arguments in E350 require specified class membership and cannot recognize an arbitrary increasing limit; n7 gives exact diagnostic separations.
+
+The surface proof performs actual Cartier nef pushdown before ideal interpretation and proves its regular common models are actual primary blowups. The characteristic-zero proof uses only C→source-nef and each D competitor's ONE continuous term at finite vertices, not an assumed source-nef→D converse. The new positive-characteristic proof starts with an actual smooth primary model; actual coherent section ideals, ALL-index Fekete, test-ideal generation and a uniform actual C approximation then prove positivity without increasing-limit closure.
+
+The fully quantified (SM) implication is proved, and the normal-surface perfect-field regime satisfies it by a complete construction authenticated by the current Stacks immediate theorem. A partial inspection of Cossart–Piltant does not supply the threefold primary-model gate. General lower-error truncations do not prove the required global upper approximation at infinite-Q supports. No global normal counterexample has been produced.
+
+Nonnormal regularization can fail positivity on an actual double plane, so a universal greatest-minorant assertion on all such germs is false. Exact full-fibre positive-domain rules, gauge rules and the complete curve clipping comparison are given without identifying boundary profiles with literal analytic/CLD radial extensions. Nilpotents are reduced away; nonminimal supports and all conductor fibres remain.
+
+Decision: **the original remains INCOMPLETE, candidate=false**. Scoped reconstructions and new fixed-model/conditional theorems are unverified mathematical drafts. No acceptance, publication, catalogue, editor or count change follows. ROOT must independently read the whole result and owns compilation/review. The material risks are the unresolved global normal/support/model gates explicitly listed in exact-scope.md, not hidden empirical assumptions.

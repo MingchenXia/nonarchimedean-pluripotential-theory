@@ -1,0 +1,12 @@
+"""Reproduce the actual final notes from our own authored note bodies."""
+from pathlib import Path
+import json
+root=Path(__file__).resolve().parent
+notes=json.loads((root/'note-bodies.json').read_text())
+seen=set()
+for n in notes['notes']:
+    assert all(s in seen for s in n['support'])
+    seen.add(n['id'])
+assert notes['candidate'] is False
+(root/'notes.json').write_text(json.dumps(notes,ensure_ascii=False,indent=2)+'\n')
+print(json.dumps({'actual_final_notes':len(seen),'candidate':False}))

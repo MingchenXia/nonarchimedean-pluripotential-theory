@@ -1,0 +1,32 @@
+from pathlib import Path
+import json,re
+rows=json.loads(Path('evidence/packet-retention.json').read_text());paths={r['id']:Path(r['local']) for r in rows}
+tex=paths['M050'].read_text()
+decoded=tex.replace(r'\textasciicircum{}','^')
+for ch in '_{}%&#$': decoded=decoded.replace('\\'+ch,ch)
+expanded=json.loads(paths['M057'].read_text())
+matches=[]
+outside=decoded
+for n in expanded['notes']:
+    body=n['text']; ok=body in decoded
+    matches.append({'id':n['id'],'decoded_entire_text_in_tex':ok})
+    if ok: outside=outside.replace(body,'[EXACT PREVIOUSLY READ EXPANDED BODY '+n['id']+']')
+paper=paths['M049'].read_text().replace(paths['M089'].read_text(),'[EXACT PREVIOUSLY READ WHOLE PROOF] ',1)
+for label in ['E350','B341','G331']:
+    paper=paper.replace(Path('inputs/qualified-'+label+'.txt').read_text(),'[ENTIRE QUALIFIED '+label+' GRANT RETAINED EXACTLY]')
+Path('evidence/tex-body-identity.json').write_text(json.dumps(matches,indent=2))
+Path('review-data/whole370-tex-outside.txt').write_text(outside)
+Path('review-data/whole370-paper-outside.txt').write_text(paper)
+metadata=[{k:v for k,v in n.items() if k!='text'} for n in expanded['notes']]
+Path('review-data/expanded-all-metadata.json').write_text(json.dumps(metadata,ensure_ascii=False,indent=2))
+byid={n['id']:n for n in expanded['notes']}
+individual=[]
+for mid in [f'M{i:03}' for i in range(60,74)]:
+    path=paths[mid];nid=re.search(r'-(n\d+)\.md$',path.name).group(1)
+    body=byid[nid]['text'];s=path.read_text();at=s.find(body)
+    assert at>=0,(mid,nid)
+    individual.append({'file':str(path),'note':nid,'body_exact':True,
+                       'outside_prefix':s[:at],'outside_suffix':s[at+len(body):]})
+Path('evidence/individual-proof-data-duplicates.json').write_text(json.dumps(individual,indent=2)+'\n')
+print(json.dumps(matches))
+print('outside lengths',len(outside),len(paper))
