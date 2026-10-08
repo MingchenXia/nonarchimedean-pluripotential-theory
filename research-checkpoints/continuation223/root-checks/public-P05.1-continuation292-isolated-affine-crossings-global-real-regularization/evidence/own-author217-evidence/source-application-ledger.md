@@ -1,0 +1,67 @@
+# Source and application ledger
+
+This is an author draft for the specified isolated-crossing sector. Exactly A224, B225, R230, S262 and S272, whole with all clarifications, are supplied grants. NEW288 and its embedded WHOLE287 are unreviewed data. No historical flag, acceptance count, emitter, build, hash or audit verdict is an extra grant. Historical210 overall evidence remains INCONCLUSIVE. No unbound or active output was inspected.
+
+The binding inputs are mathematical-packet-bindings.json and private-primary-packet-bindings.json in the campaign root. Own input-verification.json gives expected and observed hashes, sizes and exact paths for all 23 entries. All match. The four original primary bindings are:
+
+| File | Bytes | SHA-256 |
+| --- | ---: | --- |
+| BMPS.pdf | 774717 | 5cf7e68ee9113f1dc813f9aefa5f9ca72cba02fc4fa688f1a61e4b7f0d1223e7 |
+| BMPS.txt | 231317 | c4475ad5cf4e8fce3eb6add155fdb81e352cbe079ca0d7646553f8a3e8ad9271 |
+| BBGS.pdf | 696627 | c2817a01e51ac3781e94005cb587c185ac7e6cc5fe654feda6c5341eaf6a5846 |
+| BBGS.txt | 148757 | 87f8f8d2d51e523c4ecf5f8429875da16994abbe74132ce05886d1782e90b635 |
+
+BMPS is Botero–Mazzon–Pille-Schneider, arXiv:2603.08664v1, submission 9 March 2026, manuscript date 10 March 2026. Literal primary URL: https://arxiv.org/pdf/2603.08664v1. BBGS is Botero–Burgos Gil–Sombra, *Convex analysis on polyhedral spaces*, Math. Z. 301 (2022), 1631–1674, publisher version published 24 January 2022, DOI https://doi.org/10.1007/s00209-021-02869-6. The original titles/dates/version markings were checked in the bound texts. Literal PDF text was extracted on BMPS pages 15–16 and BBGS pages 12–13 to check rational endpoints and the complete commuting/support-balance unit, respectively. Long extracts remain under LOCALONLY. No PDF pixels or source bytes are republished publicly; no claim of visual inspection is made. The immutable PDFs/texts were never modified.
+
+## Whole grant coverage
+
+| Input group | Whole coverage and application |
+| --- | --- |
+| A224, entries 0–1 | Entire 241-line TeX and all clarification statements read. Source-specific fan obstruction is context only. The intersection-support clause is PA on a common carrier; segment/Jensen support needs continuity. Translated tangents are span(sigma−sigma). Strictness is the disclosed active-positive-coefficient convention. |
+| B225, entries 2–3 | Entire 163-line TeX and clarifications read. Embedded noncompactness and positive spanning retain finite positive balanced hypotheses. No abstract compact-chart theorem enters the scoped proof. Chart portions and finite bounded decompositions remain explicit restrictions. |
+| R230, entries 4–5 | Entire 337-line TeX and clarifications read in bounded ranges, with truncated tail recovered. The actual unrestricted envelope theorem is used for finite positive balanced embedded geometry, continuous actual PC reference and u in C_b. It gives continuity and the actual global sandwich, not approximation. The dominating completion is not equality with every raw printed function. |
+| S262, entries 6–11 | Entire 1953-line TeX read in contiguous bounded chunks; entire 1878-line Markdown body read by exact whole-body comparison with its Pandoc conversion, and metadata separately read. Whole source ledger, material changes and both clarification/acceptance bodies read. All nineteen result scopes retained. PA floor requires PC/nonnegative relation costs. Weak/BL uniformity only on fixed-C families. Literal exclusion used only in its exact noncompact domain; no operator on excluded endpoints. Stieltjes terms are edge interiors; endpoint derivatives remain vertex data. Dyadic final half-jump includes j=N. Sheet counts exclude extra horizontal origin. |
+| S272, entries 12–17 | Entire 1016-line TeX read in contiguous bounded chunks. Entire 290-line Markdown body compared after only whitespace, equation labels/tags and resolved-reference normalization, with metadata and bibliography separately read. Whole ledger/material/clarification/acceptance bodies read. Genuine arbitrary-actual-reference mixed completion applied only after global approximation. Rational-component height H0 and exact fixed-C constants retained. Actual-reference jet realization uses the separate positive convex decomposition, not the residual-component construction. Roof criterion remains finite-PA. Historical210 INCONCLUSIVE retained. |
+| NEW288, entry 18 | Entire JSON read, including all T1–T8 of old287 and C1–C4. Every used new mathematical step reconstructed. No flag or hash grants the proof. Old287's one-common-point limit is extended only by proved finite rational exact contacts. |
+
+Whole duplicate comparisons read the complete redundant argument bodies while avoiding a second large presentation of the same mathematics. They establish presentation identity only. The initial broad normalization failed because its regex swallowed a mathematical interval; that attempt is not evidence of equality. The corrected whole comparisons are in whole-grant-body-comparison.json and the rerunnable own verifier.
+
+## Immediate primary statement/proof units and precise applications
+
+All line numbers below refer to the actually bound extracted texts, not earlier packet ledgers, whose offsets differ. Whole immediate units were read through their proof endings. These sources are only applied in the declared roles.
+
+| Primary units read | Hypotheses/conventions and actual use |
+| --- | --- |
+| BMPS 2.1–2.4, lines 262–296; contextual 301–303 | Finite pure rational complex in one N_R, common-face intersections and rational refinements. Rational denominator clearing reconciles affine constraint conventions. Used for the carrier, incidences and gluing definitions. Cell classification and gluing are proved independently. |
+| BMPS 2.18–2.27 and full 2.24, lines 428–516 | Saturated tangent lattice, primitive inward quotient normal, literal rational source weights, unchanged star tangent lattices/normal classes. Actual weights here are real and enter the calibrated extension. Balanced complete subcycles and residuals are directly proved. |
+| BMPS 2.28–2.31, full Remark 2.33 and full Lemma 2.34, lines 519–616 | Literal integral slopes/rational constants and tangent-corrected primitive formula. Entire lift-cancellation and three refinement cases read. Real finite extension justified by the BBGS chain and covolumes, not literal closure. |
+| BMPS 2.35 and surrounding recursion, lines 617–640 | Read to identify the delegated AR10 step. That proof is excluded as an application. Commutation and balance instead use the freshly reconstructed full BBGS proof. |
+| BMPS 3.1–3.5, complete 3.4 and 3.7, lines 703–849 | Printed rational endpoints; center/weights may be real. The source automatic-continuity sentence is excluded, and arbitrary irrational vertex insertion in its proof is not used. Branch convexity and common supports have independent proofs. PA positivity is reconstructed by local supports. No simplicial assumption is required. |
+| BMPS 3.8–3.9, lines 851–863 | Inspected only to record strictness convention. No strict-convexity theorem is applied. Constructed relations drop zero coefficients; the weak definition is unchanged. |
+| BMPS entire 3.22–3.23 statement/proof unit, lines 1024–1049 | Identifies printed uniform/decreasing relative completion. Only the approximation convention is retained. Compactification/PSH equivalence and delegated continuity are not premises. Decreasing extraction is explicit. |
+| BMPS 4.4–4.7, full 4.6, full 4.8, full 4.9 and 4.11, lines 1380–1532 | Raw finite and mixed atomic measures and degree. Constant invariance, relative mixed mass, signed intermediate cycles and bounded primitive-edge IBP are independently derived. Their symmetry premise is supplied by the complete BBGS conversion rather than delegated 2.35. No toric Proposition 4.12 or Alexandrov operator is imported. |
+| BMPS 4.15, lines 1774–1779 | Positive linear slope in every nonzero cell recession direction. Finite recession decomposition yields properness/coercivity in the proof. Broad Theorem 4.13 and Proposition 4.16 are not applications; partial nearby text reads are not claimed as whole applications. |
+| BMPS 6.2–6.9 with whole intervening 6.3/6.4/6.7/6.8 proofs, lines 2302–2398 | Actual unrestricted envelope and regularity/contact antecedent. Definitions only; broad printed-PC density equivalence and complete-affine assertion are not premises. Actual C_b continuity is from exactly R230; domain and same-reference approximation are independently proved. |
+| BBGS 2.1–2.3 and whole 2.4 proof, lines 203–270; 2.14–2.15, lines 390–410 | Euclidean quasi-embedding into a hyperplane not through zero. We use x↦(x,1), product metric, finite common carrying geometry; tangent directions retain zero last coordinate. No abstract glued-space result is inferred. |
+| BBGS 3.1–3.9 and full 3.6, lines 452–540 | Real signed/zero weights, continuous real PA factors and negative inward-unit-normal product. Intermediate weights are not assumed positive for algebraic commutation. The lattice/Euclidean conversion is at every dimension, not just top dimension. |
+| Whole BBGS 3.12, lines 542–604 | Common PA carrier and arbitrary weights; restrictions and all three subdivision cases. Converted at every recursion step, accounting for zero artificial facets and vertices. |
+| Whole BBGS 3.15, lines 615–682; PDF pages 12–13 | Both grouped double-sum expansions, oriented perpendicular reflection, paired facet interchange. The quotient of an actual codimension-two face has exactly two boundary facets, even when nonsimplicial. Formula a=−cot(theta), b=csc(theta) is freshly derived. No unavailable historical theorem is delegated. |
+| Whole BBGS 3.18 and 3.19, lines 687–716 | Ambient linear annihilation characterizes Euclidean balance, preserved by subdivision and PA product. The printed commuting citation to 3.12 uses the actual 3.15 equality. Covolume conversion carries this to saturated primitive recursion for real, signed and zero cycles. |
+
+BBGS's automatic continuity theorem is not applied. No claimed absence of later literature or network search is part of this record. Only the four authorized primary files and the mathematical packets were read.
+
+## New-proof coverage and operator ordering
+
+Finite feasible density uses active rational equalities and slack, not coarsening. Branch midpoint triples approximate within the exact inherited incidence polyhedron. A strict quadratic maximum argument upgrades pointwise local midpoint inequalities to entire-branch convexity. Finite convex supports use nearest-point epigraph separation; no unchecked separation theorem is cited.
+
+At each crossing, the product of compact branch subdifferentials is separated from the closed ambient restriction subspace by squared projection minimization. Its annihilating tuple has actual ambient sum zero. Rational kernel approximation preserves the negative directional cost. A sufficiently small common rational scale produces a legal finite equal-weight printed violation on the actual star. No direct-sum grouping of all branches occurs.
+
+The full-affine proof uses the actual, possibly irrational gradient polytope. Whole-boundary conjugate continuity is proved with active/inactive inequalities and a fixed-radius ray extension. Compactness supplies finitely many rational spatial samples with real heights. The closed finite sample hull plus exact recession epigraph gives an above approximation with global error. Lower faces project to hulls/cones of rational spatial generators and form a rational carrier. Every prescribed finite rational sample is touched exactly. Supports and actual recession persist when samples are appended.
+
+All crossings are made vertices by rational refinements. Above approximants keep every common support and glue on finitely many branches. Errors eta_n=2^−n and additions 4 eta_n give actual global strict decrease and one relative bound before S272 is applied. R230 is used only to identify the actual C_b envelope, with no obstacle-density claim.
+
+At each crossing, a saturated complete branch and rational transverse line provide an ambient rational absolute-form jet. The actual positive branch cycle leaves an effective balanced residual. Consecutive saturated kernel factors 2g_j/q_j telescope to 2^d|det A|; repeated factors vanish and the d! surviving orders arise from expansion. The actual-reference positive convex decomposition realizes the same flat jet in every summand on common rational geometry. The rational roof proves the unrestricted actual envelope by rational boundary endpoints, radial chords and shrinking simplices. Only the genuine finite PA endpoint is measured.
+
+Retained ordinary foundations: Euclidean completeness, finite-dimensional compactness, elementary linear algebra/determinants, one-variable convex secants, extreme values, elementary finite polyhedral face language. The proof reconstructs finite cone generation, closedness, separation, conjugacy and rational projections. Measure representation and monotone-convergence foundations inside the granted completion remain explicitly granted, not freshly established. No new primary application silently invokes their recursive proof chains.
+
+No source/proof audit establishes original closure. Full contact for disjoint arrangements and the original general singular/overlap/compact categories are left open here.
