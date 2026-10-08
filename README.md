@@ -4,6 +4,18 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest norm-dependency primary checkpoint, 8 October 2026:** the
+[BE21 source audit](manuscript/editorial/Local_psh_norm_dependencies_source_review_20261008.md)
+freshly reads 29 selected published-source pages in fifteen individually
+displayed matching images. It retains scheme-fibre lengths and residue
+degrees, the minus-log norm weight, and Proposition 8.22's projective,
+geometrically reduced, ample and continuous hypotheses. Five elementary
+exact diagnostic families pass. General weak-psh descent, affine
+regularization and envelopes remain unresolved. The
+[authored records](manuscript/editorial/artifact_exports/20261008_local_psh_norm_dependencies_sources/README.md)
+preserve the partial-source scope and printed-slip annotations. The
+4,651-page book, canonical statuses and native catalogue/editor are unchanged.
+
 **Latest verified local psh GitHub publication, 8 October 2026:** the
 4,651-page book and six owned artifact files are uploaded on work in 0129c1ad851dfe4cc3a694f933ced154bb997732.
 All sixteen final book/source/progress/audit/artifact remote blobs match local

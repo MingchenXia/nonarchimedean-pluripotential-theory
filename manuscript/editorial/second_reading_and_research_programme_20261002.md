@@ -3,6 +3,41 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest norm-dependency primary checkpoint, 8 October 2026
+
+The [source audit](Local_psh_norm_dependencies_source_review_20261008.md)
+freshly reads 29 selected physical pages of the exact 125-page published
+BE21 PDF in fifteen individual matching images with complete text and
+sequential notes/receipts. This is a partial source reading. Five elementary
+exact families check Artinian/residue multiplicities, weighted norm estimates,
+maximum iteration and the fast-subsequence correction for uniform closure.
+The [authored archive](artifact_exports/20261008_local_psh_norm_dependencies_sources/README.md)
+has 52 byte-verified members; the 86-member full source evidence remains in
+the cloud. The failed first input-census helper is frozen with zero images
+or reading credit. Export/upload adds zero reading credit.
+
+Proposition 8.22 supplies an attributed continuous global norm interface
+for finite flat projective geometrically reduced schemes and ample rational
+source polarization. It does not prove affine lower-growth regularization
+over nondiscrete completed residue fields or arbitrary weak-psh descent.
+Theorem 7.31 retains continuous/semiample/geometrically reduced projective
+hypotheses. Earlier model, supnorm/base-change, logarithmic integrability
+and classical flattening proofs not recursively reread remain qualified.
+Local printed signs, bundle variables and proof-direction slips are preserved
+in the audit without asserting the intended norm theorem false.
+
+The 4,651-page book, 425 core TeX roots, two bibliographies and native
+catalogue/editor are unchanged. General BJ22 critical homogeneous
+Siu/envelopes remain OPEN, LPWZ density UNVERIFIED; 42 atoms/twelve formal
+problems and the 4 October complete ordered pass retain their statuses.
+
+Continue cloud-only by examining arXiv:2606.19160v1 on non-Archimedean
+Green currents for a regular section's zero locus, currently metadata only.
+Relate any verified material to Chapters 15–17 and the norm/growth interfaces;
+integrate only after the required primary and rendered-book gates.
+The APW dependencies remain unidentified/unverified. Check incoming author
+updates and periodically push checked additions. Xean remains suspended.
+
 ## Latest local psh GitHub publication checkpoint, 8 October 2026
 
 The [publication record](Wu_local_NA_psh_GitHub_publication_v3_20261008.json)
