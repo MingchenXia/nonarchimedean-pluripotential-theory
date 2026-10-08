@@ -1,0 +1,241 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,array}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\MA}{\operatorname{MA}_{\mathrm{poly}}}
+\newcommand{\MARpoly}{\operatorname{MA}_{\mathrm{poly},\R}}
+\newcommand{\PC}{\operatorname{PC}}
+\newcommand{\PA}{\operatorname{PA}}
+\newcommand{\PAPC}{\operatorname{PAPC}}
+\newcommand{\reg}{\mathrm{reg}}
+\newcommand{\relint}{\operatorname{relint}}
+\newcommand{\eps}{\varepsilon}
+\title{A strict-growth contact obstruction on the\texorpdfstring{$U_{3,4}$}{U3,4} Bergman fan\\\large Scoped progress on original P05.2}
+\author{Research draft}
+\date{7 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We construct a bounded continuous integral piecewise-affine obstacle on the weight-one, two-dimensional $U_{3,4}$ Bergman fan. The reference is integral piecewise affine, strictly convex relative to its fine fan, and positive at infinity. Its exact envelope is itself integral piecewise affine and regularizable. The raw recursive intersection masses are $4,3,3$, the total mass equals the reference degree $10$, and the contact integral is $-4\eps$. A larger explicit parameter family has the same mechanism. All geometry, convexity, envelope, and divisor calculations are proved directly. A second explicit obstacle shows failure of literal regularity for the simplest reference. This is an obstruction, not a classification of general balanced rational polyhedral pairs; original P05.2 remains unresolved in this submission.
+\end{abstract}
+
+\section{Conventions, antecedents, and scope}
+We test the envelope and raw polyhedral intersection definitions in the fixed primary version \cite{BMPS}, not a replacement operator. A finite rational polyhedral structure has saturated tangent lattices $N_\sigma=N\cap\operatorname{span}_{\R}(\sigma-\sigma)$. An inward normal $n_{\sigma/\tau}$ represents the primitive generator of $N_\sigma/N_\tau$ pointing into $\sigma$. For a balanced $k$-cycle $c$ and a piecewise-affine $f$, the divisor is
+\begin{equation}\label{divisor}
+ (f\cdot c)(\tau)=\sum_{\sigma\succ\tau}c(\sigma)f_\sigma(n_{\sigma/\tau})
+ -f_\tau\left(\sum_{\sigma\succ\tau}c(\sigma)n_{\sigma/\tau}\right).
+\end{equation}
+Here $f_\sigma$ denotes its linear part, and balancing makes the summed normal tangent to $\tau$. A convex bend has positive sign. In dimension two the raw measure is
+\[\MA(f)=\sum_v(f\cdot(f\cdot[X]))(v)\delta_v.\]
+No further factorial is inserted. Alexandrov mass is lattice-normalized subgradient area, without a factorial. At the complete affine germs occurring below we verify directly that the raw mass is $2!$ times that area. No ambient Alexandrov measure is substituted at the singular origin.
+
+We distinguish $\PA_{\Z}$, with integral linear parts and rational constants, from $\PA_{\R}$, with arbitrary real affine coefficients on a finite \emph{rational} structure. A polyhedral convex combination (PCC) is a barycentric combination $x=\sum\alpha_i x_i$ whose center lies in a face $\tau$ and whose endpoints lie in faces $\sigma_i\succeq\tau$ on some rational structure. The source prints rational endpoints; our upper-bound argument respects that restriction. Our constructed continuous functions satisfy Jensen inequalities even for real endpoints. Set $\PAPC_*=\PA_*\cap\PC$, $*=\Z,\R$, and let $\PC^{\reg}_*(X,\Gamma)$ consist of uniform decreasing limits of $\PAPC_*$ functions with bounded difference from $\Gamma$.
+
+The envelope is
+\begin{equation}\label{envelope}
+ P_\Gamma(U)=\sup\{q:q\leq\Gamma+U,\ q\in\PC(X),\ q\leq\Gamma+O(1)\}.
+\end{equation}
+The competitors in this definition are not restricted to integral slopes. Every measured envelope in our obstruction is already PA and regularizable: a constant approximating sequence suffices, or one can add decreasing positive rational constants. We assert no real regularity theorem for all obstacles on this fan. The source's orthogonality definition assumes pair-level regularity. Our conclusions therefore exclude simultaneous regularity and universal orthogonality and exhibit actual failure of contact at a valid endpoint; they do not assume that antecedent for all other obstacles.
+
+Strictness below is the precise local affine-support condition relative to the fine fan: a support equals the reference on each proper face and is strictly smaller nearby off that face. It implies strict Jensen inequalities for nontrivial PCCs with positive active coefficients. Zero-coefficient terms are discarded for this strict test. The printed source combines coefficients in $[0,1]$ with a strict condition counting endpoints; counting zero-coefficient endpoints would make any strict function impossible. Our strict supports and positive divisor tests are independent of that degeneracy. Weak PC is unchanged.
+
+\section{The balanced lattice fan}
+Put $N=\Z^3$ and
+\[e_1=(1,0,0),\quad e_2=(0,1,0),\quad e_3=(0,0,1),\quad e_4=(-1,-1,-1),\qquad e_{ij}=e_i+e_j.\]
+Let $\sigma_{ij}=\R_{\geq0}e_i+\R_{\geq0}e_j$ for $i<j$, and $X=\bigcup_{i<j}\sigma_{ij}$. The fine fan $\Sigma$ splits every $\sigma_{ij}$ at its diagonal ray $e_{ij}$. Give all twelve two-dimensional cones weight one.
+
+\begin{lemma}\label{geometry}
+This fan is balanced, and every fine cone is unimodular in its saturated tangent lattice. It is the fine $U_{3,4}$ Bergman fan.
+\end{lemma}
+\begin{proof}
+Any three of the four $e_i$ form a $\Z$-basis. Thus $(e_i,e_j)$ is a saturated two-dimensional basis, and replacing $e_j$ by $e_{ij}$ preserves that property. At a singleton ray $e_i$ choose inward normals $e_j$, $j\ne i$, in the adjacent cones $(e_i,e_{ij})$. Their sum is $-e_i$, hence zero modulo $\Z e_i$. At a pair ray use inward normals $e_i,e_j$; their sum is $e_{ij}$. This proves balancing with the specified saturated lattices and primitive normals.
+
+In $\Z^4/\Z(1,1,1,1)$ the standard vectors map to the $e_i$. A representative of a point of $X$ has two possibly positive coordinates and two zero coordinates; equivalently its minimum coordinate is attained at least twice. The uniform rank-three matroid on four elements has just the full ground set as its circuit. Thus its circuit minimum condition gives precisely this support. Its nonempty proper flats have sizes one and two, and their inclusion chains give the twelve fine cones. This establishes the stated Bergman description directly. Transversally at $e_i$ there is a three-ray fan with its unique positive relation; at $e_{ij}$ the support is locally an affine plane. These explicit properties, and the origin's displayed Bergman fan, are the matroidal and lattice smoothness properties used here. No stronger undefined smoothness hypothesis is claimed.
+\end{proof}
+
+\section{Local supports without external convexity dependencies}
+\begin{lemma}\label{support}
+Suppose a continuous function $f$ on $X$ has an ambient affine local support at every point. Then it is convex on every segment contained in $X$ and satisfies every PCC inequality. If the support equals $f$ along a face, intersection with any nonnegative balanced cycle has nonnegative coefficient there.
+\end{lemma}
+\begin{proof}
+On a segment subtract the chord from $f$. If the difference has a positive maximum, its maximum set is a nonempty closed subset of the open segment. At any maximum point the slope of a local supporting affine function must be zero, by using both directions on the segment. The local support then forces the maximum set to be open. Connectedness contradicts the zero endpoint values. This proves convexity on the segment.
+
+For a PCC centered at $x$, the segment $[x,x_i]$ is contained in its face $\sigma_i$ and hence in $X$. Convexity propagates the supporting slope $\ell$ at $x$ to each endpoint:
+\[f(x_i)\geq f(x)+\ell(x_i-x).\]
+Summing cancels the linear terms. For an intersection coefficient, choose a support agreeing on $\tau$. Formula \eqref{divisor} becomes
+\[(f\cdot c)(\tau)=\sum c(\sigma)(f_\sigma-\ell)(n_{\sigma/\tau})\geq0.\]
+Balancing cancels the tangent correction, and each summand is nonnegative by the inward support inequality. The same cancellation proves independence from the tangent lift of an inward normal.
+\end{proof}
+
+For these two-dimensional complexes refinement independence can also be proved directly. A new edge inside an affine cell has cancelling opposite normal contributions. An existing bent edge retains its coefficient under subdivision. A new vertex on an affine edge of the resulting one-cycle has cancelling outgoing slopes. Old vertex coefficients are unchanged. Consequently the calculations on our specified complex give the same raw operator on common refinements. We shall also verify explicitly every balance of the first intersection cycle. No general commutativity, analytic comparison, or operator-extension theorem is needed.
+
+\section{The strict-growth obstruction}
+Let $\mathcal E=\{\{1,2\},\{3,4\}\}$. In $\sigma_{ij}$ write $x=a e_i+b e_j$, $a,b\geq0$, and define
+\begin{align*}
+ h(x)&=\max(a,b),\quad\text{on all six cones},\\
+ \eta(x)&=\begin{cases}|a-b|,&\{i,j\}\in\mathcal E,\\\max(a,b),&\{i,j\}\notin\mathcal E,\end{cases}\\
+ u_\eps(x)&=\begin{cases}(\eps-\min(a,b))_+,&\{i,j\}\in\mathcal E,\\\eps,&\{i,j\}\notin\mathcal E.\end{cases}
+\end{align*}
+Here $\eps\in\Q_{>0}$. These definitions agree at all common rays and at zero. All three functions are continuous literal PA on finite rational structures, and $0\leq u_\eps\leq\eps$. On $\R^4/\R(1,1,1,1)$, $h$ is the restriction of the ambient convex norm $\max_i z_i-\min_i z_i$.
+
+\begin{theorem}\label{main}
+Let $A\geq0$, $B>0$, $C>B$ be real numbers, set $S=A+B$, and put $\Gamma=A\eta+B h$, $U=C u_\eps$. The reference is strictly convex relative to $\Sigma$ and positive at infinity. Its exact envelope is
+\begin{equation}\label{Pformula}P_\Gamma(U)=P=\Gamma+B u_\eps\in\PAPC_{\R}(X,\Gamma).\end{equation}
+The real-linear extension of the raw finite PA intersection formula gives
+\begin{equation}\label{mass}
+ \MARpoly(P)=4S^2\delta_0+B(4A+3B)(\delta_{\eps e_{12}}+\delta_{\eps e_{34}}).
+\end{equation}
+Both reference and endpoint have total raw mass $4A^2+16AB+10B^2$, but
+\begin{equation}\label{contact}
+ \int_X(P-(\Gamma+U))\MARpoly(P)=-4(C-B)\eps S^2<0.
+\end{equation}
+If $A,B,C$ are integers, reference, obstacle, and endpoint are literal PA and the endpoint lies in $\PC^{\reg}_{\Z}$. The measure in \eqref{mass} is then exactly the literal raw operator.
+\end{theorem}
+
+\subsection{Convexity, strictness, growth, and endpoint domain}
+\begin{proof}[Proof of the convexity and domain assertions]
+Both $h$ and $\eta$ are convex on each coarse cone. At a point $r e_i$, $r>0$, let $j$ be its exceptional partner and $k,l$ the remaining two indices. The germ of $\eta$ is ambient affine, with linear values $(1,-1,0,0)$ on $(e_i,e_j,e_k,e_l)$. These values sum to zero, so they define an ambient linear form. At zero the support is zero, since $\eta\geq0$. Pair-ray neighborhoods lie in their coarse two-dimensional plane, where the convex formulas have affine supports; interior points have supports too. Lemma \ref{support} proves $\eta$ is PC. The ambient norm formula proves the same for $h$.
+
+The longitudinal and transverse slopes of $\Gamma$ at $r e_i$ are $S$ and $-A,0,0$. The ambient form with values
+\[S,\quad -A-B/3,\quad-B/3,\quad-B/3\]
+has strictly positive transverse support slack $B/3$ in each incident cone and agrees along the ray. At an exceptional pair ray the convex bend is $2A+B>0$; at the other pair rays it is $S>0$. The average of the two plane gradients gives a strict support on either side. At the vertex $\Gamma\geq B h>0$ off zero gives the strict zero support. Thus every proper fine face has a strict support, and convexity propagates strict local slack along its incident faces to give the active strict Jensen inequality. Conicality and $\Gamma\geq B h$ prove strictly positive recession slope in every nonzero recession direction, so $\Gamma$ is positive at infinity.
+
+On an exceptional coarse cone,
+\begin{equation}\label{maxP}P=\max\{\Gamma,\ B\eps+S|a-b|\};\end{equation}
+on every other coarse cone $P=B\eps+S\max(a,b)$. Thus $P$ is convex on those cones. At $r e_i$ its germ is ambient affine, with linear values $(S,-S,0,0)$ on $(e_i,e_j,e_k,e_l)$. At zero the germ is $B\eps+S\eta$, which has the constant support $B\eps$. Pair-ray neighborhoods and the new bends in \eqref{maxP} lie in a single plane and have the displayed convex supports. Hence Lemma \ref{support} proves PC and intersection positivity of $P$.
+
+The finite rational structure is explicit. In each exceptional half-cone $a\geq b$, split at $b=\eps$, and similarly with $a,b$ interchanged. Each region has vertices among $0,\eps e_{ij}$ and the appropriate recession generators $e_i,e_{ij}$. Keep the fine cones elsewhere. There are sixteen top cells and exactly the three vertices $0,\eps e_{12},\eps e_{34}$. All coefficients are integral when $A,B$ are integers. Finally $P-\Gamma=B u_\eps$ is bounded and $P\leq\Gamma+C u_\eps$. Therefore it is a competitor, PA, and regularizable in the asserted category. This does not use pair-level regularity.
+\end{proof}
+
+\subsection{Envelope maximality against every competitor}
+\begin{proof}[Proof of \eqref{Pformula}]
+Let $q$ be any competitor in \eqref{envelope}. The rational endpoints $\eps e_{12}$ and $\eps e_{34}=-\eps e_{12}$ have obstacle value $B\eps$. Their midpoint gives $q(0)\leq B\eps$. On a singleton ray the obstacle bound is $q(r e_i)\leq Sr+C\eps$. For rational $R>r$, combine $0$ and $R e_i$ and then let $R\to\infty$. The result is
+\begin{equation}\label{raybound}q(r e_i)\leq Sr+B\eps.\end{equation}
+The identical argument applies to nonexceptional pair rays, also of reference slope $S$. On an exceptional pair ray, the segment from zero to $\eps e_{ij}$ and the direct obstacle bound give
+\[q(r e_{ij})\leq\begin{cases}B\eps,&0\leq r\leq\eps,\\Br,&r\geq\eps.\end{cases}\]
+These are rational-endpoint PCC bounds and require no continuity or PA hypothesis on $q$.
+
+Take a rational point of an exceptional cone with $a\geq b$, $d=a-b$. For rational $0<\theta<1$ use
+\begin{equation}\label{mix}
+ a e_i+b e_j=\theta\frac d\theta e_i+(1-\theta)\frac b{1-\theta}e_{ij}.
+\end{equation}
+If $b<\eps$, choose $\theta$ small enough that $b/(1-\theta)\leq\eps$. The ray bounds give $q(x)\leq Sd+B\eps=P(x)$. If $b\geq\eps$, they give $q(x)\leq Sd+Bb+\theta B\eps$; letting $\theta\downarrow0$ gives $q(x)\leq Sd+Bb=P(x)$. The diagonal case $d=0$ is already covered, and the other half-cone is identical. On a nonexceptional half-cone both ray bounds are $Sr+B\eps$, so \eqref{mix} gives $q(x)\leq S\max(a,b)+B\eps=P(x)$.
+
+Thus $q\leq P$ at all rational points. For an arbitrary point $x$, choose successively smaller rational simplices in its relative rational face containing $x$, and express $x$ barycentrically in their rational vertices. These combinations are PCCs after rational subdivision. Applying the rational bound to the vertices and using continuity of $P$ gives $q(x)\leq P(x)$. Since $P$ itself is a competitor, equality \eqref{Pformula} follows on all of $X$. The displayed envelope is continuous, so its upper-semicontinuous regularization is the same function. This proves maximality over all PC competitors, not just an ansatz or a separable obstacle class.
+\end{proof}
+
+\subsection{Raw masses, factorial check, and the contact integral}
+\begin{proof}[Proof of \eqref{mass} and \eqref{contact}]
+For a conical PA function on $\Sigma$ write $a_i=f(e_i)$ and $b_{ij}=f(e_{ij})$. The primitive inward normals of Lemma \ref{geometry} give
+\begin{equation}\label{fanweights}
+ (f\cdot[X])(e_i)=\sum_{j\ne i}b_{ij}-2a_i,\qquad
+ (f\cdot[X])(e_{ij})=a_i+a_j-b_{ij}.
+\end{equation}
+Indeed the transverse slope on $e_j$ is $b_{ij}-a_i$ and $\sum_{j\ne i}e_j=-e_i$; at a pair ray the normals sum to $e_{ij}$. At a vertex the next divisor is the sum of weights times outgoing slopes. Constants contribute nothing.
+
+Near zero, $P=B\eps+S\eta$. Thus the first cycle has singleton weights zero, exceptional pair weights $2S$, and other pair weights $S$. It is balanced since $e_{12}+e_{34}=0$ and the sum of the remaining four pair vectors is zero. The exceptional outgoing slopes are zero and the other pair slopes $S$, yielding raw mass $4S^2$.
+
+At $p=\eps e_{12}$ use the saturated basis $e_1,e_2$ and local coordinates $x,y$. After removing the constant $B\eps$, \eqref{maxP} has gradients
+\[(S,-A),\quad(-A,S),\quad(S,-S),\quad(-S,S).\]
+The local first cycle and outgoing slopes are
+\begin{center}
+\begin{tabular}{ccc}\toprule
+Primitive direction&First divisor weight&Outgoing slope\\\midrule
+$(1,1)$&$2A+B$&$B$\\
+$(-1,-1)$&$2S$&$0$\\
+$(1,0)$&$B$&$S$\\
+$(0,1)$&$B$&$S$\\\bottomrule
+\end{tabular}
+\end{center}
+On the positive diagonal choose inward normals $(1,0),(0,1)$: their slope sum $2S$ minus tangent slope $B$ is $2A+B$. On the negative diagonal the same inward normals have slope sum $2S$ and tangent slope zero. Across each positive axis the opposing normal slope difference is $B$. The balance is
+\[(2A+B)(1,1)+2S(-1,-1)+B(1,0)+B(0,1)=0.\]
+The second mass is therefore $(2A+B)B+2BS=B(4A+3B)$. At $\eps e_{34}$ the calculation is identical. There are no other vertices, hence no other atoms. The first cycle's only vertex balances are precisely these three; its open edges are straight weighted lines. Thus it is a genuine globally balanced intersection cycle.
+
+The ordered gradient polygon $(S,-S),(S,-A),(-A,S),(-S,S)$ has shoelace area $B(4A+3B)/2$. Its area is the Alexandrov atom: the subdifferential of a maximum of affine forms is the convex hull of the active gradients. Inclusion of that hull follows from the supporting inequalities; exclusion follows by separating a point outside the hull and testing the separating direction. The direct raw computation therefore equals $2!$ times the lattice-normalized area. This proves the needed normalization here without a toric or analytic dependency.
+
+For $\Gamma$, formula \eqref{fanweights} gives singleton weights $B$, exceptional pair weights $2A+B$, and other pair weights $S$. Its sole-vertex mass is
+\[4BS+2B(2A+B)+4S^2=4A^2+16AB+10B^2.\]
+The endpoint has the same total $4S^2+2B(4A+3B)$. But its obstacle gap is $(B-C)u_\eps$, equal to $(B-C)\eps$ at zero and zero at both other atoms. This proves the exact negative integral \eqref{contact}.
+\end{proof}
+
+\begin{remark}\label{simplest}
+The choice $A=0,B=1,C=2$ gives $\Gamma=h$, $U=2u_\eps$, $P=h+u_\eps$, with
+\[\MA(P)=4\delta_0+3\delta_{\eps e_{12}}+3\delta_{\eps e_{34}},\quad\deg(h)=10,\quad\int_X(P-(h+2u_\eps))\MA(P)=-4\eps.\]
+Every displayed function is literal PA and this endpoint is literal regularizable. The reference has strict local supports, positive recession slopes, and positive first divisor weight one at all ten fine rays. Hence positive growth, strict reference convexity in the specified sense, unimodular matroidal fan geometry, and correct total mass still do not force the asserted contact identity. This does not claim that every possible stronger intrinsic smoothness package has been disproved.
+\end{remark}
+
+\section{An independently checked literal regularity failure}
+\begin{proposition}\label{literal}
+For the reference $h$ above, literal pair-level regularity fails. For each integer $n\geq2$, the bounded literal obstacle
+\[v_n=\min\{1/n,(1-h)_+\}\]
+has exact envelope
+\[Q_n=\max\{h,(1-1/n)h+1/n\},\]
+and every literal PA PC function $\psi$ satisfies
+\[\|\psi-Q_n\|_{L^\infty(X)}\geq\frac1{4n}.\]
+\end{proposition}
+\begin{proof}
+The obstacle has slopes zero or minus those of $h$ and rational break levels. The candidate $Q_n$ is ambient convex and differs boundedly from $h$. On $h\leq1$ its difference from $h$ is $(1-h)/n$, at most both $1/n$ and $1-h$; outside that region it equals the obstacle $h$. Thus it is a competitor.
+
+Every competitor has $q(0)\leq1/n$ and $q(y)\leq1$ when $h(y)=1$. For rational $x$ with $0<h(x)\leq1$, join zero to the rational point $y=x/h(x)$. The PCC inequality gives $q(x)\leq(1-h(x))/n+h(x)$. The cases zero and $h\geq1$ are direct, and rational simplices as in the main proof cover all other points. Thus $Q_n$ is the exact envelope.
+
+On the primitive segment $r e_1$, $0\leq r\leq1$, its slope is $q=1-1/n$. A literal PA convex $\psi$ has nondecreasing integral slopes there. Choose its right-hand slope $k$ at the midpoint and let $\delta$ be its uniform error. If $k\geq1$, its right-half increment is at least $1/2$; comparing with $Q_n$ yields $2\delta\geq(1-q)/2=1/(2n)$. If $k\leq0$, its left-half increment is at most zero, yielding $2\delta\geq q/2\geq1/(2n)$. Thus $\delta\geq1/(4n)$, excluding uniform literal regularization. No literal regularizable MA is assigned to this endpoint. The main endpoint in Remark \ref{simplest}, which is genuinely literal PA, is unaffected.
+\end{proof}
+
+\section{Comparison with the original request and failed approaches}
+The source's Example 6.24 and complete Claim 6.25 proof were read in the fixed version, but its assertions are not used as grants. Our function $\eta$ is reconstructed by local supports and its masses by \eqref{fanweights}. The explicit replacement of a flat reference by $h$ and the roof $2u_\eps$ gives a strictly positive-growth reference and an actual PA endpoint with a noncontact atom. It is not a special product example. Nevertheless it is one fan obstruction, not necessary and sufficient conditions for all balanced rational polyhedral pairs and actual references with all admissible obstacles. Real regularity for all obstacles on this fan remains unproved here. The literal reference $h$ is outside the pair-level regularity domain by Proposition \ref{literal}; the main failure is still measured at a valid literal endpoint. Original P05.2 is not closed.
+
+Two unsuccessful mechanisms are retained. A full-dimensional ambient contact argument cannot use ambient subgradient volume in place of the singular fan's raw top intersection: the envelope is flat along its exceptional two-sided line but has positive raw origin mass. A small perturbation plus continuity argument in changing reference classes would require common operator domains and local continuity not supplied by merely having different growth references. The direct envelope formula eliminates those missing premises rather than assuming them.
+
+The supplied dossier's printed cross-fan obstacle assigns $+\eps$ and $-\eps$ to the shared origin through its two axes; it is not continuous as printed. It is unused here. Our roof equals $\eps$ at zero on every cone, and is continuous and bounded. Essential control-glyph repairs are fixed by the primary source: the PCC relation is inclusion as a face, and the contact expression uses ordinary grouping parentheses. No other dossier hypothesis is removed or promoted to a grant.
+
+\section{Finite evidence and reproducibility}
+The standard-library Python program \texttt{check\_obstruction.py} uses exact fractions, with four parameter tuples in \texttt{obstruction-input.json}. It checks all twelve saturated-cone calculations and all stated balances, masses, degree formulas, and polygon areas. For each tuple it also exhausts a specified set of 1,014 point inequalities and 1,800 midpoint inequalities. Those 4,056 point and 7,200 midpoint checks are exhaustive only for the finite lists. They do not certify a continuum envelope or an analytic theorem; the preceding proofs establish the mathematical statements independently.
+
+\begin{center}\small
+\begin{tabular}{ccccc}\toprule
+$(A,B,C,\eps)$&Degree&Origin&Each other atom&Contact integral\\\midrule
+$(0,1,2,1)$&$10$&$4$&$3$&$-4$\\
+$(2,1,2,1)$&$58$&$36$&$11$&$-36$\\
+$(1/3,2/5,7/6,3/2)$&$188/45$&$484/225$&$76/75$&$-2783/1125$\\
+$(1,1/10,1,1/4)$&$57/10$&$121/25$&$43/100$&$-1089/1000$\\\bottomrule
+\end{tabular}
+\end{center}
+All assertions passed. Programs, input, output, environment details, source retrieval records, source application ledger, full \texttt{argument.md}, and structured notes are retained in the supplied artifact workspace. No installation or resource-heavy compute was used; no supervised compute service was exposed. The runtime's requested model label was not independently selectable, so no model change is claimed. Rerun with
+\begin{verbatim}
+python check_obstruction.py
+python source_provenance.py
+pdflatex -interaction=nonstopmode -halt-on-error P05.2-paper.tex
+pdflatex -interaction=nonstopmode -halt-on-error P05.2-paper.tex
+\end{verbatim}
+Execution success is not verification of mathematical correctness. This is an unverified research draft, with candidate status false.
+
+\appendix
+\section{Source application ledger and provenance policy}
+Current literature was searched before choosing the obstruction. Actual queries are retained in \nolinkurl{execution-requests.md}, and actual response text under \texttt{sources/}. No later resolving primary result was found in those searches; no assertion of exhaustive bibliographic absence follows. The primary version used is
+\begin{center}\small
+\url{https://arxiv.org/pdf/2603.08664v1}\\
+\url{https://arxiv.org/html/2603.08664v1}\\
+\url{https://arxiv.org/abs/2603.08664v1}.
+\end{center}
+The abstract page records submission on 9 March 2026; the PDF is dated 10 March 2026. The web tool reports 62 pages and 4,580 extracted lines. We read complete pertinent units, including the definitions of normals, PA coefficients, raw divisor and PA measure, the full normal-invariance argument, complete refinement Lemma 2.34, complete PA/PC Lemma 3.4, strictness Definition 3.8 and Remark 3.9, envelope Definition 6.2, orthogonality Definition 6.9, complete factorial Proposition 4.12 proof, and complete Example 6.24--Claim 6.25--Remarks 6.26--6.27. The exact intervals and uses are in the separate quote-free \texttt{source-application-ledger.md}. Definition 3.23 is the printed regularizable definition; the dossier's reference to Definition 3.22 is an internal source numbering inconsistency.
+
+Only definitions and conventions are imported. The operator-extension theorem was inspected only in part and is \emph{not} an application dependency. Its full proof, nor a real-scalar repair, is claimed here. The factorial proposition has toric proof dependencies; we do not import those either, since the needed local identity is reconstructed by divisor and polygon calculations. The matroid description and all convexity, envelope, balance, and measure antecedents used by the theorem have proofs above.
+
+The original PDF byte stream was not downloaded: shell curl failed through the existing configured proxy, and no settings were changed. The web-tool PDF and HTML text responses were retained as actual UTF-8 JSON. Byte lengths and SHA-256 hashes in \nolinkurl{evidence/source-provenance.json} apply to these saved files and the actual input, never to an unavailable original PDF. Rendered PDF pages were visually inspected; the returned evidence object did not expose separate screenshot byte streams, so no screenshot-byte provenance is claimed. The separate ledger paraphrases applications and records exact URLs, versions, proof-unit coverage, and limitations without quoting passages.
+
+\begin{thebibliography}{1}
+\bibitem{BMPS} A. M. Botero, E. Mazzon, and L. Pille--Schneider,
+\emph{Monge--Amp\`ere measures on balanced polyhedral spaces},
+arXiv:2603.08664v1, submitted 9 March 2026, manuscript dated 10 March 2026.
+\url{https://arxiv.org/pdf/2603.08664v1}.
+\end{thebibliography}
+\end{document}

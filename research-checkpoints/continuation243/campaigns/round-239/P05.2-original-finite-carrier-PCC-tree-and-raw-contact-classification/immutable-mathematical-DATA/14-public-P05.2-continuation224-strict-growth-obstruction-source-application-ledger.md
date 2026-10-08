@@ -1,0 +1,45 @@
+# Quote-free primary-source application ledger
+
+Version: arXiv:2603.08664v1, fixed throughout. Literal URLs:
+
+- https://arxiv.org/pdf/2603.08664v1
+- https://arxiv.org/html/2603.08664v1
+- https://arxiv.org/abs/2603.08664v1
+
+Retrieved and inspected on 2026-10-07 UTC. The abstract page records submission 2026-03-09 17:40:06 UTC; the manuscript date printed on its first page is 2026-03-10. The PDF tool reports 62 pages and 4,580 extracted lines. No later version is silently substituted. Current searches ran before theorem construction and again before artifact completion; their actual queries are recorded in execution-requests.md, and actual outputs are in initial-search.json, pdf-open-and-search.json, and current-literature-search.json under sources/. The searches did not surface a later resolving primary result. This is a limited retrieval observation, not an exhaustive absence theorem. Secondary summaries returned by search are not theorem dependencies.
+
+## Complete pertinent units and exact applications
+
+Line numbers below are the PDF web tool's line numbers, not manuscript line numbers. All listed intervals were fully covered by the saved actual responses. source_provenance.py checks contiguous coverage.
+
+| Unit fully read | Fixed-version scope | Application and independent reconstruction |
+| --- | --- | --- |
+| Definitions 2.18–2.31, L443–562, printed pp. 9–12 | Saturated tangent quotient normals; cycle balancing; integral linear parts/rational constants; raw divisor with tangent correction | Identical definitions used for the unit-weight U(3,4) fan. All cone saturation, normals and balances are computed directly. The paper uses only weight one, so differences between rational-weight definitions and introductory real-weight language are immaterial. |
+| Remark 2.33 complete normal-invariance argument, L563–624 | Changing a primitive normal's tangent lift leaves the divisor invariant | Same cancellation reconstructed in the local-support lemma. No sign convention is inferred from a ledger flag. |
+| Lemma 2.34 complete statement and proof, L625–762, pp. 12–13 | Divisors commute with rational refinement | For our dimension-two PA computations, affine-cell edge cancellation and inserted-vertex slope cancellation are proved directly. No general refinement result is needed without that proof. |
+| Definitions 3.2–3.3, L880–902, p. 15 | PCC endpoint/face relation and Jensen definition of PC | Competitors are bounded with actual rational-endpoint PCCs, then rational simplices. The constructed functions satisfy even real-endpoint inequalities by the independently proved local-support lemma. The source's continuity theorem dependency is not invoked. |
+| Lemma 3.4 complete statement and proof, L903–1001, pp. 15–16 | Equivalence of PA Jensen-convexity and nonnegative intersection against all nonnegative local cycles | We independently prove sufficient local supports imply both properties for all functions used. The source's argument is read but not used as an unproved grant, including its external references. |
+| Definition 3.8 and Remark 3.9, L1064–1077, p. 17 | Strictness relative to a fixed structure; positive-cycle test | Reference strictness is established by explicit strict affine supports and positive bend values. Active coefficients are required for a strict PCC test. Counting zero-coefficient endpoints literally would make the printed condition impossible; that issue is explicitly disclosed and does not affect the weak PC/contact theorem. |
+| Definition 3.14, L1119–1122, p. 18 | Growth classes consist of bounded differences from the reference | P-Gamma=B u_epsilon is bounded. For the envelope competitor growth condition we use the printed one-sided upper bound; maximality is proved for the entire competitor class. |
+| Definition 3.23, L1290–1292, p. 21 | The regularizable space uses the equivalent PA uniform-limit formulation in Proposition 3.22 | Our main measured endpoints are already PA and have a constant decreasing approximating sequence; no proof of Proposition 3.22 is required. The source internally calls this Definition 3.22 elsewhere; the printed heading is Definition 3.23. |
+| Definition 4.4, L1955–1967, p. 27 | Raw iterated-divisor finite PA measure | All first-cycle coefficients, balances, second masses and support vertices are computed directly. The integral example is literally in the stated source domain; real parameters use the explicit real-linear extension of the same finite formula. |
+| Proposition 4.12 complete statement and proof, L2148–2183, p. 30 | PA operator restricted to a top-face interior equals d! times weight times Alexandrov measure | Read as a normalization audit only. Its toric/Riemann–Roch dependencies are not imported. At our two regular atoms the raw mass and subgradient area are independently computed and yield precisely the factor 2. At the singular origin no ambient Alexandrov operator is substituted. |
+| Definition 6.2, L3379–3386, p. 44 | Envelope supremum over PC minorants with the stated growth upper bound | Exact formula proved against every competitor, including irrational centers through rational simplices. No real or literal all-obstacle regularity claim is used. |
+| Definition 6.9, L3480–3485, p. 46 | Pair-level regularity is an antecedent to universal contact orthogonality | We exhibit a genuine regularizable chosen endpoint with negative contact. We conclude exclusion from simultaneous regularity and universal contact, not that every other obstacle's MA is defined. Literal failure for h is proved separately. |
+| Example 6.24 and complete Claim 6.25 proof with Remarks 6.26–6.27, L3979–4031, pp. 52–53 | Specific U(3,4) fan, flat reference, bounded roof, cone-by-cone argument | The support and roof pattern motivate the research strategy. Every geometric claim, local support, envelope inequality and mass used here is reconstructed; no source example conclusion is assumed. The actual reference h is strictly convex and grows in every direction. |
+
+Definition 4.15 (positive recession slopes) was read in the exact HTML version at L1297–1301. Its exact application is established independently by Gamma>=B h and conicality. The factorial convention is also checked directly by polygon area. Theorem 4.13 was inspected only in fragments, not as a complete proof unit, and is **not applied**. No claim of a repaired real-operator extension or complete primary verification of that theorem is made. No BFJ, CLD, delta-form, or non-Archimedean comparison is applied. No source's external bibliography dependency is a hidden premise of the new theorem.
+
+## Retrieval and byte provenance
+
+Shell curl attempted https://arxiv.org/pdf/2603.08664v1 and failed immediately with exit code 7 because the configured proxy at port 8080 could not be connected. sources/BMPS-pdf.headers is the actual resulting zero-byte header artifact. No original PDF was downloaded and no original-PDF byte count or hash is claimed. The web retrieval tool succeeded for the fixed PDF and HTML. Its actual JSON responses were saved using deterministic UTF-8 serialization. evidence/source-provenance.json records the byte count and SHA-256 of every actual saved source response, the input, and the derived merged line record. It explicitly distinguishes serialization bytes from source-server bytes. Two PDF pages were visually inspected through the tool's rendered page display; the returned text evidence object did not expose separate screenshot bytes, so no image byte/hash claim is made.
+
+The complete pertinent-unit coverage is an audit of retrieved extracted text. It does not prove the source is mathematically correct, reconstruct the original TeX, or certify unseen dependencies. The new arguments supply their own dependencies.
+
+## Essential extraction repairs and negative conclusions
+
+The face marker in the supplied dossier is resolved by Definition 3.2: tau is a face of each sigma_i. The contact-integral glyphs denote ordinary expression grouping, as Definition 6.9 makes explicit. No mathematical obstacle class or hypothesis is altered. Other control-glyph instances are not dependencies of the proof.
+
+The dossier's printed four-ray cross obstacle has conflicting origin values on its two axis formulas and is not a continuous admissible obstacle as written. That statement is not used. Our roof agrees on every common face and at the origin. The source's original cross example was read only as diagnostic context, not relied on. The weak PC proof avoids the source's rational-endpoint/automatic-continuity dependency entirely; no continuity of arbitrary competitors is assumed.
+
+The new result is an obstruction on a specific two-dimensional fan, with all operator and contact antecedents checked for the measured endpoint. It does not solve the full P05.2 classification. The literal h pair is separately nonregular; the real h pair is excluded from having both all-obstacle regularity and universal orthogonality. Future smoothness conditions stronger than the proved matroidal/saturated-lattice package are not addressed. Candidate=false.
