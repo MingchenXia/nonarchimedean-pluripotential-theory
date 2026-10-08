@@ -1,0 +1,9 @@
+Checkpoint242: original P05.1 closure and P12.2 geometric source completion
+
+11/42originals solved;31OPEN;89reviewed papers. P05.1 is newly solved after independent237 whole mathematical/source/scope PASS, with a17-page paper and mandatory qualifications. Its genuineREALclassification is an explicit INFINITE input-only criterion, not a finite decision procedure. The exact BMPS category is finite globally embedded; compact positive-dimensional positive cycles are excluded by proof. All nonseparable admitted PA/C_bobstacles are covered. NoP05.2/.5closure.
+
+Native236 yields new20-page P12.2paper325, whole authoritative444LFTeX and alleleven actualFINALnotes ROOT-read,73own/42frozen hashes verified. It reconstructs full unbounded/mixedzero ideal-conductor descent and full smooth BFJ on ALLsemivaluations. Its geometriccomparison remains conditional onG1-G3; originalOPEN. Its unchanged source compiled successfully with builtincompiler462.
+
+NEW UNREVIEWEDROOT326 supplies exact-domain relative geometry and explicit realcurve-nef+ample/open/rationalample arguments, using correctedKeelerv5includingENTIRE2018erratum and officialStacks immediate proofs. Full external primary bodies remainLOCALONLY; hashes/sourceapplication/readmetadata are public. Native238 independently reconstructs entireoriginalP12.2 with ZEROgrants:13wholemathfiles364671B and23privateprimaryfiles. Only238active at snapshot; maximum2. Noauth/runtime/protectededitor change, privateACTIVEoutput orhotfeedback. ProtectedP16.4editor staysopenunchanged.
+
+Original acceptance is based on complete mathematics and independently checked source/scope applications, not compiler/hash/registration success. Historical sourceFAIL, native registration failures and universal historical/providerINCONCLUSIVE remain preserved. Regular authorized GitHub checkpoint uses nonforce expected-parent update and exact remote file/tree/ref verification.

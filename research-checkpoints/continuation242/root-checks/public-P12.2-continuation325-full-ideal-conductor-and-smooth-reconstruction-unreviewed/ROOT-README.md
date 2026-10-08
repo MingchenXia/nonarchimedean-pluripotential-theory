@@ -1,0 +1,5 @@
+UNREVIEWED native236 continuation325:20-page P12.2 reconstruction.
+
+Original remains OPEN;10/42originals solved,32OPEN,88accepted papers. The whole444LF authoritative TeX and alleleven actualFINAL notes, source/scope/coverage/decision were ROOT-read.73own and42frozen file hashes verified; authorchecks were not ROOTexecutions or mathematics/sourcePASS. Expanded native-notes.json differs from the actualFINAL and is separately preserved.
+
+The paper reconstructs full bounded and unbounded/mixed-zero finite-injection ideal-conductor descent, including bottom and nonminimal supports, and full smooth BFJ on ALLsemivaluations. Its independently geometric Cartier=ideal comparison remains CONDITIONAL on G1-G3 exact relative-geometry primary units. NEW ROOT326 and newly acquired correctedKeeler/Stacks sources address this gate separately as UNREVIEWED DATA, without retroactively altering this paper. The entire appended2018erratum of exactKeelerv5 was read. Full external primary source bodies/extracts/images remainLOCALONLY. ProtectedP16.4editor staysopenunchanged. Independent wholeoriginal reconstruction and subsequent review remain necessary.

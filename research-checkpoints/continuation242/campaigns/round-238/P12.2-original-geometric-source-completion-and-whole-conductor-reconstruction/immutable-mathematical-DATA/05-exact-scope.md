@@ -1,0 +1,11 @@
+# Binding original scope
+
+The exact original-task.json requires a genuinely geometric singular/nonnormal excellent-germ valuative psh class, comparison with the exact ideal conventions, full correct smooth specialization, primary-gauge changes, and normalization/conductor rules. The entire family dossier was read. Envelope, product, energy, and geometric operator theories are the separate P12.3--P12.6 targets.
+
+Input domain: every excellent reduced local ring of positive dimension, all residue characteristics and all centred real semivaluations, including nonminimal prime supports. Nilpotent reduction is explicit; dimension-zero reduction has empty boundary. Normalization branches mean local normal centres above the closed point, not just irreducible components. Every proper primary boundary gauge has its exact degree-one cocycle.
+
+Exact cones: P is raw finite nonnegative REAL positive ideal combinations, Q=-P is its negative; C is the finite continuous uniform closure; D is actual decreasing-C-net completion with bottom. N is the raw normalization cone with continuous fibre-compatible descent. They are not conflated. N4 gives Q subset N subset C and equal uniform closures; n9 shows strict Q versus N. N6 proves full D fibre-image rules. Smooth D minus bottom is the full BFJ formal class at the source's precise hypotheses, including all semivaluations, not merely a bounded specialization.
+
+The independent geometry is actual negative effective real Cartier data on actual primary blowups, with nonnegative curve degrees. Effectivity on nonnormal models uses actual Cartier divisors. N8's geometric comparison is conditional on the explicitly retained relative-geometry premises G1--G3. The task's exact-source requirement prevents a whole-original claim until those units are independently established. No radial analytic/CLD comparison, envelope, products, energy or geometric nonnormal degree trace is claimed.
+
+Expected output: complete fresh paper and argument, full proof-bearing earlier-local note chain, source ledger, coverage and OPEN decision, own rerunnable scripts, immutable input and own artifact hashes, retained first execution/build warnings. Delivered files meet this implementation scope. Mathematical drafts require subsequent independent review.
