@@ -3,6 +3,35 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest source-only parabolic comparison audit, 8 October 2026
+
+The active book remains the validated 4,612-page Ricci-entropy edition below.
+The [Kang source audit](Kang_parabolic_comparison_source_review_20261008.md)
+covers the entire arXiv:2511.06412v3, revised 15 December 2025: 21 actual
+physical pages and eleven individually displayed matching images. Its general
+measure comparison is relevant to the limits of weak initial traces, but is
+not imported as a proved book input.
+
+The third inequality of (3.7), in Lemma 3.6 on physical pages 13–14, passes
+from a signed open-set integral bound to a bound on a variable strict sublevel
+with an unsupported measure factor. A direct bounded subharmonic logarithmic-well
+example satisfies all four printed hypotheses while that sublevel retains
+positive time-space mass arbitrarily close to zero. The complete infinite-family
+calculation accompanies twelve exact checks and twelve finite fixtures. This
+tests the auxiliary lemma only: the example does not satisfy the flow's
+supersolution inequality. The main general-measure comparison, its uniqueness
+consequence and resulting convergence remain UNVERIFIED in this audit. The final
+time shift also requires a separate initial/boundary trace argument.
+
+The [source manifest](Kang_parabolic_comparison_source_reading_manifest_20261008.json)
+pins the actual reading, notes and diagnostic. The
+[portable evidence record](Kang_parabolic_comparison_source_artifacts_20261008.json)
+identifies a 50-member cloud archive; export adds no reading credit. Note 11
+corrects the provisional reference-21 authorship in historical note 10.
+No original theorem, independent model receipt or canonical status is promoted.
+The book and native catalogue source/PDF are byte-preserved. GitHub publication
+has not occurred; continue cloud research and read-only author-update checks.
+
 ## Latest Ricci-entropy cloud integration checkpoint, 8 October 2026
 
 The validated 4,612-page cloud book adds H.26 and L.88. The
