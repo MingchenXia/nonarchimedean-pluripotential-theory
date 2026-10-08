@@ -1,0 +1,54 @@
+from pathlib import Path
+from datetime import datetime, timezone
+import hashlib, json, shutil, subprocess
+
+R=Path('/workspace/research');K=R/'root-checks';G=R/'github-checkpoint'
+D=K/'public-P05.1-continuation298-dependent-common-subspace-pages-joint-dual-global-real-regularization'
+C=R/'campaigns/round-223/P05.1-unchanged-dependent-common-subspace-pages-whole-independent-native-local-source-audit'
+M=G/'upload-manifest-continuation227.json';F=G/'continuation227-publication-records';S=K/'small-batch222223-public-status-20261008-continuation227'
+sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
+write=lambda p,v:Path(p).write_text(json.dumps(v,ensure_ascii=False,indent=2)+'\n')
+assert not any(p.exists() for p in [M,F,S])
+prior=json.loads((G/'push-receipt-continuation226.json').read_text())
+assert prior['commit_sha']=='6c86922ceb6995da713943040cf0fbc556510eed' and not prior['force_update']
+assert all(prior[k] for k in ['remote_ref_verified','all_file_blob_bindings_verified_remote','independent_native_git_tree_verified'])
+rep=json.loads((D/'root-reproduction-binding-20261008.json').read_text())
+assert not rep['mathematical_acceptance'] and not rep['original_closed'] and rep['ROOT_source_whole_read'] and rep['ROOT_exact_FINAL_all7_whole_read']
+assert rep['ROOT_finite_output_exact'] and rep['latex_to_markdown_exact'] and rep['local_build_exit_codes']==[0,0,0] and rep['local_build_diagnostics'][-1]==[] and rep['pdf_pages']==18
+for name,key in [('P05.1-paper.tex','source_sha256'),('argument.md','argument_sha256'),('P05.1-paper.pdf','pdf_sha256')]:assert sha(D/name)==rep[key]
+freeze=json.loads((C/'freeze.json').read_text());assert freeze['whole_math_files']==33 and freeze['own_historical_files']==122 and (C/'launch-record.json').exists()
+assert sha(K/'public-P16-round-46-final-reader/P16.4-paper.tex')=='09a83320fbb8fd7f468329307136ccaa146ea4ad07e9a23437ec3dd688ed942a'
+F.mkdir();S.mkdir();now=datetime.now(timezone.utc).isoformat();items=[]
+for n in [221,222,223]:
+    c=next((R/f'campaigns/round-{n}').iterdir())
+    st=json.loads(subprocess.run(['bash','scripts/cloud.sh','xean','--records','status',str(c/'work.sqlite')],cwd='/workspace/xean',capture_output=True,text=True,check=True).stdout)
+    p=S/f'round{n}-public-native-status.json';write(p,st)
+    items.append(dict(round=n,atom='P05.1',directory=str(c),observed_status=st['status'],observed_utc=st['observedAt'],unsettled_calls=st['calls']['unsettled'],public_status=str(p),public_status_sha256=sha(p),private_active_output_read=False,hot_feedback_sent=False,original_closed=False))
+assert items[0]['observed_status']=='completed' and items[0]['unsettled_calls']==0
+active=[e for e in items if e['unsettled_calls']>0];assert len(active)<=2
+batch=dict(recorded_utc=now,items=items,active_items=active,maximum_concurrent_campaigns=2,accepted_paper_number=84,original_closed=False,focus='222 whole unchanged independent-normal295 audit;223 whole unchanged dependent298 audit. Root separately advances arbitrary-face geometry; no third campaign or active feedback.')
+for name in ['active-work.json','checklist-current.json']:
+    p=R/name;j=json.loads(p.read_text())
+    assert j['historical_reviewed_scoped_papers']==84 and len(j['fully_solved_original_atoms'])==9 and j['remaining_open_original_atoms']==33 and j['github_pending_checkpoint'] is None and j['github_checkpoint']['commit_sha']==prior['commit_sha']
+    j.update(updated_utc=now,current_small_batch=batch,new298_unreviewed_paper=dict(path=str(D),source_sha256=rep['source_sha256'],argument_sha256=rep['argument_sha256'],pdf_sha256=rep['pdf_sha256'],pdf_pages=18,whole_source_and_all7_actual_FINAL_ROOT_read=True,whole_ledger_scope_coverage_execution_ROOT_read=True,finite_output_exact=True,finite26961_model_tuples33_trace44_orders=True,source_conversion_exact=True,ROOT_local_builds=[0,0,0],final_local_diagnostics_clean=True,all7_saved_draft_prose_distinct_and_not_controlling=True,saved_drafts_whole_ROOT_read_not_claimed=True,builtin_compiler_cell217_pending=True,independent_audit223_launched=True,new_accepted_paper=False,original_closed=False),prepared_whole298_audit223=freeze,next_work='Read full independent222/223 results ONLY afterPUBLICsettlement, allactualFINAL andwholeproof/source/history beforeacceptance. Keep exactlymax2native. Continue arbitraryallfacegeometry/globalLip and multitrace compatibility with296/297DATA, remaining33originalgoals. No partialpaperscountasoriginalclosure. Regularverifiedpushes; builtin62/94/136/217pending waitonly, protectededitoropenunchanged.',github_pending_checkpoint=dict(continuation=227,prepared_utc=now,manifest=str(M),expected_parent=prior['commit_sha'],push_complete=False))
+    write(p,j);shutil.copyfile(p,F/name)
+shutil.copyfile(R/'checklist-current.tsv',F/'checklist-current.tsv')
+(F/'README.md').write_text('Checkpoint227: complete dependent common-subspace paper, unreviewed\n\n9/42 originals solved;33open;84 accepted scoped/supporting papers. Complete493-LF18-page continuation298 reconstructs arbitrary dependent complete rational affine pages meeting in ONE common rational H, including H=0, actual positive REAL weights and actual REAL rational-carrier positive-growth reference. It covers ALL continuousrelativePC functions and ALL continuous bounded-obstacle ACTUAL envelopes. This author draft is NOT yet independent acceptance or original closure.\n\nThe proof encodes allpage compatibility in the entire ambient restriction image. Joint compact dual maximum has exact onecommontrace, compact attained fiber minima and closed extended biconjugacy including boundary/outside domains. Each separate page minimum equals the same trace conjugate, forcing every joint maximum minimizer to minimize ALL pages simultaneously. Lowering exactly these minimizers in compact convex hulls preserves ONE ambient supporting form at EACHrealHpoint. Allvertices of a genuine finite rational-spatial realPA trace and exact trace recession then force exact entireH extension, preserving all common supports. Global2dyadic error pluscommon4shift yields globally decreasing approximants forSAMEactualgamma/h BEFOREMA. Multiple distinct overlaps/nonincident extra pages and arbitrarysingularsupports remainOPEN.\n\nWhole diagnostics293 has identical ENTIREtrace yet legalPCCcost-3/64, so naive independentpage gluing fails even with value equality; originalHuberendpoint isPC/regularizable. Full-affine rational-spatial real-height primal foundation, whole-boundary dualcontinuity, finite prescribed contacts, compacthull elimination, realscalar matching, actualpositivebalancedcycles/effectiveresid/rawprimitivedeterminants and crossingnegativecontact roof are reconstructed or precisely applied from exactly6WHOLEgrants/allclarifications. S282native215 historyINCONCLUSIVE retained, noS291/S292 or othernativeproof used.\n\nROOT read ENTIRE493LF source, all7actualFINAL, wholeledger/scope/proofcoverage/execution andwholeboundedFractionchecker/input. All82ownartifacts and30bound inputs match. Safechecker was copied into ROOTscratch andexecutedONCE: exactoutputmatches, finite26961dependentmodeltuples33traceboundarypoints44factororders6matrices anddiagnostic. Entirefiniteoutputwasread; finite isnotcontinuumproof. Source→nonstandaloneMarkdown bytesEXACT. Three unchanged ROOT no-shellTeXpasses0/0/0 finalclean18pages, firstxref/rerunhistoryretained. Noauthoraudit/emitter/build/binder/orchestration programexecuted. All7saved draft summaries/detailed/text DIFFER from actualFINAL, sameIDs/supports; savedfullversions preserved historical/notcontrolling, nowholeROOTsavedread orsemanticidentityclaimed. Initialoversizedcharacter-diffdisplaytruncationretained; repairedcompletefield-equalitysummary without pretendingfullcomparisonread. Authorreaderfailures/truncationrepairs/initialbuildwarnings andoneextraownwrapperrerun remain distinct historicalobservations.\n\nIndependent223 wholeUNCHANGED298 local-sourceaudit launched onlyafterPUBLIC221completed, with33wholemath786614B/122wholeownhistory/4primaries, exactly6wholegrants/allqualifications andwhole293294withembedded289DATA. No priorreviewbias/newotherpapers/unbound/privateACTIVE/hotfeedback.222 wholeunchangedindependentnormal295 audit is theother boundedslot. Acceptance84/9originals unchanged.\n\nBuiltincompile62/94/136 andnew298cell217 pending, no result/duplicate/newtab; protectedoriginaleditoropenunchanged. No longprimaryquotes/pixels/controllerstreams/auth uploads. MainROOT18pPDF and public ownexplanations/code/alltextlogs retained; noforcepush exactblobs/nativeGitTree/ref verified.\n')
+files=[]
+def add(p,target=None):
+    p=Path(p);assert p.is_file() and 'LOCALONLY' not in str(p.relative_to(R))
+    files.append(dict(local=str(p),path=target or 'research-checkpoints/continuation227/'+str(p.relative_to(R)),bytes=p.stat().st_size,sha256=sha(p)))
+for folder in [F,S]:
+    for p in sorted(folder.iterdir()):add(p)
+for p in sorted(D.rglob('*')):
+    if not p.is_file() or 'LOCALONLY' in str(p.relative_to(D)):continue
+    if p.suffix in ['.aux','.out','.toc'] or (p.suffix=='.pdf' and p!=D/'P05.1-paper.pdf'):continue
+    add(p)
+for name in ['task.json','input.json','settings.json','freeze.json','original-task.json','mathematical-packet-bindings.json','historical-own-evidence-bindings.json','private-primary-packet-bindings.json','launch-record.json']:add(C/name)
+for name in ['extract_settled221_exact_native_result_20261008.py','reproduce_and_publish_dependent_common_subspace298_20261008.py','prepare_dependent_common_subspace_whole_audit223_20261008.py','launch_dependent_common_subspace_whole_audit223_20261008.py','record_verified226_20261008.py']:add(R/name)
+add(G/'push-receipt-continuation226.json');add(Path(__file__))
+for name in ['active-work.json','checklist-current.json','checklist-current.tsv']:add(F/name,'manuscript/editorial/xean_research_20261003/'+name)
+assert len({e['path'] for e in files})==len(files)
+j=json.loads((R/'active-work.json').read_text())
+write(M,dict(generated_utc=now,repository=prior['repository'],branch=prior['branch'],expected_previous_checkpoint=prior['commit_sha'],files=files,file_count=len(files),fully_solved_original_atoms=j['fully_solved_original_atoms'],remaining_open_atoms=33,historical_reviewed_scoped_papers=84,commit_message='Publish dependent common-subspace regularization draft and independent whole-paper audit',scope='Complete18p493LF dependent common-H298 UNREVIEWED/all7actualFINAL ROOTread, savedprose distinct; exactfinite/output/sourceconversion and3cleanlocalbuilds.223wholeunchangedauditlaunched33math122history4primary alongside222max2; noaccept/originalclosure9solved33open84accepted. Builtinpending protectededitorunchanged, noforce exactblob/tree/refverify.'))
+print(json.dumps(dict(manifest=str(M),sha256=sha(M),listed_files=len(files),active_rounds=[e['round'] for e in active],originals_solved=9,accepted_papers=84),indent=2))
