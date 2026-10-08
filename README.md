@@ -4,6 +4,16 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest checked book integration, 8 October 2026:** the
+[higher-rank integral-data audit](manuscript/editorial/Kaib_Werner_higher_rank_staged_integration_audit_20261008.md)
+adds 3.12 and L.93, with a computed valuation/elliptic example and explicit
+analytic, integral and Néron model interfaces. Every source hypothesis remains
+visible. All 26 selected book pages were freshly read in 13 matching displays;
+mechanical and post-render gates pass. The
+[activation record](manuscript/editorial/Kaib_Werner_higher_rank_cloud_activation_20261008.json)
+controls the 4,636-page cloud edition. No original general theorem, new
+whole-book pass or canonical status change is claimed.
+
 **Latest primary-source continuation, 8 October 2026:** the
 [Kaib–Werner audit](manuscript/editorial/Kaib_Werner_higher_rank_source_review_20261008.md)
 reads all 24 pages of arXiv:2610.01354v1 in twelve matching individual
@@ -110,7 +120,7 @@ citation values are preserved. The [cloud activation record](manuscript/editoria
 controls the source/PDF update. No whole-book new reading, original general
 result or canonical status change is claimed. Its verified artifacts are uploaded.
 
-The current cloud research-integration build has **4,634 pages**; its
+The current cloud research-integration build has **4,636 pages**; its
 source and checked book/audit exports are published on `work`. The checked
 [geometric-norm account](manuscript/editorial/Temkin_Zutler_geometric_norms_staged_integration_audit_20261008.md)
 adds Sections 4.6.1--4.6.2: tensor and spectral norm distinctions, exact

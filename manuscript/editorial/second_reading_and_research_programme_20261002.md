@@ -3,6 +3,38 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest higher-rank integral-data cloud integration checkpoint, 8 October 2026
+
+The validated edition has 4,636 pages. The
+[integration audit](Kaib_Werner_higher_rank_staged_integration_audit_20261008.md)
+records new 3.12 and L.93: a nontrivial real norm with higher-rank integral
+data, an explicit composed valuation and elliptic j obstruction, proper
+analytic recovery versus formal-model gluing, and distinct Néron mapping
+domains. Exact source hypotheses, including the formal multiplication
+identity-component premise, remain explicit. Algebraic Tate components and
+strong marked formal components are different; neither is the whole skeleton.
+
+The 24-page/twelve-display primary reading is reused without extra credit.
+The final scoped book gate freshly reads 26 pages in 13 matching individual
+displays with sequential notes and receipts. The earlier v1 mechanical and
+four-page partial reading remain frozen. Full validation and post-render
+reference/inventory/whitespace gates pass. All 955 underfull diagnostics are
+inherited; no errors, warnings, overfull boxes or unresolved links occur.
+The 13,371 prior number values and 591 citation labels remain;
+three labels, tag 3.1, two contents rows, KW26A and three index terms are new.
+Other 423 active TeX inputs, the Complex bibliography and historical formal
+blocks/proofs/tags remain unchanged. The native catalogue/editor and canonical
+42 atoms/twelve problems are preserved: general BJ22 critical homogeneous
+Siu/envelopes OPEN, LPWZ density UNVERIFIED. No original result, independent
+receipt or new whole-book pass is claimed. The last complete pass is 4 October.
+
+The authored primary records are uploaded and remotely verified on work.
+The byte-verified book exports and
+[activation record](Kaib_Werner_higher_rank_cloud_activation_20261008.json)
+control the new cloud edition; publication of this unit receives a separate
+record after its authorized upload. Continue related recent primary research
+and checks for incoming author updates.
+
 ## Latest Kaib–Werner primary-source checkpoint, 8 October 2026
 
 The [source audit](Kaib_Werner_higher_rank_source_review_20261008.md)
