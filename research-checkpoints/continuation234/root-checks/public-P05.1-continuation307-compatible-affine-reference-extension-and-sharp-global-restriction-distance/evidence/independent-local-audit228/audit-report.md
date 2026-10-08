@@ -1,0 +1,16 @@
+# Whole-source audit result
+
+The entire unchanged continuation307, all four actual native225 FINAL notes, and all nine bound mathematical DATA bodies have been independently read and reconstructed with ZERO caller grants. This is an ordinary local-source draft audit, with no canonical review, automatic acceptance or new theorem grant. Original P05.1/P05.2 remain **OPEN** and **candidate=false**.
+
+| Axis | Verdict | Decisive scope |
+|---|---|---|
+| Mathematics | PASS | Every stated E0–E6/G0–G5/N0–N3/D0–D3 assertion, 17 numbered-environment proofs, 46 displays and all unnumbered/inline arguments check under the printed explicit hypotheses. Independent-gluing failure and exact distance are preserved; no balanced-original counterexample inferred. |
+| Essential source applications | PASS | Sole four original primary bytes identified; whole immediate applicable units independently read; exact endpoint/weight/normal/sign/REAL-vs-literal/growth conventions respected. Main finite foundations and majorants are reproved, not imported from density or absent grants. |
+| Binding and presentation identities | PASS | All64 bound byte/hash entries match; complete nine-body display coverage; actual four FINAL notes equal saved bytes minus one terminal LF; independent body-only Markdown transformation matches exactly; unchanged source builds to16 pages. |
+| Source-ledger descriptor metadata | FAIL (harmless, narrowly specified) | Ledger LF75 describes bounded-relative Definition3.14 as proper growth; LF76 links slope positivity-at-infinity Definition4.15 to divisor positivity. Correct applicable units were wholly read and mathematics is unaffected. No supplied text edited. |
+| Fresh bounded evidence | PASS | One inspected copied Fraction run:1577 assertions/-1/4/exact output; two unchanged no-shell TeX passes, final clean; own conversion exact. ROOT98/36 identities analyzed as metadata, not freshly physically recertified. |
+| Universal history and external runtime certification | INCONCLUSIVE | Historical did-read/universal-no-operation truth, absent handles/pending native editor result and provider/model/single-call internals cannot be certified from the bounded evidence. Older S291 source/combined FAIL/history INCONCLUSIVE remain historical. |
+
+The proof reconstruction is in reconstructed-proofs.md. The complete literal-line/unit/equation map is proof-coverage.md and equation-and-proof-inventory.json. Source applications and the precise harmless metadata corrections are in source-audit-ledger.md. Actual evidence, warnings, failures and their limits are in bounded-evidence-report.md. Input bindings, display coverage, artifact bindings, copied finite code/input/output, fresh build source/logs/PDF and version records are retained locally.
+
+The key successful statements are exact entire-cell/entire-H anisotropic extensions with explicit GLOBAL L; compatible proper rational-spatial REAL-PA extensions of actual affine references on dependent complete pages with one pairwise overlap; and exact all-continuous-competitor restriction distance (A-1)/2 with attainment. Separate affine majorants give no synchronized dependent gluing. The outstanding direct-original balanced all-face approximation lemma and the original classifications remain unresolved. No MA is assigned to any intermediate or failed extension.
