@@ -1,0 +1,19 @@
+"""Capture final own build/audit commands and full outputs locally."""
+from pathlib import Path
+import json
+import subprocess
+import sys
+import time
+
+records=[]
+for name in ['build_delivery.py','final_audit.py']:
+    command=[sys.executable,name];start=time.monotonic()
+    run=subprocess.run(command,capture_output=True,text=True,check=False)
+    records.append({'command':command,'cwd':str(Path.cwd()),'exit_code':run.returncode,
+                    'stdout':run.stdout,'stderr':run.stderr,'elapsed_seconds':time.monotonic()-start})
+    if run.returncode:
+        Path('evidence/final-commands-output.json').write_text(json.dumps(records,indent=2)+'\n')
+        raise SystemExit(run.returncode)
+Path('evidence/final-commands-output.json').write_text(json.dumps(records,indent=2)+'\n')
+print(json.dumps({'commands':len(records),'exit_codes':[r['exit_code'] for r in records],
+                  'record':'evidence/final-commands-output.json','math_verification':False}))

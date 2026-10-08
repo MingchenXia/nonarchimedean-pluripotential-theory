@@ -1,0 +1,125 @@
+"""Own artifact builder. Packet programs stay inert; no imports from the packet."""
+import datetime
+import hashlib
+import json
+import pathlib
+
+ROOT = pathlib.Path(__file__).resolve().parent.parent
+PACKET = ROOT.parent.parent
+EVIDENCE = ROOT / 'evidence'
+EVIDENCE.mkdir(exist_ok=True)
+
+META = [
+    ('n1', 'Conditional constant meromorphic field and exclusion of all separated finite-type algebraic-space algebraizations; finite wide-polyannulus Picard vanishing remains unproved.',
+     'For K=C((s)), |s|=exp(-1/8), t=s^8 and periods (t,2),(3,t), the ordinary quotient geometry is established. Assuming Pic(P_m,L)=0 for every finite wide polyannulus over a given complete extension L, inner Gauss bounds give compatible infinite frames, and the signed theta recurrence and common pole fractions prove Γ(X_L,M)=L. Smooth finite-type algebraic-space descent, generic-field hypotheses and analytic flatness then rule out every separated finite-type algebraization. Gruson IV.5 has insufficient scope to discharge the explicit Picard condition.', []),
+    ('n2', 'Repaired middle-positive bounded CLD operator, raw mass 2, bounded comparison and actual off-canonical-skeleton mass-one atoms; no unbounded E¹ extension.',
+     'On the unconditional quotient geometry of n1, θ=d′d″((x₁²+x₂²)/2) defines a real analytic positivity datum. Middle PSD domination and coefficient measures, with a concrete Plücker obstruction to the strong-cone shortcut, construct ordinary-local symmetric positive mixed measures on the continuous locally smooth-positive approximant class C_θ. The operator has mass 2 and uniform continuity and bounded comparison. Explicit U_N contain a genuine analytic atom δ_(ξ_N) of mass one off the original Gauss section. No recognition of a full psh class, decreasing unbounded continuity or full uniqueness is claimed.', ['n1']),
+    ('n3', 'Exact separable skeletal equations and circle envelopes/energy; all mass-two measures have finite restricted dual energy, which does not imply full admissibility.',
+     'The periodic Green kernel parameterizes dy+h″≥0 circle potentials, proves normalized uniform compactness, and solves every Gauss-section product measure uniquely within S_θ. Explicit energy agrees with the bounded mixed energy, with circle first variation, obstacle envelopes and contact orthogonality. For arbitrary analytic μ the restricted variational maximizer sees only its marginals and returns their skeletal product. At the rigid point (1,1), E*_sep(2δ)=1/6 although the maximizing measure is supported at a different Gauss point.', ['n1', 'n2']),
+    ('n4', 'New exact branch energy E(U_N)=-1/6-N/3 proves infinite C_θ dual energy of the rigid mass-two atom, despite finite separable dual energy.',
+     'Using ordinary locality and middle coefficient-measure multiplication, D_Nθ=D_Nα_0=0 and the actual off-skeleton atom compute all three mixed energy integrals. The exact values E_θ(U_N)=-1/6-N/3 and U_N(1,1)=-1/6-N give E_θ(U_N)-2U_N(1,1)=1/6+5N/3→∞. Thus the larger bounded dual test excludes this rigid atom. The same conclusion applies to any extension containing these bounded potentials with the same energy; no comparison with an unspecified full psh theory or counterexample to P16.7 is asserted.', ['n2', 'n3']),
+    ('n5', 'Original P16.7 verdict remains incomplete: conditional nonalgebraization and rigorous bounded/restricted progress leave full intrinsic E¹ and all-support equations unresolved.',
+     'The standalone paper, full proof companion, source-application ledger, coverage and original verdict preserve the exact proved scopes and foundation gate. Missing original quantifiers include a full intrinsic psh cone, genuine unbounded E¹/full-mass products and decreasing continuity, compactness and envelope orthogonality in every analytic direction, global energy variation and full measure dual energy, and existence and uniqueness for every admissible arbitrary-support measure. Fresh applied primary reading is distinguished from historical attribution. Own finite diagnostic execution is not mathematical certification.', ['n1', 'n2', 'n3', 'n4'])
+]
+
+notes = []
+for ident, summary, detail, support in META:
+    notes.append({'id': ident, 'summary': summary, 'detailedSummary': detail,
+                  'text': (ROOT/'notes'/f'{ident}.md').read_text(), 'support': support})
+result = {'notes': notes, 'candidate': False}
+(ROOT/'final-notes.json').write_text(json.dumps(result, ensure_ascii=False, indent=2)+'\n')
+
+intro = '''# Conditional nonalgebraization and bounded analytic Monge–Ampère theory
+
+Unverified research draft, 8 October 2026. Original target: P16.7.
+
+This standalone paper proves a conditional constant-meromorphic-field/nonalgebraization theorem and unconditional bounded ordinary-local CLD results on an explicit compact analytic torus. Its new branch-energy computation separates restricted finite dual energy from analytic admissibility. The finite wide-polyannulus Picard foundation and the original intrinsic all-support E¹ theorem remain unresolved. All raw analytic masses are 2 unless explicitly stated otherwise.
+
+The five numbered notes below are the full proof sections of this paper; their references to n1–n5 are internal. External sources and exact application boundaries are given after the proofs. No historical acceptance label is a premise.
+
+'''
+body = '\n\n'.join(f'## {n["id"]}: {n["summary"]}\n\n{n["text"]}' for n in notes)
+ledger = (ROOT/'source-application-ledger.md').read_text()
+(ROOT/'P16.7-partial-paper.md').write_text(intro+body+'\n\n'+ledger)
+(ROOT/'proof-companion.md').write_text('# Full proof companion and audit boundaries\n\n'+intro+body+'\n\n'+ledger)
+(ROOT/'nonalgebraization-conditional-paper.md').write_text(
+    '# A conditional constant-meromorphic-field theorem for an analytic torus\n\n'
+    'Unverified draft. The condition F_L is not discharged.\n\n'+notes[0]['text']+'\n\n'+ledger)
+
+verdict = {
+    'atomic_target': 'P16.7', 'candidate': False, 'complete_original_solution': False,
+    'nonalgebraization': 'conditional on F_L: Pic(P_m,L)=0 for all m≥1; foundation unresolved',
+    'unconditional_proofs': ['ordinary quotient geometry','bounded middle-positive CLD mixed calculus',
+         'raw reference mass 2','bounded comparison','separable product-measure equations',
+         'circle energy/envelope/orthogonality','actual off-canonical-skeleton atom mass 1',
+         'infinite C_theta dual energy of 2δ_(1,1)'],
+    'missing_original_quantifiers': ['full intrinsic psh identification','unbounded E1/fullmass domain',
+         'unbounded mixed/MA products and decreasing continuity', 'compactness in all analytic directions',
+         'general analytic envelopes and orthogonality','global first variation and full dual energy',
+         'all admissible arbitrary-support existence','full E1 uniqueness modulo constants'],
+    'original_counterexample': False, 'other_atoms_counted': [], 'imported_grants': [],
+    'limitations': 'Own successful execution and fresh reading are not mathematical correctness certificates.'
+}
+(EVIDENCE/'original-verdict.json').write_text(json.dumps(verdict,ensure_ascii=False,indent=2)+'\n')
+
+read_files = ['original-task.json','mathematical-packet-bindings.json',
+  'private-primary-packet-bindings.json','book-context-bindings.json',
+  'immutable-mathematical-DATA/034-whole-proof.md',
+  'immutable-mathematical-DATA/033-source-application-ledger.md',
+  'immutable-mathematical-DATA/035-round264-actual-native-final.json',
+  'immutable-mathematical-DATA/037-P16.7-continuation374-constant-meromorphic-field-and-nonalgebraization-working-paper-20261008.tex',
+  'immutable-mathematical-DATA/061-whole-proof.md',
+  'immutable-mathematical-DATA/062-round263-actual-native-final.json',
+  'private-primary-DATA-LOCALONLY/024-ROOT374-full-literal-applied-source-units-LOCALONLY.json']
+retained = []
+for rel in read_files:
+    b = (PACKET/rel).read_bytes()
+    retained.append({'path': rel, 'sha256': hashlib.sha256(b).hexdigest(), 'bytes': len(b),
+                     'interpretation': 'retention binding only, not reading or correctness'})
+(EVIDENCE/'input-retention-bindings.json').write_text(json.dumps(retained,indent=2)+'\n')
+(ROOT/'inputs').mkdir(exist_ok=True)
+(ROOT/'inputs'/'original-task.json').write_bytes((PACKET/'original-task.json').read_bytes())
+
+expanded_comparisons = []
+for actual, expanded in [
+  ('035-round264-actual-native-final.json', ['027-n1.md','028-n2.md','029-n3.md','030-n4.md']),
+  ('062-round263-actual-native-final.json', ['052-n1.md','053-n2.md','054-n3.md','055-n4.md'])]:
+    d=json.loads((PACKET/'immutable-mathematical-DATA'/actual).read_text())
+    matches=[n['text'].strip()==(PACKET/'immutable-mathematical-DATA'/f).read_text().strip()
+             for n,f in zip(d['notes'],expanded)]
+    assert len(matches)==4 and all(matches)
+    expanded_comparisons.append({'actual':actual,'expanded':expanded,'text_equality_strip_only':matches,
+                                'interpretation':'data comparison, no correctness grant'})
+
+coverage = {'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),
+    'whole373': {'entire_math_body': '034-whole-proof.md', 'LF_read_intervals': [[1,240],[241,500],[501,730],[731,858]],
+                'actual_final_and_expanded_notes_read':True, 'source_ledger_read':True,
+                'disposition':'independently repaired n1–n4; strong-cone shortcut rejected'},
+    'whole374': {'entire_paper':'037 working paper', 'read_all_426_LF_lines':True,
+                'disposition':'complete remaining implication proved conditional on unresolved F_L'},
+    'whole372': {'entire_math_body':'061-whole-proof.md', 'LF_read_intervals':[[1,195],[196,405],[406,605],[606,779]],
+                'actual_final_and_expanded_notes_read':True,
+                'used_results':'middle-positive calculus reconstructed independently in n2',
+                'not_applied':'logarithmic trace/removability theorem; no new correctness certificate'},
+    'source_pixel_reading': {'Van_der_Put':list(range(10,19)), 'CLD_printed_pages':[209,213],
+                            'Gruson_printed_pages':[80,81], 'fresh_native':True,
+                            'historical_ROOT_attribution_used_as_premise':False},
+    'expanded_comparisons':expanded_comparisons,
+    'primary_display_log':'evidence/native-display-log.jsonl',
+    'full_exact_application_boundaries':'source-application-ledger.md',
+    'not_claimed':'All book-context chapters or all 608 CLD pages read; earlier unsupplied bodies checked; deeper foundational proof trees rebuilt.',
+    'no_supplied_program_execution':True, 'no_subagents':True, 'no_other_active_campaign_access':True,
+    'reading_is_not_correctness':True}
+(EVIDENCE/'coverage.json').write_text(json.dumps(coverage,ensure_ascii=False,indent=2)+'\n')
+
+commands={'scope':'selected own executed/reproducible commands, not a complete platform transcript',
+ 'commands':['python scripts/diagnostics.py','python scripts/build_deliverables.py',
+             'python scripts/check_deliverables.py',
+             'pdftoppm -f 37 -l 38 -scale-to 1500 -png ../../private-primary-DATA-LOCALONLY/022-Gruson-Fibres-vectoriels-polydisque-1968.pdf evidence/gruson'],
+ 'primary_read_commands':'See native-display-log.jsonl; use python scripts/read_evidence.py FILE START END',
+ 'public_retrieval':'Tool requests/responses retained in evidence/web1.json through web13.json',
+ 'native_packet_programs_executed':[]}
+(EVIDENCE/'commands.json').write_text(json.dumps(commands,indent=2)+'\n')
+print(json.dumps({'notes':len(notes),'candidate':False,'paper_bytes':(ROOT/'P16.7-partial-paper.md').stat().st_size,
+                  'expanded_text_comparisons':[all(d['text_equality_strip_only']) for d in expanded_comparisons],
+                  'original_verdict':verdict['complete_original_solution']},indent=2))

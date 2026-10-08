@@ -1,0 +1,7 @@
+Checkpoint270: isolated positive-characteristic envelope draft and full branch-energy paper
+
+16/42 original problems solved, 26 OPEN, 97 accepted papers; no increase. Whole ROOT377 proposes continuity of envelopes for isolated normal perfect-characteristic-p varieties using canonical flattening, paired test ideals, corrected singular subadditivity and an affine-base generation proof. Its full saved proof and source qualifications are retained and independently checked by native269. No acceptance is asserted.
+
+Whole378 preserves the entire conditional nonalgebraization proof, bounded analytic mixed theory, exact circle equations and new branch-energy divergence. The rigid atom has infinite bounded dual energy despite restricted separable finiteness. This is a proved-sector draft with explicit Picard and intrinsic E1 gaps, not an original closure. All actual FINAL and expanded texts are retained separately with complete ROOT reading qualifications.
+
+The exact completed268 FINAL is captured but its whole paper review is underway. Frozen269 includes the entire mathematical packet and whole book contexts. At most two native campaigns; no active math or hot feedback. Full primary bodies, literal units and pixels remain LOCALONLY; public retrieval files contain only metadata. Native programs are inert DATA. Compiler requests remain unverified; protected editor is unchanged. Authorized NONFORCE push requires exact independent Git tree, blob and fresh branch verification.

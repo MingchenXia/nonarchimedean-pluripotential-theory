@@ -1,0 +1,19 @@
+"""Own read-only packet reader; records displayed LF intervals, not correctness."""
+import argparse, datetime, hashlib, json, pathlib
+BASE = pathlib.Path('/workspace/research/campaigns/round-267/P16.7-whole373374-nonalgebraization-and-intrinsic-E1')
+OUT = pathlib.Path(__file__).resolve().parent.parent
+p = argparse.ArgumentParser()
+p.add_argument('file')
+p.add_argument('start', type=int)
+p.add_argument('end', type=int)
+a = p.parse_args()
+f = BASE / a.file
+data = f.read_bytes()
+lines = data.decode().split('\n')
+assert 1 <= a.start <= a.end <= len(lines)
+body = '\n'.join(lines[a.start-1:a.end])
+record = {'utc': datetime.datetime.now(datetime.timezone.utc).isoformat(), 'path': str(f), 'sha256': hashlib.sha256(data).hexdigest(), 'LF_start': a.start, 'LF_end': a.end, 'status': 'displayed for native inspection; no correctness inference'}
+(OUT/'evidence').mkdir(exist_ok=True)
+with (OUT/'evidence'/'native-display-log.jsonl').open('a') as w:
+    w.write(json.dumps(record)+'\n')
+print(body)

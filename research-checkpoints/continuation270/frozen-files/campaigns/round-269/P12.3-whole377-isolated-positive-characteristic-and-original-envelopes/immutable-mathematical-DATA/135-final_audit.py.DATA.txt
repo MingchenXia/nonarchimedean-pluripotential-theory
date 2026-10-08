@@ -1,0 +1,48 @@
+"""Consistency audit only; it does not certify mathematics."""
+from pathlib import Path
+import hashlib
+import json
+
+records=json.loads(Path('evidence/packet-retention.json').read_text())
+assert len(records)==155
+assert all(r['matched'] for r in records)
+for r in records:
+    b=Path(r['local']).read_bytes()
+    assert len(b)==r['bytes'] and hashlib.sha256(b).hexdigest()==r['sha256'],r['id']
+obj=json.loads(Path('native-notes.json').read_text())
+assert obj['candidate'] is False and len(obj['notes'])==10
+allowed={'G331','B341','E350'}
+proof=Path('whole-proof.md').read_text();paper=Path('P12.3-paper.md').read_text();tex=Path('P12.3-paper.tex').read_text()
+assert all(ord(c)>=32 or c in '\n\r\t' for c in tex),'control-character corruption in TeX'
+assert tex.count('\\begin{ImportedGrantText}')==4 and tex.count('\\end{ImportedGrantText}')==4
+for n in obj['notes']:
+    assert set(n)=={'id','summary','detailedSummary','text','support'}
+    assert set(n['support'])<=allowed,(n['id'],n['support'])
+    assert n['text']==Path(n['id']+'.md').read_text() and n['text'] in proof and n['text'] in paper
+    allowed.add(n['id'])
+for g in ['G331','B341','E350']:
+    body=Path('inputs/qualified-'+g+'.txt').read_text()
+    assert body in paper and body in tex
+assert json.loads(Path('acceptance-decision.json').read_text())['candidate'] is False
+diag=json.loads(Path('evidence/finite-diagnostics.json').read_text())
+assert diag['status']=='PASS'
+literal=json.loads(Path('evidence/literal-unit-checks.json').read_text())
+assert len(literal)==6 and all(x['hash_matches'] for x in literal)
+assert sum(bool(x['source_substring_matches']) for x in literal)==5
+err=[x for x in literal if x['id']=='Keeler-entire-erratum'][0]
+assert err['exact_suffix_qualification']['exact_difference'].startswith('capture appends exactly one LF')
+private=json.loads(Path('evidence/source-units-LOCALONLY.json').read_text())
+assert len(private['units'])==27
+for u in private['units']:
+    b=u['exact_literal_body'].encode()
+    assert len(b)==u['bytes'] and hashlib.sha256(b).hexdigest()==u['sha256']
+files=[]
+for p in sorted(Path('.').iterdir()):
+    if p.is_file() and p.name!='input.json':
+        b=p.read_bytes();files.append({'path':str(p),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()})
+report={'status':'PASS','meaning':'artifact/support/body/retention consistency only; no mathematical certification',
+        'records':155,'notes':10,'candidate':False,'literal_units':27,'own_files':files,
+        'compiled':False,'supplied_programs_executed_or_imported':False,'agents':False,
+        'original':'INCOMPLETE','private_primary':'LOCALONLY','publication':'none','protected_editor':'unaccessed'}
+Path('evidence/final-audit.json').write_text(json.dumps(report,indent=2)+'\n')
+print(json.dumps({k:v for k,v in report.items() if k!='own_files'}))

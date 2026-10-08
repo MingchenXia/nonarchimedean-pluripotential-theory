@@ -1,0 +1,493 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\OO}{\mathcal O}
+\newcommand{\CC}{\mathcal C}
+\newcommand{\DD}{\mathcal D}
+\newcommand{\Jac}{\operatorname{Jac}}
+\newcommand{\Bl}{\operatorname{Bl}}
+\newcommand{\Fit}{\operatorname{Fit}}
+\title{Isolated positive-characteristic singularities:\\
+canonical-module flattening and uniform obstacle envelopes}
+\author{Research continuation 377: working proof for independent verification}
+\date{8 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We propose an envelope-continuity argument for a normal isolated algebraic
+singularity over a perfect field of positive characteristic, in arbitrary
+dimension. The construction uses a blowup of the first Fitting ideal of a
+canonical module, rather than a smooth resolution. On the resulting normal
+primary model an effective exceptional boundary makes the log canonical
+divisor Cartier. Relative Serre vanishing gives a uniform generation statement
+for asymptotic test ideals of this pair. Jacobian-corrected subadditivity then
+gives an error of order $1/m$ on every normalized centered semivaluation,
+including those with nonzero support. This is a working proof, not an accepted
+correctness grant. It addresses a positive-characteristic isolated normal
+sector of P12.3; the full excellent and nonnormal original problem stays open.
+\end{abstract}
+
+\section{Objects and the precise proposed conclusion}
+Let $k$ be perfect of characteristic $p>0$, let $B$ be a normal integral
+affine $k$-variety, and let $x$ be a closed point of codimension
+$d=\dim\OO_{B,x}\geq2$. After shrinking $B$, suppose $B\setminus\{x\}$ is
+regular. Fix an $x$-primary ideal $\mathfrak a$. Let
+$S_{\mathfrak a}$ be the compact section of centered semivaluation rays
+normalized by $v(\mathfrak a)=1$. We use additive valuations; values of
+individual functions may be $+\infty$. A primary ideal has finite value
+at every point of this section.
+
+The geometric comparison available from the qualified P12.2 paper is used
+in its exact scope: primary-ideal profiles
+$-v(I)/N$ have independent negative effective Cartier, exceptional-nef
+models; their uniform closure is the continuous geometric cone $\CC$;
+the geometric decreasing class $\DD$ consists of the appropriate limits
+of one decreasing net from $\CC$. No envelope-continuity, upward-limit,
+energy, or resolution assertion is imported. In particular,
+$\CC$ contains zero and the negative constants, is closed under maxima,
+and permits a negative constant shift. We retain its nonpositive convention.
+For a finite continuous obstacle $\phi$ define the raw envelope
+\[
+ P\phi(v)=\sup\{u(v):u\in\DD,\ u\leq\phi\}.
+\]
+Constants make this family nonempty and bounded below.
+
+\begin{theorem}[Proposed isolated normal sector]\label{thm:main}
+Under these hypotheses $P\phi$ is continuous and belongs to $\CC$ for every
+finite continuous $\phi$ on $S_{\mathfrak a}$. It is the greatest geometric
+minorant and
+$\|P\phi-P\psi\|_\infty\leq\|\phi-\psi\|_\infty$.
+No smooth-model hypothesis is imposed. The same construction gives a
+greatest $\DD$ minorant for every bounded upper semicontinuous obstacle,
+as the limit of one decreasing net of continuous geometric envelopes.
+\end{theorem}
+
+The working proof below is written so that canonical flattening, actual
+primary-model realization, trace generation, and all-support estimates can
+each be independently checked. It does not claim this theorem for a
+nonisolated singularity, mixed characteristic, an imperfect field, an arbitrary
+nonalgebraic excellent local ring, or a nonnormal germ.
+
+\section{Flattening and a Cartier log canonical divisor}
+\begin{lemma}\label{lem:flatten}
+Every finite collection of primary-ideal profiles is represented on a normal
+actual primary blowup $Y\to B$, isomorphic away from $x$, for which there is
+an effective integral Weil divisor $\Delta$, supported on the fiber, with
+$L=K_Y+\Delta$ Cartier. There is an effective full-fiber Cartier divisor $F$
+with $A=\OO_Y(-F)$ ample and globally generated, and $Y=\Bl_J B$ for an
+actual $x$-primary ideal $J$ satisfying $J\OO_Y=A$.
+\end{lemma}
+\begin{proof}
+Include the gauge ideal in the finite collection, then blow up their product
+and normalize.
+All the ideals become invertible: over a local domain, if the product of
+nonzero ideals is invertible, each factor is invertible, by the fractional
+inverse obtained from the other factors. Normalization is finite because
+the schemes are excellent. The pulled-back product ideal defines a full-fiber
+effective Cartier divisor $F_0$, with $\OO(-F_0)$ ample over the affine base.
+
+On this normal scheme the canonical module $\omega$ is coherent, torsion
+free of rank one, and invertible away from the fiber. Set $G=\Fit_1(\omega)$.
+This ideal is the unit ideal away from the fiber. The strict transform of
+$\omega$ on $\Bl_G$ is invertible, by Stacks 15.27.3--4. Explicitly, on an
+affine blowup chart $R'=R[G/a]\subset R_a$, its quotient by $a$-power
+torsion has $\Fit_1=R'$; its $\Fit_0$ vanishes after inverting $a$ and hence
+vanishes in $R'$. The Fitting criterion makes it locally free of rank one.
+This argument includes charts where some individual presentation generators
+vanish; it does not assume that $\omega$ was initially invertible.
+
+Normalize this blowup. The pullback of that invertible strict transform
+is still invertible. Call it $\mathscr L$. On the puncture it agrees with
+$\omega_Y$. A rational trivialization gives a Cartier divisor $L_0$
+representing $\mathscr L$, and $K_Y-L_0$ is an integral Weil divisor supported
+on the fiber. The pullback of $F_0$ has strictly positive coefficient at
+each prime divisor lying in the fiber. A sufficiently large multiple
+$rF_0$ therefore dominates $K_Y-L_0$. Put
+\[
+ \Delta=rF_0-(K_Y-L_0)\geq0,
+ \qquad K_Y+\Delta=L_0+rF_0.
+\]
+Thus the log canonical divisor is Cartier without making $Y$ regular.
+
+Here and below the effective exceptional divisor from the Fitting blowup
+may be zero if $G=\OO$. Let it be $E_G$. For sufficiently large $b$,
+$\OO(-bF_0-E_G)$ is ample over $B$: it is the relative ample blowup line
+bundle tensor a sufficiently high pullback of an ample line bundle on the
+previous scheme. Finite normalization preserves ampleness. Its divisor has
+full-fiber support. Replace this line bundle by a sufficiently high power
+which is generated by global sections and very ample over $B$.
+
+If its effective divisor is $F$, set $J=\Gamma(Y,\OO(-F))$. Normality of
+$B$ and codimension at least two give
+$\Gamma(Y\setminus Y_x,\OO)=\Gamma(B,\OO)$, so $J$ is an ideal of $B$.
+It is unit off $x$ and contains a power of $\mathfrak a$, by full-fiber
+support and coherence. It is proper: its generated pullback vanishes at
+every point of the nonempty fiber. Hence $J$ is primary.
+
+The evaluation map gives $J\OO_Y=\OO(-F)$ and a closed immersion into
+$\mathbf P_B(J)$ by very ampleness. On the puncture its image is the graph
+defined by $J$. Since $Y$ is integral, that image is the scheme-theoretic
+closure of this graph. The closure is exactly $\operatorname{Proj}
+\bigoplus_{m\geq0}J^m=\Bl_J B$. This proves actual primary realization,
+not just domination by a projective modification. Replacing $F$ by the
+chosen power changes neither its support nor the Cartier property of
+$K_Y+\Delta$.
+\end{proof}
+
+\begin{remark}
+Two bounded corrections will be used. Since $Y$ is smooth over the perfect
+field off the fiber, $\Jac(Y/k)$ is unit there, so
+$J^a\OO_Y\subset\Jac(Y/k)$ for some integer $a$.
+Also $\Delta\leq bF$ for some integer $b$: both are exceptional and
+$F$ has positive coefficient on every exceptional prime. Consequently, for
+every $v\in S_{\mathfrak a}$,
+\[
+ 0\leq v(\Jac(Y/k))\leq a\,v(J),\qquad
+ v(bF)=b\,v(J),\qquad v(J)\leq N_J
+\]
+for some $N_J$, since $\mathfrak a^{N_J}\subset J$.
+The first inequality concerns an actual coherent ideal at the center of $v$;
+it is valid even if the semivaluation has nonzero kernel.
+\end{remark}
+
+\section{Sections and the raw model-obstacle envelope}
+Let $C$ be an integral Cartier divisor on $Y$ supported on the fiber. Its
+function $f_C$ at a semivaluation is the value of a local equation for $C$.
+This is independent of the equation since units have value zero. Properness
+gives a center for every normalized semivaluation; a power of the primary
+gauge contained in $J$ ensures a nonzero blowup denominator. The resulting
+model function is finite and continuous on the whole section.
+
+Define
+\[
+ I_m=\Gamma(Y,\OO_Y(mC)),\qquad
+ \mathfrak b_m=I_m\OO_Y\cdot\OO_Y(-mC).
+\]
+Hartogs extension on $B$ identifies $I_m$ with an ideal in $B$.
+It is unit off $x$, contains a primary power, and is either primary or $B$.
+The nonzero ideals $\mathfrak b_m$ are graded, and
+$\mathfrak b_m\OO(mC)$ is generated by the finitely many generators of
+$I_m$. At every centered semivaluation,
+\[
+ u_m=-\frac{v(I_m)}m
+     =f_C-\frac{v(\mathfrak b_m)}m\leq f_C.
+\]
+The value of every $I_m$ is finite. The subadditivity of $v(I_m)$ gives
+the all-index Fekete limit
+\[
+ u=\lim_{m\to\infty}u_m=\sup_m u_m.
+\]
+We do not assert monotonicity of the sequence $u_m$.
+
+\begin{lemma}\label{lem:raw}
+The raw $\CC$ and $\DD$ envelopes of the continuous obstacle $f_C$
+both equal $u$. This equality alone does not assert positivity of $u$.
+\end{lemma}
+\begin{proof}
+Each $u_m$ is a primary-ideal profile or zero, hence an admissible continuous
+minorant. If $h=-v(I)/q$ is an elementary profile below $f_C$, comparison at
+the prime divisors of the normal $Y$ gives
+$I^r\subset I_{rq}$ for every $r$: the inequality says that each section
+has nonnegative order as a section of $\OO(rqC)$, and the height-one
+intersection criterion on a normal scheme gives regularity everywhere.
+Exceptional prime divisors give normalized centered divisorial tests;
+at prime divisors off the fiber the orders of the sections are already
+nonnegative because the sections belong to $B$ and $C$ is zero there.
+Therefore $h\leq u_{rq}\leq u$.
+
+For a general $h\in\CC$ below $f_C$, uniformly approximate it by elementary
+profiles. A negative rational constant shift converts an approximation
+within $\varepsilon$ into an elementary profile below $f_C$; this shift is
+realized by multiplying a sufficiently divisible power by a power of
+$\mathfrak a$. Let $\varepsilon\to0$.
+
+Finally, if $h\in\DD$ is below $f_C$, write $h_\alpha\downarrow h$ with
+$h_\alpha\in\CC$. For every $\varepsilon>0$, compactness applied to the
+decreasing closed sets
+$\{h_\alpha\geq f_C+\varepsilon\}$ gives one index with
+$h_\alpha<f_C+\varepsilon$ everywhere. Then
+$h_\alpha-\varepsilon\in\CC$ is below $f_C$, and $h\leq u+\varepsilon$.
+This also covers $h$ with some value $-\infty$. It proves equality of both
+raw suprema before the continuity argument.
+\end{proof}
+
+\section{A relative generation argument on a singular model}
+All test ideals in this paper are big, nonfinitistic test ideals. Their
+formation commutes with localization. For a graded family $\mathfrak b_\bullet$
+and $m\geq1$ write
+\[
+ t_m=\tau(Y,\Delta,\mathfrak b_\bullet^m),\qquad
+ s_m=\tau(Y,\mathfrak b_\bullet^m).
+\]
+An asymptotic test ideal is the unique maximal member among
+$\tau(Y,\Delta,\mathfrak b_\ell^{m/\ell})$.
+The family is directed by common multiples, using power invariance of test
+ideals and gradedness, and its union stabilizes by noetherianity.
+Simultaneous stabilization of finitely many such families uses one common
+multiple. No smooth Frobenius-root definition is used here.
+Power invariance itself follows from the big trace formula: the exponents
+$r\lceil qt/r\rceil$ and $\lceil qt\rceil$ differ by at most $r-1$.
+One inclusion is immediate; for the reverse inclusion multiply a common
+test element by any nonzero element of $\mathfrak b^r$, absorbing this
+bounded difference without changing the trace-generated test ideal.
+This argument is local and applies with the same fixed boundary $\Delta$.
+
+\begin{lemma}[Relative generation]\label{lem:gen}
+There is an integer $c$, independent of $m$, such that
+\[
+ \mathscr F_m=t_m\otimes\OO_Y(mC-cF)
+\]
+is globally generated for every $m\geq1$.
+\end{lemma}
+\begin{proof}
+Write $H=-F$, so $A=\OO(H)$. Choose $c_0$ with
+$(c_0-i)H-L$ ample for every $1\leq i\leq\dim Y$.
+Fix $m$ and an $\ell$ attaining $t_m$. Set $\lambda=m/\ell$.
+The trace description of the big test ideal, in the version with
+$\lceil\lambda p^e\rceil$, gives, for a sufficiently large effective
+Cartier test divisor $D_0$ and any lower bound $e_0$,
+\[
+ t_m=\sum_{e\geq e_0}\operatorname{Image}\left[
+ F_*^e\bigl(\mathfrak b_\ell^{\lceil\lambda p^e\rceil}
+       \cdot\OO_Y(K_Y-p^eL-D_0)\bigr)\longrightarrow\OO_Y\right].
+\]
+The scheme version is obtained from the affine trace formula by a finite
+cover and one Cartier divisor dominating its local test divisors. An ample
+twist of the coherent test ideal supplies a nonzero global section for this
+domination. The divisor $D_0$ may depend on $(m,\ell)$; its dependence
+does not affect the choice of $c_0$.
+
+Put $q=p^e$, $a_e=\lceil qm/\ell\rceil$, and
+$j_e=\ell a_e-qm$. Then $0\leq j_e<\ell$.
+The globally generated ideal
+$\mathfrak b_\ell^{a_e}\OO(a_e\ell C)$ is generated by finite products
+of global generators of $I_\ell$. After twisting the trace target by
+$\OO(mC+c_0H)$ and using the projection formula, its source is a quotient
+of finitely many copies of
+\[
+ Q_{e,j_e}=F_*^e\OO_Y\bigl(q(c_0H-L)+K_Y-D_0-j_eC\bigr).
+\]
+The quotient maps are multiplication by the indicated global section
+products inside $F_*^e$. They are $\OO_Y$-linear for the Frobenius module
+structure. This avoids pulling a base-module factor incorrectly through
+Frobenius.
+
+For $1\leq i\leq\dim Y$, the cohomology of $Q_{e,j}\otimes A^{-i}$ is
+the cohomology, as an abelian group, of
+\[
+ \OO_Y(K_Y-D_0-jC)\otimes
+ \OO_Y\bigl(q((c_0-i)H-L)\bigr).
+\]
+The first factor is a fixed coherent reflexive sheaf, even if $K_Y$ is
+not Cartier. The second is a power of an ample Cartier line bundle.
+Relative Serre vanishing over the affine base makes these groups zero
+for all sufficiently large $e$, simultaneously for the finitely many
+$j\in\{0,\ldots,\ell-1\}$ and $i$. Relative Castelnuovo--Mumford
+regularity therefore makes $Q_{e,j}$ globally generated. The relative
+regularity theorem used here applies to projective schemes over noetherian
+affine bases, not only to varieties over a field.
+
+All sufficiently large trace images, and hence their finite stabilized
+sum, are globally generated. This proves generation with $c_0$ for the
+fixed $m$. Only the Serre threshold depends on $m$; $c_0$ is fixed.
+Finally replace $c_0$ by $c=c_0+1$ if needed. Tensoring by the globally
+generated $A$ preserves generation and ensures that the section ideal
+below is proper.
+\end{proof}
+
+Set $J_m=\Gamma(Y,\mathscr F_m)$. Hartogs again makes this an actual ideal
+in $B$, and generation identifies $J_m\OO_Y=\mathscr F_m$.
+Because $\Delta$, $C$, and $F$ are exceptional and $Y$ is regular off the
+fiber, $t_m=\OO$ there. Thus $J_m$ is unit off $x$. The extra factor $A$
+makes it proper: before tensoring, the generated sheaf has global sections
+in $B$ and hence is a subsheaf of $\OO_Y$; afterwards it is contained in
+$J\OO_Y$. Coherence and full-fiber support give a primary power contained
+in $J_m$. Therefore
+\[
+ g_m=-\frac{v(J_m)}m
+     =f_C-\frac{c\,v(J)+v(t_m)}m\in\CC,
+ \qquad g_m\leq f_C.
+\]
+
+\section{Jacobian corrections vanish uniformly}
+\begin{lemma}\label{lem:estimate}
+On the entire normalized semivaluation section,
+\[
+ 0\leq P f_C-g_m
+ \leq\frac{c\,v(J)+v(\Jac(Y/k))+v(bF)}m
+ \leq\frac{(c+a+b)N_J}m.
+\]
+\end{lemma}
+\begin{proof}
+Let $T_0=\tau(Y,\Delta)$. This nonzero coherent ideal is unit off the
+fiber and contains $J^r\OO_Y$ for some $r$, so its valuation is finite
+at every normalized semivaluation.
+The elementary multiplication property of big test ideals gives
+\[
+ \mathfrak b_{m l}T_0\subset t_{m l}\subset s_{m l}.
+\]
+For completeness, use a common test element $z$ for $\tau(Y,\Delta)$
+and $\tau(Y,\Delta,\mathfrak b_{ml})$ in an affine chart.
+For $f\in\mathfrak b_{ml}$ and a Cartier map $\varphi$,
+$f\varphi(F_*^e z)=\varphi(F_*^e(f^{p^e}z))$.
+The latter is in the test ideal of exponent one by its trace formula.
+Localization gives the displayed sheaf inclusion, and the term
+$\ell=ml$ embeds it into the asymptotic ideal.
+
+Jacobian-corrected subadditivity on reduced equidimensional algebras over
+a perfect field, localized on $Y$, gives
+\[
+ \Jac(Y/k)^{l-1}s_{ml}\subset s_m^l.
+\]
+This is the big-test-ideal formula of Takagi and Smolkin. For asymptotic
+ideals choose one common index attaining $s_m$ and $s_{ml}$ and iterate
+the two-factor formula. There is no assertion of uncorrected singular
+subadditivity.
+
+Put $h=f_C-Pf_C$. By Lemma~\ref{lem:raw},
+$h=\lim_l v(\mathfrak b_{ml})/(ml)$. The two inclusions imply
+\[
+ \frac{v(s_m)}m
+ \leq\frac{v(s_{ml})}{ml}
+       +\frac{l-1}{ml}v(\Jac(Y/k))
+ \leq\frac{v(\mathfrak b_{ml})+v(T_0)}{ml}
+       +\frac{l-1}{ml}v(\Jac(Y/k)).
+\]
+All these values are finite because the indicated ideals contain primary
+powers. Let $l\to\infty$ at the fixed semivaluation to obtain
+$v(s_m)\leq mh+v(\Jac(Y/k))$.
+
+Since $0\leq\Delta\leq bF$, monotonicity in the boundary and the Cartier
+shift formula give
+\[
+ \OO_Y(-bF)s_m\subset t_m\subset s_m,
+ \qquad v(t_m)\leq v(s_m)+v(bF).
+\]
+Substitute into the formula for $g_m$. The lower bound follows from
+$g_m\in\CC$ and $g_m\leq f_C$. The upper bound uses the fixed primary
+power inclusions established after Lemma~\ref{lem:flatten}; no global
+bound on arbitrary nonprimary ideals is assumed.
+\end{proof}
+
+Uniform convergence of $g_m$ now proves $Pf_C\in\CC$. This is recognition
+by a uniform limit of actual geometric primary profiles, not by an increasing
+supremum or a finite energy/capacity diagnostic.
+
+\section{Continuous and upper semicontinuous obstacles}
+The differences of elementary primary profiles form a rational vector
+lattice containing constants. For instance,
+$\max(g_1-h_1,g_2-h_2)
+=\max(g_1+h_2,g_2+h_1)-(h_1+h_2)$, and sums and maxima of profiles are
+represented, after common denominator clearing, by products and sums of
+primary ideals. These functions separate normalized semivaluations:
+the primary ideals $(f)+\mathfrak a^N$ record
+$\min\{v(f),N\}$ for every $f$ and $N$. Their values distinguish finite
+values and infinite values. The lattice Stone--Weierstrass theorem on the
+compact section therefore gives uniform density of these signed model
+functions in all finite continuous functions. A difference of two profiles
+is represented by a supported Cartier divisor after principalizing their
+primary ideals. Lemma~\ref{lem:flatten} then supplies the normal actual
+primary model required above.
+
+The envelope is nonexpansive without an unrestricted constant-translation
+identity. If $\|\phi-\psi\|\leq\varepsilon$, any admissible $h$ below $\phi$
+has $h-\varepsilon\in\DD$ below $\psi$. Thus
+$P\phi\leq P\psi+\varepsilon$, and the reverse inequality is identical.
+For continuous $\phi$, choose signed rational model functions $f_j\to\phi$
+uniformly. Their envelopes belong to $\CC$ by Lemma~\ref{lem:estimate};
+nonexpansiveness and closure give $P\phi\in\CC$. Raw maximality and the
+geometric comparison give Theorem~\ref{thm:main} for continuous obstacles.
+Positive homogeneity of the cone and the raw supremum gives
+$P(tf)=tP(f)$ for every $t>0$. Thus the integral Cartier argument also
+applies after denominator clearing to the rational signed model obstacles
+used in this density step.
+
+For a bounded upper semicontinuous $\phi$ on the compact Hausdorff section,
+take the directed net of continuous majorants, with pointwise infimum
+$\phi$. The envelopes of these majorants form one decreasing net in
+$\CC$. Its limit belongs to $\DD$, is below $\phi$, and dominates every
+$\DD$ minorant, by the continuous-obstacle result. This establishes the
+claimed greatest minorant directly from one net. It does not rely on an
+unproved closure under decreasing nets of arbitrary $\DD$ functions.
+
+Primary-gauge changes are inherited on the same homogeneous ray space:
+restriction to a new section divides both obstacle and admissible functions
+by the same positive continuous degree-zero gauge ratio. Their order and
+the raw supremum are preserved. This yields the exact envelope cocycle.
+No normalization/conductor rule outside the isolated normal sector is added.
+
+\section{Source scope and remaining original problem}
+The applied external algebra is the current Stacks Fitting strict-transform
+argument (15.27.3--4 and 15.8.4, 7--9), big test ideals and their trace,
+localization, and Cartier-shift formulas in corrected CEMS v4 (2.2--4),
+and the Jacobian subadditivity formula in corrected Smolkin v3 (3.11--12).
+Takagi v2, 2.5--7 and 4.2--5, independently records the singular and
+asymptotic formulas. GJKM 4.6 identifies the precise relative regularity
+input over an affine base, referring to Brodmann--Sharp 20.4.13.
+The new relative generation lemma is proved here; the projective-over-a-field
+generation statements of Schwede or CEMS 4.5 are not substituted for it.
+The CEMS finite-generation hypothesis on the anticanonical algebra is
+not assumed for $Y$; the Cartier divisor $K_Y+\Delta$ is explicitly built.
+
+There is a point to check carefully in the printed finite-field reduction
+in Smolkin 3.12: a $k$-linear retraction from a perfect extension field is
+not a ring homomorphism defining an extension-field module structure on
+$k$. A valid descent of the lifting equation instead uses faithful flatness.
+For a perfect extension $k\subset k'$, finite presentations and perfection
+identify the base changes of the Frobenius Hom modules. Compatibility with
+the diagonal is the kernel of a map between these modules, and restriction
+to the quotient is another module map. Tensoring by $k'$ preserves these
+kernels and images. Membership of $x\varphi$ in the image after extension
+therefore descends. Passing to an infinite perfect extension proves the
+finite-perfect-field case from the infinite case without treating a linear
+retraction as multiplicative. This correction is part of the working proof
+to be independently checked, not an attribution to the printed text.
+
+The Hacon--Lamarche--Schwede published 2024 paper proves useful global
+generation statements over complete local mixed-characteristic bases;
+its 7.1 additionally assumes regularity, and 8.3 states global
+subadditivity as a conjecture. Those statements do not supply a
+mixed-characteristic extension of this argument. Nonisolated singularities
+also leave the bounded correction step unresolved: their Jacobian and test
+ideal may have nonprimary cosupport and unbounded values on the whole link.
+Replacing a correction ideal by its primary truncation changes the direction
+of the required containment and gives no solution.
+
+The literal P12.3 requests geometric envelopes for excellent singular and
+nonnormal germs, appropriate regularity, smooth specialization, gauge and
+normalization/conductor rules, and the reduced-curve comparison. This
+working paper proposes a new isolated normal algebraic positive-characteristic
+sector. Its full proof must undergo independent verification. It is not an
+original-problem closure and changes neither the solved count nor the
+accepted-paper count. Primary source bodies, literal units, and source-page
+pixels remain local; citations and original research prose may be checkpointed.
+
+\begin{thebibliography}{9}
+\bibitem{CEMS} A. Chiecchio, F. Enescu, L. E. Miller, K. Schwede,
+\emph{Test ideals in rings with finitely generated anti-canonical algebras},
+arXiv:1412.6453v4 (corrected 31 March 2016).
+\bibitem{Smolkin} D. Smolkin, \emph{A new subadditivity formula for test ideals},
+arXiv:1805.08739v3 (corrected 5 February 2019).
+\bibitem{Takagi} S. Takagi, \emph{Formulas for multiplier ideals on singular
+varieties}, arXiv:math/0410612v2 (31 January 2005).
+\bibitem{GJKM} W. Gubler, P. Jell, K. K\"unnemann, F. Martin,
+\emph{Continuity of plurisubharmonic envelopes in non-Archimedean geometry
+and test ideals}, Section 4, especially Theorem 4.6.
+\bibitem{BS} M. P. Brodmann, R. Y. Sharp,
+\emph{Local Cohomology}, relative regularity theorem 20.4.13,
+as identified by GJKM 4.6; full book proof not freshly inspected here.
+\bibitem{HLS} C. Hacon, A. Lamarche, K. Schwede,
+\emph{Global generation of test ideals in mixed characteristic and applications},
+Algebraic Geometry 11 (5) (2024), 676--711.
+\bibitem{Stacks} The Stacks Project, current tags
+0535, 07ZA, 07ZC, 07ZD, 080Z, 07Z3, 080R, 07Z7.
+\bibitem{G331} Qualified independently verified P12.2 geometric comparison
+paper, continuation 331, with its mandatory source and reader-scope
+qualification. Only its actual primary geometric comparison is used.
+\end{thebibliography}
+\end{document}
