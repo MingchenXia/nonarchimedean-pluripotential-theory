@@ -1,0 +1,1324 @@
+% Book-local P12.2/P12.3 curve-level ideal-psh construction.
+% The superscript ``id'' records that this is the closure of the displayed
+% ideal-model family; no comparison with a separate nef or CLD psh cone is
+% asserted.
+\begin{theorem}[Ideal-psh completion and envelopes on reduced curve links]
+\label{thm:p122-curve-ideal-psh-functoriality}
+Let \((R,\mathfrak m)\) be a one-dimensional reduced Nagata noetherian
+local ring, let \(\mathfrak a\subset R\) be \(\mathfrak m\)-primary, and
+put \(V_{\mathfrak a}:=\mathcal V_{\mathfrak a}(R)\).  With the
+principal-ideal model family
+\(\mathscr P_{\mathfrak a}^{\mathrm{pr}}\) of
+\eqref{eq:p122-principal-ideal-profile-family}, write
+\(u^{\mathfrak a}_{f,N}\) when its normalizing ideal must be visible, and
+define
+\[
+ \operatorname{CPSH}^{\mathrm{id}}_{\mathfrak a}(R)
+ :=\overline{\mathscr P_{\mathfrak a}^{\mathrm{pr}}}
+                         ^{\,\|\cdot\|_\infty},
+ \qquad
+ \operatorname{PSH}^{\mathrm{id},\bot}_{\mathfrak a}(R)
+ :=\left\{\lim_{j\to\infty}u_j:
+       u_j\in\operatorname{CPSH}^{\mathrm{id}}_{\mathfrak a}(R),\
+       u_j\searrow\right\}.
+ \tag{\(\triangle\)}\label{eq:p122-curve-ideal-psh-definition}
+\]
+The second class retains the identically \(-\infty\) bottom element;
+removing it gives
+\(\operatorname{PSH}^{\mathrm{id}}_{\mathfrak a}(R)\).  Then:
+\begin{enumerate}
+\item The two classes have the intrinsic descriptions
+      \[
+       \operatorname{CPSH}^{\mathrm{id}}_{\mathfrak a}(R)
+          =\{u:V_{\mathfrak a}\to\mathbf R:u\leq0\},
+       \qquad
+       \operatorname{PSH}^{\mathrm{id},\bot}_{\mathfrak a}(R)
+          =\{u:V_{\mathfrak a}\to[-\infty,0]\}.
+       \tag{\(\square\)}\label{eq:p122-curve-ideal-psh-orthants}
+      \]
+      In particular, the continuous class is a closed convex cone stable
+      under finite maxima, and the completed class is a complete lattice.
+      Replacing the principal model family by all positive rational
+      multiples of \(\log|\mathfrak b|\), with \(\mathfrak b\) ranging
+      over the \(\mathfrak m\)-primary ideals, gives the same closure.
+\item For an arbitrary extended-real obstacle
+      \(\phi:V_{\mathfrak a}\to[-\infty,+\infty]\), its completed
+      ideal-psh envelope
+      \[
+       P^{\mathrm{id}}_{\mathfrak a}\phi
+       :=\sup\{u\in
+          \operatorname{PSH}^{\mathrm{id},\bot}_{\mathfrak a}(R):
+          u\leq\phi\}
+      \]
+      is attained and is given coordinatewise by
+      \[
+                       P^{\mathrm{id}}_{\mathfrak a}\phi
+                              =\min\{\phi,0\}.
+       \tag{\(\lozenge\)}\label{eq:p123-curve-ideal-psh-envelope}
+      \]
+      For finite \(\phi\), it belongs to
+      \(\operatorname{CPSH}^{\mathrm{id}}_{\mathfrak a}(R)\), and the
+      same function is the supremum of principal-ideal competitors in
+      \eqref{eq:p123-principal-ideal-envelope}.
+\item These constructions are independent of the chosen primary-ideal
+      cross-section with an explicit homogeneous realization.  Put
+      \[
+       \mathcal C_R^{\mathrm{br}}
+          :=\{t w_{\mathfrak q}:t>0,\
+                  \mathfrak q\in\operatorname{Br}(R,\mathfrak m)\}.
+      \]
+      Restriction to \(V_{\mathfrak a}\) identifies the completed class
+      in \eqref{eq:p122-curve-ideal-psh-orthants} with the nonpositive
+      degree-one homogeneous functions
+      \[
+       G:\mathcal C_R^{\mathrm{br}}\longrightarrow[-\infty,0],
+       \qquad G(t\nu)=tG(\nu).
+       \tag{\(\circ\)}\label{eq:p122-curve-homogeneous-branch-psh}
+      \]
+      Finite-valued homogeneous functions correspond to the continuous
+      class.  In particular, this homogeneous object is independent of
+      \(\mathfrak a\).  For another
+      \(\mathfrak m\)-primary ideal \(\mathfrak b\), let
+      \(H_{\mathfrak a,\mathfrak b}\) be
+      \eqref{eq:p121-change-normalizing-ideal} and define
+      \[
+       (T_{\mathfrak a,\mathfrak b}u)
+          \bigl(H_{\mathfrak a,\mathfrak b}(v)\bigr)
+          :=\frac{u(v)}{v(\mathfrak b)}.
+       \tag{\(\diamondsuit\)}\label{eq:p122-curve-psh-normalization-transport}
+      \]
+      Division by a positive number fixes both infinities.  The map
+      \(T_{\mathfrak a,\mathfrak b}\) is an order and lattice
+      isomorphism on both classes in
+      \eqref{eq:p122-curve-ideal-psh-definition}, carries each
+      principal-ideal profile to the profile of the same pair \((f,N)\),
+      extends by the same formula to extended-real obstacles, and satisfies
+      \[
+       T_{\mathfrak b,\mathfrak c}T_{\mathfrak a,\mathfrak b}
+          =T_{\mathfrak a,\mathfrak c},
+       \qquad
+       T_{\mathfrak a,\mathfrak b}
+          (P^{\mathrm{id}}_{\mathfrak a}\phi)
+          =P^{\mathrm{id}}_{\mathfrak b}
+             (T_{\mathfrak a,\mathfrak b}\phi).
+       \tag{\(\clubsuit\)}\label{eq:p122-curve-psh-transport-cocycle}
+      \]
+\item Let
+      \(\varphi:(R,\mathfrak m)\to(S,\mathfrak n)\) be a finite local
+      homomorphism between one-dimensional reduced Nagata noetherian local
+      rings, and let
+      \(\rho_{\mathfrak a}:V_{\mathfrak aS}\to V_{\mathfrak a}\) be the
+      restriction map of \Cref{prop:p126-finite-reduced-curve-link}.  Then
+      \(\rho_{\mathfrak a}^*u=u\circ\rho_{\mathfrak a}\) preserves the
+      continuous and completed ideal-psh classes (including the bottom
+      element), sends
+      \[
+                u^{\mathfrak a}_{f,N}
+                    \longmapsto
+                u^{\mathfrak aS}_{\varphi(f),N},
+      \]
+      and commutes with completed envelopes:
+      \[
+       \rho_{\mathfrak a}^*
+          (P^{\mathrm{id}}_{\mathfrak a}\phi)
+        =P^{\mathrm{id}}_{\mathfrak aS}
+          (\rho_{\mathfrak a}^*\phi).
+       \tag{\(\spadesuit\)}\label{eq:p123-curve-psh-finite-map-envelope}
+      \]
+      Pullback is compatible with composition and with the transports
+      \eqref{eq:p122-curve-psh-normalization-transport}; explicitly, for
+      every second \(\mathfrak m\)-primary ideal \(\mathfrak b\),
+      \[
+       \rho_{\mathfrak b}^*T^R_{\mathfrak a,\mathfrak b}
+          =T^S_{\mathfrak aS,\mathfrak bS}
+             \rho_{\mathfrak a}^*.
+      \tag{\(\bigstar\)}\label{eq:p122-curve-psh-map-normalization-square}
+      \]
+      On either class, the image of \(\rho_{\mathfrak a}^*\) consists
+      exactly of the functions on \(V_{\mathfrak aS}\) that are constant on
+      every fiber of \(\rho_{\mathfrak a}\).  Consequently,
+      \(\rho_{\mathfrak a}^*\) is injective if and only if
+      \(\rho_{\mathfrak a}\) is surjective, and it is surjective if and only
+      if \(\rho_{\mathfrak a}\) is injective.  When
+      \(\rho_{\mathfrak a}\) is surjective, pullback on the continuous class
+      is an isometry:
+      \[
+       \|\rho_{\mathfrak a}^*u-\rho_{\mathfrak a}^*v\|_\infty
+          =\|u-v\|_\infty.
+      \]
+      On the completed lattices, pullback has the explicit left and right
+      adjoints
+      \[
+       (\rho_{\mathfrak a,!}w)(x)
+          :=\sup\bigl(\{w(y):\rho_{\mathfrak a}(y)=x\}
+                        \cup\{-\infty\}\bigr),
+      \]
+      \[
+       (\rho_{\mathfrak a,*}w)(x)
+          :=\inf\bigl(\{w(y):\rho_{\mathfrak a}(y)=x\}
+                        \cup\{0\}\bigr),
+      \]
+      so that
+      \[
+       \rho_{\mathfrak a,!}w\leq u
+          \Longleftrightarrow
+       w\leq\rho_{\mathfrak a}^*u,
+       \qquad
+       \rho_{\mathfrak a}^*u\leq w
+          \Longleftrightarrow
+       u\leq\rho_{\mathfrak a,*}w.
+       \tag{\(\heartsuit\)}\label{eq:p122-curve-psh-finite-map-adjoints}
+      \]
+      If \(\rho_{\mathfrak a}\) is surjective, both composites with
+      pullback on the right are the identity on the base lattice; if it is
+      injective, both composites with pullback on the left are the identity
+      on the source lattice.  For arbitrary \(\rho_{\mathfrak a}\),
+      \(\rho_{\mathfrak a}^*\rho_{\mathfrak a,*}w\) is the greatest
+      fiber-constant minorant of \(w\), while
+      \(\rho_{\mathfrak a}^*\rho_{\mathfrak a,!}w\) is its least
+      fiber-constant majorant.  Thus their common fixed-point set is exactly
+      the pullback image.
+\end{enumerate}
+Thus the ideal-closure candidate has a complete psh-style order, envelope,
+normalization, and pullback calculus on reduced Nagata curve links.  The
+superscript \({\rm id}\) is a scope marker: naming this closure does not by
+itself identify it with a separately defined nef-b-divisor, CLD, or
+complex-analytic psh class, and hence does not by itself retire P12.2 or
+P12.3.  The theorem constructs no local intersection product or energy.
+\end{theorem}
+
+\begin{proof}
+The link is finite and discrete by
+\Cref{thm:p121-reduced-nagata-curve-link}.  The first equality in
+\eqref{eq:p122-curve-ideal-psh-orthants} is exactly the uniform-closure
+calculation in
+\eqref{eq:p122-principal-ideal-orthant}.  If
+\(u:V_{\mathfrak a}\to[-\infty,0]\), then
+\[
+                            u_j:=\max\{u,-j\}
+\]
+is finite, nonpositive, and decreases pointwise to \(u\).  This proves the
+second equality.  The asserted cone and lattice properties are now
+coordinatewise.  Every \(\mathfrak m\)-primary ideal function has strictly
+negative rational coordinates, so
+\eqref{eq:p122-principal-ideal-orthant} realizes the same function by a
+principal model; this proves the last assertion of the first item.
+
+The function \(w=\min\{\phi,0\}\) belongs to the completed class, lies
+below \(\phi\), and dominates every nonpositive competitor.  This proves
+\eqref{eq:p123-curve-ideal-psh-envelope}.  If \(\phi\) is finite, then
+\(w\) is finite and hence continuous on the finite link.  Its equality with
+the raw principal-ideal supremum is
+\eqref{eq:p123-principal-ideal-envelope-formula}.
+
+Write
+\(v_{\mathfrak q}^{\mathfrak a}
+  =w_{\mathfrak q}/d_{\mathfrak q}(\mathfrak a)\).
+Every nonpositive homogeneous \(G\) restricts to a member of the completed
+class by \eqref{eq:p122-curve-ideal-psh-orthants}.  Conversely, a function
+\(u\) in that class has the unique homogeneous extension
+\[
+ G_u(tw_{\mathfrak q})
+    :=t d_{\mathfrak q}(\mathfrak a)
+          u(v_{\mathfrak q}^{\mathfrak a}).
+\]
+The same formula preserves finite values.  This proves
+\eqref{eq:p122-curve-homogeneous-branch-psh}.  Moreover,
+\[
+ v_{\mathfrak q}^{\mathfrak a}(\mathfrak b)
+   =\frac{d_{\mathfrak q}(\mathfrak b)}
+          {d_{\mathfrak q}(\mathfrak a)},
+ \qquad
+ H_{\mathfrak a,\mathfrak b}
+       (v_{\mathfrak q}^{\mathfrak a})
+   =v_{\mathfrak q}^{\mathfrak b}.
+\]
+Hence \eqref{eq:p122-curve-psh-normalization-transport} is multiplication
+by one positive scalar on each coordinate.  It is therefore an order and
+lattice isomorphism, preserves decreasing limits, and has inverse
+\(T_{\mathfrak b,\mathfrak a}\).  Moreover,
+\[
+ \frac{u^{\mathfrak a}_{f,N}(v)}{v(\mathfrak b)}
+   =-\frac{v(f)}{Nv(\mathfrak b)}
+   =u^{\mathfrak b}_{f,N}
+       \bigl(H_{\mathfrak a,\mathfrak b}(v)\bigr).
+\]
+For a third ideal \(\mathfrak c\), putting
+\(w=H_{\mathfrak a,\mathfrak b}(v)\) gives
+\(w(\mathfrak c)=v(\mathfrak c)/v(\mathfrak b)\); the two denominators
+cancel and prove the first identity in
+\eqref{eq:p122-curve-psh-transport-cocycle}.  The second follows from
+\(T(\min\{\phi,0\})=\min\{T\phi,0\}\).
+
+The restriction map \(\rho_{\mathfrak a}\) is a map of finite sets, so
+composition with it preserves finite nonpositive functions and pointwise
+decreasing limits.  If \((f)\) is \(\mathfrak m\)-primary and principal,
+then \(f\) avoids every minimal prime of \(R\).  The proof of
+\Cref{prop:p126-finite-reduced-curve-link} shows that every minimal prime
+of \(S\) contracts to a minimal prime of \(R\).  Thus \(\varphi(f)\)
+avoids every minimal prime of the reduced ring \(S\), so it is a
+nonzerodivisor.  It lies in \(\mathfrak n\), and in the one-dimensional
+local ring \(S\) its principal ideal is therefore \(\mathfrak n\)-primary.
+For \(w\in V_{\mathfrak aS}\),
+\[
+ (\rho_{\mathfrak a}^*u^{\mathfrak a}_{f,N})(w)
+       =-\frac{(w\circ\varphi)(f)}N
+       =-\frac{w(\varphi(f))}N
+       =u^{\mathfrak aS}_{\varphi(f),N}(w),
+\]
+which proves the model formula.  Equation
+\eqref{eq:p123-curve-psh-finite-map-envelope} follows by pulling back the
+coordinatewise minimum formula.  Associativity of function composition
+gives compatibility in a tower.  Finally,
+\(w(\mathfrak bS)=(w\circ\varphi)(\mathfrak b)\) by
+\eqref{eq:p126-extended-ideal-value}; inserting this equality into
+\eqref{eq:p122-curve-psh-normalization-transport} proves
+\eqref{eq:p122-curve-psh-map-normalization-square}.
+
+The descriptions in \eqref{eq:p122-curve-ideal-psh-orthants} reduce the
+remaining claims to finite sets.  A target function is a pullback precisely
+when it is constant on every fiber: necessity is immediate, and for
+sufficiency define the source function on the image of
+\(\rho_{\mathfrak a}\) by the common fiber value and give it the value zero
+at every missed point.  If \(\rho_{\mathfrak a}\) is surjective, equality of
+two pullbacks implies equality of the source functions; if it is not
+surjective, changing a source function only at a missed point disproves
+injectivity.  If \(\rho_{\mathfrak a}\) is injective, the fiber condition is
+vacant and every target function lifts; if it is not injective, a target
+function taking the values zero and \(-1\) at two points in the same fiber
+does not lift.  These witnesses are finite-valued, so the criteria hold for
+both classes.  Finally, when \(\rho_{\mathfrak a}\) is surjective, taking
+the maximum over its domain samples every point of its target, which proves
+the displayed sup-norm identity.  For the completed classes, the two
+fiberwise formulas take values in \([-\infty,0]\); the adjoined values
+\(-\infty\) and zero are exactly the supremum and infimum over an empty
+fiber.  The first equivalence in
+\eqref{eq:p122-curve-psh-finite-map-adjoints} says coordinatewise that
+every value of \(w\) over \(x\) is at most \(u(x)\), and the second says
+that \(u(x)\) is at most every value of \(w\) over \(x\).  This proves both
+adjunctions.  On a nonempty fiber, applying either fiberwise operation to a
+pullback recovers the original value; this proves the two identity claims
+when the map is surjective.  On a singleton fiber, pulling either fiberwise
+operation back recovers \(w\); this proves the identity claims when the map
+is injective.  Pointwise on the fiber through \(y\), the two source-side
+composites take respectively the infimum and the supremum of the values of
+\(w\) on that fiber.  They are therefore the claimed minorant and majorant;
+equality for either composite is equivalent to constancy on every fiber,
+which is already the pullback-image criterion.
+\end{proof}
+
+\begin{theorem}[Generic-norm trace descent for finite curve maps]
+\label{thm:p126-curve-generic-norm-trace-descent}
+Let
+\(\varphi:(R,\mathfrak m)\to(S,\mathfrak n)\) be a finite local
+homomorphism between one-dimensional reduced Nagata noetherian local rings,
+let \(\mathfrak a\subset R\) be \(\mathfrak m\)-primary, and assume that the
+branch map
+\[
+ \rho_{\mathfrak a}:V_{\mathfrak aS}\longrightarrow V_{\mathfrak a}
+\]
+is surjective.  Put \(D=R^\nu\).  For a base branch \(\mathfrak q\), write
+\[
+ K_{\mathfrak q}:=\operatorname{Frac}(D_{\mathfrak q}),\qquad
+ T_{\mathfrak q}:=S\otimes_RK_{\mathfrak q},\qquad
+ \delta_{\mathfrak q}:=\dim_{K_{\mathfrak q}}T_{\mathfrak q}.
+\]
+For every source branch \(\mathfrak q'\) over \(\mathfrak q\), let
+\(e_{\mathfrak q'/\mathfrak q}\) and
+\(f_{\mathfrak q'/\mathfrak q}\) denote its ramification index and residue
+degree.  Then:
+\begin{enumerate}
+\item The algebra \(T_{\mathfrak q}\) is a nonzero product of finite field
+      extensions of \(K_{\mathfrak q}\), and
+      \[
+       \delta_{\mathfrak q}
+          =\sum_{\mathfrak q'\mid\mathfrak q}
+             e_{\mathfrak q'/\mathfrak q}
+             f_{\mathfrak q'/\mathfrak q}.
+       \tag{\(\triangleleft\triangleleft\)}
+       \label{eq:p126-curve-generic-degree}
+      \]
+\item On the continuous or completed ideal-psh classes define
+      \[
+       (\operatorname{Tr}_{\varphi,\mathfrak a}u)
+          (v_{\mathfrak q}^{\mathfrak a})
+       :=\sum_{\mathfrak q'\mid\mathfrak q}
+          e_{\mathfrak q'/\mathfrak q}
+          f_{\mathfrak q'/\mathfrak q}\,
+          u(v_{\mathfrak q'}^{\mathfrak aS}),
+      \]
+      and put
+      \[
+       (\operatorname{Av}_{\varphi,\mathfrak a}^{\mathrm{gen}}u)
+          (v_{\mathfrak q}^{\mathfrak a})
+       :=\delta_{\mathfrak q}^{-1}
+          (\operatorname{Tr}_{\varphi,\mathfrak a}u)
+          (v_{\mathfrak q}^{\mathfrak a}).
+       \tag{\(\triangleright\triangleright\)}
+       \label{eq:p126-curve-generic-average}
+      \]
+      A positive sum containing \(-\infty\) is interpreted as
+      \(-\infty\).  Both maps preserve order and decreasing limits, and
+      \[
+       \rho_{\mathfrak a,*}u
+          \leq\operatorname{Av}_{\varphi,\mathfrak a}^{\mathrm{gen}}u
+          \leq\rho_{\mathfrak a,!}u,
+       \qquad
+       \operatorname{Av}_{\varphi,\mathfrak a}^{\mathrm{gen}}
+          \rho_{\mathfrak a}^*=\operatorname{id}.
+       \tag{\(\blacktriangleright\blacktriangleright\)}
+       \label{eq:p126-curve-generic-average-retraction}
+      \]
+      Conversely, if the branch map is not surjective, pullback admits no
+      left inverse even as a map of sets.  Thus branch surjectivity is the
+      exact condition for a finite curve-link pullback to admit a
+      pushforward retraction.  Extending the normalized average by the same
+      formula to finite real-valued obstacles \(\psi\), one has
+      \[
+       \operatorname{Av}^{\mathrm{gen}}_{\varphi,\mathfrak a}
+          (P^{\mathrm{id}}_{\mathfrak aS}\psi)
+       \leq
+       P^{\mathrm{id}}_{\mathfrak a}
+          (\operatorname{Av}^{\mathrm{gen}}_{\varphi,\mathfrak a}\psi).
+       \tag{\(\blacktriangle\blacktriangle\)}
+       \label{eq:p126-curve-generic-average-envelope}
+      \]
+      Equality holds exactly when no fiber contains two points \(y,z\) with
+      \(\psi(y)<0<\psi(z)\).
+\item On finite real-valued functions the normalized average is a positive
+      linear contraction for the sup norm.  Hence
+      \[
+       \Pi_{\varphi,\mathfrak a}
+          :=\rho_{\mathfrak a}^*
+             \operatorname{Av}^{\mathrm{gen}}_{\varphi,\mathfrak a}
+       \tag{\(\circledast\)}
+       \label{eq:p126-curve-generic-barycentric-projection}
+      \]
+      is a positive norm-one idempotent projection onto the fiber-constant
+      functions, which are exactly the pullback image.  Write
+      \(\mathsf{Meas}_{\mathbf R}(V)\) for the finite signed measures on a
+      finite set \(V\).  Dually, for
+      \(\mu\in\mathsf{Meas}_{\mathbf R}(V_{\mathfrak a})\), define
+      \[
+       (\operatorname{Lift}_{\varphi,\mathfrak a}\mu)
+          (\{v_{\mathfrak q'}^{\mathfrak aS}\})
+       :=\frac{e_{\mathfrak q'/\mathfrak q}
+                    f_{\mathfrak q'/\mathfrak q}}
+               {\delta_{\mathfrak q}}\,
+          \mu(\{v_{\mathfrak q}^{\mathfrak a}\}).
+       \tag{\(\circledcirc\)}
+       \label{eq:p126-curve-generic-measure-lift}
+      \]
+      The lift is positive and linear, is an isometry for the total-variation
+      norm, and satisfies
+      \((\rho_{\mathfrak a})_\#
+          \operatorname{Lift}_{\varphi,\mathfrak a}\mu=\mu\).  It obeys
+      the exact pairing identity
+      \[
+       \sum_{v\in V_{\mathfrak a}}
+          (\operatorname{Av}^{\mathrm{gen}}_{\varphi,\mathfrak a}u)(v)
+          \mu(\{v\})
+       =\sum_{w\in V_{\mathfrak aS}}
+          u(w)(\operatorname{Lift}_{\varphi,\mathfrak a}\mu)(\{w\}).
+       \tag{\(\bullet\)}
+       \label{eq:p126-curve-generic-function-measure-pairing}
+      \]
+      for every finite real-valued \(u\).  In particular, it sends
+      probability measures to probability measures.  Moreover,
+      \[
+       Q_{\varphi,\mathfrak a}
+         :=\operatorname{Lift}_{\varphi,\mathfrak a}
+              (\rho_{\mathfrak a})_\#
+       \tag{\(\circledcirc\circledast\)}
+       \label{eq:p126-curve-generic-measure-projection}
+      \]
+      is a positive norm-one idempotent projection on
+      \(\mathsf{Meas}_{\mathbf R}(V_{\mathfrak aS})\).  Its image is exactly
+      the signed
+      measures \(\nu\) whose restriction to every fiber has the canonical
+      conditional weights:
+      \[
+       \nu(\{v_{\mathfrak q'}^{\mathfrak aS}\})
+        =\frac{e_{\mathfrak q'/\mathfrak q}
+                    f_{\mathfrak q'/\mathfrak q}}
+                {\delta_{\mathfrak q}}
+          ((\rho_{\mathfrak a})_\#\nu)
+             (\{v_{\mathfrak q}^{\mathfrak a}\}).
+       \tag{\(\bullet\circledast\)}
+       \label{eq:p126-curve-generic-measure-projection-image}
+      \]
+      Under the pairing above, \(Q_{\varphi,\mathfrak a}\) is the Banach
+      adjoint of \(\Pi_{\varphi,\mathfrak a}\).  More precisely, let
+      \(\mu\) be a full-support probability measure on
+      \(V_{\mathfrak a}\), and set
+      \(\nu=\operatorname{Lift}_{\varphi,\mathfrak a}\mu\).  For every
+      real-valued base function \(h\) and source function \(u\),
+      \[
+       \operatorname{Av}^{\mathrm{gen}}_{\varphi,\mathfrak a}
+          ((\rho_{\mathfrak a}^*h)u)
+        =h\operatorname{Av}^{\mathrm{gen}}_{\varphi,\mathfrak a}u,
+       \qquad
+       \Pi_{\varphi,\mathfrak a}((\rho_{\mathfrak a}^*h)u)
+        =(\rho_{\mathfrak a}^*h)\Pi_{\varphi,\mathfrak a}u.
+       \tag{\(\mathrm{CE}\)}
+       \label{eq:p126-curve-generic-module-identity}
+      \]
+      Thus \(\Pi_{\varphi,\mathfrak a}\) is the conditional expectation
+      onto the fiber-constant functions for the finite probability space
+      \((V_{\mathfrak aS},\nu)\).  For every \(1\leq p\leq\infty\),
+      \[
+       \|\Pi_{\varphi,\mathfrak a}u\|_{L^p(\nu)}
+          \leq \|u\|_{L^p(\nu)}.
+       \tag{\(L^p\)}
+       \label{eq:p126-curve-generic-lp-contraction}
+      \]
+      If \(1<p<\infty\), equality holds exactly when \(u\) is constant
+      on every fiber.  For \(p=2\), the projection is the orthogonal
+      projection onto \(\rho_{\mathfrak a}^*L^2(\mu)\), and one has the
+      exact variance decomposition
+      \[
+       \begin{split}
+       \|u\|_{L^2(\nu)}^2
+        &=\|\Pi_{\varphi,\mathfrak a}u\|_{L^2(\nu)}^2
+          +\|u-\Pi_{\varphi,\mathfrak a}u\|_{L^2(\nu)}^2,\\
+       \|u-\Pi_{\varphi,\mathfrak a}u\|_{L^2(\nu)}^2
+        &=\sum_{\mathfrak q}\mu(\{v_{\mathfrak q}^{\mathfrak a}\})
+          \sum_{\mathfrak q'\mid\mathfrak q}
+          \frac{e_{\mathfrak q'/\mathfrak q}
+                    f_{\mathfrak q'/\mathfrak q}}
+               {\delta_{\mathfrak q}}
+          \left|u(v_{\mathfrak q'}^{\mathfrak aS})
+             -(\operatorname{Av}^{\mathrm{gen}}_{\varphi,\mathfrak a}u)
+                (v_{\mathfrak q}^{\mathfrak a})\right|^2.
+       \end{split}
+       \tag{\(\mathrm{Var}\)}
+       \label{eq:p126-curve-generic-variance}
+      \]
+\item The trace and average commute with the change-of-normalizing-ideal
+      transports of
+      \eqref{eq:p122-curve-psh-normalization-transport}.  In a tower of
+      branch-surjective finite local maps, the unnormalized traces compose
+      exactly.  As operators on all finite real-valued functions, the
+      normalized averages compose if and only if the upper generic degree is
+      constant on the intermediate branches above each fixed base branch.
+      Dually, the signed-measure lifts compose under exactly the same
+      condition.  In particular, both compose when the upper map is finite
+      flat.
+\item Let \(g\in\mathfrak n\) be an \(S\)-nonzerodivisor, and set
+      \[
+       \beta_{\mathfrak q}(g)
+          :=\sum_{\mathfrak q'\mid\mathfrak q}
+             f_{\mathfrak q'/\mathfrak q}\,
+             w_{\mathfrak q'}(g).
+       \tag{\(\blacktriangleleft\blacktriangleleft\)}
+       \label{eq:p126-curve-generic-norm-order}
+      \]
+      This is the order of the generic determinant norm of \(g\) over the
+      normalized base DVR.  For every sufficiently large integer \(M\), and
+      every sufficiently large common multiple \(L\) of the positive
+      integers \(\delta_{\mathfrak q}\), there are
+      \(R\)-nonzerodivisors \(h_M,\widetilde h_L\in\mathfrak m\) with
+      \[
+       w_{\mathfrak q}(h_M)=M\beta_{\mathfrak q}(g),
+       \qquad
+       w_{\mathfrak q}(\widetilde h_L)
+          =\frac{L}{\delta_{\mathfrak q}}\beta_{\mathfrak q}(g),
+      \]
+      and, for every \(N\geq1\),
+      \[
+       \operatorname{Tr}_{\varphi,\mathfrak a}
+          u^{\mathfrak aS}_{g,N}
+          =u^{\mathfrak a}_{h_M,MN},
+       \qquad
+       \operatorname{Av}^{\mathrm{gen}}_{\varphi,\mathfrak a}
+          u^{\mathfrak aS}_{g,N}
+          =u^{\mathfrak a}_{\widetilde h_L,LN}.
+       \tag{\(\blacklozenge\blacklozenge\)}
+       \label{eq:p126-curve-generic-principal-descent}
+      \]
+\end{enumerate}
+Thus every branch-surjective finite curve map has a canonical generic-degree
+weighted link pushforward, and its principal source models descend exactly
+after a conductor-controlled common scaling.  The next theorem identifies
+the finite-flat range in which the generic norm is already one canonical
+downstairs determinant norm, with no conductor scaling.  The signed-measure
+lift and conditional expectation above are only finite-link operations;
+they are not a construction or functoriality assertion for a singular
+Monge--Amp\`ere measure.
+\end{theorem}
+
+\begin{proof}
+Fix \(\mathfrak q\), let \(\mathfrak p\) be its corresponding minimal prime
+of \(R\), and put \(A=D_{\mathfrak q}\).  Since
+\(K_{\mathfrak q}\simeq R_{\mathfrak p}\), the algebra
+\(T_{\mathfrak q}=S_{R\setminus\mathfrak p}\) is reduced and finite over
+\(K_{\mathfrak q}\).  Branch surjectivity makes it nonzero, so it is a
+product of finite field extensions.  The DVR \(A\) is Nagata.  Hence its
+integral closure \(B\) in \(T_{\mathfrak q}\) is finite and torsion-free,
+and therefore free of rank \(\delta_{\mathfrak q}\).  Its maximal ideals
+are precisely the source branches above \(\mathfrak q\).  If \(\pi\) is a
+uniformizer of \(A\), filtering the local factors of \(B/\pi B\) gives
+\[
+ \delta_{\mathfrak q}=\operatorname{length}_A(B/\pi B)
+   =\sum_{\mathfrak q'\mid\mathfrak q}
+      e_{\mathfrak q'/\mathfrak q}
+      f_{\mathfrak q'/\mathfrak q},
+\]
+which proves \eqref{eq:p126-curve-generic-degree}.
+
+The coefficients of the normalized average are positive and sum to one.
+The two inequalities in
+\eqref{eq:p126-curve-generic-average-retraction} are therefore the elementary
+minimum--average--maximum inequalities on each fiber.  By
+\eqref{eq:p126-ramification-cancellation}, a pullback is constant on every
+fiber, so the degree formula gives the retraction identity.  The remaining
+order and limit assertions are coordinatewise on a finite set.  If the
+branch map is not surjective, \(\rho_{\mathfrak a}^*\) is not injective by
+\Cref{thm:p122-curve-ideal-psh-functoriality}; a map with a left inverse is
+injective, proving necessity.  The function \(s\mapsto\min\{s,0\}\) is
+concave.  Its finite weighted Jensen inequality on each branch fiber gives
+\eqref{eq:p126-curve-generic-average-envelope}.  Since every weight is
+strictly positive, equality in this piecewise-linear Jensen inequality fails
+precisely when the fiber contains both a strictly negative and a strictly
+positive value, which proves the stated criterion.
+
+For finite real-valued functions, a positive weighted average has sup norm
+at most the source sup norm.  Together with
+\(\operatorname{Av}^{\mathrm{gen}}\rho^*=\operatorname{id}\), this makes
+\(\Pi_{\varphi,\mathfrak a}\) idempotent with the fiber-constant image; its
+norm is one because it fixes constants.  Formula
+\eqref{eq:p126-curve-generic-degree} says that the masses assigned in
+\eqref{eq:p126-curve-generic-measure-lift} sum over each fiber to the original
+base mass.  This proves both the probability and pushforward identities.
+Expanding the two finite sums proves
+\eqref{eq:p126-curve-generic-function-measure-pairing}.
+All lifted atoms over one base point have the sign of that base mass, so
+summing absolute values fiber by fiber gives
+\[
+ \|\operatorname{Lift}_{\varphi,\mathfrak a}\mu\|_{\mathrm{TV}}
+   =\|\mu\|_{\mathrm{TV}}.
+\]
+Together with the evident positivity and linearity, this proves the stated
+total-variation isometry on signed measures.  Since
+\((\rho_{\mathfrak a})_\#\operatorname{Lift}_{\varphi,\mathfrak a}
+=\operatorname{id}\), the operator \(Q_{\varphi,\mathfrak a}\) is
+idempotent and has precisely the image described in
+\eqref{eq:p126-curve-generic-measure-projection-image}.  Measure pushforward
+is a total-variation contraction, while the lift is an isometry; hence
+\(\|Q_{\varphi,\mathfrak a}\|\leq1\), and equality follows because \(Q\)
+fixes its nonzero image.  The pairing identity applied to
+\((\rho_{\mathfrak a})_\#\nu\) says exactly that \(Q\) is the adjoint of
+\(\Pi\).
+
+The first identity in
+\eqref{eq:p126-curve-generic-module-identity} follows by taking the base
+factor \(h\) outside each weighted fiber sum, and the second follows after
+pullback.  With \(\nu=\operatorname{Lift}\mu\), Jensen's inequality for
+\(t\mapsto |t|^p\), applied on every fiber and then integrated against
+\(\mu\), proves \eqref{eq:p126-curve-generic-lp-contraction} for finite
+\(p\); the case \(p=\infty\) was proved above.  Since all fiber weights and
+all base masses are positive, strict convexity gives the stated equality
+criterion when \(1<p<\infty\).  If \(z=\rho_{\mathfrak a}^*h\) is
+fiber-constant, the pairing identity and the retraction formula give
+\[
+ \langle u-\Pi_{\varphi,\mathfrak a}u,z\rangle_{L^2(\nu)}
+ =\left\langle
+    \operatorname{Av}^{\mathrm{gen}}_{\varphi,\mathfrak a}
+       (u-\Pi_{\varphi,\mathfrak a}u),h
+  \right\rangle_{L^2(\mu)}=0.
+\]
+Thus \(\Pi_{\varphi,\mathfrak a}\) is the asserted orthogonal projection.
+Pythagoras gives the first line of
+\eqref{eq:p126-curve-generic-variance}, and expanding the lifted measure
+fiber by fiber gives its second line.
+
+Changing the normalizing ideal multiplies all source coordinates over one
+base branch by the same positive factor, which proves transport
+compatibility.  In a composable tower, ramification indices multiply by
+\cite[Tag~0BRL]{StacksProject}, and residue degrees multiply by the field
+tower law.  Expanding the two finite sums proves exact composition of the
+unnormalized traces.  If the upper degree has the common value \(c_{\mathfrak
+q}\) over the intermediate branches above \(\mathfrak q\), the composite
+degree is \(c_{\mathfrak q}\delta_{\mathfrak q}\); division proves the
+stated composition law for normalized averages.
+Conversely, let \(D_{\mathfrak q}\) be the composite generic degree and let
+\(c_{\mathfrak q'}\) be the upper generic degree at an intermediate branch.
+Compare the coefficient of a top branch over \(\mathfrak q'\) in the direct
+and iterated normalized averages.  After cancelling the positive product of
+ramification and residue degrees, equality of the two operators forces
+\[
+                   \delta_{\mathfrak q}c_{\mathfrak q'}=D_{\mathfrak q}
+\]
+for every intermediate branch over \(\mathfrak q\).  The right side is
+fixed, so the upper generic degree is constant over that intermediate fiber.
+The lift statement follows either from the same coefficient comparison or from
+the exact function--measure duality.
+
+Finally, \(g\) is nonzero in every field factor of
+\(T_{\mathfrak q}\).  Multiplication by \(g\) on \(B\) is injective, and
+the DVR length--determinant formula
+\cite[\emph{Lengths and determinants}, Tag~02QA]{stacks-project} gives
+\[
+ \operatorname{ord}_A\det(m_g\mid B)
+   =\operatorname{length}_A(B/gB)
+   =\sum_{\mathfrak q'\mid\mathfrak q}
+      f_{\mathfrak q'/\mathfrak q}w_{\mathfrak q'}(g)
+   =\beta_{\mathfrak q}(g).
+\]
+Every \(\beta_{\mathfrak q}(g)\) is a positive integer.  Let
+\(C_{\mathfrak q}\) be the conductor thresholds of
+\eqref{eq:p126-curve-conductor-orders}.  For all sufficiently large \(M\),
+the integers \(M\beta_{\mathfrak q}(g)\) exceed those thresholds.  For all
+sufficiently large common multiples \(L\) of the
+\(\delta_{\mathfrak q}\), the same holds for
+\(L\beta_{\mathfrak q}(g)/\delta_{\mathfrak q}\).  Applying
+\Cref{prop:p126-curve-conductor-principal-realization} to these two vectors
+produces \(h_M\) and \(\widetilde h_L\).  Since
+\(d_{\mathfrak q'}(\mathfrak aS)
+ =e_{\mathfrak q'/\mathfrak q}d_{\mathfrak q}(\mathfrak a)\), direct
+substitution gives
+\[
+ (\operatorname{Tr}_{\varphi,\mathfrak a}
+       u^{\mathfrak aS}_{g,N})(v_{\mathfrak q}^{\mathfrak a})
+   =-\frac{\beta_{\mathfrak q}(g)}
+           {N d_{\mathfrak q}(\mathfrak a)},
+\]
+and division by \(\delta_{\mathfrak q}\) gives the average.  The prescribed
+orders of \(h_M\) and \(\widetilde h_L\) now yield exactly
+\eqref{eq:p126-curve-generic-principal-descent}.
+\end{proof}
+
+\begin{example}[Variable generic degree obstructs normalized composition]
+\label{ex:p126-curve-variable-degree-average}
+Let \(K\) be a field and consider the finite local maps
+\[
+ \begin{aligned}
+ R&=K[[t]]\longrightarrow
+ S=K[[x,y]]/(xy),& t&\longmapsto x+y,\\
+ S&\longrightarrow
+ U=K[[a,b,c]]/(ab,ac,bc),& x&\longmapsto a,\quad
+ y\longmapsto b+c.
+ \end{aligned}
+\]
+Indeed, \(x\) satisfies \(x^2-tx=0\), while \(b\) satisfies
+\(b^2-yb=0\) and \(c=y-b\).  Thus the first map has two generic branches
+of degree one.  Over its \(x\)-branch the second map has one generic branch,
+whereas over its \(y\)-branch it has two, again all with ramification and
+residue degree one.
+
+Take \(\mathfrak a=(t)\), and give the \(a,b,c\) branches of the completed
+link of \(U\) the values \(-1,-2,-3\), respectively.  The direct normalized
+average from \(U\) to \(R\) is
+\[
+                          \frac{-1-2-3}{3}=-2.
+\]
+Averaging first to \(S\) gives the pair \((-1,-5/2)\), whose subsequent
+average to \(R\) is
+\[
+                          \frac{-1-5/2}{2}=-\frac74.
+\]
+Thus normalized generic averages need not compose when the upper generic
+degree varies between intermediate branches.  The unnormalized traces do
+compose: both routes give \(-6\), exactly as asserted in
+\Cref{thm:p126-curve-generic-norm-trace-descent}.  The dual obstruction is
+equally explicit.  A unit mass on the unique branch of \(R\) lifts directly
+to masses
+\[
+                         (1/3,1/3,1/3)
+\]
+on the \(a,b,c\) branches, whereas successive lifts through \(S\) give
+\[
+                         (1/2,1/4,1/4).
+\]
+Thus the signed-measure lifts also fail to compose, with the same sharp
+constant-upper-degree boundary.
+\end{example}
+
+\begin{theorem}[Finite-flat norm descent on reduced curve links]
+\label{thm:p126-curve-finite-flat-norm-descent}
+Let
+\(\varphi:(R,\mathfrak m)\to(S,\mathfrak n)\) be a finite flat local
+homomorphism of constant rank \(d\geq1\) between one-dimensional reduced
+Nagata noetherian local rings, and let \(\mathfrak a\subset R\) be
+\(\mathfrak m\)-primary.  Put \(D=R^\nu\) and \(E=S^\nu\), and write
+\(v_{\mathfrak q}^{\mathfrak a}
+=w_{\mathfrak q}/d_{\mathfrak q}(\mathfrak a)\) and
+\(v_{\mathfrak q'}^{\mathfrak aS}
+=w_{\mathfrak q'}/d_{\mathfrak q'}(\mathfrak aS)\).
+For a branch \(\mathfrak q'\) of \(S\) over a branch
+\(\mathfrak q\) of \(R\), let
+\[
+ e_{\mathfrak q'/\mathfrak q}\geq1,
+ \qquad
+ f_{\mathfrak q'/\mathfrak q}
+   :=[\kappa(\mathfrak q'): \kappa(\mathfrak q)]
+\]
+be its ramification index and residue degree.  Then:
+\begin{enumerate}
+\item The branch map \(\rho_{\mathfrak a}\) is surjective, the generic
+      degrees of
+      \Cref{thm:p126-curve-generic-norm-trace-descent} all equal \(d\), and
+      over every \(\mathfrak q\) one has
+      \[
+       \sum_{\mathfrak q'\mid\mathfrak q}
+          e_{\mathfrak q'/\mathfrak q}
+          f_{\mathfrak q'/\mathfrak q}=d.
+       \tag{\(\triangleleft\)}\label{eq:p126-curve-ef-degree}
+      \]
+\item For every nonzerodivisor \(g\in S\), its finite-flat determinant
+      norm satisfies
+      \[
+       w_{\mathfrak q}\!\left(\mathrm N_{S/R}(g)\right)
+          =\sum_{\mathfrak q'\mid\mathfrak q}
+             f_{\mathfrak q'/\mathfrak q}\,
+             w_{\mathfrak q'}(g).
+       \tag{\(\blacktriangle\)}\label{eq:p126-curve-norm-order}
+      \]
+      If \(g\in\mathfrak n\), then \(\mathrm N_{S/R}(g)\) is an
+      \(R\)-nonzerodivisor in \(\mathfrak m\), so its principal ideal is
+      \(\mathfrak m\)-primary.
+\item On the continuous or completed ideal-psh classes define the
+      finite-flat norm average by
+      \[
+       (\operatorname{Av}_{\varphi,\mathfrak a}u)
+          (v_{\mathfrak q}^{\mathfrak a})
+       :=\frac1d\sum_{\mathfrak q'\mid\mathfrak q}
+          e_{\mathfrak q'/\mathfrak q}
+          f_{\mathfrak q'/\mathfrak q}\,
+          u(v_{\mathfrak q'}^{\mathfrak aS}),
+      \tag{\(\triangleright\)}\label{eq:p126-curve-norm-average}
+      \]
+      This is exactly the generic-degree average
+      \eqref{eq:p126-curve-generic-average} in the finite-flat case; a
+      positive-weighted sum containing \(-\infty\) is interpreted as
+      \(-\infty\).  This is order preserving, preserves decreasing limits,
+      and satisfies
+      \[
+       \rho_{\mathfrak a,*}u
+          \leq\operatorname{Av}_{\varphi,\mathfrak a}u
+          \leq\rho_{\mathfrak a,!}u,
+       \qquad
+       \operatorname{Av}_{\varphi,\mathfrak a}
+          \rho_{\mathfrak a}^*=\operatorname{id}.
+       \tag{\(\blacktriangleright\)}\label{eq:p126-curve-average-sandwich}
+      \]
+      It commutes with the change-of-normalizing-ideal transports
+      \eqref{eq:p122-curve-psh-normalization-transport}, and the norm
+      averages compose in towers of finite flat local maps.
+\item Norm averaging sends principal models to principal models exactly:
+      for every \(S\)-nonzerodivisor \(g\in\mathfrak n\) and \(N\geq1\),
+      \[
+       \operatorname{Av}_{\varphi,\mathfrak a}
+          u^{\mathfrak aS}_{g,N}
+        =u^{\mathfrak a}_{\mathrm N_{S/R}(g),dN}.
+       \tag{\(\blacklozenge\)}\label{eq:p126-curve-principal-norm-descent}
+      \]
+\end{enumerate}
+Consequently, the source conductor realization of every sufficiently deep
+integral branch-order vector descends by one determinant norm to the
+weighted-average principal profile downstairs.  This supplies a genuine
+pushforward and conductor-compatible range of P12.6 for finite flat curve
+maps.  It asserts no norm pushforward for a nonflat finite map.
+\end{theorem}
+
+\begin{proof}
+Because \(R\) is local and \(S\) is finite flat of constant rank \(d\),
+the \(R\)-module \(S\) is free of rank \(d\), and
+\(\mathrm N_{S/R}(g)=\det(m_g)\) is the determinant norm of
+\eqref{eq:appA-element-norm}.
+
+Fix \(\mathfrak q\), let \(A=D_{\mathfrak q}\) be the corresponding
+normalized discrete valuation ring of \(R\), and write \(K\) for its
+fraction field.  If \(\mathfrak p\) is the minimal prime of \(R\)
+corresponding to \(\mathfrak q\), then \(K\simeq R_{\mathfrak p}\).
+Consequently the generic algebra
+\[
+                          T:=S\otimes_RK
+\]
+is the localization \(S_{R\setminus\mathfrak p}\).  It is therefore a
+reduced \(K\)-algebra of dimension \(d\), hence a product of finite field
+extensions of \(K\).  The ring \(A\) is Nagata, being a localization of the
+finite normalization of the Nagata ring \(R\).  Thus the integral closure
+\(B\) of \(A\) in \(T\) is finite; it is torsion-free, hence a finite free
+\(A\)-module of rank \(d\).  Its maximal ideals are exactly the branches
+\(\mathfrak q'\) above \(\mathfrak q\), and
+\(B_{\mathfrak q'}\) is their normalized discrete valuation ring.
+
+Let \(\pi\) be a uniformizer of \(A\).  The quotient \(B/\pi B\) has
+\(A\)-length \(d\).  Localizing it at the maximal ideals of \(B\), and
+filtering each
+\(B_{\mathfrak q'}/\pi B_{\mathfrak q'}
+ =B_{\mathfrak q'}/\mathfrak q'^{e_{\mathfrak q'/\mathfrak q}}\),
+gives
+\[
+ d=\operatorname{length}_A(B/\pi B)
+   =\sum_{\mathfrak q'\mid\mathfrak q}
+      e_{\mathfrak q'/\mathfrak q}
+      [\kappa(\mathfrak q'): \kappa(\mathfrak q)].
+\]
+This proves \eqref{eq:p126-curve-ef-degree}, and in particular proves that
+every base branch has a branch above it.
+
+If \(g\) is a nonzerodivisor of \(S\), it is nonzero in every field factor
+of \(T\), so multiplication by \(g\) is injective on \(B\).  Determinants
+commute with base change by \Cref{prop:appA-norm-identities}.  After
+extending scalars to \(K\), multiplication on \(S\) and on the
+\(A\)-lattice \(B\) becomes the same endomorphism of \(T\); its determinant
+is independent of the chosen \(K\)-basis.  Hence the determinant of
+\(m_g\) on \(B\) is the image of \(\mathrm N_{S/R}(g)\) in \(A\).  The DVR length--determinant formula
+\cite[\emph{Lengths and determinants}, Tag~02QA]{stacks-project} and the
+same residue-field filtration give
+\[
+ \begin{aligned}
+ w_{\mathfrak q}\!\left(\mathrm N_{S/R}(g)\right)
+   &=\operatorname{length}_A(B/gB)\\
+   &=\sum_{\mathfrak q'\mid\mathfrak q}
+       f_{\mathfrak q'/\mathfrak q}\,
+       \operatorname{length}_{B_{\mathfrak q'}}
+          (B_{\mathfrak q'}/gB_{\mathfrak q'})\\
+   &=\sum_{\mathfrak q'\mid\mathfrak q}
+       f_{\mathfrak q'/\mathfrak q}\,
+       w_{\mathfrak q'}(g),
+ \end{aligned}
+\]
+which is \eqref{eq:p126-curve-norm-order}.  It is finite on every branch,
+so the norm avoids every minimal prime of the reduced ring \(R\) and is a
+nonzerodivisor.  If \(g\in\mathfrak n\), its image in the artinian local
+algebra \(S/\mathfrak mS\) is nilpotent.  Multiplication by that image has
+zero determinant, so \(\mathrm N_{S/R}(g)\in\mathfrak m\).  The resulting
+principal ideal is \(\mathfrak m\)-primary by the one-dimensional argument
+in \Cref{prop:p126-curve-conductor-principal-realization}.
+
+Formula \eqref{eq:p126-curve-ef-degree} says that the coefficients in
+\eqref{eq:p126-curve-norm-average} are positive and sum to one on each
+fiber.  Thus the average lies between the fiberwise infimum and supremum,
+which proves the first part of
+\eqref{eq:p126-curve-average-sandwich}; it plainly preserves finite values,
+order, and decreasing limits.  The ramification-cancellation formula
+\eqref{eq:p126-ramification-cancellation} makes a pullback constant on every
+fiber, so averaging and using \eqref{eq:p126-curve-ef-degree} proves the
+retraction identity.  A change of normalizing ideal multiplies all source
+coordinates over a fixed base branch by the same positive factor, proving
+compatibility with \eqref{eq:p122-curve-psh-normalization-transport}.
+Ramification indices and residue degrees multiply in a tower; expanding the
+two successive finite sums therefore proves composition of the averages.
+
+Finally,
+\[
+ \begin{aligned}
+ (\operatorname{Av}_{\varphi,\mathfrak a}
+       u^{\mathfrak aS}_{g,N})(v_{\mathfrak q}^{\mathfrak a})
+  &=-\frac1d\sum_{\mathfrak q'\mid\mathfrak q}
+       e_{\mathfrak q'/\mathfrak q}f_{\mathfrak q'/\mathfrak q}
+       \frac{w_{\mathfrak q'}(g)}
+            {N e_{\mathfrak q'/\mathfrak q}
+               d_{\mathfrak q}(\mathfrak a)}\\
+  &=-\frac{w_{\mathfrak q}(\mathrm N_{S/R}(g))}
+            {dN d_{\mathfrak q}(\mathfrak a)}
+   =u^{\mathfrak a}_{\mathrm N_{S/R}(g),dN}
+       (v_{\mathfrak q}^{\mathfrak a}),
+ \end{aligned}
+\]
+where the middle equality is \eqref{eq:p126-curve-norm-order}.  This proves
+\eqref{eq:p126-curve-principal-norm-descent}; combining it with the source
+version of \Cref{prop:p126-curve-conductor-principal-realization} gives the
+last assertion.
+\end{proof}
+
+\begin{example}[The two endpoint weights in finite-flat norm descent]
+\label{ex:p126-curve-norm-endpoint-weights}
+Let \(K\) be a field.  For the totally ramified map
+\[
+ K[[t]]\longrightarrow K[[u]],\qquad t\longmapsto u^e,
+\]
+the rank is \(d=e\), the residue degree is one, and
+\(\mathrm N(u)=\pm t\).  With \(\mathfrak a=(t)\), the normalized source
+value of \(u^{(u^e)}_{u,N}\) is \(-1/(eN)\); the weight \(ef/d=1\) leaves
+it unchanged, and the descended model
+\(u^{(t)}_{\pm t,eN}\) has the same value.  Thus the ramification index
+belongs in the averaging weight but not in
+\eqref{eq:p126-curve-norm-order}.
+
+At the other endpoint, if \(K'/K\) is a finite extension of degree \(f\),
+then
+\[
+ K[[t]]\longrightarrow K'[[t]]
+\]
+has \(e=1\), \(d=f\), and \(\mathrm N(t)=t^f\).  The source model
+\(u^{(t)}_{t,N}\) and the descended model
+\(u^{(t)}_{t^f,fN}\) both have value \(-1/N\).  This time the residue
+degree appears both in the norm order and in the rank denominator and
+cancels there.
+\end{example}
+
+\begin{example}[A boundary profile on the two-branch node]
+\label{ex:p122-curve-ideal-psh-boundary}
+For \(R=\mathbf C[[x,y]]/(xy)\) and
+\(\mathfrak a=(x,y)\), label the two points of
+\(V_{\mathfrak a}\) by the \(x\)- and \(y\)-axes.  The profile
+\[
+                             u=(-1,0)
+\]
+belongs to \(\operatorname{CPSH}^{\mathrm{id}}_{\mathfrak a}(R)\) and
+is an increasing uniform limit of principal-ideal profiles.  It is not a
+decreasing limit of principal-ideal profiles: every such profile is
+strictly negative on both branches.  Thus uniform ideal closure and
+decreasing model regularization genuinely differ at a reducible boundary,
+even though the completed psh envelope is the coordinatewise formula
+\eqref{eq:p123-curve-ideal-psh-envelope}.
+\end{example}
+
+\begin{example}[A nonsurjective branch pullback reaches the bottom]
+\label{ex:p122-curve-psh-pullback-bottom}
+Let
+\[
+ R=\mathbf C[[x,y]]/(xy),\qquad S=\mathbf C[[x]],
+ \qquad
+ \varphi:R\longrightarrow S,\qquad x\longmapsto x,\quad y\longmapsto0,
+\]
+and take \(\mathfrak a=(x,y)\), so that
+\(\mathfrak aS=(x)\).  This is a finite local homomorphism of reduced
+excellent curve rings.  Its normalized-link map sends the unique branch of
+\(S\) to the \(x\)-axis branch of \(R\), and misses the \(y\)-axis branch.
+On the two-point link of \(R\), ordered as the \(x\)- and \(y\)-axes, the
+function
+\[
+                              u=(-\infty,0)
+\]
+belongs to \(\operatorname{PSH}^{\mathrm{id},\bot}_{\mathfrak a}(R)\)
+but is not its bottom element.  Nevertheless,
+\[
+                 \rho_{\mathfrak a}^*u\equiv-\infty
+                 \quad\text{on }V_{(x)}(S).
+\]
+Thus finite pullback preserves the bottom-inclusive completion but cannot in
+general preserve the class obtained by deleting its bottom element.  This is
+the precise reason for retaining \(-\infty\) in the functorial statement.
+Here \(\rho_{\mathfrak a}\) is injective but not surjective, so pullback is
+surjective but not injective, exactly as the preceding theorem predicts.
+\end{example}
+
+The word ``psh'' in the preceding notation cannot be justified by extending
+every homogeneous branch profile radially across an analytic singularity.
+On any isolated curve singularity whose normalization is a finite union of
+discs and whose branches are separated by the conductor, however, the exact
+branch-compatibility condition can be computed.
+
+\begin{theorem}[Conductorial radial classification on a disc-normalized curve]
+\label{thm:p122-conductorial-disc-radial-psh-classification}
+Let \(K\) be a complete nontrivially valued non-Archimedean field, choose
+\(\varpi\in K\) with \(0<|\varpi|<1\), and put
+\(r=|\varpi|\) and \(a=-\log r\).  Let \(A\) be a reduced strict
+\(K\)-affinoid algebra of pure dimension one whose normalization is finite
+and has the form
+\[
+ A\lhook\joinrel\longrightarrow
+ B=\prod_{i=1}^q K\langle t_i\rangle,
+ \qquad
+ \nu:\widetilde U:=\mathcal M(B)\longrightarrow U:=\mathcal M(A).
+\]
+Suppose that there is a \(K\)-rational point \(o\in U\) such that
+\(\nu^{-1}(o)=\{p_1,\ldots,p_q\}\), where \(p_i\) is the origin of the
+\(i\)-th disc \(D_i:=\mathcal M(K\langle t_i\rangle)\), and that \(\nu\)
+is an isomorphism away from these points.  Assume that the conductor
+contains a separated branch ideal
+\[
+ \mathfrak d_{\boldsymbol e}
+   :=\prod_{i=1}^q t_i^{e_i}K\langle t_i\rangle
+   \ \subseteq\
+ \mathfrak c_{B/A}:=\{b\in B:bB\subseteq A\}
+ \tag{\(\blacktriangledown\)}
+ \label{eq:p122-disc-conductor-branch-ideal}
+\]
+for some integers \(e_i\geq1\).  This conductor hypothesis is automatic if
+the finite \(A\)-module \(B/A\) is supported at the maximal ideal of \(o\).
+
+For \(c=(c_1,\ldots,c_q)\in[-\infty,0]^q\), define
+\(h_c^\circ:U\setminus\{o\}\to[-\infty,0]\) through the normalization by
+\[
+ h_c^\circ(\nu(z)):=
+ \begin{cases}
+  -\infty,&c_i=-\infty,\\[1mm]
+  -\dfrac{c_i}{a}\log|t_i(z)|,&c_i> -\infty,
+ \end{cases}
+ \qquad z\in D_i\setminus\{p_i\}.
+ \tag{\(\blacktriangleleft\)}
+ \label{eq:p122-disc-normalized-radial-function}
+\]
+Then the following are equivalent:
+\begin{enumerate}
+\item \(h_c^\circ\) extends to a classically psh function on \(U\);
+\item \(h_c^\circ\) extends to a CLD-v2 psh function on \(U\);
+\item either \(c=0\), or \(c_i<0\) for every \(i\), with
+      \(-\infty<0\) allowed.
+\end{enumerate}
+The extension is unique.  Its value at \(o\) is zero for \(c=0\), and is
+\(-\infty\) otherwise.  Thus the exact radial-extendable cone is
+\[
+                         \{0\}\cup[-\infty,0)^q.
+ \tag{\(\blacktriangleright\)}
+ \label{eq:p122-disc-normalized-radial-cone}
+\]
+Every finite strictly negative rational profile is realized by one scaled
+logarithm \((aN)^{-1}\log|f|\) with \(f\in A\), and all-negative extended
+profiles are obtained by decreasing limits after putting zero in the
+normalization components corresponding to their \(-\infty\) coordinates.
+\end{theorem}
+
+\begin{proof}
+First note why the final sentence of the conductor hypothesis holds.  Let
+\(\mathfrak m\subset A\) be the maximal ideal of \(o\).  If
+\(\operatorname{Supp}_A(B/A)\subseteq\{\mathfrak m\}\), then noetherianity
+gives an integer \(M\geq1\) with
+\(\mathfrak m^M(B/A)=0\), hence
+\[
+                            \mathfrak m^M B\subseteq A.
+\]
+Writing \(I_i\) for the image of \(\mathfrak mB\) in
+\(K\langle t_i\rangle\), the fiber hypothesis and the affinoid
+Nullstellensatz give \(\sqrt{I_i}=(t_i)\).  Choose \(d_i\geq1\) with
+\(t_i^{d_i}\in I_i\), and set \(e_i=Md_i\).  Then
+\[
+ \prod_i t_i^{e_i}K\langle t_i\rangle
+       \subseteq (\mathfrak mB)^M=\mathfrak m^M B\subseteq A.
+\]
+The left-hand side is a \(B\)-ideal, so it is contained in
+\(\mathfrak c_{B/A}\), proving
+\eqref{eq:p122-disc-conductor-branch-ideal}.
+
+For the psh classification, the zero profile has the constant zero
+extension.  Suppose next that every \(c_i<0\), and put
+\[
+ I:=\{i:c_i> -\infty\},\qquad J:=\{i:c_i=-\infty\}.
+\]
+If \(I=\varnothing\), use the constant \(-\infty\) extension.  Otherwise,
+put \(\lambda_i=-c_i\in(0,+\infty)\) for \(i\in I\).  Choose positive
+rationals
+\[
+                  \lambda_i^{(n)}=k_{n,i}/N_n\nearrow\lambda_i
+                  \qquad(i\in I)
+\]
+with one denominator \(N_n\) at each stage and with
+\(k_{n,i}\geq e_i\).  The latter condition costs nothing: after choosing
+common-denominator rational approximants, multiply all their numerators and
+their common denominator by one sufficiently large integer.  Define
+\(b_n=(b_{n,1},\ldots,b_{n,q})\in B\) by
+\[
+ b_{n,i}:=
+ \begin{cases}
+   t_i^{k_{n,i}},&i\in I,\\
+   0,&i\in J.
+ \end{cases}
+\]
+By \eqref{eq:p122-disc-conductor-branch-ideal}, \(b_n\in A\); denote the
+corresponding analytic function on \(U\) by \(f_n\).  Then
+\(\nu^*f_n=b_n\), and therefore
+\[
+ g_n:=(aN_n)^{-1}\log|f_n|
+\]
+pulls back to
+\(a^{-1}\lambda_i^{(n)}\log|t_i|\) on \(D_i\) for \(i\in I\), and to
+\(-\infty\) on \(D_j\) for \(j\in J\).  It also takes the value
+\(-\infty\) at \(o\).  Each \(g_n\) is CLD-v2 psh by
+\Cref{prop:ch15-log-approachable,prop:ch15-psh-cone}.
+\Cref{prop:ch15-log-approachable} applies to every holomorphic function, so
+this remains valid when \(J\ne\varnothing\) and \(f_n\) is a zero-divisor;
+the proposition's additional non-zero-divisor hypothesis concerns only local
+integrability.  Since \(\log|t_i|\leq0\), the sequence decreases pointwise
+to the claimed
+extension of \(h_c^\circ\), which is CLD-v2 psh by decreasing closedness.
+This proves (3)\(\Rightarrow\)(2), while (2)\(\Rightarrow\)(1) follows from
+\Cref{thm:cld-to-classical-psh}.
+
+Conversely, let \(h\) be a classically psh extension and suppose that
+\(c_i=0\) for some \(i\).  Its pullback \(\widetilde h=h\circ\nu\) is
+classically psh by \cite[Proposition~4.2(6)]{GR25Classical}.  The points
+\(t_i=\varpi^m\) tend to \(p_i\), so upper
+semicontinuity gives \(h(o)=\widetilde h(p_i)\geq0\).  If \(c\ne0\), choose
+\(j\) with \(c_j<0\).  On the closed radius-\(r\) subdisc of \(D_j\), the
+unique Shilov point has value \(c_j<0\), and every other noncentral value is
+at most \(c_j\) (or is \(-\infty\) when \(c_j=-\infty\)).  The affinoid
+maximum principle \cite[Theorem~6.4]{GR25Classical} contradicts
+\(\widetilde h(p_j)=h(o)\geq0\).  This proves (1)\(\Rightarrow\)(3).
+
+For uniqueness, the zero branch limit gives \(h(o)\geq0\) when \(c=0\),
+and the maximum principle on any branch disc gives \(h(o)\leq0\).  In the
+all-negative case, a finite coordinate \(c_j\) and the radius-\(r^m\) disc
+give \(h(o)\leq m c_j\) for every \(m\), hence \(h(o)=-\infty\); if every
+coordinate is \(-\infty\), one branch disc gives the same conclusion.
+Finally, a finite rational vector \(c_i=-k_i/N\) can be represented with
+all \(k_i\geq e_i\) by scaling numerator and denominator, and the preceding
+conductor construction realizes it by one \((aN)^{-1}\log|f|\).  The same
+coordinatewise rational approximation proves the asserted decreasing
+closure on the radius-\(r\) branch link.
+\end{proof}
+
+\begin{example}[The one-branch cusp]
+\label{ex:p122-cusp-radial-psh-classification}
+Let
+\[
+ A_{\mathrm{cusp}}:=K\langle u,v\rangle/(v^2-u^3)
+      \lhook\joinrel\longrightarrow B:=K\langle t\rangle,
+ \qquad u\longmapsto t^2,\quad v\longmapsto t^3.
+\]
+The decomposition
+\(B=K\langle t^2\rangle\oplus tK\langle t^2\rangle\) makes this extension
+finite, the element \(t\) is integral because \(t^2=u\), and it equals
+\(v/u\) in the fraction field.  Since \(B\) is normal, this is the finite
+normalization.  Inside \(B\) one has
+\[
+ A_{\mathrm{cusp}}=K+t^2K\langle t\rangle,
+ \qquad
+ \mathfrak c_{B/A_{\mathrm{cusp}}}=t^2K\langle t\rangle.
+\]
+Indeed, even--odd decomposition gives
+\[
+ t^2K\langle t\rangle
+   =t^2K\langle t^2\rangle\oplus t^3K\langle t^2\rangle
+   \subseteq A_{\mathrm{cusp}},
+\]
+whereas every nonconstant monomial in the generators \(t^2,t^3\) has order
+at least two; this proves the first equality.  The displayed ideal is
+therefore contained in the conductor.  Conversely, if
+\(b=\gamma+t^2g(t)\) lies in the conductor, then
+\(tb\in A_{\mathrm{cusp}}\); the coefficient of \(t\) forces
+\(\gamma=0\), proving the reverse inclusion.
+The normalization is an isomorphism away from the origin, so
+\Cref{thm:p122-conductorial-disc-radial-psh-classification} applies with
+\(q=1\) and \(e_1=2\).  Hence every
+\(c\in[-\infty,0]=\{0\}\cup[-\infty,0)\) has a unique radial extension
+which is both CLD-v2 and classically psh.  Its value at the cusp is zero for
+\(c=0\) and \(-\infty\) otherwise.  More explicitly, if
+\(c=-p/s<0\) with \(p,s\in\mathbf Z_{>0}\), then
+\[
+       \frac{1}{2as}\log|u^p|
+          =\frac{p}{as}\log|t|
+\]
+is the required extension; increasing rational approximation to \(-c\)
+gives the general finite negative case by a decreasing sequence.  Thus the
+mixed-zero obstruction is genuinely multibranch and is absent on this
+unibranch singularity.
+\end{example}
+
+The ordinary multinode makes the conductor construction completely
+explicit and will be useful as a permanent boundary example.
+
+\begin{theorem}[Radial psh classification on an ordinary multinode]
+\label{thm:p122-multinode-radial-psh-classification}
+Let \(K\) be a complete nontrivially valued non-Archimedean field, choose
+\(\varpi\in K\) with \(0<|\varpi|<1\), and put
+\(r=|\varpi|\) and \(a=-\log r\).  For \(q\geq2\), set
+\[
+ A_q:=K\langle x_1,\ldots,x_q\rangle/
+             (x_ix_j:i\ne j),
+ \qquad U_q:=\mathcal M(A_q),
+\]
+let \(D_i=V(x_j:j\ne i)\) be the \(i\)-th closed-disc branch, and let
+\(o=V(x_1,\ldots,x_q)\).  Then
+\(U_q=\bigcup_iD_i\) and the branches meet only at \(o\).  Given
+\(c=(c_1,\ldots,c_q)\in[-\infty,0]^q\), define
+\(h_c^\circ:U_q\setminus\{o\}\to[-\infty,0]\) on the \(i\)-th branch by
+\[
+ h_c^\circ(z):=
+ \begin{cases}
+  -\infty,&c_i=-\infty,\\[1mm]
+  -\dfrac{c_i}{a}\log|x_i(z)|,&c_i> -\infty.
+ \end{cases}
+ \tag{\(\blacktriangle\)}\label{eq:p122-multinode-radial-function}
+\]
+At the radius-\(r\) Gauss point of \(D_i\), this function has value \(c_i\).
+The following are equivalent:
+\begin{enumerate}
+\item \(h_c^\circ\) extends to a classically psh function on \(U_q\);
+\item \(h_c^\circ\) extends to a CLD-v2 psh function on \(U_q\);
+\item either \(c=0\), or \(c_i<0\) for every \(i\), with
+      \(-\infty<0\) allowed.
+\end{enumerate}
+When it exists, the extension is unique.  Its nodal value is \(0\) when
+\(c=0\), and \(-\infty\) otherwise.
+
+Consequently, after identifying the branch link with \(\{1,\ldots,q\}\),
+the radial-extendable part of the completed ideal-psh orthant is exactly
+\[
+                 \{0\}\ \cup\ [-\infty,0)^q.
+ \tag{\(\blacklozenge\)}\label{eq:p122-multinode-radial-psh-cone}
+\]
+It is the zero profile together with the pointwise decreasing closure of
+the primary principal-ideal profiles.  In particular, the mixed-zero
+profile in \Cref{ex:p122-curve-ideal-psh-boundary} is excluded, whereas
+every strictly negative finite profile and every limit obtained by sending
+some of its coordinates to \(-\infty\) has a radial CLD-v2 psh extension.
+This classifies only the displayed radial realization on the ordinary
+multinode; it does not identify arbitrary boundary traces or settle P12.2.
+\end{theorem}
+
+\begin{proof}
+Assume first that \(c=0\).  The constant zero function is a CLD-v2 psh
+extension.  Now suppose that every \(c_i<0\), and put
+\[
+ I:=\{i:c_i> -\infty\},\qquad J:=\{i:c_i=-\infty\}.
+\]
+If \(I=\varnothing\), the constant \(-\infty\) function is a CLD-v2 psh
+extension.  Otherwise, put \(\lambda_i=-c_i\in(0,+\infty)\) for
+\(i\in I\).  Choose positive rational numbers
+\[
+       \lambda_i^{(n)}=k_{n,i}/N_n\nearrow\lambda_i
+       \qquad(i\in I),
+\]
+using one positive denominator \(N_n\) at each stage, and set
+\[
+                  f_n:=\sum_{i\in I}x_i^{k_{n,i}}\in A_q,
+       \qquad g_n:=(aN_n)^{-1}\log|f_n|.
+\]
+On \(D_i\) for \(i\in I\), all summands except the \(i\)-th vanish, and
+hence
+\[
+                  g_n|_{D_i}=a^{-1}\lambda_i^{(n)}\log|x_i|.
+\]
+On \(D_j\) for \(j\in J\), the function \(f_n\) vanishes identically, so
+\(g_n|_{D_j}=-\infty\).  In particular, omitting a summand---rather than
+sending its exponent to infinity---is what gives the prescribed value at
+the outer points with \(|x_j|=1\).
+Each \(g_n\) is CLD-v2 psh by
+\Cref{prop:ch15-log-approachable,prop:ch15-psh-cone}.  Since
+\(\log|x_i|\leq0\), the sequence \((g_n)\) decreases pointwise on every
+branch.  Its limit is \(h_c^\circ\) off \(o\), takes the value \(-\infty\)
+at \(o\), and is CLD-v2 psh by decreasing closedness.  This proves
+(3)\(\Rightarrow\)(2), and (2)\(\Rightarrow\)(1) is
+\Cref{thm:cld-to-classical-psh}.
+
+For the converse, suppose that a classically psh extension \(h\) exists and
+that \(c_i=0\) for some \(i\).  The rigid points of \(D_i\setminus\{o\}\)
+with \(x_i=\varpi^m\) converge to \(o\), so upper semicontinuity gives
+\(h(o)\geq0\).  If \(c\ne0\), choose \(j\) with \(c_j<0\).  On the closed
+radius-\(r\) disc
+\[
+                    D_{j,r}:=\{z\in D_j:|x_j(z)|\leq r\},
+\]
+the unique Shilov point is its radius-\(r\) Gauss point, where \(h=c_j<0\).
+When \(c_j\) is finite, every other nonnodal value on this disc is at most
+\(c_j\); when \(c_j=-\infty\), all its nonnodal values are \(-\infty\).
+Thus \(h(o)\geq0\) contradicts the affinoid maximum principle
+\cite[Theorem~6.4]{GR25Classical}.  This proves (1)\(\Rightarrow\)(3).
+
+It remains only to prove uniqueness at the node.  For \(c=0\), upper
+semicontinuity gives \(h(o)\geq0\), while the same maximum principle on any
+branch disc gives \(h(o)\leq0\).  If all \(c_i<0\) and one \(c_j\) is
+finite, applying the maximum principle on the radius-\(r^m\) disc in
+\(D_j\) gives \(h(o)\leq m c_j\) for every \(m\), hence
+\(h(o)=-\infty\).  If every \(c_i=-\infty\), one branch disc gives the same
+conclusion immediately.
+
+Finally, strictly negative rational vectors in \(\mathbf Q_{<0}^q\) are
+exactly the radius-\(r\) profiles of the functions
+\((aN)^{-1}\log|\sum_i x_i^{k_i}|\).  Coordinatewise
+increasing rational approximation of
+\((\lambda_i)\in(0,+\infty]^q\) therefore shows that
+\([-\infty,0)^q\) is precisely their decreasing pointwise closure.
+This last closure statement is on the finite radius-\(r\) branch link; for
+the analytic extension of an infinite coordinate, the preceding construction
+omits the corresponding summand so that the whole branch, including its
+outer boundary, has value \(-\infty\).
+The zero profile must be adjoined separately, since every primary
+principal-ideal profile is strictly negative on every branch.
+\end{proof}

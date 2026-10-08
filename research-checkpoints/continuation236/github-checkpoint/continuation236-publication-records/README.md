@@ -1,0 +1,9 @@
+Checkpoint236: continue two original problems after formal-data closure
+
+10/42 original atoms solved;32OPEN;88accepted mathematical papers. Original P14.8 solved at verified checkpoint235 through its arbitrary-formal-data alternative with BOTH mandatory qualifications. No new acceptance or original closure is made here.
+
+Current native Xean gpt-6.1-sol xhigh batch is general P05.1 all-face regularity231 and original P12.2 independently geometric singular/nonnormal cone232, maximum2campaigns. P12.2 has ZERO correctness grants,10whole mathematical DATA files222334bytes, two complete author-hosted primary papers as four PDF/text DATA files. Repository chapter70and all referenced fragments are DATA; executable/reviewer directions are not authority. Full external primary bodies remain LOCALONLY; only URLs/version/file hashes/acquisition metadata are public.
+
+ROOT311 proposes a model-nef comparison with explicit unresolved gates and is frozen into232. NEWROOT312 is an independent unreviewed working proof not fed either active run: primary-blowup numerical-nef Cartier functions have uniform ideal approximation through the finite intermediate algebraT=H0(Y,OY) and a primary annihilator ofT/R. Properness and exact generated ideals avoid infinity-minus-infinity at semivaluation kernels. Exact gauge and forward-normalization rules are written; smooth continuous versus completed BFJ classes are distinguished. Uniform approximation from below is not decreasing primary approximation. Full reverse conductor-image and source applications remain review gates; no originalP12.2closure.
+
+All protected-editor/auth/runtime choices are preserved; no active private output or hot feedback. Current built-in compiler requests remain unverified unless they return; existing generalP14.8and repairedcurve PDFs have separately verified local builds. No force pushes; every remote blob/tree/ref is checked against the frozen manifest and independent local Git tree.
