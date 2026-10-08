@@ -1,0 +1,277 @@
+# P12.2 argument: numerical geometry, full smooth recovery, and conductor saturation
+
+Unverified exact-scope progress. ORIGINAL OPEN; candidate=false. Complete proofs and source qualifications follow.
+
+## n1: The intrinsic boundary, normalization quotient, and completion
+
+Let $(R,\mathfrak m)$ be a positive-dimensional reduced excellent Noetherian local ring. A semivaluation has values in $[0,\infty]$, takes $0$ to infinity and $1$ to zero, is multiplicative, and satisfies the ultrametric inequality. We require $0<v(\mathfrak m)<\infty$. Its support is a prime strictly smaller than $\mathfrak m$. Units have value zero. The value of a finitely generated ideal is the minimum of the values of its generators, independent of the generating set. On $V_{\mathfrak a}(R)$ we require $v(\mathfrak a)=1$, for a proper primary ideal $\mathfrak a$.
+
+### Compactness and gauges
+
+The semivaluation axioms are closed conditions in the compact Hausdorff product $[0,\infty]^R$: extended addition, minimum, and the order relation are continuous or closed as required. The equation $v(\mathfrak m)=1$ is closed. If $\mathfrak m^r\subset\mathfrak a\subset\mathfrak m^s$, with $r\ge s\ge1$, then
+
+$$s v(\mathfrak m)\le v(\mathfrak a)\le r v(\mathfrak m).$$
+
+Consequently $V_{\mathfrak a}$ is homeomorphic to $V_{\mathfrak m}$ by rescaling. Every primary ideal value is positive, finite, continuous, and bounded on every primary section. For another primary ideal $\mathfrak b$, the exact change is $H_{\mathfrak a,\mathfrak b}(v)=v/v(\mathfrak b)$. The denominator and its reciprocal are bounded. The inverse and cocycle follow by homogeneity. Each section is the intrinsic quotient of the centered finite-radial cone by positive scaling.
+
+For nonemptiness choose a prime $\mathfrak p$ with $R/\mathfrak p$ a one-dimensional local domain. Such a prime exists by a saturated prime chain. Excellence implies finite normalization of this domain; a local factor above the closed point is a DVR. Its order, pulled back and rescaled, gives a point of the section. The algebraic background used here is the Nagata consequence of excellence and the characterization of a one-dimensional normal Noetherian local domain as a DVR; no resolution is involved.
+
+Nilpotents have infinite value, and $v(f+n)=v(f)$ for nilpotent $n$, by applying the ultrametric inequality in both directions. Reduction therefore preserves the entire boundary and all ideal functions. If the local reduction has dimension zero, it is a field and this centered boundary is empty. All function classes on that empty boundary are the singleton empty function.
+
+### Finite normalization without losing supports
+
+Let $S$ be the finite normalization of $R$ in its total quotient ring, and $\mathfrak c=\operatorname{Ann}_R(S/R)$. It is an ideal of both rings, $\mathfrak cS=\mathfrak c$, and $R=S\times_{S/\mathfrak c}(R/\mathfrak c)$. Indeed an element of $S$ whose residue comes from $R$ differs from an element of $R$ by an element of $\mathfrak c\subset R$.
+
+Write $W$ for all nonnegative semivaluations of $S$ with $w(\mathfrak aS)=1$. A semivaluation on a finite product selects exactly one primitive idempotent with value zero and gives infinity to the others. Thus this is the disjoint union over normal components. It is compact by the same closed-product argument. Its centers are the finitely many maximal ideals above $\mathfrak m$; localization at each center has exactly the same values, since denominators have value zero. The center pieces are clopen: Chinese remainder elements that are zero modulo one maximal ideal and one modulo the others have positive value precisely on the chosen piece. Let $\rho:W\longrightarrow V_{\mathfrak a}(R)$ be restriction.
+
+Here is the valuation-extension argument needed for surjectivity, rather than a source grant. For a support $\mathfrak p$, lying over supplies a prime $P$ of $S$ over it; the fraction field $L$ of $S/P$ is finite over $K=\operatorname{Frac}(R/\mathfrak p)$. Let $A\subset K$ be the valuation ring of $v$. The integral closure of $A$ in $L$ has a prime over its maximal ideal. A valuation ring of $L$ dominates the resulting local domain. The usual existence lemma follows by Zorn's lemma on dominating local subrings of $L$: if neither $x$ nor $x^{-1}$ lies in a maximal such subring, at least one of the extensions by them has proper extension of the maximal ideal and can be localized to a larger dominating ring. To justify this last assertion, if both extended ideals were the whole ring, the two polynomial relations for $1$ would imply that both $x$ and $x^{-1}$ are integral; the resulting finite algebra would equal its maximal-ideal multiple, contradicting Nakayama's lemma. This proves the valuation-ring property.
+
+The extended valuation ring intersects $K$ in $A$: an element outside $A$ has inverse in its maximal ideal, so cannot belong to the dominating valuation ring. Every value $\gamma$ upstairs is torsion modulo the old value group. In a polynomial equation for an element of $L$, at least two terms have the same least value; hence $(i-j)\gamma$ is an old value for some $i\ne j$. Define its real value by dividing that old real value by $i-j$. Common multiples prove independence, addition, and order preservation. Integral elements have nonnegative value, since otherwise the leading term in their monic equation is uniquely smallest. Restoring $P$ with infinite value gives a lift of $v$ to $S$. This argument uses elementary lying over, Zorn, and Nakayama, and does not assume separability, defectlessness, or minimal support.
+
+Thus $\rho$ is a continuous surjection from a compact space to a Hausdorff space and is a quotient map. If $v(\mathfrak c)<\infty$, choose $c\in\mathfrak c$ of finite value. Every lift is determined by
+
+$$w(s)=v(cs)-v(c)\qquad(s\in S).$$
+
+The subtracted value is finite; the formula includes an infinite first term. If $v(\mathfrak c)=\infty$, all lifts annihilate $\mathfrak c$ and their equivalence is precisely equality of restrictions through $S/\mathfrak c$ to $R/\mathfrak c$. The set $Z=\{w:w(\mathfrak c)=\infty\}$ is CLOSED, and its complement is OPEN, without a claim that the complement is closed. A finite-valued continuous function on $W$ descends continuously exactly when it is constant on the fibers, by the compact quotient property. This topological assertion makes no psh claim. Restriction and these rules commute with all primary gauges.
+
+### Completion on every semivaluation
+
+For any Noetherian local ring, including a nonreduced one, restriction from $V_{\mathfrak a\widehat R}(\widehat R)$ to $V_{\mathfrak a}(R)$ is a homeomorphism. To prove this fix $v$ and write $d=v(\mathfrak m)>0$. For $F\in\widehat R$ choose representatives $F_N\in R$ modulo $\mathfrak m^N$. For $M\ge N$, $v(F_M-F_N)\ge Nd$. If $v(F_N)<Nd$, all subsequent values equal this value. If this never happens, the values tend to infinity. The limit defines $\widehat v(F)$, independently of representatives, and
+
+$$\min(\widehat v(F),Nd)=\min(v(F_N),Nd).$$
+
+Using representatives of sums and products proves the semivaluation axioms, including infinite values. Units have a unit representative modulo $\mathfrak m$ and value zero. Finite generators give the prescribed primary normalization. Any extension satisfies the displayed truncation identities and is therefore unique. For continuity use $q(t)=t/(1+t)$, $q(\infty)=1$. Since $d\ge1/r$ on the section, the continuous functions $q(\min(v(F_N),Nv(\mathfrak m)))$ approximate $q(\widehat v(F))$ uniformly with error at most $1/(1+N/r)$. All extended coordinates are continuous. Restriction is visibly continuous.
+
+Every proper primary ideal $J$ of $\widehat R$ is the extension of $J\cap R$. Choose $N$ with $\mathfrak m^N\widehat R\subset J$ and use the isomorphism $R/\mathfrak m^N\simeq\widehat R/\mathfrak m^N\widehat R$ to lift generators of $J$ modulo that power. The lifts and the power generate $J$. Conversely contraction of a primary extension recovers the original ideal by the same quotient argument. Corresponding ideal values agree on all points, so their uniform closures and pointwise decreasing completions are identified. The unit ideal is handled separately with value zero. No equivalence of all model categories is claimed.
+
+These are mathematical proofs using the explicit algebraic background just stated. Artifact `n1.md` contains this proof; `P12.2-paper.tex` and `argument.md` incorporate it. Rerun the document generation with `python3 make_delivery.py`; input identities are in `reports/input-hashes.json`. No inventory or successful command is used as a correctness grant.
+
+## n2: The independent numerical model cone and its exact ideal comparison
+
+Work over the reduced ring and compact primary section of n1. Admissible models are ACTUAL blowups $Y_I=\operatorname{Bl}_I\operatorname{Spec}R$ of proper primary ideals. Their Rees algebras embed in $R[t]$, so they are reduced, projective, and isomorphisms off the closed point. The tautological ideal is invertible, generated by a regular element locally, and written $I\mathcal O_Y=\mathcal O_Y(-E_I)$; $E_I$ is effective and $-E_I$ is relatively ample.
+
+An exceptional integral Cartier divisor includes its trivialization away from the closed fiber. Real Cartier divisors mean finite real combinations of such divisors. EFFECTIVITY on a nonnormal model means the cone generated by actual effective integral Cartier divisors, with this fixed trivialization, rather than nonnegative coefficients of a Weil divisor. We require $-D$ to belong to this cone. Independently, numerical nefness means that $\deg_C\mathcal O(D)\ge0$ for every proper integral curve contracted by the model, extended linearly for real coefficients. The geometric model family $\mathcal M_{\mathfrak a}$ consists of the resulting nonpositive Cartier evaluations $f_D$, including $D=0$. Its uniform closure is denoted $C_{\mathfrak a}^{\rm geom}$.
+
+### Directedness and evaluation
+
+The system is directed: $Y_{IJ}$ dominates $Y_I$ and $Y_J$. In a local ring where the product of the two pulled-back ideals is generated by a regular $f$, put $J'=f^{-1}J$ in the total quotient ring. Then $IJ'=A$. A finite expression $1=\sum x_l y_l$, $x_l\in I$, $y_l\in J'$, gives a dual basis for $I$, since $y_l I\subset A$. It is finite projective of rank one on every generic component, hence locally rank one, and similarly for $J$. These ideals contain regular elements by avoidance of the finitely many minimal primes. The universal property gives the domination maps. Pullbacks of exceptional Cartier divisors remain Cartier because generic components are preserved. On a contracted curve, the pullback degree is zero if the image is a point, or the positive generic degree times the degree on the image curve. Thus pullback preserves numerical nefness and actual effectivity.
+
+For every exceptional integral Cartier $F$ on $Y_I$ there is $N$ such that $-NE_I\le F\le NE_I$ in actual Cartier order. The coherent fractional sheaves $\mathcal O(F)+\mathcal O_Y$ and $\mathcal O(-F)+\mathcal O_Y$, modulo $\mathcal O_Y$, have support in the closed fiber. Some power of $I$ annihilates them, by Noetherianity and a finite affine cover. The resulting sheaf inclusions give these inequalities. In a fixed finite real span this makes $E_I$ an order unit, by applying these bounds to each integral basis element.
+
+For a semivaluation with support $\mathfrak p$, use the real valuation ring of $\operatorname{Frac}(R/\mathfrak p)$. Its generic point maps to the model away from the closed fiber. Properness extends this map uniquely to the valuation ring. Pull back $\mathcal O(F)$ with its generic trivialization; it is a rank-one lattice. Define $f_F$ as the negative value of a generator of this lattice. The generator is nonzero and its value finite. Units have value zero, so this is well defined. For effective $E$, it gives the positive value of a generator of $\mathcal O(-E)$. The order bounds imply $|f_F(v)|\le Nv(I)$. Evaluation is additive, positively homogeneous in the valuation, and independent of further determination. This avoids every subtraction of two infinite quantities. Extend evaluation linearly to real divisors.
+
+### The precise algebraic-geometric background
+
+The background used below is proper coherence over a Noetherian affine base; generation by global sections of sufficiently high powers of a relatively ample line bundle; openness of ampleness in a fixed finite-dimensional real Cartier space; and nef plus a positive ample perturbation is ample. The last two assertions are used on the projective closed fiber over the residue field. Off the closed point the morphism is an isomorphism, so every contracted curve lies in this fiber. The fiber can be nonreduced: integral curves and their degree tests are on its reduction, and ampleness of a line bundle is invariant under a Noetherian nilpotent thickening. Thus the same positivity test applies to this fiber. Fiber ampleness implies relative ampleness over a neighborhood; a neighborhood of the closed point of a local spectrum is the whole spectrum. These facts apply to projective reduced schemes, including nonnormal schemes and arbitrary residue characteristic, with the stated nilpotent-fiber reduction. No SNC assertion, resolution, or smooth Izumi inequality is used here.
+
+### The finite-algebra correction
+
+Set $T=H^0(Y_I,\mathcal O_Y)$. Proper coherence makes this a finite $R$-algebra. Restriction off the closed fiber embeds $R\subset T$ and identifies them away from $\mathfrak m$. Thus $T/R$ is killed by $\mathfrak m^h$ for some $h$. Choose $c_0=\mathfrak m^{h+1}$. Then $c_0T\subset\mathfrak m$, as actual elements of $R$. This uses this primary MODEL'S algebra, rather than the full normalization algebra.
+
+Let $L\le0$ be a rational exceptional Cartier divisor with $\mathcal O(L)$ relatively ample. For sufficiently divisible large $k$, $\mathcal O(kL)$ is globally generated. Its section module $F_k=H^0(Y_I,\mathcal O(kL))$ is a finite $R$-submodule of $T$, because negative effectivity gives a subsheaf of $\mathcal O_Y$. Put $J_k=c_0F_k\subset R$. It is an ideal, contains a power of $\mathfrak m$ because it is the unit ideal off the closed point, and is proper because $c_0T\subset\mathfrak m$. Its extension is $(c_0\mathcal O_Y)\mathcal O(kL)$. Global generation at the valuation-ring center implies that one of the generating coefficient sections is a unit. Therefore the exact ALL-semivaluation identity is
+
+$$-\frac1k v(J_k)=f_L(v)-\frac1k v(c_0).$$
+
+The ideal $c_0\mathcal O_Y$ need not be invertible; its finite ideal value is sufficient. For an arbitrary integral $F$, choose $N$ so that $L=F-NE_I$ is negative and relatively ample. Negativity follows from the order-unit bounds; ampleness follows by an ample twist. For one permissible $k$ the same identity yields
+
+$$f_F=-\frac1k v(J_k)+N v(I)+\frac1k v(c_0).$$
+
+This proves continuity and boundedness on the compact primary section, without assuming continuity of the lifted centers. It also proves continuity for real Cartier evaluation and verifies pullback compatibility on nonminimal supports.
+
+### Uniform comparison, with approximation from below
+
+For negative numerical-nef real $D$ and $\varepsilon>0$, choose small $\delta>0$ so that $\delta\|v(I)\|_\infty<\varepsilon/3$. The divisor $D-\delta E_I$ is relatively ample. Write $D=-\sum d_j A_j$ with $d_j\ge0$ and actual effective integral Cartier $A_j$. Round each $d_j$ upward to a sufficiently close nonnegative rational $d'_j$, and choose a rational $\delta'$ sufficiently close to $\delta$, with $\delta'>\delta/2$. Openness of ampleness and continuity in this finite span retain ampleness and make the uniform change less than $\varepsilon/3$. The rational divisor $D'=-\sum d'_j A_j-\delta'E_I$ is negative in ACTUAL rational Cartier order and satisfies $D'\le D-(\delta/2)E_I\le0$. Its divisible integral multiples really are negative integral Cartier divisors, even on a nonnormal model. Apply the preceding identity and choose $k$ so that $\|v(c_0)\|_\infty/k<\varepsilon/3$. Then
+
+$$g_k=-v(J_k)/k\le f_D,\qquad \|f_D-g_k\|_\infty<\varepsilon.$$
+
+Conversely $-t v(J)$ is the evaluation of $-tE_J$ on its actual primary blowup; the rational tautological bundle is generated and nef, and positive real multiples preserve nefness. Thus
+
+$$C_{\mathfrak a}^{\rm geom}=\overline{\{0,-t v(J):t>0,\ J\text{ proper primary}\}}^{\|\cdot\|_\infty}=C_{\mathfrak a}.$$
+
+Finite real nonnegative sums have the same closure. Approximate the finitely many scales by positive rationals; at a common denominator their sum is one scaled product ideal function. Ideal sums give finite maxima for common rational scales, and uniform approximation gives maxima for real scales and the closed cone. It follows that $C_{\mathfrak a}$ is a closed convex cone of continuous nonpositive functions, stable under finite maxima. Zero belongs separately and also by scale tending to zero. This establishes an independently geometric comparison. It does NOT identify the raw real cone with the model family before closure, and it is an approximation from BELOW, not decreasing ideal regularization.
+
+For the exact repository conventions, let $P_{\mathfrak a}$ be the finite nonnegative real cone of positive ideal gauges $v(I)$ with $I$ containing a boundary power, including $I=R$. In a local ring such an ideal is unit or proper primary. Then the negative raw cone $Q_{\mathfrak a}=-P_{\mathfrak a}$ has uniform closure exactly $C_{\mathfrak a}$. In fact $Q_{\mathfrak a}\subset\mathcal M_{\mathfrak a}$: use the directed common primary model for the finitely many generators and add their pulled-back negative nef divisors. Reverse raw equality is not asserted. The separate raw normalization-ideal convention requires continuous descent and membership in the analogous RAW positive cone on each normal component; no uniform closure is built into that convention. Write $N_R$ for its negative. Extension of each downstairs ideal proves $Q_R\subset N_R$, whereas an inclusion $N_R\subset C_R$ in general requires n4's conductor saturation test and is not presumed. The n5 example proves $Q_R\subsetneq N_R$ there, with its particular separating profile still lying in $C_R$. We do not assert that all of $C_R$ lies in the RAW normalization cone.
+
+Define $G_{\mathfrak a}$ to be the nonbottom infima of nonempty decreasing nets in $C_{\mathfrak a}$; retain the identically minus-infinity function as a separate adjoined bottom, denoted $\overline G_{\mathfrak a}$. This is a specified completion accompanying the independent model positivity theorem, not a theorem about arbitrary singular weak Weil divisors. Gauge change is exactly
+
+$$f_{D,\mathfrak b}(H_{\mathfrak a,\mathfrak b}(v))=f_{D,\mathfrak a}(v)/v(\mathfrak b).$$
+
+Bounded positive denominators preserve uniform closure and decreasing nets. Hence $C$, $G$, and its bottom are intrinsic homogeneous classes on the ray boundary. The bottom-adjoined class is stable under nonnegative scaling, addition, and finite maxima: use the product directed set for two decreasing representing nets and pass to their pointwise sums or maxima in $C$. The infimum of the sums is the sum of the infima, and the infimum of these decreasing maxima is the maximum of the two infima, also when an infimum is minus infinity. Scaling by zero is defined to give zero. The nonbottom subclass can have a sum equal to bottom on a reducible germ; bottom is therefore retained rather than silently deleted from this algebra. Completion invariance of these classes follows from n1 and the proved ideal comparison, without claiming model-category equivalence.
+
+On a local normalization branch, the blowup of the extended primary ideal maps to the downstairs blowup. The degree argument already given preserves positivity, and evaluation is exactly restriction. Thus pullback embeds $C_R$ in $C_S$ and $\overline G_R$ in $\overline G_S$; surjectivity of the boundary quotient makes it injective and uniformly isometric for continuous functions. Every image function is fiber constant, including on the infinite-conductor stratum. The reverse rule is addressed in n4, not inferred from topological descent.
+
+This proof is reconstructed here; the supplied model proposals are not supports. Artifact `n2.md` gives the full argument, incorporated in the paper. Rerun `python3 make_delivery.py`. The algebraic-geometric hypotheses and source exclusions are recorded in `source-application-ledger.md`.
+
+## n3: Recovery of the full smooth BFJ formal class on every semivaluation
+
+This note uses the intrinsic completion and numerical comparison of n1 and n2. Its source input is the frozen published Boucksom--Favre--Jonsson paper, Valuations and Plurisubharmonic Singularities, Publ. RIMS 44 (2008), 449--494. The actual setting of Sections 1--4 is a smooth closed point of an affine variety over an algebraically closed characteristic-zero field. We apply those published immediate theorem/proof units at precisely that setting, localizing the coordinate ring at the marked point. In particular the complex smooth germ is included. We do not assert that this source proves a singular, nonnormal, or positive-characteristic version. Its historical references for resolution, Izumi, and multiplier ideals are dependencies of the published theorem, not editions independently inspected here.
+
+The defining source data are Definition 2.1 (weakly closed nef Weil cone generated by ideal divisors), Definition 2.5 (finite strong-continuous function on the quasimonomial locus whose divisorial Weil divisor is nef), and Definition 2.8 (canonical extension by the infimum of all retractions). Proposition 3.11 supplies the UNIQUE continuous convex extension on every CLOSED dual-complex face for every nef Weil divisor. Proposition 3.14 gives, for each quasimonomial $v$, a constant $C_v>0$ with $C_v g(v_{\mathfrak m})\le g(v)\le g(v_{\mathfrak m})$ and implies that a nonzero formal function has $g(v_{\mathfrak m})<0$. Proposition 2.7 and Definition 2.8 extend the upper bound to every semivaluation. These are the published theorems being applied, not consequences of the supplied proposal labels.
+
+### The primary dictionary and the zero correction
+
+For a proper primary $I$, its ideal divisor on a smooth principalization is negative, relatively generated, and numerical nef; Proposition 2.2 identifies this with the source nef cone. Proposition 1.14 identifies its continuous Cartier evaluation with $-v(I)$. This is the canonical all-semivaluation extension: on a principalization, the ideal is an exceptional monomial with unit factor, and both its value at $v$ and at every sufficiently high retraction are the same linear combination of exceptional values. Proposition 2.7 then makes the infimum of all retractions this actual ideal value. Thus the generators used in n2 are BFJ formal psh functions with their correct extension, including points with nonzero support. Zero is separately formal.
+
+The literal proper-primary wording of Proposition 3.13 requires correction at zero. The complete proof constructs
+
+$$\begin{aligned} A_j&=\mathcal L^2(2^j g)+\widehat{\mathfrak m}^{4^j},\\ g_j&=-2^{-j}v(A_j)=\max\{h_j,-2^j\},\\ h_j&=2^{-j}\log|\mathcal L^2(2^j g)|. \end{aligned}$$
+
+Theorems 3.9 and 3.10 give the facewise multiplier estimate and subadditivity, so $h_j$ and $g_j$ decrease to $g$ on the quasimonomial locus. If $g=0$, Definition 3.6 gives $\mathcal L^2(0)=\widehat R$, so every $A_j$ is UNIT. A decreasing family of strictly negative proper-primary functions cannot have zero limit. We retain zero separately.
+
+If $g\ne0$, write $c=g(v_{\mathfrak m})<0$. Theorem 3.9 evaluated at the order valuation gives $h_j(v_{\mathfrak m})\le c+A(v_{\mathfrak m})/2^j<0$ eventually. Thus the multiplier ideal is proper for all sufficiently late $j$; adding the displayed boundary power makes $A_j$ proper primary. Discard the finite initial unit terms. For an arbitrary non-quasimonomial $v$ and any real $t>g(v)$, Definition 2.8 supplies a retraction with $g(r_\pi(v))<t$. For sufficiently late $j$, $g_j(r_\pi(v))<t$, while $g(v)\le g_j(v)\le g_j(r_\pi(v))$. Hence the same sequence decreases to $g$ on ALL semivaluations, even if $g(v)=-\infty$. By n1 its completed primary ideals contract exactly to primary ideals in the uncompleted local ring. This is the repaired, source-applied approximation theorem.
+
+### The continuous class is exactly the uniform geometric class
+
+Every continuous BFJ formal function lies in $C_{\mathfrak m}$: use the repaired sequence and Dini's theorem on the compact section; zero is already included. Conversely let $h_l=-t_l v(I_l)$ converge uniformly to a finite continuous $h$, allowing the zero ideal model. Their divisorial coefficients converge to a finite Weil divisor $W$. Compatibility of its traces follows from the finite-coordinate pushforward relations; the source's weak closed nef cone makes $W$ nef. Proposition 3.11 supplies the canonical formal function $H_W$. On each closed simplex, the uniform limit $h$ agrees with $H_W$ on the dense rational divisorial points, hence everywhere on that simplex by continuity. Moreover $h_l(v)=\inf_\pi h_l(r_\pi(v))$. Uniform convergence allows passage through this infimum: infima of two families differing by at most $\varepsilon$ differ by at most $\varepsilon$. Thus
+
+$$h(v)=\inf_\pi h(r_\pi(v))=H_W(v).$$
+
+This equality is on the entire space, rather than only on its divisorial locus. It proves $C_{\mathfrak m}=\operatorname{BFJ}_{\rm continuous}$; bounded upper semicontinuous functions have not been renamed continuous.
+
+### Nontrivial decreasing nets recover the FULL formal class
+
+Let $(h_i)$ be a decreasing net in this continuous class, and let $g=\inf_i h_i$ be nonbottom. If $\inf_i h_i(v_{\mathfrak m})=-\infty$, the all-semivaluation upper bound would force $g$ to be bottom. Hence its order-valuation value is finite. The published Izumi bound now gives finite $g(v)$ at every quasimonomial $v$; the corresponding divisorial coefficients have finite limits. They give a weak nef Weil limit $W$ as above. Proposition 3.11 supplies its finite continuous convex face functions $H_W$.
+
+On each rational closed simplex, $g$ is finite and convex: pass the convexity inequality for $h_i$ to the decreasing limit. A finite convex function is continuous on the relative interior of its domain. For a point of a face, take the MINIMAL face containing it. Its relative interior contains a dense set of rational divisorial points. On those points $g=H_W$, so continuity identifies them on that relative interior. Doing this separately for every lower-dimensional face includes every boundary point. This step does not incorrectly infer boundary continuity from interior convexity alone; boundary continuity is supplied by the identification with the published $H_W$.
+
+Finally the two infima commute, including extended-real values:
+
+$$g(v)=\inf_i\inf_\pi h_i(r_\pi(v))=\inf_\pi\inf_i h_i(r_\pi(v))=\inf_\pi g(r_\pi(v)).$$
+
+This is exactly Definition 2.8. Thus $g=H_W$ everywhere, including semivaluations with nonzero support. Conversely the repaired Proposition 3.13 gives decreasing continuous approximants to every nonzero formal function, and zero has the constant zero net. It follows that
+
+$$G_{\mathfrak m}=\operatorname{BFJ}_{\rm full},\qquad \overline G_{\mathfrak m}=\operatorname{BFJ}_{\rm full}\cup\{-\infty\}.$$
+
+The adjoined bottom is actually obtainable as the decreasing sequence $-N v(\mathfrak m)$, but is excluded from the ordinary formal class, whose values on the quasimonomial locus are finite. At another primary gauge divide by the bounded positive gauge value as in n2; this proves the exact specialization there, not an assertion that every rescaled face is affine in the old coordinates.
+
+### The smooth one-dimensional unit test
+
+For a smooth local curve the ring is a DVR, with parameter $z$, and $\mathfrak a=(z^d)$. Every section consists of the single valuation $\operatorname{ord}_z/d$. The blowup of $(z^N)$ is the identity, its closed-point divisor is Cartier, and there are no contracted integral curves. Negative real closed-point divisors give exactly all finite nonpositive values. Their decreasing completion adds the value minus infinity. Thus the smooth class is all finite nonpositive constants, with a separately adjoined bottom; this is the elementary one-dimensional formal interpretation. We do not silently apply the higher-dimensional exceptional-model discussion to it.
+
+The essential immediate source units were displayed completely: frozen text LF 340--355, 390--835, 895--1021, 1022--1234, and 1235--1410, with the Settings and Sections 1.2--1.7 context. Printed pages 468--479 were also extracted directly from the PDF, and the definitions and approximation units re-read. PDF SHA-256 is `26d2d8dd2546efd55a148b4ff233892e88cfeab6c34de7fa613a7ad2e543d7f8`; frozen text SHA-256 is `9a72054bc227fca9231feb65ec631e6b4a91e68c10307d38fa5c23d5965de93f`. The source ledger distinguishes theorem application from independent proof of historical dependencies. BdFFU Proposition 2.4(b) is not used. Files `n3.md`, `source-application-ledger.md`, and `reports/bfj-pages-468-479.txt` retain the proof and provenance; rerun `python3 inspect_inputs.py` for the extraction, and `python3 make_delivery.py` for the paper.
+
+## n4: A general continuous conductor image theorem by saturation
+
+Let $R\subset S$, $V$, $W$, $\rho$, and $Z=\{w:w(\mathfrak c)=\infty\}$ be as in n1. Use the geometric continuous classes of n2 on $R$ and on the finitely many local normalization branches, with the common gauge $\mathfrak aS$. Let $C_S$ denote the finite product of those branch classes. This is equivalently the uniform closure of finite real negative ideal combinations on the semilocal $S$, where the ideals contain a power of $\mathfrak aS$ and may be unit on some branches. To check the equivalence, an ideal containing such a power is determined in the Artinian quotient $S/\mathfrak a^N S$, whose product decomposition glues the ideals at the finitely many centers. Extend a branch ideal by units at the other centers and use this quotient; arbitrary finite tuples are then obtained by sums, followed by uniform limits.
+
+Take any $h\in C_S$, and put $A=-h\ge0$, a finite continuous function on $W$. No fiber-constancy hypothesis is imposed. For each positive integer $k$ define the DOWNSTAIRS saturation ideal
+
+$$I_k(A)=\{r\in R:\ w(r)\ge kA(w)\text{ for every }w\in W\},\qquad B_k(w)=\frac1k w(I_k(A)).$$
+
+These definitions use ordinary ideal membership inequalities, not an assertion that topological descent preserves positivity. The ideals are finitely generated because $R$ is Noetherian. Each contains a boundary power: if $M=\|A\|_\infty$, every element of $\mathfrak a^{\lceil kM\rceil+1}$ has value at least $kA$ on $W$. Therefore $I_k$ is either unit or proper primary and $B_k$ is finite continuous. Every generator satisfies the defining inequalities, so $B_k\ge A$. Ideal multiplication gives $I_kI_l\subset I_{k+l}$, whence $B_{2k}\le B_k$. Thus $B_{2^j}$ decreases to some finite or nonnegative extended limit; it is in fact finite above, being bounded by $B_1$.
+
+### Approximation outside the closed conductor stratum
+
+For every $\varepsilon>0$ there is an $S$-ideal $J$ containing a boundary power and an integer $l>0$ such that
+
+$$A\le w(J)/l\le A+\varepsilon\quad\text{on }W.$$
+
+Indeed approximate $h$ uniformly by finite real negative ideal combinations, replace their scales by rational scales with common denominator, and multiply the resulting product ideal by a small rational power of $\mathfrak aS$ (after another common denominator) to move it below $h$. This shifts the positive gauge upward by an arbitrarily small constant, since the gauge value is one. The same argument works with componentwise unit ideals.
+
+Let $q=\lceil k/l\rceil$. The $R$-ideal $\mathfrak cJ^q\subset R$ is contained in $I_k(A)$, because all its elements have value at least $q w(J)\ge kA(w)$. At a point $w$ with finite conductor value this implies
+
+$$A(w)\le B_k(w)\le\frac qk w(J)+\frac1k w(\mathfrak c).$$
+
+The value of the product ideal is the sum of the ideal values: choose minimizing generators of the conductor and of $J^q$ and multiply them. This works with all semivaluation supports. Sending $k$ to infinity and then $\varepsilon$ to zero proves $B_{2^j}(w)\longrightarrow A(w)$ on $W\setminus Z$. This is a POINTWISE finite-conductor correction, not a uniform use of $w(\mathfrak c)/k$.
+
+### Exact image criterion
+
+The following three conditions are equivalent:
+
+(i) $h$ is the pullback of a member of the downstairs geometric continuous class $C_R$.
+
+(ii) $B_{2^j}(w)\longrightarrow A(w)$ at every point of the CLOSED set $Z$.
+
+(iii) $B_{2^j}\longrightarrow A$ uniformly on all of $W$.
+
+To prove (ii) implies (iii), the preceding finite-conductor argument gives convergence at every other point. The continuous nonnegative errors $B_{2^j}-A$ decrease to zero on the compact space $W$. For any $\varepsilon>0$ the open sets where these errors are less than $\varepsilon$ form an increasing cover; compactness gives one index covering all of $W$. This is Dini's argument and proves uniform convergence. Each $-B_{2^j}$ is the pullback of a unit-or-primary model function downstairs. Since restriction is a surjective compact quotient, its pullback is an isometry on continuous functions. Uniform convergence upstairs therefore gives uniform convergence of these downstairs functions, establishing (i). Fiber constancy of $h$ follows as part of this conclusion rather than being presumed sufficient.
+
+For (i) implies (iii), approximate its downstairs function from below by $-v(K)/l$, for a downstairs unit-or-primary ideal $K$ and integer $l$, with uniform error less than $\varepsilon$. This uses exactly the same rational-product and boundary-shift argument, now in $C_R$. Then $w(K)\ge lA$ everywhere, and $K^{\lceil k/l\rceil}\subset I_k(A)$. Hence
+
+$$A\le B_k\le\frac{\lceil k/l\rceil}{k}w(K)\le A+\varepsilon+\frac1k\|w(K)\|_\infty.$$
+
+The last bound can instead include an arbitrarily small extra approximation error without changing the argument. It proves uniform convergence for all $k$, and hence (iii). Condition (iii) trivially implies (ii). In particular the DYADIC saturation sequence is canonical and is sufficient to test the image for every finite continuous normalization-side geometric function.
+
+This is a genuine general conductor image theorem at the continuous level: the only undecided test points lie on the correct closed conductor stratum. It is stronger than a topological fiber-constancy statement, and it handles nonprimary conductors with infinite values without discarding them. It does not prove that condition (ii) is automatic for every fiber-constant $h\in C_S$. It supplies a necessary and sufficient saturation condition, whose ideals are defined explicitly, rather than equating raw cones. When $Z$ is empty the condition is vacuous, and the continuous image is all of $C_S$; in particular this gives isolated finite-birational continuous descent. No isolated hypothesis was imposed on the theorem itself.
+
+The saturation condition has an exact conductor-quotient form. Put $\overline I_k=(I_k+\mathfrak c)/\mathfrak c\subset R/\mathfrak c$. For $w\in Z$, $w(I_k)=\overline w(\overline I_k)$, where $\overline w$ is the restriction through $S/\mathfrak c$. It is finite, since $I_k$ contains a boundary power. Condition (ii) is therefore precisely
+
+$$\inf_j 2^{-j}\overline w(\overline I_{2^j})=A(w)\quad(w\in Z).$$
+
+The images $\overline I_k$ retain the global saturation constraints; they are not replaced without proof by ideals defined using only conductor-quotient valuations. This identifies the exact possible residual obstruction. The construction is gauge invariant: extend $A$ homogeneously to the centered cone and each defining inequality scales on both sides, so $I_k$ is unchanged under a primary change; its values and the error functions acquire the same positive denominator. Uniform convergence and the closed-stratum test are preserved.
+
+There is no effective finite algorithm asserted for computing these universally defined saturation ideals, and no exhaustive numerical test is used in this proof. For the unbounded class a nonbottom decreasing normalization-side limit need not have finite continuous $A$; this proof does not apply Dini to it. An approximation-compatible conductor criterion for that completed image remains unresolved. This limitation is part of the theorem's scope.
+
+Artifact `n4.md` contains the proof, incorporated in `P12.2-paper.tex` and `argument.md`; rerun `python3 make_delivery.py`. Local supports are n1 and n2. No supplied conductor theorem or historical annotation is a correctness support.
+
+## n5: A non-isolated cusp surface: strict raw-cone separation and uniform geometric descent
+
+Let $k$ be a characteristic-zero field and consider the excellent local domain
+
+$$R=k[t^2,t^3,z]_{(t^2,t^3,z)}\subset S=k[t,z]_{(t,z)},\qquad \mathfrak m=(t^2,t^3,z).$$
+
+These rings and all functions in this note are explicit. The normalization is $S$: $t$ is integral, $S$ is finite with module generators $1,t$, the fraction fields are equal, and $S$ is normal. Any element of the common fraction field integral over $R$ is integral over $S$ and hence lies in $S$. Localizing the finite algebra has its unique maximal ideal over $\mathfrak m$, giving the indicated local $S$. The conductor is $\mathfrak c=t^2S$. Polynomially, the image of $R$ consists of polynomials with zero coefficient of $t^1$, with coefficients in $k[z]$. Modulo $t^2S$ it is precisely $k[z]$. In the quotient $S/t^2S$, multiplication by $t$ shows that an element of $R$ belongs to the conductor exactly when its constant-in-$t$ coefficient vanishes. This proves the conductor formula, including after localization. Its support is the positive-dimensional $z$-axis.
+
+The quotient rings are $R/\mathfrak c=k[z]_{(z)}$ and $S/\mathfrak c=k[z,t]_{(z,t)}/(t^2)$. Their semivaluations kill the nilpotent $t$ and are identical. Thus n1 gives singleton normalization fibers both off and on the conductor stratum: $\rho$ is a boundary homeomorphism despite the nonnormality. On the $\mathfrak m$-section write $s=w(t)$ and $u=w(z)$. They are positive, may be infinite separately, and
+
+$$\min(2s,u)=1.$$
+
+The conductor stratum is $s=\infty$, $u=1$. It is not permissible to treat $w(\mathfrak c)/k=2s/k$ as a uniformly vanishing error. Indeed the finite-conductor monomial points $s=N$, $u=1$ converge to this stratum; their restrictions converge on every localized polynomial. This also explicitly shows that the finite-value complement need not be closed.
+
+Take the normalization primary ideal $J=(b,t^2)$ with $b=z+t$, and its positive gauge
+
+$$A(w)=w(J)=\min(w(b),2s).$$
+
+It is continuous and finite on $W$, and is fiber constant since all fibers are singletons. Its negative belongs to the negative raw normalization-ideal convention, and to the geometric continuous class upstairs.
+
+### Explicit downstairs primary approximants
+
+For each integer $k\ge1$ put
+
+$$F_k=b^k(z-kt),\quad G_k=t^2b^k,\quad H_k=t^{2k+2},\qquad K_k=(F_k,G_k,H_k)\subset R.$$
+
+The coefficient of $t^1$ in $F_k$ is $kz^k-kz^k=0$, so it really belongs to $R$; every higher $t$-power belongs to $k[t^2,t^3,z]$. The other two generators are in the conductor. They are proper. Their common zero in $S$ is only the origin: $H_k$ forces $t=0$, and then $F_k=z^{k+1}$. Integral lying over therefore proves that $K_k$ is downstairs primary, with no claim that an uncorrected section module is already an ideal of $R$.
+
+Every generator has value at least $kA$: $w(F_k)=kw(b)+w(z-kt)$, $w(G_k)=kw(b)+2s$, and $w(H_k)=(k+1)2s$. These expressions allow infinity, and all summands are nonnegative. We prove the uniform upper bound
+
+$$kA(w)\le w(K_k)\le kA(w)+2\qquad(w\in W).$$
+
+If $A=2s\le w(b)$, then $s$ is finite and positive. Since $2s>s$, the ultrametric equality for distinct values forces $u=s$, otherwise $w(b)=\min(s,u)\le s$. Normalization gives $s=u=1$. The generator $H_k$ then supplies the upper bound $kA+2$.
+
+Otherwise use $A=w(b)$. If $s\le u$, normalization gives $s\le1$, so $G_k$ has value $kA+2s\le kA+2$. If $s>u$, then $u=1$, $w(b)=u$, and $w(z-kt)=u$, since the integer $k$ is a nonzero unit and the two summands have distinct values. Thus $F_k$ has value $kA+1$. This includes $s=\infty$. The case $u=\infty$ falls in $s\le u$. Every semivaluation, including arbitrary cancellation when $s=u$ and nonzero prime support, is covered by these cases.
+
+Consequently
+
+$$\left\|\frac1k v(K_k)\circ\rho-A\right\|_\infty\le\frac2k,$$
+
+and with the psh sign, $-v(K_k)\circ\rho/k$ converges uniformly from below to $-A$. By n2, $-A\in\rho^*C_R$. The sequence is not asserted decreasing; it supplies continuous geometric descent with a numerical bound on the ENTIRE boundary. It also verifies the image condition of n4, since the saturation ideals contain $K_k$ and have values between $kA$ and $kA+2$.
+
+### Separation from the whole finite real raw ideal cone
+
+This phenomenon is stronger than a failure to represent the profile by a single downstairs ideal. Let $w_\infty$ be the conductor valuation, and let $w_*$ be the valuation monomial in coordinates $(t,b)$ with $w_*(t)=1$, $w_*(b)=2$. Since $z=b-t$, $w_*(z)=1$ and it is $\mathfrak m$-normalized. Then
+
+$$A(w_\infty)=1,\qquad A(w_*)=2.$$
+
+For EVERY proper primary ideal $I\subset R$, put $d=w_\infty(I)$. The boundary-power inclusion makes $d$ a finite positive integer. Choose $f\in I$ whose restriction to $t=0$ has order exactly $d$ in $z$. In its formal Taylor expansion in $(t,z)$ there is no coefficient of $t^1$ at any $z$-degree. To see this also for localized elements, both numerator and denominator have zero $t$-linear coefficient, and the denominator is a unit, so division preserves vanishing of the derivative with respect to $t$ at $t=0$.
+
+The homogeneous total-degree-$d$ part $P_d(t,z)$ therefore has nonzero $z^d$ coefficient and zero $t z^{d-1}$ coefficient. After substituting $z=b-t$, it CANNOT be a scalar multiple of $b^d$: such a multiple, rewritten in $(t,z)$, has nonzero $t z^{d-1}$ coefficient $d$ times its $z^d$ coefficient, in characteristic zero. Thus $P_d(t,b-t)$ has a nonzero monomial $t^{d-j}b^j$ with $j<d$. Its $w_*$-value is $d+j\le2d-1$. Terms of other total degrees cannot cancel this specific monomial, because the substitution preserves total degree. The full expansion of $f$ hence has value at most $2d-1$. We have proved
+
+$$w_*(I)<2w_\infty(I).$$
+
+A unit ideal has both values zero. For every nonzero finite real positive combination $P=\sum_l c_l v(I_l)$ of unit-or-primary gauges, $c_l\ge0$, at least one proper term is present and therefore $P(w_*)<2P(w_\infty)$. Our $A$ has equality and nonzero axis value, so it is outside this ENTIRE raw finite cone. Equivalently $-A\notin Q_R$, even allowing arbitrary positive real scales and finite sums. Yet it descends continuously, belongs to the raw normalization-ideal class, and is in the uniform geometric closure. This proves strict raw normalization/downstairs separation within the original excellent hypotheses, without claiming failure of completed or continuous geometric descent.
+
+The proof uses no sampled inequality as a proof of the valuation statement. The own exact checker `check_exact.py` returned PASS with 24 coefficient checks, 1896 rational case samples, 100 integer strictness samples, and no failures. The coefficient checks use $k=1,\ldots,24$; the case grid uses the seven positive rational preweights $1/8,1/4,1/2,1,2,3,8$, normalizes by $\min(2s,u)$, and includes both infinite-coordinate endpoints and five cancellation choices when $s=u$. For each tested $k$ the largest sample error is $2/k$. Counts and bounds are retained in `reports/exact-checks.json`. These are exhaustive results for that finite grid, not enumeration of all semivaluations or a proof of the general statement. The algebraic and all-semivaluation proofs above are authoritative drafts. Rerun `python3 check_exact.py` and `python3 make_delivery.py`. Artifact `n5.md` contains the full proof. Its mathematical supports are n1, n2, and n4.
+
+## n6: Exact original-scope decision and remaining unbounded conductor gate
+
+The original task, including its entire family dossier, asks for an independently geometric singular/nonnormal excellent-germ psh class, a substantive comparison with the exact existing ideal conventions, full smooth specialization, and its primary-gauge and normalization/conductor meaning. Envelopes, products, energy, and geometric finite-map traces are separate P12.3--P12.6 targets and are not added to this paper's claims.
+
+The local results proved in n1--n5 supply the following exact-scope progress. Actual primary blowups, negative effective real Cartier divisors in actual Cartier order, and nonnegative degrees on contracted curves define a resolution-free independent numerical model cone for every reduced excellent local ring of positive dimension. Its continuous uniform closure is exactly the uniform closure of the sign-reversed finite real primary ideal cone, with approximation from below and the explicit intermediate-algebra correction. Gauge and completion invariance hold on all semivaluations. Its nonbottom decreasing completion recovers the actual FULL BFJ formal class at the published smooth algebraically closed characteristic-zero hypotheses, not merely a bounded class; zero and the separately adjoined bottom are accounted for. Normalization pullback is geometric and injective, and the general continuous image has the exact closed-conductor saturation criterion in n4. The cusp surface in n5 gives a non-isolated conductor application and proves strict separation from the whole raw finite real cone while retaining uniform geometric descent.
+
+The singular decreasing class in n2 is meaningful only together with that independent numerical positivity and its comparison theorem. It is not asserted to be every weak nef Weil limit, an analytic radial psh class, or a universal CLD class. In particular the finite-link curve calculations and raw normalization-ideal convention are not silently relabeled the same object as a smooth formal cone. The n5 separation explicitly rules out equality of the raw cones before closure.
+
+One exact original gate remains: characterize the normalization image of the UNBOUNDED completed class for arbitrary non-isolated conductor, including a proof of sufficiency for the appropriate conductor-compatible approximation condition or a counterexample to a proposed universal image assertion. The continuous saturation test uses bounded continuous errors and Dini; these hypotheses are absent for a general unbounded limit. Fiber constancy alone has not been proved sufficient for either all continuous upstairs geometric functions or all completed ones. The proof does not replace the globally saturated conductor-quotient ideals by quotient-only saturations. No failure of fiber-constant unbounded descent has been proved either. These are specific unresolved mathematical premises, rather than problems settled by an inventory or hash check. Thus ORIGINAL P12.2 REMAINS OPEN and candidate is FALSE.
+
+The proposed ROOT312/314 completion and smooth routes were reconstructed, with an explicit effective-presentation rational approximation on nonnormal models and the all-semivaluation infimum argument. Their labels are unreviewed proposal provenance, not registered supports. Native232 paper/argument/final and ROOT311 are not used as theorem grants or proof premises. The chapter70 body and the complete relevant normalized-boundary and finite-transfer fragments were read as convention DATA; none of their declared historical correctness receipts or source titles grants a theorem here. Other recursive fragments, native232 full bodies, and BdFFU are not used for any theorem application; their bound hashes are inventoried only, without a claim of mathematical body review. The retained correction annotation was read completely and is applied by n1's own proof: only the infinite-conductor stratum is closed; the finite complement is open.
+
+Fresh deliverables are `P12.2-paper.tex`, its built PDF, `argument.md`, `source-application-ledger.md`, `scope-and-gaps.md`, `whole-proof-coverage.md`, `native-notes.json`, and the own rerunnable scripts and reports. `reports/input-hashes.json` records the bound input hashes; all 24 bound mathematical/primary file digests matched their declared values, with 28 manifest records including the binding and task files. `reports/own-hashes.json` records fresh artifact hashes, excluding the manifest itself. The own exact checks returned PASS with the finite evidence stated in n5. The initial two no-shell-escape PDF compilation processes both returned zero and produced a PDF; layout warnings were preserved and corrected in a subsequent recorded build. No mathematical acceptance follows. The commands are `python3 inspect_inputs.py`, `python3 check_exact.py`, `python3 make_delivery.py`, and `python3 build_and_report.py`. All supplied scripts/builders are excluded. Compilation uses explicit no-shell-escape and no network. No agents or external providers are called. No heavy computation was required; no operator-provided supervised compute facility was supplied or invoked. A display-truncation warning was retained in the execution report and the affected source chunk was re-read completely. Successful checks or builds are execution evidence, not mathematical acceptance or original closure.

@@ -1,0 +1,5 @@
+UNREVIEWED native234 continuation321:15-page P12.2 paper.
+
+Original P12.2 remains OPEN;10/42 solved,32OPEN,88accepted. Entire authoritative TeX and allsix actualFINAL notes, source/scope/coverage were ROOT-read;43own and24frozen bindings verified. No independent mathematical/source PASS. Saved native-notes.json is an expanded artifact distinct from actualFINAL. Author builds/checks were not ROOT executions.
+
+The paper proposes full smooth BFJ recovery with zero/unit/bottom corrections, general continuous conductor saturation criterion, and a nonisolated cusp-surface separation of the ENTIRE finite REAL raw ideal cone from its uniform closure. Its exact original gap was general unbounded conductor descent. New ROOT317/319/320 proposals are separate UNREVIEWED data for native236 full reconstruction; they do not retrospectively upgrade this paper. Full primary PDF/text/images remain LOCALONLY. Published theorem applications are at exact hypotheses; historical proof-chain inspection is not claimed. Protected P16.4 editor stays open unchanged.
