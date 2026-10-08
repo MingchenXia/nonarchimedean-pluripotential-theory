@@ -3,6 +3,60 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest geometric-norm cloud integration checkpoint, 8 October 2026
+
+The validated current cloud edition has 4,616 pages and adds Sections
+4.6.1--4.6.2. The [integration audit](Temkin_Zutler_geometric_norms_staged_integration_audit_20261008.md)
+keeps the complete-base category, the projective tensor seminorm and separated
+completion, the greatest dominated spectral direction, and the distinction
+between actual multiplicativity, power multiplicativity and spectral
+multiplicativity. Exact examples cover positive-norm nilpotents, a two-field
+product, different cubic conjugates and a universal Gauss point with a second
+evaluation lift. The first example's t-adic absolute value is explicit; the
+cubic example uses w(3)=1 separately from the chapter's v=-log|.|.
+
+The [source audit](Temkin_Zutler_geometric_norms_source_review_20261008.md)
+records 64 actually read source pages and 33 individually displayed matching
+images: TZ v1 complete, the Poineau published file complete, and Temkin v3
+physical pages 36--51 only. Direct diagnostics exclude the printed finite
+non-Galois criteria and ordinary-completion test from the book's norm tests.
+Strict Frobenius margins, split type-IV tensor bounds, stable type-II/III
+hypotheses and outstanding dependency proof qualifications remain explicit.
+The source's infinite-p-rank testing question remains an attributed direction.
+A 133-member source archive is byte-verified, with no export reading credit.
+
+The final scoped book gate covers 26 unique selected pages, including all
+new content, adjacent seams, new contents entries, the complete index and
+both relevant bibliography entries. Twenty-two pages in eleven views were
+freshly read and displayed; four pages in two views were reused only after
+exact complete-PDF-text and rendered-RGB-pixel identity. The earlier one-overflow
+v1 and six-page partial v2 reading remain frozen, with the final v3 ledger
+controlling the clarified notation and zero remaining repairs. This is not a
+new whole-book reread. The existing ordered 4 October pass remains the last
+complete whole-book reading.
+
+Validation has zero errors, missing characters, overfull boxes, unresolved
+references/citations, rerun requests and invalid internal links. The 954
+inherited underfull diagnostics remain recorded. All 13,344 prior label
+values, 581 citation labels and 2,743 prior contents-title/hierarchy entries
+are preserved; two subsection labels, one cited source and five index entries
+are added. The post-render reference and 42-atom/12-problem inventory gates
+pass. The legacy writing-audit command is unavailable; direct semantic,
+normalization, delimiter, source and rendered checks provide the recorded
+replacement. No unavailable invocation or independent receipt is claimed.
+
+The earlier source-only and integration entries below record their historical
+book baselines; this 4,616-page entry controls the current edition. Their
+source-status warnings remain controlling. General BJ22 critical homogeneous
+Siu division and general envelopes remain OPEN, LPWZ density UNVERIFIED, and
+all 42 canonical atoms in twelve formal problems keep their statuses. The
+native catalogue source/PDF are byte-preserved. GitHub publication has not
+occurred: automatic review's earlier full Chapter 68 upload rejection still
+awaits the already requested repository-ownership confirmation, and the
+blocked upload has not been retried through another route. Continue cloud
+research and read-only author-update checks; next source is the complete
+39-page Ben-Bassat arXiv:2610.01694v1 on harmonic quiver norms.
+
 ## Latest source-only parabolic comparison audit, 8 October 2026
 
 The active book remains the validated 4,612-page Ricci-entropy edition below.

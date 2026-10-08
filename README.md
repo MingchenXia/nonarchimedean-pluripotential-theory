@@ -9,8 +9,21 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current cloud research-integration build has **4,612 pages**; its
+The current cloud research-integration build has **4,616 pages**; its
 GitHub publication remains pending. The checked
+[geometric-norm account](manuscript/editorial/Temkin_Zutler_geometric_norms_staged_integration_audit_20261008.md)
+adds Sections 4.6.1--4.6.2: tensor and spectral norm distinctions, exact
+inseparable and separable finite examples, a distinct-conjugate calculation,
+and a universal point whose fiber contains more than one point. The t-adic
+absolute value and normalized cubic valuation have explicit conventions.
+The source audit covers 64 actual pages in 33 individually displayed images:
+two complete files and one 16-page selection from a 60-page file. The final
+scoped book review covers 26 pages: 22 fresh pages in eleven views and four
+pages in two reused views, each checked for exact complete-text and rendered-pixel
+identity. All 13,344 prior label values and 581 citation labels are preserved;
+one cited reference and five index terms are added. No new whole-book reading,
+original theorem, independent-model receipt or canonical status is claimed.
+The earlier checked
 [Ricci-entropy comparison](manuscript/editorial/GSS_Ricci_entropy_staged_integration_audit_20261008.md)
 adds H.26 and L.88. It retains the conditional smooth-resolution hypotheses
 for the logarithmic negative-Ricci criterion, distinguishes reference measures
