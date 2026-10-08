@@ -1,0 +1,1104 @@
+# Original scope and the precise classification
+
+The complete original dossier in `original-task.json` was read,
+including its 44,807-character controlling family, its atomic statements
+and its completion criteria. Its P05.1 target is envelope regularity,
+with literal integral slopes and rational constants separated from their
+finite real scalar extension. P05.2 and P05.5 have independent contact
+and realization requirements. Missing book-local `input` bodies,
+catalogue claims, a withdrawn one-vertex note, and an in-preparation
+sequel are not correctness premises here.
+
+The sole BMPS primary version is arXiv:2603.08664v1, submitted 9 March
+2026, manuscript dated 10 March 2026. Definition 2.2 explicitly makes a
+complex finite, with every closed face retained; Definition 2.4 puts its
+support in one $N_\mathbb R$; Definition 2.27 requires a strictly
+positive top cycle. The original dossier says it uses this version
+throughout. It gives no alternative definition by integral-affine
+atlases and no atlas transition data. Its mentions of bounded skeletons
+and analytic compactifications concern different objects. Thus the
+*defined BMPS category* is finite and globally embedded. If the original
+compact residual was intended to quantify a broader charted category,
+that intention does not provide its missing definition or compatibility
+hypotheses. We do not quietly identify that different category with this
+one.
+
+Fix a lattice $N$, $V=N\otimes\mathbb R$, a nonempty finite pure
+rational complex $\Pi$, $X=|\Pi|\subset V$, and all closed faces. The
+saturated tangent lattice is
+$$N_\sigma=N\cap\operatorname{span}_\mathbb R(\sigma-\sigma).$$
+Primitive facet normals point inward. Actual top weights $w_\sigma>0$
+satisfy
+$$\sum_{\sigma\succ\tau}w_\sigma n_{\sigma/\tau}\in N_{\tau,\mathbb R}
+ \quad\text{at every facet, with no omitted boundary.}                 \tag{1.1}$$
+The formal BMPS Definition 2.19 uses rational weights, despite the
+catalogue's prose about real weights. Our conclusions apply to that
+category and to the expressly declared actual positive-real balancing
+extension, justified by the qualifications of B225, R230 and S306. We
+assert no real-weight operator extension.
+
+A legal printed PCC $P$ consists of rational endpoints
+$x_i\in X\cap N_\mathbb Q$, real $\alpha_i\geq0$ with sum one, center
+$y=\sum_i\alpha_i x_i$, and faces $\tau\preceq\sigma_i$ in some rational
+structure, with $y\in\tau$, $x_i\in\sigma_i$. Centers need not be
+rational. A finite-valued printed-PC function satisfies
+$f(y)\leq\sum_i\alpha_i f(x_i)$ for every such test. Continuity will
+always be explicit. The function zero on rational points and minus one
+elsewhere on a rational line passes all these tests and is
+discontinuous. We do not import the printed assertion of automatic
+continuity or the resulting raw-class equality in BMPS Theorem 6.4.
+
+Literal $\operatorname{PA}_\mathbb Z$ means continuous finite
+rational-carrier PA, with integral intrinsic slopes and rational
+constants in rational affine coordinates. Its genuine
+$\operatorname{PA}_\mathbb R$ extension consists of finite real linear
+combinations on a common finite rational carrier.
+Lemma [5](#l:matching){reference-type="ref" reference="l:matching"}
+identifies this with real matching affine tuples on such a carrier.
+Irrational switching walls are not allowed merely because their formulas
+are affine. A PC PA function is denoted $\mathrm{PAPC}_*$,
+$*=\mathbb Z,\mathbb R$. Section [3](#s:positivity){reference-type="ref"
+reference="s:positivity"} checks its agreement with source local-cycle
+positivity, rather than importing a flawed real-domain extension of the
+source proof.
+
+In either branch, the *actual admitted* reference $\gamma$ belongs to
+that PA category, is continuous and printed PC, and is positive at
+infinity: on every reference carrying cell its actual affine slope is
+positive on every nonzero recession direction. It is not rounded or
+replaced. The actual envelope is
+$$E_\gamma(u)(x)=\sup\{q(x):q\in\operatorname{PC}_q,\ q\leq\gamma+u,\
+ q\leq\gamma+C_q\text{ globally for some }C_q\in\mathbb R\}.                \tag{1.2}$$
+This uses unrestricted possibly discontinuous finite-valued competitors,
+with upper-only growth. Let $\mathcal A_*(\gamma)$ be the PC PA
+functions in the branch with bounded difference from $\gamma$. The
+regularizable class is their uniform closure;
+Section [6](#s:bridge){reference-type="ref" reference="s:bridge"} proves
+strict decreasing approximation wherever it is used. The original
+endpoint property is
+$$E_\gamma(u)\in\overline{\mathcal A_*(\gamma)}^{\|\cdot\|_\infty}
+ \quad(u\in\operatorname{PA}_{*,b}).                                             \tag{1.3}$$
+We also consider (1.3) for every $u\in C_b(X)$.
+
+Here is the explicit real criterion. Put $B=C_b(X,\mathbb R)$, with its
+full Banach dual $B^*$. For each legal PCC set
+$$J_P(h)=h(y)-\sum_i\alpha_i h(x_i),\qquad
+ b_P=\sum_i\alpha_i\gamma(x_i)-\gamma(y)\geq0.                        \tag{1.4}$$
+Set
+$$D_\gamma=\overline{\operatorname{cone}\{(J_P,b_P),(0,1):P\text{ legal}\}}
+ ^{\sigma(B^*,B)\times\mathrm{usual}}.                              \tag{1.5}$$
+The closure permits nets and retains the cost coordinate. For every
+finite rational common refinement $\mathcal C$ of $\Pi$ and the
+reference carrier, form the explicitly described matrices
+$A_\mathcal C,N_\mathcal C,d_\mathcal C$ in
+Section [4](#s:matrix){reference-type="ref" reference="s:matrix"}.
+Choose a rational basis $\phi_{\mathcal C,j}$ of its bounded affine
+matching space, also described there. For $\ell\in B^*$ put
+$a_\mathcal C(\ell)_j=\ell(\phi_{\mathcal C,j})$.
+
+::: {#d:criterion .definition}
+**Definition 1** (Costed all-carrier certificate criterion). *The pair
+satisfies $\mathfrak C(X,\gamma)$ if, for every $\ell\in B^*$ and
+$t\in\mathbb R$, the following implication holds: $$\begin{split}
+ &\text{for every }\mathcal C\text{ there exists }\lambda_\mathcal C\geq0
+ \text{ with}\quad A_\mathcal C^T\lambda_\mathcal C=a_\mathcal C(\ell),\quad
+ N_\mathcal C^T\lambda_\mathcal C=0,\quad
+ d_\mathcal C^T\lambda_\mathcal C\leq t\\
+ &\hspace{30mm}\Longrightarrow (\ell,t)\in D_\gamma .
+\end{split}\tag{1.6}$$*
+:::
+
+All objects in this definition are constructed from rational cells,
+their actual incidence, the lattice and matching equations, the actual
+$\gamma$, point evaluations and an explicitly specified bounded linear
+functional. No target approximation or envelope appears in the
+condition.
+
+::: {#t:main .theorem}
+**Theorem 2** (Coefficient-separated source-domain characterization).
+*In the defined finite embedded positive balanced category:*
+
+1.  *Every zero-dimensional pair has (1.3) in both coefficient branches,
+    and has the corresponding all-$C_b$ property.*
+
+2.  *Every positive-dimensional admitted literal pair fails (1.3). Its
+    support is noncompact. A bounded literal obstacle with an actual
+    nonregularizable envelope is constructed in
+    Section [7](#s:literal){reference-type="ref"
+    reference="s:literal"}.*
+
+3.  *For every admitted actual real reference, (1.3), its all-$C_b$
+    version, and $\mathfrak C(X,\gamma)$ are equivalent. All resulting
+    envelopes have genuine strictly decreasing uniform real-PA PC
+    approximants on finite rational carriers, with one relative bound
+    and the actual recession.*
+
+*There are no positive-dimensional compact balanced supports in this
+category. Part (3) includes arbitrary proper support cells, nonfree
+arrangements, incidence loops and all bounded continuous obstacles. It
+gives an infinite dual classification, not universal satisfaction of the
+criterion.*
+:::
+
+The proof below uses only qualified B225, R230 and S306 as unproved
+mathematical support. S307 and S298 are registered whole qualified
+inputs; no missing theorem in their bibliographies is imported.
+Native231, native233 and ROOT315 are unreviewed data, not grants or
+support IDs. ROOT315 is independently reconstructed here. We do not
+extend native233's free-span gluing theorem to extra intersections; the
+finite matrices enforce all those intersections directly.
+
+# Finite polyhedral and separation foundations
+
+We use real completeness, finite-dimensional compactness, ordinary
+linear algebra and convex secants. To avoid an unspecified essential
+external separation or LP theorem, the needed forms are proved here.
+Zorn's lemma is the stated usual set-theoretic maximality principle.
+
+::: {#l:poly .lemma}
+**Lemma 3** (Finite generation, closed cones, and projection). *A finite
+conic hull is closed. Every nonempty polyhedron is a finite point hull
+plus a finite recession cone; rational rows give rational generators,
+including both signs for lineality. Projections and finite point/cone
+descriptions are polyhedra. Finite rational hyperplane subdivisions have
+common rational refinements.*
+:::
+
+::: proof
+*Proof.* Eliminate dependencies in a nonnegative generator
+representation: for $\sum_i b_i v_i=0$ with some $b_i>0$, subtract
+$s b_i$ from its active coefficients, where $s=\min_{b_i>0}a_i/b_i$.
+This preserves nonnegativity and removes a column. Repeat to an
+independent subset. Each independent column inverse bounds its
+coefficient sum by a constant times the represented vector's norm. There
+are finitely many subsets. A convergent represented sequence has a
+subsequence with one subset and bounded convergent coefficients, proving
+cone closedness.
+
+For a cone described by homogeneous inequalities, remove their common
+kernel as lineality. In a complementary space the sum of its nonnegative
+defining forms is positive on every nonzero cone vector. Its section at
+one is bounded: normalize an unbounded sequence and pass to a unit limit
+to obtain a forbidden joint-kernel vector. A bounded polyhedron is its
+vertex hull: at a nonvertex move in both signs in the kernel of the
+active rows until another independent row is active, express the
+original point between those endpoints, and induct on active rank.
+Finitely many full-rank systems give the vertices, rational for rational
+rows. Restore a signed basis of lineality. Homogenize $Ax\leq b$ to
+$Au\leq sb$, $s\geq0$; positive-$s$ generators normalize to points and
+zero-$s$ generators are recession directions. This proves the asserted
+representation, including relative affine hulls and points. If the
+polyhedron is pointed, its homogenized cone is pointed as well. Choose
+its generators on extreme rays, obtained from vertices of the bounded
+section just constructed. A positive-$s$ extreme generator normalizes to
+a vertex of the original polyhedron: any nontrivial segment
+decomposition of that point would decompose its lifted ray into two
+nonproportional cone vectors. Hence a pointed polyhedron is the hull of
+its finite vertex list plus its recession cone, as used below.
+
+Conversely introduce nonnegative representation variables, sum-one for
+point coefficients and coordinate equations for their image. Eliminate a
+variable by pairing every lower bound with every upper bound, retaining
+independent rows. One missing side imposes no paired condition. These
+finite weak inequalities exactly assert that the allowed interval is
+nonempty. Repetition proves projection and finite-description claims,
+preserving rationality. A finite rational ambient hyperplane arrangement
+subdivides every rational polyhedron whose wall equations are in the
+list. Extend equations on a rational affine hull to ambient rational
+equations by a rational basis. Taking the union of the lists gives the
+common refinement. ◻
+:::
+
+::: {#l:hb .lemma}
+**Lemma 4** (Continuous separation with exact topologies). *If $D$ is a
+closed convex cone in a Hausdorff locally convex real space and
+$z\notin D$, a continuous linear $L$ satisfies $L(D)\leq0<L(z)$. If
+$L_0$ is a nonempty closed convex subset of a normed space containing
+zero and $z\notin L_0$, a bounded linear functional strictly separates
+$z$ from $L_0$, with a finite upper bound on $L_0$.*
+:::
+
+::: proof
+*Proof.* Here is the algebraic extension step. For a sublinear $p$, a
+linear $f$ on a subspace with $f\leq p$, and an extra vector $v$, an
+extension value $a=f(v)$ can be chosen in the interval
+$$\sup_u(f(u)-p(u-v))\leq a\leq\inf_u(p(u+v)-f(u)).$$ Subadditivity
+proves every left term is at most every right term. Each side is
+finite-bounded using the other side's value at zero. The extension
+remains dominated; Zorn's lemma extends to the whole space by unions of
+chains.
+
+Choose a convex balanced open neighborhood $U$ of zero with
+$z\notin D+U$. The open convex set $O=D+U$ contains zero and is
+absorbing. Its gauge $p(x)=\inf\{r>0:x\in rO\}$ is finite sublinear,
+nonnegative, $O=\{p<1\}$, and $p(z)\geq1$. Sublinearity follows by
+rescaling two memberships and convexity; openness gives the displayed
+equality. On $\mathbb Rz$, the functional $f(az)=a p(z)$ is dominated,
+also for $a<0$ since then it is nonpositive. Extend it by the preceding
+step. Domination on a balanced neighborhood in $O$ bounds both signs of
+$f$, so $f$ is continuous. For $d\in D$, all positive multiples lie in
+$O$, forcing $f(d)\leq0$, whereas $f(z)=p(z)\geq1$.
+
+For the normed-space assertion use $O=L_0+\{\|v\|<\epsilon\}$ with
+$0<\epsilon<\operatorname{dist}(z,L_0)$. The same gauge argument gives a
+nonzero bounded functional with $f(z)\geq1$ and $f<1$ on $O$. Since
+every $l+v$ with $l\in L_0$, $\|v\|<\epsilon$ belongs to $O$, one has
+$f(l)\leq1-\epsilon\|f\|$. This is a finite strict separating bound. ◻
+:::
+
+::: {#l:matching .lemma}
+**Lemma 5** (Rational matching and real scalar membership). *Real
+continuous affine tuples on a finite rational carrier are precisely the
+genuine finite real scalar extension of literal PA tuples. Their bounded
+subspace is the kernel of rational matching and recession equations. Its
+uniform norm is computed on finitely many rational point generators.*
+:::
+
+::: proof
+*Proof.* Choose rational affine origins and saturated tangent lattice
+bases. Equality on a shared face is equivalent to equality of affine
+values on a finite rational affine basis, hence is a rational
+homogeneous linear system in the tuples. Its real kernel has a rational
+basis by Gaussian elimination. Multiplying each rational basis tuple by
+an integer clears all intrinsic slope denominators; its constants remain
+rational. It is literal PA, and its real span is exactly the matching
+space.
+
+For a cell $c=\operatorname{conv}V_c+\operatorname{cone}R_c$, an affine
+function is bounded on it exactly when its slope vanishes on every
+recession generator, with signed lineality generators included. Its
+values are then convex combinations of its values at $V_c$. The maximum
+absolute value over the finite point lists is therefore the global
+uniform norm. These are rational homogeneous boundedness equations, not
+a growth surrogate for $\gamma$. ◻
+:::
+
+::: {#l:segments .lemma}
+**Lemma 6** (Real endpoint passage and supports on segments). *A
+continuous printed-PC function is convex on every entire cell of every
+rational carrying structure. A continuous function with one ambient
+local affine lower support at every point of a finite embedded complex
+satisfies every printed PCC on every rational structure.*
+:::
+
+::: proof
+*Proof.* In a real-endpoint PCC discard zero weights and put
+$t_i=\alpha_i x_i$. Constraints $A_i x_i\leq b_i$ become
+$A_i t_i\leq\alpha_i b_i$, together with $\alpha_i\geq0$, sum-one and
+$\sum_i t_i\in\tau$. This is a rational feasible polyhedron. At a given
+point impose all active rows as equalities. A rational particular
+solution and rational kernel basis approximate it by rational feasible
+points; inactive strict slacks persist and positive weights stay
+positive. The rational endpoints $t_i/\alpha_i$ and rational centers
+give actual printed tests. Continuity gives the original real
+inequality. Applying this with two endpoints in an entire original cell
+proves its convexity, without coarsening the carrier.
+
+For the second assertion restrict to any segment lying in $X$. Near
+every point its local support applies in both segment directions, giving
+a local midpoint inequality. The restriction is globally convex:
+subtract its endpoint chord to obtain $q$, with zero endpoint values. If
+$q(t_0)>0$, choose sufficiently small $\epsilon>0$ so
+$q(t)+\epsilon t^2$ has an interior maximum. Its local midpoint
+inequality gives the mean at nearby symmetric parameters at least that
+maximum plus $\epsilon s^2$, a contradiction. At a PCC center choose its
+local common support. Each center-to-endpoint segment is in $X$; its
+initial supporting slope is a lower bound for the full secant by the
+just-proved convexity. Summing these endpoint inequalities cancels the
+covector. Finiteness of the original cells ensures the initial segment
+pieces belong to incident cells; every nonincident closed cell avoids a
+neighborhood of the center. This proves the assertion on every permitted
+structure, including irrational centers. ◻
+:::
+
+# Local-cycle positivity and the actual PA class {#s:positivity}
+
+::: {#p:papc .proposition}
+**Proposition 7** (PC and source PAPC for finite matching real tuples).
+*For a continuous real-PA function of bounded difference from the
+admitted $\gamma$, printed PC is equivalent to nonnegative primitive
+tangent-corrected divisor coefficients against every nonnegative
+balanced local test cycle, as in BMPS Definition 3.1. Rational test
+weights suffice; allowing actual real test weights has the same
+conclusion. The analogous assertion holds in the literal subcategory.*
+:::
+
+::: proof
+*Proof.* Suppose first that $f$ is continuous PC and bounded relative to
+$\gamma$. On a rational refinement carrying $\gamma$ and $f$, qualified
+S306 gives one ambient support at each point on the entire incident
+refined top cells. Its hypotheses are checked in
+Section [4](#s:matrix){reference-type="ref" reference="s:matrix"}. A
+support at $y\in\operatorname{relint}\rho$ agrees with the face
+derivative in both tangent signs. For a nonnegative balanced local cycle
+$c$ on a further common carrier the exact coefficient is
+$$(f\cdot c)(\rho)=\sum_{\sigma\succ\rho}c(\sigma)f_\sigma(n_{\sigma/\rho})
+ -f_\rho\!\left(\sum_{\sigma\succ\rho}c(\sigma)n_{\sigma/\rho}\right).
+                                                                    \tag{3.1}$$
+Subtract the ambient support. Balancing cancels its contribution, and
+every residual inward slope is nonnegative. This works in every
+test-cycle dimension; its cells lie in incident support cells locally,
+and tangent changes of normal lifts cancel. It uses primitive saturated
+normals directly, no unit-normal substitution or factorial.
+
+Conversely suppose the local-cycle positivity holds. At a rational point
+$y$ in a common rational carrier of $f$, choose rational generators
+$v_j$ for all incident tangent cones, including signed lineality, with
+cell assignments. Give each the real derivative cost $c_j=f'(y;v_j)$.
+The nonnegative relation cone $\{\lambda\geq0:\sum_j\lambda_jv_j=0\}$ is
+rational and finitely generated by rational vectors, by
+Lemma [3](#l:poly){reference-type="ref" reference="l:poly"}. Every
+rational such relation defines a rational nonnegative local one-cycle
+along the selected rational rays: scale each ray to its primitive vector
+and scale its weight inversely. Subdivide by rational equations through
+$y$ to include those rays, and restrict to a neighborhood without any
+other new vertices. Coincident rays are merged; their derivative costs
+agree by continuity on their shared direction. Formula (3.1) in
+dimension one and the positivity hypothesis give
+$\sum_j\lambda_j c_j\geq0$. Rational cone generation gives this for
+every real relation as well.
+
+The finite cone generated by $(v_j,c_j)$ and $(0,1)$ therefore excludes
+$(0,-1)$. It is closed by Lemma [3](#l:poly){reference-type="ref"
+reference="l:poly"}. Separate it from that point, for example by
+nearest-point squared-distance variation. A separator $(a,b)$ has $b>0$:
+its value at $(0,-1)$ is strictly negative. Thus $p=-a/b$ satisfies
+$p(v_j)\leq c_j$. Nonnegative generation extends this to all incident
+tangent cones. On the incident affine pieces of $f$ it is a local lower
+support at $y$.
+
+Every nonempty carrier face has a rational relative interior point.
+Within that relative interior its tangent cones and piece derivatives
+are unchanged. The same $p$ therefore gives a support, translated by the
+actual $f(y)$, at every real point in it. This includes every minimal
+face and hence every point of $X$.
+Lemma [6](#l:segments){reference-type="ref" reference="l:segments"}
+proves printed PC. No irrational point is inserted as a rational vertex,
+and no real cycle is relabeled rational. ◻
+:::
+
+# Explicit finite carrier matrices and whole original cells {#s:matrix}
+
+Let $\mathcal C$ range over all finite rational common refinements of
+$\Pi$ and the actual reference carrier. There is no fixed
+refinement-uniform bound or mesh parameter. Choose finite rational
+generators $V_c,R_c$ of every nonempty cell $c$, including signed
+lineality. Let $W_\mathcal C\subset B$ be the matching affine functions
+bounded on $X$. Use Lemma [5](#l:matching){reference-type="ref"
+reference="l:matching"} to compute a rational basis
+$\phi_1,\ldots,\phi_m$. Write $h=\sum_j z_j\phi_j$. These coordinates
+are unrestricted real numbers.
+
+For every original face $\tau\in\Pi$, and every $\rho\in\mathcal C$
+contained in $\tau$, introduce an ambient affine support
+$s_{\tau\rho}(x)=p_{\tau\rho}(x)+e_{\tau\rho}$. The finite rows are:
+
+1.  Equality with $\gamma+h$ at each point generator of $\rho$ and
+    equality of slopes on each recession generator of $\rho$.
+
+2.  For every original top cell $\sigma\succeq\tau$, and *every* carrier
+    cell $c\subset\sigma$, impose
+    $$s_{\tau\rho}(v)\leq\gamma(v)+\sum_j z_j\phi_j(v)\quad(v\in V_c),\qquad
+     p_{\tau\rho}(r)\leq\gamma_{c,\mathrm{lin}}(r)\quad(r\in R_c).
+                                                                        \tag{4.1}$$
+
+The bounded perturbation slopes vanish on $R_c$. Equality rows become
+paired inequalities. Listing the support coordinates as $u$ gives
+$$A_\mathcal C z+N_\mathcal C u\leq d_\mathcal C.                       \tag{4.2}$$
+Both left matrices are rational: their entries are spatial coordinates
+and rational basis values. The right side contains the actual real
+values and slopes of $\gamma$. Cells and coefficients determine every
+row. No PC oracle or unknown non-PA function is an input. Include
+original top cells among the faces $\tau$ to control interior regions.
+Redundant rows and choices of intrinsic coordinates cause no change to
+the projection.
+
+::: {#t:matrix .theorem}
+**Theorem 8** (Exact finite matrix projection). *Put
+$$K=\{h\in B:J_P(h)\leq b_P\text{ for every legal }P\}.                \tag{4.3}$$
+The projection of (4.2) onto the represented $h$ is exactly
+$K\cap W_\mathcal C$. It is nonempty. Refinement inclusions preserve the
+represented function and its PC property. The union over all carriers is
+precisely the bounded-relative real-PA PC perturbations of $\gamma$ and
+is directed and convex.*
+:::
+
+::: proof
+*Proof.* From a feasible tuple, generator equalities give equality on
+the entire $\rho$, and point/ray inequalities give a minorant on every
+entire incident original top cell. Every real point $y$ in any original
+face belongs to at least one such $\rho$, so the same affine function is
+a common support there. This holds for irrational points, unbounded
+portions and boundaries, not only the sampled generators.
+Lemma [6](#l:segments){reference-type="ref" reference="l:segments"}
+proves every printed PCC in every rational structure. Thus $h\in K$. It
+is genuine bounded real PA by construction.
+
+For necessity suppose $h\in K\cap W_\mathcal C$ and $f=\gamma+h$. Then
+$f$ is finite continuous printed PC and $|f-\gamma|\leq\|h\|_\infty$.
+Apply qualified S306 on a finite rational refinement carrying $\gamma$,
+with all original closed faces retained, actual strictly positive top
+weights balanced at every facet, and actual cellwise-affine real
+$\gamma$. Refinement preserves balancing: a new facet inside an old top
+cell has equal inherited weights and opposite saturated normals; a
+subdivided old facet retains its old equation. Its support theorem does
+not require $\gamma$ PC or positive at infinity, though both hold here.
+It gives at each point one common support on entire incident refined
+cells. This is within the exact accepted convex subject, not the
+abstract's concavity typo; the cellwise versus ambient-distance
+qualification is retained.
+
+Lemma [6](#l:segments){reference-type="ref" reference="l:segments"}
+separately gives convexity of $f$ on each *entire original* cell. At
+$y\in\operatorname{relint}\rho$ every segment to a point in an original
+incident top cell initially lies in a refined top cell containing $y$:
+intersect the segment with the finite closed refinement and use its
+first nonempty interval. The S306 support bounds that initial secant.
+Convexity of the whole original-cell restriction propagates the bound to
+the distant endpoint. Thus its support holds on the entire original
+incident cell, even when $\gamma$ was not affine on the coarse cell. If
+$y$ belongs to a smaller original face than $\tau$, its incident
+collection contains every cell incident to $\tau$.
+
+Since $f$ is affine on $\rho$, testing both small tangent directions at
+$y$ forces the support to agree on the whole affine hull of $\rho$. For
+a point face only its value is needed. The chosen support therefore
+solves every point/ray equality and inequality row for this index.
+Finitely many choices give $u$ in (4.2). This proves necessity,
+including coarse-to-refined compatibility.
+
+Zero is feasible because $\gamma$ itself is PC. Any finite rational
+carrier of a real-PA perturbation admits a common refinement with $\Pi$
+and the reference. Conversely every represented function is a genuine
+real-PA perturbation. Two carriers have a common finite refinement;
+convex combinations of their represented PC functions are affine
+matching on it and retain every Jensen inequality. This proves
+directedness and convexity. No feasibility for a continuous completion
+was presumed: necessity here starts with an actual affine matching
+tuple. ◻
+:::
+
+# Costed Farkas and finite multipliers
+
+::: {#t:farkas .theorem}
+**Theorem 9** (Costed infinite Farkas, including infinity). *For
+$\ell\in B^*$ and $t\in\mathbb R$,
+$$(\ell,t)\in D_\gamma\quad\Longleftrightarrow\quad
+ \ell(h)\leq t\quad\text{for every }h\in K.                          \tag{5.1}$$
+No Slater assumption is needed.*
+:::
+
+::: proof
+*Proof.* The right inequality holds for each generator by (4.3), for
+$(0,1)$, for finite nonnegative sums and for weak-star/product limits,
+testing the fixed $h$. This proves one direction.
+
+If $(\ell,t)$ is outside the closed convex cone, apply
+Lemma [4](#l:hb){reference-type="ref" reference="l:hb"} in the Hausdorff
+locally convex space $(B^*,\sigma(B^*,B))\times\mathbb R$. Every
+continuous linear functional there is a pairing with a single
+$(h,s)\in B\times\mathbb R$. Indeed continuity bounds it using finitely
+many evaluations on $B^*$; it vanishes on their common kernel, factors
+through their finite-dimensional image, and is a finite linear
+combination of those evaluations. Include the real coordinate and write
+the pairing as $\eta(h)-rs$. Separation yields
+$$\ell(h)-ts>0,\qquad J_P(h)-b_Ps\leq0\ (\text{all }P),\qquad -s\leq0.
+                                                                    \tag{5.2}$$
+If $s>0$, then $h/s\in K$ violates the proposed bound. If $s=0$, then
+$J_P(h)\leq0$ for every $P$. Since every $b_P\geq0$, $nh\in K$ for all
+$n\geq0$. Validity of $\ell(nh)\leq t$ forces $\ell(h)\leq0$,
+contradicting (5.2). This proves the converse and retains all nonzero
+slack costs. ◻
+:::
+
+This proof uses the full dual $B^*$, not Radon measures of compact
+support or countably additive measures on $X$. For example on
+$X=\mathbb R$, the functional on the convergent bounded continuous
+functions given by their limit at $+\infty$ has norm one. Apply the
+algebraic dominated extension proof of
+Lemma [4](#l:hb){reference-type="ref" reference="l:hb"} with
+$p=\|\cdot\|_\infty$ to extend it to $C_b(\mathbb R)$. It annihilates
+$C_0(\mathbb R)$ and takes the constant one to one. It cannot be a
+finite signed Radon measure on $\mathbb R$: annihilation of all
+compactly supported continuous tests forces such a measure to be zero,
+whereas its total mass would be one. Thus replacing the dual by that
+measure subclass loses legitimate functionals. Definition (1.5) is the
+explicit dual data used here; no representation theorem is needed, and
+in a nonseparable predual its closure is not relabeled sequential.
+
+Costs cannot be suppressed by homogenization. On the balanced line with
+$\gamma=|x|$, the PCC of $-1,1$ centered at zero has $b=1$. The valid PC
+target $$f(x)=|x|+\tfrac12(1-|x|)_+$$ has perturbation cost $J(h)=1/2$.
+The uncosted inequality $J(h)\leq0$ would incorrectly exclude it.
+Adjoining a homogeneous coordinate without retaining its fixed slice
+would have the same defect.
+
+::: {#t:mult .theorem}
+**Theorem 10** (Exact finite multipliers, no LP grant). *For a fixed
+carrier, $\ell(h)\leq t$ on $K\cap W_\mathcal C$ if and only if a finite
+vector $\lambda\geq0$ satisfies
+$$A_\mathcal C^T\lambda=a_\mathcal C(\ell),\qquad
+ N_\mathcal C^T\lambda=0,\qquad d_\mathcal C^T\lambda\leq t.           \tag{5.3}$$
+Actual irrational right-hand sides are permitted.*
+:::
+
+::: proof
+*Proof.* One direction is multiplication of (4.2). For the other, in the
+finite coefficient space form the cone generated by its rows
+$(A_i,N_i,d_i)$ and $(0,0,1)$. It is closed by
+Lemma [3](#l:poly){reference-type="ref" reference="l:poly"}. If
+$(a_\mathcal C(\ell),0,t)$ is outside it, finite-dimensional cone
+separation gives $(z,u,s)$ with $s\geq0$,
+$$A_i z+N_i u\leq d_i s,\qquad a_\mathcal C(\ell)\cdot z-ts>0.$$ If
+$s>0$, division gives a feasible tuple violating the bound. If $s=0$,
+choose an existing feasible tuple $(z_0,u_0)$, which exists by
+Theorem [8](#t:matrix){reference-type="ref" reference="t:matrix"}. Then
+$(z_0+nz,u_0+nu)$ is feasible for all $n\geq0$, and its objective
+exceeds $t$ for large $n$. Both contradict validity. Hence the point is
+in the finite cone. Its representation is (5.3), with the vertical
+generator absorbing the nonnegative excess $t-d^T\lambda$. This proves
+exact duality without strict feasibility, bounded auxiliary supports, or
+a theorem imported from an unavailable LP reference. ◻
+:::
+
+::: {#t:dual .theorem}
+**Theorem 11** (All-carrier equivalence). *Criterion
+$\mathfrak C(X,\gamma)$ is equivalent to uniform density of
+bounded-relative genuine real-PA PC functions in the *continuous*
+bounded-relative PC class.*
+:::
+
+::: proof
+*Proof.* Let
+$L=\overline{\bigcup_\mathcal C(K\cap W_\mathcal C)}^{\|\cdot\|_\infty}$.
+Theorem [8](#t:matrix){reference-type="ref" reference="t:matrix"} makes
+it a closed convex subset of $K$ containing zero; $K$ is closed since
+all $J_P$ are bounded linear. By
+Theorem [10](#t:mult){reference-type="ref" reference="t:mult"}, the
+premise in (1.6) is exactly validity of $\ell(h)\leq t$ on every carrier
+projection and hence on $L$. Theorem [9](#t:farkas){reference-type="ref"
+reference="t:farkas"} identifies its conclusion with validity on $K$. If
+$L=K$, the implication follows. If $h_0\in K\setminus L$, norm
+separation in Lemma [4](#l:hb){reference-type="ref" reference="l:hb"}
+gives $\ell,t$ with $\ell|_L\leq t<\ell(h_0)$, contradicting the
+implication. Thus it is equivalent to $L=K$, as claimed.
+
+The statement (1.6), unlike this proof, does not quantify over $L$,
+density, unknown PC targets or PA approximants. Its matrices were
+explicitly reduced to finite rational point/ray rows; its cone
+generators are explicitly costed legal configurations. This is the
+substantive certificate reduction, rather than an assertion that an
+operator is dense exactly when it is dense. ◻
+:::
+
+# A compatible rational interpolation bridge {#s:bridge}
+
+The original finite-PA obstacle property cannot be substituted for the
+all-$C_b$ property merely by asserting PA density in $C_b(X)$; that
+broad assertion is false on noncompact spaces. We prove the narrower
+needed interpolation fact for continuous PC targets.
+
+::: {#l:simplex .lemma}
+**Lemma 12** (Common rational generalized-simplex subdivision). *Every
+finite rational polyhedral complex has a finite compatible rational
+subdivision whose cells have the form
+$$c=\operatorname{conv}\{v_0,\ldots,v_l\}+\operatorname{cone}\{r_{l+1},\ldots,r_k\},
+                                                                    \tag{6.1}$$
+with the augmented vectors $(v_i,1),(r_j,0)$ linearly independent. One
+may simultaneously refine any finite list of rational carriers.*
+:::
+
+::: proof
+*Proof.* Homogenize all cell inequalities in $V\times\mathbb R$ and
+include the hyperplanes $s=0$ and all coordinate hyperplanes. Their
+finite central rational arrangement is a fan of pointed cones: each cone
+lies in a coordinate orthant, which has no lineality. Its cones in
+$s\geq0$ refine the homogenized polyhedra on $s>0$. Faces at $s=0$ also
+acquire a common rational refinement, regardless of whether the original
+recession cones met in faces.
+
+Triangulate this pointed fan compatibly. For every nonzero face choose
+one rational ray in its relative interior, for example a positive sum of
+its rational generating rays. By induction on face dimension, cone from
+this interior ray to the already triangulated boundary facets. In a
+bounded positive-linear-form section this is the elementary operation of
+coning an interior point to boundary simplices; it covers the section
+and meets along common faces. The same chosen rays on shared faces give
+compatibility. Flags of faces produce linearly independent ray
+generators, since at each step the new relative interior ray is outside
+the previous proper face's span. Normalize positive-$s$ rays to $(v,1)$
+and keep zero-$s$ rays $(r,0)$. The section $s=1$ gives (6.1) and a
+finite common subdivision. Cones whose section is empty are ignored. A
+shared recession direction of disjoint cells is not assigned a shared
+function value at infinity by this construction. ◻
+:::
+
+::: {#t:interpolate .theorem}
+**Theorem 13** (Finite real-PA obstacle majorants without PC gluing).
+*For every continuous PC $f$ with $\|f-\gamma\|_\infty<\infty$ in the
+admitted real-reference category and every $\eta>0$, there is a
+continuous genuine finite rational-carrier real-PA $q$ such that
+$$f\leq q\leq f+\eta\quad\text{on all }X,\qquad q-\gamma\in\operatorname{PA}_{\mathbb R,b}.
+                                                                    \tag{6.2}$$
+The function $q$ is not asserted PC.*
+:::
+
+::: proof
+*Proof.* Fix a finite refinement carrying $\gamma$ affinely; call its
+top cells $\sigma$. Qualified S306 applies to the continuous finite
+printed-PC $f$, the actual cellwise-affine $\gamma$, all closed faces
+and actual positive weights balanced at all facets. It supplies a finite
+global Lipschitz constant on each entire closed $\sigma$; it does not
+claim ambient-distance control across components. On each $\sigma$,
+Lemma [6](#l:segments){reference-type="ref" reference="l:segments"}
+gives convexity, $|f-\gamma|$ is bounded, and the actual affine
+restriction of $\gamma$ is strictly positive on every nonzero recession
+direction. These are precisely the extra hypotheses of S306's
+single-cell majorant theorem. It gives a convex rational-spatial real-PA
+roof $p_\sigma$ with $f\leq p_\sigma\leq f+\eta$ and exact recession
+$\gamma_{\sigma,\mathrm{lin}}$ on $\operatorname{rec}\sigma$. No
+common-support or trace gluing conclusion from S306 is presumed.
+
+Take a common rational refinement of their spatial carriers and then
+Lemma [12](#l:simplex){reference-type="ref" reference="l:simplex"}. On
+each cell (6.1) contained in $\sigma$, define the unique affine $q$ by
+$q(v_i)=f(v_i)$ and by recession slope
+$q_{\mathrm{lin}}(r_j)=\gamma_{\sigma,\mathrm{lin}}(r_j)$. Augmented
+independence gives existence and uniqueness on its affine hull. On any
+shared finite face the vertex values coincide and the recession slopes
+coincide, because $\gamma$ has the same affine restriction there. Thus
+the formulas match and are continuous on $X$. When two disjoint cells
+have a common direction at infinity but different reference slopes
+there, their ray prescriptions remain separate; matching is only on
+actual shared finite faces. Lemma [5](#l:matching){reference-type="ref"
+reference="l:matching"} proves genuine finite scalar-extension
+membership.
+
+For a convex $f$ on $\sigma$ with upper bound $f\leq\gamma+C$, convex
+secants along a feasible recession ray imply
+$$f(x+r)\leq f(x)+\gamma_{\sigma,\mathrm{lin}}(r).
+                                                                    \tag{6.3}$$
+Indeed any larger unit secant would persist on longer secants and
+violate the upper affine bound as the ray parameter grows. For
+$x=\sum_i\alpha_i v_i+\sum_j\beta_j r_j$, with $\alpha_i,\beta_j\geq0$,
+$\sum_i\alpha_i=1$, ordinary convexity and repeated (6.3) give
+$f(x)\leq q(x)$. The roof $p_\sigma$ is affine on this cell and has
+precisely the same recession slopes there. Consequently
+$$q(x)-p_\sigma(x)=\sum_i\alpha_i(f(v_i)-p_\sigma(v_i))\leq0.$$ It
+follows that $f\leq q\leq p_\sigma\leq f+\eta$ on every entire cell.
+This proves (6.2), without needing any PC condition for the
+interpolant. ◻
+:::
+
+::: {#t:bridge .theorem}
+**Theorem 14** (Original endpoint property, density and all obstacles).
+*For an admitted actual real reference the following are equivalent:
+criterion (1.6); continuous relative-PC density; the original property
+(1.3) for all bounded genuine real-PA obstacles; and the all-$C_b$
+version of (1.3).*
+:::
+
+::: proof
+*Proof.* The first two are Theorem [11](#t:dual){reference-type="ref"
+reference="t:dual"}. Qualified R230 applies on the finite positive
+all-face balanced embedded support with continuous PC $\gamma$ and
+arbitrary $u\in C_b(X)$. It identifies the actual upper-only envelope
+(1.2) with a continuous PC function $e$ satisfying
+$$\gamma+\inf_Xu\leq e\leq\gamma+u\leq\gamma+\sup_Xu.                 \tag{6.4}$$
+No separability, PA obstacle or PA density hypothesis is part of that
+grant. Density therefore gives uniform real-PA PC approximation of $e$,
+proving the all-$C_b$ property and hence the original property.
+
+Conversely assume the original property, and take any continuous
+relative-PC $f$. Theorem [13](#t:interpolate){reference-type="ref"
+reference="t:interpolate"} gives $f\leq q\leq f+\eta$, with the legal
+bounded real-PA obstacle $u=q-\gamma$. The actual envelope has $f$ as an
+admissible competitor and is bounded above by $q$, so
+$f\leq E_\gamma(u)\leq f+\eta$. By the assumed property this endpoint
+lies in the uniform closure of $\mathcal A_\mathbb R(\gamma)$. Letting
+$\eta\downarrow0$ proves density by an explicit diagonal choice of PA
+approximants. Feasibility was not inferred from a non-PA continuous
+completion; the interpolant was constructed independently and only
+serves as an obstacle.
+
+There is also a direct converse from the all-$C_b$ property: for
+$h\in K$ use obstacle $u=h$. Its envelope equals $\gamma+h$ because that
+function is itself a competitor and equals the obstacle. This covers
+every continuous relative-PC target, including nonseparable obstacles.
+
+For strict decreasing approximation choose
+$a_n\in\mathcal A_\mathbb R(\gamma)$ with
+$\|a_n-e\|_\infty\leq\delta_n=2^{-n}$. Put $r_n=a_n+\delta_n$ and
+$g_n=r_n+4\delta_n$. Then $$4\delta_n\leq g_n-e\leq6\delta_n,\qquad
+ g_n-g_{n+1}\geq4\delta_n-6\delta_{n+1}=\delta_n>0.
+                                                                    \tag{6.5}$$
+Rational common constants are literal PA and hence valid in the genuine
+real category. Each $g_n$ has its own finite rational carrier; no common
+finite carrier for the infinite sequence is claimed. Their relative
+bounds are at most $\|e-\gamma\|_\infty+3$ for $n\geq1$. On every
+feasible ray bounded differences give exactly the actual reference
+recession. The below-endpoint functions $a_n-\delta_n$ are legal PA
+competitors, have error at most $2\delta_n$, and prove equality of the
+actual envelope with the supremum of PA competitors. These shifts need
+not preserve contacts. No arbitrary real-affine maximum is used in this
+PA argument. ◻
+:::
+
+# An actual literal obstruction, independently reconstructed {#s:literal}
+
+We do not import the absent book-local noncompact obstruction through
+the catalogue's description.
+
+::: {#l:literaltools .lemma}
+**Lemma 15** (Coercivity and an arithmetic local gap). *A finite PA
+reference positive on every nonzero recession direction has bounded
+sublevel sets. If a continuous convex function is affine with slope
+$a\notin\mathbb Z$ on a rational line parameter interval $[-r,r]$, every
+literal PA PC approximant has uniform error there at least
+$r\operatorname{dist}(a,\mathbb Z)/4$.*
+:::
+
+::: proof
+*Proof.* On a reference-affine cell use finite point/ray generators.
+Positivity prohibits nonzero lineality. Choose $c>0$ smaller than the
+finitely many positive ratios of reference ray slopes to ray norms and
+bound its finitely many point values below by $c\|v\|-D$. The triangle
+inequality on a point/cone representation gives
+$\gamma(x)\geq c\|x\|-D$. Cells without rays are bounded and permit the
+same assertion with a larger $D$. Finiteness gives a global bound, so
+sublevels are bounded; they are closed by continuity.
+
+For the gap, let $g$ be a literal PC approximant with error $e<\infty$.
+It is convex on the whole segment by
+Lemma [6](#l:segments){reference-type="ref" reference="l:segments"}. At
+any differentiability point $t\in[-r/2,r/2]$ avoiding its finitely many
+breakpoints, its derivative is an integer: the line direction is chosen
+in the saturated tangent lattice and every affine piece has integral
+slope there. Convex secants to $-r,r$ give
+$$a-4e/r\leq g'(t)\leq a+4e/r.$$ Thus
+$\operatorname{dist}(a,\mathbb Z)\leq4e/r$. Refinement cannot remove
+this positive error floor. No bound on the number or location of its PA
+pieces is used. ◻
+:::
+
+::: {#t:literal .theorem}
+**Theorem 16** (Literal bounded obstacle with nonregularizable actual
+endpoint). *Every noncompact finite positive balanced support with an
+admitted literal $\gamma$ has a bounded literal obstacle $u$ for which
+its actual envelope is a continuous rational-affine PC function $f$
+having a positive uniform distance from every literal PA PC function.
+Thus literal regularity fails.*
+:::
+
+::: proof
+*Proof.* An unbounded reference cell has a nonzero recession vector. Its
+integral intrinsic gradient $m$ is nonzero by positive growth. Choose a
+primitive tangent lattice direction $v$ with $m(v)=k\ne0$, a rational
+point $x_0$ in that cell's relative interior, a rational constant
+$A>\gamma(x_0)$, and an integer $D>|k|$, $D\geq2$. Put $\lambda=1/D$ and
+$$G=\max(\gamma,A),\qquad f=(1-\lambda)\gamma+\lambda G,\qquad
+ H=(A-\gamma)_+,\qquad \delta=f-\gamma=\lambda H.                    \tag{7.1}$$
+$G$ is literal PA on rational comparison walls and printed PC by the
+maximum Jensen inequality. The convex combination $f$ is continuous PC
+and rational-affine on a finite rational carrier, belongs to the genuine
+real scalar extension, and is bounded relative to $\gamma$. The function
+$H$ is bounded and compactly supported by
+Lemma [15](#l:literaltools){reference-type="ref"
+reference="l:literaltools"}. Near $x_0$,
+$f=(1-\lambda)\gamma+\lambda A$, so its slope on $v$ is
+$a=k-k/D\notin\mathbb Z$. Choose a rational $r>0$ so $x_0+tv$,
+$|t|\leq r$, remains in that relative interior and below the level $A$.
+Lemma [15](#l:literaltools){reference-type="ref"
+reference="l:literaltools"} gives the positive error floor
+$r\operatorname{dist}(a,\mathbb Z)/4$.
+
+It remains to construct an *admissible literal obstacle* with this exact
+endpoint. Choose a common rational carrier of $\gamma,G,f,H$, refine by
+coordinate orthants if necessary to make its cells pointed, and let $S$
+be the finite union of all its rational vertices. Their values
+$\delta(s)$ are rational. Choose an ambient integral polyhedral norm
+$\rho$, for instance a coordinate $\ell^1$ norm. There is an integer
+$M>0$ such that
+$$\delta(x)\leq\delta(s)+M\rho(x-s)\quad(x\in X,\ s\in S).            \tag{7.2}$$
+To justify this globally, on every affine carrier cell containing $s$
+its slope norm bounds the difference from $\delta(s)$ linearly. Every
+other closed cell avoids a neighborhood of $s$; finitely many such cells
+have a positive distance from $s$. Boundedness of $\delta$ supplies a
+finite bound for the ratio there. Norm equivalence and the finite list
+of $s$ give one integer $M$. This does not assume a global
+ambient-distance Lipschitz theorem for unrelated components.
+
+Define
+$$u(x)=\min\left\{H(x),\ \min_{s\in S}\bigl(\delta(s)+M\rho(x-s)\bigr)\right\}.
+                                                                    \tag{7.3}$$
+Every displayed function is literal PA: its slopes are integral,
+constants rational, and its comparison walls have rational coefficients.
+The finite minimum is therefore literal on a finite common rational
+carrier. It is continuous and bounded, $0\leq u\leq H$, $u\geq\delta$ by
+(7.2), and $u(s)=\delta(s)$ for every vertex. It vanishes where $H=0$,
+in particular outside a compact set. Thus $f\leq\gamma+u$, with equality
+at every vertex.
+
+The function $f$ is an admissible printed-PC competitor, so
+$E_\gamma(u)\geq f$. For any original unrestricted competitor $q$,
+qualified R230's completion theorem applies under positive all-face
+balancing. Its dominating continuous PC completion $F$ has the same
+rational values, stays below the continuous obstacle and below
+$\gamma+C_q$, and dominates $q$. Hence $F(s)\leq f(s)$ at every carrier
+vertex. On a fixed carrier cell $c$, $\gamma$ and $f$ are affine and
+have the same recession slope: bounded differences in (7.1) imply this,
+or check that an unbounded reference ray eventually has $G=\gamma$.
+Convexity and the upper bound $F\leq\gamma+C_q$ give the ray inequality
+(6.3) for $F$. For the point/ray representation of any $x\in c$, it
+follows that
+$$F(x)\leq\sum_i\alpha_i F(s_i)+\sum_j\beta_j\gamma_{c,\mathrm{lin}}(r_j)
+ \leq\sum_i\alpha_i f(s_i)+\sum_j\beta_j f_{c,\mathrm{lin}}(r_j)=f(x).$$
+Thus every $q\leq f$ everywhere, including irrational points, and the
+actual envelope is exactly $f$. The arithmetic error floor proves it is
+not a uniform literal PC PA limit. This is an actual bounded literal
+obstacle and envelope, not merely a density failure for a selected
+rational-affine function. ◻
+:::
+
+For a checkable one-dimensional instance take $X=\mathbb R$,
+$\gamma=|x|$, $A=1$, $\lambda=1/2$, and vertices $-1,0,1$. Then
+$f=|x|+\tfrac12(1-|x|)_+$ and one possible literal obstacle is
+$$u(x)=\begin{cases}\frac12+|x|,&|x|\leq\frac14,\\1-|x|,&\frac14\leq|x|\leq1,\\0,&|x|\geq1.\end{cases}            \tag{7.4}$$
+All slopes are integral and all breakpoints and constants rational. Its
+actual envelope is $f$. On the interval centered at $x=1/2$ with radius
+$1/4$, the slope is $1/2$, so the displayed error floor is $1/32$. We do
+not claim this particular floor is sharp.
+
+# Compactness, components, and the original category decision
+
+Qualified B225's finite embedded noncompactness can also be seen
+directly as follows. Choose a Euclidean metric and let $a_\sigma$ be the
+covolume of the saturated tangent lattice. A facet basis followed by its
+primitive inward lift is a basis of the top tangent lattice, so its
+perpendicular height is $a_\sigma/a_\tau$. With inward unit conormal
+$\nu_{\sigma/\tau}$, balancing (1.1) becomes
+$$\sum_{\sigma\succ\tau}w_\sigma a_\sigma\nu_{\sigma/\tau}=0.$$ For a
+compactly supported $C^1$ ambient vector field $Y$, the ordinary
+divergence formula on cells therefore gives
+$$\sum_{\sigma\in\Pi(d)}w_\sigma a_\sigma\int_\sigma\operatorname{div}_\sigma Y=0.
+                                                                    \tag{8.1}$$
+Facet fluxes cancel; truncate unbounded cells outside the support of $Y$
+if necessary. If $X$ were compact and $d>0$, choose $Y(x)=x$ near it.
+Equation (8.1) would be
+$0=d\sum_\sigma w_\sigma a_\sigma\operatorname{vol}_d(\sigma)>0$. This
+contradiction checks the exact positive and globally embedded
+hypotheses. It applies component by component; a finite complex has
+finitely many components and restriction retains every incident facet
+equation. A bounded skeleton is not automatically balanced at its
+boundary.
+
+For $d=0$, $X$ is a finite set of rational points. Every PCC is confined
+to one singleton, and the actual envelope is $\gamma+u$ pointwise. Real
+PA is every function on this finite set. Literal PA has rational values
+there. For arbitrary $u\in C_b(X)$ choose, at each point, rational
+values $a_n$ within $\delta_n$ of the endpoint and add the common
+rational constant $5\delta_n$, $\delta_n=2^{-n}$. Its errors lie in
+$[4\delta_n,6\delta_n]$, giving strict descent by (6.5). For literal
+obstacles the endpoint itself is literal. Positivity at infinity is
+vacuous, and empty supports have vacuous endpoint assertions. This
+proves part (1) and, with Theorem [16](#t:literal){reference-type="ref"
+reference="t:literal"}, part (2) of
+Theorem [2](#t:main){reference-type="ref" reference="t:main"}.
+
+The *source-category decision* is precise: under BMPS Definitions 2.2,
+2.4 and 2.27, the compact positive-dimensional literal branch is empty.
+The original dossier's broad problem and P05.1 atom do not supply an
+atlas definition; the dossier explicitly fixes the BMPS version. Thus
+this decision is not obtained by imposing a new geometric hypothesis on
+that defined category. References to abstract charts inside supporting
+papers name a separate extension. B225 and R230 have qualified
+compact-chart results, requiring compatible local rational charts and,
+for literal PA assertions, a finite bounded chart-compatible rational
+decomposition. They do not grant a theorem for arbitrary
+compactifications or charts not satisfying those hypotheses. We do not
+assign such a category to the original merely to make its compact prose
+nonvacuous.
+
+This resolves the original compact residual under its stated source
+definition: it has no positive-dimensional instances. It is not a
+theorem about compact atlases or compactifications. Adding such objects
+would change the original ambient definition and would require a new
+problem with its charts, transitions, cycle and PA conventions
+specified. Theorem [2](#t:main){reference-type="ref" reference="t:main"}
+characterizes the entire exact original finite embedded category,
+including its actual-real coefficient extension; none of its remaining
+real or obstacle cases is omitted.
+
+# Bad-pair certificates, limits, and comparison with the residual
+
+The criterion has actual obstruction certificates. A bad certificate
+consists of $\ell\in B^*$, $t\in\mathbb R$, a family
+$\lambda_\mathcal C$ satisfying (5.3) for *every* finite common rational
+carrier, and a continuous bounded function $h$ with
+$$J_P(h)\leq b_P\quad\text{for every legal }P,\qquad
+ \ell(h)>t.                                                         \tag{9.1}$$
+These are explicit geometric/linear inequalities, with no assertion of
+nonapproximability in their statement. They imply
+$(\ell,t)\notin D_\gamma$ by Theorem [9](#t:farkas){reference-type="ref"
+reference="t:farkas"} and give the quantitative floor
+$$\inf_{a\in\mathcal A_\mathbb R(\gamma)}\|a-(\gamma+h)\|_\infty
+ \geq \frac{\ell(h)-t}{\|\ell\|}>0.                                 \tag{9.2}$$
+The denominator is nonzero because every projection contains zero, so
+the multiplier bounds force $t\geq0$ when $\ell=0$. The obstacle $u=h$
+has actual envelope $\gamma+h$, by the direct argument in
+Theorem [14](#t:bridge){reference-type="ref" reference="t:bridge"}.
+Conversely every failure of real regularity gives such a certificate by
+norm separation, Theorems [10](#t:mult){reference-type="ref"
+reference="t:mult"} and [9](#t:farkas){reference-type="ref"
+reference="t:farkas"}. A separator with $s=0$ in (5.2) is handled by its
+recession scaling there, not dropped.
+
+There is also a genuine PA-obstacle witness from any certificate. Choose
+$q$ in Theorem [13](#t:interpolate){reference-type="ref"
+reference="t:interpolate"} within $\eta<(\ell(h)-t)/(2\|\ell\|)$ of
+$f=\gamma+h$. Its actual envelope $e=E_\gamma(q-\gamma)$ satisfies
+$f\leq e\leq f+\eta$, so $\ell(e-\gamma)>t$. Thus $e$ is
+nonregularizable and $q-\gamma$ is a bounded genuine real-PA obstacle.
+This establishes equivalence to the original obstacle class at failure
+as well as at success.
+
+These are infinite certificates. One can falsify a proposed certificate
+by finding a violated finite row, a legal PCC violation, or a wrong dual
+value; verification of all carriers and all PCCs need not terminate. We
+do not furnish an explicit positive-balanced real bad pair in this
+manuscript, and do not infer their existence from the diagnostic
+failures of a particular gluing algorithm. The criterion classifies the
+pairs by explicit infinite geometric/dual data without asserting a
+decidable finite test, a numerical oracle for arbitrary actual real
+coefficients, or universal real regularity. It is invariant under the
+original rational-carrier coefficient convention and tests every actual
+face and whole original incident cell.
+
+For bounded reference changes the classification has the expected
+invariance. If $\widetilde\gamma-\gamma=\delta$ is bounded PA in the
+fixed branch, the competitor growth classes coincide and
+$$E_{\widetilde\gamma}(u)=E_\gamma(u+\delta).$$ The maps between bounded
+obstacles are bijective, and the relative PA approximation classes
+coincide as sets of functions. This proves reference-shift invariance
+directly, without importing the source's raw-PC density equivalence. In
+the real dual statement $K_{\widetilde\gamma}=K_\gamma-\delta$, so a
+valid inequality transforms by $t\mapsto t+\ell(\delta)$; the finite
+carrier and costed cone characterizations give the same conclusion.
+
+The higher-dimensional real and nonseparable residual in the defined
+BMPS category is settled by (1.6) as an exact necessary-and-sufficient
+certificate, including nonfree and proper domains. Native233's free
+attachment mechanism controls supports only on its actual span
+intersection $H$. Here each unknown support is one ambient covector
+evaluated in every original incident cell, so extra span intersections
+and all dependence relations are retained in the same rows. We have not
+claimed its free hypothesis necessary, nor a new gluing extension
+without compatibility. Native231's fixed-carrier theorem was
+unregistered data; its necessary theorem has been proved independently
+in Section [4](#s:matrix){reference-type="ref" reference="s:matrix"}. A
+single infeasible carrier is not a real bad-pair certificate. Its
+nontermination and ambient-extension diagnostics, S307's unbalanced
+proper-cell obstruction, and S298's qualified common-$H$ theorem do not
+prove general nonregularity.
+
+Raw printed-PC continuity pathology remains: this characterization
+concerns actual continuous-obstacle envelopes and the continuous
+completed relative-PC class, not uniform density in all downward
+irrational modifications. R230 supplies actual continuity before S306 or
+the dual approximation theorem is applied. No Monge--Ampere
+construction, contact integral, polarized realization, or P05.2/P05.5
+conclusion is part of this characterization.
+
+# Source ledger, proof coverage, evidence and status
+
+The complete supplied authoritative B225, R230, S306, S307 and S298
+bodies and their mandatory annotations are retained unchanged as
+qualified inputs. Only B225, R230 and S306 are essential mathematical
+support here. Specifically, R230's completion theorem is used for
+arbitrary original competitors in
+Theorem [16](#t:literal){reference-type="ref" reference="t:literal"},
+and its actual unrestricted all-$C_b$ envelope theorem in
+Theorem [14](#t:bridge){reference-type="ref" reference="t:bridge"}.
+S306's accepted convex closed-cell Lipschitz and entire incident support
+theorem is used in Theorems [8](#t:matrix){reference-type="ref"
+reference="t:matrix"}, [13](#t:interpolate){reference-type="ref"
+reference="t:interpolate"} and
+Proposition [7](#p:papc){reference-type="ref" reference="p:papc"}; its
+single-cell majorant theorem is used only after continuity, bounded
+reference difference, cell convexity, global cell Lipschitzness and
+strict positive actual affine recession are checked. Its abstract typo,
+maximum-violation convention, count-versus-byte correction, actual-real
+balancing extension and historical source/reader restrictions remain
+unchanged. No S307/S298 missing dependency is imported. B225's globally
+embedded compact exclusion is additionally reconstructed in (8.1).
+
+The four sole primary files are hash-verified. Immediate BMPS
+applications are its definitions, with literal-newline units 257--291,
+420--449, 499--522, 532--562, 689--786, 886--893, 1005--1029, 1741--1746
+and 2257--2318. The full relevant statement/proof units were read; the
+source's PA/PC proof and density equivalence were not imported. The
+primary PDFs were identified by hashes, not claimed visually read page
+by page. BBGS supplies no essential theorem in this work; its whole 3.15
+endpoint LF670 and historical source FAIL/INCONCLUSIVE annotations
+remain supplied history, not freshly recertified reading acts. No long
+primary excerpts are republished in the public ledger.
+
+The exact native231 registration failure remains: its input had zero
+structured notes, its declared S306 support was rejected as unknown,
+provider generation completed, and no registered native result existed.
+This is neither mathematical rejection nor acceptance. The new input
+registers the five complete qualified Notes. Native233's actual
+registered FINAL has candidate=false; its ROOT hash/reading binding
+explicitly does not give mathematical or source PASS. ROOT315 remains
+working data. None of these labels appears as an external support ID in
+our notes, and no historical registration record is altered.
+
+Coverage of the original P05.1 proof is complete under its stated
+definition: finite real/rational geometry and scalar matching; rational
+perspective real endpoints; local-cycle PC equivalence; entire coarse
+incident support propagation and exact finite matrices; weak-star
+separation retaining costs and the full dual; exact finite multipliers
+without a hidden LP grant; common rational interpolation with actual
+recession and matching at shared faces; both directions of the
+finite-PA/all-$C_b$ bridge; strict common shifts; actual literal
+obstacle and unrestricted endpoint; and the
+compact/component/zero-dimensional decision. Compact chart extensions
+remain outside this defined original domain.
+
+The own bounded exact checker tests a balanced-line three-node carrier,
+its explicit multiplier/PCC cost agreement, legal literal obstacle
+(7.4), integral slopes and the strict shift inequalities. Its finite
+enumeration exhausts only its specified rational lists. These
+observations do not establish the continuum theorems, every carrier, or
+mathematical acceptance. Programs, inputs, output, commands, environment
+versions, source-reading records, TeX build logs and immutable artifact
+hashes are retained locally. No supplied runner was executed or
+imported; no network, nested agent/provider, active native234 output,
+authentication/proxy/CA change, runtime edit, or protected editor edit
+was used. No resource-heavy computation was needed; no supervised
+compute service was exposed. The requested model/effort is operator
+metadata, not an independently attested provider fact.
+
+This is an author proof-bearing draft. Compilation, finite arithmetic
+and hash matches are reproducibility evidence, not independent
+mathematical acceptance. The last actual FINAL note claims a complete
+solution of original P05.1 under its exact source definition, by the
+explicitly permitted infinite geometric/linear certificate, and
+therefore sets `candidate=true`. This is a claim submitted for review,
+not canonical acceptance. The criterion is not a finite decision
+procedure, and no explicit balanced real bad pair or universal-real
+theorem is claimed. P05.2 and P05.5 remain untouched.
+
+::: thebibliography
+5 A. M. Botero, E. Mazzon, L. Pille--Schneider, *Monge--Ampere measures
+on balanced polyhedral spaces*, arXiv:2603.08664v1.
+<https://arxiv.org/pdf/2603.08664v1>. A. M. Botero, J. I. Burgos Gil, M.
+Sombra, *Convex analysis on polyhedral spaces*, Math. Z. 301 (2022),
+1631--1674, publisher version, 24 January 2022.
+<https://doi.org/10.1007/s00209-021-02869-6>. Qualified registered Note
+B225, whole authoritative paper and mandatory annotation. Qualified
+registered Note R230, whole authoritative continuous-completion/envelope
+paper and mandatory annotation. Qualified registered Note S306, whole
+authoritative paper and all mandatory source/presentation and reader
+annotations.
+:::

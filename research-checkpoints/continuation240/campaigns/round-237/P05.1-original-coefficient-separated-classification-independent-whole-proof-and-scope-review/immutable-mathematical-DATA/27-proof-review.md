@@ -1,0 +1,11 @@
+# Author proof review; not independent acceptance
+
+Checked potential gaps: the all-carrier matrices require support on every ENTIRE original incident cell, not only refined germs; S306 supports are propagated using coarse-cell convex secants. Real-endpoint inequalities are obtained through rational perspective variables and feasible-face density, including irrational centers. Affine support equality at a relative interior carrier point extends over its entire affine hull.
+
+Finite Farkas needs a nonempty primal system; gamma gives its feasibility. The s=0 separator is a recession direction and is not silently discarded. Infinite Farkas retains the cost coordinate and handles s=0 using b>=0 and scaling. Full Banach dual is needed for norm separation; no countable measure replacement or sequential weak-star closure is assumed.
+
+The PA-obstacle bridge avoids PC gluing: a compatible generalized-simplex interpolant above f is bounded by independent roofs and used only as an admissible non-PC obstacle. Real heights are kept at rational spatial nodes, recession slopes use actual gamma, and the rational matching kernel establishes genuine scalar membership. No infinity face identifies different reference slopes of disjoint actual cells. Original PC targets are continuous, globally cell-Lipschitz by the qualified theorem, bounded relative to actual affine gamma on each cell, and have strict original recession; every S306 roof hypothesis is checked.
+
+Literal construction contacts all rational vertices of pointed carriers, dominates its rational gap with integral norm cones, and makes a true bounded literal obstacle. Upper-only raw competitors are completed by R230; finite vertex bounds and recession secants bound EVERY real point. Integral tangent slopes give a positive approximation gap on an actual rational segment. Pointed vertex representation was made explicit using extreme rays of the homogenized cone.
+
+Initial TeX build failed because tag was inside split. The source was repaired by moving tag outside split; the first failure remains in build-pass1.log. Subsequent builds are author compilation observations. Arithmetic tests are finite sanity checks; they neither establish the continuum proofs nor constitute independent acceptance.
