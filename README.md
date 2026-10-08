@@ -4,6 +4,16 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest verified GitHub publication, 8 October 2026:** the 4,634-page
+book unit and its six owned evidence/artifact files are uploaded on `work`
+in commit `ff2288c22dbb5fe769a21ddb29b833ef82277a2c`. All sixteen
+source/progress/audit/artifact blobs have matching remote hashes and sizes.
+The [artifact directory](manuscript/editorial/artifact_exports/20261008_hattori_normalization/README.md)
+contains the complete PDF, 24-page review, actual reading evidence and minimal
+sources. The [publication record](manuscript/editorial/Hattori_CY_fibrations_GitHub_publication_20261008.json)
+also verifies the earlier primary-source records. Main and draft PR #2 scope
+are preserved; upload adds no reading credit or canonical status change.
+
 **Latest checked book integration, 8 October 2026:** the
 [Hattori normalization audit](manuscript/editorial/Hattori_CY_fibrations_staged_integration_audit_20261008.md)
 adds the explicit raw/volume-normalized dictionary in 62.3.4 and L.92.

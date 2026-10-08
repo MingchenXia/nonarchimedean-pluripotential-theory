@@ -3,6 +3,22 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest Hattori GitHub publication checkpoint, 8 October 2026
+
+The [publication record](Hattori_CY_fibrations_GitHub_publication_20261008.json)
+verifies commit ff2288c22dbb5fe769a21ddb29b833ef82277a2c on `work`:
+all sixteen source/progress/audit/artifact remote blobs match local hashes
+and sizes. The six-file [artifact directory](artifact_exports/20261008_hattori_normalization/README.md)
+contains the 4,634-page PDF, 24-page actual review, 76-member reading evidence
+and 472-member minimal source checkpoint. SHA256SUMS pins the four binaries.
+The prior 44-page/22-display source checkpoint is uploaded and verified too.
+Main remains 00957114db21b627e97369563032ceda9cea09c7. Publication supplies
+zero reading credit; frozen staging/activation records retain their earlier
+publication flags. The 42 atoms/twelve formal problems and last complete
+4 October ordered pass are unchanged. Continue with related recent primary
+sources, starting with higher-rank abeloid/Raynaud/Neron model interfaces;
+metadata alone is not a proof-reading gate.
+
 ## Latest Hattori normalization cloud integration checkpoint, 8 October 2026
 
 The current validated cloud edition has 4,634 pages. The
