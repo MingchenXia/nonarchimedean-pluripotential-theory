@@ -4,6 +4,17 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest primary-source continuation, 8 October 2026:** the
+[Hattori Calabi–Yau-fibration audit](manuscript/editorial/Hattori_CY_fibrations_source_review_20261008.md)
+reads all 44 pages of arXiv:2203.11460v2 in 22 matching individual views.
+It checks volume-normalized adiabatic scaling and common stability quantifiers,
+with a direct reducible-fiber diagnostic. The 2025 journal metadata is checked;
+its proof text remains unread. The general stability/cscK equivalence retains
+its source qualifications. The active validated book remains 4,632 pages;
+the intended definition/diagnostic integration is next. Authored notes are in
+the [source artifact directory](manuscript/editorial/artifact_exports/20261008_hattori_sources/README.md).
+No original general theorem or canonical status is changed.
+
 **GitHub checkpoint, 8 October 2026:** the current validated 4,632-page
 source edition and its book/audit attachments are uploaded to `work`.
 The [artifact directory](manuscript/editorial/artifact_exports/20261008_adiabatic/README.md)

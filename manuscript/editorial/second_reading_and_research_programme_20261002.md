@@ -3,6 +3,35 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest Hattori primary-source checkpoint, 8 October 2026
+
+The [source audit](Hattori_CY_fibrations_source_review_20261008.md)
+completes all 44 pages of arXiv:2203.11460v2, updated 9 August 2023,
+with complete selected text, 22 individually displayed matching images and
+22 sequential notes. Preparation records keep false observation flags.
+Exact homogeneity/volume calculations and a reducible-fiber surface example
+check the local normalization and intersection obligations. The 2025 JIMJ
+metadata is verified, but the publisher-linked PDF request returned HTML;
+its frozen failed record supplies zero journal proof credit. All defect
+observations are restricted to the pinned arXiv v2. The general main
+stability/cscK equivalence and recursive external proofs remain qualified.
+
+The complete source evidence is retained in the cloud; the
+[authored source archive](artifact_exports/20261008_hattori_sources/README.md)
+contains byte-verified notes, provenance and diagnostic helpers. No external
+primary PDF/text/images are submitted in that archive. The active 4,632-page
+book, all 425 TeX inputs, both bibliographies and native catalogue/editor
+are unchanged at this source checkpoint. The 42 atoms/twelve formal problems,
+OPEN general BJ22 critical homogeneous Siu/envelopes and UNVERIFIED LPWZ
+density keep their status. No original general theorem or independent-model
+receipt is claimed; 4 October remains the last complete ordered pass.
+
+Next: integrate the explicit volume-normalized dictionary and its common
+quantifiers into 62.3.4, plus the reproducible diagnostic/proof boundary in
+Appendix L. Preserve historical numbers and perform the full mechanical,
+rendered and post-render gates before cloud activation. Continue periodic
+author-update checks and publication of verified units.
+
 ## Latest verified GitHub publication checkpoint, 8 October 2026
 
 The [publication record](Ortu_Sektnan_adiabatic_GitHub_publication_20261008.json)
