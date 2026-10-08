@@ -4,6 +4,17 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest checked book integration, 8 October 2026:** the
+[Hattori normalization audit](manuscript/editorial/Hattori_CY_fibrations_staged_integration_audit_20261008.md)
+adds the explicit raw/volume-normalized dictionary in 62.3.4 and L.92.
+The delta/k condition retains common quantifiers; the reducible-fiber example
+identifies one incorrect printed intersection equality without refuting the
+lemma or main equivalence. Journal proof text remains unread. All 24 selected
+book pages were freshly read in twelve matching displays; mechanical and
+post-render checks pass. The [activation record](manuscript/editorial/Hattori_CY_fibrations_cloud_activation_20261008.json)
+controls the new 4,634-page cloud edition. Upload of this book unit is recorded
+separately. No original general theorem or canonical status change is claimed.
+
 **Latest primary-source continuation, 8 October 2026:** the
 [Hattori Calabi–Yau-fibration audit](manuscript/editorial/Hattori_CY_fibrations_source_review_20261008.md)
 reads all 44 pages of arXiv:2203.11460v2 in 22 matching individual views.
@@ -77,7 +88,7 @@ citation values are preserved. The [cloud activation record](manuscript/editoria
 controls the source/PDF update. No whole-book new reading, original general
 result or canonical status change is claimed. Its verified artifacts are uploaded.
 
-The current cloud research-integration build has **4,632 pages**; its
+The current cloud research-integration build has **4,634 pages**; its
 source and checked book/audit exports are published on `work`. The checked
 [geometric-norm account](manuscript/editorial/Temkin_Zutler_geometric_norms_staged_integration_audit_20261008.md)
 adds Sections 4.6.1--4.6.2: tensor and spectral norm distinctions, exact

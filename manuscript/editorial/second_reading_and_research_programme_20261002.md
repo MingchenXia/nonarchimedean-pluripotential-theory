@@ -3,6 +3,40 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest Hattori normalization cloud integration checkpoint, 8 October 2026
+
+The current validated cloud edition has 4,634 pages. The
+[integration audit](Hattori_CY_fibrations_staged_integration_audit_20261008.md)
+records the added dictionary in 62.3.4 and new L.92. Hats distinguish
+volume-normalized source functions from chapter model invariants retaining V;
+a nef compactification specifies their intersection comparison. The common
+adiabatic delta/k condition, fixed ample shift and norm-comparison quantifiers
+are explicit. The klt-trivial curve theorem does not apply to boundary-zero
+positive-dimensional projective-space fibers.
+
+The complete arXiv v2 has 44 actual pages in 22 individual matching displays.
+The journal proof text remains unread and the source equivalence qualified.
+Local entropy/volume corrections and the reducible-fiber example target
+specific printed proof steps; no lemma/main-theorem counterexample or new
+original general theorem is claimed. All 24 selected book pages were freshly
+read in twelve individual matching displays with sequential notes/receipts.
+The full added text, seams, contents row, index and Hat23A entry pass.
+Required mechanical and post-render checks pass: no errors, warnings, missing
+glyphs, overfull boxes or unresolved references/links. All 955 underfull cases
+are inherited identically. All 13,369 prior number values and 590 citation
+labels remain; two labels, one citation, one contents row and two index terms
+are added. Other 423 TeX inputs and historical formal/proof blocks stay intact.
+
+The 42 atoms/twelve formal problems retain status: general BJ22 critical
+homogeneous Siu/envelopes OPEN; LPWZ density UNVERIFIED. The native editor
+and catalogue are unchanged. The 4 October ordered pass remains the latest
+complete whole-book reading. Source records are already uploaded and remotely
+verified. New book exports are byte-verified; the
+[activation record](Hattori_CY_fibrations_cloud_activation_20261008.json)
+controls their cloud update. Publication of this book unit is recorded
+separately after its authorized GitHub upload. Continue related primary
+research and regular author-update checks.
+
 ## Latest Hattori primary-source checkpoint, 8 October 2026
 
 The [source audit](Hattori_CY_fibrations_source_review_20261008.md)
