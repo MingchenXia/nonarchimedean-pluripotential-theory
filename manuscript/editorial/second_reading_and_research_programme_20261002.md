@@ -3,6 +3,39 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest harmonic-quiver source checkpoint, 8 October 2026
+
+The [source audit](Ben_Bassat_harmonic_quiver_source_review_20261008.md)
+and actual composite ledger cover 138 distinct source/page pairs in 72
+individually displayed matching images. Ben-Bassat arXiv:2610.01694v1,
+Poonen's author PDF and Moret-Bailly v3 are complete; the BE published,
+HKKP v1 and Parreau author selections are partial. Preparation records
+remain unchanged. The triangular principal-minor explanation repairs
+the sorted Gram--Schmidt metric step; the final audit retains the original
+proof diagnoses and source sign/stabilizer qualifications.
+
+The attributable finite-quiver scope has complete K and theta(E)=0.
+It separates all-norm minimum existence from split attainment, and
+polystability from semistability of the real-graded harmonic reduction.
+Uniform incidence coercivity uses the projective rational-point closed-image
+input. CAT(0) minimization uses the complete full norm space and one common
+scaling quotient. The nonsplit identity-arrow and inward D4 examples give
+direct scalar and determinant calculations. The two-radius example reduces
+an auxiliary hinge potential while possibly increasing the original ramp
+potential. Twenty-four exact minor fixtures and six determinant-defect
+fixtures supplement, without replacing, the analytical derivations.
+
+The evidence export has no new reading credit or GitHub publication claim.
+The active 4,616-page book, all 425 active TeX inputs, both bibliographies
+and the native catalogue are preserved. The 42-atom/12-problem inventory,
+general OPEN BJ22 critical Siu/envelope boundary and UNVERIFIED LPWZ
+diagnostic remain unchanged. No original result or independent-model
+receipt is promoted. Read-only checks find both remote branches unchanged.
+The earlier blocked Chapter 68 upload is not retried; the already requested
+repository-ownership confirmation remains pending. Next integrate only this
+qualified attributed account in Chapter 50 and L.89, validate and actually
+read its final pages, then continue cloud research.
+
 ## Latest geometric-norm cloud integration checkpoint, 8 October 2026
 
 The validated current cloud edition has 4,616 pages and adds Sections

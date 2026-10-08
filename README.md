@@ -9,6 +9,15 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
+The [harmonic-quiver source audit](manuscript/editorial/Ben_Bassat_harmonic_quiver_source_review_20261008.md)
+is complete: 138 actual source/page pairs and 72 individually displayed
+matching images, with three complete sources and three partial selections.
+It separates minimum existence, split attainment and harmonic graded
+semistability; exact D4 examples distinguish auxiliary hinge descent from
+the original ramp potential. Source proof qualifications and the sorted
+minor explanation are recorded. Portable cloud evidence is byte-verified;
+no new theorem, canonical status or GitHub upload is claimed. Book integration
+of this attributed account is next.
 The current cloud research-integration build has **4,616 pages**; its
 GitHub publication remains pending. The checked
 [geometric-norm account](manuscript/editorial/Temkin_Zutler_geometric_norms_staged_integration_audit_20261008.md)
