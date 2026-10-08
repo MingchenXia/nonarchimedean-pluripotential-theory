@@ -10,7 +10,7 @@ theorems are given in the supplied book \cite{XiaBook}, while
 interfaces needed here.
 
 Except in the local-domain settings of
-\Cref{sec:appH-local-maximality,sec:appH-smooth-integral-comparison,sec:appH-boundary-envelopes,sec:appH-unbounded-domain-comparison,sec:appH-Bergman-rigidity,sec:appH-ball-quotients,sec:appH-bounded-minorants,sec:appH-toric-multiplier-pairs},
+\Cref{sec:appH-local-maximality,sec:appH-smooth-integral-comparison,sec:appH-boundary-envelopes,sec:appH-unbounded-domain-comparison,sec:appH-Bergman-rigidity,sec:appH-ball-quotients,sec:appH-bounded-minorants,sec:appH-toric-multiplier-pairs,sec:appH-holomorphic-entropy},
 the family setting of \Cref{sec:appH-KE-family-normalization},
 the local analytic germ setting of \Cref{sec:appH-finite-pullback-Segre},
 and the smooth curvature calculations of \Cref{sec:appH-Griffiths-Chern}, \(X\) is a connected compact
@@ -41,6 +41,13 @@ The coefficient and metric comparisons in
 \Cref{sec:appH-triangular-Lorentzian} take place in finite-dimensional
 real polynomial spaces and finite metric spaces. They describe the
 quadratic signature condition used in the preceding curvature examples.
+The smooth weighted estimates in \Cref{sec:appH-positive-weight-estimates}
+use explicitly named source operators, equal to $4\pi$ times the
+potential operators above; their volume forms are ordinary smooth products.
+
+The metric-entropy estimates in \Cref{sec:appH-metric-entropy}
+explicitly divide volume to use probability measures and normalized energy;
+the positive-product operator itself retains its raw-mass convention.
 
 \section{Potentials and the three singularity orders}
 \label{sec:appH-singularity-orders}
@@ -4747,6 +4754,881 @@ status, separate from the canonical problem inventory.
 The exact reading scopes and excluded proof routes are in
 \Cref{sec:appL-triangular-analytic-sources}.
 
+\section{Smooth estimates for arbitrary positive weights}
+\label{sec:appH-positive-weight-estimates}
+\index{weighted cscK equation!positive-weight estimates}
+
+The analytic estimate needed by a weighted existence argument concerns
+smooth solutions and fixed positive weights. It is useful to separate
+that estimate from a full stability correspondence. Jubert--Pan
+\cite{JubertPan26PositiveWeightsV1} remove log-concavity from the
+following systems. Their direct estimates have an explicit dependence on
+the potential and volume-density bounds; they do not furnish those bounds
+for every family of metrics.
+
+\subsection{Operators, moment maps and prescribed scalar}
+
+Let $X$ be a smooth connected compact K\"ahler manifold of complex
+dimension $n\geq2$, with a fixed K\"ahler form $\omega$ and a compact
+Hamiltonian torus $T$ in the reduced automorphism group. Fix a basis
+$\xi_1,\ldots,\xi_r$ of its Lie algebra and a normalized moment map.
+For this section retain the source operators
+\[
+ D^c=4\pi\dc=\rmi(\bar\partial-\partial),\qquad
+ D=4\pi\ddc=2\rmi\partial\bar\partial,\qquad
+ \mathcal R(\eta)=-D\log\eta^n.
+ \tag{H.111}\label{eq:appH-weighted-source-units}
+\]
+Thus $\widehat\omega=\omega+D\varphi$ corresponds to the book
+potential $4\pi\varphi$, and
+$m_\varphi=m_\omega+D^c\varphi$ on torus generators. The moment
+image is a fixed compact polytope $P$. All potentials and products in
+this section are smooth, and all norms use the ordinary measure
+$\omega^n$, without division by its total volume.
+
+Let $v$ be smooth and strictly positive on $P$, meaning that the needed
+derivatives are supplied by a smooth extension to a neighbourhood of $P$.
+For a torus-invariant closed form $\beta$ with a chosen moment map set
+\[
+\begin{aligned}
+ \operatorname{tr}_{\eta,v}\beta
+   &=\operatorname{tr}_\eta\beta+
+       \langle d\log v(m_\eta),m_\beta\rangle,\\
+ \Delta_{\eta,v}f
+   &=\operatorname{tr}_\eta(Df)+
+       \langle d\log v(m_\eta),df\rangle_\eta.
+\end{aligned}
+\tag{H.112}\label{eq:appH-weighted-source-operators}
+\]
+In the first line $d\log v$ is the differential on the polytope;
+in the second it is the differential of the pulled-back function on $X$.
+The scalar pairing in the second line is
+$\langle df,dg\rangle_\eta=\operatorname{tr}_\eta(df\wedge D^cg)$.
+For $Df$ use moment map $D^cf$ on generators, and for
+$\mathcal R(\omega)$ use the source's natural Ricci moment map.
+Weighted integration by parts uses $v(m_\eta)\eta^n$.
+
+Write $h\in C^\infty(P,\mathbf R)$ for the prescribed function in
+the second equation. The system to be estimated is
+\[
+\begin{cases}
+ v(m_\varphi)\widehat\omega^n=e^F\omega^n,\\
+ \Delta_{\widehat\omega,v}F
+       =-h(m_\varphi)+
+          \operatorname{tr}_{\widehat\omega,v}\mathcal R(\omega).
+\end{cases}
+\tag{H.113}\label{eq:appH-positive-weight-system}
+\]
+Both $\varphi$ and $F$ are torus-invariant. Naming $h$ independently
+avoids a scalar-normalization ambiguity. In the convention
+$\operatorname{Scal}_v=v\operatorname{tr}_{\eta,v}\mathcal R_v(\eta)$,
+where $\mathcal R_v(\eta)=\mathcal R(\eta)-D\log v(m_\eta)$,
+the geometric equation $\operatorname{Scal}_v=w$ gives $h=w/v$.
+Indeed the volume equation gives
+$\mathcal R_v(\widehat\omega)=\mathcal R(\omega)-DF$.
+The estimate permits a sign-changing $h$; it does not assume positivity
+of an extremal affine factor.
+
+\subsection{Two traces and the weighted twist}
+
+\begin{theorem}\label{thm:appH-positive-weight-traces}
+In the preceding setup suppose
+$\|\varphi\|_{L^\infty}+\|F\|_{L^\infty}\leq K$ and
+\eqref{eq:appH-positive-weight-system} holds. For every $p\geq1$,
+\[
+ \|\operatorname{tr}_{\widehat\omega}\omega\|_{L^{2p+2}(\omega^n)}
+ +\|\operatorname{tr}_\omega\widehat\omega\|
+       _{L^{(2p+2)/(n-1)}(\omega^n)}\leq C_p.
+ \tag{H.114}\label{eq:appH-positive-weight-trace-bounds}
+\]
+The constants depend on $n,p,K$, the fixed background, torus basis,
+moment normalization and Ricci moment coordinates, a positive lower
+bound for $v$, upper bounds for $v$ and the first two derivatives of
+$\log v$ on $P$, and $\sup_P|h|$.
+No log-concavity of $v$ is required. This is
+\cite[Theorem~2.1]{JubertPan26PositiveWeightsV1}, with the prescribed
+PDE function named $h$ and the source's constant dependence retained.
+\end{theorem}
+
+The reverse trace is the useful quantity in the source proof.
+Chern--Lu gives a lower bound for its logarithmic Laplacian using an
+upper bisectional-curvature bound for the fixed background. Claim~2.2
+and equations~(2.3)--(2.4) of the source identify the Hessian-of-weight
+pairing with $g_\omega(\xi_i,\xi_j)$ and cancel the derivative of
+the reverse trace against the weighted drift. The remaining Lie
+derivatives of $\omega$ are bounded background data. Absolute bounds
+on the derivatives of $\log v$ replace a sign condition on its Hessian.
+
+With $G=-aF-b\varphi$ and
+$u=e^G\operatorname{tr}_{\widehat\omega}\omega$, integration by
+parts retains the derivative of $v$. The coefficient of the gradient
+integral becomes $2p-(p^2+1)/a$. Choosing
+$a=(p^2+1)/(2p)$ and then sufficiently large $b$ leaves a positive
+reverse-trace moment controlled by its lower moment. H\"older closes
+this inequality, since $e^F\omega^n$ has bounded mass and is
+uniformly comparable to $\omega^n$. Finally,
+\[
+ \operatorname{tr}_\omega\widehat\omega\leq
+   \frac{\widehat\omega^n}{\omega^n}
+    (\operatorname{tr}_{\widehat\omega}\omega)^{n-1}
+ \tag{H.115}\label{eq:appH-weighted-trace-determinant}
+\]
+gives the forward estimate. The second exponent in
+\eqref{eq:appH-positive-weight-trace-bounds} is used only for $n\geq2$.
+Neither estimate is uniform when the stated density bound is lost or
+the lower bound for $v$ approaches zero.
+For an exponent $s<1$, the displayed $L^s$ quantity means
+$(\int_X|f|^s\omega^n)^{1/s}$, a quasi-norm rather than a norm.
+
+\index{weighted cscK equation!twisted trace moments}
+\begin{theorem}\label{thm:appH-positive-weight-twisted}
+Fix in addition a torus-invariant closed real $(1,1)$-form $\beta$
+with its moment map. Let $f$ be a smooth torus-invariant function with
+$\beta+Df\geq0$, $\sup_X f=\sup_X\varphi=0$, and
+$\|\varphi\|_{L^\infty}+\|F+f\|_{L^\infty}\leq K$.
+Replace the second equation of
+\eqref{eq:appH-positive-weight-system} by
+\[
+ \Delta_{\widehat\omega,v}(F+f)
+   =-h(m_\varphi)+
+       \operatorname{tr}_{\widehat\omega,v}
+          (\mathcal R(\omega)-\beta).
+ \tag{H.116}\label{eq:appH-positive-weight-twisted-system}
+\]
+Use compatible moment maps under the addition of $Df$.
+Then for every real $k\geq1$,
+\[
+ \int_X e^{(k-1)f}
+       (\operatorname{tr}_\omega\widehat\omega)^k\omega^n\leq C_k.
+ \tag{H.117}\label{eq:appH-positive-weight-twisted-moment}
+\]
+The constants depend on the fixed data of the preceding theorem and
+$\beta$ with its moment map, with $F+f$ replacing $F$ in the bounded
+data. If also $\int_Xe^{-p_0f}\omega^n\leq M$ for some $p_0>1$,
+then
+$\|\operatorname{tr}_\omega\widehat\omega\|_{L^q(\omega^n)}\leq C_q$
+for every $1<q<p_0$, with the additional dependence on $q,p_0,M$.
+This is \cite[Theorem~2.3]{JubertPan26PositiveWeightsV1}, retaining
+the normalizations used in its proof.
+\end{theorem}
+
+Here $F$ alone need not be bounded. The source keeps the reciprocal
+reverse-trace terms, which contribute lower moments instead of a
+fictitious pointwise lower trace bound. Their mass is controlled by
+$\sup_Pv\int_X\omega^n$. The unweighted conclusion uses H\"older
+with $k=q(p_0-1)/(p_0-q)$, so that
+$q(k-1)/(k-q)=p_0$. No endpoint conclusion at $q=p_0$ follows.
+
+\subsection{A direct smooth soliton estimate}
+
+For this paragraph allow any complex dimension $n\geq1$ and suppose
+$X$ is smooth Fano. Retain \eqref{eq:appH-weighted-source-units}
+and take $[\omega]=4\pi c_1(X)$, so that a fixed smooth Ricci
+potential $h_\omega$ satisfies
+$\mathcal R(\omega)-\omega=Dh_\omega$.
+
+\begin{theorem}\label{thm:appH-positive-weight-soliton}
+Let $\varphi$ be a smooth torus-invariant solution with
+$\widehat\omega=\omega+D\varphi>0$ of
+\[
+ v(m_\varphi)\widehat\omega^n
+       =e^{-\varphi+h_\omega}\omega^n.
+ \tag{H.118}\label{eq:appH-positive-weight-soliton}
+\]
+If $\|\varphi\|_{L^\infty}\leq K$, then
+$\operatorname{tr}_\omega\widehat\omega\leq C$ pointwise.
+The constant depends on $n,K,\omega,h_\omega$, the fixed torus and
+moment normalization, positive $\min_Pv$, and bounds for $v$ and
+the first two derivatives of $\log v$.
+This is \cite[Theorem~3.1]{JubertPan26PositiveWeightsV1} for smooth
+solutions, without a log-concavity assumption.
+\end{theorem}
+\index{Kahler-Ricci soliton@K\"ahler--Ricci soliton!positive-weight estimate}
+
+The volume equation gives
+$\mathcal R(\widehat\omega)=\widehat\omega+D\log v(m_\varphi)$.
+The same moment-map cancellation applies at a maximum of
+$\log\operatorname{tr}_{\widehat\omega}\omega-A\varphi$.
+Choosing $A$ larger than the fixed upper bisectional-curvature bound
+controls the reverse trace there; bounded oscillation of $\varphi$
+extends that control to $X$. The volume equation and
+\eqref{eq:appH-weighted-trace-determinant} give the forward trace.
+Finite-energy regularization and singular log-Fano extensions require
+additional arguments and are not conclusions of this smooth estimate.
+
+\begin{samepage}
+\subsection{The boundary of a correspondence claim}
+
+Reciprocal powers of a positive affine function provide an application
+of the analytic change. For $\ell>0$ and $a>0$,
+\[
+ \operatorname{Hess}\log(\ell^{-a})
+       =\frac{a}{\ell^2}\,d\ell\otimes d\ell\geq0.
+ \tag{H.119}\label{eq:appH-positive-affine-log-convex}
+\]
+\end{samepage}
+These weights are log-convex, and for nonconstant $\ell$ they are
+not log-concave. The source's regular-reference Sasaki construction
+uses $v=\ell^{-n-1}$ and $w=\ell^{-n-3}$ on a smooth quotient.
+Its geometric reduction is an attributed input, not a proof here for
+all irregular Sasaki structures.
+
+Passing from the displayed estimates to existence uses the continuity
+method, its bounds and regularity inputs. Passing further to algebraic
+stability also requires polarization and a compatible weighted Futaki
+invariant. The published
+\cite[Theorem~1 and Remark~7.7]{ApostolovJubertLahdili23Published}
+uses a maximal torus for coercivity modulo $T_{\mathbf C}$; for a
+nonmaximal torus it uses the connected centralizer instead.
+Its Definition~1.1 gives the Mabuchi variation with ordinary divided
+volume and no extra $v$ factor. These conventions cannot be dropped
+when using the new estimates. The precise source discrepancies and
+excluded equivalences are recorded in
+\Cref{sec:appL-positive-weight-sources}. They have no implication for
+the unresolved homogeneous Siu-division input of the general
+non-Archimedean theory.
+
+% Review fragment for insertion before appH-unit-tests; not yet an active input.
+\section{Metric entropy of compact K\"ahler potentials}
+\label{sec:appH-metric-entropy}
+\index{metric entropy!Kahler potentials@K\"ahler potentials}
+
+The compactness of a normalized space of potentials asks whether a finite
+cover exists at each positive radius. Metric entropy asks how large that
+cover must be. Hisamoto \cite{Hisamoto26MetricEntropyV1} proves sharp
+small-radius exponents in the background $L^1$ metric and, under an
+entropy constraint, in the intrinsic $d_1$ metric. This section describes
+these complex results with probability measures throughout.
+
+Let $(X,\omega)$ be a compact connected K\"ahler manifold of complex
+dimension $n\geq1$, with the squared-potential and $\ddc$ conventions
+of this appendix. Set
+\[
+ V=\int_X\omega^n,\qquad \nu=V^{-1}\omega^n,
+ \qquad d_{L^1}(u,v)=\int_X|u-v|\,\rd\nu.
+ \tag{H.120}\label{eq:appH-entropy-background-metric}
+\]
+Write $\mathcal H^0_\omega$ for smooth potentials with
+$\omega+\ddc u>0$ and $\sup_Xu=0$, and
+$\operatorname{PSH}_0(X,\omega)$ for all upper semicontinuous
+$\omega$-psh potentials with that supremum normalization.
+For a nonempty metric space $(S,d)$ let
+\[
+ \begin{aligned}
+ \mathscr N_\varepsilon(S,d)
+   &=\min\{\#A:A\subset S\text{ finite},\ S\subset\bigcup_{a\in A}B_d(a,\varepsilon)\},\\
+ \mathscr H_\varepsilon(S,d)&=\log\mathscr N_\varepsilon(S,d).
+ \end{aligned}
+ \tag{H.121}\label{eq:appH-covering-entropy-definition}
+\]
+The balls are open, their centers belong to $S$, and the logarithm is
+natural. If no finite cover exists, both quantities have value $+\infty$.
+This covering entropy is distinct from the relative entropy of a measure.
+
+\subsection{The background metric}
+
+\begin{theorem}\label{thm:appH-background-metric-entropy}
+There are positive constants $c_X,C_X,\varepsilon_X$, depending only
+on $(X,\omega)$, such that for $0<\varepsilon<\varepsilon_X$,
+\[
+ c_X\varepsilon^{-n}\leq
+ \mathscr H_\varepsilon(\mathcal H^0_\omega,d_{L^1})
+ \leq C_X\varepsilon^{-n}.
+ \tag{H.122}\label{eq:appH-background-entropy-rate}
+\]
+The $L^1$ closure of $\mathcal H^0_\omega$ is
+$\operatorname{PSH}_0(X,\omega)$, and the same two-sided estimate
+holds for this closure after changing the constants. No polarization is
+required. This is \cite[Theorem~1.1]{Hisamoto26MetricEntropyV1}.
+\end{theorem}
+
+Positivity controls the distributional Laplacian as a signed measure
+of bounded total variation. The source's Green-potential estimate uses
+local moment cancellation through degree two: a block at length scale
+$h$ has $L^1$ error $O(h^2)$. In real dimension $2n$, the number of
+blocks is $O(h^{-2n})$. A multiscale allocation of covering radii makes
+the sum of the logarithmic costs converge, giving
+$\varepsilon^{-n}$ without an additional terminal logarithm.
+The logarithmic Green singularity in real dimension two is included in
+the cancellation argument. For the lower bound, disjoint smooth local
+bumps of height comparable to $h^2$ and a constant-weight binary code
+produce exponentially many separated potentials while preserving
+K\"ahler positivity and the common supremum normalization.
+
+\subsection{Relative entropy and the finite-energy metric}
+
+For $u\in\mathcal E^1(X,\omega)$ use the probability measure
+$\mu_u=V^{-1}\langle(\omega+\ddc u)^n\rangle$. In this section
+the normalized energy is
+\[
+ \mathsf E_\omega(u)=\frac1{(n+1)V}\sum_{j=0}^n
+  \int_Xu\,\langle(\omega+\ddc u)^j\rangle\wedge\omega^{n-j},
+ \qquad \mathsf E_\omega(u+c)=\mathsf E_\omega(u)+c.
+ \tag{H.123}\label{eq:appH-entropy-normalized-energy}
+\]
+It is the volume-divided energy, rather than the raw energy in the
+opening part of this appendix. The metric $d_1$ is the finite-energy
+completion of the path metric with tangent norm
+$\int_X|\dot u|\,\rd\mu_u$. For ordered finite-energy potentials,
+$u\leq v$ gives $d_1(u,v)=\mathsf E_\omega(v)-\mathsf E_\omega(u)$.
+The normalized endpoint comparison is
+\[
+ C_n^{-1}d_1(u,v)\leq
+ I_1(u,v):=\int_X|u-v|\,\rd\mu_u+\int_X|u-v|\,\rd\mu_v
+ \leq C_n d_1(u,v).
+ \tag{H.124}\label{eq:appH-entropy-endpoint-comparison}
+\]
+Here $C_n$ is a dimensional constant; see
+\cite[Theorem~3]{Darvas14KahlerGeometryV2} and
+\cite[\S2.2]{DLR18QuantizationV1}. The pairing $I_1$ is not the
+signed energy pairing $I(u,v)$.
+
+For $B\geq0$ set
+\[
+ \mathcal K_B=\{u\in\mathcal E^1(X,\omega):\sup_Xu=0,
+                 \operatorname{Ent}(\mu_u\mid\nu)\leq B\},
+ \qquad \mathcal K_B^{\rm sm}=\mathcal K_B\cap\mathcal H^0_\omega.
+\]
+Relative entropy means $\int_X f\log f\,\rd\nu$ when
+$\mu_u=f\nu$, and $+\infty$ otherwise, with $0\log0=0$.
+It is ordinary relative entropy: in the convention of
+\eqref{eq:ytd-analytic-entropy} it equals $2H_\omega(u)$.
+
+\begin{theorem}\label{thm:appH-finite-energy-metric-entropy}
+If $\omega=c_1(L,h_0)$ for a positive Hermitian line bundle, then
+for every $B\geq0$,
+\[
+ \mathscr H_\varepsilon(\mathcal K_B,d_1)
+  \leq C_X(1+B)^{n+1}\varepsilon^{-n},
+ \qquad 0<\varepsilon<\tfrac12.
+ \tag{H.125}\label{eq:appH-finite-energy-entropy-upper}
+\]
+On any compact connected K\"ahler manifold as above, with no
+polarization needed for this direction, for $B>0$ one has
+\[
+ \mathscr H_\varepsilon(\mathcal K_B,d_1)
+ \geq c_X\min\{1,B^{n/2}\}\varepsilon^{-n},
+ \quad 0<\varepsilon<\varepsilon_X\min\{1,\sqrt B\}.
+ \tag{H.126}\label{eq:appH-finite-energy-entropy-lower}
+\]
+The corresponding upper and lower bounds also hold for
+$\mathcal K_B^{\rm sm}$, with internal centers in each class.
+This is \cite[Theorem~1.2]{Hisamoto26MetricEntropyV1}; the constants
+depend on the fixed geometry, and their dependence on $B$ is not
+claimed optimal.
+\end{theorem}
+
+The passage to finite energy retains the same budget $B$. Apply the
+reference heat semigroup to the density $f$: it preserves $\nu$,
+produces smooth positive densities, and decreases relative entropy by
+Jensen's inequality. The smooth Monge--Amp\`ere solutions converge
+strongly to $u$ by entropy-sublevel compactness and uniqueness. The
+required compactness and stability are
+\cite[Theorem~2.17 and Corollary~2.19]{BBEGZ16TameAuthor}.
+Strong convergence is reference $L^1$ convergence together with
+energy convergence, as in
+\cite[Theorem~3.46 and Proposition~3.52]{Darvas21GeometrySurveyV2}.
+Energy-bounded weak compactness alone would not supply this step.
+At $B=0$, equality in relative entropy and uniqueness of the
+normalized finite-energy solution give $\mathcal K_0=\{0\}$.
+
+\subsection{Uniform quantization and information estimates}
+\index{Bergman approximation!entropy sublevels}
+
+The uniform rate uses an auxiliary twist. Choose a fixed positive
+integer $\ell$ so that
+$\ell\omega+\operatorname{Ric}(\nu)\geq\omega$, where
+$\operatorname{Ric}(\nu)=-\ddc\log\nu$. For a sufficiently large
+integer $k$ put $m=k+\ell$ and $N=\dim H^0(X,L^m)$. Define the
+Hilbert form and its Bergman potential by
+\[
+ \begin{aligned}
+ H_{k,u}(s,t)&=\int_X h_0^m(s,t)e^{-ku}\,\rd\nu,\\
+ \beta_ku&=\frac1m\log\left(\frac1N
+            \sum_{j=1}^N|s_j|_{h_0^m}^2\right),
+ \end{aligned}
+ \tag{H.127}\label{eq:appH-entropy-auxiliary-Bergman}
+\]
+where $(s_j)$ is $H_{k,u}$-orthonormal. Full mass gives zero Lelong
+numbers, and fixed-degree exponential integrability makes this a
+finite positive Hilbert form; see
+\cite[Lemma~6.4]{BBGZ09VariationalV1}. Hisamoto
+\cite[Proposition~5.3]{Hisamoto26MetricEntropyV1} proves
+\[
+             \sup_{u\in\mathcal K_B}d_1(u,\beta_ku)
+                      \leq \frac{C_X(1+B)}k.
+\]
+The displayed approximant has not been shifted to supremum zero.
+Its Hilbert form uses the fixed reference measure and the weight
+$e^{-ku}$, while its sections have degree $k+\ell$. It therefore
+differs from the operator in the qualitative fixed-input
+\cite[Theorem~4.1]{DLR18QuantizationV1}.
+
+The energy comparisons behind the rate use concavity, the
+reference Bergman tangent and positivity of an adjoint direct image.
+The extension of the energy to finite-energy inputs is
+\cite[Propositions~2.1 and 2.4]{BBGZ09VariationalV1}; the direct-image
+comparison is \cite[Proposition~2.12]{DLR18QuantizationV1}, with
+positivity on the product. The maximum of $u$ and $\beta_ku$, the
+entropy variational inequality and the endpoint estimate
+\eqref{eq:appH-entropy-endpoint-comparison} convert these energy
+comparisons into distance control. An energy gap alone would not
+control an unordered pair.
+
+Replacing the full Bergman sum by $n+1$ Gaussian linear combinations
+reduces the coefficient count from order $N^2$ to order $N$.
+The expected $d_1$ cost is $O(k^{-1})$. Both endpoint measures enter
+this calculation. For the random endpoint, the scalar squared norm
+$t$ has Gamma$(n+1)$ density and the Monge--Amp\`ere Jacobian
+contributes $n!t^{-n}$, so
+\[
+        (n!t^{-n})\frac{t^ne^{-t}}{n!}=e^{-t},
+        \qquad \int_0^\infty |\log t|e^{-t}\,\rd t<\infty.
+ \tag{H.128}\label{eq:appH-entropy-Gaussian-endpoint}
+\]
+An identity for the expected current would not replace this absolute
+endpoint estimate. The random potentials are smooth and semipositive
+almost surely; they are not claimed to lie in the original entropy
+sublevel.
+
+The remaining step is an information estimate localized near a coarse
+center $v$. A fixed-measure balanced form defines a determinantal
+sample with each point marginal equal to $\mu_u$. Integer-rounded
+observations of $m(\beta_ku-v)$ then control the interpolation
+determinant and the Gaussian likelihood. The source obtains
+\[
+       \operatorname{KL}(P_u\mid Q_v)
+          \leq C_XN\bigl(1+B+k d_1(u,v)\bigr),
+\]
+for its joint sampling and coefficient laws. The determinant
+normalizer and the prescribed marginal are essential: they convert
+sampled errors to integrals against $\mu_u$. A testing inequality
+bounds a separated packing by this relative entropy. Refining coarse
+centers at dyadic degrees gives
+$(1+B)k^n$ at final degree $k$ comparable to $(1+B)/\varepsilon$,
+which is the factor in
+\eqref{eq:appH-finite-energy-entropy-upper}. Strict packing and
+recentering give the internal open-ball convention used above.
+
+\subsection{The toric exponent}
+
+Now retain the polarization and assume $X$ and the reference metric
+are toric. Use reference-matched logarithmic coordinates on the open
+torus: $F_u=F_0+u$ is convex, $P$ is the gradient image of $F_0$,
+and $g_u=F_u^*$ is its Legendre transform. Let $g_0=F_0^*$ and
+$\lambda_P$ be probability Lebesgue measure on $P$.
+Full mass means that $g_u$ is finite on $\operatorname{int}P$;
+finite energy gives $g_u\in L^1(P)$. Boundary values may be
+$+\infty$. These are the relevant parts of
+\cite[Theorem~3.6 and Proposition~3.9]{CGSZ18ToricV1}.
+
+Here fix the additive constant by $\int_Pg_u\,\rd\lambda_P=0$,
+rather than by $\sup_Xu=0$. Define
+\[
+ \begin{aligned}
+ T_g&=(\nabla g_0)^{-1}\circ\nabla g,
+       &\widehat\mu_g&=(T_g)_*\lambda_P,\\
+ d_1(u,v)&=\int_P|g_u-g_v|\,\rd\lambda_P,
+       &\operatorname{Ent}(\mu_u\mid\nu)
+          &=\operatorname{Ent}(\widehat\mu_{g_u}\mid\lambda_P).
+ \end{aligned}
+ \tag{H.129}\label{eq:appH-toric-entropy-transport}
+\]
+Gradients are defined almost everywhere in the interior. The first
+identity uses affine interpolation of Legendre potentials along the
+canonical toric geodesic and its minimizing property. The second
+uses the Legendre-gradient pushforward and the common Haar
+conditional measure, not continuity of relative entropy under an
+arbitrary limit. Hisamoto \cite[\S9.1]{Hisamoto26MetricEntropyV1}
+supplies the $d_1$ argument; the underlying pushforward is
+\cite[Corollary~3.7]{CGSZ18ToricV1}. Both identities use divided
+volumes, with the same potential conventions on the two sides.
+
+\begin{theorem}\label{thm:appH-toric-metric-entropy}
+Let $\mathcal K_B^{\rm tor}$ be the toric finite-energy class with
+the preceding zero-mean normalization and ordinary relative entropy
+at most $B>0$. There are positive geometric constants
+$c,C,\varepsilon_0$ such that
+\[
+ \begin{aligned}
+ \mathscr H_\varepsilon(\mathcal K_B^{\rm tor},d_1)
+   &\leq C\left(\frac{1+B}{\varepsilon}\right)^{n/2},
+       &&\varepsilon>0,\\
+ \mathscr H_\varepsilon(\mathcal K_B^{\rm tor},d_1)
+   &\geq c\left(\frac{\min\{1,\sqrt B\}}{\varepsilon}\right)^{n/2},
+       &&0<\varepsilon\leq\varepsilon_0\min\{1,\sqrt B\}.
+ \end{aligned}
+ \tag{H.130}\label{eq:appH-toric-entropy-rate}
+\]
+The covers have internal centers. This is
+\cite[Theorem~1.3]{Hisamoto26MetricEntropyV1}.
+\end{theorem}
+
+For the upper bound, the smooth reference has logarithmic facet terms
+plus a smooth correction in its symplectic potential; the boundary
+conditions are \cite[Theorems~2.5 and 2.8]{Abreu00SymplecticV1}.
+Small exponential moments of $|\nabla g_0|$ are finite. Entropy
+duality and \eqref{eq:appH-toric-entropy-transport} then control
+$\|\nabla g\|_{L^1}$ by $C(1+B)$. The zero-mean condition gives a
+noncritical Sobolev bound
+$\|g\|_{L^{1+1/(2n)}}\leq C(1+B)$. The convex-function entropy
+estimate \cite[Theorem~1(ii)]{GaoWellner17AuthorPublished} on a fixed
+polytope, with covering metric $L^1$ and controlling exponent
+$r=1+1/(2n)>1$, yields the upper exponent $n/2$.
+The source uses an interior homothety and closure before recentering
+the cover in the entropy class. This step accommodates infinite
+boundary values; it does not claim that every approximating convex
+function has the same entropy budget. For the lower bound, separated
+bumps are placed in a fixed interior region of $P$, where the Hessian
+of the reference is positive. The boundary model stays smooth, the
+entropy cost is quadratic in the bump amplitude, and a constant-weight
+code preserves the common mean.
+
+\subsection{Finite descriptions and normalization cost}
+
+A dictionary with at most $2^b$ entries uses $b$ bits for its index.
+The covering bounds give worst-case errors, up to geometric
+constants,
+\[
+ \begin{aligned}
+  \text{background }L^1 &: \quad b^{-1/n},\\
+  \text{entropy-budget }d_1 &: \quad
+        (1+B)^{(n+1)/n}b^{-1/n},
+        \qquad b\geq C_X(1+B).
+ \end{aligned}
+ \tag{H.131}\label{eq:appH-entropy-dictionary-errors}
+\]
+These are the source's finite-dictionary conclusions in
+\cite[\S10]{Hisamoto26MetricEntropyV1}. The small-radius exponents
+are sharp for each fixed $B>0$; their budget dependence is not
+claimed sharp. The bits describe the dictionary index, not a bound
+on storing coefficients, constructing the dictionary or finding a
+nearest entry. Common-degree smooth Fubini--Study dictionaries exist;
+their centers need not retain the input entropy bound.
+
+The distinction between $\beta_ku$ and its supremum-normalized
+version is quantitative. The weaker estimate proved in the source's
+Lemma~10.5 is sufficient to give
+\[
+ d_1\bigl(u,\beta_ku-\sup_X\beta_ku\bigr)
+       \leq C_X\frac{1+B+\log k}{k}
+       \quad (u\in\mathcal K_B).
+ \tag{H.132}\label{eq:appH-entropy-normalization-cost}
+\]
+On the projective line the source constructs a smooth semipositive
+potential with a flat interior region and finite relative entropy
+for which $\sup_X\beta_ku=-(\log k)/k+O(k^{-1})$.
+Strictly positive approximants can retain a uniform entropy budget.
+Thus a uniform $O(k^{-1})$ assertion after this particular supremum
+shift would lose an actual logarithmic cost. This example concerns
+that normalization procedure, not all possible dictionary designs.
+The source's displayed sign discrepancy and the covariance-component
+correction are recorded in \Cref{sec:appL-metric-entropy-sources}.
+
+These estimates quantify approximation inside a fixed compact complex
+K\"ahler class. Applying them to numerical canonical metrics requires
+an independently justified entropy bound and the relevant coercivity
+and regularity assumptions. They do not identify a non-Archimedean
+entropy-slope limit, give entropy-to-$J$ control for all models, or
+resolve the critical homogeneous Siu-division and general envelope
+input. The polarization and product-positivity hypotheses in the
+upper-rate argument cannot be discarded when making that comparison.
+
+% Attributed review fragment, not an active manuscript input.
+\section{Holomorphic restriction entropy and relative capacity}
+\label{sec:appH-holomorphic-entropy}
+\index{metric entropy!holomorphic restrictions}
+\index{capacity!holomorphic restriction entropy}
+
+The preceding section measures approximation of K\"ahler potentials
+in an integral metric. A different covering problem connects local
+Bedford--Taylor capacity to bounded holomorphic functions. Its
+small-radius scale is a power of $\log(1/\varepsilon)$, rather than
+a power of $1/\varepsilon$. The distinction concerns the function
+class and its norm, not a change of notation for the same estimate.
+We describe the results of \cite{Finski26HolomorphicEntropyV1},
+with the Runge and volume conventions needed in their proof.
+
+\subsection{The function class and the local operator}
+
+Let $X$ be a Stein manifold of complex dimension $n\geq1$, let
+$\Omega\subset X$ be a connected domain, and let $K\Subset\Omega$
+be a nonpluripolar compact set. Put
+\[
+ \mathcal A_{K,\Omega}
+  =\{f|_K:f\in\mathcal O(\Omega),\ \sup_\Omega|f|\leq1\}.
+ \tag{H.133}\label{eq:appH-holomorphic-restriction-class}
+\]
+Montel's theorem makes this a compact subset of $C(K)$ with its
+uniform norm. In this subsection, $N_\varepsilon$ denotes the
+covering number with centers in the ambient space $C(K)$.
+For the internal open-ball convention of
+\Cref{sec:appH-metric-entropy}, a cover can be recentered at
+points of the class after enlarging the radius by a fixed factor.
+Thus either convention gives the same leading coefficient at
+the logarithmic scale used below; exact-radius equality is not
+required.
+
+Write the source differential operator as
+\[
+ D=2\ddc=\frac{\rmi}{\pi}\partial\bar\partial,
+ \qquad
+ \mathsf C_D(K,\Omega)
+   =\sup_{\substack{u\in\PSH(\Omega)\\-1\leq u\leq0}}
+          \int_K(Du)^n.
+ \tag{H.134}\label{eq:appH-holomorphic-capacity-units}
+\]
+For a hyperconvex $\Omega$ this is the relative capacity of
+\cite{BT82}. These are local bounded Bedford--Taylor products;
+there is no division by the volume of a compact cohomology class.
+If $\mathsf C_{\ddc}$ uses the book's operator with the same
+admissible functions, then
+$\mathsf C_D=2^n\mathsf C_{\ddc}$. This local conversion must be
+made before comparing the numerical leading coefficients.
+
+A domain is \emph{strictly hyperconvex} here if an open
+neighborhood $\Omega'$ of $\overline\Omega$ carries a continuous
+psh exhaustion $\rho:\Omega'\to(-\infty,1)$ such that
+$\Omega=\{\rho<0\}$. Its sublevels $\{\rho<r\}$, $r<1$,
+are relatively compact in $\Omega'$. This is the convention in
+\cite[Remark~1.2]{Finski26HolomorphicEntropyV1}.
+
+\begin{samepage}
+\begin{theorem}\label{thm:appH-holomorphic-entropy}
+For a strictly hyperconvex domain $\Omega$ in a Stein manifold
+of complex dimension $n\geq1$ and a nonpluripolar compact
+$K\Subset\Omega$, one has
+\[
+ \lim_{\varepsilon\downarrow0}
+   \frac{\log N_\varepsilon(\mathcal A_{K,\Omega},C(K))}
+        {(\log(1/\varepsilon))^{n+1}}
+   =\frac{2\mathsf C_D(K,\Omega)}{(n+1)!}
+   =\frac{2^{n+1}\mathsf C_{\ddc}(K,\Omega)}{(n+1)!}.
+ \tag{H.135}\label{eq:appH-holomorphic-entropy-limit}
+\]
+This is equation~(1.9) of
+\cite{Finski26HolomorphicEntropyV1}, with its source operator
+displayed explicitly.
+\end{theorem}
+\end{samepage}
+
+The general-domain result has a different form. Define
+$\mathsf C_D(K,Y)$ for a Stein manifold $Y$ by the decreasing
+capacity limit along relatively compact hyperconvex exhaustions.
+Define $\underline{\mathsf C}_D(K,\Omega)$ as the supremum of
+$\mathsf C_D(K,\Omega'')$ over hyperconvex Stein manifolds
+containing $\Omega$ as an open relatively compact subset, and
+as zero when there is no such manifold. For the abstract envelope
+of holomorphy $\widehat\Omega$, the source's Theorem~1.1 gives
+\[
+\begin{aligned}
+ \frac{2\underline{\mathsf C}_D(K,\Omega)}{(n+1)!}
+ &\leq\liminf_{\varepsilon\downarrow0}
+ \frac{\log N_\varepsilon(\mathcal A_{K,\Omega},C(K))}
+      {(\log(1/\varepsilon))^{n+1}}\\
+ &\leq\limsup_{\varepsilon\downarrow0}
+ \frac{\log N_\varepsilon(\mathcal A_{K,\Omega},C(K))}
+      {(\log(1/\varepsilon))^{n+1}}
+ \leq\frac{2\mathsf C_D(K,\widehat\Omega)}{(n+1)!}.
+\end{aligned}
+ \tag{H.136}\label{eq:appH-holomorphic-general-bounds}
+\]
+The two capacities are not identified in general. An envelope
+of holomorphy is an abstract Stein manifold and need not be a
+domain in the original affine space. The punctured disk is Stein
+but not hyperconvex, so the exhaustion definition cannot be
+replaced everywhere by a negative-exhaustion assumption.
+
+\subsection{An affine energy explanation of the coefficient}
+
+Now let $X\subset\mathbf C^m$ be a smooth affine manifold,
+and assume $\Omega\Subset X$ is strictly hyperconvex and
+\emph{strictly Runge}: the neighborhood $\Omega'$ above can
+be chosen Runge in $X$. In particular, holomorphic functions
+on $X$ are dense in those on $\Omega$ on compact subsets.
+For this fixed embedding let
+\[
+ \mathcal L(X)
+ =\{v\in\PSH(X):v(x)\leq\log(1+\|x\|)+C_v\}.
+ \tag{H.137}\label{eq:appH-holomorphic-Lelong-class}
+\]
+For $c>0$ form the two obstacle extremals
+\[
+\begin{aligned}
+ V_0(x)&=\sup\{v(x):v\in\mathcal L(X),\
+                       v|_{\overline\Omega}\leq0\},\\
+ V_c(x)&=\sup\{v(x):v\in\mathcal L(X),\
+            v|_{\overline\Omega}\leq0,\ v|_K\leq-c\}.
+\end{aligned}
+ \tag{H.138}\label{eq:appH-holomorphic-obstacles}
+\]
+Use their upper semicontinuous regularizations in products.
+The relative energy appropriate to ordinary real unit-ball
+volumes is the gap
+\[
+ \Delta(c)=\frac{2}{(n+1)!}\sum_{j=0}^n
+    \int_X(V_0^*-V_c^*)
+          (DV_0^*)^j\wedge(DV_c^*)^{n-j}.
+ \tag{H.139}\label{eq:appH-holomorphic-energy-gap}
+\]
+It is not the probability-normalized compact K\"ahler energy
+of the preceding section.
+
+\begin{samepage}
+\begin{theorem}\label{thm:appH-holomorphic-small-obstacle}
+Under these affine, strictly hyperconvex and strictly Runge
+hypotheses, with nonpluripolar $K\Subset\Omega$, one has
+\[
+ \lim_{c\downarrow0}\frac{\Delta(c)}{c^{n+1}}
+       =\frac{2\mathsf C_D(K,\Omega)}{(n+1)!}.
+ \tag{H.140}\label{eq:appH-holomorphic-small-obstacle}
+\]
+This is \cite[Theorem~1.3]{Finski26HolomorphicEntropyV1}.
+The finite-$c$ extremals depend on the affine embedding; the
+leading term on the right is intrinsic to the condenser
+$(K,\Omega)$.
+\end{theorem}
+\end{samepage}
+
+The source's proof in \S6 reduces this limit to the bounded
+relative extremal
+\[
+ u_{K,\Omega}=\sup\{u\in\PSH(\Omega):u\leq0,\ u|_K\leq-1\}.
+ \tag{H.141}\label{eq:appH-holomorphic-relative-extremal}
+\]
+Its regularization takes values in $[-1,0]$. For small $c$,
+the global extremals agree outside $\Omega$ and $V_0=0$
+inside. Consequently the energy contains only the top-power
+term on $\Omega$. The normalized functions $u_c=V_c^*/c$
+increase towards $u_{K,\Omega}^*$ as $c$ decreases to zero.
+Strict hyperconvexity supplies the outer-domain barriers, and
+strict Runge geometry supplies regular compact neighborhoods
+and a global logarithmic-growth barrier. A common positive
+outer barrier must be retained when taking the supremum over
+global candidates.
+
+Choose a compactly supported cutoff $\chi$ in $\Omega$ equal
+to one near $K$. The contact-support assertion concerns the
+\emph{top measure} $(DV_c^*)^n$; it does not concern the whole
+$(1,1)$-current $DV_c^*$. The source's calculation becomes
+\[
+ \frac{\Delta(c)}{c^{n+1}}
+  =-\frac{2}{(n+1)!}\int_\Omega
+                    \chi u_c(Du_c)^n
+  \longrightarrow
+       \frac{2\mathsf C_D(K,\Omega)}{(n+1)!}.
+ \tag{H.142}\label{eq:appH-holomorphic-capacity-passage}
+\]
+The passage uses locally bounded monotone Bedford--Taylor
+convergence and
+$-\int_\Omega u_{K,\Omega}^*(Du_{K,\Omega}^*)^n
+=\mathsf C_D(K,\Omega)$. Those capacity foundations remain
+the classical input of \cite{BT82}; they are not inferred
+from an arbitrary singular-product continuity assertion.
+
+\subsection{Polynomial covers and ordinary real volume}
+\index{Runge approximation!holomorphic entropy}
+
+Let $A_k[X]$ denote restrictions to $X$ of ambient polynomials
+of total degree at most $k$. Nonpluripolarity of $K$ makes the
+uniform norm on $K$ a norm on this space. Its complex dimension
+$v_k$ is $O(k^n)$. Compare the norms
+\[
+\begin{aligned}
+ N_0(p)&=\sup_\Omega|p|,\qquad N_1(p)=\sup_K|p|,\\
+ M_{k,\varepsilon}(p)&=\max\{N_0(p),\varepsilon^{-1}N_1(p)\}.
+\end{aligned}
+ \tag{H.143}\label{eq:appH-holomorphic-max-norm}
+\]
+Writing $B_N$ for a norm unit ball, the finite-dimensional
+comparison in \cite[Proposition~2.1]{Finski26HolomorphicEntropyV1}
+controls the difference between the covering entropy of
+$B_{N_0}$ in the $N_1$ metric and
+$\log(\operatorname{vol}_{\mathbf R}B_{N_0}/
+\operatorname{vol}_{\mathbf R}B_{M_{k,\varepsilon}})$
+by $O(v_k(1+\log v_k))$. The volume is ordinary Lebesgue
+volume in real dimension $2v_k$. Fixed-radius adjustments
+also accommodate internal centers and open balls.
+
+For fixed $c>0$, set $k\sim c^{-1}\log(1/\varepsilon)$.
+The error is then $o((\log(1/\varepsilon))^{n+1})$.
+Compactification, resolution and the corresponding sup norms
+on a big line bundle give the volume term $\Delta(c)/c^{n+1}$
+at this logarithmic scale, as in the source's Proposition~5.1.
+Only this linked degree/radius regime is used. It is not an
+estimate uniform over every radius at a fixed degree.
+
+The coefficient can be checked directly from
+\cite[Theorem~A]{BB10}. If $L$ is big on a compact complex
+manifold, $N_k=h^0(X,kL)$, and $E_{\mathrm{raw}}$ denotes
+the energy with mixed-integral coefficient $1/(n+1)$ and
+operator $D$, that theorem uses
+\[
+ \frac{1}{2kN_k}\log\frac{\operatorname{vol}_{\mathbf R}B_0}
+                              {\operatorname{vol}_{\mathbf R}B_1}
+ \longrightarrow
+ \frac{E_{\mathrm{raw}}(P_0)-E_{\mathrm{raw}}(P_1)}
+      {\operatorname{vol}(L)}.
+ \tag{H.144}\label{eq:appH-holomorphic-volume-normalization}
+\]
+Here the input weights are continuous on nonpluripolar compact
+sets, $P_i$ are their equilibrium weights, and
+$N_k/k^n\to\operatorname{vol}(L)/n!$.
+Thus the coefficient at scale $k^{n+1}$ is $2/n!$ times
+the raw energy. The comparable upper semicontinuous metric
+extension used for the discontinuous max-norm obstacle is
+\cite[Lemma~4.7]{Finski26Kodaira}, with this multiplier
+retained. Minimal-singularity limits, mutual comparability,
+and a positive lower bound on a nonpluripolar subset are
+part of that extension.
+
+On $\mathbf P^n$ with $L=\mathcal O(1)$, a squared-metric
+change $h_1=e^{-2a}h_0$ enlarges the second unit ball by
+$e^{ka}$. Therefore
+\[
+ \frac{1}{k^{n+1}}\log
+       \frac{\operatorname{vol}_{\mathbf R}B_0}
+            {\operatorname{vol}_{\mathbf R}B_1}
+       \longrightarrow-\frac{2a}{n!}.
+ \tag{H.145}\label{eq:appH-holomorphic-volume-constant-test}
+\]
+The raw energy difference is $-a$. This tests both the real
+factor two and the factorial in \eqref{eq:appH-holomorphic-energy-gap}.
+For the same reason a scalar norm ratio two in complex
+dimension $v$ has log-volume ratio $2v\log2$. For Hermitian norms with
+$N_0\leq N_1$, their normalized norm distance is the
+log-volume ratio divided by $2v$.
+
+The reverse comparison with holomorphic functions requires
+quantitative polynomial approximation on the actual Runge
+domain. \cite[Theorem~3.16, Theorem~5.4 and Corollary~5.5]
+{Zeriahi91ParabolicPublished} supply regular compact
+neighborhoods and exponentially accurate approximants with
+a total-degree bound. A controlled prefactor and a fixed
+radius change preserve the leading logarithmic coefficient.
+Intrinsic holomorphic convexity alone is insufficient: on
+the annulus $1/2<|z|<2$, every polynomial $p$ satisfies
+$\|1/z-p\|_{|z|=1}\geq1$, since the circle average of
+$z(1/z-p)$ is one. This excludes such an approximation
+assertion on arbitrary intrinsically convex Stein subdomains.
+
+The entropy proof first lets $\varepsilon$ tend to zero at
+fixed $c$ and then lets $c$ tend to zero. Increasing $c$ strengthens
+the obstacle $-c$ and increases $\Delta(c)$, so its squeeze
+endpoints must satisfy
+$\Delta(c')\leq\liminf\leq\limsup\leq\Delta(c'')$
+for $c'<c<c''$. The exact source repairs, classical inherited
+inputs and partial-dependency coverage are recorded in
+\Cref{sec:appL-holomorphic-entropy-sources}.
+
+The results concern local complex capacity and uniform
+approximation of holomorphic restrictions. They do not supply
+the critical homogeneous Siu-division step or a general
+non-Archimedean envelope theorem. The intrinsic characterization
+of equality between the two capacities in
+\eqref{eq:appH-holomorphic-general-bounds} is a direction posed
+in the source's Remark~1.2; no solution is asserted here.
+
 \section{Unit tests and failure modes}
 \label{sec:appH-unit-tests}
 
@@ -4849,3 +5731,8 @@ the distinct metric on singularity types is \cite{DDNLmetric}; and the test-curv
 even when another source uses \(\ddc=\rmi\partial\bar\partial/\pi\), the
 weight \(-\log|s|_h\) instead of \(-\log|s|_h^2\), or probability-normalized
 Monge--Amp\`ere measures.
+
+\Cref{sec:appH-metric-entropy,sec:appH-holomorphic-entropy} and their
+source audits in
+\Cref{sec:appL-metric-entropy-sources,sec:appL-holomorphic-entropy-sources}
+record covering, capacity and real-volume conventions.

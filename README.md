@@ -9,7 +9,45 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,568 pages**.
+The current cloud research-integration build has **4,587 pages**; its
+GitHub publication remains pending. The checked
+[holomorphic restriction entropy preview](manuscript/editorial/Finski_holomorphic_metric_entropy_staged_integration_audit_20261008.md)
+adds H.24 and L.86, retaining strict hyperconvexity, the actual Runge
+approximation input, the local capacity operator conversion and ordinary
+real-volume coefficients. The full July Finski v1 and four partially read
+dependencies have 84 actually read source pages in 44 matching images.
+The final scoped book review covers 37 pages: 27 freshly read and ten
+reused after complete image/text/page identity. All 560 prior citation
+labels are preserved, and all internal PDF links resolve.
+The preceding
+[Kähler metric-entropy preview](manuscript/editorial/Hisamoto_metric_entropy_staged_integration_audit_20261008.md)
+adds H.23, L.85 and the qualified Chapter 68 entropy-budget bridge.
+Its full Hisamoto v1 and eight selected dependencies cover 177 actually
+read source pages in 90 matching images. Its final 44-page scoped review
+includes twelve fresh pages and 32 exact-identity reused pages. The
+covering exponents, probability mass and supremum-normalization cost
+remain explicit. Neither addition promotes an original theorem or
+changes the 42-atom inventory; the general BJ22 Siu/envelope input is
+OPEN and LPWZ density is UNVERIFIED. The
+[cloud activation record](manuscript/editorial/Metric_and_holomorphic_entropy_cloud_activation_20261008.json)
+identifies the exact validated bytes copied into the working manuscript.
+The frozen preview records describe their state before this activation;
+they are retained unchanged. The earlier positive-weight build has 4,574 pages.
+The [positive-weight analytic integration](manuscript/editorial/Jubert_Pan_weighted_YTD_integration_audit_20261008.md)
+adds H.22, L.84 and connections in Chapters 50 and 68. Smooth prescribed-scalar
+trace estimates, weighted twists and the direct Fano soliton estimate retain
+their bounded-data hypotheses, source units and exponent ranges, without a
+log-concavity assumption. The full Jubert--Pan v1 and two selected dependencies
+have 44 actually read source pages in 23 individually displayed matching images.
+The printed extra-weight Mabuchi variation, unweighted Futaki correction and
+arbitrary-torus equivalence are excluded; Sasaki, cKEM and singular log-Fano
+correspondences retain explicit source and proof boundaries. Required validation
+passes with zero overfull boxes, unresolved references or invalid internal links.
+The final scoped book review covers 46 pages: twelve freshly read after four
+repairs and 34 reused only after complete-text and image byte identity, including
+the complete index, new contents entries and three references. No original
+theorem or canonical status promotion is claimed; the general BJ22 Siu/envelope
+input remains open. The preceding triangular-hyperfield build has 4,568 pages.
 The [triangular-hyperfield analytic integration](manuscript/editorial/Triangular_hyperfields_analytic_integration_audit_20261008.md)
 adds H.21 and L.83. It connects exact-support coefficient relations,
 factorial normalization, Lorentzian signatures, finite Ptolemaic metrics

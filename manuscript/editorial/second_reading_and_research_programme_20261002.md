@@ -3,7 +3,90 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
-## Latest integration checkpoint, 8 October 2026
+## Latest cloud integration checkpoint, 8 October 2026
+
+The validated 4,587-page cloud manuscript now includes the checked metric
+entropy and holomorphic restriction entropy additions: H.23–H.24,
+L.85–L.86 and the qualified Chapter 68 entropy-budget bridge. Exact validated
+book bytes are copied into the working tree only after source gates, the
+full repository build and the final scoped rendered reviews. The
+[activation record](Metric_and_holomorphic_entropy_cloud_activation_20261008.json)
+distinguishes this cloud action from the still pending GitHub publication.
+Historical staged-preview records are frozen and are not rewritten as
+post-activation or publication receipts.
+
+The [Hisamoto source checkpoint](Hisamoto_metric_entropy_source_review_20261008.md)
+covers the entire 49-page v1 and eight partially read dependencies: 177
+actual source/page pairs in 90 matching images. Its final book review covers
+44 selected pages, twelve fresh and 32 reused by exact physical-page/image/
+complete-text identity. Polarization, budget ranges, probability measures,
+toric zero mean and the logarithmic supremum-shift cost retain their scope.
+
+The [Finski source checkpoint](Finski_holomorphic_metric_entropy_source_review_20261008.md)
+covers the entire 21-page July v1 and four partially read dependencies:
+84 actual source/page pairs in 44 distinct matching images. Its final book
+review covers 37 selected pages, 27 fresh and ten exactly reused. Strict
+hyperconvexity, ambient Runge approximation, the distinct general capacities,
+the factor-two local operator and real-volume/factorial conventions remain
+explicit. The obsolete partial v2 review and failed v3 draft are retained.
+The final build has no errors, unresolved references, overfull boxes or
+invalid internal links; 954 inherited underfull boxes remain recorded.
+All 560 preceding bibliography labels and 286 tracked paired equation tags
+are preserved. These are scoped reviews, not a new whole-book reread.
+
+No original result or canonical status is promoted. The 42 atoms in twelve
+formal problems remain unchanged, the general critical homogeneous BJ22
+Siu-division/envelope input stays OPEN and LPWZ density stays UNVERIFIED.
+No independent gpt-6.1-sol xhigh receipt is fabricated. The native catalogue
+editor and its compiled PDF remain byte-preserved.
+
+Continue cloud-only. The previously requested repository-ownership answer
+is still pending after automatic approval rejected the full Chapter 68
+upload; no rejected upload is retried through another route. Continue
+read-only incoming-author checks and unaffected research. Hao Wu's
+arXiv:2604.12333v1 is acquired and under sequential primary reading. Its
+degree transport, Riemann–Roch range and norm conventions require checking;
+introductory statements alone are not imported into the book.
+
+## Earlier positive-weight integration checkpoint, 8 October 2026
+
+The [positive-weight analytic integration audit](Jubert_Pan_weighted_YTD_integration_audit_20261008.md)
+records H.22, L.84 and connections in Chapters 50 and 68 in the 4,574-page book.
+The prescribed scalar is named h, with h=w/v for the stated geometric convention.
+Source differential operators are explicitly 4 pi times the book operators.
+The smooth trace and twisted-moment estimates retain fixed bounded data,
+normalized moment maps and strict exponent ranges; the Fano soliton estimate
+does not imply singular log-Fano or finite-energy regularization.
+
+The [source review](Jubert_Pan_weighted_YTD_source_review_20261008.md) and
+[sequential source notes](Jubert_Pan_weighted_YTD_source_reading_notes_20261008.md)
+cover 44 exact-source/page pairs in 23 individually displayed matching images:
+the complete thirty-page Jubert--Pan v1 and fourteen selected pages from the
+published Apostolov--Jubert--Lahdili paper and Lahdili v4. Five exact diagnostic
+groups pass. The printed extra-v Mabuchi variation, ordinary-volume weighted
+Futaki correction and arbitrary-torus T_C equivalence are excluded. Maximality
+versus connected centralizer, polarization and Sasaki/cKEM proof boundaries
+remain explicit. No recursive foundation audit or model receipt is claimed.
+
+Required validation and final scoped rendered reading pass. The initial actual
+46-page/23-image reading found four new wording, grammar, pagination and index
+defects. After repair, twelve final pages in six matching images were freshly
+read; 34 pages in seventeen images reuse reading only after complete-text and
+image byte identity. The complete index, new contents entries, three references
+and neighboring contexts are covered. All 167 preceding formal blocks, 75
+proofs, 366 manual tags, 421 other active inputs, 108 protected inputs, 145
+earlier frozen records, 219 preceding exports, three published source files
+and the native catalogue/editor are preserved. No original theorem is promoted;
+42 canonical atoms in twelve problem environments retain their statuses.
+The general BJ22 critical division input is OPEN and LPWZ remains UNVERIFIED.
+
+Continue cloud-only: inspect both GitHub branches before normal expected-head
+publication, then read further related primary papers before integration.
+Hisamoto's Metric entropy of Kähler potentials, arXiv:2609.29002v1, has been
+acquired in its 49-page edition but is unread at this checkpoint. Its abstract
+claims are not book inputs. Acquisition and searches receive no reading credit.
+
+## Earlier triangular-hyperfield integration checkpoint, 8 October 2026
 
 The [triangular-hyperfield analytic integration audit](Triangular_hyperfields_analytic_integration_audit_20261008.md)
 records H.21 and L.83 in the 4,568-page book. Exact-support weak relations,
