@@ -5,6 +5,47 @@ editorial second draft in commit `f0d7942`.
 
 ## Latest integration checkpoint, 8 October 2026
 
+The [Nakano determinant integration audit](Chen_Nakano_determinants_integration_audit_20261008.md)
+records H.20 and L.82 in the 4,560-page book. The unrestricted construction
+satisfies only one of Nakano and dual Nakano positivity at its kernel;
+the coordinate-diagonal higher-degree construction satisfies both.
+The degree-one positive theorem needs strict mixed-discriminant equality,
+not only Lorentzianity. Form-coordinate diagonalization does not require
+commuting fibre matrices. The epsilon perturbation in rank extension and
+the real-twisted rank-three Ross--Toma attribution remain explicit.
+
+The [source review](Chen_Nakano_determinants_source_review_20261008.md) and
+[sequential source notes](Chen_Nakano_determinants_source_reading_notes_20261008.md)
+cover 38 distinct source/page pairs in 20 individually displayed matching
+images: Chen's complete eighteen-page v2 and three partial dependencies.
+Both author programs were separately acquired, completely inspected and
+executed successfully. Seven independent exact diagnostic groups pass;
+the failed characteristic-variable helper remains failed evidence.
+Imported classical foundations are explicit. Du's October rank-at-least-nine
+result qualifies Chen's September weak-positivity question; ranks four--eight
+remain source-scoped candidates rather than a certified current-open list.
+The four-dimensional simultaneous-positivity question is not solved.
+
+Required validation and final scoped rendered reading pass. The initial
+45-page/23-image diagnostic reading found the missing constant-form
+exception in H's preface and two wide display layouts. After repair,
+eight final pages in four matching images were freshly read; 37 pages
+in nineteen images reuse actual reading only after complete-text and
+image byte identity. The complete index and three new references are
+covered. All 34 old formal blocks, fifteen proofs, 92 manual tags, 423
+other active inputs, 108 protected inputs, 131 preceding frozen records,
+211 preceding exports and the native catalogue/editor are preserved.
+All identified repairs are resolved. No original result or model receipt
+is claimed; 42 canonical atoms in twelve problem environments retain their
+statuses, the BJ22 critical division input is open and LPWZ remains unverified.
+
+Continue cloud-only: inspect incoming author commits before normal
+publication, then read further related primary sources before integration.
+The triangular-hyperfield analytic paper 2607.15375v2 is a metadata-only
+candidate, with no source-reading or mathematical-import credit yet.
+
+## Earlier tropical multidegree integration checkpoint, 8 October 2026
+
 The [tropical multidegree integration audit](Tropical_multidegrees_integration_audit_20261007.md)
 records G.9.11--G.9.12 and L.81 in the 4,552-page book. Positive support
 requires one common facet; the global polymatroid criterion retains both

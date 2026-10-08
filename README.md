@@ -9,7 +9,21 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,552 pages**.
+The current research-integration build has **4,560 pages**.
+The [Nakano determinant integration](manuscript/editorial/Chen_Nakano_determinants_integration_audit_20261008.md)
+adds H.20 and L.82. It separates individual Nakano positivity from
+simultaneous Nakano and dual Nakano positivity, strict degree-one
+signatures from higher-degree Lefschetz failure, and pointwise tensors
+from real-twisted global Chern classes. Chen v2 and selected dependencies
+have 38 actually read source pages in 20 displayed matching images.
+Both completely inspected author programs pass, as do seven independent
+exact diagnostic groups. Required validation passes with zero overfull
+boxes, unresolved references or invalid internal links. The final scoped
+book review covers 45 pages: eight freshly read after repairs, and 37
+reused only after complete-text and image byte identity. The complete
+index and all three new references are covered. No original theorem,
+canonical status promotion or general BJ22 Siu/envelope repair is claimed.
+The preceding tropical multidegree build has 4,552 pages.
 The [tropical multidegree integration](manuscript/editorial/Tropical_multidegrees_integration_audit_20261007.md)
 adds G.9.11--G.9.12 and L.81. It separates common-facet positivity and
 polymatroid support from weight-dependent Lorentzian inequalities, with
