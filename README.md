@@ -9,7 +9,24 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,560 pages**.
+The current research-integration build has **4,568 pages**.
+The [triangular-hyperfield analytic integration](manuscript/editorial/Triangular_hyperfields_analytic_integration_audit_20261008.md)
+adds H.21 and L.83. It connects exact-support coefficient relations,
+factorial normalization, Lorentzian signatures, finite Ptolemaic metrics
+and strict tree inertia. The exact four- and five-element thresholds and
+support-dependent sandwich retain their hypotheses; variable identification
+can fail for weak and strong representations. The full analytic v2 and four
+selected dependencies have 135 actually read source pages in 68 individually
+displayed matching images. The arbitrary-minor threshold claim and the
+strict logarithmic-limit proof are excluded; the finite PG(2,3) candidate
+remains unverified. The author-linked Lean repository was inventoried,
+without code-proof reading or execution. Required validation passes with
+zero overfull boxes, unresolved references or invalid internal links.
+The final scoped book review covers 42 pages: twenty freshly read after
+repairs, and 22 reused only after complete-text and image byte identity.
+The complete index, all new contents entries and four references are covered.
+No original theorem, canonical status promotion or general BJ22 Siu/envelope
+repair is claimed. The preceding Nakano determinant build has 4,560 pages.
 The [Nakano determinant integration](manuscript/editorial/Chen_Nakano_determinants_integration_audit_20261008.md)
 adds H.20 and L.82. It separates individual Nakano positivity from
 simultaneous Nakano and dual Nakano positivity, strict degree-one

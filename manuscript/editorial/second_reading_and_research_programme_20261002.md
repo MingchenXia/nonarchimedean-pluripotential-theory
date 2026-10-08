@@ -5,6 +5,47 @@ editorial second draft in commit `f0d7942`.
 
 ## Latest integration checkpoint, 8 October 2026
 
+The [triangular-hyperfield analytic integration audit](Triangular_hyperfields_analytic_integration_audit_20261008.md)
+records H.21 and L.83 in the 4,568-page book. Exact-support weak relations,
+the extra factorial in N_t f_rho, repeated-index upper bounds and the
+pure-square derivative boundary precede the attributed sandwich theorem.
+Rank-two matrices give Ptolemaic metrics and Gram negative type; q(4)=2,
+q(5)=log_2(3) and the parity bounds retain their exact scopes. Tree strictness
+uses explicit edge energy and ultrametric congruence. Weak and strong
+aggregation failures do not contradict Lorentzian substitution closure.
+
+The [source review](Triangular_hyperfields_analytic_source_review_20261008.md)
+and [sequential source notes](Triangular_hyperfields_analytic_source_reading_notes_20261008.md)
+cover 135 distinct exact-source/page pairs in 68 individually displayed
+matching images: the complete analytic v2 and four partial dependencies.
+Seven exact source-diagnostic groups and the five-point endpoint fixture
+pass. The arbitrary-minor threshold assertion is excluded; the PG(2,3)
+candidate remains unverified without the required separate model receipt.
+The canonical-measure wording and strict logarithmic-limit route are not
+used. The pinned author Lean repository receives README/inventory credit
+only, without code-proof reading or execution. Dated source questions are
+not certified as currently open.
+
+Required validation and final scoped rendered reading pass. The initial
+forty-page/twenty-image diagnostic found three long-identifier paragraph
+overflows, crowded displays and imprecise new index destinations. After
+repairs, twenty final pages in eleven matching images were freshly read;
+22 pages in eleven images reuse reading only after complete-text and image
+byte identity. The final 42-page scope includes the complete index, all
+new contents entries, four references and the displaced closing H.23
+paragraph. All 39 old formal blocks, fifteen proofs, 102 manual tags,
+423 other active inputs, 108 protected inputs, 138 earlier frozen records,
+215 preceding exports and the native catalogue/editor are preserved.
+The three already published source-checkpoint files are also byte-preserved.
+No original theorem or model receipt is claimed; 42 canonical atoms in
+twelve problem environments retain their statuses. The general BJ22 critical
+division input is open and the LPWZ density candidate remains unverified.
+
+Continue cloud-only: check incoming author commits before normal publication,
+then read further related primary papers before mathematical integration.
+
+## Earlier Nakano determinant integration checkpoint, 8 October 2026
+
 The [Nakano determinant integration audit](Chen_Nakano_determinants_integration_audit_20261008.md)
 records H.20 and L.82 in the 4,560-page book. The unrestricted construction
 satisfies only one of Nakano and dual Nakano positivity at its kernel;
@@ -41,8 +82,9 @@ statuses, the BJ22 critical division input is open and LPWZ remains unverified.
 
 Continue cloud-only: inspect incoming author commits before normal
 publication, then read further related primary sources before integration.
-The triangular-hyperfield analytic paper 2607.15375v2 is a metadata-only
-candidate, with no source-reading or mathematical-import credit yet.
+At this preceding checkpoint, the triangular-hyperfield analytic paper
+2607.15375v2 was a metadata-only candidate; its subsequent actual reading
+and integration are recorded in the latest checkpoint above.
 
 ## Earlier tropical multidegree integration checkpoint, 8 October 2026
 
