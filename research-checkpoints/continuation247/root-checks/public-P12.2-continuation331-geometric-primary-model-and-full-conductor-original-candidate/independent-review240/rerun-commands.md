@@ -1,0 +1,12 @@
+# Fresh review reproduction
+
+Run from this artifact directory with Python 3.12 and the local Poppler pdftoppm executable. The exact Python/platform/cwd information is retained in review-environment.json. No network or supervised computation is needed. No supplied program is executed or imported.
+
+1. `python review_audit.py` checks the three immutable binding manifests, 52 bound files and two task inputs; it writes 57 exact input records and compares actual versus expanded prose. Observed: zero bound failures; equal IDs/supports/candidate, all 36 prose comparisons false.
+2. `python audit_historical_inventory.py` hashes ONLY the 77 explicitly inventoried author artifacts and 39 historical input files at their recorded paths. Observed: zero failures. Program files are read as bytes, never imported or executed. The 36 frozen input records are included in the 39.
+3. `python extract_bound_html.py` makes inert text extracts from six bound HTML sources with standard HTMLParser, ignoring scripts/styles. The complete used immediate units were read from these extracts as well as supplied derivatives.
+4. `python inspect_bound_pages.py` uses argv subprocesses to render ONLY three bound source pages to fresh PNG files: book PDF pages 20 and 154 (printed 6,140), BFJ PDF page 27 (printed 475). Observed: all return codes zero. The pixels were inspected to confirm bars and exponents. Individual argv/stdout/stderr are retained in source-pixel-commands.json.
+5. `python assemble_review.py` reads only the fresh n1.md--n12.md prose and fresh audits, then writes the full note JSON, whole proof, per-note verdicts, coverage and bounded report. Observed: twelve notes, candidate true, four PASS verdicts, zero current/historical hash failures. This is a fresh assembler written during this review, not an author emitter.
+6. `python verify_review.py` checks schema, earlier LOCAL supports, exact note-body agreement, required artifact presence and all 57 current input hashes; it writes fresh-check-output.json and own-hashes.json. Observed: PASS. This structural check is not a theorem verifier.
+
+Mathematical reconstruction is the prose in whole-proof.md and native-review-notes.json. Source applications, scope and bounded evidence are recorded separately. Reproduction of integrity checks cannot reproduce or certify a human/agent reading act or establish mathematical correctness. Author finite tests, build programs, auditors and ROOT helpers were not rerun.

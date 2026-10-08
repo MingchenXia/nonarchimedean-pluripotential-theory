@@ -1,0 +1,2172 @@
+\chapter{Local valuative pluripotential theory}
+\index{pluripotential theory!local valuative}
+\index{valuation space!normalized local}
+\index{formal psh function}
+\label{chap:local-valuative-psh}
+
+The global theories in earlier parts are organized by a projective variety,
+a cohomology or numerical class, and models of the whole space.  A local
+singularity has none of this data.  It does, however, have a tower of
+modifications over the marked point.  Boucksom--Favre--Jonsson showed that
+this tower carries a genuine local non-Archimedean pluripotential theory
+\cite{BFJ08}.  Its potentials are nef Weil divisors, its model functions come
+from primary ideals, and its Monge--Amp\`ere measures are local intersection
+measures on a normalized valuation link.
+
+This chapter has three purposes.  First, it gives a self-contained account of
+that existing theory, which is the natural predecessor of any proposed local
+analogue of the Boucksom--Jonsson theory.  Second, it records the interfaces
+proved in the sources cited here or in earlier chapters and keeps every
+missing comparison arrow explicit.  Third, it develops the finite-energy
+branch on polarized affine cones established by Wu.  That branch is a genuine
+local analogue of part of the Boucksom--Jonsson theory, but its Reeb
+polarization and its analytic link are additional data; it is not a theorem
+for an arbitrary analytic germ.  We do not turn the remaining missing arrows
+into definitions.  In particular, the arbitrary-germ finite-energy and
+singular-product problems listed at the end remain research questions unless
+a later Rethlas receipt proves them.
+
+\section{The normalized valuation link}
+
+Let \((Y,0)\) be a smooth complex germ of dimension \(n\geq1\).  After
+choosing local coordinates, its algebraic local model is
+\[
+ R=\mathbf C[z_1,\ldots,z_n]_{(z_1,\ldots,z_n)},
+ \qquad
+ \mathfrak m=(z_1,\ldots,z_n),
+ \qquad
+ \widehat R=\mathbf C[[z_1,\ldots,z_n]].
+\tag{70.1}\label{eq:local-regular-ring}
+\]
+The construction depends only on the smooth germ, not on the coordinates.
+Working with \(R\) makes the birational models algebraic; analytic psh germs
+will re-enter in \Cref{sec:local-valuative-transform}.
+Here and below, a modification above \(0\) is projective, is an isomorphism
+away from \(0\), and has smooth source.  It is called \emph{simple} when
+the scheme-theoretic inverse image of \(0\) has simple-normal-crossings
+support.
+
+A centered semivaluation is a map
+\[
+ \nu:R\longrightarrow[0,+\infty]
+\tag{70.2}\label{eq:local-semivaluation-map}
+\]
+that is trivial on \(\mathbf C^*\), is multiplicative, satisfies the
+ultrametric inequality, and is positive on \(\mathfrak m\).  Put
+\[
+ \nu(\mathfrak a):=\min\{\nu(f):f\in\mathfrak a\},
+ \qquad
+ \nu(\mathfrak m):=\min_i\nu(z_i).
+\tag{70.3}\label{eq:local-ideal-value}
+\]
+The minimum in the first formula can be taken over any finite generating
+set.
+
+\begin{definition}
+\label{def:local-normalized-space}
+The normalized valuation space of the germ is
+\[
+ \mathcal V_0
+ :=\{\nu:\nu\text{ is centered at }0,\ \nu(\mathfrak m)=1\},
+\tag{70.4}\label{eq:local-normalized-space}
+\]
+with the topology of pointwise convergence on \(R\).
+\end{definition}
+
+Every centered semivaluation with
+\(0<\nu(\mathfrak m)<+\infty\) has a unique positive rescaling in
+\(\mathcal V_0\).  The semivaluation that is \(+\infty\) on
+\(\mathfrak m\), whose home is the closed point, does not meet this slice.
+Thus \(\mathcal V_0\) is the link obtained by quotienting the finite-radial
+part of the centered cone by the scaling action.  It is
+also the fiberwise slice of the trivially valued Berkovich cone selected by
+the equation \(\nu(\mathfrak m)=1\).  This normalization is local boundary
+data: without the ideal \(\mathfrak m\), a homogeneous local potential has no
+preferred scale.
+
+\begin{theorem}\label{thm:local-valuation-compactness}
+The space \(\mathcal V_0\) is compact Hausdorff.  Divisorial valuations are
+dense in it, and the union of its quasimonomial dual complexes is dense.
+\end{theorem}
+
+\begin{proof}
+BFJ identify \(\mathcal V_0\) with the projective limit of the compact finite
+dual complexes \(\Delta(\pi)\), with transition maps given by retractions.
+This gives compactness and Hausdorffness.  They identify the quasimonomial
+locus with the corresponding inductive union, whose image is dense in the
+projective limit.  Finally, the divisorial points of each simplex are exactly
+its rational-weight points, hence are dense there.  This proves both density
+statements.  See \cite[Sections~1.3--1.7, especially
+Theorem~1.13]{BFJ08}.
+\end{proof}
+
+Let \(\pi:Y_\pi\to Y\) be a simple modification above \(0\), with reduced
+snc exceptional divisor \(E=\sum_{i\in I}E_i\).  Set
+\[
+                         b_i:=\ord_{E_i}(\mathfrak m),
+ \qquad
+                         \nu_{E_i}:=b_i^{-1}\ord_{E_i}.
+\tag{70.5}\label{eq:local-divisorial-normalization}
+\]
+If a stratum is contained precisely in the components indexed by
+\(J\subset I\), its simplex is
+\[
+ \sigma_J
+ =\left\{w\in\mathbf R_{\geq0}^J\ \middle|\
+                    \sum_{j\in J}b_jw_j=1\right\}.
+\tag{70.6}\label{eq:local-weight-simplex}
+\]
+An adapted coordinate system turns \(w\) into a monomial valuation.  The
+simplices glue to \(\Delta(\pi)\subset\mathcal V_0\), and there is a
+retraction
+\[
+                         r_\pi:\mathcal V_0\longrightarrow\Delta(\pi).
+\tag{70.7}\label{eq:local-retraction}
+\]
+The union \(\mathcal V_{0,\mathrm{qm}}:=\bigcup_\pi\Delta(\pi)\) is the
+quasimonomial locus.  Besides the weak topology inherited from
+\(\mathcal V_0\), it carries the strong topology obtained by requiring the
+Euclidean topology on every simplex.  The distinction is essential in the
+definition of a formal psh function.
+
+\begin{example}[A smooth curve germ]
+If \(n=1\), then every normalized centered valuation has
+\(\nu(z)=1\).  Hence \(\mathcal V_0\) is the single point
+\(\ord_0\).  The elaborate local theory below reduces to one-variable order
+of vanishing.  This is the correct unit test for every normalization: a
+local Monge--Amp\`ere measure must be a multiple of
+\(\delta_{\ord_0}\).
+\end{example}
+
+\input{parts/part6/fragments/ch70_normalized_excellent_links.tex}
+
+\subsection{Reduced curve links and ideal profiles}
+
+For a reduced singular curve germ the normalized boundary can already have
+several points, even when the germ is irreducible.  In this dimension the
+boundary datum and its scaling law admit a complete answer: the points are
+the branches of the finite normalization, and a primary ideal fixes the
+scale independently on each branch.  This is the first singular range of
+the general boundary construction in
+\cref{thm:p121-excellent-primary-links,thm:p121-excellent-conductor-descent}.
+The
+conductor-controlled result below also computes one explicit principal-ideal
+profile family.  Its uniform closure and decreasing completion give a
+book-local ideal-psh candidate and complete envelope calculus on the finite
+link, with an intrinsic homogeneous realization on the branch-valuation
+cone.  The construction is not identified with a separately defined
+nef-b-divisor or analytic psh class, and it supplies no product or energy.
+
+\input{editorial/solver_dossiers_20260911/p121_reduced_excellent_curve_links_20260911/STATEMENT.tex}
+\input{editorial/solver_dossiers_20260911/p121_reduced_excellent_curve_links_20260911/PROOF.tex}
+\input{editorial/solver_dossiers_20260911/p121_reduced_excellent_curve_links_20260911/FINITE_MAP.tex}
+\input{editorial/solver_dossiers_20260911/p121_reduced_excellent_curve_links_20260911/EXAMPLES.tex}
+\input{editorial/typesetting_20260922/p121_conductor_ideals.tex}
+\input{editorial/solver_dossiers_20260911/p122_curve_ideal_psh_functoriality_20260911/CURVE_PSH.tex}
+
+The finite-map proposition first gives link-level functoriality: with the
+extended primary ideal on the source, ramification changes numerator and
+normalizing denominator by the same factor.  The conductor proposition then
+realizes every sufficiently deep integral vector of normalization-branch
+orders by one downstairs \(\mathfrak m\)-primary principal ideal.  The last
+two theorems identify the resulting uniform closure and decreasing
+completion with a book-local ideal-psh candidate; normalization transport,
+finite-map pullback, and the complete obstacle envelope are exact on this
+finite link.  For every finite map surjective on branches, generic degrees
+give an exact weighted trace, a pullback retraction, and
+conductor-controlled principal descent; branch surjectivity is also
+necessary for any retraction.  The pushforward satisfies a sharp Jensen
+inequality with the ideal envelope, with equality exactly outside mixed-sign
+fibers.  It also induces a norm-one projection onto the pullback image and a
+dual total-variation-isometric lift of signed measures on the finite link;
+the associated source-side Markov projection is positive, norm one, and
+adjoint to the function projection.  Relative to every full-support base
+probability, the function projection is the finite conditional expectation:
+it satisfies the pullback-module identity, contracts every \(L^p\) norm, is
+orthogonal in \(L^2\), and has an exact fiberwise variance decomposition.
+Normalized averages and their dual lifts compose exactly when the next-stage
+generic degree is fiberwise constant.
+For finite flat maps, determinant norms make that descent canonical
+without a conductor scaling.  These results do not
+compare this class with nef b-divisors or analytic
+psh functions.  More sharply,
+\Cref{thm:p122-conductorial-disc-radial-psh-classification} computes the
+exact radial comparison whenever the finite normalization is a union of
+closed discs, is an isomorphism away from one point, and the conductor
+separates sufficiently high branch powers.  A branch profile extends
+radially as a classically psh function if and only if it also extends as a
+CLD-v2 psh function, and this happens exactly for the zero profile or when
+every branch coordinate is strictly negative, with \(-\infty\) allowed.
+The ordinary multinode calculation in
+\Cref{thm:p122-multinode-radial-psh-classification} is its explicit
+coordinate-ring model.  Thus mixed-zero faces are excluded by the Shilov
+maximum principle.  This leaves open a different boundary-trace comparison,
+does not by itself close the corresponding P12 atoms, and does not construct
+a Monge--Amp\`ere product or energy.
+
+\input{parts/part6/fragments/ch70_finite_transfer_conductor.tex}
+
+\section{Exceptional b-divisors and ideal functions}
+
+We return to the smooth complex germ and the simple modifications fixed
+at the beginning of the chapter.
+Let \(\mathfrak X_0=\varprojlim_\pi Y_\pi\) be the local
+Riemann--Zariski space.  An exceptional Weil divisor is a compatible family
+\[
+                         Z=(Z_\pi)_\pi,
+ \qquad
+                         \mu_*Z_{\pi'}=Z_\pi
+\tag{70.8}\label{eq:local-weil-bdivisor}
+\]
+whenever \(\pi'=\pi\circ\mu\).  A Cartier divisor is determined on one
+model and pulled back to every higher model.  Coefficients along prime
+exceptional divisors identify Weil divisors with functions on the
+divisorial locus:
+\[
+ g_Z(\nu_E)
+ :=\frac{\ord_E(Z)}{\ord_E(\mathfrak m)}.
+\tag{70.9}\label{eq:local-divisor-function}
+\]
+
+For an \(\mathfrak m\)-primary ideal \(\mathfrak a\subset R\) (identified
+with its extension to \(\widehat R\)), define
+\[
+ \log|\mathfrak a|(\nu):=-\nu(\mathfrak a),
+ \qquad
+ \ord_E Z(\mathfrak a):=-\ord_E(\mathfrak a).
+\tag{70.10}\label{eq:local-ideal-function}
+\]
+For a single formal function, \(Z(f)\) means the exceptional Weil divisor
+whose coefficient at \(E\) is \(-\ord_E(f)\); equivalently, it is the
+divisor attached to the principal ideal \((f)\).
+Thus \(Z(\mathfrak a)\leq0\), and
+\(g_{Z(\mathfrak a)}=\log|\mathfrak a|\) on divisorial valuations.
+The sign agrees with the global convention of this book: an effective ideal
+has a nonpositive logarithmic norm.
+
+The tropical identities are
+\[
+\begin{aligned}
+ \log|\mathfrak a\mathfrak b|
+   &=\log|\mathfrak a|+\log|\mathfrak b|,\\
+ \log|\mathfrak a+\mathfrak b|
+   &=\max\{\log|\mathfrak a|,\log|\mathfrak b|\}.
+\end{aligned}
+\tag{70.11}\label{eq:local-tropical-ideal-laws}
+\]
+Cartier b-divisors with real coefficients correspond exactly to continuous
+functions that become real affine on every face of one sufficiently high
+dual complex.  The
+integral subgroup is generated by the functions
+\(\log|\mathfrak a|\) for primary ideals \(\mathfrak a\).  This is the
+local counterpart of the model-function/vertical-Cartier dictionary in
+\Cref{chap:models,chap:mp-dual-complexes}; see
+\cite[Propositions~1.14--1.15]{BFJ08} for the local dictionary and its
+uniform-density statement.
+
+\begin{example}[The distinguished local constant]
+The normalization \(\nu(\mathfrak m)=1\) gives
+\[
+                         \log|\mathfrak m|\equiv-1
+                         \quad\text{on }\mathcal V_0.
+\tag{70.12}\label{eq:local-maximal-ideal-constant}
+\]
+Hence the maximal ideal plays simultaneously the role of radial coordinate,
+normalizing divisor, and constant model potential.  This is why adding an
+arbitrary constant before choosing a normalization is not an intrinsic local
+operation.
+\end{example}
+
+\begin{example}[A monomial ideal]
+On \((\mathbf C^2,0)\), take
+\(\mathfrak a=(x^p,y^q)\), where \(p,q\geq1\).  For the monomial valuation of weight
+\((a,b)\), normalized by \(\min\{a,b\}=1\),
+\[
+                   \log|\mathfrak a|(\nu_{a,b})
+                    =-\min\{pa,qb\}
+                    =\max\{-pa,-qb\}.
+\tag{70.13}\label{eq:local-monomial-ideal}
+\]
+The corner occurs where \(pa=qb\).  It is a local model-psh function, but
+it is not smooth across that wall.  This is the same regularity distinction
+that appears for Fubini--Study maxima in \Cref{chap:bj-fs-pl-psh}.
+\end{example}
+
+\section{Formal psh functions}
+
+The cone of nef Weil divisors is the closed convex cone generated by
+\(Z(\mathfrak a)\) as \(\mathfrak a\) ranges over ideals of the completed
+regular local ring.  It is enough to use the unit ideal, which gives the zero
+divisor, together with \(\mathfrak m\)-primary ideals.  If a nef divisor is
+Cartier and determined on \(Y_\pi\), nefness is equivalent to
+\(\pi\)-nefness: its degree on every complete curve in \(\pi^{-1}(0)\) is
+nonnegative \cite[Proposition~2.2]{BFJ08}.
+
+\begin{definition}
+\label{def:local-formal-psh}
+A formal psh function is a function
+\(g:\mathcal V_{0,\mathrm{qm}}\to\mathbf R\) that is continuous in the
+strong topology and whose divisorial values define a nef Weil divisor
+\(Z(g)\).  It is extended to all of \(\mathcal V_0\) by
+\[
+                           g(\nu):=\inf_\pi g(r_\pi(\nu)).
+\tag{70.14}\label{eq:local-formal-extension}
+\]
+\end{definition}
+
+The extension takes values in \([ -\infty,0]\) and is upper
+semicontinuous for the weak topology.  On every simplex it is finite,
+continuous, and convex.  The sign may initially look reversed: the
+functions are nonpositive, while their restrictions to affine weight
+coordinates are convex.
+
+We need one discrepancy term for the approximation theorem.  If \(E\) is an
+exceptional prime on \(Y_\pi\), define the \emph{thin divisor}
+\(\mathbf A\) and its normalized thinness function by
+\[
+ \ord_E(\mathbf A)=1+\ord_E(K_{Y_\pi/Y}),
+ \qquad
+ A(\nu_E)=\frac{1+\ord_E(K_{Y_\pi/Y})}{b_E}.
+\]
+The function \(A\) is finite, affine, and bounded on each fixed simplex,
+though it can take the value \(+\infty\) on
+\(\mathcal V_0\setminus\mathcal V_{0,\mathrm{qm}}\).
+For a nef Weil divisor \(W\), its \emph{valuative multiplier ideal} is the
+stationary value, for \(0<\epsilon\ll1\), of
+\[
+ \mathcal L^2(W)
+   =\{f\in\widehat R:
+          Z(f)\leq(1+\epsilon)W+\mathbf A\}.
+\]
+Noetherianity makes the increasing family on the right stationary as
+\(\epsilon\downarrow0\).
+
+\begin{theorem}\label{thm:local-nef-psh-equivalence}
+The assignments \(g\mapsto Z(g)\) and \(Z\mapsto g_Z\) give a bijection
+between formal psh functions and nef Weil divisors.  Every formal psh
+function admits a decreasing ideal approximation
+\[
+                  g_k=c_k\log|\mathfrak a_k|\searrow g,
+ \qquad c_k>0,
+\tag{70.15}\label{eq:local-decreasing-ideal-approximation}
+\]
+where every \(\mathfrak a_k\subset\widehat R\) is either the unit ideal or
+\(\mathfrak m\)-primary.  If \(g\not\equiv0\), the sequence may be reindexed
+so that every \(\mathfrak a_k\) is \(\mathfrak m\)-primary; if \(g\equiv0\),
+one may take \(\mathfrak a_k=\widehat R\) and \(g_k=0\) for all \(k\).
+\end{theorem}
+
+\begin{proof}
+For a nef Weil divisor, divisorial coefficients give a convex function on
+the rational points of each dual face.  Continuity up to the boundary of a
+closed face is the subtle point.  BFJ attach valuative multiplier ideals
+\(\mathcal L^2(kZ)\) and prove the uniform estimate
+\[
+ \left|g_Z-\frac1k\log|\mathcal L^2(kZ)|\right|
+                   \leq\frac{A}{k}
+\tag{70.16}\label{eq:local-multiplier-uniform-estimate}
+\]
+on every fixed simplex, where the log-discrepancy function \(A\) is bounded
+there \cite[Theorem~3.9]{BFJ08}.  The ideal functions therefore converge
+uniformly on each face and
+produce the unique strongly continuous extension.  The formula
+\eqref{eq:local-formal-extension} gives its weakly usc extension to all
+valuations.
+
+For monotone approximation, BFJ take, after dyadic indexing,
+\[
+ \mathfrak a_k=\mathcal L^2(2^kZ(g))+\mathfrak m^{4^k},
+ \qquad c_k=2^{-k}.
+\]
+The valuative subadditivity theorem makes the resulting functions decrease
+\cite[Theorem~3.10]{BFJ08},
+and the sum is either the unit ideal or \(\mathfrak m\)-primary.  For
+\(g\equiv0\), one has \(\mathcal L^2(0)=\widehat R\), so the displayed
+sequence is identically zero.  If \(g\not\equiv0\), then
+\(\max_{\mathcal V_0}g<0\) by \cite[Proposition~3.14]{BFJ08}.  The upper
+estimate in \cite[Theorem~3.9]{BFJ08}, evaluated at any fixed
+quasimonomial valuation, therefore forces \(\mathcal L^2(2^kZ(g))\) to be
+proper for all sufficiently large \(k\).  Adding \(\mathfrak m^{4^k}\)
+then makes it \(\mathfrak m\)-primary.  Discarding the finite initial segment
+gives the asserted nonzero case.  The limit on non-quasimonomial valuations follows from
+\eqref{eq:local-formal-extension}.  See
+\cite[Propositions~3.11 and 3.13]{BFJ08}.
+\end{proof}
+
+The formal psh cone is closed under positive linear combinations and
+maxima.  Nefness is also weakly closed under coefficientwise limits whose
+coefficients remain finite,
+but such a limit represents a formal psh function only after strong
+continuity on every simplex has been checked; no unconditional
+monotone-closure assertion is intended.  Every formal psh function satisfies
+\[
+                              g\leq g\circ r_\pi.
+\tag{70.17}\label{eq:local-retraction-inequality}
+\]
+The right side decreases to \(g\) as the model increases
+\cite[Proposition~2.7]{BFJ08}.
+
+\paragraph{Retraction trap.}
+In dimension two, \(g\circ r_\pi\) is again formal psh.  In higher
+dimension this may fail: the Cartier incarnation of a nef Weil divisor on a
+fixed model need not be nef.  Consequently local regularization cannot be
+reduced to a single fixed skeleton by formal analogy with a metric graph.
+
+\section{Nef envelopes on a fixed local model}
+
+Suppose a bounded function \(h\) is determined on one dual complex, meaning
+\(h=h\circ r_\pi\).  Its associated Weil divisor is determined by the
+divisorial values of \(h\).  BFJ define its nef envelope by
+\[
+ \widehat Z(h)
+ :=\sup\{W:W\text{ is a nef Weil divisor and }W\leq Z(h)\}.
+\tag{70.18}\label{eq:local-nef-envelope}
+\]
+The admissible family is nonempty: since \(h\) is bounded, a sufficiently
+large multiple of \(Z(\mathfrak m)\) lies below \(Z(h)\).
+Finite coefficientwise maxima are nef.  Direct the finite subfamilies by
+inclusion; their maxima increase coefficientwise to the displayed
+supremum, which remains finite because it is bounded above by \(Z(h)\).
+Closedness of the nef cone therefore makes the supremum nef.  Equivalently,
+one obtains the largest formal psh function dominated by \(h\) on
+divisorial valuations.
+
+For a Weil divisor \(W\), put
+\[
+ \mathfrak a(W)
+ :=\{f\in\widehat R:Z(f)\leq W\}.
+\tag{70.19}\label{eq:local-envelope-ideal}
+\]
+If \(W\) is determined on a bounded dual complex, then
+\(\mathfrak a(W)\neq0\), since a sufficiently high power of
+\(\mathfrak m\) satisfies the required inequalities.  For the nef envelope
+\(W=\widehat Z(h)\), the ideals \(\mathfrak a(kW)\) recover \(W\) with
+quantitative multiplier-ideal estimates
+\cite[Section~3.5, especially Proposition~3.18]{BFJ08}.
+
+This is a genuine local envelope construction, but its signature matters.
+The obstacle is bounded and carried by a fixed dual complex; the output is a
+nef b-divisor on the tower over one smooth point.  It is not a proof that the
+usc regularization of an arbitrary local FS supremum is psh on an arbitrary
+Berkovich analytic germ.  In fact,
+\Cref{prop:ch15-nodal-local-envelope} shows that the unrestricted assertion
+fails for a continuous obstacle on a reduced nodal affinoid curve.
+
+\section{Intersection products and local Monge--Amp\`ere measures}
+
+On one modification, exceptional Cartier divisors have their usual
+intersection number
+\[
+                         \langle Z_1,\ldots,Z_n\rangle\in\mathbf R.
+\tag{70.20}\label{eq:local-cartier-intersection}
+\]
+For nef Cartier divisors it is nonpositive and monotone in every variable.
+BFJ extend it to nef Weil divisors by
+\[
+ \langle Z_1,\ldots,Z_n\rangle
+ :=\inf_{W_i\geq Z_i}
+       \langle W_1,\ldots,W_n\rangle\in[-\infty,0],
+\tag{70.21}\label{eq:local-nef-intersection}
+\]
+where the \(W_i\) range over nef Cartier divisors.  The product is symmetric,
+multilinear, upper semicontinuous, and continuous along decreasing families
+\cite[Proposition~4.4]{BFJ08}.  Multilinearity at the Weil level is a deep use of
+the ideal approximation in \Cref{thm:local-nef-psh-equivalence}; it is not a
+formal property of arbitrary inverse-limit divisors.
+
+\begin{theorem}\label{thm:local-formal-ma}
+For \(1\leq i\leq n-1\), let \(g_i\) be a formal psh function with nef
+divisor \(Z_i\).  Assume
+\[
+        \langle Z_1,\ldots,Z_{n-1},Z(\mathfrak m)\rangle> -\infty.
+\tag{70.22}\label{eq:local-ma-finiteness}
+\]
+There is a unique positive Radon measure
+\(\MA_0(g_1,\ldots,g_{n-1})\) on \(\mathcal V_0\) such that
+\[
+ \int_{\mathcal V_0}g\,
+       \MA_0(g_1,\ldots,g_{n-1})
+   =\langle Z(g),Z_1,\ldots,Z_{n-1}\rangle
+\tag{70.23}\label{eq:local-ma-characterization}
+\]
+for every formal psh test function \(g\).  The hypothesis holds when all
+\(g_i\) are bounded.
+\end{theorem}
+
+\begin{proof}
+First take \(g\) piecewise affine, so that \(Z(g)\) is Cartier.  Any Cartier
+divisor is a difference of two nef Cartier divisors, and
+\eqref{eq:local-ma-finiteness} makes the resulting linear functional finite.
+It is positive on nonnegative piecewise-affine functions.  Such functions
+form a uniformly dense lattice in \(C^0(\mathcal V_0)\), by the ideal
+functions and the lattice form of Stone--Weierstrass.  The functional is
+therefore bounded by its value on the constant function and extends uniquely
+to \(C^0(\mathcal V_0)\).  The Riesz representation theorem gives the
+measure.  Decreasing ideal approximation then proves
+\eqref{eq:local-ma-characterization} for every formal psh test function.  See
+\cite[Proposition~4.6]{BFJ08}.
+If the \(g_i\) are bounded, choose \(C_i\geq0\) with
+\(g_i\geq-C_i\).  Then \(Z_i\geq C_iZ(\mathfrak m)\), so monotonicity and
+\(-\langle Z(\mathfrak m),\ldots,Z(\mathfrak m)\rangle
+=e(\mathfrak m)=1\) give the required finite lower bound.
+\end{proof}
+
+Taking the test function \(\log|\mathfrak m|=-1\) yields the total mass
+\[
+ \bigl\|\MA_0(g_1,\ldots,g_{n-1})\bigr\|
+ =-\langle Z(\mathfrak m),Z_1,\ldots,Z_{n-1}\rangle.
+\tag{70.24}\label{eq:local-ma-total-mass}
+\]
+For primary ideals \(\mathfrak a_1,\ldots,\mathfrak a_n\), write
+\(e\langle\mathfrak a_1,\ldots,\mathfrak a_n\rangle\) for their mixed
+Hilbert--Samuel multiplicity.  The identity is
+\[
+ e\langle\mathfrak a_1,\ldots,\mathfrak a_n\rangle
+ =\int_{\mathcal V_0}-\log|\mathfrak a_1|\,
+   \MA_0(\log|\mathfrak a_2|,\ldots,
+                 \log|\mathfrak a_n|).
+\tag{70.25}\label{eq:local-mixed-multiplicity}
+\]
+This is \cite[Proposition~4.7]{BFJ08}.
+If the \(g_i\) are piecewise affine on one model, the measure is atomic at
+its divisorial vertices.  More precisely, the mass at
+\(\nu_E=b_E^{-1}\ord_E\) is
+\[
+ b_E\bigl\langle E,(Z_1)_\pi,\ldots,(Z_{n-1})_\pi
+             \bigr\rangle_{Y_\pi}.
+\tag{70.26}\label{eq:local-atomic-ma}
+\]
+This model formula is the calculation in
+\cite[Proposition~4.9]{BFJ08}.
+Finally, decreasing sequences in all \(g_i\) give weak convergence of
+their Monge--Amp\`ere measures whenever the limiting measure is defined
+\cite[Proposition~4.8]{BFJ08}.
+
+\begin{example}[The maximal ideal gives a Dirac mass]
+Set \(g_1=\cdots=g_{n-1}=\log|\mathfrak m|=-1\).  This model function is
+determined, when \(n\geq2\), by the blowup of \(0\), whose exceptional
+divisor gives the single vertex \(\nu_{\mathfrak m}\).  Since
+\(e(\mathfrak m)=1\), \eqref{eq:local-mixed-multiplicity} and
+\eqref{eq:local-atomic-ma} give
+\[
+              \MA_0(-1,\ldots,-1)=\delta_{\nu_{\mathfrak m}}.
+\tag{70.27}\label{eq:local-maximal-ideal-dirac}
+\]
+For \(n=1\), one instead uses the divisor \(\{0\}\) on the identity model;
+the left side has no potential arguments, and the formula recovers the
+one-point calculation at the start of the chapter.
+\end{example}
+
+The operator takes \(n-1\) potentials because \(\mathcal V_0\) is a
+normalized link of dimension \(n-1\).  The extra divisor in
+\eqref{eq:local-ma-characterization} is supplied by the test function.  This
+differs from the global Monge--Amp\`ere operator on an \(n\)-dimensional
+projective variety, which takes \(n\) curvature factors.
+
+\section{Complex psh germs and their valuative transforms}
+\label{sec:local-valuative-transform}
+
+There is a convention change between \cite{BFJ08} and the complex part of
+this book.  BFJ write singularities using \(u\sim\log|f|\) and define
+multiplier ideals by \(|f|^2\rme^{-2u}\).  In
+\Cref{chap:complex-prerequisites}, we write
+\(\varphi=2u\sim\log|f|^2\) and use
+\(|f|^2\rme^{-\varphi}\).  Thus
+\[
+             u=\frac12\varphi,
+ \qquad
+             \mathcal J_{\mathrm{BFJ}}(u)
+                =\mathcal I_{\mathrm{book}}(\varphi).
+\tag{70.28}\label{eq:local-convention-firewall}
+\]
+All statements in this section are first written in the BFJ variable \(u\).
+
+Let \(u\) be a psh germ at \(0\).  For every exceptional prime \(E\) on a
+modification, let
+\[
+ \nu_E(u):=b_E^{-1}\nu^{\mathrm{gen}}(u\circ\pi,E)
+\]
+be the normalized generic Lelong number of \(u\circ\pi\) along \(E\).
+The coefficients
+\[
+                         \ord_E Z(u):=-b_E\nu_E(u)
+\tag{70.29}\label{eq:local-psh-divisor}
+\]
+define a Weil divisor.
+
+\begin{theorem}\label{thm:local-valuative-transform}
+The divisor \(Z(u)\) is nef.  Its corresponding formal psh function
+\(\widehat u\) is characterized on divisorial valuations by
+\[
+                            \widehat u(\nu_E)=-\nu_E(u).
+\tag{70.30}\label{eq:local-valuative-transform-divisorial}
+\]
+If \(u=c\max_j\log|f_j|+O(1)\) and
+\(\mathfrak a=(f_j)\), then
+\[
+                            \widehat u=c\log|\mathfrak a|.
+\tag{70.31}\label{eq:local-analytic-ideal-transform}
+\]
+On a quasimonomial simplex, \(-\widehat u\) is the corresponding Kiselman
+number of \(u\circ\pi\).
+\end{theorem}
+
+\begin{proof}
+Demailly's Hilbert-space approximation gives psh germs \(u_k\) with ideal
+singularities determined by \(\mathcal J(ku)^{1/k}\).  The divisorial
+estimate
+\[
+ Z(\mathcal J(u))\geq Z(u)
+            \geq Z(\mathcal J(u))-\mathbf A
+\tag{70.32}\label{eq:local-demailly-divisor-estimate}
+\]
+implies
+\(Z(u)=\lim_k k^{-1}Z(\mathcal J(ku))\).  Each ideal divisor is nef, and
+the nef cone is closed, proving nefness.  The first characterization is the
+definition of the divisor coefficients; the ideal case follows by taking
+orders of the generators.  Rational monomial weights are divisorial, and
+continuity on each simplex extends the equality with Kiselman numbers to all
+real weights.  These are \cite[Theorem~5.1 and
+Proposition~5.6]{BFJ08}.
+\end{proof}
+
+The valuative transform remembers the full collection of generic Lelong
+numbers over every model.  It also controls multiplier ideals.  In BFJ's
+notation,
+\[
+                 \mathcal L^2(Z(u))\cap\cO_{Y,0}
+                    =\mathcal J_+(u),
+\tag{70.33}\label{eq:local-valuative-multiplier}
+\]
+where \(\mathcal J_+(u)\) is the stationary value of
+\(\mathcal J((1+\epsilon)u)\); this is
+\cite[Theorem~5.5]{BFJ08}.  Strong openness, proved later by
+Guan--Zhou \cite{GZ15}, identifies this ideal with \(\mathcal J(u)\).
+Thus one historical question recorded in \cite{BFJ08} is now resolved; this
+does not resolve the separate generalized-Lelong-number question below.
+
+A \emph{psh weight} \(\psi\) has an isolated pole at \(0\) and
+\(\rme^\psi\) continuous there.  It is \emph{maximal} when
+\((\ddc\psi)^n=0\) on a punctured neighborhood of \(0\), and it is
+\emph{tame} when there is \(C>0\) such that, for all \(t>0\) and
+\(f\in\mathcal J(t\psi)\),
+\[
+                    \log|f|\leq(t-C)\psi+O(1).
+\]
+For a psh germ \(u\), its relative type is
+\[
+ \sigma(u,\psi):=\sup\{c\geq0:u\leq c\psi+O(1)\}.
+\]
+For a tame maximal psh weight \(\psi\), BFJ prove
+\[
+\sigma(u,\psi)
+ =\sup\{c\geq0:\widehat u\leq c\widehat\psi\},
+\tag{70.34}\label{eq:local-relative-type}
+\]
+and every quasimonomial valuation \(\nu\) is represented by a tame maximal
+weight \(\psi_\nu\) satisfying
+\[
+                      -\widehat u(\nu)=\sigma(u,\psi_\nu)
+\]
+for every psh germ \(u\).  These are
+\cite[Theorems~5.12--5.13]{BFJ08}.  If \(\psi\) is a tame psh weight, then
+the generalized Lelong number is
+\[
+ \nu_\psi(u)
+ =\bigl(\ddc u\wedge(\ddc\psi)^{n-1}\bigr)\{0\}
+ =\int_{\mathcal V_0}-\widehat u\,
+             \MA_0(\widehat\psi,\ldots,\widehat\psi).
+\tag{70.35}\label{eq:local-generalized-lelong}
+\]
+This is \cite[Theorem~B]{BFJ08}.  The displayed \(\ddc\) and its
+normalization are those of the BFJ source.  If
+\(\Phi=2u\) and \(\Psi=2\psi\) are the book variables while the differential
+normalization is held fixed, then
+\[
+ \ddc\Phi\wedge(\ddc\Psi)^{n-1}
+    =2^n\ddc u\wedge(\ddc\psi)^{n-1}.
+\]
+On the valuative side \(\widehat\Phi=2\widehat u\), while the
+\((n-1)\)-linear measure scales by \(2^{n-1}\); hence the same factor
+\(2^n\) appears.  Converting only one factor would be incorrect.
+
+\begin{theorem}\label{thm:local-generalized-lelong-separation}
+Let \(u,v:(\mathbf C^n,0)\to\mathbf R\cup\{-\infty\}\) be psh germs,
+where \(n\geq1\), and normalize the centered valuation space by
+\(\nu(\mathfrak m)=1\).  If
+\[
+                         \nu_\psi(u)=\nu_\psi(v)
+\]
+for every tame psh weight \(\psi\), then their valuative transforms agree
+pointwise:
+\[
+                         \widehat u=\widehat v
+                  \quad\text{on }\mathcal V_0.
+\]
+It is enough to test the analytic weights
+\[
+ \psi_{\mathfrak a}=\log\max_j|f_j|,
+ \qquad \mathfrak a=(f_1,\ldots,f_N),
+\]
+as \(\mathfrak a\) ranges over the \(\mathfrak m\)-primary ideals.
+\end{theorem}
+
+\begin{proof}
+We work first in BFJ's \(\log|f|\)-normalization, as in
+\eqref{eq:local-generalized-lelong}.  The preceding factor audit then shows
+that the conclusion is unchanged in the book's squared-norm normalization.
+If \(n=1\), the normalized centered valuation space consists only of
+\(\ord_0\), and the generalized Lelong number of a germ is its ordinary
+Lelong number.  We may therefore assume \(n\geq2\).
+
+For an \(\mathfrak m\)-primary ideal
+\(\mathfrak a=(f_1,\ldots,f_N)\), set
+\[
+                         \psi_{\mathfrak a}=\log\max_j|f_j|.
+\]
+This weight has an isolated pole.  Moreover,
+\(\rme^{\psi_{\mathfrak a}}=\max_j|f_j|\) is locally Lipschitz, so
+\(\psi_{\mathfrak a}\) is tame by
+\cite[Lemma~5.10]{BFJ08}.  Its formal psh function and Cartier
+\(b\)-divisor are
+\[
+ \widehat\psi_{\mathfrak a}=\log|\mathfrak a|,
+ \qquad Z(\psi_{\mathfrak a})=Z(\mathfrak a).
+\]
+Products of primary ideals are primary, and for primary
+\(\mathfrak a_i\) and positive integers \(k_i\),
+\[
+ Z\!\left(\prod_i\mathfrak a_i^{k_i}\right)
+                       =\sum_i k_i Z(\mathfrak a_i).
+\]
+
+We next isolate the multilinear operation that will be polarized.  If
+\(W\) is a nef Weil \(b\)-divisor and
+\(C_1,\ldots,C_{n-1}\) are arbitrary exceptional Cartier
+\(b\)-divisors, choose a common determination
+\(\pi:X_\pi\to(\mathbf C^n,0)\) of the \(C_i\) and put
+\[
+ I_W(C_1,\ldots,C_{n-1})
+ :=W_\pi\cdot(C_1)_\pi\cdots(C_{n-1})_\pi.
+\]
+This is independent of the common determination.  Indeed, on a higher model
+\(\mu:X_{\pi'}\to X_\pi\), one has
+\(\mu_*W_{\pi'}=W_\pi\), whereas the Cartier inputs pull back; the
+projection formula gives the same number.  Thus \(I_W\) is symmetric and
+multilinear in its Cartier arguments.  When those arguments are nef,
+\cite[Propositions~4.6 and~4.9]{BFJ08} identify it with the integral of
+\(g_W\) against their mixed formal Monge--Amp\`ere measure.  There is only
+one possibly non-Cartier Weil input here.
+
+Define
+\[
+ \Lambda(C_1,\ldots,C_{n-1})
+ :=I_{Z(u)}(C_1,\ldots,C_{n-1})
+   -I_{Z(v)}(C_1,\ldots,C_{n-1}).
+\]
+The hypothesis, \eqref{eq:local-generalized-lelong}, and the preceding
+intersection formula yield
+\[
+ \Lambda\bigl(Z(\mathfrak a),\ldots,Z(\mathfrak a)\bigr)=0
+\]
+for every \(\mathfrak m\)-primary ideal \(\mathfrak a\).
+Fix primary ideals \(\mathfrak a_1,\ldots,\mathfrak a_s\), write
+\(W_i=Z(\mathfrak a_i)\), and consider the homogeneous polynomial
+\[
+ P(t_1,\ldots,t_s)
+ :=\Lambda\!\left(\sum_i t_iW_i,\ldots,\sum_i t_iW_i\right).
+\]
+The product-ideal formula shows that
+\(P(k_1,\ldots,k_s)=0\) for all positive integers \(k_i\).  Induction on
+\(s\), using the one-variable identity principle for polynomials, gives
+\(P=0\).  Each polarized coefficient therefore vanishes:
+\[
+             \Lambda(W_{i_1},\ldots,W_{i_{n-1}})=0.
+\]
+By \cite[Proposition~1.14]{BFJ08}, the integral exceptional Cartier
+\(b\)-divisor group is generated by \(Z(\mathfrak a)\) for primary ideals
+\(\mathfrak a\).  Tensoring with \(\mathbf R\) and using multilinearity
+gives the exact identity
+\[
+             \Lambda(C_1,\ldots,C_{n-1})=0
+\]
+for all real exceptional Cartier \(b\)-divisors \(C_i\).  No density
+argument and no polarization of singular currents has been used.
+
+It remains to show that these mixed intersections separate the trace of a
+Weil \(b\)-divisor on each model.  Fix a BFJ modification
+\(\pi:Y\to(\mathbf C^n,0)\), with exceptional prime divisors
+\(E_1,\ldots,E_r\).  Choose an exceptional \(\pi\)-ample real Cartier
+divisor \(A\).  Such a divisor exists: a relatively ample Cartier divisor
+has, under the identification
+\[
+             \operatorname{Div}(\pi)\simeq
+             N^1(Y/(\mathbf C^n,0))_{\mathbf R}
+\]
+of \cite[\S1.2]{BFJ08}, a unique exceptional representative with the same
+relative numerical class.  On \(\bigoplus_i\mathbf R E_i\), put
+\[
+                         Q_A(D,C)=D\cdot C\cdot A^{n-2}.
+\]
+We claim that \(Q_A\) is negative definite.
+
+To verify the claim without hiding the local-to-projective step, compactify
+\(\pi\) and resolve the boundary without changing a neighborhood of
+\(\pi^{-1}(0)\).  This gives a projective birational morphism
+\(\bar\pi:\bar Y\to\bar X\) of smooth projective \(n\)-folds.  Choose a
+\(\bar\pi\)-ample Cartier divisor \(\bar A\), and take for \(A\) the
+exceptional representative of its relative numerical class near the fibre
+over \(0\).  If \(B\) is a sufficiently positive ample divisor on
+\(\bar X\), then
+\[
+                         H=\bar A+\bar\pi^*B
+\]
+is ample on \(\bar Y\).  For exceptional divisors \(D,C\), every
+intersection cycle under consideration is supported over \(0\).  The
+classes \(\bar A\) and \(A\) have the same degree on its fibre curves, and
+\(\bar\pi^*B\) has degree zero there.  Expanding the powers term by term
+therefore gives
+\[
+       D\cdot C\cdot H^{n-2}
+        =D\cdot C\cdot\bar A^{n-2}
+        =D\cdot C\cdot A^{n-2}.
+\]
+
+The Hodge index theorem on \(\bar Y\) says that
+\[
+ q_H(L_1,L_2)=L_1\cdot L_2\cdot H^{n-2}
+\]
+has signature \((1,\rho(\bar Y)-1)\) on
+\(N^1(\bar Y)_{\mathbf R}\).  The class \(\bar\pi^*B\) is nef and big,
+so \((\bar\pi^*B)^2\cdot H^{n-2}>0\).  Every exceptional divisor is
+\(q_H\)-orthogonal to \(\bar\pi^*B\), since the latter restricts
+numerically trivially to the fibre over \(0\).  Hence \(q_H\) is negative
+definite on the numerical span of the \(E_i\).  This span has no
+coefficient-space kernel: a globally numerically trivial exceptional divisor
+is relatively numerically trivial, and the displayed BFJ identification then
+makes it zero.  The preceding equality of intersection forms proves the
+claim.  For the blowup of a smooth point the sign is visible from
+\(A=-E\) and \(E^2(-E)^{n-2}=-1\).
+
+Now write
+\[
+              D=Z(u)_\pi-Z(v)_\pi=\sum_{i=1}^r d_iE_i.
+\]
+For every exceptional real divisor \(C\) on \(Y\), the mixed vanishing
+already proved, applied to the Cartier \(b\)-divisors determined by
+\(C,A\), gives
+\[
+ 0=\Lambda(C,A,\ldots,A)
+   =D\cdot C\cdot A^{n-2}=Q_A(D,C).
+\]
+Nondegeneracy implies \(D=0\).  Since \(\pi\) was arbitrary, \(Z(u)\)
+and \(Z(v)\) have equal traces on every modification.  Their formal psh
+functions consequently agree on each quasimonomial simplex by continuity,
+and \cite[Definition~2.8 and Proposition~3.11]{BFJ08} extends them to all
+normalized valuations by the same formula
+\[
+                          g(\nu)=\inf_\pi g(r_\pi(\nu)).
+\]
+Thus \(\widehat u=\widehat v\) pointwise on \(\mathcal V_0\).  The proof
+used only the primary-ideal weights displayed in the statement.
+\end{proof}
+
+The theorem concerns valuative transforms, not the original germs: bounded
+perturbations are invisible on both sides.  It supplies the converse left
+open after Theorem~A of \cite{BFJ08} by a finite-model intersection
+argument, without requiring formal Monge--Amp\`ere fundamental solutions.
+The frozen pre-integration statement and proof passed production Rethlas run
+\nolinkurl{20260824T140127Z_ef8316d19c12} with final verdict
+\texttt{correct}, zero critical errors, and zero gaps; an independent hostile
+audit found no defect.  This verifies the mathematical proof object, while a
+separate post-integration byte-identity gate for the typographical live copy
+is not claimed.  This book-level derivation is not accompanied by a priority
+claim.
+
+\section{A verified Gauss-shell realization of the local measure}
+\label{sec:local-cld-gauss-shell}
+
+The BFJ construction above is birational and trivially valued. To compare
+it with a CLD Bedford--Taylor product, one must first place both measures on
+one analytic object. The comparison in this section does so on an exact
+model locus. It is the result covered by the Rethlas receipt
+\texttt{local\_singular\_ma\_comparison.json}; no statement beyond the
+displayed ideal, algebraizable rational-model, and joint bounded domains is
+being inferred.
+
+Assume now \(n\geq2\) and put \(d=n-1\). Fix
+\[
+ K=\mathbf C((t)),
+ \qquad |t|=\rme^{-1},
+\]
+and choose regular parameters \(z_1,\ldots,z_n\) at the germ. Let \(B\) be
+a closed good, possibly non-strict, \(K\)-analytic polydisc of polyradius
+\(\rho\), where \(|t|<\rho<1\), chosen so that the finitely many analytic
+germs under consideration converge on \(B\). For an
+\(\mathfrak m\)-primary ideal \(\mathfrak a=(f_1,\ldots,f_N)\), set
+\[
+ u_{\mathfrak a}:=\log\max_j|f_j|,
+ \qquad
+ u_{\mathfrak m}:=\log\max_i|z_i|,
+ \qquad
+ \chi_{\mathfrak m}:=\max\{u_{\mathfrak m},-1\},
+\tag{70.36}\label{eq:local-cld-model-functions}
+\]
+and define the shell
+\[
+                S_{\mathfrak m}:=\{u_{\mathfrak m}=-1\}.
+\tag{70.37}\label{eq:local-cld-shell}
+\]
+An \emph{algebraizable log model} means the analytification, after
+shrinking the germ, of a projective modification of a Zariski neighborhood
+of the origin in \(\mathbf A^n_{\mathbf C}\), with the relevant divisors and
+line bundles descending to that model.
+
+For continuous semipositive model potentials \(u_1,\ldots,u_d\), put
+\(T=\dprimeddprime u_1\wedge\cdots\wedge\dprimeddprime u_d\) and define
+the swept boundary measure by
+\[
+ \begin{split}
+ \MA^{\partial}_{\mathrm{CLD},\mathfrak m}(u_1,\ldots,u_d)
+ :={}&T\wedge\dprimeddprime\chi_{\mathfrak m}\\
+ &-\one_{\{u_{\mathfrak m}>-1\}}
+       \bigl(T\wedge\dprimeddprime u_{\mathfrak m}\bigr),
+ \end{split}
+\tag{70.38}\label{eq:local-cld-swept-product}
+\]
+where the second measure is extended by zero. Both terms are continuous
+Bedford--Taylor products in the established CLD domain. On
+\(\{u_{\mathfrak m}>-1\}\), locality makes the two terms equal; on
+\(\{u_{\mathfrak m}<-1\}\), the cutoff is constant and both vanish. Thus
+the difference is shell-supported. This argument deliberately does not say
+that \(\dprimeddprime\chi_{\mathfrak m}\) itself is shell-supported; that
+claim is false in dimension greater than one.
+
+\begin{lemma}\label{lem:local-cld-gauss-core}
+There are maps
+\[
+ \iota:\mathcal V_0\hookrightarrow S_{\mathfrak m},
+ \qquad
+ p:S_{\mathfrak m}\longrightarrow\mathcal V_0,
+ \qquad p\circ\iota=\operatorname{id}_{\mathcal V_0},
+\]
+such that
+\[
+                 u_{\mathfrak a}(\iota(v))=-v(\mathfrak a)
+\tag{70.39}\label{eq:local-cld-gauss-ideal}
+\]
+for every \(\mathfrak m\)-primary ideal \(\mathfrak a\). If
+\(\pi:Y\to X\) is an algebraizable simultaneous log resolution and
+\(\mathfrak m\mathcal O_Y=\mathcal O_Y(-D)\), every normalized face of its
+dual complex is carried by \(\iota\) onto a polyhedral skeleton in a formal
+model of the shell. Moreover, \(u_{\mathfrak a}\) is a continuous
+semipositive model function, belongs to the revised CLD psh sheaf on a
+collar of the shell, pulls back to a subharmonic function on every analytic
+curve, and restricts through \(\iota\) to the BFJ function
+\(g_{\mathfrak a}=-v(\mathfrak a)\). The same assertions hold for rational
+semipositive model functions carried by an algebraizable common log model.
+\end{lemma}
+
+\begin{proof}
+For \(v\in\mathcal V_0\), define its Gauss extension on convergent Laurent
+series by
+\[
+ \widetilde v\!\left(\sum_{j\geq j_0}t^jf_j\right)
+       :=\min_j\{j+v(f_j)\}.
+\tag{70.40}\label{eq:local-cld-gauss-extension}
+\]
+The minimum is attained because \(v(f_j)\geq0\) and \(j\to+\infty\).
+Multiplicativity follows from the associated graded domain: the initial
+form is a nonzero Laurent polynomial in a degree-one indeterminate over
+\(\operatorname{gr}_vR\), so initial forms of nonzero factors cannot
+multiply to zero. Since \(v(z_i)\geq1\), the seminorm satisfies
+\(|z_i|\leq|t|<\rho\), is bounded on the affinoid algebra of \(B\), and
+extends by continuity. Its restriction to \(R\) is \(v\), and
+\(\min_i\widetilde v(z_i)=\widetilde v(t)=1\), so it defines
+\(\iota(v)\in S_{\mathfrak m}\). Conversely, restriction of a shell point
+to \(R\) gives a normalized valuation; call this map \(p\). Formula
+\eqref{eq:local-cld-gauss-extension} gives \(p\circ\iota=\operatorname{id}\),
+and taking the minimum over ideal generators proves
+\eqref{eq:local-cld-gauss-ideal}.
+
+If \(D=\sum_{j=1}^rb_jE_j\) near a stratum and \(x_j=0\) are adapted
+equations, a monomial valuation with weights \(w_j\) lies on the normalized
+face precisely when
+\[
+                         \sum_{j=1}^rb_jw_j=1.
+\]
+Complete \(Y\times\Spec K^\circ\) along its special fibre and take the
+normalized admissible blowup of
+\((t,\mathcal O_Y(-D))\). Locally the center is \((t,s_D)\), and near the
+stratum
+\(s_D=\varepsilon x_1^{b_1}\cdots x_r^{b_r}\). The exceptional skeleton at
+\(v(t)=1\) is therefore the displayed normalized face. Toroidal blowups of
+strata give common subdivisions, and
+\eqref{eq:local-cld-gauss-extension} identifies their points with the Gauss
+extensions.
+
+It remains to justify algebraizability and positivity. Choose \(N\) with
+\(\mathfrak m^N\subset\mathfrak m\mathfrak a\), and replace each analytic
+generator by its Taylor polynomial modulo \(\mathfrak m^N\). If
+\(\mathfrak b\) is generated by those polynomials, then
+\[
+ \mathfrak b\subset\mathfrak a
+ \subset\mathfrak b+\mathfrak m^N
+ \subset\mathfrak b+\mathfrak m\mathfrak a.
+\]
+Nakayama's lemma applied to \(\mathfrak a/\mathfrak b\) gives
+\(\mathfrak a=\mathfrak b\). A finite collection is treated with one
+choice of \(N\). Transition coefficients between finite generating sets
+are power bounded on \(B\); the ultrametric inequality in both directions
+shows that their maximum norms, and hence their analytic weights, agree.
+
+On a simultaneous principalization, write
+\(\mathfrak a\mathcal O_Y=\mathcal O_Y(-A)\) and locally
+\(f_j=s_Ah_j\). The \(h_j\) generate the unit ideal. On every formal affine
+chart, a bounded relation \(1=\sum c_jh_j\) gives
+\(\max_j|h_j|=1\), hence
+\[
+                       u_{\mathfrak a}=\log|s_A|.
+\]
+Thus the weight is exactly the model weight of the relatively generated,
+therefore relatively nef, bundle \(\mathcal O_Y(-A)\). It is one of the
+semipositive model generators of the revised CLD psh sheaf. On a curve,
+the outgoing-slope sum is the nonnegative degree of the pulled-back model
+bundle, so the pullback is subharmonic. Finally,
+\eqref{eq:local-cld-gauss-ideal} identifies its Gauss restriction with the
+BFJ model function. Tensor powers, multilinearity, and a common
+algebraizable model prove the rational assertion.
+\end{proof}
+
+\begin{theorem}\label{thm:local-cld-model-comparison}
+Let \(\mathfrak a_1,\ldots,\mathfrak a_d\) be
+\(\mathfrak m\)-primary ideals. On one simultaneous log resolution write
+\[
+ \mathfrak m\mathcal O_Y=\mathcal O_Y\!\left(-\sum_Eb_EE\right),
+ \qquad
+ \mathfrak a_i\mathcal O_Y=\mathcal O_Y(-A_i).
+\]
+Then
+\[
+ \MA^{\partial}_{\mathrm{CLD},\mathfrak m}
+       (u_{\mathfrak a_1},\ldots,u_{\mathfrak a_d})
+ =\sum_E b_E\bigl((-A_1)\cdots(-A_d)\cdot E\bigr)
+       \delta_{\iota(v_E)}.
+\tag{70.41}\label{eq:local-cld-atomic}
+\]
+After pushforward by \(p\), this is exactly the BFJ local measure
+\[
+ \MA_{0}(g_{\mathfrak a_1},\ldots,g_{\mathfrak a_d})
+ =\sum_E b_E\bigl((-A_1)\cdots(-A_d)\cdot E\bigr)
+       \delta_{v_E}.
+\tag{70.42}\label{eq:local-cld-bfj-atomic}
+\]
+The same comparison holds for rational semipositive model functions carried
+by an algebraizable common log model. The common total mass is
+\[
+ (-A_1)\cdots(-A_d)\cdot D,
+ \qquad D=\sum_Eb_EE,
+\tag{70.43}\label{eq:local-cld-total-mass}
+\]
+the mixed Hilbert--Samuel multiplicity with reference ideal
+\(\mathfrak m\).
+\end{theorem}
+
+\begin{proof}
+By \Cref{lem:local-cld-gauss-core}, all ideal data live on an algebraic
+simultaneous log resolution \(\pi:Y\to U\), isomorphic away from the origin.
+Compactify \(Y\) and the finitely many divisors without changing a
+neighborhood of the proper exceptional fibre. Complete
+\(Y\times_{\mathbf C}\Spec K^\circ\) \(t\)-adically and form
+\[
+ q:\mathscr Y:=
+ \operatorname{Nor}\!\left(
+   \operatorname{Bl}_{(t,\mathcal O_Y(-D))}(Y\times\Spec K^\circ)
+ \right)\longrightarrow Y.
+\tag{70.44}\label{eq:local-cld-formal-blowup}
+\]
+After a toroidal resolution, this is a flat formal model of pure relative
+dimension \(n\). Every modification is admissible because its center
+contains \(t\), so the generic analytic fibre is unchanged. Components
+relevant to the swept difference lie over the original proper exceptional
+fibre; hence the later compactification contributes no coefficient.
+
+Let \(\mathscr F\) be defined by
+\[
+ (t,\mathcal O_Y(-D))\mathcal O_{\mathscr Y}
+      =\mathcal O_{\mathscr Y}(-\mathscr F).
+\]
+The model line bundles for the \(n=d+1\) weights in the first term of
+\eqref{eq:local-cld-swept-product} are
+\[
+ \mathcal L_i=q^*\mathcal O_Y(-A_i)\quad(1\leq i\leq d),
+ \qquad
+ \mathcal L_\chi=\mathcal O_{\mathscr Y}(-\mathscr F).
+\tag{70.45}\label{eq:local-cld-model-bundles}
+\]
+Indeed, if \(\tau\) generates the pulled-back blowup ideal and
+\(t=\tau a\), \(s_D=\tau b\), then \((a,b)\) generates the unit ideal.
+Thus \(\max\{|a|,|b|\}=1\) on the formal domain and
+\[
+                \log\max\{|t|,|s_D|\}=\log|\tau|.
+\]
+The analogous factorization \(f_{ij}=s_{A_i}h_{ij}\), with
+\(\max_j|h_{ij}|=1\), identifies each of the first \(d\) bundles. Hence
+\eqref{eq:local-cld-model-bundles} describes the metrics themselves, not
+only their Cartier divisors.
+
+For model metrics, the CLD formal intersection formula
+\cite[Theorem~18.5.5 and Proposition~18.5.8]{CLD25} is
+\[
+ c_1(\mathcal M_1)\wedge\cdots\wedge c_1(\mathcal M_n)
+ =\sum_Gm_G\deg_G(\mathcal M_1\cdots\mathcal M_n)\,\delta_{\xi_G},
+\tag{70.46}\label{eq:local-cld-formal-measure}
+\]
+where \(G\) ranges over special-fibre components and
+\(m_G=\ord_G(t)\). The analytic point is normalized by
+\(\ord_G/\ord_G(t)\), which explains this factor.
+
+Fix a prime \(E\subset D\). At its generic point, choose a parameter \(x\)
+with \(s_D=x^{b_E}\) up to a unit. The normalized blowup of
+\((t,x^{b_E})\) has one equality-locus component \(\mathscr E_E\) with
+\[
+             \ord_{\mathscr E_E}(t)=b_E,
+ \qquad
+             \ord_{\mathscr E_E}(x)=1.
+\tag{70.47}\label{eq:local-cld-boundary-orders}
+\]
+To see this directly, over \(\mathbf C(E)\) the Rees algebra is
+\[
+ \mathbf C(E)[x,t][T_0,T_1]/(x^{b_E}T_0-tT_1).
+\]
+Its exceptional fibre is \(\mathbf P^1_{\mathbf C(E)}\). The chart
+\(t=x^{b_E}u\) exhibits the primitive exceptional valuation in
+\eqref{eq:local-cld-boundary-orders}; the other chart is normal in
+codimension one, so normalization does not change the generic exceptional
+curve.
+
+Although \(\mathscr F\) has coefficient \(b_E\) on \(\mathscr E_E\), the
+tautological line bundle \(\mathcal L_\chi\) has degree one on the generic
+\(\mathbf P^1\)-fibre. The remaining bundles pull back from \(Y\). If
+\(p_E:\mathscr E_E\to E\) is the projection, then
+\[
+ \mathcal L_i|_{\mathscr E_E}
+    =p_E^*(\mathcal O_Y(-A_i)|_E),
+\]
+and the projective-bundle formula gives
+\[
+ \deg_{\mathscr E_E}
+       (\mathcal L_1\cdots\mathcal L_d\mathcal L_\chi)
+       =(-A_1)\cdots(-A_d)\cdot E.
+\tag{70.48}\label{eq:local-cld-boundary-degree}
+\]
+Combining \eqref{eq:local-cld-formal-measure},
+\eqref{eq:local-cld-boundary-orders}, and
+\eqref{eq:local-cld-boundary-degree} yields the \(E\)-atom of
+\eqref{eq:local-cld-atomic} at \(\iota(v_E)\).
+
+We now account for every other component. On
+\(\{u_{\mathfrak m}>-1\}\), the section \(s_D\) dominates \(t\), so the
+model bundle of \(\chi_{\mathfrak m}\) agrees with that of
+\(u_{\mathfrak m}\); the second term of
+\eqref{eq:local-cld-swept-product} cancels the coefficient. On
+\(\{u_{\mathfrak m}<-1\}\), the section \(t\) dominates and
+\(\mathcal L_\chi\) is trivial, so the coefficient vanishes. If an
+equality-locus component \(G\) maps to a center \(Z\subset Y\) of
+codimension at least two, put
+\(\alpha_G=c_1(\mathcal L_\chi|_G)\cap[G]\). Since
+\(\dim Z\leq n-2\), proper pushforward gives \(q_*\alpha_G=0\) in
+\(A_{n-1}(Y)\). The projection formula with the remaining \(d=n-1\)
+pulled-back bundles then gives zero degree on \(G\). Thus precisely the
+components \(\mathscr E_E\) survive, proving
+\eqref{eq:local-cld-atomic}. Relative nefness makes every coefficient
+nonnegative.
+
+On the BFJ side, \(g_{\mathfrak a_i}\) is the function of the nef Cartier
+b-divisor \(-A_i\). The local atomic formula
+\eqref{eq:local-atomic-ma} assigns to \(v_E\) exactly the coefficient in
+\eqref{eq:local-cld-bfj-atomic}. Since
+\(p(\iota(v_E))=v_E\), the measures agree term by term. Multilinearity
+proves the rational common-model case. Finally, summing the atoms gives
+\((-A_1)\cdots(-A_d)\cdot D\). Taking general sections of the ideals and
+using the projection formula identifies this intersection number with the
+mixed Hilbert--Samuel multiplicity. This proves
+\eqref{eq:local-cld-total-mass} and completes the proof.
+\end{proof}
+
+\begin{proposition}\label{prop:local-cld-independence}
+The common model measure of
+\Cref{thm:local-cld-model-comparison} is independent of the chosen log
+resolution, formal model, and tropical chart. With
+\((\mathfrak m,-1)\) fixed, it is local on \(\mathcal V_0\), and literal
+restriction to an open subset is restriction of the measure without
+renormalizing its mass.
+\end{proposition}
+
+\begin{proof}
+Two resolutions and formal models admit a common domination
+\(q:Y'\to Y\). If \(E'\) is the strict transform of \(E\), the projection
+formula gives
+\[
+ ((-q^*A_1)\cdots(-q^*A_d)\cdot E')
+ =((-A_1)\cdots(-A_d)\cdot E).
+\]
+For a new \(q\)-exceptional prime \(F\), one has \(q_*F=0\) as a divisor
+cycle, so its intersection with all the pulled-back factors is zero.
+Refinement therefore preserves each old atom and adds no new mass. The
+normalization \(\ord_E/\ord_E(\mathfrak m)\) is unchanged as well.
+
+Two tropical charts have a common polyhedral refinement. On it, the weights
+are the same intrinsic model functions and
+\eqref{eq:local-cld-model-bundles} is unchanged. Finally, both terms of
+\eqref{eq:local-cld-swept-product} are local Bedford--Taylor measures and
+their difference is shell-supported. Model potentials from the germ factor
+through \(p\) on the shell. Hence agreement near an open subset of
+\(\mathcal V_0\) gives agreement near its inverse image, and pushforward by
+\(p\) proves locality. Ordinary restriction of a measure has this property;
+dividing by its new local mass would not.
+\end{proof}
+
+Define \(\mathcal C_b^{\mathrm{com}}\) to be the set of bounded continuous
+BFJ formal psh functions \(g\) for which there are decreasing semipositive
+model functions \(g^{(k)}\downarrow g\), all in the preceding
+ideal/algebraizable model locus, whose Gauss extensions \(u^{(k)}\) live on
+one collar of the shell and satisfy:
+\begin{enumerate}
+\item \(u^{(k)}\) belongs to the revised CLD psh sheaf;
+\item \(u^{(k)}\) decreases locally boundedly to a continuous revised-CLD
+      psh function; and
+\item every pullback of \(u^{(k)}\) to an analytic curve is subharmonic.
+\end{enumerate}
+For finitely many inputs, the collar and algebraizable refinements are
+common and synchronized. For a further decreasing sequence, ``joint'' means
+that one decreasing two-index array controls both limiting operations.
+
+\begin{proposition}\label{prop:local-cld-bounded-closure}
+For \(g_1,\ldots,g_d\in\mathcal C_b^{\mathrm{com}}\), the weak limit
+\[
+ \MA^{\mathrm{com}}_{\mathfrak m}(g_1,\ldots,g_d)
+ :=\lim_{k\to\infty}
+ p_*\MA^{\partial}_{\mathrm{CLD},\mathfrak m}
+       (u_1^{(k)},\ldots,u_d^{(k)})
+\tag{70.49}\label{eq:local-cld-bounded-limit}
+\]
+exists, is independent of the joint approximants, and equals the BFJ mixed
+local intersection measure. It is continuous along decreasing sequences
+admitting one joint bounded approximation of the stated kind.
+\end{proposition}
+
+\begin{proof}
+At every model index, \Cref{thm:local-cld-model-comparison} gives
+\[
+ p_*\MA^{\partial}_{\mathrm{CLD},\mathfrak m}
+       (u_1^{(k)},\ldots,u_d^{(k)})
+ =\MA_0(g_1^{(k)},\ldots,g_d^{(k)}).
+\tag{70.50}\label{eq:local-cld-model-index}
+\]
+Let \(B\) denote the symmetric \(d\)-linear BFJ measure operator. Its
+polarization identity is
+\[
+ d!B(h_1,\ldots,h_d)
+ =\sum_{J\subset\{1,\ldots,d\}}(-1)^{d-|J|}
+ B\!\left(\sum_{j\in J}h_j,\ldots,\sum_{j\in J}h_j\right).
+\tag{70.51}\label{eq:local-cld-polarization}
+\]
+For each \(J\), the diagonal input on the right decreases to the
+corresponding sum of limiting functions. BFJ bounded monotone continuity
+\cite[Proposition~4.8]{BFJ08}, followed by the finite sum in
+\eqref{eq:local-cld-polarization}, proves weak convergence of the mixed
+measures. Together with \eqref{eq:local-cld-model-index}, this proves
+existence of \eqref{eq:local-cld-bounded-limit}. Notice that no
+characteristic function is commuted with a weak limit: the argument passes
+through the already swept model measures.
+
+The limiting BFJ product depends only on \(g_1,\ldots,g_d\), proving
+independence. For a further decreasing sequence, take the diagonal of the
+joint two-index array. It is cofinal and decreases to the final limit, so
+the same polarization argument gives the asserted continuity. The curve
+submean inequalities pass to the continuous decreasing limit. This proves
+the proposition only on \(\mathcal C_b^{\mathrm{com}}\), not for an
+arbitrary bounded curve-test psh function.
+\end{proof}
+
+If \(I\) is any \(\mathfrak m\)-primary ideal, the same construction uses
+the link \(\mathcal V_I=\{v:v(I)=1\}\), the shell \(u_I=-1\), and the
+cutoff \(\max\{u_I,-1\}\). Principalizing \(I\) with the input ideals
+replaces the coefficient \(b_E\) in
+\eqref{eq:local-cld-atomic} by \(\ord_E(I)\). Denote the resulting common
+measure on the verified domain by \(\MA_I^{\mathrm{com}}\).
+
+\begin{proposition}\label{prop:local-cld-finite-map}
+Let \(F:(X',0')\to(X,0)\) be a finite map of smooth \(n\)-dimensional germs
+of local degree \(q\), and put \(I=\mathfrak m\mathcal O_{X',0'}\). Normalize
+the source first by \(I\), and define
+\(F_\#:\mathcal V_I\to\mathcal V_0\) by \(w\mapsto w\circ F^\#\). For ideal
+model functions, for rational functions whose target models and pulled-back
+source models lie in the algebraizable locus, and for members of
+\(\mathcal C_b^{\mathrm{com}}\) whose pullbacks remain in that class,
+\[
+ (F_\#)_*\MA_I^{\mathrm{com}}(F^*g_1,\ldots,F^*g_d)
+       =q\,\MA_{\mathfrak m}^{\mathrm{com}}(g_1,\ldots,g_d).
+\tag{70.52}\label{eq:local-cld-finite-map}
+\]
+On the standard source link \(\mathcal V_{\mathfrak m'}\), set
+\[
+ c(v):=v(I),
+ \qquad R_I(v):=v/c(v),
+ \qquad \widehat F(v):=(v\circ F^\#)/v(I).
+\]
+For ideal model functions, the exact standard-link formula is
+\[
+ \widehat F_*\!\left(
+ c\,\MA_{\mathfrak m'}^{\mathrm{com}}
+   (g_{F^*\mathfrak a_1},\ldots,g_{F^*\mathfrak a_d})\right)
+ =q\,\MA_{\mathfrak m}^{\mathrm{com}}
+   (g_{\mathfrak a_1},\ldots,g_{\mathfrak a_d}).
+\tag{70.53}\label{eq:local-cld-standard-link}
+\]
+For an \emph{\'etale} map of pointed complex germs, \(q=1\),
+\(I=\mathfrak m'\), and \(c\equiv1\).
+\end{proposition}
+
+\begin{proof}
+Choose compatible analytic log resolutions, and let \(h:Y'\to Y\) be the
+normalization of the analytic fibre product before resolving the source.
+It is finite of degree \(q\). Divisors introduced only by the final
+resolution map to codimension at least two and have zero coefficient by the
+projection formula. Let \(E'\) dominate a target prime \(E\), with
+ramification and residue degrees \(e(E'/E)\) and \(f(E'/E)\). Then
+\[
+ \ord_{E'}(I)=e(E'/E)b_E,
+ \qquad
+ h_*E'=f(E'/E)E.
+\tag{70.54}\label{eq:local-cld-ef}
+\]
+If \(\alpha_E=(-A_1)\cdots(-A_d)\cdot E\), the projection formula gives
+\[
+ ((-h^*A_1)\cdots(-h^*A_d)\cdot E')=f(E'/E)\alpha_E.
+\]
+The source atom over \(E'\) therefore has coefficient
+\(e(E'/E)f(E'/E)b_E\alpha_E\) and maps to \(v_E\). Summing over
+\(E'\mid E\) and using
+\(\sum_{E'\mid E}e(E'/E)f(E'/E)=q\) yields
+\(qb_E\alpha_E\), which is exactly the target coefficient in
+\eqref{eq:local-cld-finite-map}. Multilinearity gives the algebraizable
+rational-model case. Joint bounded approximation, bounded monotone
+continuity, and continuity of pushforward of finite measures give the
+stated bounded extension.
+
+To pass to the standard source link, let
+\(v_{E'}=\ord_{E'}/b'_{E'}\) and put
+\(c_{E'}=\ord_{E'}(I)\). Then
+\[
+ c(v_{E'})=c_{E'}/b'_{E'},
+ \qquad
+ R_I(v_{E'})=\ord_{E'}/c_{E'}.
+\]
+If \(\beta_{E'}=(-A'_1)\cdots(-A'_d)\cdot E'\), the atom has coefficient
+\(b'_{E'}\beta_{E'}\) with reference \(\mathfrak m'\) and
+\(c_{E'}\beta_{E'}\) with reference \(I\). Multiplication by
+\(c(v_{E'})\) changes the first coefficient into the second, while \(R_I\)
+changes only its location. Hence
+\[
+ \MA_I^{\mathrm{com}}
+ =R_{I*}\!\left(c\,\MA_{\mathfrak m'}^{\mathrm{com}}\right)
+\]
+for the pulled-back ideal inputs. Combining this identity with
+\eqref{eq:local-cld-finite-map} proves
+\eqref{eq:local-cld-standard-link}. If \(F\) is \'etale
+at the marked point, the completed regular local rings are isomorphic, so
+all three simplifying assertions follow.
+\end{proof}
+
+\paragraph{Worked reference-change audit.}
+For
+\(F(z_1,\ldots,z_n)=(z_1^q,z_2,\ldots,z_n)\), one has
+\[
+ v(\mathfrak m\mathcal O_{X',0'})
+ =\min\{qv(z_1),v(z_2),\ldots,v(z_n)\}.
+\]
+This function is not constant on \(\mathcal V_{\mathfrak m'}\). Therefore
+the factor \(c\) in \eqref{eq:local-cld-standard-link} cannot be replaced by
+the global degree \(q\); the degree appears only after pushforward and the
+sum of ramification-residue degrees.
+
+\paragraph{Why no probability normalization is local.}
+On \((\mathbf C^2,0)\), blow up the origin, and then blow up the point of
+the first exceptional curve lying in the tangent direction \(y=0\), that is,
+where the strict transform of \(\{y=0\}\) meets it.  The choice matters: in
+adapted coordinates \(x=cd\), \(y=cd^2\) one has \(\ord_{E_2}(x)=1\) and
+\(\ord_{E_2}(y)=2\), whereas blowing up a general point of the first
+exceptional curve gives \(\ord_{E_2}(x)=\ord_{E_2}(y)=1\) and hence a
+different coefficient on \(E_2\) below.  Write \(E_1\) for the strict
+transform and \(E_2\) for the new exceptional curve. Then
+\[
+ E_1^2=-2,
+ \qquad E_2^2=-1,
+ \qquad E_1\cdot E_2=1,
+ \qquad b_{E_1}=b_{E_2}=1.
+\]
+For \(\mathfrak a=(x^3,xy,y^2)\), the ideal divisor is
+\(A=2E_1+3E_2\), and
+\[
+                      (-A)\cdot E_1=(-A)\cdot E_2=1.
+\]
+Thus the common measure is
+\(\delta_{v_{E_1}}+\delta_{v_{E_2}}\). On an open set containing both
+atoms, probability normalization assigns mass \(1/2\) to each; restricting
+to a smaller open containing only \(v_{E_1}\) keeps mass \(1/2\), whereas
+renormalizing there gives mass one. The unnormalized measure is local, and
+the probability-normalized assignment is not a sheaf under literal
+restriction.
+
+\paragraph{The unbounded polar endpoint.}
+On \((\mathbf C^2,0)\), let \(v_s(x)=1\), \(v_s(y)=s\) for
+\(1\leq s<+\infty\), and let \(v_\infty(y)=+\infty\). For
+\(\mathfrak a_k=(y,x^k)\),
+\[
+ g_k(v_s)=-\min\{s,k\}\searrow-s=:g(v_s),
+ \qquad
+ \MA_0(g_k)=\delta_{v_k}.
+\tag{70.55}\label{eq:local-cld-polar-endpoint}
+\]
+The full decreasing limit of the measures is \(\delta_{v_\infty}\). But
+\(g_k=\max\{g,-k\}\), and the nonpluripolar truncation
+\[
+ \one_{\{g>-k\}}\MA_0(\max\{g,-k\})
+\]
+vanishes because its only atom lies on \(\{g=-k\}\). Hence full monotone
+continuation charges the polar endpoint while nonpluripolar continuation
+discards it. The verified model comparison does not choose between these
+two extensions.
+
+\section{Polarized affine cones and finite energy}
+\label{sec:local-polarized-affine-cones}
+
+There is a second local theory whose carrier, positivity datum, and measure
+all differ from the BFJ construction above.  It is the theory of polarized
+affine cones initiated in \cite{Wu22AffineEnergy} and extended to finite
+energy in \cite{Wu24AffineCones}.  It should be read as a local
+Boucksom--Jonsson branch with a Reeb polarization, not as a completion of the
+BFJ theory for arbitrary germs.
+
+Throughout this section, \(k\) is an algebraically closed trivially valued
+field of characteristic zero.  Let
+\[
+ X=\Spec R,
+ \qquad
+ T=(\mathbf G_{\mathrm m,k})^r,
+ \qquad
+ R=\bigoplus_{\alpha\in M}R_\alpha
+\]
+be a normal affine \(T\)-variety of dimension \(n\).  The action is assumed
+effective and \emph{good}: it has a unique fixed point \(o\), and \(o\) lies
+in the closure of every orbit.  Write \(\mathfrak m\) for the maximal ideal
+of \(o\), let \(M=\operatorname{Hom}(T,\mathbf G_{\mathrm m})\), and put
+\(N=\operatorname{Hom}(\mathbf G_{\mathrm m},T)\).  If
+\(\Lambda=\{\alpha:R_\alpha\ne0\}\), the Reeb cone is
+\[
+ \mathfrak t^+_R
+ :=\left\{\xi\in N_{\mathbf R}\ \middle|\
+       \langle\xi,\alpha\rangle>0
+       \text{ for every }\alpha\in\Lambda\setminus\{0\}\right\}.
+\tag{70.56}\label{eq:local-cone-reeb-cone}
+\]
+A \emph{polarized affine cone} is the datum \((X,T;\xi)\) with
+\(\xi\in\mathfrak t^+_R\).  The adjective ``polarized'' is literal: changing
+\(\xi\) changes the psh and energy classes even though it does not change
+the underlying analytic link.
+
+Write a point of \(X^{\An}\) additively as a semivaluation
+\(v:R\to\mathbf R\cup\{+\infty\}\), so that
+\(\log|f|(v)=-v(f)\).  For \(\eta\in N_{\mathbf R}\), the torus action gives
+\[
+ (\eta*v)\!\left(\sum_\alpha f_\alpha\right)
+  =\min_\alpha\bigl\{v(f_\alpha)
+                  +\langle\eta,\alpha\rangle\bigr\}.
+\tag{70.57}\label{eq:local-cone-reeb-action}
+\]
+The radial direction relevant to the polarization is \(t\mapsto t\xi*v\).
+A function \(\varphi\) is \(\xi\)-equivariant when
+\(\varphi(t\xi*v)=\varphi(v)-t\) wherever both sides are finite.
+
+\begin{definition}
+\label{def:local-cone-link}
+The non-Archimedean link of the affine cone is
+\[
+                         X_0:=\{v\in X^{\An}:v(\mathfrak m)=0\}.
+\tag{70.58}\label{eq:local-cone-link}
+\]
+\end{definition}
+
+This is a compact analytic domain, independent of \(\xi\)
+\cite[Introduction and Definition~2.6]{Wu24AffineCones}.  Its normalization must not be
+confused with \(\mathcal V_0=\{v:v(\mathfrak m)=1\}\) in
+\eqref{eq:local-normalized-space}: the latter cuts the positive-scaling cone
+of centered valuations, while, after \(\xi\) has been fixed,
+\eqref{eq:local-cone-link} is a level-set cross-section for the corresponding
+Reeb-translation orbits in the analytic affine cone.
+
+For a nonzero homogeneous element \(f\in R_\alpha\), set
+\(w_\xi(f)=\langle\xi,\alpha\rangle\).  The reference function is
+\[
+ \varphi_\xi(v)
+ :=\sup_{\substack{0\ne f\in R_\alpha\\ \alpha\ne0}}
+             \frac{\log|f|(v)}{w_\xi(f)}.
+\tag{70.59}\label{eq:local-cone-reference}
+\]
+The supremum is a finite maximum after choosing finitely many homogeneous
+algebra generators of \(R\) in positive weight
+\cite[Lemma~5.3]{Wu22AffineEnergy}.
+
+\begin{lemma}
+\label{lem:local-cone-reference-link}
+One has \(X_0=\{\varphi_\xi=0\}\).  In particular, the zero set is
+independent of the Reeb field although the function \(\varphi_\xi\) is not.
+\end{lemma}
+
+\begin{proof}
+Choose homogeneous elements \(g_1,\ldots,g_N\) of positive weights which
+generate \(R\) as a \(k\)-algebra.  They generate \(\mathfrak m\) as an
+ideal.  Every homogeneous \(f\) is a linear combination of monomials in the
+\(g_j\) of the same \(\xi\)-weight.  The ultrametric inequality and the
+weighted-average inequality therefore give
+\[
+ \frac{-v(f)}{w_\xi(f)}
+ \leq \max_j\frac{-v(g_j)}{w_\xi(g_j)}.
+\]
+Consequently the right-hand side is exactly the supremum in
+\eqref{eq:local-cone-reference}.  Now
+\(v(\mathfrak m)=\min_jv(g_j)\).  This minimum is zero exactly when every
+\(v(g_j)\) is nonnegative and at least one is zero, which is equivalent to
+\(\max_j\{-v(g_j)/w_\xi(g_j)\}=0\).
+\end{proof}
+
+\subsection{Fubini--Study, continuous psh, and general psh functions}
+
+Let \(f_j\in R_{\alpha_j}\) be homogeneous elements whose common zero set is
+\(\{o\}\), and let \(\lambda_j\in\mathbf R\).  A Fubini--Study function is
+of the form
+\[
+ \varphi
+ =\max_{1\leq j\leq N}
+       \frac{\log|f_j|+\lambda_j}
+            {\langle\xi,\alpha_j\rangle}.
+\tag{70.60}\label{eq:local-cone-fs}
+\]
+Write \(\mathcal H(\xi)\) for this class.  Each member is continuous on
+\(X^{\An}\setminus\{o\}\), is \(\xi\)-equivariant, and is determined by its
+restriction to \(X_0\).  Constants and finite maxima preserve
+\(\mathcal H(\xi)\).  Addition necessarily changes the equivariance weight,
+so it does not preserve a fixed \(\mathcal H(\xi)\).
+
+Let \(C^0(X^{\An}\setminus\{o\},\xi)\) denote the space of continuous
+\(\xi\)-equivariant functions with the topology of uniform convergence on
+compact subsets.  Following \cite[Definition~3.1]{Wu24AffineCones}, put
+\[
+ \mathrm{CPSH}(\xi)
+ :=\overline{\mathcal H(\xi)}^{\,C^0_{\mathrm{loc}}}.
+\tag{70.61}\label{eq:local-cone-cpsh}
+\]
+The rational approximation of the Reeb field is part of this closure
+mechanism.  It yields stability under constants, maxima, positive rescaling,
+and convex combinations.  The exact proportional-polarization calculus is
+\[
+ a\varphi\in\mathrm{CPSH}(a^{-1}\xi),
+ \qquad
+ \left.
+ \begin{array}{c}
+  \varphi\in\mathrm{CPSH}(a\xi),\\
+  \psi\in\mathrm{CPSH}(b\xi)
+ \end{array}
+ \right\}
+ \Longrightarrow
+ \varphi+\psi\in
+ \mathrm{CPSH}\!\left(\frac{ab}{a+b}\xi\right)
+\]
+for \(a,b>0\) \cite[Proposition~3.3]{Wu24AffineCones}.  This statement
+concerns proportional rescalings of one Reeb ray; it gives no comparison
+between nonproportional Reeb fields.  Differences of continuous psh
+functions with a common rescaled polarization form a vector lattice dense in
+\(C^0(X_0)\) by the lattice Stone--Weierstrass theorem
+\cite[Theorem~3.5]{Wu24AffineCones}.  This density is the functional-analytic
+reason that measures on \(X_0\) can be recovered from their integrals against
+differences of psh functions.
+
+\begin{definition}
+\label{def:local-cone-psh}
+A function \(\varphi:X^{\An}\setminus\{o\}\to
+\mathbf R\cup\{-\infty\}\) belongs to \(\PSH(\xi)\) if it is not identically
+\(-\infty\) and is the pointwise limit of a decreasing net in
+\(\mathrm{CPSH}(\xi)\).
+\end{definition}
+
+Nets, rather than only sequences, are natural because \(X_0\) need not be
+metrizable.  The definition implies upper semicontinuity.  It also gives
+decreasing approximation directly in the model class
+\(\mathcal H(\xi)\), and a psh function is determined by its values on the
+quasimonomial locus \cite[Proposition~5.2 and Theorem~5.8]{Wu24AffineCones}.
+Thus divisorial and quasimonomial tests enter the topology, but irrational
+Reeb fields force one to retain genuinely quasimonomial points.
+
+\begin{example}[The standard affine cone]
+\label{ex:local-cone-affine-space}
+Take \(R=k[z_1,\ldots,z_n]\), let \(T=\mathbf G_{\mathrm m}\) act with
+weight one on every coordinate, and take \(\xi=1\).  Then
+\[
+ X_0=\left\{v:\min_i v(z_i)=0\right\},
+ \qquad
+ \varphi_\xi(v)=\max_i\{-v(z_i)\}.
+\]
+The homogeneous function
+\[
+ \max_j\frac{-v(f_j)+\lambda_j}{\deg f_j}
+\]
+is a member of \(\mathcal H(1)\) whenever the homogeneous \(f_j\) generate
+an \(\mathfrak m\)-primary ideal.  For a rational Reeb field this cone is
+the affine cone over \(\mathbf P^{n-1}\); the appearance of \(n-1\) curvature
+inputs below is therefore the expected projective dimension.
+\end{example}
+
+\begin{example}[An irrational Reeb field]
+\label{ex:local-cone-irrational-reeb}
+Let \(X=\mathbf A_k^2\), let \(T=\mathbf G_{\mathrm m}^2\) act diagonally,
+and take \(\xi=(1,\sqrt2)\).  The link remains
+\(\{\min(v(x),v(y))=0\}\), whereas
+\[
+ \varphi_\xi(v)=\max\{-v(x),-v(y)/\sqrt2\}.
+\]
+The incommensurable denominators explain why a sum of finite-max
+presentations need not remain a finite-max presentation for one integral
+grading.  Passing first to \(\mathrm{CPSH}(\xi)\) restores convexity, but it
+does not turn the irrational polarization into a quasi-regular one.  In
+particular, the associated Monge--Amp\`ere measure may be supported at a
+genuinely quasimonomial rather than divisorial point
+\cite[Introduction]{Wu24AffineCones}.
+\end{example}
+
+\subsection{The shell factor, energy, and finite-energy measures}
+
+Put \(\varphi_\xi^+=\max\{\varphi_\xi,0\}\).  For
+\(\varphi_1,\ldots,\varphi_{n-1}\in\mathcal H(\xi)\), Wu's model measure is
+the CLD product
+\[
+ \MA_\xi(\varphi_1,\ldots,\varphi_{n-1})
+ :=\frac{1}{\vol(\xi)}
+   \dprimeddprime\varphi_1\wedge\cdots\wedge
+   \dprimeddprime\varphi_{n-1}\wedge
+   \dprimeddprime\varphi_\xi^+.
+\tag{70.62}\label{eq:local-cone-model-ma}
+\]
+Here \(\vol(\xi)>0\) is the Reeb volume.  The last factor is not decorative:
+it sweeps the radial current onto the boundary
+\(\{\varphi_\xi=0\}=X_0\).  With the normalization in
+\eqref{eq:local-cone-model-ma}, the result is a probability measure supported
+on \(X_0\) \cite[Corollary~5.7]{Wu22AffineEnergy}
+\cite[Theorem~2.12 and Proposition~4.2(1)]{Wu24AffineCones}.  Formula
+\eqref{eq:local-cone-model-ma} is therefore a second, intrinsic occurrence of
+the same ``one reference factor plus \(n-1\) tangential factors'' pattern as
+the Gauss-shell construction in \eqref{eq:local-cld-swept-product}.  The two
+formulas have the same differential architecture, but they live on different
+links and no equality between them is implied.
+
+For \(\varphi\in\mathrm{CPSH}(\xi)\), the energy relative to
+\(\varphi_\xi\) is
+\[
+ E_\xi(\varphi)
+ :=\frac{1}{n\vol(\xi)}
+   \sum_{j=0}^{n-1}
+   \int_{X^{\An}}
+    (\varphi-\varphi_\xi)
+    (\dprimeddprime\varphi)^j
+    \wedge(\dprimeddprime\varphi_\xi)^{n-1-j}
+    \wedge\dprimeddprime\varphi_\xi^+.
+\tag{70.63}\label{eq:local-cone-continuous-energy}
+\]
+Integration by parts and the local Hodge-index inequality give monotonicity,
+concavity, and the first-variation formula on this continuous domain
+\cite[Propositions~3.8--3.9 and~4.2]{Wu24AffineCones}.  For a general psh
+function the energy is the monotone extension
+\[
+\begin{aligned}
+ E_\xi(\varphi)
+ &:=\inf\left\{E_\xi(\psi)\ \middle|\
+       \psi\in\mathrm{CPSH}(\xi),\ \varphi\leq\psi\right\},\\
+ \mathcal E^1(\xi)
+ &:=\left\{\varphi\in\PSH(\xi):E_\xi(\varphi)>-\infty\right\}.
+\end{aligned}
+\tag{70.64}\label{eq:local-cone-finite-energy}
+\]
+It is increasing, concave, upper semicontinuous, continuous along decreasing
+nets, and satisfies \(E_\xi(\varphi+c)=E_\xi(\varphi)+c\)
+\cite[Proposition~5.10]{Wu24AffineCones}.
+
+Let \(\mathcal P(X_0)\) be the Radon probability measures on the link.  The
+dual energy and its finite-energy domain are
+\[
+\begin{aligned}
+ E_\xi^\vee(\mu)
+ &:=\sup_{\varphi\in\mathcal E^1(\xi)}
+       \left\{E_\xi(\varphi)
+       -\int_{X_0}\varphi\,\rd\mu\right\},\\
+ \mathcal M^1(\xi)
+ &:=\left\{\mu\in\mathcal P(X_0):E_\xi^\vee(\mu)<+\infty\right\}.
+\end{aligned}
+\tag{70.65}\label{eq:local-cone-dual-energy}
+\]
+For \(\varphi,\psi\in\mathcal E^1(\xi)\), set
+\[
+ I(\varphi,\psi)
+ :=\int_{X_0}(\varphi-\psi)
+             \bigl(\MA_\xi(\psi)-\MA_\xi(\varphi)\bigr).
+\tag{70.66}\label{eq:local-cone-I}
+\]
+On the measure side, put
+\[
+ J_\mu(\varphi)
+ :=E_\xi^\vee(\mu)-E_\xi(\varphi)
+        +\int_{X_0}\varphi\,\rd\mu,
+ \qquad
+ I^\vee(\mu,\nu)
+ :=\inf_{\varphi\in\mathcal E^1(\xi)}
+       \bigl(J_\mu(\varphi)+J_\nu(\varphi)\bigr).
+\tag{70.67}\label{eq:local-cone-dual-I}
+\]
+Both \(I\) and \(I^\vee\) are quasi-pseudometrics; constants are invisible to
+\(I\), as they must be because they do not change the Monge--Amp\`ere
+measure.
+
+\refstepcounter{theorem}\label{thm:local-cone-finite-energy-ma}
+\begin{quote}
+\textbf{Foundational input \thetheorem\ (source boundary).}
+For a polarized affine cone \((X,T;\xi)\) as above, the mixed operator in
+\eqref{eq:local-cone-model-ma} has a unique extension to tuples in
+\(\mathcal E^1(\xi)\).  Its values are Radon probability measures supported
+on \(X_0\), and the mixed pairing is continuous when the potentials and the
+test function decrease in \(\mathcal E^1(\xi)\).  In particular,
+\[
+ \MA_\xi:\bigl(\mathcal E^1(\xi),I\bigr)
+       \longrightarrow\bigl(\mathcal M^1(\xi),I^\vee\bigr)
+\]
+extends the operator on \(\mathcal H(\xi)\), is continuous along decreasing
+nets, and is bi-Lipschitz onto its image, with dimensional constants for the
+two quasi-pseudometrics.  The statement is imported from
+\cite[Theorem~1.1, Theorem~6.3, and Corollary~7.8]{Wu24AffineCones}; no part
+of its proof is claimed here.
+\end{quote}
+
+The words ``onto its image'' are essential.  The cited results do not
+characterize the image of \(\MA_\xi\) inside \(\mathcal M^1(\xi)\), and
+they do not solve the local non-Archimedean Monge--Amp\`ere equation for an
+arbitrary finite-energy measure.  The missing input identified in the
+source is a uniform differentiability theorem strong enough for the
+variational argument.
+
+The proof in the source has three layers worth keeping distinct.  On
+\(\mathrm{CPSH}(\xi)\), CLD approximation, integration by parts, and the
+Hodge-index inequality produce the energy and the \(I\)--\(J\) estimates.
+Mixed products are then extended one finite-energy input at a time, using
+uniform energy bounds to obtain decreasing-net continuity.  Finally, the
+Legendre transform \eqref{eq:local-cone-dual-energy} and the dual
+\(I^\vee\)-estimates yield the last assertion.  This architecture explains
+why a bounded BFJ measure alone does not automatically supply the theorem:
+the shell factor, the Reeb polarization, and the proportional-rescaling
+estimates all enter the construction.
+
+Two normalization checks are immediate from the formulas.  Replacing
+\(\varphi\) by \(\varphi+c\) leaves
+\eqref{eq:local-cone-model-ma} unchanged and adds \(c\) to the energy; hence
+the expression in \eqref{eq:local-cone-dual-energy} is constant-invariant.
+Also, the top degree in \eqref{eq:local-cone-model-ma} is \(n\): there are
+\(n-1\) psh inputs and exactly one radial reference factor.  Omitting the
+last factor produces neither a probability measure on \(X_0\) nor the
+energy in \eqref{eq:local-cone-continuous-energy}.
+
+\subsection{The exact BJ and CLD interfaces}
+
+The construction has two proved interfaces.
+
+\paragraph{The CLD interface.}
+The Fubini--Study functions in \eqref{eq:local-cone-fs} are
+psh-approachable in the CLD sense, so
+\eqref{eq:local-cone-model-ma} is an actual CLD Bedford--Taylor product, not
+only an intersection-theoretic analogy.  Local uniform closure gives the
+continuous products used in \eqref{eq:local-cone-continuous-energy}, and the
+source proves integration by parts on differences of continuous psh
+functions.  This is a concrete common domain between local differential
+theory and a finite-energy variational theory.  It does not identify every
+function in the transfinite CLD psh hierarchy with \(\PSH(\xi)\), nor does it
+remove the Reeb equivariance or the shell factor.
+
+\paragraph{The quasi-regular BJ interface.}
+If \(\xi\) is rational, then after scaling it to integral weights the cone is
+the affine cone over a polarized orbifold pair \((V,B_V;L)\), with
+\(\dim V=n-1\) \cite[Proposition~2.4]{Wu24AffineCones}.  There is an embedding
+\(\iota:V^{\An}\hookrightarrow X_0^{\langle\xi\rangle}\)
+\cite[Lemma~5.11]{Wu22AffineEnergy}.  Under this
+embedding, Fubini--Study functions correspond to Fubini--Study metrics on
+\(L\).  If \(\phi_j\) corresponds to \(\varphi_j\), then, with the integral
+normalization for which \(\vol(L)=\vol(\xi)\),
+\[
+ \iota_*\!\left(
+  \frac{1}{\vol(L)}
+  \dprimeddprime\phi_1\wedge\cdots\wedge
+  \dprimeddprime\phi_{n-1}
+ \right)
+ =\MA_\xi(\varphi_1,\ldots,\varphi_{n-1}).
+\]
+This is the normalized form of
+\cite[Proposition~5.13]{Wu22AffineEnergy}.  The Fubini--Study energies then
+agree, and the finite-energy class and energy recover their BJ counterparts
+in the rational branch
+\cite[Corollary~5.14]{Wu22AffineEnergy}
+\cite[Corollary~6.6(4)]{Wu24AffineCones}.  These are the precise recovered
+objects; the citations do not identify the whole projective BJ theory with
+the affine-cone theory.
+
+For an irrational Reeb field there is no projective quotient with one
+integral grading to which this argument can be applied verbatim.  Separately,
+for any two nonproportional Reeb fields---whether rational or
+irrational---there is no established comparison or addition calculus between
+their psh classes.  Rational approximation transports many
+fixed-polarization statements but does not fill that gap.  Together with the
+unresolved image of \(\MA_\xi\), these are two distinct boundaries of the
+current affine-cone theory.
+
+\begin{remark}[Two local links]
+The BFJ and affine-cone theories should not be joined by identifying their
+links.  The BFJ link \(v(\mathfrak m)=1\) consists of centered valuations and
+normalizes positive scalar multiplication.  The affine-cone link
+\(v(\mathfrak m)=0\) is an analytic domain containing the trivial valuation
+and normalizes Reeb translation.  The former is defined for a smooth local
+germ without a torus; the latter requires a normal affine cone, a good torus
+action, and a Reeb field.  Their model functions and top-degree measures can
+be compared only after additional data produce a common carrier.  No such
+general comparison theorem is asserted here.
+\end{remark}
+
+\section{Comparison with the global and local analytic approaches}
+
+The same words---model, psh, envelope, and Monge--Amp\`ere---refer to
+different signatures in the theories surveyed in this book.  The following
+ledger records the exact interfaces.
+
+\begin{description}[style=nextline,leftmargin=1.5em,labelindent=0pt,
+                    itemsep=.75\baselineskip]
+\item[Underlying space]
+\emph{Local BFJ theory.} Normalized link \(\nu(\mathfrak m)=1\).
+
+\emph{Polarized affine-cone theory.} Analytic link
+\(v(\mathfrak m)=0\), together with Reeb-equivariant functions on the
+punctured cone.
+
+\emph{Global BFJ/BJ theory.} Full analytification or homogeneous cone.
+
+\emph{CLD/GR local theory.} Analytic open subsets and tropical charts.
+
+\item[Positivity datum]
+\emph{Local BFJ theory.} Relative nefness over one closed point.
+
+\emph{Polarized affine-cone theory.} A fixed Reeb field and local-uniform
+closure of homogeneous Fubini--Study functions.
+
+\emph{Global BFJ/BJ theory.} Semipositive metric in a fixed class.
+
+\emph{CLD/GR local theory.} Hessian, current, or curve-test positivity.
+
+\item[Model core]
+\emph{Local BFJ theory.} The unit ideal, \(\mathfrak m\)-primary ideals,
+and exceptional Cartier b-divisors.
+
+\emph{Polarized affine-cone theory.} Homogeneous primary ideals, finite-type
+norms, and Reeb-weighted Fubini--Study functions.
+
+\emph{Global BFJ/BJ theory.} Models, vertical divisors, FS metrics.
+
+\emph{CLD/GR local theory.} Smooth psh, semipositive PL, local FS.
+
+\item[Approximation]
+\emph{Local BFJ theory.} Decreasing unit-or-primary ideal functions; away
+from the zero formal psh function, all sufficiently late ideals are
+\(\mathfrak m\)-primary.
+
+\emph{Polarized affine-cone theory.} Local-uniform Fubini--Study
+approximation for continuous psh functions and decreasing nets for general
+psh functions.
+
+\emph{Global BFJ/BJ theory.} Decreasing model/FS regularization in stated
+global domains.
+
+\emph{CLD/GR local theory.} CLD decreasing closure or GR local PL/LFS
+approximation.
+
+\item[Measure]
+\emph{Local BFJ theory.} \(n-1\) inputs on the normalized link.
+
+\emph{Polarized affine-cone theory.} \(n-1\) tangential inputs and one Reeb
+shell factor on an \(n\)-dimensional cone.
+
+\emph{Global BFJ/BJ theory.} \(n\) curvature inputs on an \(n\)-fold.
+
+\emph{CLD/GR local theory.} Continuous Bedford--Taylor products in the
+established CLD domain.
+
+\item[Boundary data]
+\emph{Local BFJ theory.} The ideal \(\mathfrak m\) and relative exceptional
+tower.
+
+For an excellent local germ,
+\cref{sec:local-excellent-boundary-links} supplies the intrinsic ray space,
+compact primary sections, exact changes of scale, and conductor quotient.
+Nonprimary ideals give partial sections; reduction preserves the datum.
+For a one-dimensional reduced excellent germ,
+\Cref{thm:p121-reduced-nagata-curve-link} identifies the ideal-normalized
+link with the finite normalization branches and gives the exact rescaling
+under a change of primary ideal; \Cref{prop:p126-finite-reduced-curve-link}
+gives its finite-map branch formula.  Moreover,
+\Cref{prop:p126-curve-conductor-principal-realization} realizes every
+sufficiently deep integral branch-order vector by a downstairs primary
+principal ideal, while \Cref{thm:p122-curve-principal-ideal-envelope}
+computes the closure and raw envelope of the resulting principal-ideal
+profiles.  The book-local completion
+\Cref{thm:p122-curve-ideal-psh-functoriality} realizes that closure as a
+normalization-independent homogeneous branch-cone object, completes it under
+decreasing limits, and proves exact envelope and finite-map pullback formulas.
+For branch-surjective finite curve maps,
+\Cref{thm:p126-curve-generic-norm-trace-descent} adds the generic-degree
+weighted trace, normalized pullback retraction, and exact
+conductor-controlled descent of principal profiles, together with the sharp
+pushforward--envelope inequality, norm-one barycentric projection, and dual
+total-variation-isometric signed-measure lift with its adjoint norm-one
+projection.  The same barycentric operator is the finite conditional
+expectation for each lifted full-support base probability, with the exact
+module law, all-\(L^p\) contraction, \(L^2\) orthogonality, and variance
+identity.  For finite flat maps,
+\Cref{thm:p126-curve-finite-flat-norm-descent} adds the determinant-norm
+specialization, including a canonical unscaled downstairs norm and its
+tower law.
+
+\emph{Polarized affine-cone theory.} The Reeb field, the reference function
+\(\varphi_\xi\), and the shell current
+\(\dprimeddprime\varphi_\xi^+\).
+
+\emph{Global BFJ/BJ theory.} Polarization and total mass.
+
+\emph{CLD/GR local theory.} Analytic boundary, compact support, or Shilov
+boundary.
+\end{description}
+
+There are six proved overlap statements.
+
+\begin{enumerate}
+\item Ideal functions have the same valuation formula in every approach:
+      \(\log|\mathfrak a|=-\nu(\mathfrak a)\).
+\item On the model locus, both the local measure and the global
+      Chambert--Loir measure are determined by intersection numbers, but on
+      different spaces and with different numbers of inputs.
+\item The local normalized link embeds into the centered cone of the
+      trivially valued analytification; positive rescaling recovers exactly
+      the locus \(0<\nu(\mathfrak m)<+\infty\), not the semivaluation
+      supported at the closed point.
+\item The Gauss section of \Cref{lem:local-cld-gauss-core} realizes the
+      normalized link as the shell \(u_{\mathfrak m}=-1\) over
+      \(\mathbf C((t))\). On the ideal and algebraizable rational-model
+      locus, the swept CLD boundary measure agrees term by term with the BFJ
+      measure; \Cref{prop:local-cld-bounded-closure} extends this equality
+      only to the explicitly defined joint bounded closure.
+\item On a polarized affine cone, homogeneous Fubini--Study functions are
+      CLD-approachable, and their affine-cone Monge--Amp\`ere measure is the
+      literal CLD product \eqref{eq:local-cone-model-ma}.  The extension to
+      \(\mathcal E^1(\xi)\) is the imported result
+      \Cref{thm:local-cone-finite-energy-ma}, not a formal consequence of
+      the continuous product.
+\item For a rational Reeb field, the projective quotient identifies the
+      affine-cone Fubini--Study functions, mixed measure, energy, and
+      finite-energy class with their global BJ counterparts on the
+      quasi-regular branch, as recorded after
+      \eqref{eq:local-cone-dual-I}.
+\end{enumerate}
+
+The fourth statement is a genuine common analytic realization, but it does
+not identify arbitrary formal psh functions with arbitrary CLD-v2 or
+classically psh functions. The BFJ local theory begins trivially valued and
+birational; the realization adds the specific nontrivially valued Gauss
+shell and the swept reference factor. The strongest GR comparison theorems
+in \Cref{chap:verified-extensions} still require their own good, strict
+analytic domains. Dropping algebraizability, the joint approximation, or
+the boundary datum would enlarge the theorem and is not licensed by the
+comparison above.  The fifth and sixth statements concern a different
+carrier with a Reeb polarization.  They supply continuous and finite-energy
+theory for polarized affine cones, but they do not extend the fourth
+statement to arbitrary BFJ formal psh functions or to arbitrary analytic
+germs.
+
+\section{What a full local Boucksom--Jonsson theory would require}
+
+The BFJ construction supplies the first three rows below, and the exact
+common model core supplies the fourth.  Wu's polarized affine-cone theory
+supplies the fifth row under additional symmetry and polarization
+hypotheses.  The remaining rows describe, rather than assume, what is still
+missing for a general local theory.
+
+\begin{enumerate}
+\item A compact normalized valuative link and a dense divisorial/model locus.
+      This is \Cref{thm:local-valuation-compactness}.
+\item A psh cone defined by relative nef b-divisors, stable under maxima,
+      with a decreasing unit-or-primary ideal regularization for each
+      element, and an eventually \(\mathfrak m\)-primary regularization for
+      each nonzero element.  This is
+      \Cref{thm:local-nef-psh-equivalence}.
+\item Mixed positive measures for bounded formal psh data, with ideal
+      approximation and local intersection formulas.  This is
+      \Cref{thm:local-formal-ma}.
+\item A common analytic realization on ideal and algebraizable rational
+      model data, together with the joint bounded monotone closure and the
+      finite-map/reference-change formulas. These are
+      \Cref{thm:local-cld-model-comparison,prop:local-cld-bounded-closure,prop:local-cld-finite-map}.
+\item On a normal affine cone with a good torus action and a fixed Reeb
+      field, a continuous psh cone, decreasing-net completion, finite-energy
+      class, mixed Monge--Amp\`ere operator, dual finite-energy measures, and
+      strong quasi-pseudometrics.  These are the source-bounded results of
+      \Cref{sec:local-polarized-affine-cones}.  They recover global BJ theory
+      for a rational Reeb field, but the comparison of nonproportional Reeb
+      polarizations remains unavailable.
+\item For excellent local germs, the normalizing boundary and its change
+      with the ideal are now supplied by
+      \cref{sec:local-excellent-boundary-links}, including conductor
+      descent in arbitrary dimension and the loss of compactness for
+      nonprimary sections. For reduced excellent curve germs, \Cref{thm:p121-reduced-nagata-curve-link}
+      settles the underlying branch set and primary-ideal scaling, while
+      \Cref{prop:p126-finite-reduced-curve-link} settles the normalized
+      branch map under finite local morphisms.
+      \Cref{prop:p126-curve-conductor-principal-realization} settles
+      conductor descent for sufficiently deep integral branch orders, and
+      \Cref{thm:p122-curve-principal-ideal-envelope} computes the closure and
+      raw envelope of this explicit ideal-function family.
+      \Cref{thm:p122-curve-ideal-psh-functoriality} gives its book-local
+      ideal-psh completion, homogeneous normalization transport, and
+      finite-map-compatible envelope.  The generic trace theorem
+      \Cref{thm:p126-curve-generic-norm-trace-descent} gives a pushforward
+      retraction, its exact envelope inequality, total-variation-isometric
+      signed-measure lift and dual norm-one projection, the associated
+      finite conditional-expectation and variance identities, and
+      conductor-scaled principal descent exactly when the branch map is
+      surjective, while
+      \Cref{thm:p126-curve-finite-flat-norm-descent} replaces the conductor
+      choice by one canonical determinant norm for finite flat curve maps.
+      Identifying that candidate with an
+      independently defined singular psh or nef cone, and every
+      intersection-theoretic layer, remain beyond these calculations.  In
+      fact,
+      \Cref{thm:p122-conductorial-disc-radial-psh-classification} identifies
+      the radial-extendable cone on every isolated conductor-controlled
+      disc-normalized curve singularity as
+      \(\{0\}\cup[-\infty,0)^q\), excluding precisely the mixed-zero faces
+      of the complete ideal-psh orthant; the ordinary multinode is the
+      explicit special case of
+      \Cref{thm:p122-multinode-radial-psh-classification}.
+\item For a general analytic germ without the affine-cone datum, a singular
+      finite-energy class would still need a relative energy, capacity,
+      monotone nonpluripolar products, and a comparison principle.  These do
+      not follow from the bounded BFJ intersection measure, and the
+      affine-cone construction cannot be transported after forgetting its
+      Reeb field.
+\item The unrestricted local-envelope assertion is false by
+      \Cref{prop:ch15-nodal-local-envelope}.  Any positive theorem must impose
+      a branch-compatibility or unibranch hypothesis and must still prove
+      that usc regularization preserves the chosen psh class.
+\item Gluing local measures requires boundary or reference data.  Literal
+      restriction cannot turn probability measures into a sheaf, because a
+      connected open set can contain two disjoint nonempty opens.
+\end{enumerate}
+
+This list explains the correct relationship with the global BJ theory.  The
+local object is a normalized link with relative intersection theory, not a
+global probability theory with the polarization deleted.
+
+\section{Research boundary and source questions}
+
+The generalized-Lelong converse left open in \cite{BFJ08} is now proved in
+\Cref{thm:local-generalized-lelong-separation}.  The two questions below
+about varying Reeb fields and the image of the affine-cone Monge--Amp\`ere
+operator are explicitly isolated in the introduction of
+\cite{Wu24AffineCones}.  The other items are comparison problems exposed by
+the frameworks in this book.  The list is neither asserted to be exhaustive
+nor used as a source of theorems; no answer is claimed here without a
+separate dated literature audit and, for a new argument, a Rethlas receipt.
+
+\begin{enumerate}
+\item Does every classical psh germ on a suitable non-Archimedean analytic
+      space admit decreasing local FS or semipositive-PL regularization in
+      higher dimension?  The known curve and boundaryless PL results do not
+      imply this for arbitrary singular functions.  The affirmative
+      decreasing-net statement on polarized affine cones requires Reeb
+      equivariance and therefore does not answer this arbitrary-local
+      question.
+\item Can the BFJ measure in \Cref{thm:local-formal-ma} be identified with a
+      CLD Bedford--Taylor product beyond the ideal/algebraizable model locus
+      and the joint bounded closure of
+      \Cref{prop:local-cld-bounded-closure}?
+\item Can one define a finite-energy completion on the normalized BFJ link of
+      a general germ, extending the verified model-domain functoriality of
+      \Cref{prop:local-cld-finite-map}, and whose energy contains the correct
+      boundary and polar-mass terms?  The construction in
+      \Cref{sec:local-polarized-affine-cones} answers the analogous question
+      only when a good torus action and a Reeb field are part of the datum.
+\item With the normalized boundary and conductor quotient of
+      \cref{sec:local-excellent-boundary-links} fixed, how do those data
+      enter an independently geometric singular psh class and the full
+      Monge--Amp\`ere theory beyond the curve ideal-profile constructions of
+      \cref{thm:p122-curve-principal-ideal-envelope,thm:p122-curve-ideal-psh-functoriality}?
+\item Can the local nef envelope be extended from bounded fixed-skeleton
+      obstacles to arbitrary usc obstacles while preserving continuity or an
+      appropriate capacity regularity?
+\item For two nonproportional Reeb fields \(\xi,\xi'\), what is the precise
+      relation between \(\PSH(\xi)\) and \(\PSH(\xi')\)?  In particular, is
+      there a cross-polarization operation strong enough to prove the uniform
+      differentiability estimate that replaces
+      \cite[Theorem~8.5]{BJ22} in the affine-cone setting?
+\item What is the image of
+      \(\MA_\xi:\mathcal E^1(\xi)\to\mathcal M^1(\xi)\), and under which
+      hypotheses does a prescribed finite-energy measure solve the local
+      non-Archimedean Monge--Amp\`ere equation?  For irrational \(\xi\), the
+      image of a divisorial norm may already be a genuinely quasimonomial
+      measure, so a divisorial reduction alone cannot settle the question.
+\end{enumerate}
+
+The Rethlas verification protocol in
+\Cref{chap:verified-extensions} is applied to any proposed answer before it
+is promoted into this chapter.  Failed attempts and conditional reductions
+remain in the editorial research ledger.
+
+\section*{Notes and further reading}
+
+The entire local construction, including the normalized valuation space,
+nef Weil divisors, multiplier-ideal approximation, local Monge--Amp\`ere
+measure, valuative transforms, and generalized Lelong formula, is due to
+Boucksom--Favre--Jonsson \cite{BFJ08}.  The dimension-two predecessor is the
+valuative tree theory cited there.  Strong openness is due to Guan--Zhou
+\cite{GZ15}.  The converse separation statement
+\Cref{thm:local-generalized-lelong-separation} is the book-level
+primary-ideal polarization and relative Hodge-index argument proved above;
+it is not attributed to those sources and carries no priority claim.  The
+global analogues and their different hypotheses are
+developed in \Cref{chap:bfj-psh,chap:bj-linear-growth,chap:mp-psh}; the CLD
+and classical local calculi are treated in
+\Cref{chap:cld-forms,chap:cld-currents,chap:verified-extensions}.  The
+polarized affine-cone model energy, its equality with filtration volume, and
+its quasi-regular projective comparison are due to Wu
+\cite{Wu22AffineEnergy}.  The continuous and decreasing-net psh classes,
+finite-energy functions and measures, mixed Monge--Amp\`ere extension, and
+the \(I\)--\(I^\vee\) comparison are due to
+\cite{Wu24AffineCones}.  The latter source is a version-1 preprint dated
+19 June 2024; its explicit cross-polarization and image questions are not
+presented here as solved.  The
+Gauss-shell comparison is the new manuscript argument verified by
+\texttt{gpt-5.6-sol} at \texttt{xhigh} scrutiny on 14 August 2026. Its
+publication receipt has statement digest
+\texttt{923e70de7a01\ldots}, proof digest
+\texttt{64776c912e47\ldots}, and verdict \texttt{correct} with zero gaps.
+Its primary-source inputs are BFJ Propositions~4.8--4.9 and the CLD formal
+measure formula \cite[Theorem~18.5.5 and Proposition~18.5.8]{CLD25}; no
+priority claim is made for the comparison itself.

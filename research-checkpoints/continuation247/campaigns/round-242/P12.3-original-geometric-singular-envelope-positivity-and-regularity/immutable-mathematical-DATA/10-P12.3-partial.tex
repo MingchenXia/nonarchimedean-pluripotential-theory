@@ -1,0 +1,383 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newcommand{\Cq}{\mathcal C_q}
+\newcommand{\Iq}{\mathcal I_q}
+\newcommand{\Prad}{P_{\rm rad}}
+\newcommand{\ord}{\operatorname{ord}}
+\title{Radial minorant envelopes on finite singular curve links\\
+\large Partial progress on P12.3; the full atom remains open}
+\author{Research draft for independent review}
+\date{3 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+On an isolated curve singularity with disc normalization and a separated
+conductor ideal, the known literal radial psh profiles are zero or strictly
+negative on every branch. We rederive the classical part of this known
+classification from Gubler--Rabinoff's primary source. We then compute the
+radial obstacle supremum and show that mixed-zero obstacles have no maximal
+radial minorant, although their supremum is continuous on the finite link.
+No monotone minorant projection fixing this radial class can exist. An
+explicit increasing family of logarithms on the node realizes the defect,
+and positive diagonal changes of primary gauge preserve it. These are
+consequences within a known restricted class, with no priority claim. They
+do not solve any full active atom or construct products or finite energy.
+\end{abstract}
+
+\section{Scope, definitions, and external inputs}
+Let $K$ be complete and nontrivially valued. Fix $\varpi\in K$ with
+$0<|\varpi|<1$, and write $r=|\varpi|$, $a=-\log r>0$.
+Let $A$ be a reduced strict $K$-affinoid algebra of pure dimension one,
+with finite normalization
+\[
+ A\hookrightarrow B=\prod_{i=1}^qK\langle t_i\rangle,
+ \qquad \nu:\coprod_{i=1}^q D_i\longrightarrow U=\mathcal M(A).
+\]
+Assume $\nu$ is finite and surjective, its fiber above a $K$-rational
+point $o$ consists of the origins $p_i$, and it is an isomorphism away
+from these origins. Assume explicitly that
+\[
+ \prod_{i=1}^qt_i^{e_i}K\langle t_i\rangle
+ \subseteq \mathfrak c_{B/A}:=\{b\in B:bB\subseteq A\},
+ \qquad e_i\geq1.
+\]
+These hypotheses define the partial range; they are not claimed for an
+arbitrary excellent germ. In particular, there is no extension here to
+arbitrary dimension, trivial valuation, or arbitrary normalization geometry.
+
+For $c\in[-\infty,0]^q$, define a function off $o$ by
+\[
+ h_c^\circ(\nu(z))=
+ \begin{cases}
+  -(c_i/a)\log|t_i(z)|,&c_i> -\infty,\ z\in D_i\setminus\{p_i\},\\
+  -\infty,&c_i=-\infty,\ z\in D_i\setminus\{p_i\}.
+ \end{cases}
+\]
+A \emph{literal radial extension} fixes all these off-node values, not
+just values at a finite set of points. At the radius-$r$ Gauss point
+$\eta_i$ the value is $c_i$. We use the finite branch set
+$L_q=\{1,\ldots,q\}$ with its discrete topology.
+
+We use exactly classical psh in \cite[Definition 4.1]{GR}: an upper
+semicontinuous function $u:X\to\mathbb R\cup\{-\infty\}$ is psh if
+for every analytic extension $K'/K$, every $K'$-analytic curve $Y$, and
+every morphism $f:Y\to X_{K'}$, its pullback through $f$ and the scalar
+projection is subharmonic in Definition 3.4 of that source. The latter
+includes the identically $-\infty$ convention. The essential external
+statements, for any $K$-analytic space $X$, are:
+\begin{enumerate}
+\item For $f\in\Gamma(X,\mathcal O_X)$, $\log|f|$ is classically psh,
+with $\log0=-\infty$; there is no nonzerodivisor condition
+\cite[Proposition 4.2(2)]{GR}.
+\item If $u_1,u_2$ are classically psh and $\lambda_1,\lambda_2\geq0$,
+then $\lambda_1u_1+\lambda_2u_2$ and $\max(u_1,u_2)$ are classically
+psh \cite[Proposition 4.2(3)]{GR}.
+\item The infimum of a decreasing \emph{net} of classically psh functions
+is classically psh \cite[Proposition 4.2(4)]{GR}.
+\item For an analytic morphism $f:Y\to X$, pullback preserves classical
+psh; the converse holds if $f$ is finite and surjective
+\cite[Proposition 4.2(6)]{GR}.
+\item A classically psh function on a $K$-affinoid space attains its
+maximum at a Shilov point \cite[Theorem 6.4]{GR}.
+\end{enumerate}
+The source permits any complete absolute value in these statements.
+All our pullbacks are through analytic morphisms, and all domains for
+the maximum principle are affinoid closed discs. No boundaryless
+maximum principle is used. Constants are psh by the definition. No CLD
+comparison, current pullback, or wedge product is an external input here.
+
+For completeness, a closed radius-$R$ disc has a singleton Shilov boundary
+at its Gauss point: the triangle inequality bounds the value of
+$\sum b_nt^n$ at every point by $\max_n|b_n|R^n$, and the Gauss seminorm
+attains that bound for every series. This verifies the Shilov points used
+below without an additional geometric theorem.
+
+\section{A known classification rederived}
+\begin{lemma}[Classical part of the known radial classification]
+The profiles with a classical radial extension are exactly
+\[
+ \Cq^{\rm ext}=\{0\}\cup[-\infty,0)^q.
+\]
+The classically psh radial extension is unique, with value $0$ at $o$ for the zero profile and
+$-\infty$ at $o$ otherwise. Its finite part is
+$\Cq=\{0\}\cup(-\infty,0)^q$.
+\end{lemma}
+\begin{proof}
+The zero and all-$-\infty$ profiles have their constant extensions.
+For an all-negative profile let $I$ index its finite coordinates, and
+put $\lambda_i=-c_i>0$ for $i\in I$. Choose positive rational numbers
+$k_{n,i}/N_n\nearrow\lambda_i$ with a common denominator at each stage.
+Multiplying the numerators and denominator by the same integer ensures
+$k_{n,i}\geq e_i$. Put $b_{n,i}=t_i^{k_{n,i}}$ for $i\in I$ and
+$b_{n,i}=0$ otherwise. The tuple belongs to the conductor ideal, hence
+to $A$; denote it by $f_n$. Then
+\[
+ g_n=(aN_n)^{-1}\log|f_n|
+\]
+is classically psh by Proposition 4.2(2),(3), including when $f_n$ is a
+zerodivisor. Its branch expressions are
+$a^{-1}(k_{n,i}/N_n)\log|t_i|$ on retained branches and $-\infty$ on
+the others; its value at $o$ is $-\infty$. Since $|t_i|\leq1$, this
+sequence decreases to the desired extension. Proposition 4.2(4) applies.
+This explicit rational sequence does not replace nets in that theorem.
+
+Conversely, if $c_i=0$, the points $t_i=\varpi^m$ approach $p_i$.
+Their images approach $o$, so upper semicontinuity of an extension $h$
+forces $h(o)\geq0$. If some $c_j<0$, pull $h$ back to $D_j$ and
+restrict it to the radius-$r$ disc. Theorem 6.4 gives
+$h(o)\leq h(\eta_j)=c_j<0$, including $c_j=-\infty$, a contradiction.
+
+For uniqueness when $c=0$, the same approach to $o$ gives $h(o)\geq0$
+and the disc maximum principle gives $h(o)\leq0$. If some coordinate
+$c_j$ is finite and negative, the radius-$r^m$ disc instead gives
+$h(o)\leq mc_j$ for every $m$, forcing $-\infty$. If every coordinate
+is $-\infty$, one disc maximum principle already gives that value.
+All off-node values were prescribed.
+\end{proof}
+
+This lemma is the classical part of Book Theorem 70.1.9, already recorded
+in the supplied catalogue \cite{Book}. We reproduce its argument to
+check its external hypotheses. The book additionally identifies this
+class with literal CLD-v2 radial extensions; that statement is not
+reproved or used here and is not counted as new progress.
+
+\section{The exact radial envelope and its defect}
+\begin{definition}
+For $\phi\in\mathbb R^q$, define the coordinatewise supremum
+\[
+ \Prad\phi:=\sup\{c\in\Cq:c\leq\phi\}.
+\]
+This definition does not presume that the output belongs to $\Cq$.
+\end{definition}
+
+\begin{theorem}\label{thm:envelope}
+For every $\phi\in\mathbb R^q$,
+\[
+ \Prad\phi=\min(\phi,0)=:h.
+\]
+The supremum is a greatest radial minorant if and only if $h=0$ or
+every $h_i<0$. If $h$ has both a zero and a negative coordinate, the
+admissible set has no maximal element. Its supremum is continuous on
+$L_q$ and equals its upper semicontinuous regularization, but is not in
+$\Cq$. Allowing $\Cq^{\rm ext}$ does not change the supremum for a
+finite obstacle.
+\end{theorem}
+\begin{proof}
+Every admissible profile is bounded above by $h$. The profiles
+$c^{(n)}=h-n^{-1}(1,\ldots,1)$ are strictly negative, are below
+$\phi$, and increase uniformly to $h$. This proves the formula.
+If $h\in\Cq$, it is itself the greatest minorant.
+
+Suppose $h$ is mixed-zero. Zero is not admissible because $\phi$ has a
+negative coordinate. Every admissible $c$ is therefore strictly negative.
+Choose $0<\epsilon<\min_{h_i=0}(-c_i)$ and set
+\[
+ w_i=\begin{cases}h_i,&h_i<0,\\-\epsilon,&h_i=0.\end{cases}
+\]
+Then $w\in\Cq$, $c\leq w\leq h\leq\phi$, and $w$ strictly improves
+every zero coordinate. Hence no $c$ is maximal. Finite functions on
+the finite discrete set $L_q$ are continuous, so regularization cannot
+alter $h$. The upper bound remains valid for extended admissible
+profiles, and the same finite approximants give the lower bound.
+\end{proof}
+
+Thus the raw numerical formula agrees with the known ideal-orthant
+envelope $\min(\phi,0)$, but the geometric radial codomain differs.
+For $q=1$ no mixed-zero profile exists, consistently with the known
+smooth curve and cusp tests. This is not a general smooth-germ theorem.
+
+\begin{theorem}[No minorant projection]\label{thm:projection}
+For $q\geq2$ no order-preserving map
+$E:\Iq:=(-\infty,0]^q\to\Cq$ can satisfy both $E(\phi)\leq\phi$
+for every $\phi$ and $E(c)=c$ for every $c\in\Cq$.
+There is also no continuous retraction $\Iq\to\Cq$ fixing $\Cq$.
+\end{theorem}
+\begin{proof}
+Choose a mixed-zero $h\in\Iq$. For $c^{(n)}=h-n^{-1}\mathbf1$,
+monotonicity and the fixed-point condition give
+$c^{(n)}=E(c^{(n)})\leq E(h)$. Taking coordinatewise suprema gives
+$h\leq E(h)$; the minorant condition forces $E(h)=h\notin\Cq$.
+For the second assertion, continuity and $c^{(n)}\to h$ force
+$E(h)=\lim_n E(c^{(n)})=h$, again a contradiction. The first assertion
+uses no continuity or limit-preservation axiom.
+\end{proof}
+
+The restrictions matter: there is an extensive monotone retraction
+which fixes the zero and strictly negative profiles and sends every
+mixed-zero profile to zero. If $c\leq d$ and $c$ is mixed-zero, then
+$d$ has a zero coordinate too; this verifies monotonicity in the only
+nontrivial case. Consequently we do not claim that every order map is
+impossible. The obstruction concerns minorant envelopes and continuous
+retractions.
+
+\section{An explicit analytic realization on the node}
+Take $A=K\langle x,y\rangle/(xy)$. Modulo $xy$, each series is uniquely
+$\gamma+f(x)+g(y)$, with $f(0)=g(0)=0$. This embeds $A$ in
+$B=K\langle x\rangle\times K\langle y\rangle$ as pairs with equal
+constant terms; it proves reducedness and identifies the two pure
+one-dimensional branches. The idempotents $(1,0),(0,1)$ generate $B$
+as an $A$-module. The conductor is
+$xK\langle x\rangle\times yK\langle y\rangle$: multiplication by
+the two idempotents forces both constant terms to vanish, while such
+pairs multiply $B$ into $A$. The analytic map is surjective with two
+origins over $o$, and away from $o$ one branch coordinate is an analytic
+unit locally, so the map is an isomorphism. This verifies all the analytic
+hypotheses of the lemma with $e_x=e_y=1$.
+
+For the local model $R=K[x,y]_{(x,y)}/(xy)$, a centered semivaluation with $0<v(\mathfrak m)<\infty$
+has $v(x)+v(y)=\infty$. Both cannot be infinite because
+$0<v(\mathfrak m)<\infty$. Exactly one is finite and positive. On the
+corresponding one-variable quotient, every nonzero element is $t^d$
+times a unit; units have value zero since they and their inverses have
+nonnegative value. Thus every centered ray is a positive multiple of
+$\ord_x$ or $\ord_y$, with their nonzero prime supports retained.
+Normalizing by $\mathfrak m=(x,y)$ gives exactly these two points.
+Evaluation of $x$ distinguishes $1$ from $\infty$, so their topology is
+discrete. The same proof works for the formal node. The analytic and
+link proofs use no excellence assertion; this is the known nodal range
+of the catalogue, not a counterexample to the entire excellent-germ
+programme.
+
+Every element of $K^*$ is a unit in $R$, so the local semivaluations are
+trivial on $K$. The analytic Gauss seminorms extend the nontrivial
+absolute value of $K$. Only branch indices and the specified monomial
+profiles are compared here; the two carriers are not identified.
+
+\begin{proposition}\label{prop:node}
+The classically psh functions
+\[
+ g_n=(an)^{-1}\log|x^n+y|
+\]
+increase on $U$ and have branch profiles $(-1,-1/n)$ at the two
+radius-$r$ Gauss points. Their pointwise supremum is not upper
+semicontinuous at $o$, and its usc regularization is not classically psh.
+\end{proposition}
+\begin{proof}
+GR Proposition 4.2(2),(3) proves psh. On $D_x$ the function equals
+$a^{-1}\log|x|$; on $D_y$ it equals $(an)^{-1}\log|y|$; at $o$ it is
+$-\infty$. Since $\log|y|\leq0$, this increases. The Gauss values are
+$(-1,-1/n)$, at uniform distance $1/n$ from $(-1,0)$.
+The pointwise supremum $G$ is $a^{-1}\log|x|$ on $D_x\setminus\{o\}$,
+zero on $D_y\setminus\{o\}$, and $-\infty$ at $o$. Its usc
+regularization agrees away from $o$ and has value zero there: the
+$y$-branch approaches $o$ with value zero, and all values are at most
+zero. If this regularization were psh, its pullback to the closed
+radius-$r$ $x$-disc would have central value zero and value $-1$ at
+the unique Shilov point, violating Theorem 6.4.
+\end{proof}
+
+These are actual primary principal models: modulo $x^n+y$ and $xy$,
+$x^{n+1}=y^2=0$, so $(x^n+y)$ is $\mathfrak m$-primary in $R$.
+The functions are unbounded near $o$ on $U$, but finite and uniformly
+bounded on the normalized link. This is not an obstruction to bounded
+analytic Bedford--Taylor product continuity. GR Theorem 6.5 requires
+the pointwise net limit already to be usc; $G$ is not usc and $G^*$ is
+not that pointwise limit, so there is no contradiction to that theorem.
+
+\section{Gauges and normalization compatibility}
+For $\mathfrak m$-primary ideals $\mathfrak a,\mathfrak b$ on the node, let
+$b_i^{\mathfrak a}=\ord_i(\mathfrak a)$,
+$b_i^{\mathfrak b}=\ord_i(\mathfrak b)$. These numbers are finite and
+positive because the ideals are proper and contain powers of
+$\mathfrak m$. The section point is $\ord_i/b_i^{\mathfrak a}$.
+For a degree-one homogeneous function $H$ on the rays,
+\[
+ c_i^{\mathfrak b}=H(\ord_i/b_i^{\mathfrak b})
+ =\frac{b_i^{\mathfrak a}}{b_i^{\mathfrak b}}
+    H(\ord_i/b_i^{\mathfrak a})
+ =\frac{b_i^{\mathfrak a}}{b_i^{\mathfrak b}}c_i^{\mathfrak a}.
+\]
+This proof supplies the exact cocycle, since successive ratios telescope.
+Positive diagonal scaling $T$ preserves both radial classes and
+mixed-zero profiles and gives
+$\Prad(T\phi)=T\Prad(\phi)$ by Theorem~\ref{thm:envelope}.
+For $\mathfrak a=(x,y)$ and $\mathfrak b=(x^2,y^3)$,
+$(-1,0)$ becomes $(-1/2,0)$ and still fails the radial condition.
+These are changes of section, not identifications of all normalizers.
+For the same literal analytic function its coefficient at the fixed
+radius-$r$ Gauss points is
+$d_i=H(\ord_i)=b_i^{\mathfrak a}c_i^{\mathfrak a}$, and the branch
+expression is $-(d_i/a)\log|t_i|$. The identity
+$b_i^{\mathfrak a}c_i^{\mathfrak a}=b_i^{\mathfrak b}c_i^{\mathfrak b}$
+shows that this expression is unchanged. Section values can instead be
+read at Gauss radii $r^{1/b_i^{\mathfrak a}}$; Gauss points exist even
+when these radii are not in $|K^*|$. We do not identify numerical values
+at fixed Gauss points with all gauge-section values.
+
+On the separated normalization each individual branch has radial class
+$[-\infty,0]$, so the product class is the whole orthant. Its boundary
+map is a bijection of the two branch points, making boundary
+fiber-constancy vacuous. But a mixed-zero radial tuple has value
+$-\infty$ at one origin and zero at the other; it cannot descend as
+an analytic function through their common image. The conductor has
+finite value on each branch order, and its zero-dimensional quotient
+has no centered normalized section. There is therefore no conflict
+with the known conductor quotient theorem on valuation boundaries.
+Any operator on all separated radial profiles agreeing with the
+degree-one branchwise identity is forced to return that same mixed-zero
+vector, outside the connected radial class. This diagnoses a missing
+geometric domain condition for P12.6; it does not refute an operator
+restricted to compatible source data.
+
+An arbitrary evaluation trace is different. The bounded psh function
+\[
+ b=\max\{a^{-1}\log|y|+1,-1\}
+\]
+has value $-1$ at $o$ and values $(-1,0)$ at the same Gauss points,
+by GR's cone and maximum properties. On $|x|,|y|\leq r$ it is also
+nonpositive. Thus the mixed-zero vector can occur as the evaluation
+of a nonradial psh function; our theorem rules out only its literal
+homogeneous radial realization.
+
+\section{Comparison, limitations, and evidence}
+The catalogue already contains the radial classification, the complete
+ideal-orthant envelope, and an unrestricted nodal analytic envelope
+counterexample. None is counted as a new resolution. Our additional
+calculation is the absence of maximal minorants and a minorant projection
+for the specified radial class. P12.3 remains open for an independently
+geometric singular envelope theory. P12.2 still lacks the required
+general geometric cone/comparison; P12.4 has no products here; P12.5
+has no energy here; P12.6 retains its geometric compatibility target.
+No exact active atom is solved; the obstruction concerns the stated literal
+radial minorant problem.
+
+The exact-rational program \texttt{checks/check\_profiles.py} verifies
+340 finite-grid obstacles in dimensions one through four, five node
+profiles, and the gauge example. The chosen finite grid has greatest
+minorants with zero-face coordinates $-1/4$; its result is explicitly
+distinguished from the continuum supremum zero. These are exhaustive
+\emph{finite} diagnostics, not proofs of infinite or analytic claims.
+The complete plain-text argument is \texttt{P12.3-argument.md}. Source
+snapshots, commands, outputs, and environment details accompany the
+research artifacts. A separate source-aware Xean audit using
+\texttt{gpt-6.1-sol} at \texttt{xhigh} returned \texttt{PASS} for these
+precise partial results. Its report and exact primary-source premises are
+retained in \texttt{P12.3-review.json}. This is a computational audit, not
+a resolution of the original atom or a formal proof certificate.
+
+\begin{thebibliography}{9}
+\bibitem{GR} W. Gubler and J. Rabinoff,
+\emph{Classically psh and pluriharmonic functions on Berkovich spaces},
+arXiv:2506.13548v2, 17 September 2025.
+Primary PDF and extracted text preserved in the deliverable.
+\bibitem{Book} \emph{Non-Archimedean Pluripotential Theory}, local
+book-source repository snapshot, commit
+\texttt{00957114db21b627e97369563032ceda9cea09c7}.
+Chapter 70, especially Theorems 70.1.5--70.1.10, and Chapter 15's nodal
+envelope example. The radial classification is in the included
+\texttt{CURVE\_PSH.tex} source; source manifests accompany the draft.
+\bibitem{Dossier} Supplied family dossier, \emph{A geometric local theory
+on singular germs}, active targets P12.2--P12.6 and their completion
+criteria, preserved as \texttt{sources/task-dossier.txt}.
+\end{thebibliography}
+\end{document}
