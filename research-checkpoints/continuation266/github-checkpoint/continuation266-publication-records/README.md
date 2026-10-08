@@ -1,0 +1,9 @@
+Checkpoint266: whole test-ideal envelope approximation working proof
+
+16/42 original problems solved,26OPEN,97 accepted papers. No new acceptance or original closure.
+
+Entire ROOT371 constructs actual primary ideal profiles with uniform error0<=P(f_C)-g_m<=c v(J)/m over ALL semivaluation supports, for a Cartier obstacle on a FIXED ACTUAL smooth primary blowup of a normal CLOSED algebraic germ over a perfect positive-characteristic field. It proves the raw section-ideal envelope identity and all-index Fekete convergence, then uses smooth asymptotic test ideals/global generation plus one fixed ample twist to give uniform geometricC convergence. It supplies no singular test-ideal subadditivity or source-nef recognition.
+
+The extension to ALL finite continuous obstacles requires propertySM: every finiteprimaryidealcollection/gauge admits an ACTUAL smooth primary common blowup. SM is not proved here; merely citing dimension-three resolution, an arbitrary regular alteration or a nonprimary model is insufficient. No unconditional originalP12.3/P16.3 closure or finite-energy analytic equation is claimed. Entire proof/source/scopebinding accompanies the paper; sources are freshly checked at their exact perfect-field/projective/affine-base distinctions, with entire correctedKeeler erratum. Full primary bodies/pixels remainLOCALONLY.
+
+P21.3/native263 and P16.7/native264 continue via signed-in Xean native Codex gpt-6.1-sol xhigh, at most TWO campaigns and ZERO incoming grants. New371 is held for FUTURE independent reconstruction, no ACTIVE feedback or mathematical output reading. No successful compilation/formal certification. Protected P16.4 editor OPEN UNCHANGED, no new tabs/exportPDF. Supplied programs inert DATA never executed. Authorized regular NONFORCE checkpoint verified by independent Git tree/all blobs/fresh reference.
