@@ -3,6 +3,41 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest Wu local psh book checkpoint, 8 October 2026
+
+The validated edition has 4,651 pages. The
+[integration audit](Wu_local_NA_psh_staged_integration_audit_v3_20261008.md)
+adds an unnumbered paragraph in Section 19.8 and L.96. Affine FS lower
+coercivity, upper logarithmic growth and decreasing global approximation are
+kept distinct. The radial example has a lower bound, quadratic growth and
+locally finite curvature with infinite total mass. The localization example
+controls actual pole orders rather than a nonradical formal denominator.
+The source's general weak/global and envelope claims remain unadmitted;
+this is not a counterexample to an intended corrected main theorem.
+
+All 55 primary pages were read in 28 individual matching views. The final
+book gate freshly reads 25 pages in 13 individual v3 matching displays.
+The first stage's introductory overflow and partial v2 reading remain frozen.
+The latter found the missing nonnegative-integer quantifier in the radial
+formula. Corrected v3 reruns full validation and all final pages are freshly
+read, with zero reuse credit.
+Post-render checks pass. All 955 underfull diagnostics, prior numbered values
+and citation labels are preserved. Other 423 TeX inputs, ComplexGeometry,
+92 historical blocks including 25 proofs, and six manual tags are unchanged.
+
+The [activation record](Wu_local_NA_psh_cloud_activation_v3_20261008.json)
+controls the cloud edition; remote publication receives a separate record.
+The native catalogue/editor and 42 atoms/twelve formal problems are unchanged.
+General BJ22 critical homogeneous Siu/envelopes remain OPEN; LPWZ density
+UNVERIFIED. No original general theorem, independent receipt or fresh complete
+book pass is claimed. The last ordered whole-book pass remains 4 October.
+
+Continue cloud-only with related primary literature and sequential research,
+including identification and verification of the source's tropical/curve
+dependencies. The exact-title APW arXiv query found no matches and has zero
+proof-reading credit. Check incoming author updates and publish verified
+evidence normally. Xean remains suspended.
+
 ## Latest Wu local psh primary checkpoint, 8 October 2026
 
 The [primary audit](Wu_local_NA_psh_source_review_20261008.md) completes

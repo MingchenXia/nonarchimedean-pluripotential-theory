@@ -4,6 +4,19 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest checked local psh book integration, 8 October 2026:** the
+[integration audit](manuscript/editorial/Wu_local_NA_psh_staged_integration_audit_v3_20261008.md)
+adds the growth paragraph in Section 19.8 and new L.96. It distinguishes
+coercive lower growth, upper majorants, decreasing approximation, local
+integrability and actual pole orders. General weak/global comparison and
+envelope claims from arXiv:2609.27610v1 remain qualified. All 25 final
+book pages were freshly read in 13 individual matching displays; full
+validation and post-render gates pass. The first stage's introductory overflow
+and the missing radial integer quantifier are preserved and corrected in v3. The
+[activation record](manuscript/editorial/Wu_local_NA_psh_cloud_activation_v3_20261008.json)
+controls the 4,651-page cloud edition. No original general theorem, new
+whole-book pass or canonical status change is claimed.
+
 **Latest Wu local psh source checkpoint, 8 October 2026:** the
 [primary audit](manuscript/editorial/Wu_local_NA_psh_source_review_20261008.md)
 completes all 55 pages of arXiv:2609.27610v1 in 28 individually displayed
@@ -238,7 +251,7 @@ citation values are preserved. The [cloud activation record](manuscript/editoria
 controls the source/PDF update. No whole-book new reading, original general
 result or canonical status change is claimed. Its verified artifacts are uploaded.
 
-The current cloud research-integration build has **4,647 pages**; its
+The current cloud research-integration build has **4,651 pages**; its
 source and checked book/audit exports are published on `work`. The checked
 [geometric-norm account](manuscript/editorial/Temkin_Zutler_geometric_norms_staged_integration_audit_20261008.md)
 adds Sections 4.6.1--4.6.2: tensor and spectral norm distinctions, exact
