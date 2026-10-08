@@ -1,0 +1,15 @@
+# Preserved original and noncircularity decision
+
+The exact original P12.4 requires bounded independently geometric mixed products on excellent singular/nonnormal normalized local boundaries, with independent model intersection comparison, locality and continuity. It is not solved by the present paper. The family/completion context remains unchanged; “when possible” does not close an unproved normal higher-dimensional sector.
+
+The currently supplied augmented task is an entire independent review assignment. Its problem/family prefix equals the historical original research input's prefix. Historical controller and worker decoded WHOLE JSON inputs are equal. Their research augmentation/assignment/criteria differ from this review augmentation, and that difference is not a change of the mathematical target. The exact unsupplied original-task file is not freshly hash-attested.
+
+G331 gives an independently defined actual Cartier-positive domain BEFORE comparison with ideals. Its uniform/actual decreasing comparison justifies input membership and approximation. It grants no intersection, product, energy or locality and no arbitrary-model cofinality. Using it in this way is not defining positivity by the new kernel. The entire source/annotation/ledger/scope identity is retained.
+
+The new kernel and bounded extension do construct positive moment measures with exact algebraic presentation invariance, all-real/actual bounded-D continuity, gauges and normalization. Their existence does not identify them with independent singular Cartier intersections. Uniform approximation of evaluations cannot be assumed to prove independent intersection convergence. Higher-dimensional independent Cartier comparison and actual positive-arity open-set locality are absent.
+
+The curve reference is a genuine separate geometric theorem at ZERO potential arity: defined from DVR Cartier orders/residue degrees, independently compared to proper zero-cycle degrees by normalization snake cancellation, and then compared to moments. It has model independence and zero-arity locality/continuity, but does not discharge the higher-dimensional original. Smooth BFJ comparison is confined to smooth affine CLOSED/algebraically closed/characteristic-zero/n>=2 and grants no general singular locality.
+
+The nilpotent example shows a reduced-boundary-only rule cannot recover unreduced lengths without extra data. It does not disprove reduced P12.4. The nonpure zero example is a declared top-degree convention, not removal of boundary components. The two-point toy is not the primary kernel and refutes only a bare abstract implication.
+
+No inference is made from author candidate=false, prior agreement with another working route, metadata, successful compilation or finite arithmetic. No ROOT339 or active247 mathematical output was supplied or used. P12.3 envelopes, P12.5 energy and full geometric P12.6 map/conductor calculus remain separate. The review assignment is implemented; the ENTIRE original is OPEN; candidate=false.

@@ -1,0 +1,187 @@
+# Independently reconstructed bounded moment theorem
+
+This is a supporting algebraic theorem for P12.4, not a solution of its geometric intersection and locality obligations. All assertions below are mathematical draft arguments, not consequences of hash matches or execution. ROOT338 and ROOT339 were read as unreviewed data. Only the complete unchanged qualified G331 is used as an incoming result; its full source/scope qualifications are attached unchanged.
+
+## n1. Domain and the entire algebraic kernel
+
+**Support: G331.** Let A be an excellent local ring and R=A_red. Put n=dim R. For n>=1 fix a proper m-primary ideal a and let X_a be its compact Hausdorff normalized section of ALL centered real semivaluations. G331 supplies this space, continuous finite primary ideal values, the independently geometric C=C_geom=C_ideal, and D=D_geom=D_ideal defined by actual nonempty decreasing C-nets. It supplies rational primary-profile density in C and rational ideal-difference density in C(X_a). It supplies the exact all-support primary integral-dependence criterion, gauge transport and full conductor descent. It does not supply any operator or intersection theorem.
+
+We work over the reduction, with degree-n primary-length multiplicities. Lower-dimensional components and modules have zero degree-n contribution. We never replace this convention by lengths of nilpotent generic structure. Any positive-dimensional local ring has no zero-dimensional minimal component: such a minimal prime would be m, whereas any prime properly below m would contradict minimality. For reduced R the minimal-component exceptions in the granted primary valuative criterion are therefore absent. Subsequent superficial quotients may be nonreduced and have embedded primes; the algebra used on them is valid for Noetherian local rings, not merely for reduced rings.
+
+For primary ideals I_1,...,I_r and a finite module M, the published multigraded Hilbert theorem gives a polynomial for length(M/(I_1^s_1...I_r^s_r)M), for all sufficiently large integer exponents, of total degree dim M. Let H be its homogeneous part of degree dim R. With n separately labelled ideals, e_R(I_1,...,I_n;M) is the coefficient of s_1...s_n in H. More generally the coefficient of s^d is e(I_1^[d_1],...,I_r^[d_r];M)/(d_1!...d_r!). The ordinary e_R(I;R) equals e_R(I,...,I), since substituting s=s_1+...+s_n into the one-ideal leading term e(I)s^n/n! gives exactly this coefficient. The unit is allowed as an auxiliary ideal by making the length function independent of its variable: every mixed coefficient with a unit slot is zero.
+
+Symmetry follows by relabelling. Powers satisfy e(I^l,K_2,...,K_n)=l e(I,K_2,...,K_n), for every positive integer l, by substituting ls for s. Products satisfy e(IJ,K_2,...,K_n)=e(I,K_2,...,K_n)+e(J,K_2,...,K_n). Use the polynomial for the n+1 labelled ideals I,J,K_2,...,K_n and substitute the same s for the first two variables. The coefficient of s s_2...s_n comes only from exponent vectors (1,0,1,...,1) and (0,1,1,...,1). To identify a coefficient with an unused label with the polynomial without that label, fix that unused exponent at a large c. An m-primary B^c contains a power K_2^N; hence P K_2^N subset B^c P subset P. The two outside length polynomials differ by a constant exponent shift and have identical top forms in the remaining variables. Squeezing on positive rational rays shows that the fixed-exponent middle polynomial has that same top form. This proves the unused-label assertion, including repeated labels. For n=1 the same argument uses any remaining primary ideal. Finite products and all power/product laws follow by iteration. These proofs do not rely on the printed intermediate power formula in 17.5.1.
+
+If I subset J and J is integral over I, the graded Rees algebra R[Jt] is a finite module over R[It]. Indeed adjoining finitely many generators jt is integral by their homogeneous ideal-integrality equations. Choose homogeneous module generators of degrees at most c. In every degree m+c this implies J^(m+c) subset I^m, since a coefficient of a degree-d generator lies in I^(m+c-d) subset I^m. For m>c and any remaining primary product P,
+
+    I^m P subset J^m P subset I^(m-c) P.
+
+The outside lengths have identical degree-n forms. Along each strictly positive rational ray of exponents their difference is O(t^(n-1)); the middle length is squeezed. Its leading form therefore agrees on every positive rational ray and, by polynomial identity, everywhere. All mixed coefficients agree. If two primary ideals have the same integral closure, their sum is integral over each, so this argument applies twice. No coefficient inequality is being inferred from domination of a multivariate polynomial. Integral-closure invariance is equality of entire leading forms.
+
+Here is a full proof of monotonicity. Suppose J subset I are proper primary ideals and fix K_2,...,K_n. If needed replace R by T=R[z]_(mR[z]). This is faithfully flat local, with maximal ideal mT and residue field k(z). Every finite-length module retains its length: tensor a composition series, whose factors k become k(z); faithful flatness keeps each nonzero factor. Dimension is also preserved. One proof in our excellent setting uses a parameter ideal of n generators: it remains mT-primary and gives dim T<=n by the height theorem. Flat going-down lifts a length-n chain ending in m to one ending in mT, giving dim T>=n. Alternatively these are exactly the assertions of current author-book 8.4.2. Thus every primary-product length polynomial and its degree-n coefficients are unchanged. No assertion about valuation-space base change is involved.
+
+Now the residue field is infinite. Proposition 17.2.2 provides nonempty Zariski-open sets of choices in K_n/mK_n simultaneously superficial for each of the two families (K_n,J,K_2,...,K_(n-1)) and (K_n,I,K_2,...,K_(n-1)). Also exclude every minimal prime of the common current ring. Primaryness ensures K_n is contained in no such prime when dimension is positive. Each excluded image is a proper linear subspace: if K_n subset P+mK_n, Nakayama applied to K_n/(K_n cap P) would force K_n subset P. The finite intersection of these nonempty opens has a rational point over the infinite residue field (equivalently a nonzero finite product of polynomials cannot vanish on the whole affine space). Choose one lift x.
+
+Use that SAME x and SAME quotient R/(x) for both families. It drops dimension by exactly one, since x avoids all minimal primes; the usual parameter-ideal dimension inequality gives the lower bound and extending any quotient prime chain down to a minimal prime gives the upper bound. The superficial colon statement and multi-ideal Artin--Rees give, for all large exponents,
+
+    (P_s:x)=(0:x)+K_n^(s_n-1) J^(s_J)...,
+    (0:x) cap P_s=0.
+
+In particular (0:x) injects into a finite primary quotient and has finite length. The multiplication-by-x exact sequence gives the discrete first difference of the length polynomial as the quotient length polynomial minus length(0:x). For dimension d>1 that last constant cannot affect the degree d-1 leading form. Comparing the coefficient with one K_n occurrence gives e_R(K_n,J,...)=e_(R/(x))(J,...), and the identical assertion for I. This is precisely the full 17.4.6 reduction, with the unused-label convention just proved. Embedded associated primes need not be avoided; their effect is controlled by this actual colon argument, without assuming a regular sequence.
+
+Repeat using K_(n-1),...,K_2 on the common successive quotients. At each stage the ideals remain primary, the same finite simultaneous-choice argument applies, and every dimension is positive until the final quotient R' has dimension one. Then
+
+    e_R(J,K_2,...,K_n)=e_R'(JR'),
+    e_R(I,K_2,...,K_n)=e_R'(IR').
+
+Ordinary one-variable length inequalities for (JR')^s subset (IR')^s give e_R'(JR')>=e_R'(IR'). They also give positive integer mixed multiplicities for proper entries by the ordinary positive one-dimensional Samuel multiplicity. For n=1 this last argument is direct. Symmetry proves monotonicity in every slot. Unit slots have zero coefficients and cause no exception. Passing to integral closures and applying invariance proves the corresponding integral-closure monotonicity. This proves the entire algebraic kernel for the actual nonpure/embedded/all-field hypotheses.
+
+Primary source use: freshly read complete current July2024 Swanson--Huneke 8.4.2, 17.1.6, 17.2.1--4, 17.4.1--9, 17.5.1--5; only the indicated immediate units are applied. Ordinary multigraded Hilbert, Artin--Rees, Nakayama, height/dimension and Hilbert--Samuel foundations remain published background. 17.5.3's prose about polynomial domination is not used as a sufficient coefficient argument. The polynomial (s-t)^2>=0 has a negative st coefficient and demonstrates why that inference alone would be invalid. PDF pages 140,355,359,360 were inspected for essential extracted formulas. No inference of a printed mistake from text extraction is used.
+
+## n2. Functional dependence, positive rational tests and Riesz
+
+**Support: G331, n1.** Put p=n-1. For rational profiles u_i=-v(I_i)/k_i, with k_i positive integers, define
+
+    B_u(v(J))=e_R(I_1,...,I_p,J)/(k_1...k_p).
+
+For p=0 this means e_R(J), with empty denominator 1. If a potential is zero, use the unit ideal: any such input makes the measure zero for p>=1. Powers/products in n1 show additivity and positive rational homogeneity of inputs. These are laws on the nonpositive function cone: the measure of u+u' is the sum of the measures, and decreasing an input increases each ideal-test moment.
+
+Here is every representation check. If -v(I)/k=-v(I')/k' on ALL X_a, then v(I^k')=v((I')^k). The exact granted criterion gives identical integral closures; n1 and powers give identical mixed moments in that slot. For an input inequality u<=u', powers similarly give v(I^k')>=v((I')^k), hence I^k' subset overline((I')^k), and monotonicity gives B_u(v(J))>=B_u'(v(J)). No minimal-support truncation is made.
+
+Let L_Q be the rational span of unit-or-primary ideal gauges. Every element is (v(J)-v(K))/d by synchronizing positive rational coefficients and multiplying ideals, with J,K unit-or-primary. If it also equals (v(J')-v(K'))/d', then
+
+    v(J^d' (K')^d)=v(K^d' (J')^d)
+
+on all X_a. If both products are proper, they have the same integral closure. If one is the unit then equality forces both to be units, since every proper primary ideal has strictly positive value at every point of nonempty X_a. Product/power additivity now proves that the two proposed values of B agree. The same check proves rational linearity. It also proves function independence simultaneously in every potential and test.
+
+For f=(v(J)-v(K))/d>=0, the criterion gives J subset overline K when K is proper. N1 gives B(v(J))>=B(v(K)). If K is a unit this inequality follows from nonnegativity; if J is a unit and K proper the hypothesis is impossible. Hence B is positive on the full rational test lattice. The constant 1 is v(a). For rational q>||f||, positivity on q1+f and q1-f yields |B(f)|<=q B(1). Let q decrease to ||f||. Thus ||B||=B(1), unless the mass is zero, when B=0.
+
+G331's rational difference lattice is uniformly dense in the REAL space C(X_a). Extend B by uniform limits. It is real-linear: continuity extends rational scaling, and real scalars are limits of rationals. It is positive: if h>=0, choose lattice approximants f_j with ||f_j-h||<epsilon_j and rational r_j>epsilon_j tending to zero. Then f_j+r_j>=0 and B(f_j)>=-r_j B(1); taking limits gives B(h)>=0. The compact-Hausdorff Riesz--Markov theorem gives one finite positive regular Borel (Radon) measure mu_u and uniqueness on every continuous test. No metrizability or sequential density of the boundary is assumed; the normed continuous-function space admits sequences of approximants.
+
+Its exact mass is B_u(1)=e_R(I_1,...,I_p,a)/(k_1...k_p). The test supplies the nth multiplicity entry, so p=n-1 is essential. This is not an n-potential global convention. The construction is independent of ideal representatives and of geometric presentations with the same G331 evaluation FUNCTION. That statement does not identify these numbers with a separately defined geometric Cartier intersection.
+
+## n3. Uniform extension to the continuous class
+
+**Support: G331, n1, n2.** Write E_J=e_R(a,...,a,J), with p copies of a, and E_a=e_R(a). If rational inputs lie in [-M,0] and M is rational, compare each to the profile -M v(a); n2's function order and n1 give
+
+    0<=B_u(v(J))<=M^p E_J,  mass(mu_u)<=M^p E_a.
+
+For real M use decreasing rational upper bounds. For p=0 these read B(v(J))=E_J and mass=E_a, with M^0=1 even when M=0. For p>=1 and M=0 every input is zero and the measure is zero.
+
+For two rational tuples u,w in [-M,0] with ||u_i-w_i||<=epsilon, take rational epsilon slightly larger if necessary. Then u_i-epsilon<=w_i and w_i-epsilon<=u_i. Cone multilinearity gives
+
+    B_(u-epsilon)(v(J))-B_u(v(J))
+      =sum_(empty!=S subset {1,...,p}) epsilon^|S|
+         B_(a-constants in S, u elsewhere)(v(J))
+      <=[(M+epsilon)^p-M^p]E_J.
+
+Here an a-constant input is -v(a)=-1. Every term is nonnegative and at most M^(p-|S|)E_J. Monotonicity yields
+
+    |B_u(v(J))-B_w(v(J))|<=Delta_p(M,epsilon) E_J,
+    Delta_p(M,epsilon)=(M+epsilon)^p-M^p.
+
+Delta_0=0. Bounds for irrational M follow by rational upper limits. This is a bound on ideal-test scalar moments, not total-variation continuity of measures.
+
+Choose rational primary-profile approximations to any p-tuple in C, using the exact granted uniform density. They can be put in a common [-M',0], and for every J the displayed estimate makes their moments Cauchy. Two approximation choices, compared crosswise, give the same limit. On any rational-difference test take the corresponding linear combination of limits. Positivity and the mass bound persist. N2's extension argument therefore again gives one positive Radon measure. This defines all mixed measures on C. Passing the rational identities to limits proves symmetry, addition, nonnegative REAL scaling, input monotonicity and the same moment bound and perturbation estimate on C. For order, if u<=w, approximate them within eta and compare u_approx-2eta<=w_approx before letting eta go to zero. For sums approximate each summand and add the approximating tuples; for real scaling approximate the scalar by nonnegative rationals. Unit inputs and zero scalar are handled directly.
+
+Under uniform input convergence, every ideal-test moment and the mass converge. For arbitrary continuous f choose a rational-difference test h with ||f-h||<eta. The integral error for either measure is at most eta times its mass. Uniform mass bounds and convergence on h imply convergence on f. This proves weak convergence for arbitrary uniform input nets, not just the defining sequences. It also proves uniqueness of the C-extension with the ideal moment law and uniform continuity. No envelope, resolution, or multiplier approximation is used in this general-ring extension.
+
+## n4. Actual decreasing nets, full independence and continuity
+
+**Support: G331, n2, n3.** Let u_i be bounded functions in D, with -M<=u_i<=0. Choose ACTUAL decreasing C-nets g_(i,alpha) to u_i. Every term is >=u_i, hence already in [-M,0]. Use the finite Cartesian product of their index sets; this is directed and all tuple coordinates decrease. For each proper primary J, the scalar moments B_g(v(J)) INCREASE by n3 and are bounded by M^p E_J. Their net limit is their supremum, a finite real number. On rational differences use subtraction of the two ideal-test limits. Linearity, positivity and the mass bound pass through these scalar limits. Riesz gives a finite positive Radon measure for this chosen representation, and ideal-lattice density plus uniform mass bounds show the representing measures converge weakly to it. Increasing scalar moments are the only increasing limits used here.
+
+Now prove independence of EVERY representation. Let f_(i,beta) be a second actual decreasing C representation of the SAME tuple u, fix one product index beta and epsilon>0. For each coordinate the continuous strict-test sets
+
+    {x:g_(i,alpha)(x)<f_(i,beta)(x)+epsilon}
+
+are open, increase with the directed index, and cover compact X_a because the pointwise infimum is u_i<=f_(i,beta). A finite subcover and an upper bound for its finitely many indices give ONE alpha working everywhere. Do this for the finitely many coordinates and take their product index. Then g_i,alpha-epsilon<=f_i,beta and
+
+    B_fbeta(v(J))<=B_(galpha-epsilon)(v(J))
+       <=B_galpha(v(J))+Delta_p(M,epsilon)E_J
+       <=sup_alpha B_galpha(v(J))+Delta_p(M,epsilon)E_J.
+
+First let epsilon decrease to zero and then take sup_beta. Reverse the two representations to obtain equality. This works for nonmetrizable compact X_a and arbitrary directed sets. The density and mass argument proves equality as measures. There is no nested-D-net flattening and no assumed increasing closure of D.
+
+For every C-majorant tuple h_i>=u_i, the SAME strict-test cover with fixed h yields
+
+    B_h(v(J))<=B_u(v(J))+Delta_p(M,epsilon)E_J.
+
+The h_i also lie in [-M,0]. Let epsilon decrease to zero. Conversely every representing C-tuple is such a majorant, so
+
+    B_u(v(J))=sup{B_h(v(J)):h_i in C, h_i>=u_i}.
+
+This proves monotonicity on bounded D: if u<=w, all C-majorants of w are also majorants of u, so B_u(v(J))>=B_w(v(J)). Positivity of moments does not assert a measure-order inequality on every positive continuous test between different inputs.
+
+Addition, real nonnegative scaling and symmetry also hold on bounded D. To add in one slot, use actual product-index C representations of the two summands; their sum is an actual decreasing C-net representing the sum (G331 allows this finite product construction). The C identities and limits give additivity. The identical argument handles scaling and permutation. In particular the real negative shift has the full expansion, with each cross term bounded by M^(p-|S|)E_J, and
+
+    0<=B_(u-epsilon)(v(J))-B_u(v(J))<=Delta_p(M,epsilon)E_J.
+
+Finally let u_(i,lambda) be an ACTUAL coordinatewise decreasing D-net with common bound [-M,0], and assume its pointwise limit u_i belongs to D. This last membership is a hypothesis, not an infimum-closure theorem. Monotonicity gives B_ulambda(v(J))<=B_u(v(J)); these scalar moments increase. Fix any C-majorant tuple h of u and epsilon>0. Since u_i,lambda is upper semicontinuous, the sets {u_i,lambda<h_i+epsilon} are OPEN, increase, and cover X_a. Compactness and directedness give one common lambda. Hence u_i,lambda-epsilon<=h_i, and the established D order and shift laws give
+
+    B_h(v(J))<=B_(ulambda-epsilon)(v(J))
+       <=B_ulambda(v(J))+Delta_p(M,epsilon)E_J.
+
+Take the supremum over lambda, then epsilon down to zero, then the supremum over C-majorants h. The majorant formula gives the reverse inequality to the earlier upper bound. Thus each ideal-test moment converges exactly to B_u(v(J)). Rational difference density and the common mass bound give weak convergence on every continuous test. This completes the actual bounded decreasing-net proof with every order direction stated. It supplies no continuity for a net whose limit is not known to lie in D, no unbounded-energy limit, no increasing D closure, and no total-variation convergence.
+
+## n5. Gauge covariance, normalization and low dimensions
+
+**Support: G331, n1, n2, n3, n4.** Let b be another proper primary gauge, T(v)=v/v(b) from X_a to X_b and d(v)=v_a(b). G331 makes d continuous, finite, strictly positive with bounded inverse, and T a homeomorphism. Transport each degree-one homogeneous potential by u_b(Tv)=u_a(v)/d(v). A rational ideal profile has the SAME representing ideal and denominator in either gauge. Also v_b(J)(Tv)=v_a(J)(v)/d(v). Thus mu_b and T_*(d mu_a) have identical moments against all v_b(J), since
+
+    integral_Xb v_b(J) d[T_*(d mu_a)]
+      =integral_Xa (v_a(J)/d)d dmu_a=B_u(v_a(J)).
+
+Density and uniqueness give mu_b=T_*(d mu_a). There is ONE gauge factor d, independent of n. The tuple inputs each divide by d, but it is incorrect to add an n-dependent power in the measure formula. The b-mass is B_u(v_a(b)), the mixed moment with the new reference ideal. For C, transport preserves uniform convergence and compact pushforward of d times a measure preserves weak convergence. For bounded D, transported representations stay bounded (d has a positive lower bound), decrease, and represent the transported limit; n4 and the same weak continuity extend the identity. The three-gauge cocycle follows from the G331 homogeneous cocycle: the successive weights multiply to v_a(c).
+
+Let S be the finite normalization of R, with local centers q above m. All of its boundary pieces and the FULL conductor fibres are retained, including nonminimal supports. R injects into S. A regular conductor element c kills S/R. On every top-dimensional minimal component it is nonzero. Every prime in its support has dimension <=n-1: a prime chain from such a prime can be extended strictly down to a minimal prime not containing c. Thus dim_R(S/R)<n. Multi-ideal Artin--Rees on 0->R->S->S/R->0, or full 17.4.4, proves additivity of degree-n forms. Explicitly R cap P_s S is sandwiched between P_s R and P_(s-cvec) R, with a fixed exponent vector from Artin--Rees. Along positive rational rays this has the same top form as R/P_s. The quotient length exact sequence then shows the degree-n form for S is that for R, since S/R has lower dimension. This does not claim R/P_s injects into S/P_s S.
+
+For each primary product P, the finite Artinian S-module S/PS decomposes as the sum of its local-center pieces. Each S_q composition factor is k(q), whose R-length is f_q=[k(q):k(m)], a finite positive integer. Therefore
+
+    length_R(S/PS)=sum_q f_q length_Sq(S_q/PS_q).
+
+Comparing degree-n forms gives
+
+    e_R(I_1,...,I_n)=sum_(dim S_q=n) f_q e_Sq(I_1 S_q,...,I_n S_q).
+
+Lower-dimensional centers have no degree-n term. Each aS_q is primary at its closed center. For rational tuples, integration of every downstairs ideal gauge in the proposed pushforward measure gives exactly the displayed equality, and density gives
+
+    mu_(R,a)(u)=sum_(dim S_q=n) f_q rho_(q,*) mu_(S_q,aSq)(rho_q^*u).
+
+All-support pullback preserves C and actual bounded D by G331. Finite sums and compact pushforward preserve weak convergence, so n3 and n4 extend this formula to all bounded tuples. It is compatible with gauge covariance because every upstairs denominator is the pullback of d. Conductor-infinite fibres are exactly the G331 quotient fibres, and no fibre point is discarded in this proof. Lower-dimensional pieces get zero TOP-degree contribution; no degree on a vertical nondominating component is invented. This is a normalization formula only, not arbitrary finite-map product functoriality.
+
+When n=1, p=0. Every normal local center is a DVR, put b_q=ord_q(a)>0. Its normalized boundary is the singleton ord_q/b_q. On it the mass required by the moment law is b_q, because e_Sq(J)=ord_q(J) and v_a(J)=ord_q(J)/b_q. Hence the entire reduced-curve reference measure is
+
+    mu_(R,a)=sum_q f_q b_q delta_(ord_q/b_q),  mass=e_R(a).
+
+Branches are normal LOCAL centers, not merely minimal components. The formula includes the irreducible multibranch case. Zero-arity locality is tautological because there is no input potential. It does not discharge a missing Cartier degree comparison for general curve primary models.
+
+For n=0 the local reduction is a field, X is empty, and there is only the zero measure on it. There is no p=-1 operator or degree-zero multiplicity moment law on an empty test boundary. Ordinary length_R(R)=1 does not become a boundary mass. For n>=2, an actual zero potential or unit ideal in any of the p slots annihilates the measure; a unit TEST has zero moment. For p=0 there is no input zero to annihilate the reference measure. For the tuple u_i=-t_i v(a), the mass is (product_i t_i)e_R(a), including t_i=0 with the preceding p=0 convention.
+
+The construction is a theory of R=A_red. For example A=k[[t]][epsilon]/(epsilon^2) and R=k[[t]] have the same semivaluation boundary but length_A(A/(t^s))=2s and length_R(R/(t^s))=s. Reduced boundary data cannot determine the former multiplicity without extra generic-length reference data. We claim only the latter. Bounded functions exclude -infinity; G331's more general D descent does not grant energy or unbounded products here.
+
+## n6. Exact published smooth operator specialization
+
+**Support: G331, n1, n2, n3, n4, n5.** Apply BFJ2008 only at the smooth CLOSED point of an affine variety over an algebraically closed characteristic-zero field, n>=2. G331 identifies our C and D on ALL semivaluations with its continuous subclass and canonical all-retraction formal psh extension; bottom is adjoined separately and is not bounded. BFJ Section4 is used here at these exact hypotheses, including its essential multiplier-dependent 4.4, not as a singular general-ring input.
+
+BFJ's (4.3), 4.6 and 4.7 give the same ideal-test law on the m-section. Their mixed multiplicity is generic parameter colength in the regular local ring. It equals our polynomial convention: simultaneous general superficial elements form a system of parameters; regularity makes the ring Cohen--Macaulay and that system a regular sequence, so Samuel parameter multiplicity is its quotient length. The full 17.4.6 reduction identifies this with the mixed coefficient. Thus BFJ's measure equals ours for rational primary profiles, including rational scaling, and by the same dense test space as Radon measures. Zero potentials give zero and require unit ideals rather than impossible decreasing proper-primary approximants to zero.
+
+For a tuple in C, use rational uniform approximants. The BFJ mixed pairing has, at these smooth hypotheses, symmetry, addition and order from 4.4. Comparing two profiles after negative-constant shifts gives the identical Delta_p(M,epsilon) estimate of n3 for every ideal test; masses are bounded by the same M^p e(m). Therefore its moments for the C tuple equal the rational limits defining ours. For bounded D, take the ACTUAL decreasing C representations. Their divisorial coefficients decrease to those of the identified BFJ formal psh functions. Proposition 4.4's continuity along decreasing families applies also to nets: its proof gives upper semicontinuity in the coefficient topology; a decreasing net Z_alpha>=Z has monotone intersection values, and upper semicontinuity forces their infimum to be the value at Z. It does not rely on choosing a sequence cofinal in an arbitrary directed set. Apply it with the fixed test Z(J), and change sign for positive ideal gauges. All mixed ideal-test moments agree with n4's scalar limits. Bounded mass and density show equality of the whole Radon measures.
+
+This proves exact smooth specialization on ALL semivaluations. BFJ's proofs of (4.3)--4.9 were freshly read in complete immediate units; its historical resolution, multiplier, intersection and Rees/Ramanujam foundations are disclosed published background. BFJ 4.9 also supplies geometric atomic interpretation in this smooth range, but no transfer of that formula to singular normal, nonnormal or positive-characteristic models has been proved here. General primary gauges follow n5, whose intrinsic moment uniqueness derives the transformed BFJ measure. Smooth DVR and empty dimension zero are direct as in n5. No claim equates the G331 boundary cone with literal classical/CLD radial extensions; the granted mixed-zero obstruction is retained.
+
+## n7. Separate geometric comparison and locality judgments
+
+**Support: G331, n1, n2, n3, n4, n5, n6.** The algebraic moment theorem passes this reconstruction at its stated hypotheses. There is no independently proved general singular Cartier intersection comparison in ROOT338/339 or this note. G331 evaluates actual negative curve-nef real Cartier presentations on directed primary models and compares the FUNCTION cones. It gives no degree-n intersection theorem. The section-ideal fixed PRIMARY correction supplies a uniform function approximation, but a theorem identifying its leading primary lengths with an actual exceptional Cartier Euler-characteristic intersection, with nonpure and embedded issues controlled, is still needed. Its real-coefficient extension and projection under common primary refinements would also need proof. A nonprimary conductor value divided by k is not a uniform error. N5's normalization formula is an algebraic top-degree identity, not this missing geometric theorem.
+
+Locality is an additional unresolved obligation for n>=2: for an open U in X_a and bounded tuples u,w in the granted geometric class, with u_i=w_i on U, one must prove mu_u restricted to U=mu_w restricted to U. Global ideal-test positivity, a unique moment measure and weak convergence do not imply this identity. No localized cutoff identity or max-locality theorem on this singular boundary has been established here. We have neither a counterexample nor a proof of locality for these algebraic measures. This is an honest UNRESOLVED judgment, not a claim they necessarily fail locality. Zero-arity n=1 locality and the exact published smooth specialization do not remove the general obligation.
+
+The exact original P12.4 remains open. Its requested geometric bounded product needs actual intersection comparison, geometric model independence and locality in addition to the algebraic laws proved here. The family remains separated: the sole grant is qualified P12.2; P12.3 geometric envelopes, P12.5 reference/energy/finite-energy limits and P12.6 general geometric finite-map operators are not proved by this review. Normalization weights and cone descent do not settle P12.6. No order completion is relabelled a geometric operator solution. Candidate=false.
+
+## n8. Owned artifacts and evidence status
+
+**Support: G331, n1, n2, n3, n4, n5, n6, n7.** The standalone P12.4-bounded-moment-paper.tex contains all the foregoing proof bodies and includes the complete G331 paper, mandatory annotation, source ledger and scope unchanged as literal appendices. Delivery also includes independent-review.md, whole-source-application-ledger.md, whole-proof-coverage.md, original-scope-and-noncircularity.md, acceptance-decision.json and native-notes.json with the full note texts. The qualification distinguishes this reviewer draft verdict from final ROOT acceptance.
+
+Fresh standard-library helpers read only explicit binding paths as DATA. audit_inputs.py verified 31 bound files (8 mathematical plus 23 primary), copied the eight mathematical files and manifests, and recorded environment details. This is only byte-integrity evidence. inspect_primary.py rendered five specific primary pages; the review inspected their pixels. finite_diagnostics.py returned PASS on 324 inclusion comparisons, 243 power comparisons, 729 product comparisons, 49 polynomial-sign samples and three curve-gauge examples, with 289 distinct monomial ideals computed. Its initial ideals are (x^a,y^b), 1<=a,b<=3; powers l=1,2,3 and sampled length exponents t=3,4,5,6. The common sampled second finite difference is only an observation on that finite window, not a proof of eventual Hilbert-polynomial stabilization. The first owned attempt used t=1..6 and failed for ideal ((0,4),(1,3),(3,1),(4,0)): lengths [11,36,78,136,210,300] have second differences [17,16,16,16]. This early transient and the failed owned script/output are preserved in evidence/failed-finite-diagnostics-early-window.py and .txt. It is not a counterexample to the algebraic theorem. All successful counts are finite diagnostics, not universal mathematical proofs.
+
+No supplied code was executed or imported, no other campaign outputs were inspected, no native246 output was accessed, no subagent or native model job was launched, and no external service or credential state was changed. The skill-requested cloud environment_status capability is absent from the exposed tool inventory; no readiness assertion is made. No supervised heavy-compute facility was exposed or needed. Compilation, final acceptance and publication are reserved to ROOT; no compilation was run.
+
+Rerun from this directory: python audit_inputs.py; python inspect_primary.py; python finite_diagnostics.py; python build_delivery.py; python final_audit.py. The owned builder only copies fresh proof text and literal bound G331 data; it does not import supplied programs or compile TeX. The final audit checks delivered files, support IDs, full-proof duplication and unchanged grant inclusion. Execution success does not prove mathematical correctness. Artifact filenames and commands are evidence in this text, never support entries.
