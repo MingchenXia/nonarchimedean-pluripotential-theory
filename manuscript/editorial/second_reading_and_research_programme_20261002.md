@@ -3,6 +3,41 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest transcendental-approximation cloud integration checkpoint, 8 October 2026
+
+The current validated cloud edition has 4,628 pages. The
+[integration audit](Trusiani_transcendental_staged_integration_audit_20261008.md)
+records Section 62.3.3 and L.90: a conditional normalized model inequality,
+the four explicit limiting inputs and a genus-two raw base-translation diagnostic.
+Approximation maps are equivariant and unchanged off the zero fiber;
+vertical divisors are supported there. The necessary approximants remain assumed.
+The September source's full YTD and special-approximation proofs are qualified.
+
+The [source audit](Trusiani_transcendental_source_review_20261008.md) covers
+forty actual source/page pairs in twenty individually displayed matching images:
+two complete sources and two partial selections. Prior Tosatti and August
+companion readings are reused without fresh credit. The final scoped rendered
+gate has 27 freshly read book pages in 14 individually displayed views,
+including the complete index and bibliography seams. All preceding 13,360
+number values and 587 citation labels are preserved; six semantic labels,
+two cited entries and two index terms are added. Required validation and
+post-render reference/inventory checks pass. There are no errors, warnings,
+missing glyphs, overfull boxes, unresolved references/citations, rerun requests
+or invalid internal links. The 955 underfull diagnostics comprise
+954 inherited cases and one visually accepted bibliography spacing case.
+
+The forty-two canonical atoms and twelve formal problems retain their statuses.
+General BJ22 critical homogeneous Siu division and envelopes remain OPEN;
+LPWZ density remains UNVERIFIED. No independent-model receipt or new original
+general theorem is claimed. This is not a new whole-book reading; the ordered
+4 October pass remains the last complete pass. Source and book evidence,
+selected review PDFs and minimal sources are byte-verified; export gives no
+reading credit. The [activation record](Trusiani_transcendental_cloud_activation_20261008.json)
+controls the exact cloud update; frozen stages retain their historical states.
+The native catalogue and editor are preserved. GitHub publication remains
+blocked by the already-recorded automatic-review ownership requirement;
+continue cloud work and read-only author updates without retrying that upload.
+
 ## Latest harmonic-quiver cloud integration checkpoint, 8 October 2026
 
 The current validated cloud edition has 4,626 pages. The

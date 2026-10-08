@@ -32,7 +32,19 @@ reference entries pass. No new whole-book pass or independent-model receipt
 is claimed. The [cloud activation record](manuscript/editorial/Ben_Bassat_harmonic_quiver_cloud_activation_20261008.json)
 controls the exact source/PDF update; frozen staged records retain their
 pre-activation state.
-The current cloud research-integration build has **4,626 pages**; its
+The checked [transcendental approximation account](manuscript/editorial/Trusiani_transcendental_staged_integration_audit_20261008.md)
+adds Section 62.3.3 and L.90. It records the conditional normalized limiting
+argument and a genus-two raw base-translation diagnostic. The full September
+YTD and special-approximation claims remain qualified. The source audit covers
+forty actual page pairs in twenty matching images, with prior receipts reused
+without fresh credit. Final scoped book reading covers 27 fresh pages in
+14 individually displayed views. All 13,360 preceding number values and 587
+citation labels are preserved; six semantic labels, two cited references and
+two index terms are added. The [cloud activation record](manuscript/editorial/Trusiani_transcendental_cloud_activation_20261008.json)
+controls the exact source/PDF update; no whole-book reading, independent-model
+receipt or canonical status change is claimed. GitHub publication remains pending.
+
+The current cloud research-integration build has **4,628 pages**; its
 GitHub publication remains pending. The checked
 [geometric-norm account](manuscript/editorial/Temkin_Zutler_geometric_norms_staged_integration_audit_20261008.md)
 adds Sections 4.6.1--4.6.2: tensor and spectral norm distinctions, exact
