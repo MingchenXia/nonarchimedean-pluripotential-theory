@@ -3,6 +3,32 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest relative Hessian GitHub publication checkpoint, 8 October 2026
+
+The [publication record](Truong_relative_Hessian_GitHub_publication_20261008.json)
+verifies f5baab5b7586daa989e1ebc4bcac332d7e9161c4 on work: all eighteen book/source/progress/audit/addendum/
+artifact remote hashes and sizes match. The six
+[artifact files](artifact_exports/20261008_relative_hessian_boundary/README.md)
+contain the 4,642-page PDF, 24-page review, 176-member actual book evidence and
+472-member minimal sources. All 24 final selected pages were freshly read in
+twelve individually displayed matching images with complete text and notes.
+The preceding nine-file authored primary checkpoint in
+79ae5c4c4065ab0e84870f58489ad246d321b4f5 is uploaded and verified; all 26 primary pages were actually
+read in thirteen matching images. The two formula-formatting addenda preserve
+all frozen source records and supply no extra reading credit.
+
+Main remains 00957114db21b627e97369563032ceda9cea09c7 and PR #2 stays a draft.
+The 42 atoms/twelve formal problems, native catalogue/editor and complete
+4 October ordered pass remain unchanged. No source general theorem, original
+general result or independent-model receipt is imported or asserted.
+
+Continue cloud-only with arXiv:2610.00361v1 on a pluripotential approach to
+polarized Calabi–Yau finiteness. Its exact 34-page PDF and seventeen prepared
+views have zero actual reading credit. Independently read the complete text
+and displayed matching pages, checking capacity-to-perimeter, metric-to-
+algebraic embedding, uniformity and compactness hypotheses. Continue normal
+publication and checks for incoming author updates.
+
 ## Latest relative Hessian cloud integration checkpoint, 8 October 2026
 
 The validated edition has 4,642 pages. The

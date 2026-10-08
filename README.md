@@ -4,6 +4,18 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest verified GitHub publication, 8 October 2026:** the 4,642-page
+book, six owned artifact files and two formula-formatting addenda are uploaded
+on `work` in `f5baab5b7586daa989e1ebc4bcac332d7e9161c4`. All eighteen source/progress/audit/addendum/artifact
+remote blobs match local hashes and sizes. The
+[artifact directory](manuscript/editorial/artifact_exports/20261008_relative_hessian_boundary/README.md) contains the complete PDF, 24-page actual review,
+176-member book evidence and 472-member minimal source checkpoint. The
+[publication record](manuscript/editorial/Truong_relative_Hessian_GitHub_publication_20261008.json)
+also verifies the nine-file authored primary checkpoint. The
+[formatting addendum](manuscript/editorial/Truong_relative_Hessian_source_formula_rendering_corrections_20261008.md)
+repairs two frozen source-audit displays. Main and canonical statuses remain
+unchanged; upload supplies zero reading credit.
+
 **Latest checked book integration, 8 October 2026:** the
 [relative Hessian boundary audit](manuscript/editorial/Truong_relative_Hessian_staged_integration_audit_20261008.md)
 adds the local normalization paragraph in 51.6.5 and L.94's smooth boundary
