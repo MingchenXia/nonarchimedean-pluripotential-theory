@@ -1,0 +1,45 @@
+from pathlib import Path
+from datetime import datetime,timezone
+import hashlib,json
+
+R=Path('/workspace/research');K=R/'root-checks';sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
+old=next(K.glob('P05.1-continuation302-*.json'));assert sha(old)=='696c9306d70e901928dd0cd1b376f04e36d9eb44c778a02b4279061f20e418d6'
+assert sha(K/'public-P16-round-46-final-reader/P16.4-paper.tex')=='09a83320fbb8fd7f468329307136ccaa146ea4ad07e9a23437ec3dd688ed942a'
+p=K/'P05.1-continuation303-sharp-one-half-uniform-error-floor-for-complete-page-PC-restrictions-on-proper-face-targets-working-proof-20261008.json';assert not p.exists()
+units=[
+dict(id='D0',statement='Exact sharp distance theorem on the rational proper-face model.',proof='''Use rational ambient(t,a,b), e0=(1,0,0), v1=(0,1,0),v2=(0,0,1),v3=(0,-1,-1), sum v_i=0. Complete pages V_i=span(e0,v_i) have pairwise intersection H=R e0. Original proper cells sigma_i={t e0+s v_i:s>=0,0<=u=t+s<=1} share tau=[0,1] e0. Fix a RATIONAL A>=1 and target
+f_A,i=max(0,-A t+(1-A)s)=max(0,s-Au).
+It is already genuine rational-spatial rational PA, convex and globally A-Lipschitz on each original cell. Its tau trace is0 and every value is nonnegative, so original-star PCCs centered at tau hold; other legal centers use one page and convex Jensen. Thus the target is continuous printed-PC on the original partial union. The actual reference gamma_i=s is also printed-PC and positive on every nonzero original cell recession direction(-1,1). Difference f_A-gamma=max(-s,-Au) lies in[-A,0]; actual recession is unchanged. The SAMEambient p0=0 supports f_A on all original cells at EVERYtau point.
+
+Let B be the COMPLETE page book union V_i, with a finite rational carrier preserving the common H and printed-PC notion. Let E_A be the infimum over all finite continuous printed-PC F on B of the GLOBAL restriction error sup_{x in union sigma_i}|F(x)-f_A(x)|, allowing +infinity for an unbounded error. The exact assertion is
+E_A=(A-1)/2,
+and the infimum is attained by a genuine rational-PA globally convex ambient function. For A=2 the floor is exactly1/2. No full-book reference, bounded-difference or growth condition is imposed on the competitors, so the lower bound applies a fortiori to any more restricted proposed extension class.
+
+The original partial union has omitted boundary balancing and is NOT a globally positive balanced original support. Its target is already PA PC and regularizes trivially there. This theorem is a SHARP obstruction to uniform approximation by RESTRICTIONS of full-book PC functions, not an original regularization counterexample.'''),
+dict(id='D1',statement='Entire-page convexity and a legal short PCC give the distant endpoint bound.',proof='''For completeness, continuous printed-PC on a complete rational page book implies convexity on each ENTIRE page. On an inherited convex cell, rational endpoint/weight tests and continuity give the ordinary real convex inequality. A rational page segment has finitely many rational carrier breakpoints. At each, sufficiently short rational endpoints on its adjacent pieces form a legal PCC centered in their common minimal face; it orders left/right secants. Piecewise secant monotonicity gives convexity along the entire rational segment. Rational approximation of endpoints and continuity yield whole-page real convexity. This retains the actual carrier and does not assume arbitrary raw-PC continuity.
+
+For any positive rational T, set y_T=-T e0 and z_i(T)=-T e0+T v_i. To compare these far endpoints, first choose sufficiently small rational epsilon>0 so y_T+epsilon T v_i lie in actual cells incident to y_T's minimal H face. The local cones cover the complete pages; finite/local-finite rational carriers permit such an epsilon. Their mean is y_T, so their LEGAL short PCC gives F(y_T)<=average F_i(y_T+epsilon T v_i). Entire-page convexity bounds the short values by (1-epsilon)F(y_T)+epsilon F_i(z_i(T)). Canceling proves
+F(y_T)<= (1/3)sum_i F_i(z_i(T)).
+The distant endpoints may be nonincident to y_T in the fine carrier. This inequality is derived by the valid short PCC plus convex secants, not by an invalid coarsening or nonincident direct test.'''),
+dict(id='D2',statement='Uniform lower error bound reaches (A-1)/2 without any derivative or affine-exactness assumption.',proof='''Let epsilon=sup_original|F-f_A|<infinity. Take integers T>=max(1,A-1). The points z_i(T) have coordinates(t,s)=(-T,T), u=0, and f_A(z_i)=T. D1 gives F(y_T)<=T+epsilon.
+
+In page1 also take r_1(T) with coordinates(-T,T+1), u=1. Its target value is T+1-A, nonnegative by the T choice. Both z_1(T),r_1(T) lie in the ORIGINAL cell, and
+z_1(T)=(1/(T+1))y_T+(T/(T+1))r_1(T).
+Entire-page convexity therefore yields
+F(y_T)>=(T+1)F(z_1(T))-T F(r_1(T))
+        >=(T+1)(T-epsilon)-T(T+1-A+epsilon)
+        =A T-(2T+1)epsilon.
+Combine with the upper bound to obtain
+epsilon>=(A-1)T/[2(T+1)].
+Let the integer T tend to infinity; epsilon>=(A-1)/2. If the error is infinite the conclusion is trivial. This argument uses two rational original points and a legal short PCC for each T; the limit is proved algebraically and is not a finite-grid extrapolation. For A=2, T=1 already forces error>=1/4, while the continuum family of arbitrarily large integers yields the sharp1/2. The proof does not rely on F agreeing with any original affine piece, and works for every finite continuous PC F, even nonPA with no growth/reference constraint.'''),
+dict(id='D3',statement='Exact attaining full-book function and significance for the ongoing strategy.',proof='''On ALL rational ambient R^3 take
+F_A(t,a,b)=max(0,-t)-(A-1)/2.
+It is finite continuous globally convex with one rational wall t=0, integral slopes and rational constant since A is rational. It is therefore genuine rational-PA and satisfies ALLambient Jensen inequalities, hence printed-PC on the complete-page book with any rational refinement. On an original cell write G0=max(0,s-u) and f_A=max(0,s-Au), with0<=u<=1. Monotonicity and the1-Lipschitz positive-part map give
+0<=G0-f_A<= (A-1)u<=A-1.
+Subtracting (A-1)/2 therefore gives |F_A-f_A|<=(A-1)/2 GLOBALLY on every original cell. Together with D2 this proves the exact distance and attainment. This witness is not asserted to lie in a bounded-relative class of an arbitrary proper full-book reference; the competitor class deliberately has no such additional constraint.
+
+Working302's exact-extension contradiction is strengthened: even ARBITRARILY ACCURATE uniform extension followed by restriction is impossible in this model. The common face trace, global cell Lip, bounded difference to the actual positive-growth original reference and p0support on ENTIREoriginaltau do not cure this. Working301 can still extend the AFFINE reference exactly with a compatible proper full-book reference; that does not supply a target approximation. Direct approximation on the ORIGINAL complex is required for general regularization, and the current target already has it because it is PA.
+
+This is not an original globally balanced counterexample: outer boundaries of the partial support are unbalanced. Complete-page geometry is balanced but the problematic target is prescribed only on proper partial cells. No inference of failure of original P05.1/P05.2 is licensed. All4 new proof units are UNREVIEWED ordinary ROOT working arguments. Whole302 is DATA, not a grant; no native223 outcome or active224 proof is used/fed. No operator is assigned to forbidden extensions, no finite test substitutes for the limit proof, and9solved/33OPEN/84accepted/protectededitor remain unchanged.''')]
+v=dict(recorded_utc=datetime.now(timezone.utc).isoformat(),original='P05.1',continuation=303,title='Sharp uniform restriction distance to complete-page PC functions for a proper-face rational-PA target',status='FULL4-unit new ROOT working proof, UNREVIEWED',whole302_unreviewed_DATA=dict(path=str(old),sha256=sha(old),bytes=old.stat().st_size,grant=False),units=units,all4_units_full_working_proofs=True,general_rational_parameter_A_ge_1=True,sharp_uniform_restriction_error='(A-1)/2',A2_error_floor='1/2',infimum_attained_by_rational_PA_ambient_convex_witness=True,lower_bound_for_ALL_finite_continuous_PC_no_reference_or_growth_constraint=True,no_approximate_extension_restriction_density=True,target_itself_already_PA_PC_on_original_partial_union=True,original_partial_support_UNBALANCED_not_original_counterexample=True,no_original_regularization_failure_claim=True,not_supplied_to_active224=True,new_mathematical_grant=False,new_accepted_paper=False,original_closed=False,originals_solved=9,originals_open=33,accepted_papers=84,protected_editor_unchanged_open=True)
+p.write_text(json.dumps(v,ensure_ascii=False,indent=2)+'\n');print(json.dumps(dict(path=str(p),sha256=sha(p),bytes=p.stat().st_size,units=len(units),new_accepted_paper=False,original_closed=False),indent=2))
