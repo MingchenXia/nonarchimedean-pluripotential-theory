@@ -1,0 +1,13 @@
+# Original scope and noncircularity decision
+
+The exact original 17,550-byte object is copied byte-for-byte as original-task.json. The entire original family dossier and completion criteria remain unchanged. Current augmented task/problem and assignment are separately retained. The historical 336 documentary corrigendum remains attached; its 21,927-byte saved augmented object is not relabelled the exact original.
+
+The entire original P12.3 is NOT completed: candidate=false. The residual arbitrary normal excellent higher-dimensional continuous-envelope theorem remains unproved, including arbitrary characteristic/residue field and all-support regularity. No new impossibility theorem for that full normal target is claimed. A nonnormal example cannot close it, and the normal capacity example refutes only a convergence-to-membership inference.
+
+The new finite-cover theorem actually constructs the greatest geometric envelope with correct obstacle order, from an independent source envelope and G331's normal-target positive full-fibre trace. It is not a tautological closed-cone projection: source positivity is first proved by the exact smooth BFJ uniform estimate, and target positivity by the genuine coefficient trace. The new D decreasing closure constructs an actual C-net by insertion before applying energy. Neither proof assumes an envelope theorem for a general normal target.
+
+The algebraic J_k/factorial formula proves actual primary ideal models and integral closedness on all supports, but no global graded finite generation or uniform estimate is assumed. The explicit normal diagnostic uses geometric primary models, supported conic intersection and a universal lattice-asymptotic proof; finite enumeration is not a proof of stabilization. The source -1 has positive curvature with mass two on that example, so its energy is -1, not zero; both sign and reference normalization are retained.
+
+Only entire qualified G331, B341, E350 and earlier local notes are supports. Prior 336/340/348 proof/source/scope records are data; their used mathematics is rewritten in the current proofs. Mandatory annotations and source ledgers, including corrected Keeler/Izumi and SH17.4.7 qualifications, remain unchanged. Newly applied BFJ immediate units were read at smooth affine CLOSED algclosed char0 hypotheses; recursive historical sources are disclosed and not freshly re-proved.
+
+Current sources, inputs, programs, finite outputs and settings are local. No supplied executable, extra campaign/agent/job, private ACTIVE feedback, compiler, editor, authentication/runtime or publication/catalogue action occurred. Retention/finite execution/static audits do not certify mathematical truth or accept a paper. Protected P16 remains unaccessed and unchanged.
