@@ -1,0 +1,3 @@
+P05.1 continuation318: multiple-overlap free-attachment draft
+
+This entire 16-page source and author PDF are UNREVIEWED. Original P05.1 remains OPEN, and no accepted-paper count changes. The exact actual registered FINAL, whole ROOT reading/hash binding, scope/gaps and source ledger are retained. See ROOT-public-draft-status-20261008.json for the mandatory complete-page/free-span scope and compiler limitations. Author checks/builds are evidence of reproducibility only. No supplied program was executed by ROOT. No full external primary text, PDF or image is published here. The P16.4 editor remains open and unchanged.

@@ -1,0 +1,337 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm,booktabs}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\PC}{\operatorname{PC}}
+\newcommand{\PA}{\operatorname{PA}}
+\newcommand{\PAPC}{\operatorname{PAPC}}
+\newcommand{\MA}{\operatorname{MA}_{\mathrm{poly}}}
+\newcommand{\relint}{\operatorname{relint}}
+\newcommand{\cone}{\operatorname{cone}}
+\newcommand{\spanR}{\operatorname{span}_{\R}}
+\title{Continuous completion of rational-endpoint polyhedral convexity\\\large An envelope antecedent for original P05.2}
+\author{Research draft}
+\date{7 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We retain the printed rational-endpoint definition of polyhedral convexity, including its discontinuous functions. On a finite positive balanced rational polyhedral space, every finite-valued function in that class has a unique continuous representative agreeing at every rational point and dominating it everywhere. No boundedness, continuity, or measurability premise is imposed on the original function. The representative is its upper semicontinuous hull and satisfies the corresponding inequalities even with real endpoints. Consequently, for every bounded continuous obstacle and continuous PC reference, the unrestricted printed envelope is continuous and equals the continuous-competitor envelope. An exact positive-spanning criterion characterizes rational-value continuity at the vertex of a finite rational fan. We also identify the unrestricted compact-chart envelope and a uniform-density obstruction for the unrepaired printed PC class. These results do not give real-PA regularization, a general extended Monge--Ampere operator, or the structural contact classification. Original P05.2 remains open; candidate status is false.
+\end{abstract}
+
+\section{Domain, coefficients, and the exact unresolved target}
+Let $N$ be a lattice, $V=N\otimes\R$, and $X=|\Pi|\subset V$ the support of a finite rational polyhedral complex. Rational means that all affine constraints have rational coefficients; clearing denominators gives the integral-affine convention in the fixed primary version \cite{BMPS}. Put $X_\Q=X\cap(N\otimes\Q)$. Every nonempty rational face has dense rational points in its relative interior. For translated cells, use
+\[N_\sigma=N\cap\spanR(\sigma-\sigma).\]
+A normal $n_{\sigma/\tau}\in N_\sigma$ for a facet $\tau\prec\sigma$ projects to the primitive generator of $N_\sigma/N_\tau$ pointing into $\sigma$. A positive balanced top cycle consists of weights $w_\sigma>0$ such that
+\begin{equation}\label{balance}
+ \sum_{\sigma\succ\tau}w_\sigma n_{\sigma/\tau}\in N_{\tau,\R}.
+\end{equation}
+The literal source weights are rational. The geometric proofs also allow positive real weights; no real-weight operator extension is inferred.
+
+A rational-endpoint polyhedral convex combination, or PCC, is
+\[x=\sum_i\alpha_i x_i,\qquad \alpha_i\geq0,\quad\sum_i\alpha_i=1,\quad x_i\in X_\Q,
+\]
+with faces $\tau\preceq\sigma_i$ of some rational polyhedral structure on $X$ such that $x\in\tau$ and $x_i\in\sigma_i$. The center and coefficients need not be rational. Write $\PC_q(X)$ for the real-valued functions satisfying every such Jensen inequality. This notation marks the printed definition, rather than changing it. Write $\PC_c(X)=\PC_q(X)\cap C(X)$ and $\PC_q(X,\gamma)=\{q\in\PC_q(X):q-\gamma\text{ is bounded}\}$. A real-endpoint PCC uses the same face constraints but allows arbitrary endpoints in $X$.
+
+The function equal to zero on $\Q$ and minus one elsewhere on $\R$ belongs to $\PC_q$ and is discontinuous everywhere: each permitted endpoint has value zero, and each center has value at most zero. Thus continuity of every member of $\PC_q$ is false. Our theorem concerns a dominating representative, not equality with the original function.
+
+The class $\PA_\Z$ consists of continuous finite piecewise-affine functions with integral tangent slopes and rational constants in rational affine coordinates. The explicitly declared $\PA_\R$ allows arbitrary real affine coefficients on a finite \emph{rational} structure. Set $\PAPC_*:=\PA_*\cap\PC_q$ for $*=\Z,\R$. In each category let $\PC^{\rm reg}_*(X,\gamma)$ mean uniform decreasing limits of $\PAPC_*$ functions with bounded difference from $\gamma$. No general operator on all continuous $\PC_c$ functions is assumed.
+
+For a continuous PC reference $\gamma$ and bounded continuous $u$, the actual printed envelope is
+\begin{equation}\label{envelope}
+ P_\gamma(u)(x)=\sup\{q(x):q\in\PC_q(X),\ q\leq\gamma+u,\ q\leq\gamma+C_q\text{ on }X\text{ for some }C_q\in\R\}.
+\end{equation}
+Every bounded obstacle in either PA coefficient category is included. The original problem requires structural necessary and sufficient conditions, all admissible obstacles, genuine membership of these envelopes in the appropriate regularizable operator domain, and the exact contact integral. We resolve the continuity antecedent of \eqref{envelope} on all finite positive balanced spaces. We do not resolve those remaining requirements.
+
+\section{Finite cone geometry with uniform constants}
+For a face $\tau\preceq\sigma$, put
+\[C_{\sigma/\tau}=\{t(a-b):t\geq0,\ a\in\sigma,\ b\in\tau\}.
+\]
+For $z\in\relint(\tau)$ this is the tangent cone of $\sigma$ at $z$, including the lineality $N_{\tau,\R}$. This fact and the needed uniform version are proved next.
+
+\begin{lemma}[Uniform rational star geometry]\label{geometry}
+Fix a compact set $K\subset\relint(\tau)$. For every $\sigma\succeq\tau$ choose a finite rational generating list for $C_{\sigma/\tau}$, including a rational basis and its negatives for lineality. Let $v_1,\ldots,v_m$ be their union, with zero vectors removed; a generator may carry more than one incident-face assignment. There are constants $r>0$, rational $\varepsilon>0$, and $C>0$, independent of $z\in K$, with the following properties.
+
+For all assigned pairs $(i,\sigma)$, $z+\varepsilon v_i\in\sigma$. If $y\in\sigma$, then $d=y-z\in C_{\sigma/\tau}$ and it has a representation using generators assigned to that cone,
+\begin{equation}\label{representation}
+ d=\sum_i a_i v_i,\qquad a_i\geq0,\qquad\sum_i a_i\leq C\|d\|.
+\end{equation}
+If $d$ is rational the $a_i$ may be chosen rational. Conversely, if $d\in C_{\sigma/\tau}$ and $\|d\|<r$, then $z+d\in\sigma$.
+\end{lemma}
+\begin{proof}
+Write $\sigma$ using rational linear equations for its affine hull and inequalities $A_jx\geq b_j$. An inequality is active on all of $\tau$ precisely when it is active at any point of $\relint(\tau)$. All the other inequalities have positive slack on $K$, with a positive common minimum after taking the finite list. Thus its tangent cone consists exactly of tangent vectors satisfying $A_jd\geq0$ at the active inequalities. To verify equality with the displayed definition of $C_{\sigma/\tau}$, one inclusion follows by subtracting $b\in\tau$ from $a\in\sigma$. For the reverse inclusion choose $z\in\relint(\tau)$ and a sufficiently small $t>0$; inactive slack gives $z+td\in\sigma$ and $d=t^{-1}((z+td)-z)$. The common slack also proves the stated uniform radius $r$. Taking $\varepsilon$ positive rational and sufficiently small handles every assigned generator uniformly.
+
+Here is an elementary justification that the cones have finite rational generating lists. A cone given by finitely many rational homogeneous inequalities has rational lineality. Mod out that lineality. In the pointed quotient, choose a rational linear form strictly positive on the cone away from zero (for instance the sum of a defining inequality list after its joint kernel has been removed). Its section at value one is a bounded rational polytope. This polytope is the convex hull of its finitely many vertices: from a point not yet a vertex, move in both directions in the kernel of its active constraints until an additional independent constraint becomes active, and recurse; boundedness supplies both endpoints and the recursion terminates. The vertices solve rational full-rank systems and hence are rational. Lifting their rays and adjoining a basis and its negatives for lineality supplies the list.
+
+For any representation by a given list, eliminate dependent active columns. If $\sum_i b_i v_i=0$ is a nonzero relation among active columns, change its sign to have a positive entry and subtract $t b_i$ from $a_i$, where $t=\min_{b_i>0}a_i/b_i$. This preserves nonnegativity and the vector represented and removes at least one active column. Iteration leaves an independent subset. On any independent subset the unique coefficient vector is a linear inverse of its column map; consequently its $\ell^1$ norm is at most $C_T\|d\|$. There are finitely many subsets, so take their maximum for $C$. For rational $d$ the independent rational system has a rational solution, by Gaussian elimination. The zero vector uses the empty representation. This proves \eqref{representation} without a boundedness assumption on any function.
+\end{proof}
+
+\begin{definition}
+The star at $\tau$ is positively spanning if the cone generated by $\bigcup_{\sigma\succeq\tau} C_{\sigma/\tau}$ is its linear span. Equivalently, for any generating list as above there are $\lambda_i\in\Q_{>0}$ with
+\begin{equation}\label{relation}
+ \sum_i\lambda_i v_i=0.
+\end{equation}
+\end{definition}
+\begin{proof}[Proof of the equivalence in the definition]
+A positive relation writes each $-v_i$ as a nonnegative combination of the other generators, so their cone is their span. Conversely, if the cone is the span, express each $-v_i$ as a nonnegative combination of the list. The elimination argument in Lemma~\ref{geometry} makes each representation rational. Add the resulting relations $v_i+\sum_j b_{ij}v_j=0$. Every coefficient is then rational and at least one, proving \eqref{relation}.
+\end{proof}
+
+\begin{lemma}[Positive balancing implies positive spanning]\label{balanced}
+Every star of a finite positive balanced rational complex is positively spanning. The same holds for a positive balanced rational fan with common lineality.
+\end{lemma}
+\begin{proof}
+We reconstruct the relevant geometric result from caller manuscript B rather than import a continuity theorem. The star inherits its top weights. A face $C_{\delta/\tau}$ corresponds to a face $\delta\succeq\tau$ of the original complex, its tangent lattice is $N_\delta$, and its primitive normal classes for adjacent facets are unchanged. This follows from the active-inequality description in Lemma~\ref{geometry}: tangent spaces are the original tangent spaces and inward facet signs agree. Thus the inherited star weights are strictly positive and balanced.
+
+It remains to prove positive spanning for such a fan $\Sigma$ of dimension $d\geq1$. Choose a Euclidean inner product. Let $a_\sigma$ be the covolume of $N_\sigma$ in its tangent space and set $c_\sigma=w_\sigma a_\sigma>0$. For a facet $\delta$, the perpendicular projection of its primitive inward normal has length $a_\sigma/a_\delta$. Indeed a basis of the saturated $N_\delta$ followed by that normal is a basis of $N_\sigma$, and its parallelotope volume is base covolume times perpendicular height. Let $\nu_{\sigma/\delta}$ be the inward unit conormal. Projecting \eqref{balance} gives
+\[\sum_{\sigma\succ\delta}c_\sigma\nu_{\sigma/\delta}=0.\]
+The ordinary divergence formula therefore yields, for every compactly supported $C^1$ ambient vector field $Y$,
+\begin{equation}\label{stationarity}
+ \sum_{\sigma\in\Sigma(d)}c_\sigma\int_\sigma \operatorname{div}_\sigma Y\,d\operatorname{vol}_d=0.
+\end{equation}
+The outward boundary contributions are minus these unit conormals and cancel at each facet. For unbounded cones truncate beyond the support of $Y$, where the new boundary contribution is zero. Lower faces have zero facet measure. In dimension one this is the ordinary fundamental theorem on weighted edges. The divergence formula used here is elementary, obtainable by triangulating polyhedra and integrating derivatives in one variable; it is not a tropical operator.
+
+Take $Y(x)=b\chi(\|x\|)$ for a constant vector $b$, with a smooth radial cutoff equal to one near zero, nonincreasing, zero far out, and strictly decreasing on an interval. Since $x$ lies in the tangent space of any cone containing it,
+\[\operatorname{div}_\sigma Y(x)=\chi'(\|x\|)\langle b,x\rangle/\|x\|.\]
+Polar integration in each $d$-dimensional tangent space turns \eqref{stationarity} into
+\[0=\left(\int_0^\infty\chi'(r)r^{d-1}\,dr\right)
+ \sum_{\sigma}c_\sigma\int_{\sigma\cap S(V)}\langle b,\theta\rangle\,dS_{d-1}(\theta).
+\]
+The first factor is strictly negative. In dimension one the angular integral is the sum over unit directions. If a linear form is nonnegative on the support and positive somewhere, it is positive on a relatively open angular subset of a top cone. That subset has positive angular measure, all other integrals are nonnegative, and every $c_\sigma$ is positive, contradicting the displayed identity. Hence every nonnegative linear form on the support vanishes on its span. The cone generated by the finite support is finitely generated and closed: for a converging sequence of represented vectors, the independent-column elimination in Lemma~\ref{geometry} gives uniformly bounded nonnegative coefficients; a subsequence with one fixed column subset converges to a representation of the limiting vector. If this cone $D$ were proper in its span, choose $y$ in that span outside $D$ and let $p$ be its nearest point in $D$. Existence follows by minimizing distance on a closed bounded portion. Differentiating the squared distance along the segment from $p$ to $z\in D$ gives $\langle p-y,z-p\rangle\geq0$. Taking $z=0,2p$ gives $\langle p-y,p\rangle=0$. Thus $\ell(z)=\langle p-y,z\rangle$ is nonnegative on $D$ while $\ell(y)=-\|p-y\|^2<0$. It is nonzero on the span and hence positive somewhere on the support, contradicting the preceding angular calculation. This proves positive spanning. Dimension zero has only the zero tangent space and needs no generators.
+\end{proof}
+
+\section{Two rational Jensen estimates and automatic rational bounds}
+Fix a face $\tau$ with positively spanning star, a compact inner set $K\subset\relint(\tau)$, the geometry of Lemma~\ref{geometry}, and a positive relation \eqref{relation}. Put
+\[\Lambda=\sum_i\lambda_i,\quad \lambda_{\min}=\min_i\lambda_i,\quad H=\frac{C\Lambda}{\varepsilon\lambda_{\min}},\quad
+ L=\frac{C}{\varepsilon}\max\{1,\Lambda/\lambda_{\min}\}.
+\]
+The zero-star case is an isolated rational point and is omitted from these formulas.
+
+\begin{lemma}[Exact transverse estimates]\label{estimates}
+Let $q\in\PC_q(X)$, $z\in K\cap X_\Q$, and $y\in\sigma\cap X_\Q$ for $\sigma\succeq\tau$. Put $d=y-z$ and choose the rational representation \eqref{representation}. Assume $C\|d\|\leq\varepsilon$. All endpoints $z_i=z+\varepsilon v_i$ are rational and lie in their assigned incident faces.
+
+If $m_0\leq q\leq M_0$ at $z,y,z_1,\ldots,z_m$, then
+\begin{equation}\label{lipschitz}
+ |q(y)-q(z)|\leq (M_0-m_0)L\|y-z\|.
+\end{equation}
+There is also a lower inequality requiring no lower bound on $q$:
+\begin{equation}\label{lower}
+ q(y)\geq q(z)+\sum_i b_i(q(z)-q(z_i)),\qquad
+ b_i=\frac{t\lambda_i-a_i}{\varepsilon}\geq0,\quad
+ t=\max_i\frac{a_i}{\lambda_i},\quad \sum_i b_i\leq H\|d\|.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Write $A=\sum_i a_i$. The equality
+\[y=(1-A/\varepsilon)z+\sum_i(a_i/\varepsilon)z_i\]
+is a PCC with center in $\sigma$: omit indices $a_i=0$ from its endpoint list, so every remaining generator is assigned to $C_{\sigma/\tau}$ and every endpoint lies in $\sigma$. Its coefficients are nonnegative and sum to one. This constructs a valid combination and does not change the printed weak definition for other combinations with zero coefficients. Hence
+\begin{equation}\label{upper}
+ q(y)-q(z)\leq\sum_i\frac{a_i}{\varepsilon}(q(z_i)-q(z)).
+\end{equation}
+For the other direction, using the positive relation gives
+\[d+\sum_i b_i\varepsilon v_i=d+t\sum_i\lambda_i v_i-\sum_i a_i v_i=0.
+\]
+Thus $z$ is the PCC of $y$ with unnormalized coefficient one and of the $z_i$ with coefficients $b_i$. Its center lies in $\tau$ and each endpoint lies in a face containing $\tau$, including $y\in\sigma$. Normalizing by $1+\sum b_i$ and rearranging proves \eqref{lower}. Since $t\leq C\|d\|/\lambda_{\min}$,
+\[\sum_i b_i=(t\Lambda-A)/\varepsilon\leq H\|d\|.\]
+Bounding the value differences in \eqref{upper} and \eqref{lower} by $M_0-m_0$ proves \eqref{lipschitz}. Every invocation has rational endpoints. No continuity of $q$ is used.
+\end{proof}
+
+\begin{lemma}[No boundedness premise is needed]\label{bounds}
+If every star of $\Pi$ is positively spanning and $q:X\to\R$ belongs to $\PC_q(X)$, then its restriction to $X_\Q$ is locally bounded above and below at every point of $X$, including irrational points.
+\end{lemma}
+\begin{proof}
+Let $p\in\relint(\tau)$ and choose a compact relative neighborhood $K\subset\relint(\tau)$ of $p$. Take the uniform constants and generators above. A sufficiently small neighborhood of $p$ meets only faces containing $\tau$: there are finitely many closed other faces, none containing $p$. Choose $z\in K\cap X_\Q$ sufficiently close to $p$, then a neighborhood $W$ of $p$ sufficiently small, so that $C\|y-z\|\leq\varepsilon$ for all $y\in W$ and every such $y$ belongs to an incident face. The single fixed finite list $z,z_i$ has finite values. Put $M=\max\{q(z),q(z_1),\ldots,q(z_m)\}$. Formula \eqref{upper} gives $q(y)\leq M$ for every rational $y\in W$. Formula \eqref{lower} gives
+\[q(y)\geq q(z)-H\|y-z\|(M-q(z)).\]
+The right side has a finite uniform lower bound on a smaller bounded $W$. This uses only values at the fixed rational anchor and its rational endpoints. For an isolated zero-dimensional face, take its own finite value. These cases cover $X$.
+\end{proof}
+
+\section{The completion theorem, including irrational centers and shared faces}
+\begin{lemma}[Rational density in a feasible polyhedron]\label{density}
+Let $D$ be a nonempty polyhedron defined by rational equations and inequalities. Every point $a\in D$ is a limit of rational points of $D$ in its minimal face. Indeed, collect all constraints active at $a$, solve their rational affine system by Gaussian elimination, and approximate the coordinates in a rational affine basis of its solution space. All inactive inequalities are strict at $a$ and remain satisfied for close approximants. This also proves density in every rational affine face.
+\end{lemma}
+
+\begin{theorem}[Continuous completion of the printed PC class]\label{completion}
+Suppose every star of a finite rational complex $\Pi$ is positively spanning. For each finite-valued $q\in\PC_q(X)$ there is a unique $F\in C(X)$ agreeing with $q$ on $X_\Q$. It satisfies all real-endpoint PCC inequalities on every rational polyhedral structure, and
+\begin{equation}\label{hull}
+ q(x)\leq F(x),\qquad F(x)=q^*(x):=\limsup_{y\to x}q(y).
+\end{equation}
+In particular $F\in\PC_c(X)$. It is the least continuous majorant of $q$. No local boundedness or measurability assumption on $q$ is required. Conversely, every finite-valued function $q$ agreeing on $X_\Q$ with such an $F$ and satisfying $q\leq F$ belongs to $\PC_q(X)$.
+
+All conclusions apply in every dimension to a finite positive balanced rational polyhedral space.
+\end{theorem}
+\begin{proof}
+Lemma~\ref{bounds} gives local rational two-sided bounds. Fix $p\in\relint(\tau)$ and a smaller compact relative neighborhood $K$ around it. The endpoint lists for all rational $z\in K$ remain in a fixed compact neighborhood: their finitely many translations of $K$ are compact subsets of $X$. A finite cover by the neighborhoods in Lemma~\ref{bounds} provides common bounds $m_0,M_0$ on rational values in these endpoint sets and on a small neighborhood of $K$. Consequently \eqref{lipschitz}, with constants uniform in $z\in K\cap X_\Q$, applies to nearby rational $y$ in every incident face.
+
+First take $y,z\in\relint(\tau)\cap X_\Q$. The same estimate is a local Lipschitz bound there. For any sequence of rational points tending to $p$ within $\relint(\tau)$, the values are Cauchy and their limit is independent of the sequence. This defines a continuous function $F_\tau$ on $\relint(\tau)$ and agrees with $q$ at every rational point of this relative interior. An isolated rational point uses its given value.
+
+Next consider any rational sequence $y_n\to p$ in $X$, potentially lying in different incident faces. Choose rational $z_n\in\relint(\tau)$ with $\|z_n-p\|\leq\|y_n-p\|+1/n$. For large $n$ these belong to $K$, the $y_n$ belong to incident faces, and the estimate just proved gives
+\[|q(y_n)-q(z_n)|\leq (M_0-m_0)L\|y_n-z_n\|\longrightarrow0.
+\]
+Thus \emph{every} rational sequence tending to $p$ has value limit $F_\tau(p)$. This proves compatibility across all shared faces and at irrational centers; it defines $F$ on $X$ by the unique rational limit.
+
+To verify continuity in the full topology, fix $p$ and its bounds and constants. For a rational $y$ near $p$ in an incident face, let rational $z\in\relint(\tau)$ tend to $p$ in \eqref{lipschitz}. We obtain
+\[|q(y)-F(p)|\leq (M_0-m_0)L\|y-p\|.
+\]
+For any real $p'$ sufficiently near $p$, take rational $y\to p'$ within this neighborhood, using the rational-limit property already established at $p'$. The last inequality yields
+\[|F(p')-F(p)|\leq (M_0-m_0)L\|p'-p\|.
+\]
+This is continuity at $p$. We claim no uniform global Lipschitz constant on the noncompact space. Uniqueness follows from density of $X_\Q$.
+
+For domination at an irrational $x\in\relint(\tau)$, choose rational simplices in this relative face containing $x$ whose diameters tend to zero. They exist by enclosing $x$ in small rational coordinate boxes lying in the relative interior and triangulating the boxes; a simplex containing $x$ is enough. Its rational vertices $r_j$ and barycentric coefficients give a PCC with center and endpoints in $\tau$. Therefore
+\[q(x)\leq\sum_j\alpha_j q(r_j)=\sum_j\alpha_j F(r_j)\longrightarrow F(x).
+\]
+At a rational point this is equality. The same construction works in each relative face, including lower-dimensional ones.
+
+It remains to check all PCC inequalities for $F$, with no unproved passage through irrational endpoints. Fix an arbitrary rational carrying structure and an arbitrary real-endpoint PCC $x=\sum_i\alpha_i x_i$ with its faces $\tau\preceq\sigma_i$. Discard zero-coefficient endpoints; the remaining $\alpha_i$ are strictly positive. Write the rational constraints of $\sigma_i$ as $A_ix_i\geq b_i$, including equations as pairs of inequalities, and those of $\tau$ likewise. Introduce perspective variables $t_i=\alpha_i x_i$. The constraints
+\begin{equation}\label{perspective}
+ \alpha_i\geq0,\quad\sum_i\alpha_i=1,\quad A_i t_i\geq b_i\alpha_i,\quad \sum_i t_i\in\tau
+\end{equation}
+define a rational polyhedron. The given $(\alpha_i,t_i)$ is a feasible point. Lemma~\ref{density} supplies rational feasible approximants $(\alpha_i^{(n)},t_i^{(n)})$, whose coefficients stay positive for large $n$. Hence
+\[x_i^{(n)}=t_i^{(n)}/\alpha_i^{(n)}\in\sigma_i\cap X_\Q,
+ \quad x^{(n)}=\sum_i t_i^{(n)}\in\tau\cap X_\Q.
+\]
+These are actual rational-endpoint PCCs. Applying the original inequalities and using agreement at rational points gives
+\[F(x^{(n)})=q(x^{(n)})\leq\sum_i\alpha_i^{(n)}q(x_i^{(n)})
+ =\sum_i\alpha_i^{(n)}F(x_i^{(n)}).
+\]
+Continuity and convergence of the perspective variables give the desired real-endpoint inequality. This covers every structure witnessing any PCC; it does not rely on a locality theorem for the original discontinuous class.
+
+Since $q\leq F$ and $F$ is continuous, $q^*\leq F$. Rational sequences attain the limit $F(x)$, so $q^*\geq F$. If $G\in C(X)$ majorizes $q$, then $G\geq F$ on the dense rational set and hence everywhere, proving the least-majorant assertion. Conversely, for rational endpoints, $q(x)\leq F(x)\leq\sum_i\alpha_i F(x_i)=\sum_i\alpha_i q(x_i)$; this is exactly the printed inequality. Finally Lemma~\ref{balanced} checks positive spanning for the balanced case.
+\end{proof}
+
+\begin{proposition}[Exact criterion at the vertex of a fan]\label{fancriterion}
+For the support of a finite rational fan, every finite-valued $\PC_q$ function has a rational restriction continuous at the origin if and only if
+\[\cone(X)=\spanR(X).
+\]
+When this condition holds, each such function satisfies $|q(y)-q(0)|\leq C_q\|y\|$ for all sufficiently small rational $y\in X$. This is a criterion at the fan vertex, not a criterion for all the other stars of an unbalanced fan.
+\end{proposition}
+\begin{proof}
+If the fan has lineality, subdivide it by a rational coordinate hyperplane arrangement in its span so that the origin is a vertex; its support and generated cone remain the same. If $\cone(X)$ is its span, take $K=\{0\}$ in Lemmas~\ref{bounds} and \ref{estimates}. The automatic rational bounds use only the star at this vertex, as does \eqref{lipschitz} with $z=0$. They give the asserted estimate without requiring properties of the other stars.
+
+If the generated cone is proper in its span, separate it by a linear form $\ell$ nonnegative on $X$ and positive somewhere. The function
+\[q(x)=\begin{cases}0,&\ell(x)=0,\\-1,&\ell(x)>0\end{cases}\]
+satisfies even the real-endpoint PCC inequalities. If its center has $\ell=0$, every active endpoint has $\ell=0$; if its center has $\ell>0$, the endpoint average is at least $-1$. Some rational generator $v$ has $\ell(v)>0$. Hence $q(v/n)=-1$ at a rational sequence tending to zero while $q(0)=0$, proving necessity.
+\end{proof}
+
+\begin{remark}[A failed strengthening]\label{failed-fan}
+The condition at the origin cannot replace the condition at every face in Theorem~\ref{completion}. The unbalanced fan $X=\R_{\geq0}^2\cup\R_{\leq0}^2$ generates $\R^2$, but the star at $(1,0)$ is a half-plane. A concrete finite-valued PC function is $q(x,0)=x$ for $x\geq0$, $q(x,y)=0$ for $x\geq0,y>0$, and $q(x,y)=-x$ on the negative quadrant. Here is a check for every PCC, on any carrying structure. At a negative-quadrant center, $q$ agrees with the ambient linear form $-x$, which it majorizes everywhere, proving Jensen. A positive-quadrant center with $y>0$, or the origin, has value zero and all endpoint values are nonnegative. For a center $(x,0)$ with $x>0$, any endpoint of negative second coordinate is impossible: its segment to the center, contained in its incident convex face, would enter the quadrant $x>0,y<0$ outside $X$. All endpoints therefore have nonnegative second coordinate, and the barycenter equation forces the active ones onto the horizontal axis. There $q=|x|$, giving Jensen. Its rational values jump at $(1,0)$ and cannot have a continuous representative. This diagnostic is outside the positive balanced domain and does not refute Theorem~\ref{completion}.
+\end{remark}
+
+\section{The true envelope for every bounded continuous obstacle}
+\begin{theorem}[Unrestricted-envelope identification]\label{true-envelope}
+Let $X$ satisfy Theorem~\ref{completion}, let $\gamma\in\PC_c(X)$, and let $u\in C_b(X)$. The envelope in \eqref{envelope} is finite, continuous, and satisfies all real-endpoint PCC inequalities. It equals the envelope over continuous PC competitors, and its upper semicontinuous regularization is itself. Moreover
+\begin{equation}\label{sandwich}
+ \gamma+\inf_Xu\leq P_\gamma(u)\leq\gamma+u\leq\gamma+\sup_Xu.
+\end{equation}
+For $u,v\in C_b(X)$, $\|P_\gamma(u)-P_\gamma(v)\|_\infty\leq\|u-v\|_\infty$.
+
+In particular the result holds for every obstacle in $\PA_{\Z,b}$ and, separately, $\PA_{\R,b}$ on every finite positive balanced space, including arbitrary nonseparable product obstacles. Positive growth of $\gamma$ is not needed for this continuity result. No PA or regularizable membership of the envelope is asserted.
+\end{theorem}
+\begin{proof}
+The function $\gamma+\inf_Xu$ is a competitor, proving finiteness and the lower bound in \eqref{sandwich}; the other bounds follow from the obstacle. A pointwise supremum of a nonempty family of $\PC_q$ functions with a finite upper bound is $\PC_q$: for each permitted PCC every competitor satisfies $q(x)\leq\sum_i\alpha_i q(x_i)\leq\sum_i\alpha_i P(x_i)$, and taking the supremum at $x$ proves the inequality for $P$.
+
+Apply Theorem~\ref{completion} directly to the finite-valued $P$. Its continuous completion $F$ agrees on rational points and dominates $P$. The continuous obstacle and the upper bound $\gamma+\sup_Xu$ pass from rational points to all points, so $F\leq\gamma+u$ and $F\leq\gamma+\sup_Xu$. Thus $F$ is a competitor in the original unrestricted envelope. Maximality gives $P\geq F$, whence $P=F$ and all the stated continuity assertions.
+
+For completeness, each original competitor $q$ also has a completion $F_q$. Since $q\leq\gamma+u$ and $q\leq\gamma+C_q$ on the dense rational set, continuity gives $F_q\leq\gamma+u$ and $F_q\leq\gamma+C_q$ globally. It is a continuous competitor dominating $q$. This proves equality with the continuous-competitor supremum directly, including its global growth constraint.
+
+Finally set $a=\|u-v\|_\infty$. Adding $a$ to any competitor for $v$ makes it a competitor for $v+a$, and monotonicity in the obstacle gives $P_\gamma(u)\leq P_\gamma(v+a)=P_\gamma(v)+a$. Reverse $u,v$ for the other bound. Maxima, scalar additions, and these suprema preserve $\PC_q$ directly by Jensen; no PA closure assertion is involved.
+\end{proof}
+
+\section{Compact chart spaces: unrestricted competitors and a genuine raw endpoint}
+The globally embedded positive-dimensional finite compact branch is empty. The proof is short: the divergence cancellation \eqref{stationarity} applies to a finite balanced complex as well as a fan. If its support were compact, choose $Y(x)=x$ near it with compact support. Each top-cell tangential divergence is $d$, giving
+\[0=d\sum_\sigma w_\sigma a_\sigma\operatorname{vol}_d(\sigma)>0.
+\]
+This is a contradiction for $d\geq1$. An abstract compact space with local charts is a different category.
+
+\begin{corollary}[Compact locally balanced charts]\label{compact}
+Let $X$ be a compact space with locally embedded rational polyhedral charts, compatible positive balanced weights, and integral-affine lattice-isomorphism transition maps with rational translation. Assume the printed local PCC inequalities define its PC class. Then every continuous PC function is constant on each connected component. For a continuous PC reference $\gamma$ and continuous $u$, the envelope over \emph{all} printed-PC competitors is
+\begin{equation}\label{compact-envelope}
+ P_\gamma(u)|_D=\min_{x\in D}(\gamma(x)+u(x))
+\end{equation}
+on each connected component $D$.
+
+If there is a finite bounded rational cell decomposition compatible with these charts and $\gamma,u\in\PA_\Z$, the constants in \eqref{compact-envelope} are rational and the endpoint is literal PA and literal regularizable. If $\gamma,u\in\PA_\R$, it is real PA and real regularizable. In positive dimension its raw iterated-divisor measure and its contact integral are zero. No measure is assigned here to arbitrary continuous endpoints outside these finite PA assertions.
+\end{corollary}
+\begin{proof}
+The completion proof is local: use a small compact portion of a face in a chart and choose all generator endpoints inside it. Rational-affine chart transitions identify dense rational points on overlaps. The completions agree there and hence, by continuity, throughout the overlap. Thus they give a global continuous completion of every printed-PC competitor; the perspective argument gives all real-endpoint local inequalities.
+
+Here is the maximum principle needed for the continuous completion. If a continuous PC function $F$ has maximum $M$ at $p$, choose a local star at the face containing $p$ and a positive relation as above. For any sufficiently close real $y$ in an incident face write $y-p=\sum_i a_i v_i$, set $t=\max_i a_i/\lambda_i$, and use endpoints $p+\varepsilon v_i$. The same normalized combination as in \eqref{lower} is a real-endpoint PCC centered at $p$, with strictly positive coefficient at $y$. Every endpoint value is at most $M$, so Jensen forces $F(y)=M$. The maximum set is therefore open as well as closed, and $F$ is constant on the component of $p$. Local polyhedral neighborhoods are locally connected, so components are open; in a compact space each component is compact and there are finitely many components. A maximum on each component proves the first assertion.
+
+A competitor $q$ has continuous completion $F_q$ below the continuous obstacle, by dense rational comparison. On $D$ it is a constant at most the displayed minimum and majorizes $q$. Conversely the componentwise constants in \eqref{compact-envelope} are continuous PC competitors. This proves the exact unrestricted formula without applying a continuous maximum principle to $q$ itself.
+
+On a finite bounded rational carrying decomposition, each affine obstacle attains its minimum on a cell at a vertex. Its vertices are rational and its literal values there are rational; taking finitely many such values proves rationality of the constant. In the real category the constant may be any real number. Both constants are PA in their stated category. A constant sequence, or addition of decreasing positive rational constants, is a valid decreasing uniform regularization.
+
+For this separate chart category use the recursive raw divisor formula in each chart; the lattice and cycle compatibility identifies the primitive normal classes on overlaps. For the measured endpoint all chart coefficients vanish, so they glue to the global zero cycle without any general operator extension. The raw divisor of a constant $k$ against a balanced cycle $c$ is zero from the actual formula
+\begin{equation}\label{raw}
+ (k\cdot c)(\tau)=\sum_{\sigma\succ\tau}c(\sigma)k_\sigma(n_{\sigma/\tau})
+ -k_\tau\left(\sum_{\sigma\succ\tau}c(\sigma)n_{\sigma/\tau}\right)=0,
+\end{equation}
+since every linear part is zero. Normals are the saturated primitive inward normals specified above; no additional factorial is inserted into this recursive intersection convention. The first divisor vanishes and so do all further divisors, proving the raw MA and exact contact statements for this finite PA endpoint. This does not extend the operator to general continuous functions.
+\end{proof}
+
+In dimension zero, the globally embedded finite rational space is a finite set of rational points. Every PCC is confined to a singleton face. Its exact envelope is $\gamma+u$ pointwise, and the genuine zero-fold measure is the given weighted cycle $[X]$. The gap is identically zero. These claims follow directly from the definitions.
+
+\section{A precise density obstruction in both coefficient categories}
+\begin{proposition}[Downward irrational modifications have a fixed gap]\label{gap}
+Let $X$ have a positive-dimensional rational cell, and let $\gamma\in\PC_c(X)$. Define
+\[q_\gamma(x)=\begin{cases}\gamma(x),&x\in X_\Q,\\\gamma(x)-1,&x\notin X_\Q.\end{cases}\]
+Then $q_\gamma\in\PC_q(X)$, $q_\gamma-\gamma$ is bounded, and
+\begin{equation}\label{half-gap}
+ \inf_{f\in C(X)}\|f-q_\gamma\|_\infty=\frac12.
+\end{equation}
+Consequently neither $\PAPC_\Z(X,\gamma)$ nor $\PAPC_\R(X,\gamma)$ is uniformly dense in the entire printed class $\PC_q(X,\gamma)$, and that class cannot equal either regularizable class. This conclusion concerns unrestricted-PC density; it is not an all-obstacle endpoint nonregularizability theorem.
+\end{proposition}
+\begin{proof}
+For any rational-endpoint PCC, $q_\gamma(x)\leq\gamma(x)\leq\sum_i\alpha_i\gamma(x_i)=\sum_i\alpha_i q_\gamma(x_i)$. Thus $q_\gamma$ is printed PC. Choose an irrational point $p$ in the relative interior of a positive-dimensional rational cell and rational points $r_n\to p$ in that cell. For a continuous $f$ with error at most $\delta$, $f(r_n)\geq\gamma(r_n)-\delta$ gives $f(p)\geq\gamma(p)-\delta$, whereas comparison at $p$ gives $f(p)\leq\gamma(p)-1+\delta$. Hence $\delta\geq1/2$. The continuous function $\gamma-1/2$ realizes error exactly $1/2$. Every PA function and every uniform limit of PA functions is continuous, so the non-density and non-equality conclusions follow in both coefficient categories.
+\end{proof}
+
+The source's Theorem 6.4 relates an all-PA-obstacle endpoint property to uniform density and equality with the entire PC class. Under the literal rational-endpoint reading, the latter two conditions have the independent obstruction in Proposition~\ref{gap}. We therefore do not import that equivalence or define endpoint regularity by equality with all printed PC functions. For the present target the precise antecedent to be checked is
+\[P_\gamma(u)\in\PC^{\rm reg}_*(X,\gamma)\quad\text{for every admissible }u\in\PA_{*,b},\]
+followed by a genuine operator on those endpoints and the exact contact integral. Theorem~\ref{true-envelope} does not prove that antecedent. Nor does the discontinuity of $q_\gamma$ imply discontinuity or nonregularizability of an envelope of a continuous obstacle: its completion is just $\gamma$, and the exact envelope is continuous by our theorem.
+
+\section{What remains for the original classification}
+The new theorem handles the unrestricted-competitor issue for every finite positive balanced space, in arbitrary dimension and with every bounded continuous obstacle. It includes all admissible PA obstacles in each separately fixed coefficient category. It identifies the upper semicontinuous regularization without redefining the printed endpoint convention. Its positive-spanning criterion depends only on local rational geometry; the actual reference enters the global envelope through a continuous lower competitor and the growth upper bound.
+
+This is a completion criterion, not a contact criterion. On noncompact singular spaces it provides neither uniform global PA approximants with the prescribed reference growth nor a genuine extended MA operator at every envelope. Even a finite PA endpoint with positive raw mass need not have contact merely because the reference grows or the cycle is balanced. The accepted caller manuscript A224 gives such a strict-active-support, positive-growth $U_{3,4}$ example, with a genuine literal PA endpoint; that granted obstruction is retained as context, not claimed as new work or as pair-level real regularity. No unaccepted dossier theorem is an application dependency here.
+
+The missing structural classification still includes the higher-dimensional real coefficient regularization/operator domain, a necessary and sufficient raw local contact condition, and its necessity and sufficiency under global endpoint realization with the actual reference and all obstacles. No theorem in this manuscript solves those requirements, and no raw MA is assigned to the merely continuous envelopes of Theorem~\ref{true-envelope}. The compact-chart conclusion is a separately named category and does not manufacture a compact embedded positive-dimensional cycle. Original P05.2 remains unresolved.
+
+Three failed shortcuts are recorded. First, the original rational-endpoint PC functions cannot be declared continuous; only their dominating completions can. Second, positive spanning at a fan origin is not enough for all stars, as Remark~\ref{failed-fan} shows. Third, continuity of the exact envelope does not produce real-PA approximants, operator continuity, or contact; applying an operator extension on that premise would omit its domain hypothesis.
+
+\section{Finite checks, source applications, and reproducibility}
+The standard-library exact-fraction program \texttt{check\_star\_estimates.py} checks the two barycentric identities, coefficient nonnegativity, face assignments, and Jensen estimates on fixed rational finite lists for a four-ray star, the fine $U_{3,4}$ star, and a translated trivalent star with a bounded-edge truncation. For each cone it enumerates coefficients $0,1/64,\ldots,8/64$ and tests two ambient convex functions, a norm and that norm plus a linear form. All 1,035 barycentric cases and 2,070 convex-function cases passed. The respective star counts were $(36,72)$, $(972,1944)$, and $(27,54)$; maximal sums of the other coefficients in the lower combination were $3/4$, $9/4$, and $1$. These computations exhaust only the specified finite lists; the proofs above establish the continuum statements independently. Inputs, actual output, environment details, structured notes, source responses, and commands are retained in this workspace. Execution success and PDF compilation do not verify mathematical correctness.
+
+The current primary version used for literal definitions is
+\[\text{\url{https://arxiv.org/pdf/2603.08664v1}}.\]
+Its abstract page currently lists only v1, submitted 9 March 2026; the manuscript date is 10 March 2026. Searches for the title, arXiv identifier, orthogonality, and a sequel found no resolving primary result in the returned results. This is a retrieval observation, not exhaustive bibliographic absence. The version-of-record BBGS article is \url{https://doi.org/10.1007/s00209-021-02869-6}. We read its endpoint definition, complete Lemma 6.1 and Theorem 6.2 proofs. They use unrestricted real endpoints; the automatic-continuity result is not imported into the printed rational-endpoint class. The geometric positive-spanning result from the accepted B225 grant is independently reconstructed in Lemma~\ref{balanced}. The full preserved caller grants and their supplied harmless clarifications are mathematical inputs, not new source retrievals.
+
+The quote-free source ledger specifies literal URLs, versions, units read, actual applications and exclusions. Essential new claims have complete proofs here, rather than borrowed regularization, PA/PC equivalence, or operator-extension theorems. The shell PDF download failed through the existing configured proxy. No network or runtime settings were changed. Saved source artifacts are actual UTF-8 tool-response JSON, not original PDF bytes. Hashes apply only to files actually retained. No installation or resource-heavy local computation was performed; no operator-provided supervised compute facility was exposed. The requested model label was not independently selectable or verified, so no runtime model change is claimed.
+
+Rerun with the existing tools:
+\begin{verbatim}
+python check_star_estimates.py
+python build_artifacts.py
+pdflatex -interaction=nonstopmode -halt-on-error P05.2-paper.tex
+pdflatex -interaction=nonstopmode -halt-on-error P05.2-paper.tex
+python record_provenance.py
+\end{verbatim}
+This manuscript is an unverified draft and candidate status is false.
+
+\begin{thebibliography}{2}
+\bibitem{BMPS} A. M. Botero, E. Mazzon, L. Pille--Schneider,
+\emph{Monge--Ampere measures on balanced polyhedral spaces}, arXiv:2603.08664v1, submitted 9 March 2026, manuscript dated 10 March 2026.
+\url{https://arxiv.org/pdf/2603.08664v1}.
+\bibitem{BBGS} A. M. Botero, J. I. Burgos Gil, M. Sombra,
+\emph{Convex analysis on polyhedral spaces}, Math. Z. 301 (2022), 1631--1674, version of record published 24 January 2022.
+\url{https://doi.org/10.1007/s00209-021-02869-6}.
+\end{thebibliography}
+\end{document}

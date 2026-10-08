@@ -1,0 +1,11 @@
+Checkpoint238: several-overlap regularization and bounded conductor research
+
+10/42 original atoms solved;32OPEN;88accepted mathematical papers. No acceptance or original closure is made here.
+
+Native233 completed valid registration, candidatefalse, with a new16-page paper318 proposing REAL-PA regularization for finite free attachments of dependent complete affine page groups. Several distinct positive-dimensional overlaps are allowed, old values stay fixed, every trace subgradient lifts, and supports match at every real point on entire incident pages/cells. ROOT read the entire author TeX, allfiveactualFINAL notes, source/scope/coverage/author-review and verified43own+35frozenhashes. This is UNREVIEWED and does not classify arbitrary proper domains or nonfree/cyclic arrangements. Author checks/builds are not ROOT executions or mathematical certification. Builtincompile363 was requested once, completion unverified at freeze; P16.4 editor remains open and unchanged.
+
+Native235 uses FIVE unchanged complete qualified caller-imported Notes with every mandatory annotation, plus native233 and ROOT315 as whole UNREVIEWED DATA. It targets the whole original coefficient-separated classification, noncircular costed weak-star/finite-matrix certificates, allC_b obstacles and exact original compact/literal scope. Native234 continues frozen originalP12.2 unbounded geometric/fullsmooth/conductor research with ZERO grants. Max2active native campaigns; no private active output or hot feedback.
+
+ROOT317 independently proposes general BOUNDED normalization/conductor and finite-injection descent of uniform ideal cones in excellent reduced local rings. It handles conductor-infinite points by dimension induction and approximate quotient ideal matching, using conductor/N only at finite-conductor points. Normal-target norm traces and the ideal-integral-dependence criterion remain background validation gates; numerical-nef transfer also requires the separate unaccepted comparison. It does NOT prove unbounded completed descent. ROOT317 is UNREVIEWED, not fed active234, and does not change counts.
+
+Full external primary PDF/text/images remain LOCALONLY; public source metadata and qualified owned papers are included. All uploads are authorized; no force update; exact remote file/tree/ref verification follows the frozen manifest.
