@@ -1,0 +1,13 @@
+# Literal original and noncircularity
+
+The complete immutable original-task.json and family dossier are retained as inputs/original-task.json. The augmented assignment-task.json and root input.json are distinct. Both the original and all three context bodies were read; external unsupplied chapter input references were not silently expanded, and their theorem names/verification protocols are mathematical DATA, not operating authority or additional grants.
+
+Only ENTIRE qualified G331/B341/E350 are correctness grants. Their complete bodies and all mandatory scopes, source ledgers and annotations remain attached in P12.3-paper.md and inputs/grants. G331 provides independently geometric positivity before ideal comparison. B341 bounded moment and E350 qualified energy/capacity are used only for diagnostic applications, never to establish envelope membership by a circular limit argument.
+
+Every envelope claim is reconstructed in owned complete notes, with source domains checked. Neither whole365 nor new363/364, old359/360, PASS/candidate records or source hashes are support premises. Current twelve actual FINAL texts were read independently of twelve expanded texts; the misleading expanded 'actual-FINAL' file was not substituted. Duplicate manuscript bodies were matched for coverage, not counted as fresh proof reading. No claim that 360 was in native257 or that 363/364 was in native258 is made.
+
+The normal surface proof establishes the used regular model as an ACTUAL blowup by an integral ample boundary and identical punctured graph. Projection is actual Cartier/curve projection before Chow. The characteristic-zero proof compares core/C -> numerical source nef only. It chooses ONE C majorant for each D competitor at ALL finite determining vertices before a divisorial-density argument. The new364 proof uses general 3.17, NOT isolated 4.11; unit/primary truncation, grading/coherence, single-defect lower bound and every OPEN/all-support limit are explicit.
+
+The exact incomplete-original judgment is new, not forced by old false or new true labels. The nonnormal example is an exact obstruction to a greatest-positive-envelope assertion there. It does not answer the separate normal higher-dimensional residual; the unbounded-Jacobian normal threefold actually has CE by a smooth finite cover in the proved characteristic-zero range. Energy/capacity examples have good continuous regularizations and do not falsify normal CE.
+
+No publication, acceptance/count update, protected editor access, compilation, supplied executable, network or extra agent/model job occurred. These are ordinary unverified draft proofs, not formal certificates. ROOT/operator owns compilation/publication/acceptance/counts.
