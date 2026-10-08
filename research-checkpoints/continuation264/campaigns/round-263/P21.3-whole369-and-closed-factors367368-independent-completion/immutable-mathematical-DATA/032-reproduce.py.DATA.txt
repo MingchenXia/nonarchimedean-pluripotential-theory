@@ -1,0 +1,380 @@
+#!/usr/bin/env python3
+"""Regenerate this draft and validate artifact bindings; never compile TeX."""
+import hashlib
+import json
+import platform
+import re
+import shutil
+import sys
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+PACKET = HERE.parent.parent
+PRIMARY = PACKET / 'private-primary-DATA-LOCALONLY'
+SOURCE_ORIGIN = PRIMARY / '31-cld-v2-full.txt'
+PDF_ORIGIN = PRIMARY / '36-CLD-pdf.pdf'
+SOURCE = HERE / 'inputs/cld-v2-full-LOCALONLY.txt'
+PDF = HERE / 'inputs/CLD-v2-LOCALONLY.pdf'
+SECTIONS = [
+    '00-scope.md', '01-calculus.md', '02-removability.md',
+    '03-dimension.md', '04-decision.md',
+]
+
+
+def digest(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def write_json(name, value):
+    (HERE / name).write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n')
+
+
+def escape_tex(s):
+    replacements = {
+        '\\': r'\textbackslash{}', '&': r'\&', '%': r'\%', '$': r'\$',
+        '#': r'\#', '_': r'\_', '{': r'\{', '}': r'\}',
+        '~': r'\textasciitilde{}', '^': r'\textasciicircum{}',
+        '–': '--', '—': '---',
+    }
+    return ''.join(replacements.get(ch, ch) for ch in s)
+
+
+def prose_to_tex(s):
+    # This converter's complete authored input grammar is headings, paragraphs,
+    # inline code/emphasis, and literal TeX math delimited by \( \) or \[ \].
+    spans = re.split(r'(\\\([\s\S]*?\\\)|\\\[[\s\S]*?\\\])', s)
+    result = []
+    for span in spans:
+        if span.startswith(('\\(', '\\[')):
+            result.append(span)
+        else:
+            bits = re.split(r'(`[^`]+`|\*[^*\n]+\*)', span)
+            for bit in bits:
+                if bit.startswith('`') and bit.endswith('`'):
+                    result.append(r'\texttt{' + escape_tex(bit[1:-1]) + '}')
+                elif bit.startswith('*') and bit.endswith('*'):
+                    result.append(r'\emph{' + escape_tex(bit[1:-1]) + '}')
+                else:
+                    result.append(escape_tex(bit))
+    return ''.join(result)
+
+
+def section_to_tex(body):
+    paragraphs = re.split(r'\n\s*\n', body.strip())
+    out = []
+    for para in paragraphs:
+        if para.startswith('## '):
+            out.append(r'\subsection{' + prose_to_tex(para[3:]) + '}')
+        elif para.startswith('# '):
+            out.append(r'\section{' + prose_to_tex(para[2:]) + '}')
+        else:
+            out.append(prose_to_tex(para))
+    return '\n\n'.join(out) + '\n'
+
+
+UNITS = [
+    ('S01', '1.3.6--7', 1200, 1252,
+     'J d\' = d\'\' J; J d\'\' = -d\' J; DJ=JD; smooth graded Leibniz.',
+     'All smooth forms; the full monomial proof is retained.',
+     'Used to show the mixed term in Lemma 3 is antisymmetric.'),
+    ('S02', '3.3.4--12', 3715, 3803,
+     'Ordinary forms are included among G-forms; support uses ordinary neighborhoods; differential and multiplication identities sheafify.',
+     'G-tropical spaces and their ordinary smooth subcalculus.',
+     'Applied to supports, symmetry and the smooth test identity. The proof of 3.3.6 has a printed dk instead of dtrop; its following lines explicitly use dtrop, as does its statement.'),
+    ('S03', '6.2.1--9', 7070, 7150,
+     'Locally differentially separated spaces have compact cutoffs and scalar density; compact localization requires only the stated compact support condition.',
+     'Locally compact G-tropical setting; paracompactness only where the statement explicitly requires it.',
+     'Provides the test cutoff/decomposition localization; no global current construction.'),
+    ('S04', '6.5.1--3', 7340, 7385,
+     'Every symmetric diagonal form supported in a paracompact locally differentially separated open is a difference of middle-positive forms; compact support gives compact outputs. Compact analytic supports on almost-good spaces meet the hypothesis.',
+     'The coefficient class is smooth here. Good ordinary analytic domains are almost good.',
+     'Apply on O itself, then extend the compact outputs by zero into N. No unstated support equality is needed.'),
+    ('S05', '7.1.1--9', 7652, 7831,
+     'Currents are continuous complementary-test functionals; smooth multiplication and restriction are defined; currents are an ordinary sheaf; support is the complement of the largest zero open.',
+     'Tropical level n; sheaf/support assertions use local differential separation.',
+     'Used for degree bookkeeping, finite localization, detecting tests and support of the defect. The full 7.1.7 gluing proof is included.'),
+    ('S06', '7.2.1--4', 7916, 7955,
+     'Middle-positive currents are symmetric and nonnegative on middle-positive complementary tests; positivity is ordinary local.',
+     'Middle cone throughout, not strongly positive tests in its place.',
+     'Applied to the original positive current and coefficient measures.'),
+    ('S07', '7.2.7--12', 7973, 8076,
+     'Positive scalar currents correspond uniquely to positive Radon measures; a positive current paired with a positive complementary form gives such a coefficient measure, compact for a compact test. Locally bounded Borel multiplication is defined by coefficient measures.',
+     'Tropical level n, local differential separation. T has bidimension q,q and the coefficient test has type q,q.',
+     'Used exactly for Lemma 2 and the weighted integral in Theorem 5; continuity of h implies local boundedness. The full proofs of 7.2.8 and 7.2.9 are included.'),
+    ('S08', '7.3.1', 8098, 8104,
+     'Canonical integration defines a positive symmetric current delta_X of bidimension n,n.',
+     'The original calibrated tropical space, including its original analytic multiplicities.',
+     'Used only for Corollary 10, without replacing component weights.'),
+    ('S09', '7.7.1--8', 9307, 9431,
+     'The signed transposed differentials are local, square-zero, anticommute, satisfy DJ=JD, and have <DS,alpha>=<S,Dalpha>. Delta_X is doubly closed when boundaryless.',
+     'Complementary degrees are interpreted from 7.1.1. Smooth support is compact whenever duality is used.',
+     'Applied directly to differentiated ordinary products. Lemma 3 is reconstructed in the correct degrees, not imported from the misindexed 8.5.3 statement.'),
+    ('S10', '11.1.7', 14983, 15012,
+     'Every ordinary open is an analytic domain; analytic spaces have compact neighborhood bases; good spaces have affinoid neighborhood bases.',
+     'All complete fields, without nontrivial valuation or reducedness assumptions.',
+     'Used to retain the ordinary analytic domain and local compactness in each proof.'),
+    ('S11', '11.2.3', 15303, 15348,
+     'Analytic dimension is unchanged by reduction; d_K is graded residual transcendence degree, and dim X = sup_x d_K(x).',
+     'General analytic dimension theory. This is not a license to reduce the currents.',
+     'Definition and recursive foundation for 15.2.1; dimension of a closed analytic locus is its analytic dimension.'),
+    ('S12', '12.4.2', 17459, 17464,
+     'For every G-tropical chart, dim_trop,x(f) <= d_K(x) <= dim_x(X).',
+     'Topologically separated K-analytic spaces.',
+     'Recursive ingredient of the complete proof of 15.2.1. Not a current-density statement.'),
+    ('S13', '15.2.1--9', 21605, 21696,
+     'Support of a type a,b G-form is contained in d_K >= max(a,b); a closed analytic locus of smaller dimension does not meet that support. Good separated spaces are locally holomorphically and differentially separated; compact cutoffs, density and compact localization are available.',
+     '15.2.1 needs topological separation, no strictness, smoothness, nontrivial valuation or reducedness restriction. Analytic loci must be Zariski closed locally in an analytic domain.',
+     'The full support proof is used at detecting degree r=n-p-1, never at degree q=n-p. Cutoffs/density meet the stated compact/local hypotheses.'),
+    ('S14', '15.7.1--2 and surrounding definitions', 22097, 22148,
+     'A topologically separated pure n-dimensional analytic space has the canonical calibrated tropical level-n calculus; analytic-domain restriction agrees with that calculus.',
+     'Original pure n-space over the original complete field, without any reducedness or valuation restriction.',
+     'Places all current arguments in the original CLD calculus. Full immediate statement/proof is retained; its deeper analytic construction is a published foundation, not a new proof here.'),
+    ('S15', 'A.2.1--6', 29090, 29195,
+     'The compact cutoff and scalar density theorems for a locally separating continuous algebra stable under smooth composition.',
+     'Locally compact Hausdorff X; the ordinary CLD smooth sheaf meets smooth composition and local separation.',
+     'The complete compact cutoff proof and Stone-Weierstrass/density proof are retained as recursive sources for 6.2 and 15.2.'),
+    ('S16', '1.10.1--2', 2635, 2684,
+     'A symmetric diagonal smooth form on a polyhedral subspace is a difference of positive smooth forms.',
+     'Finite-dimensional affine space and polyhedral subspace; this is a recursive foundation of 6.5.2, not an analytic current assertion.',
+     'Complete proof checked: an interior positive order unit and a smooth majorant give the two forms. The printed final composition phi o phi is a typo for the phi o psi constructed in the proof; the compact case uses a constant majorant.'),
+]
+
+
+def source_ledger():
+    # LF indices must match rg/sed. str.splitlines() also treats PDF form feeds
+    # as line breaks and would silently shift every later source interval.
+    lines = SOURCE.read_text().split('\n')
+    evidence = []
+    ledger = []
+    for uid, label, first, last, statement, hypotheses, application in UNITS:
+        block = '\n'.join(lines[first - 1:last]) + '\n'
+        evidence.append(f'\n===== {uid}: CLD {label}, LF {first}--{last} =====\n{block}')
+        ledger.append({
+            'id': uid, 'primary_text_path': str(SOURCE), 'primary_pdf_path': str(PDF),
+            'bound_primary_text_origin': str(SOURCE_ORIGIN),
+            'bound_primary_pdf_origin': str(PDF_ORIGIN),
+            'version': 'arXiv:1204.6277v2, cover 25 Jul 2025; internal title 29 Jul 2025, 0h06',
+            'label': label, 'inclusive_LF_interval': [first, last],
+            'complete_immediate_statement_and_proof': True,
+            'statement_used': statement, 'hypotheses_and_definitions': hypotheses,
+            'application_check': application,
+            'literal_complete_immediate_unit': block,
+            'evidence_sha256': hashlib.sha256(block.encode()).hexdigest(),
+        })
+    foundations = [
+        'Ordinary Berkovich analytic domains, topology and dimension: CLD 11.1.7 and 11.2.3 cite Berkovich and analytic dimension theory. Their deeper published proofs are not independently reconstructed here.',
+        'The bound in CLD 12.4.2 is founded on its moment image/tropical dimension results, including 12.2.8--10. We checked the immediate 15.2.1 support proof; we do not claim to reprove the entire tropical dimension construction.',
+        'CLD 15.7.1 uses 12.4.7, 12.10.6, 12.11.1, 15.6.1 and 12.9.14 for the canonical analytic tropical structure. These are disclosed published foundations; this draft does not supply a new construction of that structure.',
+        'CLD 6.5.2 uses 1.10.2 and finite-dimensional positivity (1.2.13), as well as compact smooth partitions (6.2.8). Its entire immediate proof and the 1.10.2 proof were read; finite-dimensional positivity and smooth partition foundations are not represented as new results.',
+        'CLD 7.2.8 uses the positive functional/Radon representation principle and compact smooth scalar density; 7.2.9 uses its local current continuity criterion and finite-dimensional positive order bounds. Complete immediate proofs were checked. No generic representation of signed order-zero currents is inferred.',
+        'CLD A.2.5 uses the real Stone-Weierstrass theorem on a compact Hausdorff space. Its application hypotheses and resulting bounds were checked in the full immediate proof, without claiming to reprove Stone-Weierstrass.',
+        'The ordinary smooth and current sheaf calculus is the published CLD construction. Our reconstructed multiplier proof is a direct consequence of its checked differential duality and smooth J/Leibniz identities.',
+    ]
+    payload = {
+        'primary_text_sha256': digest(SOURCE), 'primary_pdf_sha256': digest(PDF),
+        'public_primary_url': 'https://arxiv.org/pdf/1204.6277v2',
+        'application_units': ledger, 'recursive_published_foundations': foundations,
+        'prior_notes_used_as_mathematical_premises': [],
+        'book_theorems_used_as_mathematical_premises': [],
+        'source_integrity_is_not_a_mathematical_premise': True,
+        'whole_text_read_claim': False,
+        'reading_scope': 'Complete immediate statements/proofs and surrounding definitions for each actual use, drawn from the bound full primary source. No claim to have read every page of CLD or all context bodies.',
+    }
+    write_json('whole-source-application-ledger.json', payload)
+    (HERE / 'source-evidence-complete-immediate-units.txt').write_text(''.join(evidence))
+    md = ['# Whole source application ledger', '', payload['reading_scope'], '']
+    for item in ledger:
+        md.extend([
+            f"## {item['id']}: CLD {item['label']}", '',
+            'Version: ' + item['version'] + '.', '',
+            f"Full primary text: `{SOURCE}`. Full PDF: `{PDF}`. Inclusive LF interval: {item['inclusive_LF_interval']}.", '',
+            'Statement used: ' + item['statement_used'], '',
+            'Hypotheses: ' + item['hypotheses_and_definitions'], '',
+            'Application: ' + item['application_check'], '',
+        ])
+    md.extend(['## Recursive published foundations', ''] + [f'- {s}' for s in foundations])
+    md.extend(['', 'No supplied note, book theorem or incoming correctness result is a mathematical premise. Hashes bind bytes only.'])
+    (HERE / 'whole-source-application-ledger.md').write_text('\n'.join(md) + '\n')
+    return payload
+
+
+def main():
+    inputs = HERE / 'inputs'
+    inputs.mkdir(exist_ok=True)
+    for name in ['original-task.json', 'mathematical-packet-bindings.json',
+                 'private-primary-packet-bindings.json', 'book-context-bindings.json']:
+        if (PACKET / name).exists():
+            shutil.copyfile(PACKET / name, inputs / name)
+        assert (inputs / name).exists()
+    if (HERE / 'input.json').exists():
+        shutil.copyfile(HERE / 'input.json', inputs / 'implementation-input.json')
+    for origin, local in [(SOURCE_ORIGIN, SOURCE), (PDF_ORIGIN, PDF)]:
+        if origin.exists():
+            shutil.copyfile(origin, local)
+        assert local.exists()
+    # These exact-version checks bind inputs; they are not correctness grants.
+    assert digest(SOURCE) == '64846cb00926267c6238d1afac61b5eaed0a0e3a6349725738f9b1bf163de085'
+    assert digest(PDF) == '5690f999523017d184ab751bb55857ab1637b197d1186ad4fd2edba7e1bda719'
+    bodies = [(HERE / 'sections' / name).read_text() for name in SECTIONS]
+    bindings = [{'id': f's{i}', 'path': 'sections/' + name,
+                 'sha256': digest(HERE / 'sections' / name),
+                 'bytes': (HERE / 'sections' / name).stat().st_size,
+                 'whole_section': True} for i, name in enumerate(SECTIONS)]
+    write_json('section-bindings.json', bindings)
+    (HERE / 'whole-proof.md').write_text('\n\n'.join(bodies) + '\n')
+    header = r'''\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\setlength{\emergencystretch}{3em}
+\title{Cutoff bounds and analytic exceptional-locus removability for P21.3}
+\author{Standalone partial research draft}
+\date{8 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+P21.3 remains unresolved. We prove a weighted cutoff estimate for the
+ordinary multiplier defect, a removability criterion and a necessary
+cutoff-mass blowup bound, and analytic exceptional-locus removability
+below the complementary detecting degree. All extra hypotheses and
+the unchanged universal residual are stated explicitly.
+\end{abstract}
+'''
+    tex = header + '\n\n'.join(section_to_tex(body) for body in bodies) + '\n\\end{document}\n'
+    (HERE / 'P21.3-paper.tex').write_text(tex)
+    ledger = source_ledger()
+    coverage = {
+        'whole_proof_sections': bindings,
+        'proofs': {
+            'Lemma 1': 's1: localized positive test decomposition',
+            'Lemma 2': 's1: weighted ordinary-product estimate',
+            'Lemma 3': 's1: correct-degree smooth multiplier identity',
+            'Lemma 4': 's1: defect support and cutoff localization',
+            'Theorem 5': 's2: quantitative cutoff estimate',
+            'Corollary 6': 's2: weighted vanishing for all detecting tests',
+            'Theorem 7': 's2: trace removability and inverse-oscillation lower bound',
+            'Corollary 8': 's2: ordinary local conclusion',
+            'Theorem 9': 's3: analytic dimension removability',
+            'Corollary 10': 's3: necessary defect location and remaining dimensional window',
+        },
+        'missing_universal_obligations': [
+            'Off-locus ordinary smooth zero-Hessian regularity is not proved for arbitrary equal-curvature differences.',
+            'No weighted-cutoff vanishing or bounded cutoff mass is proved for arbitrary positive closed currents.',
+            'No general positive doubly closed compatible current exhaustion or compatible strong lift is constructed.',
+            'No admissible analytic pair/current/detecting-test counterexample is constructed.',
+        ],
+        'universal_proof_coverage_complete': False,
+        'partial_proof_bodies_complete': True,
+        'external_foundations': ledger['recursive_published_foundations'],
+    }
+    write_json('whole-proof-coverage.json', coverage)
+    scope = {
+        'target': 'P21.3', 'candidate': False,
+        'ambient': 'Original good separated strict boundaryless pure n>=2 analytic X over any complete non-Archimedean field, including trivial valuation.',
+        'current': 'Original arbitrary positive middle-cone ordinary CLD (p,p) current, both first differentials closed; p=0,...,n-1.',
+        'potentials': 'Original separately admissible finite continuous psh U,V; no replacement by CPsh, weakly smooth, real PL or a different psh convention.',
+        'canonical_curvature': 'Original delta_X and actual generic Artinian component lengths; no reduction or weight change.',
+        'partial_results': [
+            'Weighted cutoff bound under ordinary smooth zero-Hessian regularity away from an explicitly closed locus.',
+            'Removability under explicitly verified vanishing weighted cutoff errors; smooth-trace inverse-oscillation lower bound for every possible nonzero detector.',
+            'Arbitrary-current BT on a specified open if the nonsmooth locus is locally closed analytic of dimension <n-p-1 and the smooth Hessian is zero off it.',
+        ],
+        'top_allowed_degree': 'Dimension bound excludes no nonempty locus when p=n-1; cutoff hypothesis remains unproved universally.',
+        'ordinary_open_scope': 'Specified open or local hypotheses on an ordinary cover there; every-open only when hypotheses are supplied on each such open. No basis is claimed.',
+        'analytic_counterexample': None,
+        'unresolved': 'The full literal every-open/every-current assertion for arbitrary pairs in the original ambient class.',
+    }
+    write_json('exact-scope.json', scope)
+    decision = {
+        'original_task_read_in_full_before_scope_selection': True,
+        'incoming_notes': [], 'incoming_correctness_grants_used': [],
+        'previous_own_notes_available_at_start': [],
+        'historical_papers_read_as_context': [
+            str(PACKET / 'immutable-mathematical-DATA/09-P21.3-paper.tex'),
+            str(PACKET / 'immutable-mathematical-DATA/01-P21.3-support.tex'),
+        ],
+        'historical_results_used_without_reproof': [],
+        'new_partial_proof': 'Direct cutoff localization and original positive coefficient-measure bound; dimensional support corollary.',
+        'no_universal_inference': True,
+        'claim': 'Unresolved; partial progress only', 'candidate': False,
+        'noncircularity': 'No annihilation/density/psh-recognition premise is assumed to prove itself. The new weighted vanishing and off-locus regularity conditions are displayed as unproved extra hypotheses.',
+    }
+    write_json('original-scope-and-noncircularity-decision.json', decision)
+    write_json('decision-evidence.json', {
+        'status': 'unresolved', 'candidate': False,
+        'observations': ['CLD exact version and complete immediate units inspected from full retained source.',
+                         'Prior scalar-polar manuscript read as data, without importing its grants.'],
+        'mathematical_proofs': list(coverage['proofs']),
+        'exhaustive_finite_mathematical_results': [],
+        'computational_correctness_claim': False,
+        'paper_compiled': False, 'editor_tabs_opened': False,
+        'unproved_gates': coverage['missing_universal_obligations'],
+    })
+    write_json('environment.json', {
+        'cwd': str(HERE), 'python_version': sys.version,
+        'platform': platform.platform(), 'shell_from_user_context': 'bash',
+        'date_from_user_context': '2026-10-08', 'timezone': 'Etc/UTC',
+        'dependencies': 'Python standard library only',
+        'model_config': 'Controlled by the operator; no runtime model override or additional model call was made.',
+        'heavy_compute': 'Not used. No supervised compute service was supplied; none was needed.',
+        'network': 'No new retrieval performed; bound local full primary source used.',
+        'compilation': 'Intentionally not performed, as requested.',
+    })
+    write_json('commands.json', {
+        'rerun': 'python reproduce.py',
+        'source_read_method': 'Read-only rg discovery and sed/cat whole immediate statement/proof units in the bound full source; exact intervals preserved in the ledger.',
+        'mutations': 'Own deliverable files only; no packet, source, editor, publication or catalogue mutation.',
+    })
+    # Notes are authored separately and are never inferred from a successful check.
+    notes_path = HERE / 'native-notes.json'
+    notes = json.loads(notes_path.read_text())
+    seen = set()
+    for note in notes['notes']:
+        assert {'id', 'summary', 'detailedSummary', 'text', 'support'} <= set(note)
+        assert set(note['support']) <= seen, 'Only earlier own note IDs are legal support.'
+        assert note['id'] not in seen
+        seen.add(note['id'])
+    assert notes['candidate'] is False
+    shutil.copyfile(notes_path, HERE / 'notes.json')
+    write_json('native-note-bindings.json', [{
+        'id': note['id'], 'support': note['support'], 'whole_note': True,
+        'sha256': hashlib.sha256(json.dumps(note, ensure_ascii=False, sort_keys=True).encode()).hexdigest(),
+    } for note in notes['notes']])
+    # Lexical checks on the generated standalone source; these are not a compiler.
+    assert tex.count(r'\begin{document}') == tex.count(r'\end{document}') == 1
+    assert tex.count(r'\(') == tex.count(r'\)')
+    assert tex.count(r'\[') == tex.count(r'\]')
+    depth = 0
+    for idx, ch in enumerate(tex):
+        if idx and tex[idx - 1] == '\\':
+            continue
+        if ch == '{':
+            depth += 1
+        elif ch == '}':
+            depth -= 1
+            assert depth >= 0
+    assert depth == 0
+    assert 'candidate=false' in '\n'.join(bodies)
+    results = {
+        'artifact_checks_passed': True,
+        'sections': len(bindings), 'proof_items': len(coverage['proofs']),
+        'source_application_units': len(UNITS), 'notes': len(notes['notes']),
+        'backward_note_supports_checked': True,
+        'tex_math_delimiters_and_braces_balanced': True,
+        'tex_compiled': False, 'mathematical_verification': False,
+        'candidate': False,
+        'artifact_sha256': {
+            name: digest(HERE / name) for name in [
+                'P21.3-paper.tex', 'whole-proof.md', 'native-notes.json',
+                'whole-source-application-ledger.json', 'exact-scope.json',
+            ]
+        },
+    }
+    write_json('checks-output.json', results)
+    print(json.dumps(results, ensure_ascii=False, indent=2))
+
+
+if __name__ == '__main__':
+    main()
