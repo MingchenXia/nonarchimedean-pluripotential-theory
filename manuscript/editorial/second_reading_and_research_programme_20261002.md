@@ -3,6 +3,29 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest higher-rank GitHub publication checkpoint, 8 October 2026
+
+The [publication record](Kaib_Werner_higher_rank_GitHub_publication_20261008.json)
+verifies c7a3a5d43bc0a89577c81d4301346f4df65bab51 on work: all sixteen book/
+source/progress/audit/artifact hashes and sizes match remote blobs. The six
+[artifact files](artifact_exports/20261008_higher_rank_integral_data/README.md)
+contain the 4,636-page PDF, 26-page review, 93-member actual evidence and
+472-member minimal sources. The preceding nine-file primary checkpoint in
+6587b7c35460768b847c51e61b87598f498d0375 is uploaded and verified. A separate
+[locator-kind addendum](Kaib_Werner_higher_rank_source_locator_corrections_20261008.json)
+corrects environment names without rewriting the frozen source audit.
+Main remains 00957114db21b627e97369563032ceda9cea09c7 and PR #2 stays a draft.
+Publication adds zero reading credit. The 42 atoms/twelve formal problems,
+native catalogue/editor and complete 4 October ordered pass are unchanged.
+
+Continue cloud-only with Truong Dinh Dat, arXiv:2609.12032v1, relative Hessian
+finite-energy classes with prescribed singularities. Its exact 26-page PDF is
+acquired; the extraction font warning is preserved, and acquisition supplies
+zero proof-reading credit. Read complete text and matching displayed pages,
+check the singularity/boundary/product hypotheses and retain qualified source
+claims until their arguments are verified. Continue author-update checks and
+normal periodic publication of completed units.
+
 ## Latest higher-rank integral-data cloud integration checkpoint, 8 October 2026
 
 The validated edition has 4,636 pages. The

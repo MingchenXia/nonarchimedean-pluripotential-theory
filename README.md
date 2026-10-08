@@ -4,6 +4,18 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest verified GitHub publication, 8 October 2026:** the 4,636-page
+book and six owned evidence/artifact files are uploaded on `work` in
+`c7a3a5d43bc0a89577c81d4301346f4df65bab51`. All sixteen source/progress/audit/
+artifact remote blobs match local hashes and sizes. The
+[artifact directory](manuscript/editorial/artifact_exports/20261008_higher_rank_integral_data/README.md)
+contains the complete PDF, 26-page actual review, 93-member book evidence and
+472-member minimal source checkpoint. The
+[publication record](manuscript/editorial/Kaib_Werner_higher_rank_GitHub_publication_20261008.json)
+also verifies the nine-file authored primary checkpoint and links its
+[locator-kind correction addendum](manuscript/editorial/Kaib_Werner_higher_rank_source_locator_corrections_20261008.json).
+Main and the canonical statuses are unchanged; upload adds no reading credit.
+
 **Latest checked book integration, 8 October 2026:** the
 [higher-rank integral-data audit](manuscript/editorial/Kaib_Werner_higher_rank_staged_integration_audit_20261008.md)
 adds 3.12 and L.93, with a computed valuation/elliptic example and explicit
