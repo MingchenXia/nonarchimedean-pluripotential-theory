@@ -1,0 +1,744 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm,booktabs}
+\usepackage{hyperref}
+\setlength{\emergencystretch}{3em}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\PC}{\operatorname{PC}_q}
+\newcommand{\PA}{\operatorname{PA}}
+\newcommand{\MA}{\operatorname{MA}_{\mathrm{poly},\R}}
+\newcommand{\D}{\mathcal D_\R(\gamma)}
+\newcommand{\rec}{\operatorname{rec}}
+\title{Continuation282: all-continuous contact on affine arrangements\\
+\large A global rational-geometry approximation and a transverse-line obstruction}
+\author{Unverified research draft}
+\date{7 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We prove a scoped all-obstacle theorem, including its genuine operator
+antecedents. On a complete rational affine space, every continuous convex
+function boundedly relative to an actual real rational-geometry PA reference
+has global decreasing rational-geometry real PA approximants. A finite
+primal epigraph construction uses rational sample positions and the exact
+recession rays, rather than irrational maximum walls. Every bounded
+continuous obstacle consequently has a genuinely completed envelope and
+zero raw contact integral. For finite positive sums of rational affine
+$d$-planes, all-continuous envelope regularity and contact together hold
+exactly when the distinct planes are pairwise disjoint. Intersecting planes
+give a rational bad jet for every actual positive-growth real reference.
+More generally a positive complete linear subcycle and a transverse
+two-sided tangent line obstruct universal contact. We reconstruct legal
+PCC-tree continuity and localized measure continuity used in the
+non-PA passage. The entire original P05.2 on general singular or glued
+spaces remains OPEN; candidate=false.
+\end{abstract}
+
+\section{Domain and the five granted inputs}
+All new statements concern finite globally embedded rational spaces
+$X\subset N_\R$, pure of dimension $d\geq1$, with specified strictly
+positive balanced real top weights. Translated tangent lattices are
+$N_\sigma=N\cap\operatorname{span}_\R(\sigma-\sigma)$. A primitive
+normal $n_{\sigma/\tau}$ points from a facet into its incident cell.
+For a balanced cycle $c$, use the raw signed formula
+\begin{equation}\label{raw}
+ D_f c(\tau)=\sum_{\sigma\succ\tau}c(\sigma)f_\sigma(n_{\sigma/\tau})
+ -f_\tau\left(\sum_{\sigma\succ\tau}c(\sigma)n_{\sigma/\tau}\right).
+\end{equation}
+The subscripts denote linear parts. The finite mixed measure is
+$D_{f_1}\cdots D_{f_d}[X]$; no factorial is appended to this recursion.
+Signed and zero intermediate cycles remain legitimate.
+
+$\PA_\Z$ means integral tangent slopes and rational constants.
+$\PA_\R$ means arbitrary real affine coefficients on a finite
+\emph{rational} carrier. Rational affine coefficients need not be
+integral. A PCC has rational endpoints, nonnegative real coefficients
+of sum one, and a center face contained as a face in each endpoint cell
+on some rational structure. Write $\PC$ for the printed PCC class.
+The unrestricted envelope is
+\[
+ P_\gamma(u)=\sup\{q\in\PC:q\leq\gamma+u,\ q\leq\gamma+O(1)\}.
+\]
+The actual reference is $\gamma\in\PA_\R\cap\PC$, positive on every
+nonzero recession direction. The operator domain $\D$ is precisely the
+global uniform closure of relative real PA PC functions. It equals the
+global decreasing uniform closure. No local-uniform limit enters this
+domain by definition.
+
+Exactly five whole inputs A224, B225, R230, S262 and S272, with every
+supplied clarification, are grants. We use R230 for continuous
+identification of this unrestricted envelope, its real-endpoint PCC
+inequalities, and $|P_\gamma(u)-\gamma|\leq\|u\|_\infty$. We use
+S262/S272 for genuine finite raw symmetry, balancing, positivity,
+refinement independence and bounded primitive-edge IBP, and S272 for
+the operator on $\D^d$, its same-reference compact-test auxiliaries,
+and its all-tuple fixed-bound moment estimate. Explicitly, S272 gives
+a proper rational-component height $H_0=\gamma_0+c\geq0$, a fixed
+$\epsilon>0$, and
+\begin{equation}\label{grantedmoment}
+ \int H_0\,\MA(\mathbf f)\leq K_C=(2d/\epsilon)CM+J_0,
+ \quad M=\deg(\gamma),\quad J_0=\int H_0\,\MA(\gamma),
+\end{equation}
+for \emph{every} completed tuple with
+$\max_i\|f_i-\gamma\|_\infty\leq C$. We also use its actual-reference
+rational-jet realization and PA roof theorem with their full hypotheses.
+B225 supplies the embedded compact-support distinction and A224 is
+retained context. No historical execution observation is a theorem.
+Native210's overall evidence verdict remains INCONCLUSIVE.
+
+ROOT276/277/278/281 are unreviewed working data, not further grants.
+Only the tree and localized-continuity units of ROOT278 are needed
+below, and they are proved independently. Maximum/cap closure, the
+stronger actual-height estimate and compact strictification are not
+assumed. This avoids making any smooth auxiliary into a primitive PA
+function. All other new ordinary facts are proved below. We use
+elementary finite-dimensional linear algebra, compactness, Euclidean
+nearest-point separation and ordinary measure integration; no analytic
+Monge--Ampere theorem is invoked.
+
+\section{Raw foundations and their primary application domain}
+The finite raw conclusions are granted, but the original proof units
+were checked in BMPS v1 and the BBGS publisher text. The precise
+conversion prevents a change of operator in our new applications.
+Let $a_\sigma$ be the Euclidean covolume of the saturated cell lattice,
+with $a_v=1$. A basis of $N_\tau$ followed by a primitive quotient lift
+is a basis of $N_\sigma$. If $\nu_{\sigma/\tau}$ is the inward unit
+conormal, its perpendicular height gives
+\[
+ \operatorname{pr}_{N_{\tau,\R}^{\perp}} n_{\sigma/\tau}
+ =(a_\sigma/a_\tau)\nu_{\sigma/\tau}.
+\]
+Lattice weights $c(\sigma)$ become Euclidean balanced weights
+$a_\sigma c(\sigma)$. Subtract an ambient extension of $f_\tau$ in
+\eqref{raw}; agreement of tangent derivatives and balancing cancel
+that extension. For the negative BBGS product $B$,
+\[
+ B_{-f}(ac)(\tau)=a_\tau D_f c(\tau).
+\]
+This holds successively through all dimensions, including signed and
+zero weights. Embedding $x$ as $(x,1)$ supplies BBGS's required
+hyperplane quasi-embedding without changing tangent metrics.
+
+In BBGS Proposition 3.12, inherited facets retain their coefficients,
+new facets inside an affine weighted cell have opposite equal normal
+contributions, and faces in larger-dimensional old cells inherit zero.
+In its whole Proposition 3.15 proof, the codimension-two wedge has two
+boundary rays. Reflection exchanges the rays and their oriented unit
+perpendiculars, giving the same two coefficients in reversed expansions.
+The diagonal terms of the double product are symmetric; exchanging the
+two facets pairs the cross terms. Lemma 3.18 pairs the conormal sum with
+every ambient linear form. Proposition 3.19 then preserves balancing
+under refinement and PA products, using the actual commuting equality
+of 3.15 (its printed reference is 3.12). These arguments allow all real
+coefficients and all signed/zero intermediate weights. Tangent-lift
+independence follows by direct cancellation in \eqref{raw}.
+
+Positivity is used only for PC PA factors and nonnegative balanced
+cycles. At a center face, a local affine support agrees tangentially;
+subtract it in \eqref{raw}. Every inward residual slope is nonnegative.
+The all-face support criterion in S272 supplies these supports. Thus
+each such recursive step is nonnegative. On a finite balanced one-cycle
+$Z$, bounded PA $b,c$ give
+\[
+ \int bD_c Z=\int cD_b Z,
+\]
+since a bounded edge of primitive length $L$ contributes
+$Z(e)(b(v)-b(w))(c(w)-c(v))/L$ and bounded affine functions have zero
+end slope on unbounded edges. Outgoing degree terms cancel. Replacing
+mixed relative factors one at a time by $\gamma$ gives mass $M$.
+These are the exact finite facts preceding all completions here.
+
+\section{Elementary convex duality on a polyhedral reference}
+We identify a complete rational affine $d$-plane with $\R^d$ using a
+rational origin and a basis of its saturated lattice. Ordinary convexity
+and continuous PCC convexity agree there: a contained segment lies in
+a rational polyhedron containing its endpoints (enclose it in a rational
+box); continuity passes rational endpoints to real endpoints. Conversely
+ordinary convexity implies every PCC inequality. R230 handles the
+possibly discontinuous competitors in the envelope.
+
+\begin{lemma}\label{support}
+A finite continuous convex function on $\R^d$ has a supporting affine
+plane at every point and equals the supremum of those planes.
+For $f^*(p)=\sup_x(p\cdot x-f(x))$, it follows that
+$f(x)=\sup_p(p\cdot x-f^*(p))$.
+\end{lemma}
+\begin{proof}
+The epigraph is closed and convex. For $(x,f(x)-t)$, $t>0$, take its
+nearest epigraph point. Existence follows by minimizing on a sufficiently
+large closed ball. Squared-distance minimization gives a separating unit
+normal. As $t\downarrow0$, the nearest points converge to $(x,f(x))$;
+a subsequence of normals converges to a unit normal supporting the
+epigraph there. Its vertical component, directed into the epigraph, is
+nonnegative. It cannot be zero: the epigraph contains a point over
+every $y\in\R^d$, so a horizontal supporting normal would pair
+nonnegatively with every $y-x$ and hence be zero. Divide by the positive
+vertical component to obtain a supporting affine plane. That plane
+gives equality in the displayed conjugate supremum at $x$; all other
+planes lie below $f$. This proves both assertions.
+\end{proof}
+
+A convex finite PA reference is a maximum of finitely many ambient
+affine forms, $\gamma(x)=\max_i(p_i\cdot x+b_i)$. Indeed its affine
+piece on the interior of a top cell is a global support by segment
+convexity; finitely many such pieces cover the function, including
+their boundary values. Put $\Delta=\operatorname{conv}\{p_i\}$.
+Its support function is $h(v)=\max_i p_i\cdot v$.
+The reference differs boundedly from $h$, because its finitely many
+constants are bounded. Its positive growth implies $h(v)>0$ for
+$v\ne0$; in particular $\Delta$ is bounded, full dimensional and
+contains zero in its interior.
+
+There is a finite list of rational vectors $r_j$ with lifted heights
+$h(r_j)$ such that
+\begin{equation}\label{recession}
+ \operatorname{epi}h=\operatorname{cone}\{(r_j,h(r_j)),(0,1)\},
+ \qquad \Delta=\{p:p\cdot r_j\leq h(r_j)\ \forall j\}.
+\end{equation}
+To see this, take generators of the rational recession cones of the
+reference carrier, including both signs for lineality. Their cones
+cover $\R^d$: along any ray, finiteness of the carrier supplies a
+cell containing an unbounded subsequence, whose defining inequalities
+put that direction in its recession cone. On each such cone $h$ is
+the reference's recession linear part. Nonnegative generator
+representations therefore give its whole epigraph after adding the
+vertical ray. Convexity of $h$ proves the reverse inclusion. Pairing
+with these generators gives the second equality; a point outside
+$\Delta$ is separated from this compact convex hull and violates one
+of the inequalities. Rational cone generation follows by taking a
+bounded section of a pointed cone after removing rational lineality;
+its vertices solve finite rational active systems.
+
+\begin{lemma}\label{dualcompact}
+If $f$ is continuous convex and $\|f-\gamma\|_\infty\leq C$, then
+$f^*$ has domain exactly $\Delta$ and is finite and continuous on that
+compact polytope. Moreover
+$\gamma^*-C\leq f^*\leq\gamma^*+C$ there.
+\end{lemma}
+\begin{proof}
+Conjugating the two bounds proves the inequalities and equality of
+domains. For $p=\sum t_i p_i\in\Delta$,
+$\gamma(x)\geq p\cdot x+\sum t_i b_i$, so $\gamma^*(p)$ is bounded
+above by $\max_i|b_i|$ and below by $-\gamma(0)$. Outside $\Delta$,
+separation and $\gamma-h$ bounded make the conjugate infinite along
+a separating ray. Thus $f^*$ is finite bounded on $\Delta$. It is
+convex and lower semicontinuous as a supremum of affine continuous
+functions.
+
+Here is the needed boundary-continuity argument, which is special to
+a polytope. At $p\in\Delta$, its tangent cone is finitely generated,
+including both signs for tangent lineality. Choose finitely many
+anchors $p+\eta v_i\in\Delta$ on these directions. Every sufficiently
+nearby $y\in\Delta$ has $y-p=\sum a_i v_i$, $a_i\geq0$, with
+$\sum a_i\leq A\|y-p\|$. Eliminate dependent active columns until
+they are independent; the finitely many inverse column maps bound
+their coefficient norms, proving this estimate. For a small enough
+distance the sum is at most $\eta$, giving a convex representation
+of $y$ by $p$ and the fixed anchors. Convexity gives
+$f^*(y)\leq f^*(p)+A'\|y-p\|$. Lower semicontinuity gives the
+opposite limiting inequality. This proves continuity at every boundary
+point as well as every interior point. Compactness gives uniform
+continuity. No dual polytope rationality is claimed.
+\end{proof}
+
+\section{A global primal regularization with rational geometry}
+\begin{theorem}\label{affinedensity}
+On a complete rational affine $d$-plane with actual positive-growth
+$\gamma\in\PA_\R\cap\PC$, every continuous convex $f$ boundedly
+relative to $\gamma$ is in $\D$. In fact it admits finite relative
+real PA convex majorants with arbitrarily small global error, whose
+carriers are rational. Hence it admits a global decreasing uniform
+regularization on rational geometry.
+\end{theorem}
+\begin{proof}
+Fix $\eta>0$. On $\Delta$, $f^*(p)=\sup_{x\in\Q^d}
+(p\cdot x-f(x))$, by continuity of $f$ and density of rational
+positions. For each $p$ choose one rational $x$ making this value
+greater than $f^*(p)-\eta$. Continuity of $f^*$ makes the same strict
+inequality persist in a neighborhood of $p$. A finite subcover gives
+a nonempty finite rational sample set $A$ such that
+\[
+ g_A(p)=\max_{x\in A}(p\cdot x-f(x)),\qquad
+ f^*(p)-\eta\leq g_A(p)\leq f^*(p)\quad(p\in\Delta).
+\]
+Use the \emph{exact} recession list \eqref{recession} and form
+\[
+ E_A=\operatorname{conv}\{(x,f(x)):x\in A\}
+       +\operatorname{epi}h.
+\]
+This set is closed: its first term is compact and its second term
+closed. It projects onto all $\R^d$, and lies in $\operatorname{epi}f$.
+For the last assertion, Lemma~\ref{support} and the conjugate domain
+give $f(x+v)\leq f(x)+h(v)$; convex combinations and addition of
+epigraph recession vectors preserve the epigraph. Every vertical
+fiber of $E_A$ is therefore a finite upward ray. Let its lower
+boundary be $F_A$. The set is a finitely generated polyhedron, so
+$F_A$ is a finite continuous convex polyhedral function. Direct
+maximization on its generating vertices and rays gives
+$F_A^*=g_A$ on $\Delta$ and infinity outside it. Applying
+Lemma~\ref{support} to $F_A$ and $f$, the preceding uniform dual
+error gives
+\[
+                  f\leq F_A\leq f+\eta\quad\hbox{on all }\R^d.
+\]
+
+The carrier is rational even when all sampled heights and reference
+slopes are irrational. Each lower epigraph face consists of the convex
+hull of its active sampled vertices plus the cone of its active lifted
+recession generators. Its projection is thus a polyhedron generated
+by rational positions $x$ and rational directions $r_j$. On a lower
+face the vertical projection is injective, since its affine support
+is a graph. The projected lower faces and their faces form a finite
+rational complex covering $\R^d$; intersections correspond to
+intersections of graph faces. A supporting affine plane carries $F_A$
+on each such face. Consequently $F_A\in\PA_\R\cap\PC$ on this
+finite rational carrier. It has bounded difference from the actual
+$\gamma$ by its displayed global error. This construction never
+perturbs the reference recession slopes.
+
+Choose errors at most $2^{-n}$ and add $4\cdot2^{-n}$. Consecutive
+drops are at least
+$2\cdot2^{-n}-(2^{-n}+2^{-n-1})=2^{-n-1}>0$.
+These rational constant shifts preserve the real category and actual
+relative growth. They give the asserted decreasing sequence. The
+construction does not claim integral slopes.
+\end{proof}
+
+\begin{lemma}\label{finiteenvelope}
+For $u\in\PA_{\R,b}$ on a complete rational affine plane, the actual
+unrestricted envelope is itself finite real PA on rational geometry.
+\end{lemma}
+\begin{proof}
+Refine the common rational carrier of $\gamma,u$ by a rational
+coordinate arrangement so all cells are pointed. Each cell is a
+bounded rational vertex hull plus its rational recession cone.
+On it $a=\gamma+u$ is affine, so its epigraph is generated by
+lifted rational vertices $(v,a(v))$, lifted rational recession
+directions $(r,h(r))$, and the vertical ray. Boundedness of $u$
+gives the exact recession height $h(r)$.
+
+Let $E$ be the convex hull of all those finitely many lifted vertices
+plus the cone of all those lifted rays and the vertical ray. It is
+closed (compact hull plus closed finitely generated cone), contains
+$\operatorname{epi}a$, and is the closed convex hull of that epigraph.
+Indeed all its vertices lie in the original epigraph and each listed
+ray is a recession ray of one of its pieces. Such a ray added to a
+point in the convex hull lies in its closure: mix a coefficient
+approaching zero at points tending to infinity along that ray in its
+original piece. This proves both inclusions.
+
+Since $\gamma-\|u\|_\infty$ is a convex minorant, $E$ lies above
+its graph. Its projection is the whole plane, so its lower boundary
+$F$ is finite convex, satisfies $\gamma-\|u\|_\infty\leq F\leq a$,
+and has the required growth. Every continuous convex minorant of
+$a$ has an epigraph containing $E$, so it is at most $F$. R230
+identifies the unrestricted envelope with this continuous envelope;
+hence it is $F$. The projected lower faces are rational for exactly
+the vertex/ray reason in Theorem~\ref{affinedensity}. Thus $F$ is
+actual finite rational-geometry real PA. A constant approximating
+sequence already checks its operator antecedent.
+\end{proof}
+
+\section{Finite contact without an Alexandrov substitution}
+\begin{lemma}\label{flatline}
+A homogeneous convex finite PA germ on a complete $d$-plane with a
+nontrivial flat PCC relation has zero raw top atom.
+\end{lemma}
+\begin{proof}
+Let $h$ be the germ and choose a linear support $\ell$ at zero.
+Then $b=h-\ell$ is nonnegative, convex and homogeneous, hence
+subadditive. In a flat relation
+$\sum\lambda_i d_i=0$, $\sum\lambda_i h(d_i)=0$,
+all active $b(d_i)$ are zero. Pick an active nonzero $d_j$.
+The relation writes $-d_j$ as a nonnegative combination of the
+other zero-cost directions, so $b(-d_j)=0$ as well. Subadditivity
+in both directions gives $b(x+t d_j)=b(x)$ for all real $t$.
+Thus $h$ is affine along this nonzero line everywhere on the plane.
+
+Take its polyhedral linearity fan with this line as common lineality.
+Every face has positive dimension. Recursive divisors on this fan
+therefore have no zero-dimensional face after $d$ steps, and the raw
+top cycle is zero. Refinement independence retains zero if rational
+subdivision creates artificial vertices. The line is rational when
+chosen from rational star generators; that is the only instance
+needed here. Constants and subtraction of the ambient linear form
+do not change the divisor. No subgradient-volume formula is used.
+\end{proof}
+
+\begin{proposition}\label{finitecontact}
+Every bounded real PA obstacle on a complete affine plane has zero
+raw contact integral with its finite PA envelope.
+\end{proposition}
+\begin{proof}
+Its envelope is finite PA by Lemma~\ref{finiteenvelope}. At a
+noncontact carrying vertex, the finite-contact argument in S262
+supplies a flat relation. Explicitly, the PC costs are nonnegative;
+if no relation has zero cost, their normalized compact section has
+positive minimum. Finite separation gives a linear floor $\ell$
+with $h-\ell\geq a\|x\|$. Raise the floor slightly within a small
+positive-gap ball and take its maximum with the envelope; the strict
+outer collar permits gluing to the old envelope. Local supports give
+a PC competitor with the same growth and a larger value, a
+contradiction. The inserted competitor need not be PA and is not
+measured. The PC hypothesis is essential in this argument.
+
+Lemma~\ref{flatline} makes every noncontact vertex atom zero. The
+genuine raw measure is finite atomic and all its remaining positive
+atoms are contact points. Each term in the contact integral vanishes.
+\end{proof}
+
+\section{Legal trees and localized continuity, reconstructed}
+These lemmas apply on any of the finite embedded positive balanced
+spaces with actual positive-growth reference, not just affine planes.
+They do not enlarge $\D$.
+
+\begin{lemma}\label{tree}
+Let $u,v\in C_b(X)$ have norms at most $C$ and choose $c$ such that
+$H=\gamma+c\geq0$ is proper. For every $R>0$,
+\begin{equation}\label{treeestimate}
+ |P_\gamma(u)(x)-P_\gamma(v)(x)|
+ \leq \sup_{\{H\leq R\}}|u-v|+
+            \frac{2C(H(x)+2C)}{R}.
+\end{equation}
+Thus bounded local-uniform convergence of obstacles gives local-uniform
+convergence of their actual unrestricted envelopes, also for nets.
+\end{lemma}
+\begin{proof}
+For finite real-valued $F$ define $TF(x)$ as the infimum of $F(x)$
+and all legal PCC weighted endpoint values. Each split has its own
+rational witnessing structure; the endpoints are rational and the
+weights are real. Start with $F_0=\gamma+u$. Its iterates decrease
+and stay between $\gamma-C$ and $\gamma+C$. For a fixed finite
+PCC, decreasing limits commute with its finite weighted sum. Infima
+over the split and the iterate index commute too. Hence their limit
+$F_\infty$ satisfies $TF_\infty=F_\infty$, exactly the PCC
+inequalities. Every unrestricted PC minorant of $F_0$ is below each
+iterate by monotonicity. The limit has the prescribed same-reference
+growth and is itself a competitor, so it is the actual envelope.
+R230, applied only to this endpoint, gives continuity.
+
+Induction on depth identifies each iterate with the infimum of
+terminal costs on finite legal splitting trees, allowing no-op nodes.
+To combine near-optimal child trees, distribute a finite error among
+the finitely many children. Conversely every such tree gives the
+iterated infimum bound. Let $\nu$ be its finite terminal probability
+distribution; a global barycenter alone is insufficient for legality.
+For an $e$-optimal tree,
+\[
+ \int H\,d\nu\leq H(x)+2C+e,\qquad
+ \nu\{H>R\}\leq (H(x)+2C+e)/R.
+\]
+The first inequality follows from the upper near-optimal cost and
+$-u\leq C$, not from normalization of any raw measure. Evaluate the
+same legal tree with obstacle $v$, split its endpoint cost difference
+at $H=R$, and let $e\downarrow0$. Reverse $u,v$ to obtain
+\eqref{treeestimate}. Properness makes each sublevel compact and
+$H$ bounded on any root compact set, proving the local convergence
+claim. Intermediate iterates need not be continuous, PC or PA and
+receive no measure.
+\end{proof}
+
+\begin{lemma}\label{localma}
+On the existing genuine $\D^d$, completed tuples converging locally
+uniformly to an already completed tuple, with one common relative
+bound $C$, have vaguely and weakly $C_b$ convergent mixed measures.
+If $u_n\to u$ boundedly locally uniformly and all actual envelopes
+are in $\D$, their raw contact integrals converge.
+\end{lemma}
+\begin{proof}
+For a compact rational PA test $\psi$ supported in $K$, S272 supplies
+actual relative real PA PC auxiliaries with difference
+$\epsilon\eta_\psi\psi$. Telescope finite tuples and use bounded
+raw IBP on the remaining positive balanced one-cycle $Z$.
+$D_\psi Z$ is supported in $K$, since the test is zero on its open
+complement. Its total variation is at most
+$L_\psi=2M/(\epsilon\eta_\psi)$, from the two positive auxiliary
+mixed measures of mass $M$. Therefore
+\[
+ |\langle\psi,\MA(\mathbf a)-\MA(\mathbf b)\rangle|
+ \leq L_\psi\sum_i\sup_K|a_i-b_i|.
+\]
+Pass through genuine globally uniform approximants for each of two
+already completed tuples, using S272's completion. The same local
+estimate holds on that domain. Controlled-support density of compact
+rational PA tests, proved in S272 by rational norm bumps, and common
+mass $M$ give vague convergence. Equation~\eqref{grantedmoment}
+provides tightness for \emph{all} tuples of the fixed-bound family,
+before weak convergence is invoked. Compact cutoffs at $H_0=T$
+then give convergence against each fixed $C_b$ test. No entire-domain
+weak or BL modulus is asserted.
+
+For envelopes, Lemma~\ref{tree} gives local convergence and R230
+gives the common relative bound from the obstacle norms. The gaps
+$g_n=P_\gamma(u_n)-\gamma-u_n$ are bounded by $2C$ and converge
+locally uniformly. On a fixed compact cutoff, local gap convergence
+and vague measure convergence pass their integrals. Outside its
+height sublevel, the two tails are bounded by $4CK_C/T$. Increase
+$T$ to pass the full raw contact integrals. Every measure used in
+this paragraph has its explicitly assumed genuine domain antecedent.
+\end{proof}
+
+\section{All continuous affine contact}
+\begin{theorem}\label{affinecontact}
+On a complete rational affine $d$-plane with constant weight $c>0$
+and any actual real PA PC positive-growth reference on rational geometry,
+\emph{every} $u\in C_b$ has $P_\gamma(u)\in\D$, a genuine finite
+positive raw measure, and
+\[
+ \int\bigl(P_\gamma(u)-(\gamma+u)\bigr)\MA(P_\gamma(u))=0.
+\]
+This includes non-PA obstacles and non-PA endpoints.
+\end{theorem}
+\begin{proof}
+R230 gives a continuous convex envelope boundedly relative to
+$\gamma$. Theorem~\ref{affinedensity} proves its genuine global
+regularization, before the S272 operator is applied.
+
+Choose compact cutoffs $\chi_n$ equal to one on an increasing
+exhaustion and multiply $u$ by them. The compact rational PA bump
+approximation gives rational-affine compactly supported obstacles
+$u_n$ with $\|u_n\|_\infty\leq\|u\|_\infty+1/n$ and
+$u_n\to u$ locally uniformly. For completeness, for a compact
+nonnegative continuous test take a fine rational net of its support,
+rational sampled heights, and finite bumps
+$(b_j-L\rho(x-v_j))_+$ with integer $L$ chosen at its continuity
+scale. Their maximum approximates it uniformly, has rational affine
+data and compact support. Apply separately to positive and negative
+parts; their difference retains the stated common norm after choosing
+the error small enough. No density in all $C_b$ in the global norm
+is claimed.
+
+Each actual envelope of $u_n$ is finite rational-geometry real PA by
+Lemma~\ref{finiteenvelope}, and has zero integral by
+Proposition~\ref{finitecontact}. The limiting envelope and all those
+endpoints have independently established membership in $\D$.
+Lemmas~\ref{tree}--\ref{localma} therefore pass the exact contact
+integrals to the limit. The weight $c$ is retained in the actual
+raw recursion throughout; no Alexandrov operator is substituted.
+\end{proof}
+
+\section{A transverse-line structural obstruction}
+\begin{lemma}\label{detmass}
+On a saturated complete $d$-plane $Q$ with weight $c$, let
+$h=\sum_{j=1}^d|\ell_j|$ for rational linear forms, and let $A$
+be their restriction matrix in a lattice basis of $Q$. Then
+\[
+             (D_h^d c[Q])\{0\}=c\,2^d d!|\det A|.
+\]
+If $A$ is singular the right side and the raw top cycle are zero.
+\end{lemma}
+\begin{proof}
+For one rational form on a saturated plane, opposite primitive inward
+normals give divisor twice its positive primitive evaluation on its
+kernel plane. Rational scaling reduces this statement to an integral
+form. The Euclidean algorithm on the integer row evaluations changes
+a lattice basis until the row is $(g,0,\ldots,0)$, where $g$ is their
+positive gcd; this constructs the saturated kernel basis and primitive
+complement used here. Repeating the \emph{same} factor gives zero since it vanishes
+on that kernel. If the forms are independent, successively intersect
+their saturated kernels. A basis of each kernel followed by a primitive
+complement is a lattice basis of the preceding lattice. In the resulting
+nested bases the restriction matrix is triangular; its positive diagonal
+evaluations multiply to $|\det A|$. Thus each ordered product using
+all $d$ distinct factors gives $2^d|\det A|\delta_0$. All terms with
+repeated indices are zero. Raw commutativity and expansion of the sum
+give $d!$ surviving permutations. If the matrix is singular, the germ
+has nonzero rational common lineality, and the no-vertex argument of
+Lemma~\ref{flatline} gives zero. Constants and weights do not alter
+these primitive index calculations. The factorial is derived from the
+expansion, not appended to the operator.
+\end{proof}
+
+\begin{theorem}\label{transverse}
+Let $v$ be a rational point of a finite embedded positive balanced
+$d$-space. Suppose its weighted tangent cycle $C_v$ contains a full
+rational linear $d$-plane subcycle: for some $c>0$,
+$C_v-c[Q]$ is nonnegative and balanced. Suppose its tangent support
+contains a two-sided rational line $L$ with $L\cap Q=\{0\}$.
+Then every actual real PA PC positive-growth reference on $X$ has a
+bounded real PA obstacle whose actual envelope is genuine finite relative
+PA and whose raw contact integral is strictly negative.
+\end{theorem}
+\begin{proof}
+Choose a saturated basis of $Q$. Rational linear algebra extends its
+dual coordinate forms to ambient rational $\ell_1,\ldots,\ell_d$
+vanishing on $L$, since $Q\cap L=0$. Set $h=\sum|\ell_j|$ on the
+tangent support. It is ambient convex, homogeneous, rational PA on
+a finite rational hyperplane refinement, and hence PC. It vanishes
+on both rational directions of $L$, giving a legal flat PCC at zero.
+The ray endpoints and center become incident faces after rational
+refinement; zero coefficients are discarded.
+
+Cycle linearity and nonnegative recursive intersection give
+\[
+ m_0(h;C_v)=m_0(h;c[Q])+m_0(h;C_v-c[Q])
+                       \geq c\,2^d d!>0,
+\]
+where Lemma~\ref{detmass} uses the identity restriction matrix on $Q$.
+The residual cycle may have zero weights and remains balanced at every
+step; positivity follows from the ambient supports of $h$.
+
+S272's granted actual-reference rational-jet realization now applies
+to precisely this rational PC germ and this finite rational tangent
+refinement. It gives an actual global relative real PA PC $F$ with
+germ $C+t+\delta h$ at $v$, $\delta>0$ rational. Its raw atom is
+$\delta^d m_0(h)>0$ and its flat relation is preserved, because
+all rational reference summands receive the \emph{same} inserted germ.
+This is not addition of an unrelated reference germ.
+The granted PA roof theorem applies to $F-\gamma\in\PA_{\R,b}$:
+for a sufficiently small rational $R$, set
+$u=F-\gamma+(R-\rho(x-v))_+$. The actual unrestricted envelope is
+$F$ and its integral is exactly $-R\delta^d m_0(h)<0$. Briefly, the
+flat boundary relation bounds every competitor at $v$; radial chords
+bound it at rational interior points, shrinking rational simplices
+bound it at all real points, and outside the roof the obstacle is
+already $F$. Only $v$ has mass in the roof. Thus the witness is
+measured at an actual finite PA endpoint, independently of any
+unproved all-obstacle membership claim.
+\end{proof}
+
+\section{An all-obstacle classification for affine arrangements}
+\begin{theorem}\label{arrangement}
+Let $X=\bigcup_{i=1}^s Q_i\subset N_\R$ be a finite union of distinct
+rational affine $d$-planes, and give it the cycle
+$[X]=\sum_i c_i[Q_i]$, $c_i>0$, using saturated lattices. Let the
+actual $\gamma\in\PA_\R(X)\cap\PC$ be positive at infinity.
+The following are equivalent:
+\begin{enumerate}
+\item For every bounded continuous obstacle, the actual envelope is
+globally real regularizable and its genuine raw contact integral is zero.
+\item The distinct affine planes $Q_i$ are pairwise disjoint.
+\end{enumerate}
+If (2) fails, a bounded real PA obstacle already has a finite relative
+real PA envelope with negative integral for this actual reference.
+\end{theorem}
+\begin{proof}
+The finite union admits a rational complex by an ambient rational
+hyperplane arrangement. Each plane cycle is balanced; overlaps of
+distinct planes are lower dimensional and cycle addition gives the
+specified strictly positive top weights.
+
+If two planes intersect, their rational affine equations have a rational
+solution $v$. Their distinct tangent $d$-planes $Q,Q'$ have a rational
+vector $a\in Q'\setminus Q$. Its full line $L=\R a$ is contained
+in the tangent support and is disjoint from $Q$ away from zero.
+At $v$ the weighted tangent cycle is the sum of all planes containing
+$v$. It contains $c_i[Q]$ with effective balanced residual.
+Theorem~\ref{transverse} gives the required actual-reference witness,
+so (1) fails.
+
+If all planes are disjoint, their finite family has positive mutual
+distances: the difference of two affine subspaces is an affine subspace,
+closed in finite dimension, whose distance from zero is positive if
+it does not contain zero. Each plane is therefore an open and closed
+component. Every polyhedral cell is connected and confined to one
+component; incidence of a center face and its endpoint cells confines
+every legal PCC to that component. The unrestricted envelope is the
+componentwise envelope. The actual reference restricts to a complete
+affine reference with the same coefficient and positive-growth
+hypotheses. Theorem~\ref{affinecontact} applies to every component.
+Finitely many global approximating sequences can be synchronized on
+common rational refinements, with the maximum of their global errors,
+giving genuine global regularization on $X$. Raw locality and cycle
+addition identify its measure with the component measures. Their
+finite sum has zero contact integral. This proves (1).
+\end{proof}
+
+At an intersection point the obstruction has an exact local formula.
+For any choice of the above $\ell_j$, in saturated bases of the
+planes through $v$ let $A_i$ be their restriction matrices. Then
+\[
+ m_0(h)=2^d d!\sum_{i:v\in Q_i}c_i|\det A_i|,
+\]
+where singular matrices contribute zero. At least the chosen identity
+matrix contributes $c_i$. This supplies a finite determinant certificate,
+without an all-refinement search. The theorem is a classification of
+this geometric sector, not of every balanced polyhedral pair.
+
+\section{Literal scope, unresolved original scope, and evidence}
+In positive dimension these embedded arrangements are noncompact.
+For a literal positive-growth reference, S262's granted noncompact
+literal obstruction excludes the all-literal-obstacle regularity
+antecedent, including on a single affine component. The real
+regularization above therefore makes no literal conclusion. Dimension
+zero is the separate granted pointwise envelope and zero-fold measure
+case. Abstract compact spaces with local charts, glued singular spaces,
+and their global transitions are outside the affine-arrangement theorem.
+No claim concerning their regularization follows from an embedded proof.
+
+General higher-dimensional singular spaces still lack all-obstacle
+envelope-domain membership, non-PA contact sufficiency from a necessary
+geometric criterion, and a full reduction of all rational tangent
+refinements. The transverse-line theorem excludes a broad explicitly
+testable geometry but does not characterize its complement. The
+all-continuous affine proof and the arrangement classification solve
+these missing steps only in the stated sector. Original P05.2 remains
+OPEN and candidate=false.
+
+The exact-fraction program \texttt{check\_continuation282.py} checks
+the determinant/index formulas and the primal roof construction on
+specified rational sample sets, including a genuinely non-PA convex
+function $\sum\sqrt{x_j^2+1}$ boundedly relative to $\sum|x_j|$.
+Its conjugate is $-\sum\sqrt{1-p_j^2}$ on $[-1,1]^d$; the program's
+finite tests use rational Pythagorean samples, not floating claims of
+uniform error. The continuum error proof is the compact dual argument
+above. To check this additional example, in one dimension the second
+derivative is $(1+x^2)^{-3/2}>0$ and
+$0<\sqrt{1+x^2}-|x|\leq1$. Maximizing
+$px-\sqrt{1+x^2}$ for $|p|<1$ gives
+$x=p/\sqrt{1-p^2}$ and value $-\sqrt{1-p^2}$;
+at $p=\pm1$ the supremum is zero, and outside this interval it is
+infinite. Independent coordinate maximization gives the displayed
+sum formula. Finite rows, source bytes and TeX compilation are reproducibility
+evidence only, not mathematical acceptance. There is no heavy compute
+or supervised compute requirement for these small exact checks.
+
+All mathematical packet bodies and clarifications were read in bounded
+chunks and their actual bytes match the immutable bindings. Four
+original primary byte streams were hashed. Only pertinent whole proof
+units were applied, as recorded in the quote-free source ledger; full
+third-party extracts stay under LOCALONLY. Ordinary convex support,
+polytope boundary continuity, sample approximation, closed epigraph
+generation, and determinant calibration are reconstructed here.
+Recursive foundations of the five grants are used as grants rather
+than claimed freshly re-proved in their entirety. No automatic
+rational-endpoint continuity, broad literal density, AR10 delegation,
+toric comparison or analytic Monge--Ampere theorem is imported.
+
+Rerun locally, without installation or shell escape:
+\begin{verbatim}
+python audit_inputs.py
+python check_continuation282.py
+pandoc -f latex -t markdown P05.2-paper.tex -o argument.md
+pdflatex -no-shell-escape -interaction=nonstopmode -halt-on-error P05.2-paper.tex
+pdflatex -no-shell-escape -interaction=nonstopmode -halt-on-error P05.2-paper.tex
+python make_notes.py
+\end{verbatim}
+This continuation changes no source, prior verdict, editor, runtime,
+network or account configuration. No nested agent/provider was used.
+
+\begin{thebibliography}{7}
+\bibitem{BMPS} A. M. Botero, E. Mazzon, L. Pille--Schneider,
+\emph{Monge--Ampere measures on balanced polyhedral spaces},
+arXiv:2603.08664v1, submitted 9 March 2026, manuscript 10 March 2026.
+\url{https://arxiv.org/pdf/2603.08664v1}.
+\bibitem{BBGS} A. M. Botero, J. I. Burgos Gil, M. Sombra,
+\emph{Convex analysis on polyhedral spaces}, Math. Z. 301 (2022),
+1631--1674, publisher version, 24 January 2022.
+\url{https://link.springer.com/content/pdf/10.1007/s00209-021-02869-6.pdf}.
+\bibitem{A} Complete supplied A224 and every clarification.
+\bibitem{B} Complete supplied B225 and every clarification.
+\bibitem{R} Complete supplied R230 and every clarification.
+\bibitem{S262} Complete supplied S262 and every clarification.
+\bibitem{S272} Complete supplied S272 and every clarification;
+ROOT mathematical PASS and native210 overall evidence INCONCLUSIVE
+retain their distinct recorded meanings.
+\end{thebibliography}
+\end{document}

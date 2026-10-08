@@ -1,0 +1,867 @@
+# Original category, coefficients and the property being classified
+
+The full supplied `original-task.json`, including its 55,562-character
+problem and controlling family dossier, fixes BMPS arXiv:2603.08664v1
+throughout. Definitions 2.1--2.4 define finite rational complexes
+containing every closed face, with support in one lattice vector space.
+Definition 2.27 specifies a pure-dimensional strictly positive balanced
+top cycle. The dossier supplies no replacement definition by an atlas.
+Bounded skeletons and analytic compactifications in its comparison
+discussion are different objects. We use this exact finite globally
+embedded category; abstract charts and compactifications are not
+silently included. The accepted O323 category decision has both
+mandatory annotations and the review binding.
+
+Let $N$ be a lattice, $V=N\otimes\mathbb R$, and $X=|\Pi|\subset V$ the
+support of a finite pure $d$-complex with all closed faces. For a
+nonempty face $c$ put $$N_c=N\cap\operatorname{span}_\mathbb R(c-c).$$
+These lattices are saturated. The actual positive top weights $w_\sigma$
+satisfy, at every facet $\tau$, including any possible boundary,
+$$\sum_{\sigma\succ\tau}w_\sigma n_{\sigma/\tau}\in N_{\tau,\mathbb R},             \tag{1.1}$$
+where $n_{\sigma/\tau}\in N_\sigma$ is an inward primitive quotient
+lift. Formal BMPS weights are rational (Definition 2.19). We separately
+include the stipulated positive-real balanced extension. The
+real/signed/zero recursion and its completion in that extension are the
+qualified S272 premise, not an inference from a rational-only theorem.
+
+A printed legal PCC is $y=\sum_i\alpha_i y_i$, $\alpha_i\geq0$,
+$\sum_i\alpha_i=1$, with rational endpoints $y_i\in X\cap N_\mathbb Q$
+and faces $\tau\preceq\sigma_i$ in some rational structure on $X$, such
+that $y\in\tau$, $y_i\in\sigma_i$. The center and coefficients may be
+real. No minimality of $\tau$ is required. A finite-valued function is
+printed PC if it satisfies every associated Jensen inequality. This
+class contains discontinuous downward modifications at irrational
+points. We never invoke automatic continuity of all its members.
+
+Literal $\operatorname{PA}_\mathbb Z$ means continuous finite
+rational-carrier PA functions with integral intrinsic slopes and
+rational constants in rational affine coordinates. Genuine
+$\operatorname{PA}_\mathbb R$ is its finite real scalar extension on a
+common finite rational carrier. Matching real affine tuples on rational
+geometry are exactly this extension, as proved below. Arbitrary maxima
+with irrational comparison walls are not admitted merely because their
+pieces have real coefficients. In a fixed branch, the actual admitted
+reference $\gamma$ is PA, continuous printed PC and positive on every
+nonzero recession direction of each reference-affine cell. Its
+coefficients and recession are never replaced.
+
+For $u\in C_b(X)$ write $q=\gamma+u$ and define the actual unrestricted
+upper-only envelope
+$$E_\gamma(u)(x)=\sup\{f(x): f\in\operatorname{PC}_q,\ f\leq q,\ f\leq\gamma+C_f
+                  \text{ on }X\text{ for some real }C_f\}.             \tag{1.2}$$
+Let $\mathcal A_\mathbb R(\gamma)$ be genuine finite real PA PC
+functions boundedly relative to $\gamma$. The genuine completed domain
+$\mathcal D_\mathbb R(\gamma)$ is their uniform closure, equivalently
+their decreasing uniform regularization; explicit strict shifts will be
+supplied at new endpoints. No measure is assigned merely because a
+function is continuous PC.
+
+The real property $\mathcal O_b(X,w,\gamma)$ is: for every
+$u\in C_b(X)$, $e=E_\gamma(u)\in\mathcal D_\mathbb R(\gamma)$, and with
+the qualified raw completed measure,
+$$\int_X(e-q)\operatorname{MA}_{\rm poly}(e)=0.                                          \tag{1.3}$$
+The finite-PA version $\mathcal O_{\rm PA}$ restricts $u$ to bounded
+genuine $\operatorname{PA}_\mathbb R$. Both include their domain
+antecedent. The literal property uses the literal completed domain
+instead. The universal property concerns the pair and its actual cycle
+and reference, not an abstract support without weights.
+
+# Finite geometric coefficient rows
+
+Every nonempty rational cell has a finite representation
+$$c=\operatorname{conv}V_c+\operatorname{cone}R_c,                                               \tag{2.1}$$
+with rational point and ray lists, including both signs for lineality.
+Here and below lists may be redundant. For clarity the elementary
+foundations are as follows. A nonnegative representation in finitely
+many vectors can be reduced to independent active columns by subtracting
+a signed dependence until one coefficient vanishes. The finitely many
+independent inverse maps bound the coefficient sums. This proves
+closedness of a finite cone. For an inequality cone, remove its rational
+lineality; the sum of its nonnegative defining rows is strictly positive
+on the remaining cone away from zero. Its section at one is bounded,
+since otherwise normalization gives a nonzero joint-kernel vector. Move
+in both signs in the kernel of active rows at a nonvertex of this
+bounded section; each endpoint adds an independent active row. Induction
+expresses every point as a convex combination of the finitely many
+rational vertices. Homogenizing cell inequalities yields (2.1),
+including relative affine hulls. Eliminating representation variables by
+pairing lower and upper bounds proves that finite hull/cone descriptions
+and their projections are polyhedra. Finite rational wall arrangements
+give common refinements.
+
+Fix any finite rational common refinement $\mathcal C$ of $\Pi$, the
+actual reference carrier and the obstacle carrier. On its cells, use
+intrinsic affine tuples $p_c$ and set $h=p-\gamma$. Matching on a common
+face is tested on a rational affine basis of that face. These are
+rational homogeneous equations in affine coefficients. Boundedness of
+$h$ is exactly its zero slope on every $r\in R_c$. The real kernel of
+these rational equations has a rational basis. Clearing denominators in
+each basis tuple makes its intrinsic slopes integral and leaves its
+constants rational. Thus every matching tuple is a finite real linear
+combination of literal PA tuples. In particular no irrational spatial
+wall is introduced. For bounded matching $h$,
+$$\|h\|_\infty=\max_{c,v\in V_c}|h(v)|.                         \tag{2.2}$$
+This follows by the point/ray representation and vanishing recession
+slopes.
+
+The following are the actual PC rows, not a PC oracle. For every
+original face $\tau\in\Pi$ and every carrier face $\rho\in\mathcal C$
+contained in $\tau$, introduce *one ambient affine*
+$s_{\tau\rho}(x)=a_{\tau\rho}(x)+b_{\tau\rho}$. Require:
+
+1.  $s_{\tau\rho}=p$ on $V_\rho$, and equality of slopes on $R_\rho$;
+
+2.  for *every* original top cell $\sigma\succeq\tau$ and *every*
+    $c\in\mathcal C$ contained in $\sigma$,
+    $$s_{\tau\rho}(v)\leq p_c(v)\quad(v\in V_c),\qquad
+     a_{\tau\rho}(r)\leq p_{c,\rm lin}(r)\quad(r\in R_c).                 \tag{2.3}$$
+
+These rows control whole incident original cells, including unbounded
+parts and all inherited faces. Their single ambient covector retains all
+dependent directions and extra span intersections. Top cells also count
+as original faces. In coordinates $z$ for bounded matching $h$ and $b$
+for all supports these are finite
+$$A_\mathcal C z+N_\mathcal C b\leq d_\mathcal C,          \tag{2.4}$$
+where the left matrices are rational and the right side contains the
+actual real reference values/slopes.
+
+::: {#l:rows .lemma}
+**Lemma 1** (Exact fixed-carrier feasibility). *For bounded matching
+real tuples, feasibility of (2.3) is equivalent to printed PC, and hence
+to source finite PAPC in the qualified real convention. It is exact for
+all printed structures, not just tests on $\mathcal C$.*
+:::
+
+::: proof
+*Proof.* The fixed-carrier theorem and local-cycle equivalence of
+qualified O323 apply: finite embedded rational geometry, all closed
+faces, strictly positive actual balanced weights, continuous real
+matching tuples boundedly relative to the actual admitted reference are
+exactly its hypotheses. Its necessity uses qualified S306 at the
+continuous finite PC tuple, and propagates initial supports by convexity
+along entire original-cell segments; it does not require a new S306
+gluing theorem. All inherited faces and the actual reference refinement
+are present here.
+
+We also give the sufficiency explicitly. The point/ray rows give a
+support equal to $p$ on all of $\rho$ and below it on every entire
+original cell incident to $\tau$. At any real point choose its minimal
+original face and a carrier face containing it and lying in that face.
+Finitely many closed nonincident original cells avoid a neighborhood of
+the point, so this gives a local ambient lower support there. The
+restriction of continuous $p$ to any segment contained in $X$ is convex:
+local supports give local midpoint inequalities. Subtract the endpoint
+chord; if the difference is positive somewhere, adding a sufficiently
+small $\eta t^2$ gives a positive interior maximum, contradicting the
+midpoint inequality by the extra $\eta s^2$ at neighboring symmetric
+parameters. At a printed PCC center, each segment to an endpoint lies in
+its witnessing incident convex cell. The local supporting covector
+bounds the initial segment secant, hence its whole secant by convexity.
+Summing cancels the covector by the barycenter equation. This proves
+every PCC, without coarsening a carrier or inserting an irrational point
+as a rational vertex. ◻
+:::
+
+Support variables can be retained as finite witnesses or eliminated
+exactly: solve equalities or write them as paired inequalities,
+eliminate one real coordinate by pairing every lower bound with every
+upper bound, and retain rows not using that coordinate. A missing side
+adds no condition. The permissible interval is nonempty precisely when
+all these paired inequalities hold. Repeating yields a finite projected
+inequality system. Equivalently O323's finite multipliers characterize
+every valid linear bound on the projection by $A^T\lambda=a$,
+$N^T\lambda=0$, $d^T\lambda\leq t$, $\lambda\geq0$. Its
+nonempty-feasibility hypothesis is met by $p=\gamma$ in the bare PC
+system. No strict feasibility, independent normals or rational
+right-hand side is required.
+
+For the certificate below $p\leq q$ is imposed on every point list of a
+common carrier and on recession slopes. Since $u$ is bounded, $q$ and
+$p$ have precisely the reference recession; the recession inequalities
+are equalities after the bounded-matching rows. The bound
+$|p-\gamma|\leq C+1$ is the finite point condition (2.2). Obstacles
+themselves may be quantified by their finite rational carriers, real
+matching tuples with zero recession slopes, and this same computable
+finite norm; thus the quantifier over $\operatorname{PA}_{\mathbb R,b}$
+hides no envelope.
+
+# Primitive recursion as explicit polynomials
+
+Choose all saturated intrinsic tangent bases and inward primitive lifts
+for the finite common carrier $\mathcal C$. For every facet
+$\tau\prec\sigma$ in every dimension choose a rational linear extension
+$\widetilde p_{\tau,\rm lin}$ to $V$ of the intrinsic derivative on
+$N_{\tau,\mathbb R}$. Such an extension is a fixed rational linear map
+of its coefficient tuple, found by a rational tangent basis and a
+rational complement. Set $c_0(\sigma)=w_\sigma$ on refined top cells
+and, for $j=1,\ldots,d$, $k=d-j+1$, set
+$$c_j(\tau)=\sum_{\substack{\sigma\succ\tau\\\dim\sigma=k}}
+ c_{j-1}(\sigma)
+ \left[p_{\sigma,\rm lin}(n_{\sigma/\tau})-
+       \widetilde p_{\tau,\rm lin}(n_{\sigma/\tau})\right],\quad
+ \dim\tau=k-1.                                                       \tag{3.1}$$
+All signed and zero coefficients are retained. For balanced $c_{j-1}$
+this is exactly
+$$\sum_{\sigma\succ\tau}c_{j-1}(\sigma)p_{\sigma,\rm lin}(n_{\sigma/\tau})
+ -p_{\tau,\rm lin}\!\left(\sum_{\sigma\succ\tau}
+                          c_{j-1}(\sigma)n_{\sigma/\tau}\right).       \tag{3.2}$$
+Changing a lift adds a tangent vector to both terms and cancels by
+matching. Changing the extension cancels since the weighted sum lies in
+the face tangent space. For finite matching PA tuples the recursion
+remains balanced at every step, is refinement independent, and is
+symmetric in distinct factors; actual real/signed/zero coefficients are
+permitted.
+
+Here is the exact source calibration for this new polynomial
+application. Map $x$ to $(x,1)$ to satisfy BBGS's affine-hyperplane
+quasi-embedding convention, with product Euclidean metric. If $a_c$ is
+the Euclidean covolume of $N_c$ ($a_v=1$), a saturated facet basis
+followed by a primitive lift is a basis of $N_\sigma$, so its
+perpendicular height is $a_\sigma/a_\tau$. Thus
+$c(\sigma)n_{\sigma/\tau}$ projected normal equals
+$(a_\sigma/a_\tau)c(\sigma)\nu_{\sigma/\tau}$, and balanced primitive
+cycles correspond to BBGS unit-normal weights $a_\sigma c(\sigma)$. Its
+product by $-p$ is precisely $a_\tau D_pc(\tau)$: balancing cancels the
+common tangent derivative and the minus sign in BBGS Definition 3.9
+cancels $-p$. This conversion applies in *every* recursive dimension
+with its own saturated lattice. BBGS's whole 3.12 proof gives
+subdivision compatibility, whole 3.15 gives commutation, 3.18 and 3.19
+give balanced products for arbitrary real signed weights. In 3.19's
+product proof its printed reference to 3.12 must be 3.15 at the
+commutation step. These units use only the stated real affine functions
+and Euclidean normals; no positivity or integral coefficients are
+required for these identities. Their immediate linear algebra proofs
+were checked. This is also the finite raw package in qualified S272.
+BMPS delegated AR10 commutation is not used as a further grant.
+
+Writing (3.1) as $c_j=D^{(k)}(z)c_{j-1}$ shows explicitly that each top
+atom $$m_{\mathcal C,v}(z)=c_d(v)                  \tag{3.3}$$ is a
+degree-$d$ polynomial in affine slopes, linear in the *actual real* top
+weights, with rational coefficients in intrinsic rational coordinates.
+Affine constants do not enter (3.1). For PC tuples, positivity follows
+by subtracting an ambient common support in (3.2): every residual inward
+derivative is nonnegative against a nonnegative balanced cycle. It
+therefore holds through all stages. On arbitrary tuples the polynomial
+is still computed with its full signed/zero stages; no clipping is
+permitted. On PA PC functions $\sum_v m_v\delta_v$ is the genuine finite
+raw measure. Artificial subdivision vertices have zero weight unless
+carrying a genuine atom, by the subdivision identity.
+
+The normalization contains no extra factorial. For $p=A|x|+B|y|$ on the
+saturated plane of weight $w$, the first divisor has weights $2Bw$ on
+the two horizontal rays and $2Aw$ on the two vertical rays. The second
+gives $8ABw\delta_0=2^2\,2!\,ABw\delta_0$. The $2!$ is produced by the
+two surviving orders in the raw expansion, not appended. For a
+one-dimensional ray of primitive direction $n$ with slope $a(n)$ the
+vertex contribution is exactly its weight times that slope. These checks
+exclude an Alexandrov, inverse, Euclidean-unit or Minkowski-volume
+substitution for (3.1).
+
+# Finite legal trees identify the unrestricted envelope first
+
+::: definition
+**Definition 2** (Geometrically legal finite tree). *A tree has finitely
+many nodes and a root labeled $x\in X$. Each internal node carries a
+printed legal PCC as defined in Section 1: the parent is its center, its
+children are its rational endpoints, with their real weights and a
+finite rational witnessing structure and incident faces. Different nodes
+may have different witnessing structures. A leaf may be any point, in
+particular a real unsplit root. Delete zero-weight children and their
+subtrees; repeated endpoints remain separate occurrences. Unary no-op
+splits are allowed but unnecessary. The node weight $\pi_a$ is the
+product of weights along its path; leaf weights sum to one. The $q$-cost
+is $\sum_{a\,\rm leaf}\pi_a q(x_a)$.*
+:::
+
+Deleting zero terms preserves legality using the same faces. Conversely
+padding zero terms adds nothing, so the definition exactly represents
+the printed weak convention. We do not presume that a structure remains
+a legal witness after a common refinement: keeping the original witness
+at each node avoids that error. A global barycenter equation for the
+terminal distribution alone is not sufficient for legality.
+
+::: {#t:tree .theorem}
+**Theorem 3** (Tree envelope identity without density or an operator).
+*For every continuous bounded $u$, indeed whenever $|u|\leq C$ is
+finite-valued, the infimum of finite legal $q$-tree costs at $x$ is
+exactly the actual unrestricted envelope (1.2). Its bounds are
+$\gamma-C\leq e\leq q\leq\gamma+C$. For continuous $u$ this endpoint is
+continuous and satisfies real-endpoint PCC inequalities, by qualified
+R230. No intermediate tree or Bellman iterate is measured.*
+:::
+
+::: proof
+*Proof.* Let $F(x)$ be that infimum. Jensen for the actual PC reference,
+iterated down a finite tree, gives $\sum\pi_a\gamma(x_a)\geq\gamma(x)$.
+Since leaf weights sum to one, every cost is at least $\gamma(x)-C$. The
+single-leaf tree gives $F(x)\leq q(x)$.
+
+Every finite-valued raw PC competitor $f$ in (1.2), including
+discontinuous ones with only upper growth, is at most every tree cost by
+finite repeated Jensen and $f\leq q$ at leaves. Hence $e\leq F$ without
+completing $f$ or assuming a lower bound for it.
+
+For any fixed legal split at $x$, choose at each positive-weight child a
+finite tree with cost within $\eta$ of its finite infimum $F(x_i)$.
+Graft these finitely many trees. The new cost is at most
+$\sum_i\alpha_i F(x_i)+\eta$. Let $\eta\downarrow0$ to get
+$F(x)\leq\sum_i\alpha_i F(x_i)$. Thus $F$ is finite-valued printed PC on
+*every* legal witnessing structure. Its sandwich supplies the
+upper-growth condition, so it is itself an original competitor.
+Therefore $F\leq e$ and equality holds.
+
+Only now apply R230's actual all-$C_b$ envelope theorem. Its finite
+positive balanced embedded hypotheses, continuous PC actual $\gamma$ and
+bounded continuous $u$ all hold. It supplies continuity and
+real-endpoint inequalities, without PA density. The infimum over finite
+real-endpoint legal trees would give the same value: $e\leq q$ and its
+real Jensen inequalities bound it by each such tree, while printed trees
+are a subfamily. This comparison does not alter the printed raw
+competitor definition. ◻
+:::
+
+The telescoping cost identity
+$$\sum_{a\,\rm leaf}\pi_a\gamma(x_a)-\gamma(x)
+ =\sum_{b\,\rm internal}\pi_b
+       \left(\sum_i\alpha_{bi}\gamma(x_{bi})-\gamma(x_b)\right)         \tag{4.1}$$
+retains every nonzero reference cost. Each term is nonnegative. Thus
+actual reference geometry has not been replaced by an uncosted
+homogeneous relation. Finite-depth Bellman infima are an optional
+description of this proof, but are never assigned measures.
+
+# The input-only certificate and finite-PA equivalence
+
+::: {#d:certificate .definition}
+**Definition 4** (Carrier--tree--raw certificate $\mathfrak T$). *The
+admitted real pair satisfies $\mathfrak T(X,w,\gamma)$ if for *every*
+bounded matching genuine finite rational-carrier real-PA obstacle tuple
+$u$, putting $q=\gamma+u$ and $C=\|u\|_\infty$, and every real
+$0<\varepsilon<1$, there exist a finite rational common carrier
+$\mathcal C$ and actual real matching coefficients $p$ and support
+witnesses such that:*
+
+1.  *the zero-recession matching equations and all
+    entire-incident-original-cell rows (2.3) hold;*
+
+2.  *the finite point/ray inequalities give $p\leq q$ globally and
+    $|p-\gamma|\leq C+1$;*
+
+3.  **every* real $x\in X$ has a *finite geometrically legal printed
+    tree* of $q$-cost at most $p(x)+\varepsilon$;*
+
+4.  *with the full primitive polynomial recursion (3.1),
+    $$0\leq G_{\mathcal C}(q,p):=
+              \sum_{v\in\mathcal C(0)}(q(v)-p(v))m_{\mathcal C,v}(p)
+                             \leq\varepsilon.                            \tag{5.1}$$*
+:::
+
+The certificate is entirely input-based: finite rational
+equations/inequalities and incident cells, actual reference and obstacle
+coefficients, geometric PCC equalities with finite rational witnesses,
+and explicit finite polynomials. Items 1,2,4 are finite algebra for each
+proposed carrier. Item 3 is universal over roots with individual finite
+witnesses; its depth, locations and weights need not be uniformly
+bounded. The criterion quantifies all carriers and all obstacle tuples,
+not just fans, separable obstacles, affine arrangements or a chosen
+gluing presentation. It does not assert an effective oracle for
+arbitrary real numbers.
+
+::: {#t:pa .theorem}
+**Theorem 5** (Exact finite-PA classification). *For every admitted real
+pair in Section 1, $\mathfrak T$ is equivalent to $\mathcal O_{\rm PA}$.
+All PA endpoints obtained from a successful certificate have explicit
+strict-decreasing genuine PA PC global majorants, one relative bound and
+the actual recession, before any completed measure is applied.*
+:::
+
+::: proof
+*Proof.* Assume $\mathcal O_{\rm PA}$ and fix $q$, $C$, $\varepsilon$.
+Its actual endpoint $e\in\mathcal D_\mathbb R(\gamma)$ has genuine
+relative PA PC approximants $a_n$ with global errors at most
+$\eta_n\downarrow0$. Choose positive rational error bounds $\eta_n$ and
+put $p_n=a_n-\eta_n$. Then
+$$p_n\leq e\leq q,\quad 0\leq e-p_n\leq2\eta_n,\quad
+    |p_n-\gamma|\leq C+2\eta_n.                                     \tag{5.2}$$
+Real constant shifts on rational geometry are genuine real PA; they do
+not introduce comparison walls. Choose finite common rational carriers.
+Lemma [1](#l:rows){reference-type="ref" reference="l:rows"} provides all
+exact PC rows. Once $2\eta_n<\min(1,\varepsilon)$, every $x$ has a
+finite tree of cost less than $e(x)+(\varepsilon-2\eta_n)$ by
+Theorem [3](#t:tree){reference-type="ref" reference="t:tree"}, hence at
+most $p_n(x)+\varepsilon$.
+
+S272's actual-reference completed raw operator applies because
+$e\in\mathcal D_\mathbb R(\gamma)$ by the assumed domain, and each $p_n$
+is finite genuine relative PA PC. This sequence and its limit have one
+relative bound $C+1$ for large $n$. Its ordinary weak $C_b$ continuity
+gives
+$\operatorname{MA}_{\rm poly}(p_n)\to\operatorname{MA}_{\rm poly}(e)$,
+all of mass $M=\int\operatorname{MA}_{\rm poly}(\gamma)$. The fixed
+continuous test $q-e$ is bounded and nonnegative. The difference of the
+variable test $q-p_n$ from it has global norm at most $2\eta_n$, so
+$$G(q,p_n)\longrightarrow\int(q-e)\operatorname{MA}_{\rm poly}(e)=0.                          \tag{5.3}$$
+The first equality is finite raw recursion, not a different measure.
+Taking sufficiently large $n$ meets item 4 as well. No attainment of a
+tree infimum is asserted.
+
+Conversely assume $\mathfrak T$. Use $\varepsilon_n=2^{-n}$, $n\geq1$,
+and its witnesses $p_n$. Their finite rows make them genuine PA PC
+functions. Since they are original competitors, $p_n\leq e$. Their tree
+witnesses and Theorem [3](#t:tree){reference-type="ref"
+reference="t:tree"} give
+$$0\leq e-p_n\leq\varepsilon_n.              \tag{5.4}$$ Before
+constructing any measure at $e$, set $g_n=p_n+4\varepsilon_n$. These are
+genuine finite rational-carrier real-PA PC functions, with
+$$3\varepsilon_n\leq g_n-e\leq4\varepsilon_n,\qquad
+ g_n-g_{n+1}\geq3\varepsilon_n-4\varepsilon_{n+1}
+                       =\varepsilon_n>0.                            \tag{5.5}$$
+Their relative bounds are at most $C+3$ and they converge globally
+uniformly to $e$. This is an actual strict-decreasing regularization.
+Each $p_n,g_n$ has precisely $\gamma$'s recession on its common carrier
+because its bounded perturbation slopes vanish on every recession
+generator; no single finite carrier for the whole sequence is asserted.
+Thus $e\in\mathcal D_\mathbb R(\gamma)$ independently of any measure
+limit.
+
+Now, and only now, apply S272: $p_n\to e$ uniformly in its genuine
+completed domain with one relative bound. The nonnegative bounded gaps
+$q-p_n$ converge uniformly to $q-e$. As in (5.3), fixed-$C$ weak
+continuity and mass $M$ pass their finite polynomial integrals. Item 4
+gives the limit zero, proving the exact sign-reversed identity (1.3).
+This proves both directions even when $e$ is not PA or $M=0$. Zero mass
+alone would not supply the domain proof (5.5). ◻
+:::
+
+# Independent all-continuous endpoint antecedents
+
+::: {#l:domain .lemma}
+**Lemma 6** (The regularity bridge applied at its exact scope). *If
+$\mathfrak T$ holds, every $u\in C_b(X)$ has
+$E_\gamma(u)\in\mathcal D_\mathbb R(\gamma)$ with one relative bound and
+strict-decreasing global rational-carrier real-PA PC approximants. This
+statement precedes the all-continuous contact limit.*
+:::
+
+::: proof
+*Proof.* Theorem [5](#t:pa){reference-type="ref" reference="t:pa"} gives
+the original endpoint regularity property for *all* bounded genuine
+real-PA obstacles. Apply O323's accepted
+finite-PA-obstacle-to-continuous-relative-PC density bridge and its
+all-$C_b$ conclusion. The hypotheses are exactly ours: finite rational
+globally embedded pure support with every closed face, strictly positive
+actual balanced weights at all facets, actual genuine real PA continuous
+PC reference positive on each nonzero recession direction. Multiple
+overlaps, incidence loops and dependence relations are allowed by that
+theorem's all-carrier matrices. We use both mandatory annotations; no
+full-dual cone is replaced by Radon measures, and no missing S307/S298
+body is used.
+
+To state the decisive content rather than an unnamed regularization: for
+a continuous relative-PC $f$, O323's compatible generalized-simplex
+interpolant produces a genuine finite real-PA obstacle roof $q$ with
+$f\leq q\leq f+\eta$ and $q-\gamma$ bounded. The construction uses S306
+roofs separately on entire reference-affine cells, then a common
+rational generalized-simplex subdivision; finite vertex values of $f$
+and actual reference ray slopes match on shared finite faces. The
+interpolant is not asserted PC. Its exact recession preserves the actual
+reference, and it bounds $f$ by ordinary cell convexity and the
+feasible-ray secant inequality. Therefore
+$f\leq E_\gamma(q-\gamma)\leq f+\eta$. The PA-obstacle endpoint property
+and a diagonal uniform approximation give genuine PC PA density for this
+continuous relative class. Qualified R230 first identifies an arbitrary
+continuous-obstacle endpoint $e$ as continuous PC with
+$|e-\gamma|\leq\|u\|_\infty$. Density applies to that $e$. If $a_n$
+approximate it within $\delta_n=2^{-n}$, $a_n+5\delta_n$ have errors in
+$[4\delta_n,6\delta_n]$, and consecutive drop at least $\delta_n$, with
+one relative bound. This supplies actual strict-decreasing sequences for
+every such $e$ without measuring a local limit or assuming uniform PA
+density in arbitrary $C_b(X)$. ◻
+:::
+
+# Compatible bounded local PA approximation and tree tails
+
+::: {#l:bumps .lemma}
+**Lemma 7** (All-$C_b$ approximation with rational matching). *Every
+$u\in C_b(X)$ has compactly supported literal PA functions $u_j$ on
+finite rational geometry such that $\|u_j\|_\infty\leq\|u\|_\infty+1/j$
+and $u_j\to u$ locally uniformly. They are admitted genuine real-PA
+obstacles. They need not be PC. No global uniform approximation of
+arbitrary $C_b$ is asserted.*
+:::
+
+::: proof
+*Proof.* Choose an ambient lattice-coordinate integral polyhedral norm
+$\rho$, for example $\sum|x_i|$. The continuous compact cutoffs
+$\chi_j=\min(1,(j+1-\rho)_+)$ equal one on $\{\rho\leq j\}$ and lie in
+$[0,1]$. Use $f_j=\chi_j u$ only as continuous compact functions; the
+product is not claimed PA.
+
+Here is a full compact-function approximation. A continuous compactly
+supported nonnegative $f$ on the closed support $X$ is uniformly
+continuous in ambient distance: on a sufficiently large compact ball use
+continuity and compactness; outside it $f=0$, and a small distance
+cannot connect that outer region to its support. Put $B=\|f\|_\infty$.
+Given $a>0$, choose $\delta>0$ so $|f(x)-f(y)|<a$ whenever
+$\rho(x-y)<\delta$. Choose a positive integer $L$ with $L\delta>B+a$. A
+sufficiently fine finite net of the compact support can be chosen at
+rational locations $v_i\in X_\mathbb Q$, within distance less than
+$\min(\delta,a/L)$ of every support point. Rational points are dense on
+every rational cell, including all shared faces. Choose nonnegative
+rational heights $b_i$ with $|b_i-f(v_i)|<a$ and $b_i\leq B+a$. Then
+$$F(x)=\max_i(b_i-L\rho(x-v_i))_+                         \tag{7.1}$$
+has compact support. A positive bump has $\rho(x-v_i)<\delta$, so
+$F(x)\leq f(x)+2a$. At every support point use a net point to get
+$F(x)\geq f(x)-3a$. Outside the support the upper estimate and
+nonnegativity suffice. The zero function needs no samples. Each bump has
+integral ambient slopes, rational constants and rational walls; finite
+maxima and positive parts preserve this rational carrier. Its
+restriction to $X$ is continuous and matches on all shared faces
+automatically, since it is one ambient function.
+
+Apply this separately to the positive and negative parts of any
+continuous compact $f$. Their difference has uniform error at most $6a$,
+remains literal PA on a common finite rational arrangement, and has
+compact support. For $f_j$ choose $6a\leq1/j$. Thus the output $u_j$ has
+the stated common norm and local limit. Disconnected components and
+proper cells require no separate trace prescription, and no coefficient
+of $\gamma$ was perturbed. ◻
+:::
+
+::: {#l:tails .lemma}
+**Lemma 8** (Legal-tree tail estimate). *Choose $c$ such that
+$H=\gamma+c\geq0$ is proper. If $\|u\|_\infty,\|v\|_\infty\leq C$, then
+for every $R>0$ and $x\in X$, $$|E_\gamma(u)(x)-E_\gamma(v)(x)|
+ \leq \sup_{\{H\leq R\}}|u-v|+
+                         \frac{2C(H(x)+2C)}{R}.                     \tag{7.2}$$
+Consequently bounded local-uniform obstacle convergence gives
+local-uniform convergence of the actual envelopes.*
+:::
+
+::: proof
+*Proof.* Finite point/ray lists on reference-affine cells and positivity
+of their actual ray slopes imply $\gamma(x)\geq a\|x\|-b$ with $a>0$
+after taking minima over the finite ray lists; cells without rays are
+bounded. Indeed choose $a$ below every positive slope/norm ratio, bound
+the point values below by $a\|v\|-b$, and use the triangle inequality on
+(2.1). Positivity prohibits lineality in a reference-affine cell. Thus
+$\gamma$ is bounded below and proper, giving such $H$.
+
+For a finite tree with cost within $\eta$ of the actual $u$-envelope
+(Theorem [3](#t:tree){reference-type="ref" reference="t:tree"}), let
+$\nu$ be its finite terminal probability measure. This probability is
+just a finite cost distribution, not MA. Since the cost is at most
+$\gamma(x)+C+\eta$ and $u\geq-C$, $$\int H\,d\nu\leq H(x)+2C+\eta,\qquad
+ \nu\{H>R\}\leq\frac{H(x)+2C+\eta}{R}.                            \tag{7.3}$$
+Evaluate the *same legal tree* with obstacle $v$. Its cost changes by at
+most $\sup_{H\leq R}|u-v|+2C\nu\{H>R\}$. Compare to the infimum for $v$,
+let $\eta\downarrow0$, and reverse $u,v$ to get (7.2). On any root
+compact $K$, $H$ is bounded, and $\{H\leq R\}$ is compact. First
+increase $R$, then use local convergence on that sublevel. This
+reconstructs the full S282 tree tail estimate in its stated
+general-space scope; no atom or continuity assertion about intermediate
+tree iterates is involved. ◻
+:::
+
+# Fixed-bound localized completed measure and gap continuity
+
+We specify every operator premise being applied. Qualified S272
+constructs the unique raw real mixed operator on
+$\mathcal D_\mathbb R(\gamma)^d$ for our actual reference and positive
+real weights. It agrees with finite primitive recursion and gives
+positive Radon measures of the common mass $M$. It supplies an actual
+decomposition $\gamma=\gamma'+a\gamma_0$, $a>0$ rational, with
+rational-affine PC positive-growth $\gamma_0$, and a proper height
+$H_0=\gamma_0+c_0\geq0$. Put
+$J_0=\int H_0\operatorname{MA}_{\rm poly}(\gamma)<\infty$. For *every*
+already completed tuple with relative norm at most $C$,
+$$\int H_0\operatorname{MA}_{\rm poly}(\mathbf f)\leq K_C:=\frac{2d}{a}CM+J_0,
+ \qquad\operatorname{MA}_{\rm poly}(\mathbf f)\{H_0>T\}\leq K_C/T.                          \tag{8.1}$$
+The moment bound is available before invoking weak convergence. Globally
+its operator has vague uniform continuity and ordinary weak $C_b$
+continuity; uniform weak/BL continuity is restricted to each fixed-$C$
+family. We make no stronger assertion.
+
+::: {#l:local .lemma}
+**Lemma 9** (Localized continuity on genuine endpoints). *If
+$\mathbf f_j,\mathbf f\in\mathcal D_\mathbb R(\gamma)^d$ converge
+locally uniformly with one common relative bound $C$, their mixed
+measures converge vaguely and weakly against every fixed $C_b$ test. If
+$u_j\to u$ boundedly locally uniformly and *all* actual endpoints
+already belong to $\mathcal D_\mathbb R(\gamma)$, their contact
+integrals converge.*
+:::
+
+::: proof
+*Proof.* For any compact rational PA test $\psi$, with support $K$, S272
+supplies genuine relative real PA PC auxiliaries $\theta_1,\theta_0$
+with $\theta_1-\theta_0=\lambda_\psi\psi$, $\lambda_\psi>0$. This is its
+rational-component test construction for the actual reference, not an
+irrational-wall maximum. For finite PA PC tuples telescope one argument
+at a time. The remaining $d-1$ factors give a positive balanced finite
+one-cycle $Z$. Bounded primitive-edge IBP gives
+$$\langle\psi,D_{f_i-g_i}Z\rangle
+                         =\langle f_i-g_i,D_\psi Z\rangle.$$ Both
+functions in this IBP exchange are bounded: $f_i-g_i$ is a relative
+difference, and $\psi$ is compact. The identity follows edge by edge:
+bounded edges have opposite primitive endpoint directions and their pair
+contribution is the symmetric product of the two value differences
+divided by their positive lattice length; unbounded-edge derivatives of
+both bounded functions vanish. Real and signed weights enter linearly.
+
+$D_\psi Z$ is supported in $K$ because $\psi$ is zero on its open
+complement. Its total variation is at most $2M/\lambda_\psi$, since
+$$D_\psi Z=(D_{\theta_1}Z-D_{\theta_0}Z)/\lambda_\psi$$ is a difference
+of positive genuine mixed measures each of mass $M$. Thus
+$$|\langle\psi,\operatorname{MA}_{\rm poly}(\mathbf f)-\operatorname{MA}_{\rm poly}(\mathbf g)\rangle|
+ \leq L_\psi\sum_i\sup_K|f_i-g_i|,
+                  \qquad L_\psi=2M/\lambda_\psi.                    \tag{8.2}$$
+For any two *already completed* tuples pass (8.2) through their
+separately existing globally uniform PA approximants. S272 gives
+convergence of their measures, and the suprema on $K$ converge. This
+proves (8.2) on the completed domain without defining a measure on a
+Bellman limit.
+
+The compact PA bumps of Lemma [7](#l:bumps){reference-type="ref"
+reference="l:bumps"}, applied to a compact test on all of $X$,
+approximate it globally uniformly with controlled compact supports.
+Common mass $M$ bounds the two test errors by $2M\eta$. Hence (8.2)
+gives vague convergence for locally convergent tuples. For a fixed
+$g\in C_b(X)$ cut off continuously at $H_0\leq T$ with compact support;
+(8.1) bounds each discarded integral by $\|g\|_\infty K_C/T$. Vague
+convergence for the cut-off test and then $T\to\infty$ yield weak
+convergence. This proves only the stated fixed-bound claim.
+
+For the contact integrals, R230 gives $|e_j-\gamma|,|e-\gamma|\leq C$
+when the obstacle norms have a common bound $C$.
+Lemma [8](#l:tails){reference-type="ref" reference="l:tails"} gives
+local envelope convergence. The nonnegative gaps $b_j=\gamma+u_j-e_j$
+and $b=\gamma+u-e$ are bounded by $2C$ and converge locally uniformly.
+Fix a continuous compact cutoff $\zeta_T$ equal to one on
+$\{H_0\leq T\}$ and between zero and one. The difference of the cut-off
+gap integrals is bounded by $M\sup_{\operatorname{supp}\zeta_T}|b_j-b|$
+plus the vague convergence error against the fixed compact continuous
+test $\zeta_T b$. Each omitted gap integral is at most $2C K_C/T$, so
+both tails cost at most $4C K_C/T$. First pass $j$, then increase $T$.
+This proves convergence of the full bounded-gap integrals. Every measure
+has its explicit genuine-domain antecedent. ◻
+:::
+
+::: {#t:all .theorem}
+**Theorem 10** (All-continuous equivalence). *For an admitted actual
+real pair, the following are equivalent:
+$$\mathfrak T\quad\Longleftrightarrow\quad
+                 \mathcal O_{\rm PA}\quad\Longleftrightarrow\quad
+                 \mathcal O_b.                                      \tag{8.3}$$*
+:::
+
+::: proof
+*Proof.* The first equivalence is
+Theorem [5](#t:pa){reference-type="ref" reference="t:pa"};
+$\mathcal O_b$ implies $\mathcal O_{\rm PA}$ directly. Assume
+$\mathfrak T$, and fix arbitrary $u\in C_b$.
+Lemma [6](#l:domain){reference-type="ref" reference="l:domain"} first
+establishes the genuine domain for $e=E_\gamma(u)$ and for all
+endpoints, independently of the coming local limit. Choose the compact
+rational PA obstacles $u_j$ of Lemma [7](#l:bumps){reference-type="ref"
+reference="l:bumps"}, with common norm bound $C=\|u\|_\infty+1$. Their
+actual endpoints are in $\mathcal D_\mathbb R(\gamma)$ and have zero
+integral by Theorem [5](#t:pa){reference-type="ref" reference="t:pa"}.
+Lemmas [8](#l:tails){reference-type="ref" reference="l:tails"} and
+[9](#l:local){reference-type="ref" reference="l:local"}, with (8.1),
+pass these exact zeros to the actual limiting endpoint. This proves
+(1.3) for non-PA obstacles and non-PA endpoints, using local
+approximation and fixed-$C$ tightness rather than nonexistent global PA
+density in $C_b$. ◻
+:::
+
+# Coefficient and dimension cases; consistency consequences
+
+::: {#t:whole .theorem}
+**Theorem 11** (Whole coefficient-separated source-category
+classification). *In the exact original finite embedded category, with
+its stipulated actual positive-real cycle extension:*
+
+1.  *Empty supports satisfy the domain/contact properties vacuously,
+    using the zero measure, the zero-fold convention when $d=0$, and
+    empty integrals.*
+
+2.  *Every dimension-zero admitted pair satisfies both
+    coefficient-branch properties for all bounded continuous obstacles.
+    Its direct zero-fold operator is the given point-weight cycle.*
+
+3.  *Every nonempty positive-dimensional admitted literal pair fails
+    simultaneous universal literal regularized-domain/contact, already
+    at a bounded literal PA obstacle with a nonregularizable actual
+    envelope. No integral of an undefined literal completed measure is
+    asserted.*
+
+4.  *Every nonempty positive-dimensional admitted real pair has the
+    simultaneous property for *all* $C_b$ obstacles if and only if the
+    explicit geometric/algebraic criterion $\mathfrak T$ holds.*
+
+*There are no positive-dimensional compact pairs in this finite globally
+embedded positive-balanced category. This is an infinite
+necessary-and-sufficient classification, not a finite taxonomy or
+universal-real contact theorem.*
+:::
+
+::: proof
+*Proof.* Part 4 is Theorem [10](#t:all){reference-type="ref"
+reference="t:all"}. For $d=0$, the support is a finite set of rational
+points. Any PCC is confined to a singleton because an incident cell is
+that point; thus $e=q$ pointwise. Real PA permits every finite value
+tuple. Literal endpoints for literal obstacles have rational values; for
+arbitrary continuous obstacles, rational value tuples approximate the
+finite vector uniformly. Choose errors at most $\delta_n=2^{-n}$ and add
+$5\delta_n$; errors are in $[4\delta_n,6\delta_n]$ and the strict drop
+is at least $\delta_n$. These are literal genuine decreasing
+approximants, with one relative bound. The zero-fold operator has no
+divisor factors:
+$\operatorname{MA}_{\rm poly}^{(0)}=[X]=\sum_v w_v\delta_v$. Since
+$e-q=0$ everywhere its exact contact integral is zero. Empty supports
+are immediate.
+
+O323's accepted literal theorem supplies for *every*
+positive-dimensional admitted literal pair a true bounded literal
+obstacle and an exact unrestricted endpoint with a positive arithmetic
+distance from all literal PA PC functions. Its exact hypotheses here are
+finite embedded rational geometry, positive balanced top weights and the
+actual admitted literal positive-growth reference. To disclose the
+mechanism: $G=\max(\gamma,A)$ on rational comparison walls and
+$f=(1-1/D)\gamma+(1/D)G$ create a nonintegral derivative on a rational
+tangent segment. Convex secants force every integral-derivative
+approximant to have a positive uniform error floor. A bounded literal
+roof touching $f$ at all finite carrier vertices forces the actual
+unrestricted envelope to equal $f$, using R230's dominating completion
+for raw competitors and their exact actual recession. Hence this is an
+admitted-obstacle endpoint obstruction, not merely a density failure.
+Its conclusion proves part 3 without assigning an undefined measure. A
+literal pair may be separately analyzed after real extension, but that
+is a different branch governed by part 4.
+
+For the category's compact exclusion one can reconstruct O323/B225's
+primitive-covolume argument. Let $a_\sigma$ be the tangent lattice
+covolume. Primitive saturation gives normal height $a_\sigma/a_\tau$, so
+balancing (1.1) becomes $\sum w_\sigma a_\sigma\nu_{\sigma/\tau}=0$ for
+inward unit conormals. Summing the ordinary divergence theorem over all
+top cells yields
+$$\sum_\sigma w_\sigma a_\sigma\int_\sigma\operatorname{div}_\sigma Y=0$$
+for every compactly supported ambient $C^1$ vector field. All genuine
+facet fluxes cancel; lower faces have zero facet volume. If $X$ were
+compact and $d>0$, choose $Y(x)=x$ near it. The equality becomes
+$0=d\sum w_\sigma a_\sigma\operatorname{vol}_d(\sigma)>0$. Thus the
+named compact branch in this exact source category is empty, not omitted
+by an extra noncompactness assumption. No theorem about unspecified
+charted compactifications follows. ◻
+:::
+
+As consistency consequences, qualified S282's complete-affine and
+affine-arrangement all-$C_b$ theorem and (8.3) imply that $\mathfrak T$
+holds on a complete rational affine plane for every actual admitted real
+reference, and on a finite positive-real weighted union of distinct
+rational affine $d$-planes exactly when they are pairwise disjoint.
+These are applications of that supplied sector theorem, not new affine
+or arrangement results. Qualified S272's realized flat-positive-raw-atom
+germs give admitted PA obstacles with negative contact; (8.3) therefore
+excludes every such pair from $\mathfrak T$. In particular a geometry
+with a positive complete-plane subcycle and a transverse two-sided
+rational line is excluded by S282, with raw determinant factor $2^d d!$.
+We have not extrapolated this local obstruction to a sufficient
+classification of its complement.
+
+The graph criterion supplied in S262 remains a scoped established
+result; the present theorem agrees with it by equivalence to the same
+simultaneous all-obstacle property. No new graph proof or graph theorem
+application is needed for the general argument. Its endpoint half-jumps
+and fixed-$C$ restrictions remain intact. The A224 example remains an
+obstruction; it is not recertified by a total-mass argument. P05.5's
+polarized analytic realization, lifts, BFJ domain and boundary
+comparison are separate and are not claimed here.
+
+# Meaning, noncircularity, evidence and limits
+
+The proof follows three concrete reductions. First O323's exact PC
+projection reduces each proposed finite PA function to matching, actual
+recession and one common support on each entire original incident
+collection; support variables have finite linear elimination. Second
+Theorem [3](#t:tree){reference-type="ref" reference="t:tree"} eliminates
+the actual endpoint into *finite geometrically witnessed* trees,
+including irrational roots and arbitrary real weights; cost identity
+(4.1) retains the actual reference. Third (3.1) eliminates every
+measured PA value into primitive recursion polynomials, with no hidden
+completed operator. The universal obstacle quantifier is itself over
+finite real matching coefficient tuples on rational carriers. Criterion
+$\mathfrak T$ does not say that an unknown operator is zero or that an
+unknown envelope can be approximated. Its point coverage has a precisely
+given collection of finite geometric witnesses, and its contact test is
+finite algebra on their lower companion $p$.
+
+It is nevertheless infinite: verification may require arbitrarily many
+carriers, obstacle tuples, roots and tree depths. It provides no
+terminating decision procedure, coefficient computability claim,
+refinement-uniform mesh, countable replacement for arbitrary real
+inputs, or universal-real theorem. These stronger demands were not in
+the original completion criteria. A single infeasible carrier, a
+bounded-depth search failure, or failure to find roots' witnesses does
+not prove a bad pair. The necessity and sufficiency proofs explain
+exactly why this particular infinite predicate has the required
+structural meaning.
+
+ROOT327 was an unreviewed proposal and is not a support ID. Its route
+has been independently reconstructed in Sections 2--8.
+Theorem [3](#t:tree){reference-type="ref" reference="t:tree"} is proved
+before invoking R230 or MA; the all-continuous domain uses the already
+accepted O323 bridge, separately from local approximation and the
+contact limit. Qualified S272 and S282 grant no automatic general
+singular domain or contact; the new equivalence supplies those
+statements *conditionally and exactly* when $\mathfrak T$ holds. The
+entire defined original pair category is thereby partitioned by this
+explicit criterion and the coefficient/dimension cases.
+
+The direct essential imported results are R230, O323 and S272; S282 also
+supplies the stated consistency sector and corroborates the general
+localized lemmas, which were reconstructed above. Their complete papers
+and mandatory annotations were read as data in bounded displayed chunks;
+truncated combined displays were repaired. Source provenance or read
+flags are not mathematical evidence. All imported scopes and their
+qualified recursive foundations remain assumptions. Missing bibliography
+bodies are not new grants. Historical source FAIL and evidence
+INCONCLUSIVE records remain unchanged; caller checks lists are empty and
+no fresh independent PASS is asserted.
+
+The own exact-fraction checker tests finite legal-tree legality/cost
+identities on a balanced line, repeated leaves and invalid
+barycenter-only support, the raw plane recursion with signed and zero
+intermediate coefficients, nonorthogonal saturated plane calibration,
+and strict majorant inequalities. These checks exhaust only explicitly
+listed finite inputs; proofs above establish the continuum results.
+Programs and inputs were inspected before execution; no supplied program
+was executed or imported. The existing LaTeX and pandoc tools build
+these fresh owned artifacts with no shell escape. Initial diagnostics
+and first-pass warnings are preserved. Input/own/build hashes and tool
+versions bind actual files, not provider identity, historical acts or
+mathematical acceptance.
+
+Rerun the owned bounded checks and build with the commands in
+`commands.json`. No resource-heavy computation or supervised compute
+facility was needed. The final proof-bearing local notes claim this
+whole original solution in its defined category and therefore use
+`candidate=true`; that flag is an author claim submitted for independent
+whole-original review, not an acceptance mutation. No catalogue counts
+or previous verdicts are changed.
+
+::: thebibliography
+6 A. M. Botero, E. Mazzon, L. Pille--Schneider, *Monge--Ampere measures
+on balanced polyhedral spaces*, arXiv:2603.08664v1, submitted 9 March
+2026, manuscript 10 March 2026. <https://arxiv.org/pdf/2603.08664v1>. A.
+M. Botero, J. I. Burgos Gil, M. Sombra, *Convex analysis on polyhedral
+spaces*, Math. Z. 301 (2022), 1631--1674, publisher version.
+<https://doi.org/10.1007/s00209-021-02869-6>. Complete qualified
+registered Note R230, including its mandatory annotation. Complete
+qualified accepted original P05.1 Note O323, with both mandatory
+annotations and review binding; no P05.2 conclusion imported. Complete
+qualified registered Note S272, with all annotations; fixed-$C$ and
+genuine-domain restrictions retained. Complete qualified registered Note
+S282, with all annotations; general legal-tree/localized
+completed-domain lemmas and scoped affine/arrangement contact.
+:::
