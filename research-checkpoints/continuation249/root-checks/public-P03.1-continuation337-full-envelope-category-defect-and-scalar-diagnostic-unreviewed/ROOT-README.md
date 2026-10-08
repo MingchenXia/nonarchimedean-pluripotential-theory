@@ -1,0 +1,3 @@
+P03.1 standalone draft, UNREVIEWED; original remains OPEN.
+
+The source and native PDF are unchanged exact completed-worker artifacts. ROOT read all actual FINAL note fields, the entire TeX source, and complete source/scope/coverage/decision ledgers. Own/input bindings and decoded whole controller/native input identity were independently checked. Expanded saved notes and actual FINAL prose are distinct; both are retained. Hashes, compilation and reading are not acceptance. Inert author programs are DATA and ROOT has not executed/imported them. Academic primary bodies/extracts and provider/controller output stay local.13solved29OPEN91accepted unchanged.

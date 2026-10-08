@@ -1,0 +1,243 @@
+# P03.1: a category bound for the full envelope and an unresolved analytic step
+
+This is an incomplete research report. It does not solve original P03.1. Its additional conclusion is a category bound, valid for the exact full competitor family in every dimension, together with a source-independent diagnostic explaining why that bound and continuous-section topology cannot supply the missing analytic step. The branch, nonsplit-node, and codimension-two examples below are reconstructions of supplied mathematical data, not new counterexamples in the residual normal or geometrically unibranch range. No result for P03.2 or P03.3 is claimed.
+
+## 1. Exact definitions and backgrounds
+
+Let K be a complete nontrivially valued non-Archimedean field. Let U be a good, separated, strictly K-analytic domain. The category lemma below actually needs only continuity of the competitors and local compactness and Hausdorffness of U. Relative boundary is allowed. An analytic extension L/K is any complete isometrically valued extension, including transcendental extensions.
+
+For an upper semicontinuous obstacle \(f:U\longrightarrow\mathbb R\cup\{-\infty\}\), define
+\[
+\begin{aligned}
+\mathcal E_U(f)&=\{h:U\longrightarrow\mathbb R:\ h\leq f,\\
+&\hspace{20mm}h\text{ is locally Fubini--Study or semipositive real PL}\},\\
+s&=\sup_{h\in\mathcal E_U(f)}h,\qquad u=s^*.
+\end{aligned}
+\]
+Here \(a^*(x)=\inf_{N\ni x}\sup_{z\in N}a(z)\), with N an ordinary open neighborhood containing x. The supremum of the empty family and its regularization are both the constant function \(-\infty\). This applies whenever the family is empty, not only when f is identically \(-\infty\). In fact if f takes \(-\infty\) at even one point, no globally real-valued competitor exists.
+
+[GJR, Definition 5.1] defines real PL by strict analytic G-coverings and finite real linear combinations of logarithms of analytic units; these functions are finite and continuous. Its Definition 7.8 defines LFS as real PL with semiample residue class at every point. A semiample real residue class is nef, so LFS is included in semipositive real PL. Thus, at these actual signatures, the displayed union is exactly the entire semipositive real-PL minorant family. No invariant, rational, or equicontinuous restriction is made in Sections 2 and 3. We never assume closure of real PL under arbitrary maxima. GJR Example 5.3 explicitly shows that such closure can fail at an irrational bend.
+
+[GR1, Definition 4.1] defines classical psh by subharmonic pullback along every analytic curve after every complete analytic extension. The extended identically \(-\infty\) convention is in Definition 3.4. Its Section 2.13 defines smooth as rig-smooth and boundaryless. Consequently a closed disc is rig-smooth but is not a smooth boundaryless curve. The affinoid maximum principle used in Section 6 is [GR1, Theorem 6.4], which does apply to the closed disc. The spike tests in Sections 4 and 5 already fail on the interior open disc and compare on a smaller closed subdisc; they do not apply an interior theorem at a relative-boundary point.
+
+The published backgrounds used for the reconstructions are precisely: semipositive real PL is classically psh on good strict spaces over a nontrivially valued field [GR1, Theorem 4.3]; analytic and scalar pullback of classical psh [GR1, Proposition 4.2]; and the affinoid maximum principle [GR1, Theorem 6.4]. Their immediate proof bodies are retained. The forward implication of Theorem 4.3 uses semipositive-PL pullback [GJR, Proposition 7.6] and the curve comparison [GR2, Proposition 5.1 in the cached v1]. GR1 cites this latter result using older numbering. The retained primary version, not the obsolete number, determines the application. The historical dependencies of that comparison include formal models, the curve degree formula, Wanner's comparison, and local algebraicity of smooth curves; these ordinary published backgrounds are not freshly re-proved here. No supplied review or provenance label is a correctness grant.
+
+We need one explicit subclass only as lower-bound witnesses in the negative examples. If c is a nonzero element of K, the \(F_j\) are analytic on U, and n is a positive integer, then
+\[
+H=\frac1n\log\max\{|c|,|F_1|,\ldots,|F_r|\}
+\tag{1}
+\]
+is finite continuous rational PL and LFS. For the PL assertion, the finitely many strict rational domains on which a selected term dominates form a G-covering. On such a domain that term has modulus at least \(|c|>0\), hence is a unit, and H is its log divided by n. For the LFS assertion, at a selected point discard the terms that vanish there: on a smaller ordinary neighborhood their moduli are less than \(|c|\). Each retained term is then an analytic unit. On that neighborhood (1) is \(n^{-1}\max_j(-\log|u_j|)\) for the inverses of these units, including \(c^{-1}\). This is the precise local presentation in [GJR, 7.9]. GJR prints this presentation as an observation with a citation to [CD12, Proposition 6.8.2], not as a separately proved theorem. That dependence is disclosed, and no claim is made to have read a primary CD12 body. Only rational maxima with the displayed unit presentation are used. Constants are LFS because their residue classes are trivial.
+
+## 2. Category bound for the exact full family
+
+Proposition 1. Suppose \(\mathcal E_U(f)\ne\varnothing\). Then s is finite and lower semicontinuous, u is finite and upper semicontinuous, and
+\[
+h_0\leq s\leq u\leq f
+\tag{2}
+\]
+for any fixed competitor \(h_0\). The strict regularization defect
+\[
+D=\{x\in U:s(x)<u(x)\}
+\tag{3}
+\]
+is exactly the discontinuity set of s. It is a countable union of closed nowhere-dense sets. Its complement is a dense G-delta set in the locally compact Hausdorff space U. No statement is made that the closure of D is proper, or that D is analytically removable.
+
+Proof. A supremum of continuous real-valued functions is lower semicontinuous, since \(\{s>t\}=\bigcup_h\{h>t\}\). Upper semicontinuity of the obstacle and the absence of a \(+\infty\) value give a finite local upper bound. Together with \(h_0\), this makes s and u finite. Regularization majorizes the original function. If a is bounded above by an usc function f, then \(a^*\leq f\): for every \(\epsilon>0\), upper semicontinuity gives a neighborhood on which \(f<f(x)+\epsilon\), and the regularization formula gives \(a^*(x)\leq f(x)+\epsilon\). This proves (2).
+
+For rational numbers a<b set
+\[
+A_{a,b}=\{s\leq a\}\cap\{u\geq b\}.
+\tag{4}
+\]
+Both sets in the intersection are closed, by lower and upper semicontinuity respectively. If a nonempty open set W were contained in \(A_{a,b}\), then s would be at most a throughout W. At every point of W the neighborhood definition would therefore give \(u\leq a\), contradicting \(u\geq b\). Hence \(A_{a,b}\) has empty interior and is nowhere dense. At every strict gap choose rationals \(s(x)<a<b<u(x)\); conversely membership in \(A_{a,b}\) forces a strict gap. Thus
+\[
+D=\bigcup_{a,b\in\mathbb Q,\ a<b} A_{a,b}.
+\tag{5}
+\]
+If s is continuous at x then the same neighborhood formula gives \(u(x)=s(x)\). Conversely, if they agree at x, lower semicontinuity supplies a local lower bound \(s>s(x)-\epsilon\), while the formula for u supplies a local upper bound \(s<s(x)+\epsilon\). Their intersection proves continuity at x. Finally locally compact Hausdorff spaces are Baire, so the complement of the countable union in (5) is dense and is G-delta. This is a topological proof for all of the exact competitors, without a modulus assumption. It also works at relative-boundary points. In the empty case the defect is empty directly; no subtraction of infinities is used.
+
+## 3. Quantitative scalar bound and its precise limit
+
+Proposition 2. Let q:Y to U be a continuous surjection and assume the nonempty case of Proposition 1. Put \(v=(s\circ q)^*\). Then v is finite and
+\[
+s\circ q\leq v\leq u\circ q,\qquad
+0\leq u(q(y))-v(y)\leq u(q(y))-s(q(y)).
+\tag{6}
+\]
+In particular the strict upstairs defect is contained in \(q^{-1}(D)\), and compatibility holds on the whole fiber of every point where s is continuous. If q is closed and has compact fibers, then
+\[
+u(x)=\max_{y\in q^{-1}(x)}v(y).
+\tag{7}
+\]
+No openness of q is assumed in (6) or (7).
+
+Proof. The lower bound follows because regularization majorizes the raw function. For the upper bound, pull back a base neighborhood on which s is at most \(u(q(y))+\epsilon\). This is a neighborhood of y, so the defining infimum for v gives \(v(y)\leq u(q(y))+\epsilon\). Let epsilon tend to zero. The continuous pulled-back baseline and the locally bounded pulled-back obstacle make v finite. Subtracting yields (6).
+
+For (7), v is usc and the nonempty fiber is compact, so its maximum m exists. The preceding upper bound gives \(m\leq u(x)\). If \(m<u(x)\), choose \(m<t<u(x)\). For each point y of the fiber there is an open neighborhood \(N_y\) on which \(s\circ q<t\), because \(v(y)<t\). Cover the fiber by finitely many such neighborhoods and let N be their union. Closedness of q shows that \(W=U\setminus q(Y\setminus N)\) is an open neighborhood of x. Surjectivity and \(q^{-1}(W)\subset N\) imply \(s<t\) on W, hence \(u(x)\leq t\), a contradiction. This proves (7).
+
+For scalar extension these statements apply whenever the usual continuous, closed, surjective projection with compact fibers is available. That background is stated in GR1 Section 2.9 (with published references); the mathematical content proved here is the topological implication under those explicit properties. It compares the pulled-back ground-field raw family, not the potentially larger competitor family newly defined over L. No scalar PL descent or cofinality has been assumed. Formula (7) reproduces, with a proof, a supplied topological reduction; the additional category conclusion is (5), combined with the quantitative bound (6).
+
+The key limit is that \(q^{-1}(D)\) need not be meagre if q is not open. Nor does being meagre make a defect removable for a curve test. The next example proves both topological difficulties concretely.
+
+## 3a. Dense defect and open upstairs defect: a complete diagnostic
+
+Enumerate the distinct rational numbers in \([0,1]\) as \(q_1,q_2,\ldots\); for definiteness use increasing denominator of the reduced fraction and then increasing numerator, starting with 0 and 1. Define
+\[
+s(q_n)=-1/n,\qquad s(x)=0\quad(x\notin\mathbb Q),\qquad X=[0,1].
+\tag{8}
+\]
+This s is lower semicontinuous. Indeed every strict negative sublevel \(\{s\leq t\}\), with \(t<0\), is finite or empty, hence closed. The sublevels for \(t\geq0\) are all of X. Irrational points are dense, so \(s^*=0\). Thus \(D=\mathbb Q\cap[0,1]\) is meagre and dense: its closure is all of X.
+
+This really is a supremum of a nonempty uniformly bounded family of continuous functions. Define, for integers m at least 1,
+\[
+b_m(x)=\inf_{t\in X}\{s(t)+m|x-t|\}.
+\tag{9}
+\]
+Each \(b_m\) is m-Lipschitz, because every function inside the infimum is m-Lipschitz and finite; taking infima preserves that common Lipschitz bound. Also \(-1\leq b_m\leq s\leq0\), and the sequence increases. To prove convergence at x, fix epsilon. Lower semicontinuity gives a radius delta such that \(s(t)>s(x)-\epsilon\) for \(|x-t|<\delta\). Outside that radius, \(s(t)+m|x-t|\geq-1+m\delta\), which exceeds \(s(x)-\epsilon\) for sufficiently large m. Therefore \(b_m(x)\geq s(x)-\epsilon\) eventually. This proves \(s=\sup_m b_m\).
+
+Now let
+\[
+Y=(X\times\{0\})\ \cup\ \bigcup_{n\geq1}\bigl(\{q_n\}\times[0,1/n]\bigr),
+\qquad q(x,t)=x.
+\tag{10}
+\]
+The set Y is closed in the compact square. To check this, a convergent sequence using unbounded indices has heights tending to zero, so its limit lies on the base. A sequence of positive limiting height can use only finitely many indices and has limit on one of the corresponding closed hairs. Thus Y is compact Hausdorff. Projection is continuous, closed, surjective and proper. Every fiber is connected: a singleton at an irrational point or a compact interval at a rational point. The section \(\sigma(x)=(x,0)\) is continuous, and projection is open at each section point in the neighborhood-image sense: every neighborhood of that point contains nearby points of the base segment, whose images are a neighborhood of x.
+
+At a point \((q_n,t)\) with \(t>0\), some neighborhood meets only that one hair. To construct it, discard all hairs of height less than t/2, then avoid the finitely many other remaining horizontal coordinates and the base. Hence \(s\circ q=-1/n\) on that neighborhood, and its regularization v has value \(-1/n\) there. At every base point, neighborhoods contain base points with irrational coordinate, so \(v(x,0)=0\). Consequently
+\[
+v(x,0)=0,\quad v(q_n,t)=-1/n\ (t>0),\quad
+s^*\circ q=0,\quad
+\{v<s^*\circ q\}=Y\setminus(X\times\{0\}).
+\tag{11}
+\]
+The strict upstairs defect in (11) is a nonempty open subset of Y, although D downstairs is meagre. Fiberwise maximum is zero and is attained by the section. The continuous idempotent retraction \(r=\sigma\circ q\) satisfies \(v\circ r=0=s^*\circ q\), yet v is not fiberwise constant.
+
+This is a proved continuum topological example, not an exhaustive finite search. The family \((b_m)\) has not been shown to consist of analytic psh, LFS, or real-PL functions. Y is not asserted to be an analytic scalar extension. Thus this is not a P03.1 counterexample and cannot refute normal sufficiency. It does prove that continuity of a section, openness at the section, connected compact fibers, a fiberwise maximum formula, and idempotent retraction alone cannot prove scalar regularization compatibility even for bounded suprema of continuous functions.
+
+## 4. Reconstruction of the split branch obstruction
+
+Choose \(\pi\in K\) with \(0<\rho=|\pi|<1\), and write \(c=-\log\rho>0\). On
+\[
+W=\mathcal M(K\langle x,y\rangle/(xy)),
+\]
+define f to be c on the x-branch, including the node, and zero on the punctured y-branch. This is finite usc: its strict sublevel for a threshold between 0 and c is the open complement of the x-branch. The functions
+\[
+h_n=\frac1n\log\max\{1,|\pi|^{-n}|x|\},\qquad n\geq1,
+\tag{12}
+\]
+are rational LFS by (1), and lie below f. They equal zero on the y-branch and converge to c at every nonnodal x-branch point. The constant zero is a minorant. Every full-family competitor is continuous and is at most zero at y-branch points approaching the node; it is consequently at most zero at the node as well. Thus the raw envelope is zero at the node and on the y-branch and is c on the punctured x-branch. Upper regularization changes the nodal value to c and remains at most f.
+
+The analytic y-axis map from an open unit disc pulls back that regularization to value c at the origin and zero everywhere else. On a smaller closed disc of radius rho it is zero at the Gauss boundary point. Harmonic comparison with zero, as in [Thu, Definition 3.1.5] and [GR1, Definition 3.4], fails at the interior origin. Hence the envelope is not classically psh. This upper bound used all competitors, not only the displayed witnesses.
+
+For every integer d at least 1, pull f and (12) back to the product with the closed strict d-polydisc. At the rational origin of the nodal section, continuity along the y-axis with the extra coordinates zero bounds all competitors by zero, and the baseline attains zero. The witnesses tend to c along the x-axis with the same extra coordinates. The regularized value at that section point is c, while it is zero along the punctured y-axis because it is bounded by the pulled-back usc obstacle. The same interior disc test fails. The product is reduced, strict and pure of dimension d+1: its affine algebra is the quotient by the radical ideal (xy) with two components of that dimension. Relative boundary has not been removed. These examples are outside the normal and geometrically unibranch class.
+
+## 5. Reconstruction of the codimension-two pinching obstruction
+
+Put \(B=K\langle T,Z\rangle\), \(P=(0,0)\), \(Q=(1,0)\), and
+\[
+A=\{g\in B:g(P)=g(Q)\},\qquad W=\mathcal M(A).
+\tag{13}
+\]
+Here is a direct verification that (13) is a genuine strict affinoid algebra. Set \(S=T(T-1)\), \(R=K\langle S,Z\rangle\). Reduction by \(T^2=T+S\) has integral coefficients and never increases the Gauss norm. For polynomial truncations it produces \(F(S,Z)+TG(S,Z)\); boundedness gives the same decomposition for Tate series. It is unique and isometric. After scaling by a coefficient of maximal norm, reduction to the residue field sends S to \(T^2-T\). The largest T-degrees contributed by the F and TG summands have even and odd parity, respectively, so they cannot cancel. This proves preservation of the maximum norm and uniqueness, in every characteristic. Evaluation at P and Q now gives
+\[
+B=R\oplus TR,\qquad A=R\oplus T(S,Z)R.
+\tag{14}
+\]
+Writing \(G=SG_1+ZG_2\) by separating its monomials gives bounded coefficients \(G_1,G_2\). The bounded map from \(K\langle S,Z,V,J\rangle\) with \(V=TS\), \(J=TZ\) onto A has a norm-bounded linear right inverse provided by this decomposition. Thus A is a strict affinoid quotient, with its closed subspace topology from B.
+
+It is a domain and a finite R-module. B is finite over A, since \(B=A[T]\) with \(T^2-T-S=0\). It is birational because \(T=V/S\) in the fraction field, and B is normal (the regular Tate algebra background). It is therefore the normalization of A. Its conductor is \(I=(S,Z)B\): these are precisely the functions vanishing at P and Q, and a conductor element must vanish there by multiplying it by T and \(1-T\). Hence \(A/I=K\) and \(B/I=K\times K\). The normalization map identifies exactly P and Q to a rational point m and is an isomorphism elsewhere. Inverses outside m are \(T=V/S\) or \(T=J/Z\). When \(S=Z=0\), the relations \(V^2-SV-S^3=0\) and \(J^2-ZJ-SZ^2=0\) force \(V=J=0\).
+
+The dimension is two by the finite inclusion R into A. The prime ideal \(ZB\), viewed as the ideal \((Z,J)\) in A, lies strictly between zero and the maximal ideal m, since \(A/ZB\) is the domain of one-variable series with equal values at 0 and 1. Thus m has height two. Away from m normalization identifies the analytic domain with the normal, rig-smooth bidisc locus. The word rig-smooth here allows the bidisc's relative boundary.
+
+These algebra and fiber statements hold after any complete extension L/K: the norm decomposition (14), its monomial description and its bounded splitting give the same equalizer in \(L\langle T,Z\rangle\). The resulting affine algebra is a domain. It is also seminormal as an affine algebra: if an element b of its fraction field has \(b^2,b^3\) in that equalizer, integrality first puts b in the normalizing Tate algebra. Its values alpha and beta at P and Q satisfy \(\alpha^2=\beta^2\) and \(\alpha^3=\beta^3\), forcing equality in every characteristic. Therefore b is in the equalizer. This uses the usual square-and-cube criterion for seminormal domains, an algebraic background. We do not claim a separately established comparison with every analytic stalk's seminormality. The proved normality off a codimension-two rational point already suffices for the stated necessity obstruction.
+
+On the normalization define the continuous function
+\[
+H_0=\max\{0,c+\log|T-1|\},
+\]
+interpreted as zero where \(T=1\). Define \(H(m)=c\) and \(H=H_0\) through the inverse normalization off m. It is finite usc: it is continuous off m, and c is its global upper bound. For n at least 1 the two functions \((T-1)^nS\) and \((T-1)^nZ\) belong to A. Thus
+\[
+\psi_n=\frac1n\log\max\{1,|\pi|^{-n}|(T-1)^nS|,|\pi|^{-n}|(T-1)^nZ|\}
+\tag{15}
+\]
+is an actual global rational LFS minorant. If \(R_1=\max\{|S|,|Z|\}\leq1\), its pullback is
+\[
+\max\{0,c+\log|T-1|+n^{-1}\log R_1\}\leq H_0.
+\]
+At m it equals zero and hence is at most H. Off P and Q one has \(R_1>0\), so (15) converges to H; it is identically zero wherever \(T=1\). For the entire competitor family, continuity along \(\nu(1,\pi^j)\longrightarrow m\), where H is zero, bounds each minorant by zero at m. The constant zero attains that value. It follows that the exact raw envelope is H off m and zero at m. Conversely \(\nu(0,\pi^j)\longrightarrow m\) has raw value c, so regularization is exactly H everywhere.
+
+The analytic map \((T,Z)=(1,z)\) from the open unit disc, followed by normalization, pulls H back to a positive spike: c at zero and zero elsewhere. On the closed subdisc of radius rho its Gauss value is zero. The zero harmonic comparison fails at the interior origin. This is a full union-envelope obstruction on an irreducible domain normal away from codimension two. The same explicit computations hold for the full freshly defined family after each L/K, because (14) and (15) still hold and both continuity sequences remain available. No general scalar cofinality is inferred. In particular codimension-one normality cannot be an unconditional substitute for normality everywhere. The normalization has two points over m, so this example does not enter the residual geometrically unibranch range.
+
+## 6. Reconstruction of the nonsplit-node obstruction
+
+Let \(K=\mathbb Q_3\), \(\rho=|3|=1/3\), \(b=-\log\rho>0\), and \(L=K(\alpha)\) with \(\alpha^2=2\). Nonsquareness of 2 in the residue field proves \([L:K]=2\), and \(|\alpha|=1\). Put
+\[
+C=\mathcal M(K\langle X,Y\rangle/(X^2-2Y^2)),\quad
+D=\{|Z|<1\}\subset\mathbb A_K^{1,\mathrm{an}},\quad U=C\times_K D.
+\tag{16}
+\]
+The curve algebra embeds into \(L\langle T\rangle\) by \(Y=T,X=\alpha T\). Its series have constant coefficient in K and arbitrary L-coefficients in positive degree. Indeed monic division gives \(a(Y)+Xc(Y)\), and the independent K-basis \(1,\alpha\) gives exactly those coefficients. It is a domain. Adjoining \(\alpha=X/Y\), integral by \(\alpha^2=2\), gives the normal Tate algebra, so this is a finite birational normalization. Off \(Y=0\) it is an isomorphism; over \(X=Y=0\) the normalization fiber is the singleton \(\mathcal M(L)\). Thus the ground-field curve normalization is pointwise bijective. After extension to L there are two branches \(X=\pm\alpha Y\).
+
+The actual product U is a reduced irreducible strict surface. This follows also from its finite birational normalization, the disc-polydisc domain over L, which is irreducible. On any closed-radius chart of D the displayed coefficient description injects its algebra into the corresponding polydisc domain over L and shows it is a domain; the charts exhaust D with overlapping interiors. Strict charts may be chosen as \(|Z|^m\leq|3|\), with presentation \(Z^m=3W\), for positive m; no nonstrict radius is silently imposed. At the nodal point with \(Z^2-18=0\), the residue field is L and the normalization fiber is already \(\mathcal M(L\otimes_K L)=\mathcal M(L\times L)\). This explains the loss of pointwise bijectivity on adding the open factor.
+
+Set \(r=|Y|\), \(G=3X-ZY\), and define
+\[
+\eta(r)=\min\{1,\max\{0,(r-\rho)/(1-\rho)\}\},\qquad
+\chi(R)=\max\{0,1-R/\rho\},
+\]
+\[
+f=\begin{cases}-3b\eta(r)\chi\bigl(|G|/(\rho r)\bigr),&r>0,\\0,&r=0.\end{cases}
+\tag{17}
+\]
+This is a finite continuous obstacle with \(-3b\leq f\leq0\). Near \(r=0\), eta vanishes identically on \(r\leq\rho\), which proves continuity across the ratio's apparent singularity.
+
+For \(c_j=\binom{-1/2}{j}=(-1)^j\binom{2j}{j}/4^j\), put
+\[
+\delta=Z^2/18-1,\quad P_n(t)=\sum_{j=0}^{n-1}c_jt^j,\quad
+A_n(Z)=(Z/3)P_n(\delta),\quad F_n=X-A_n(Z)Y,
+\]
+\[
+h_n=\frac1n\log\max\{|3|^{3n},|3^{2n}F_n|\}.
+\tag{18}
+\]
+These are global polynomial log-maxima, so (1) applies. All \(c_j\) are 3-adic integral by the displayed central-binomial expression. Globally \(|Z|<1\) and \(|\delta|\leq\rho^{-2}\). It follows that \(|A_n|\leq\rho^{-(2n-1)}\) and, since \(|X|,|Y|\leq1\), that \(|3^{2n}F_n|\leq\rho\). Thus \(-3b\leq h_n\leq0\).
+
+At a point where f is negative, \(r>\rho\) and \(R=|G|/(\rho r)<\rho\). In its completed residue field write \(t=X/Y\); then \(t^2=2\), \(|t|=1\), \(w=Z/(3t)\), and \(|w-1|=R<\rho\). Hence \(\delta=w^2-1\) has modulus less than rho. The convergent binomial series \(B(\delta)=\sum_{j\geq0}c_j\delta^j\) obeys \((1+\delta)B(\delta)^2=1\). This formal identity follows from the binomial expansion in characteristic zero, and convergence permits multiplication. Both w and B are within distance less than one of 1; since \(|2|_3=1\), their product is the root +1 rather than -1 of its square-one equation. Therefore \(B=w^{-1}\). The tail bound gives
+\[
+|A_n-t|\leq|\delta|^n\leq\rho^n,\qquad
+|F_n|\leq\rho^n|Y|\leq\rho^n.
+\]
+Consequently \(h_n=-3b\) wherever f is negative, and the global upper bound handles the remaining region where f is zero. Every \(h_n\) is a genuine competitor in the full family. The constant \(-3b\) is one as well.
+
+Over L consider the two analytic closed-disc maps
+\[
+\gamma_\pm:\mathcal M(L\langle T\rangle)\longrightarrow U_L,
+\qquad(X,Y,Z)=(\pm\alpha T,T,3\alpha).
+\tag{19}
+\]
+They map to the open factor because \(|3\alpha|=\rho<1\). Their origins have the same ground-field image xi, the nodal point with Z-residue field L. At the Gauss point on the plus disc, \(r=1,G=0,f=-3b\). Each member of the full family is classically psh by the checked backgrounds; its pullback along (19) satisfies the closed-disc maximum principle. It follows that \(h(\xi)\leq-3b\) for every competitor h. The constant baseline attains this, giving \(s(\xi)=-3b\).
+
+On the minus disc, \(\delta=0,A_n=\alpha,F_n=-2\alpha T\). Thus at every point of positive modulus,
+\[
+h_n\circ\gamma_-=\max\{-3b,-2b+n^{-1}\log|T|\},\qquad
+\sup_n h_n\circ\gamma_-=-2b.
+\tag{20}
+\]
+Such points approach the origin and project continuously to xi. Hence \(u(\xi)\geq-2b\). By (2), u is bounded above by the continuous obstacle f, so at the projected Gauss point of the plus disc u is at most \(-3b\). If u were classically psh, its L-curve pullback along the plus disc would violate the singleton-Shilov maximum principle: its value at the origin is at least \(-2b>-3b\), its boundary value at most \(-3b\). This is an actual analytic obstruction after a finite extension, with a continuous obstacle and the exact union. It is not an arbitrary bounded defect datum. U is not geometrically unibranch at the indicated nodal point, so it does not settle the residual case.
+
+## 7. Analytic obligation still unproved
+
+Sections 2 and 3 apply to every obstacle and the full family without an interior, normality, or modulus restriction. They do not show that u is psh. Even a dense defect-free G-delta set is insufficient: extended test curves may meet the defect or lie in its preimage, the closed support may be all of U, and a nonopen scalar projection can amplify a meagre base set to an open upstairs defect as (10) demonstrates. No inference of subharmonicity from agreement on a dense set is made.
+
+The supplied graph-tube strategy bounds the regularization of the pulled raw supremum by harmonic comparisons on ground-field curves on ordinary affine open charts. If used after L/K it controls \((s\circ\pi_{L/K})^*\), whereas the required test uses \(s^*\circ\pi_{L/K}\). Formula (6) explains the possible difference, and (7) describes the latter as a fiber maximum under the topological hypotheses. To finish this strategy one needs an analytic result establishing equality for the exact family, or proving that the fiber maximum has the required subharmonic curve pullbacks. A continuous retraction does not meet that obligation. This report has inspected the complete supplied graph-tube body as data but has not adopted it as a theorem or freshly verified all of its source applications; none of Propositions 1 and 2 or the negative reconstructions depends on its correctness.
+
+An alternative attempted approach was to pull back the whole obstacle competitor family and use finite maxima plus [GR1, Theorem 6.5]. That theorem assumes that the actual pointwise limit is already usc. The finite maxima converge to s, not to u at a strict defect point. Even though finite maxima are classically psh, they need not be real PL and their limit does not solve the missing regularization step. Theorem 6.5 therefore proves only the already-usc case. This failed approach is recorded to identify its exact unproved premise, not as a new positive sector.
+
+No general normal higher-dimensional affinoid, no arbitrary geometrically unibranch higher-dimensional domain, and no substantive sharp necessary-and-sufficient geometric classification is proved here. No scalar-extension orbit presentation, analytic local section, finite-flat presentation, globalization cofinality or removable-defect theorem has been constructed. The examples reconstruct necessity outside those classes; they are not residual counterexamples. General sufficiency and sharpness remain unresolved. The original-scope decision is incomplete, and candidate is false.
+
+## 8. Evidence and reproduction
+
+All owned programs use the Python standard library. Source files were read as data and retained with their given exact byte hashes; supplied programs were neither executed nor imported. The mathematical proof of the category result and the topological diagnostic is the argument above. Polynomial and binomial checks are finite diagnostics only. TeX compilation, hash matching and support-graph validation are administrative evidence, not mathematical proof certificates. No heavy computation was launched, no external editor action or agent was used, and no publication or catalogue was changed.
+
+From this directory run `python prepare_evidence.py`, then `python diagnostics.py`, then `python build_artifacts.py`, and finally `python check_artifacts.py`. Exact source versions and excerpts are retained under `input-bindings` and `source-extracts`; command output and environment details are under `evidence` and `environment.json`. The independently written argument is the input to the owned TeX builder. The checker verifies the required filenames, input bindings, native notes and acyclic local support graph. It does not claim automated verification of continuum mathematics.
