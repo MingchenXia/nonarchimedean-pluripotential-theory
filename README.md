@@ -4,6 +4,18 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**GitHub checkpoint, 8 October 2026:** the current validated 4,632-page
+source edition and its book/audit attachments are uploaded to `work`.
+The [artifact directory](manuscript/editorial/artifact_exports/20261008_adiabatic/README.md)
+contains the complete book PDF, selected review, actual reading evidence,
+minimal reproducible sources and authored primary-source audit records.
+All seven remote Git blobs match the local files; `SHA256SUMS` pins the five
+binary exports. See the [publication record](manuscript/editorial/Ortu_Sektnan_adiabatic_GitHub_publication_20261008.json)
+and [draft PR #2](https://github.com/MingchenXia/nonarchimedean-pluripotential-theory/pull/2).
+Earlier frozen records retain their publication state at the time of export.
+The ordered 4 October pass remains the last complete whole-book reading;
+this publication adds no reading credit or canonical status change.
+
 **Active continuation, 8 October 2026:** the ordered second reading of all
 72 chapters, Appendices A--N and nine front-matter files is complete.
 The completed second-reading edition has 4,236 pages; its scoped final
@@ -16,7 +28,7 @@ It separates minimum existence, split attainment and harmonic graded
 semistability; exact D4 examples distinguish auxiliary hinge descent from
 the original ramp potential. Source proof qualifications and the sorted
 minor explanation are recorded. Portable cloud evidence is byte-verified;
-no new theorem, canonical status or GitHub upload is claimed. The checked
+no new theorem or canonical status change is claimed. The checked
 [book integration](manuscript/editorial/Ben_Bassat_harmonic_quiver_staged_integration_audit_20261008.md)
 adds Section 50.9.5 and L.89. It separates all-norm minimum existence,
 split attainment and graded harmonic semistability over any complete field.
@@ -42,7 +54,7 @@ without fresh credit. Final scoped book reading covers 27 fresh pages in
 citation labels are preserved; six semantic labels, two cited references and
 two index terms are added. The [cloud activation record](manuscript/editorial/Trusiani_transcendental_cloud_activation_20261008.json)
 controls the exact source/PDF update; no whole-book reading, independent-model
-receipt or canonical status change is claimed. GitHub publication remains pending.
+receipt or canonical status change is claimed. These source changes are on `work`.
 
 The checked [adiabatic projective-bundle account](manuscript/editorial/Ortu_Sektnan_adiabatic_staged_integration_audit_20261008.md)
 adds Section 62.3.4 and L.91. It distinguishes stability quantifiers and records
@@ -52,10 +64,10 @@ The complete primary v2 has 45 actual pages in 23 displays; final book review
 covers 25 pages (17 fresh, 8 exact-identity reused). Existing number and
 citation values are preserved. The [cloud activation record](manuscript/editorial/Ortu_Sektnan_adiabatic_cloud_activation_20261008.json)
 controls the source/PDF update. No whole-book new reading, original general
-result or canonical status change is claimed. GitHub publication remains pending.
+result or canonical status change is claimed. Its verified artifacts are uploaded.
 
 The current cloud research-integration build has **4,632 pages**; its
-GitHub publication remains pending. The checked
+source and checked book/audit exports are published on `work`. The checked
 [geometric-norm account](manuscript/editorial/Temkin_Zutler_geometric_norms_staged_integration_audit_20261008.md)
 adds Sections 4.6.1--4.6.2: tensor and spectral norm distinctions, exact
 inseparable and separable finite examples, a distinct-conjugate calculation,

@@ -3,6 +3,29 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest verified GitHub publication checkpoint, 8 October 2026
+
+The [publication record](Ortu_Sektnan_adiabatic_GitHub_publication_20261008.json)
+records source commit `2ef3bba718d21c6f7131489885c8ecbd2f0dda18`
+and artifact commit `2b2e6b7136bf82aeab8cdd8c7206407de14187b7` on `work`.
+The complete 4,632-page PDF, selected review, actual book evidence,
+minimal sources and authored primary-source audit records are in the
+[artifact directory](artifact_exports/20261008_adiabatic/README.md).
+All seven remote Git blob hashes and byte sizes match their local files;
+the five binary exports have SHA256SUMS. No external primary PDF/text/images
+were uploaded. Ownership evidence resolved the earlier review block;
+subsequent normally reviewed writes succeeded. Release uploads returned
+mechanical HTTP 400 length errors; the successful upload uses ordinary Git.
+The empty failed draft release was removed after remote verification.
+All earlier failed-attempt and frozen activation records remain intact.
+
+Draft PR #2 remains open on `work`; main is unchanged. Upload adds no
+reading credit. The 42 atoms, twelve formal problems and last complete
+4 October ordered pass retain their status. Continue with the pinned
+Hattori Calabi--Yau-fibration primary source, especially its adiabatic
+uniformity quantifiers and norm/Donaldson--Futaki normalization. Metadata
+acquisition alone supplies no proof-reading credit.
+
 ## Latest adiabatic-bundle cloud integration checkpoint, 8 October 2026
 
 The current validated cloud edition has 4,632 pages. The
@@ -37,9 +60,9 @@ pass remains the last complete pass. Evidence and minimal-source exports
 are byte-verified and give no reading credit. The
 [activation record](Ortu_Sektnan_adiabatic_cloud_activation_20261008.json)
 controls the cloud update; the native catalogue/editor remain preserved.
-GitHub publication remains blocked by the recorded automatic-review
-ownership requirement; no rejected write is retried. Continue read-only
-author updates and the next relevant primary-source audit.
+This activation checkpoint preceded the successful source and evidence
+upload recorded above. Its frozen audit records retain their historical
+publication state. Continue author-update checks and the next primary-source audit.
 
 ## Latest adiabatic-bundle source checkpoint, 8 October 2026
 
