@@ -44,7 +44,17 @@ two index terms are added. The [cloud activation record](manuscript/editorial/Tr
 controls the exact source/PDF update; no whole-book reading, independent-model
 receipt or canonical status change is claimed. GitHub publication remains pending.
 
-The current cloud research-integration build has **4,628 pages**; its
+The checked [adiabatic projective-bundle account](manuscript/editorial/Ortu_Sektnan_adiabatic_staged_integration_audit_20261008.md)
+adds Section 62.3.4 and L.91. It distinguishes stability quantifiers and records
+a corrected surface coefficient plus the Riemann--Roch obstruction to the
+source's c2=1 stable bundle. The general analytic equivalence remains qualified.
+The complete primary v2 has 45 actual pages in 23 displays; final book review
+covers 25 pages (17 fresh, 8 exact-identity reused). Existing number and
+citation values are preserved. The [cloud activation record](manuscript/editorial/Ortu_Sektnan_adiabatic_cloud_activation_20261008.json)
+controls the source/PDF update. No whole-book new reading, original general
+result or canonical status change is claimed. GitHub publication remains pending.
+
+The current cloud research-integration build has **4,632 pages**; its
 GitHub publication remains pending. The checked
 [geometric-norm account](manuscript/editorial/Temkin_Zutler_geometric_norms_staged_integration_audit_20261008.md)
 adds Sections 4.6.1--4.6.2: tensor and spectral norm distinctions, exact

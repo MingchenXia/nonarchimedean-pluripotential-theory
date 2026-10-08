@@ -3,6 +3,44 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest adiabatic-bundle cloud integration checkpoint, 8 October 2026
+
+The current validated cloud edition has 4,632 pages. The
+[integration audit](Ortu_Sektnan_adiabatic_staged_integration_audit_20261008.md)
+records Section 62.3.4 and L.91: adiabatic stability quantifiers,
+an explicitly conditional ratio estimate and a reproducible surface
+coefficient/existence diagnostic. The general source cscK equivalence
+remains qualified. Direct Segre and Hilbert/weight Riemann--Roch
+calculations agree exactly; the correction leaves the eventual sign
+unchanged, while the originally chosen stable c2=1 P2 bundle is impossible.
+The projective O(1) class H and base hyperplane pullback h are distinct.
+
+The complete primary v2 reading has 45 actual pages in 23 individually
+displayed matching images. The final scoped book gate has 25 pages:
+17 fresh in 9 displayed views and 8 reused in four views after exact
+complete-text/full-page-RGB identity with prior actual receipts. Partial
+v1 notes and all preparation flags remain unchanged. Both contents rows,
+all added text and seams, the complete index and new bibliography entry
+are reviewed. Required validation and post-render checks pass with no
+errors, warnings, missing glyphs, overfull boxes or unresolved links.
+All 955 underfull cases are inherited with identical normalized text;
+no case is added or removed. All 13,366 prior number values and 589
+citation labels are preserved; three labels, one cited reference and
+two index terms are added. Other 423 TeX inputs and the NA bibliography,
+historical formal/proof/warning/important blocks and tags are unchanged.
+
+The 42 atoms and twelve formal problems keep their statuses. General BJ22
+critical homogeneous Siu division and envelopes remain OPEN; LPWZ density
+remains UNVERIFIED. No original general result or independent-model receipt
+is claimed. This is not a new whole-book reading; the ordered 4 October
+pass remains the last complete pass. Evidence and minimal-source exports
+are byte-verified and give no reading credit. The
+[activation record](Ortu_Sektnan_adiabatic_cloud_activation_20261008.json)
+controls the cloud update; the native catalogue/editor remain preserved.
+GitHub publication remains blocked by the recorded automatic-review
+ownership requirement; no rejected write is retried. Continue read-only
+author updates and the next relevant primary-source audit.
+
 ## Latest adiabatic-bundle source checkpoint, 8 October 2026
 
 The [source audit](Ortu_Sektnan_adiabatic_source_review_20261008.md)
