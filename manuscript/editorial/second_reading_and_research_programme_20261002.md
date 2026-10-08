@@ -3,6 +3,43 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest Wu local psh primary checkpoint, 8 October 2026
+
+The [primary audit](Wu_local_NA_psh_source_review_20261008.md) completes
+arXiv:2609.27610v1: all 55 physical pages, 28 individually displayed
+matching images, complete selected text and sequential notes/receipts.
+Thirteen elementary diagnostic families pass. Prepared flags remain false.
+The [authored records](artifact_exports/20261008_wu_local_na_psh_sources/README.md)
+contain 74 byte-verified members; the full 133-member source evidence
+remains in the cloud. Authorized source publication receives a separate
+remote hash-verification record.
+
+The audit distinguishes literal lower/upper growth conflicts, finite-limit
+exceptions, local/global measure scope, polytope plateaux and actual pole
+orders from repairable signs and unresolved general proof obligations.
+The explicit use of discrete/trivial-field regularization over a potentially
+nondiscrete completed residue field is outside that proposition's scope.
+Unversioned APW tropical inputs and other cited proofs are not recursively
+certified. The general weak/local/global and geometrically-unibranch
+envelope theorems are not admitted; an intended corrected theorem may be true.
+No original general theorem or independent-model receipt is promoted.
+
+All 425 TeX inputs, both bibliographies, the active 4,647-page PDF and
+native catalogue/editor are preserved. The 42 atoms/twelve formal problems
+retain their statuses: general BJ22 critical homogeneous Siu/envelopes
+OPEN, LPWZ density UNVERIFIED. The last complete ordered whole-book pass
+remains 4 October. A fresh REST branch check finds work at the prior
+c41d653 checkpoint; main remains 00957114. No incoming author commit was
+found. The older local origin/work tracking ref is not used as current
+remote evidence.
+
+Continue cloud-only with a scoped book explanation of growth direction,
+decreasing approximation and local versus global integrability, and retain
+the source's general claims as qualified research directions. Build, actually
+read the complete selected rendered changes and rerun post-render gates
+before activation. Continue normal evidence publication and author-update
+checks without reopening Xean.
+
 ## Latest polarized Calabi–Yau finiteness GitHub publication checkpoint, 8 October 2026
 
 The [publication record](Truong_polarized_CY_finiteness_GitHub_publication_20261008.json)

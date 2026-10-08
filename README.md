@@ -4,6 +4,21 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest Wu local psh source checkpoint, 8 October 2026:** the
+[primary audit](manuscript/editorial/Wu_local_NA_psh_source_review_20261008.md)
+completes all 55 pages of arXiv:2609.27610v1 in 28 individually displayed
+matching views with complete text and sequential notes. Thirteen elementary
+diagnostic families pass. The printed lower/upper growth conventions,
+localization and completed-residue-field proof interfaces need correction
+or further verification; the general weak/global comparison and envelope
+theorems are not admitted. This does not assert that an intended corrected
+main theorem is false. The
+[authored archive](manuscript/editorial/artifact_exports/20261008_wu_local_na_psh_sources/README.md)
+has 74 byte-verified members; the complete 133-member primary evidence remains
+in the cloud. The active 4,647-page book, native catalogue/editor and all
+42 atoms/twelve formal problems are unchanged at this checkpoint.
+Qualified book integration follows its own build and rendered-reading gates.
+
 **Latest verified GitHub publication, 8 October 2026:** the 4,647-page
 book and six owned artifact files are uploaded on work in 58f06dd09cb990dd8ce15e4ad18b27b5d04cc854.
 All twenty-one final source/progress/audit/artifact and frozen v1 provenance
