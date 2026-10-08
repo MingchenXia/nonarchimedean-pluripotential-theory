@@ -9,8 +9,25 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current cloud research-integration build has **4,597 pages**; its
+The current cloud research-integration build has **4,612 pages**; its
 GitHub publication remains pending. The checked
+[Ricci-entropy comparison](manuscript/editorial/GSS_Ricci_entropy_staged_integration_audit_20261008.md)
+adds H.26 and L.88. It retains the conditional smooth-resolution hypotheses
+for the logarithmic negative-Ricci criterion, distinguishes reference measures
+and the two directions of distance comparison, and records explicit failures
+of auxiliary source claims. The bounded-potential cone gives an exact obstruction
+to the printed forward Lipschitz claim; this does not refute the RCD criterion.
+Fourteen pinned source editions cover 295 actually read pages in 151 matching
+images: ten complete sources and four partial sources. The final scoped book
+review covers 50 pages, with two freshly read and 48 reused only after complete
+text and rendered-pixel identity. All 568 prior citation labels and 309 tracked
+paired equation numbers are preserved; thirteen references and eighteen new
+equation tags have valid destinations. The
+[Ricci-entropy cloud activation record](manuscript/editorial/GSS_Ricci_entropy_cloud_activation_20261008.json)
+pins the exact validated source/PDF bytes copied into the working tree. No
+original theorem or canonical status is promoted; the 42-atom inventory is
+unchanged, general BJ22 Siu division stays OPEN and LPWZ density stays UNVERIFIED.
+The preceding checked
 [curve section-ball preview](manuscript/editorial/Wu_section_ball_rates_staged_integration_audit_20261008.md)
 adds H.25 and L.87, linking restriction entropy to finite-degree real-volume
 errors and Fekete measures. Degree/root transport, determinant normalization,

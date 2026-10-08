@@ -3,7 +3,58 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
-## Latest curve-section cloud integration checkpoint, 8 October 2026
+## Latest Ricci-entropy cloud integration checkpoint, 8 October 2026
+
+The validated 4,612-page cloud book adds H.26 and L.88. The
+[integration audit](GSS_Ricci_entropy_staged_integration_audit_20261008.md)
+retains the logarithmic negative-Ricci criterion's n >= 2, klt, smooth-resolution,
+Sobolev/heat, capacity and eigenfunction hypotheses. The normalized Hessian and
+truncated logarithmic-gradient argument keep their operator, volume and limit
+conventions. The global envelope-regularization discussion remains conditional
+on the exact extension, reference-measure, density, PDE and local-convergence
+inputs; it is not a general repair of the source's approximation pipeline.
+
+The [source checkpoint](GSS_Ricci_entropy_source_review_20261008.md) covers
+fourteen pinned editions: ten complete and four partial sources, totaling 295
+actually read pages in 151 matching images. Exact diagnostics distinguish the
+A1 ambient and adapted measures, the two directions of distance comparison,
+the smooth stability volume factor and assumptions behind finite-projection
+Hölder bounds. The P1 cone gives the exact forward Lipschitz obstruction, with
+a smooth nonnegative-Ricci approximation; product examples cover higher
+dimensions. The older withdrawn global approximation corollary, local envelope
+example, projected-arc and bounded-potential/SL claims have explicit exclusions.
+Unpublished analytic companions and unverified uniform ambient bridges are
+not treated as proved inputs. Target currents T_j on X and the smooth
+resolution metrics omega_j on Y have distinct notation.
+
+The final scoped book review covers 50 unique selected pages in 25 matching
+views: two pages in one fresh view after the notation repair, and 48 pages
+in 24 reused views only after exact complete-text and rendered-pixel identity.
+The complete index, new contents entries and all thirteen new references,
+including their continuations, are covered. This is not another whole-book
+reread. The frozen failed/partial v1-v3 records and preparation flags retain
+their historical scope; the final controlling ledger records no outstanding
+repairs. The source export itself receives no reading credit.
+
+Validation has zero errors, missing characters, overfull boxes, unresolved
+references/citations, rerun requests or invalid internal links. The 954 inherited
+underfull boxes remain recorded. All 568 prior citation labels and 309 tracked
+paired equation numbers are preserved; thirteen new references and eighteen
+new equation tags have valid destinations. The
+[cloud activation record](GSS_Ricci_entropy_cloud_activation_20261008.json)
+identifies the exact validated book inputs and PDF copied into the working
+tree. Historical source-only and preview records are not rewritten.
+
+The 42 canonical atoms in twelve formal problems retain their statuses.
+General critical homogeneous BJ22 Siu division/envelopes stay OPEN and LPWZ
+density stays UNVERIFIED. No original theorem or independent model receipt
+is promoted. The native catalogue source and PDF remain byte-preserved.
+GitHub publication still awaits the already requested repository-ownership
+confirmation after automatic review rejected the earlier full Chapter 68
+upload. That action has not been retried through another route. Continue
+cloud-only primary-source research and read-only incoming-author checks.
+
+## Earlier curve-section cloud integration checkpoint, 8 October 2026
 
 The validated 4,597-page cloud book adds H.25 and L.87 after the holomorphic
 restriction-entropy account. The [integration audit](Wu_section_ball_rates_staged_integration_audit_20261008.md)
