@@ -3,6 +3,35 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest polarized Calabi–Yau finiteness source checkpoint, 8 October 2026
+
+The [primary audit](Truong_polarized_CY_finiteness_source_review_20261008.md)
+completes all 34 physical pages of arXiv:2610.00361v1 in seventeen individually
+displayed matching images, complete text and sequential notes. Its discussion
+expressly leaves capacity-perimeter and metric-to-projective-embedding steps
+unfinished. The audit separates a conditional Sobolev/noncollapse argument
+and scale-dependent packing from gaps in the iteration exponent/truncation,
+regularity inputs, Bergman sum and arbitrary-scheme Hilbert lemma. The smooth
+pure-dimensional boundedness and finite-stratification/Ehresmann interfaces
+remain qualified classical foundations. No unconditional CY finiteness
+result is admitted.
+
+The [authored archive](artifact_exports/20261008_truong_polarized_CY_finiteness_sources/README.md)
+has 52 byte-verified members; the complete 89-member original source evidence
+stays in the cloud. Source/font and symbolic-helper descriptive-string
+warnings are retained. Preparation/export/upload supplies zero reading
+credit. All 425 active TeX inputs, both bibliographies, the active 4,642-page
+PDF and native catalogue/editor are preserved. The 42 atoms/twelve formal
+problems retain status: general BJ22 critical homogeneous Siu/envelopes OPEN,
+LPWZ density UNVERIFIED. No original general theorem, independent receipt or
+new whole-book pass is asserted; the complete ordered pass remains 4 October.
+
+Next publish the authorized authored records, then integrate the qualified
+uniformity explanation and elementary diagnostics in Chapter 62 and L.95.
+Keep historical formal blocks and numbered values, verify normalization and
+all quantifiers, and complete build/actual rendered/post-render gates before
+cloud activation. Continue recent primary reading and author-update checks.
+
 ## Latest relative Hessian GitHub publication checkpoint, 8 October 2026
 
 The [publication record](Truong_relative_Hessian_GitHub_publication_20261008.json)
