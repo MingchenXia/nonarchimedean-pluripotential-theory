@@ -3,6 +3,39 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest local psh GitHub publication checkpoint, 8 October 2026
+
+The [publication record](Wu_local_NA_psh_GitHub_publication_v3_20261008.json)
+verifies 0129c1ad851dfe4cc3a694f933ced154bb997732 on work: all sixteen final book/source/progress/audit/artifact
+remote hashes and sizes match. The six
+[artifact files](artifact_exports/20261008_wu_local_psh_growth_v3/README.md)
+contain the 4,651-page PDF, 25-page selected review, 199-member actual
+book evidence and 472-member minimal sources. All 25 final-v3 pages were
+freshly read in thirteen individually displayed matching images with complete
+text and sequential notes. No reuse is claimed. The first stage's overflow
+failure and the partial-v2 eight-page/four-view observation remain frozen;
+the latter found the radial formula's omitted explicit nonnegative-integer
+scope, corrected in v3. Full validation and post-render gates pass.
+
+The nine-file authored primary checkpoint in cb78bba2fde97d4de0272f4506043ddf72651b4d is separately
+uploaded and verified. All 55 source pages were actually read in 28 matching
+images. Lower/upper growth, global integrability and nonradical pole-order
+diagnostics retain their exact scopes. The intended corrected main theorem
+is not asserted false. Completed-residue-field regularization, local branch
+rank and essential unversioned tropical dependencies remain unresolved;
+no general weak/global or envelope theorem is imported.
+
+Main remains 00957114db21b627e97369563032ceda9cea09c7 and PR #2 remains a draft.
+The 42 atoms/twelve formal problems, native catalogue/editor and complete
+4 October ordered pass are unchanged. General BJ22 critical homogeneous
+Siu/envelopes remain OPEN; LPWZ density remains UNVERIFIED.
+
+Continue cloud-only with identification and exact primary verification of
+the Amini–Piquerez–Wu tropical dependencies and related curve/norm inputs,
+then pursue the resulting open-problem interfaces sequentially. The exact-title
+arXiv query's empty result has zero proof-reading credit. Check incoming
+author updates and periodically push checked additions. Xean stays suspended.
+
 ## Latest Wu local psh book checkpoint, 8 October 2026
 
 The validated edition has 4,651 pages. The
