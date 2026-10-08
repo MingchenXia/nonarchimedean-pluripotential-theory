@@ -4,6 +4,19 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest verified GitHub publication, 8 October 2026:** the 4,647-page
+book and six owned artifact files are uploaded on work in 58f06dd09cb990dd8ce15e4ad18b27b5d04cc854.
+All twenty-one final source/progress/audit/artifact and frozen v1 provenance
+remote blobs match local hashes and sizes. The
+[artifact directory](manuscript/editorial/artifact_exports/20261008_polarized_CY_finiteness_v2/README.md) contains the complete PDF, 27-page selected review,
+197-member book evidence and 472-member minimal source checkpoint.
+The [publication record](manuscript/editorial/Truong_polarized_CY_finiteness_GitHub_publication_20261008.json)
+also verifies the nine-file authored primary checkpoint. The book preserves
+the unfinished Calabi–Yau finiteness bridges and literal proof qualifications.
+EOF-only v2 reuses the genuine 27-page/fourteen-display v1 review after exact
+complete-text and rendered-pixel equality. Main and canonical statuses remain
+unchanged; export/upload and v2 reuse add zero fresh reading credit.
+
 **Latest checked book EOF repair, 8 October 2026:** the
 [polarized Calabi–Yau finiteness audit](manuscript/editorial/Truong_polarized_CY_finiteness_staged_integration_audit_v2_20261008.md)
 adds the uniformity paragraph in Section 62.8 and new L.95. It preserves the

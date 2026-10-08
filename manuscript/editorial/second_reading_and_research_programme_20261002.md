@@ -3,6 +3,41 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest polarized Calabi–Yau finiteness GitHub publication checkpoint, 8 October 2026
+
+The [publication record](Truong_polarized_CY_finiteness_GitHub_publication_20261008.json)
+verifies 58f06dd09cb990dd8ce15e4ad18b27b5d04cc854 on work: all twenty-one final book/source/progress/audit/
+artifact and frozen v1 provenance remote hashes and sizes match. The six
+[artifact files](artifact_exports/20261008_polarized_CY_finiteness_v2/README.md)
+contain the 4,647-page PDF, 27-page selected review, 197-member actual
+book evidence and 472-member minimal sources. All 27 selected pages were
+genuinely read in fourteen individual v1 matching displays with complete
+text and sequential notes. EOF-only v2 removes one terminal newline,
+reruns full validation and reuses the review after exact complete-text and
+entire-page rendered-pixel equality, with zero fresh v2 reading credit.
+The failed whitespace preflight, normal no-index exit-code correction and
+all frozen v1 records remain preserved.
+
+The nine-file authored primary checkpoint in e0bcdf0d6322000ea9e464ad7d52d3a7da67047f is uploaded and
+verified; all 34 primary pages were actually read in seventeen matching
+displays. Capacity/perimeter and uniform-embedding bridges remain unfinished.
+Literal exponent, truncation, diameter, Bergman and arbitrary-scheme
+diagnostics retain their exact scopes. No unconditional source finiteness
+theorem, original general result or independent-model receipt is imported.
+
+Main remains 00957114db21b627e97369563032ceda9cea09c7 and PR #2 stays a draft.
+The 42 atoms/twelve formal problems, native catalogue/editor and complete
+4 October ordered pass remain unchanged. General BJ22 critical homogeneous
+Siu/envelopes remain OPEN; LPWZ density remains UNVERIFIED.
+
+Continue cloud-only with Lyuhui Wu arXiv:2609.27610v1 on local non-Archimedean
+psh functions. Its exact 55-page PDF and twenty-eight prepared views have
+zero actual reading credit. Read complete selected text and individually
+display matching pages, checking the local definitions, CLD/BFJ comparison,
+envelope hypotheses and dependencies without inferring a general Siu repair
+or density theorem from the abstract. Continue normal publication and checks
+for incoming author updates.
+
 ## Latest polarized Calabi–Yau finiteness EOF repair checkpoint, 8 October 2026
 
 The validated edition has 4,647 pages. The
