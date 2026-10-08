@@ -1,0 +1,29 @@
+"""Own data-only retention; never executes or imports packet programs."""
+from pathlib import Path
+import json, hashlib, platform, sys
+
+BASE = Path('/workspace/research/campaigns/round-265/P12.3-whole370-and-test-ideal371-independent-completion')
+OUT = Path.cwd()
+records = []
+for kind, manifest in [('M','mathematical-packet-bindings.json'), ('P','private-primary-packet-bindings.json'), ('B','book-context-bindings.json')]:
+    raw = (BASE/manifest).read_bytes()
+    dest = OUT/'inputs'/manifest
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    dest.write_bytes(raw)
+    for i, item in enumerate(json.loads(raw)):
+        src = Path(item['path'])
+        data = src.read_bytes()
+        folder = 'primary-LOCALONLY' if kind == 'P' else 'book-LOCALONLY' if kind == 'B' else 'mathematical-DATA'
+        dst = OUT/'inputs'/folder/f'{kind}{i:03d}-{src.name}'
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        dst.write_bytes(data)
+        digest = hashlib.sha256(data).hexdigest()
+        records.append(dict(item, id=f'{kind}{i:03d}', local=str(dst.relative_to(OUT)), actual_bytes=len(data), actual_sha256=digest, matched=(len(data)==item['bytes'] and digest==item['sha256'])))
+(OUT/'evidence').mkdir(exist_ok=True)
+(OUT/'evidence'/'packet-retention.json').write_text(json.dumps(records,indent=2))
+(OUT/'evidence'/'environment.json').write_text(json.dumps({'python':sys.version,'platform':platform.platform(),'cwd':str(OUT),'supplied_programs_executed':False,'agents_used':False,'heavy_compute_facility':'not supplied; none needed','runtime_status_tool':'not available'},indent=2))
+inp=json.loads((OUT/'input.json').read_text())
+(OUT/'inputs'/'original-assignment.json').write_text(json.dumps(inp['task'],ensure_ascii=False,indent=2))
+for note in inp['notes']:
+    (OUT/'inputs'/f"qualified-{note['id']}.txt").write_text(note['text'])
+print(json.dumps({'retained':len(records),'matched':sum(r['matched'] for r in records)}))

@@ -1,0 +1,22 @@
+from pathlib import Path
+import json,re,hashlib
+rows=json.loads(Path('evidence/packet-retention.json').read_text())
+paths={r['id']:Path(r['local']) for r in rows}
+actual=json.loads(paths['M053'].read_text())
+local=json.loads(paths['M058'].read_text())
+expanded=json.loads(paths['M057'].read_text())
+whole=paths['M089'].read_text()
+paper=paths['M049'].read_text()
+tex=paths['M050'].read_text()
+out=Path('review-data');out.mkdir(exist_ok=True)
+result={'actual_local_equal':actual==local,'actual_expanded_text_differences':[], 'expanded_coverage':[], 'paper_whole_prefix':paper.startswith(whole)}
+for i,(a,e) in enumerate(zip(actual['notes'],expanded['notes']),1):
+    (out/f'actual-{i:02d}.txt').write_text(json.dumps(a,ensure_ascii=False,indent=2))
+    result['actual_expanded_text_differences'].append(a['text']!=e['text'])
+    body=e['text']
+    result['expanded_coverage'].append({'id':e['id'],'text_in_whole':body in whole,'text_in_tex':body in tex,'chars':len(body),'first':body[:100],'last':body[-150:]})
+for label in ['G331','B341','E350']:
+    grant=Path(f'inputs/qualified-{label}.txt').read_text()
+    result[label+'_literal_in_paper']=grant in paper
+Path('evidence/duplicate-comparison.json').write_text(json.dumps(result,indent=2))
+print(json.dumps(result,indent=2))

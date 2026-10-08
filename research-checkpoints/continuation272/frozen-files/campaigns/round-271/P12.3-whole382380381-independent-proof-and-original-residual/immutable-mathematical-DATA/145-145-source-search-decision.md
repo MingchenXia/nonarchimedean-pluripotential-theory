@@ -1,0 +1,9 @@
+# Threefold primary-model gate: search result and reading limits
+
+The public primary search inspected Cossart–Piltant, *Resolution of Singularities of Arithmetical Threefolds*, arXiv:1412.0868v2, https://arxiv.org/pdf/1412.0868v2, especially the complete displayed Theorem 1.1 and Remark 1.4 on pages 3–4. Theorem 1.1 gives regular proper birational models and projectivity over prescribed affine opens. Remark 1.4 distinguishes the obtained blowup ideal from an ideal trivial on the regular locus. Thus the theorem statement does not provide the primary smooth model needed here. This is a source-scope observation, not an impossibility result about such models.
+
+The 320-page proof was NOT read in full and is NOT applied as a theorem premise in our proof. Search snippets, abstracts and the resolution statement are not substituted for an authenticated primary-model construction. The affine-base projectivity, SNC boundary and local permissible sequences do not by themselves prove an exceptional ample Cartier boundary or simultaneous primary principalization. No claim that threefold (SM) is false is made.
+
+An own bounded urllib attempt to retain the primary PDF was denied by the filesystem execution environment's socket permission (PermissionError, errno 1). No proxy, CA, authentication or runtime setting was changed, and no bypass was attempted. The available web tool supplied the displayed source pages instead. Public search URLs and this exact reading boundary are retained here. New immediate applications in the paper use already retained local primary sources, never this partially read threefold proof.
+
+The actual nontrivial (SM) regime established in this delivery is normal closed algebraic SURFACES over perfect fields of positive characteristic. Its proof is given in n9 using the entire checked current Stacks surface theorem, the full fibre intersection matrix, and an actual primary graph construction. The isolated threefold gate remains open.

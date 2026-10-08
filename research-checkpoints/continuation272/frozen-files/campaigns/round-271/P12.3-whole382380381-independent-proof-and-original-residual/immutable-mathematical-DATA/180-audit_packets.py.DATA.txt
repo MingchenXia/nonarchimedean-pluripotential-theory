@@ -1,0 +1,103 @@
+"""Own byte/body diagnostic. Supplied files are never executed or imported."""
+import hashlib, json, pathlib, re
+P=pathlib.Path('.')
+def one(kind, prefix): return next((P/'inputs'/kind).glob(prefix+'-*'))
+def digest(b): return hashlib.sha256(b).hexdigest()
+rows=json.loads((P/'reports/input-integrity.json').read_text())
+if isinstance(rows,dict): rows=rows.get('records',rows.get('files',[]))
+primary=list((P/'inputs/primary-LOCALONLY').iterdir())
+byhash={digest(p.read_bytes()):p for p in primary}
+units=json.loads(one('primary-LOCALONLY','064').read_text())
+out=[]
+(P/'evidence/primary-LOCALONLY').mkdir(parents=True,exist_ok=True)
+for i,u in enumerate(units):
+    b=u['literal_text'].encode(); src=byhash[u['source']['sha256']]
+    full=src.read_bytes(); pos=full.find(b)
+    (P/f'evidence/primary-LOCALONLY/unit-{i:02d}.txt').write_bytes(b)
+    out.append({'i':i,'unit':u['unit'],'retained_source':str(src),'exact_substring':pos>=0,
+      'literal_hash_matches':digest(b)==u['literal_text_sha256'],
+      'literal_bytes_matches':len(b)==u['literal_text_bytes'],
+      'last_200_characters':u['literal_text'][-200:]})
+(P/'reports/primary-literal-audit.json').write_text(json.dumps(out,indent=2))
+# Repair the two HLS capture boundaries from their exact retained source.
+hls=byhash[units[13]['source']['sha256']].read_text()
+repairs=[]
+for label,start,end in [('HLS-7.1-through-complete-7.5','Setting 7.1.','Theorem 7.6.'),
+                         ('HLS-entire-Section8','8. Further open questions','Acknowledgements')]:
+    a=hls.index(start);b=hls.index(end,a)
+    t=hls[a:b]
+    dest=P/'evidence/primary-LOCALONLY'/(label+'.txt');dest.write_text(t)
+    repairs.append({'file':str(dest),'bytes':len(t.encode()),'sha256':digest(t.encode()),
+                   'starts_at':start,'ends_before':end,'exact_source_substring':True})
+(P/'reports/HLS-capture-repairs.json').write_text(json.dumps(repairs,indent=2))
+actual=json.loads(one('mathematical','098').read_text())['notes']
+expanded=json.loads(one('mathematical','129').read_text())['notes']
+proof=one('mathematical','148').read_text()
+paper=one('mathematical','094').read_text()
+body=[]
+(P/'review-data').mkdir(exist_ok=True)
+for a,e in zip(actual,expanded):
+    assert a['id']==e['id']
+    for label,n in [('actual',a),('expanded',e)]:
+        (P/f'review-data/{label}-{n["id"]}.json').write_text(json.dumps(n,ensure_ascii=False,indent=2))
+    t=e['text']; start=proof.find(t)
+    body.append({'id':a['id'],'actual_differs':a['text']!=t,
+        'entire_expanded_text_in_proof':start>=0,'position':start,
+        'actual_bytes':len(a['text'].encode()),'expanded_bytes':len(t.encode())})
+inp=json.loads((P/'input.json').read_text())
+grants=inp.get('notes',inp.get('input',{}).get('notes',[]))
+grantrows=[]
+for g in grants:
+    if g.get('id') in ('G331','B341','E350'):
+        t=g['text']; dest=P/'qualified-grants';dest.mkdir(exist_ok=True)
+        (dest/(g['id']+'.txt')).write_text(t)
+        grantrows.append({'id':g['id'],'bytes':len(t.encode()),'sha256':digest(t.encode()),
+                          'entire_body_in_376_paper':t in paper})
+result={'notes':body,'paper_starts_with_whole_proof':paper.startswith(proof),
+        'qualified_grants':grantrows,'claims_are_byte_identity_only':True}
+(P/'reports/whole-body-audit.json').write_text(json.dumps(result,indent=2))
+binding=json.loads(one('mathematical','149').read_text())
+known={digest(p.read_bytes()) for kind in ('mathematical','primary-LOCALONLY','context-LOCALONLY') for p in (P/'inputs'/kind).iterdir() if p.is_file()}
+bindings=[]
+extra=P/'inputs/376-binding-LOCALONLY';extra.mkdir(exist_ok=True)
+extra_records=[]
+for field in ('public_whole_body_bindings','private_retention_bindings'):
+    records=binding[field]
+    for x in records:
+        if x['sha256'] in known:continue
+        # Only the supplied frozen376 binding, never discovery of active output.
+        src=pathlib.Path(x['path']);b=src.read_bytes()
+        assert len(b)==x['bytes'] and digest(b)==x['sha256']
+        dest=extra/(f'{len(extra_records):02d}-'+src.name)
+        dest.write_bytes(b)
+        extra_records.append({'original':str(src),'retained':str(dest),'bytes':len(b),'sha256':digest(b),'matches':True})
+    bindings.append({'field':field,'records':len(records),
+      'hashes_present_in_current_explicit_manifests':sum(x['sha256'] in known for x in records),
+      'additional_frozen_binding_records_retained':sum(x['sha256'] not in known for x in records),
+      'only_supplied_frozen_binding_paths_opened':True})
+(P/'reports/376-extra-binding-retention.json').write_text(json.dumps(extra_records,indent=2))
+(P/'reports/376-binding-metadata-audit.json').write_text(json.dumps(bindings,indent=2))
+# Decode only the known prose escapes of the retained TeX, never its commands.
+oldtex=one('mathematical','095').read_text()
+core=oldtex.split('\\section{Exact source applications and reading boundary}')[0]
+inverse={r'\textbackslash{}':'\\',r'\textasciicircum{}':'^',r'\textasciitilde{}':'~',
+ r'\_':'_',r'\{':'{',r'\}':'}',r'\%':'%',r'\#':'#',r'\&':'&',r'\$':'$'}
+for a,b in inverse.items():core=core.replace(a,b)
+encoding=[]
+for e in expanded:
+    # Heading1 was typeset as a section. Bodies, including every proof line,
+    # are compared separately from that wrapper.
+    t=e['text'].split('\n',1)[1].strip()
+    table={'\\':r'\textbackslash{}','^':r'\textasciicircum{}','~':r'\textasciitilde{}',
+           '_':r'\_','{':r'\{','}':r'\}','%':r'\%','#':r'\#','&':r'\&','$':r'\$',
+           '–':'--','—':'---'}
+    encoded=''.join(table.get(c,c) for c in t)
+    encoding.append({'id':e['id'],'entire_proof_body_in_retained_tex_after_declared_encoding':encoded in oldtex,
+                     'encoding_qualification':'literal per-character prose escaping; en/em dashes map to --/---; heading omitted'})
+result['retained_376_TeX_body_encoding']=encoding
+result['literal_grants_in_retained_TeX']=[{'id':g['id'],'present':(P/'qualified-grants'/(g['id']+'.txt')).read_text() in oldtex} for g in grantrows]
+(P/'reports/whole-body-audit.json').write_text(json.dumps(result,indent=2))
+print(json.dumps({'literal_exact':sum(x['exact_substring'] for x in out),'units':len(out),
+ 'actual_distinct':sum(x['actual_differs'] for x in body),
+ 'expanded_complete_matches':sum(x['entire_expanded_text_in_proof'] for x in body),
+ 'grant_count':len(grantrows)},sort_keys=True))

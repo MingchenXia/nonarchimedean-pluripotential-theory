@@ -1,0 +1,19 @@
+import json, hashlib, pathlib, shutil, platform, sys
+BASE=pathlib.Path('/workspace/research/campaigns/round-261/P12.3-whole365-finite-correction364')
+ROOT=pathlib.Path(__file__).resolve().parent
+records=[]
+for name,dest in [('mathematical-packet-bindings','mathematical'),('private-primary-packet-bindings','primary-LOCALONLY'),('book-context-bindings','context')]:
+    m=BASE/(name+'.json')
+    out=ROOT/'inputs'/dest; out.mkdir(parents=True,exist_ok=True)
+    (ROOT/'inputs'/(name+'.json')).write_bytes(m.read_bytes())
+    for i,r in enumerate(json.loads(m.read_text())):
+        b=pathlib.Path(r['path']).read_bytes(); h=hashlib.sha256(b).hexdigest()
+        target=out/pathlib.Path(r['path']).name; target.write_bytes(b)
+        records.append(dict(r,local=str(target.relative_to(ROOT)),observed_bytes=len(b),observed_sha256=h,match=(len(b)==r['bytes'] and h==r['sha256'])))
+reports=ROOT/'reports';reports.mkdir(exist_ok=True)
+(reports/'input-audit.json').write_text(json.dumps(records,indent=2)+'\n')
+(reports/'environment.json').write_text(json.dumps(dict(python=sys.version,platform=platform.platform(),cwd=str(ROOT),supervised_compute='No service supplied; no resource-heavy work performed'),indent=2)+'\n')
+data=json.loads((ROOT/'input.json').read_text()); grants=ROOT/'inputs'/'grants';grants.mkdir(exist_ok=True)
+for n in data['notes']:(grants/(n['id']+'.txt')).write_text(n['text'])
+(ROOT/'inputs'/'assignment-task.json').write_text(json.dumps(data['task'],indent=2)+'\n')
+print('Retained',len(records),'records;',sum(r['match'] for r in records),'size/hash matches')

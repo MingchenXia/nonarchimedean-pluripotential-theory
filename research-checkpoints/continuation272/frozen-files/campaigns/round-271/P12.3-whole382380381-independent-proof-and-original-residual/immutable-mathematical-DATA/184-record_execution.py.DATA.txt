@@ -1,0 +1,17 @@
+"""Run only the five own reproducibility scripts and record exact outputs."""
+import datetime,json,pathlib,subprocess,sys,time
+commands=['retain_inputs.py','audit_packets.py','finite_diagnostics.py','build_delivery.py','final_audit.py']
+rows=[]
+for name in commands:
+    start=time.monotonic()
+    r=subprocess.run([sys.executable,name],text=True,capture_output=True,check=False)
+    rows.append({'command':'python '+name,'exit_code':r.returncode,'stdout':r.stdout,'stderr':r.stderr,
+                 'elapsed_seconds':round(time.monotonic()-start,6)})
+    if r.returncode:break
+out={'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'executions':rows,
+ 'earlier_diagnostic_attempt':{'command':'python finite_diagnostics.py','exit_code':1,
+ 'failure':'Exact profile equality used float divisions; AssertionError at the profile comparison. Corrected to fractions.Fraction and rerun successfully.',
+ 'mathematical_counterexample':False},
+ 'compiler_invoked':False,'supplied_programs_executed_or_imported':False}
+pathlib.Path('reports/rerun-execution.json').write_text(json.dumps(out,indent=2))
+print(json.dumps({'own_commands':len(rows),'all_exit_zero':all(x['exit_code']==0 for x in rows),'compiler_invoked':False}))

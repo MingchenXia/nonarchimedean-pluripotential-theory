@@ -1,0 +1,55 @@
+"""Bounded own arithmetic diagnostics; no supplied code is imported."""
+import fractions, itertools, json, math, pathlib
+F=fractions.Fraction
+def ceil(x): return -(-x.numerator//x.denominator)
+rounds=0
+for q,m,ell,r in itertools.product((2,3,4,8,9,16,25,27),range(1,13),range(1,13),range(1,7)):
+    t=F(q*m,ell); a=ceil(t); j=ell*a-q*m
+    assert 0<=j<ell
+    b=r*ceil(t/r)
+    assert a<=b<=a+r-1
+    rounds+=1
+smooth=0
+for j,r,s in itertools.product(range(1,7),range(6),range(6)):
+    gens=[(a+i,r-a+j*(s-i)) for a in range(r+1) for i in range(s+1)]
+    count=sum(not any(a>=x and b>=y for x,y in gens)
+              for a in range(r+s) for b in range(r+j*s))
+    expected=r*(r+1)//2+r*s+j*s*(s+1)//2
+    assert count==expected,(j,r,s,count,expected)
+    smooth+=1
+parity=0
+for n,k in itertools.product(range(1,7),range(1,7)):
+    gens=[]
+    for i in range(k+1):
+        for j in range(k-i+1):
+            h=k-i-j;gens.append((2*n*i+2*j,(2*n-2)*j+4*n*h))
+    count=0
+    for a in range(2*n*k):
+        for b in range(4*n*k):
+            if (a+b)%2==0 and not any(a>=x and b>=y for x,y in gens):count+=1
+    expected=(n*n+n)*k*k+(n*n-n+2)*k
+    assert count==expected,(n,k,count,expected)
+    parity+=1
+profiles=0
+for n in range(1,13):
+    for a,b in [(1,x) for x in range(1,13)]+[(x,1) for x in range(2,13)]+[(math.inf,1),(1,math.inf)]:
+        # Avoid zero times infinity in the monomial with exponent n-1.
+        vals=(n*a,a+(n-1)*b if n>1 else a,2*n*b)
+        got=-F(min(vals),n)
+        expected=-1 if a<=b else -min(1+F(a-1,n),2) if math.isfinite(a) else -2
+        assert got==expected
+        profiles+=1
+def mul4(a,b):
+    a0,a1=a&1,a>>1;b0,b1=b&1,b>>1
+    return ((a0*b0+a1*b1)%2)+2*((a0*b1+a1*b0+a1*b1)%2)
+assert mul4(2,3)==1
+assert (mul4(2,3)&1)!=((2&1)*(3&1))
+out={'status':'PASS','rounding_cases':rounds,
+ 'rounding_domain':'q in {2,3,4,8,9,16,25,27}; m,ell=1..12; r=1..6',
+ 'smooth_length_cases':smooth,'smooth_domain':'j=1..6; r,s=0..5',
+ 'parity_length_cases':parity,'parity_domain':'n,k=1..6; complete monomial boxes 0<=a<2nk,0<=b<4nk; a+b even',
+ 'profile_cases':profiles,'profile_domain':'n=1..12; integer normalized weight pairs 1..12 and both infinite-coordinate endpoints',
+ 'F4_projection':{'t':2,'inverse_t':3,'product':1,'projection_product':1,'product_of_projections':0},
+ 'limitation':'Exhaustive only on stated finite domains. Not a proof of envelopes, test ideals, cohomology, field descent or all-support mathematics.'}
+pathlib.Path('reports/finite-diagnostics.json').write_text(json.dumps(out,indent=2))
+print(json.dumps(out,sort_keys=True))

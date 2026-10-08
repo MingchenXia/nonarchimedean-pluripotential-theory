@@ -1,0 +1,12 @@
+"""Own bounded retrieval of public primary data, no imported code."""
+from pathlib import Path
+import urllib.request, hashlib, json, subprocess
+url='https://arxiv.org/pdf/1412.0868v2'
+out=Path('inputs/primary-LOCALONLY/Cossart-Piltant-1412.0868v2.pdf')
+with urllib.request.urlopen(url,timeout=40) as response:
+    data=response.read(12_000_001)
+    if len(data)>12_000_000: raise RuntimeError('bounded retrieval exceeded')
+out.write_bytes(data)
+result=subprocess.run(['pdftotext','-layout',str(out),str(out.with_suffix('.txt'))],capture_output=True,text=True)
+Path('evidence/public-retrieval.json').write_text(json.dumps({'url':url,'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest(),'conversion_exit':result.returncode,'stderr':result.stderr,'status':'retained primary DATA, not theorem grant'},indent=2))
+print('retrieved',len(data),'conversion',result.returncode)

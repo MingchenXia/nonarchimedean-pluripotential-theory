@@ -1,0 +1,9 @@
+Let Y be projective over a Noetherian affine scheme, A ample and globally generated, M coherent, and d=dim Y finite. Assume H^i(Y,M tensor A^{-i})=0 for 1<=i<=d. Higher groups vanish by the ordinary coherent-cohomology dimension bound.
+
+Choose finitely many global sections O_Y^r onto A. Their Koszul complex is locally contractible because, after trivializing A, they generate the unit ideal. It remains exact after tensoring by arbitrary M. Write Reg(t) for H^i(M tensor A^{t-i})=0 for all i>0. Reg(0) is the hypothesis. Twist the Koszul complex by M tensor A^{t+1-i}. Its preceding terms are copies of M tensor A^{t-i-j}. Their H^{i+j} vanish by Reg(t). Successive kernel sequences move H^i of the target to these higher groups and finally to zero. Thus Reg(t+1), and induction gives every t>=0.
+
+Twisting by M tensor A^{t+1}, the obstruction to H^0(M tensor A^t)^r onto H^0(M tensor A^{t+1}) is H^1 of the first kernel. The same kernel sequences kill it through H^j(M tensor A^{t-j})=0. Multiplication therefore surjects in every degree. Every high-degree section is a product of the chosen A-sections with sections of M. Serre generation makes M tensor A^t globally generated for large t. Stalkwise, its generated image is contained in the image of H^0(M) tensor A^t; untwisting proves that H^0(M) generates M.
+
+This proves the complete relative statement and its immediate proof. Serre thresholds may depend on fixed coherent factors, while the choice of ample divisors can remain fixed. GJKM4.6 retains its SMOOTH/projective-over-affine/perfect-field hypotheses. Its reference identifies the issue; its theorem is not applied to singular Y. No fresh whole BS-book reading is asserted.
+
+Artifact: n3.md. Ordinary Serre generation/vanishing, dimension-bound cohomology and locally split Koszul exactness are disclosed background.

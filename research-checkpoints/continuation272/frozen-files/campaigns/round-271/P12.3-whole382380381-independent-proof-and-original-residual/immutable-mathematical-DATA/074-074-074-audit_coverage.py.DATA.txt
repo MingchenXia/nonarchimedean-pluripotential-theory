@@ -1,0 +1,17 @@
+import json,re,hashlib
+from pathlib import Path
+p=Path('inputs/mathematical'); notes=json.loads((p/'18-native-notes.json').read_text())['notes']; actual=json.loads((p/'19-actual-native258-final.json').read_text())['notes']; arg=(p/'17-argument.md').read_text(); md=(p/'16-P12.3-paper.md').read_text(); tex=(p/'15-P12.3-paper.tex').read_text()
+def escape(s):
+ return s.replace('\\',r'\textbackslash{}').replace('&',r'\&').replace('%',r'\%').replace('$',r'\$').replace('#',r'\#').replace('_',r'\_').replace('{',r'\{').replace('}',r'\}').replace('~',r'\textasciitilde{}').replace('^',r'\textasciicircum{}')
+# Escape braces only from original text, preserving generated escapes.
+def esc(s):
+ return ''.join({'\\':r'\textbackslash{}','&':r'\&','%':r'\%','$':r'\$','#':r'\#','_':r'\_','{':r'\{','}':r'\}','~':r'\textasciitilde{}','^':r'\textasciicircum{}'}.get(c,c) for c in s)
+r=[]
+for i,n in enumerate(notes):
+ f=p/f'{28+i:02d}-{n["id"]}.md';body=f.read_text(); r.append(dict(id=n['id'],argument=n['text'] in arg,md=n['text'] in md,separate_body=n['text'] in body,tex_escaped=esc(n['text'].split('\n',1)[1].lstrip('\n')) in tex,actual_text_differs=n['text']!=actual[i]['text']))
+ md=md.replace(n['text'],'');tex=tex.replace(esc(n['text'].split('\n',1)[1].lstrip('\n')),'')
+for name in ['21-whole-source-application-ledger.md','22-exact-scope.md','23-whole-proof-coverage.md','25-original-scope-and-noncircularity-decision.md']:
+ b=(p/name).read_text();blocks=[x for x in b.split('\n\n') if x and not x.startswith('#')];print(name,'MD',b in md,'TeX blocks',all(esc(x) in tex for x in blocks));md=md.replace(b,'');
+ for x in blocks:tex=tex.replace(esc(x),'')
+Path('reports/duplicate-coverage.json').write_text(json.dumps(r,indent=2)+'\n');Path('review-data/paper-outside-read-bodies.md').write_text(md);Path('review-data/tex-outside-read-bodies.txt').write_text(tex)
+print(json.dumps(r,indent=2));print('Outside MD/TeX bytes',len(md.encode()),len(tex.encode()))

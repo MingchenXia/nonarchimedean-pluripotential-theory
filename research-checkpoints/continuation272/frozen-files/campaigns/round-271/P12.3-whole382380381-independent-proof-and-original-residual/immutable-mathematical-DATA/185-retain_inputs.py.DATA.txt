@@ -1,0 +1,33 @@
+"""Own bounded data-only reader. Never import or execute packet contents."""
+import hashlib
+import json
+import platform
+import shutil
+import sys
+from pathlib import Path
+
+BASE = Path('/workspace/research/campaigns/round-269/P12.3-whole377-isolated-positive-characteristic-and-original-envelopes')
+ROOT = Path(__file__).resolve().parent
+records = []
+for kind, name in [('mathematical', 'mathematical-packet-bindings.json'),
+                   ('primary-LOCALONLY', 'private-primary-packet-bindings.json'),
+                   ('context-LOCALONLY', 'book-context-bindings.json')]:
+    target = ROOT / 'inputs' / kind
+    target.mkdir(parents=True, exist_ok=True)
+    manifest = BASE / name
+    shutil.copyfile(manifest, ROOT / name)
+    for index, item in enumerate(json.loads(manifest.read_text())):
+        original = Path(item['path'])
+        data = original.read_bytes()
+        digest = hashlib.sha256(data).hexdigest()
+        local = target / f'{index:03d}-{original.name}'
+        local.write_bytes(data)
+        records.append(dict(kind=kind, index=index, path=str(original), local=str(local.relative_to(ROOT)),
+                            bytes=len(data), sha256=digest,
+                            matches=(len(data)==item['bytes'] and digest==item['sha256'])))
+(ROOT / 'reports').mkdir(exist_ok=True)
+(ROOT / 'reports' / 'input-integrity.json').write_text(json.dumps(records, indent=2)+'\n')
+(ROOT / 'reports' / 'environment.json').write_text(json.dumps(dict(python=sys.version, platform=platform.platform(),
+    cwd=str(ROOT), supplied_programs_executed=False, cloud_status_tool_available=False,
+    supervised_heavy_compute_facility_supplied=False), indent=2)+'\n')
+print(json.dumps(dict(records=len(records), matches=sum(r['matches'] for r in records))))

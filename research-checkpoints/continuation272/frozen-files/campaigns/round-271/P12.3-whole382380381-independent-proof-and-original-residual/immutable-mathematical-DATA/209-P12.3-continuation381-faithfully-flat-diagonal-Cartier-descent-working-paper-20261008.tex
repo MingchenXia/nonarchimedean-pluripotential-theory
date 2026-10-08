@@ -1,0 +1,219 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\Fitt}{\operatorname{Fitt}}
+\title{Faithfully flat descent of diagonal-compatible Cartier maps}
+\author{Unreviewed mathematical working paper}
+\date{8 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+For a finite type algebra over a perfect field, diagonal-compatible
+Cartier maps and their restrictions commute with a perfect field
+extension. In particular, liftability to the diagonal descends faithfully
+flatly. The proof gives explicit Frobenius-module identifications and
+uses finite presentations to commute kernels and images with extension.
+It provides a replacement for a field-retraction argument in the finite
+field step of a singular subadditivity source. Test-ideal base change,
+the separate infinite-field inclusion, and the original envelope problem
+are not asserted by this lemma.
+\end{abstract}
+
+\section{The precise modules and the theorem}
+Let $k$ be perfect of characteristic $p>0$, let $R$ be a finite type
+$k$-algebra, and fix $e\geq0$ and $q=p^e$. Neither reducedness nor
+normality is needed for the module theorem. For a ring or ideal $M$
+in characteristic $p$, $F_*^eM$ denotes its additive group with scalar
+action $a\cdot F_*^ex=F_*^e(a^q x)$.
+Put
+\[
+ S=R\otimes_k R,\quad \mu:S\longrightarrow R,\quad
+ I=\ker\mu,\quad H_e(R)=\Hom_R(F_*^eR,R).
+\]
+Define the compatibility module
+\[
+ C_e(S,I)=\{\psi\in\Hom_S(F_*^eS,S):\psi(F_*^eI)\subset I\}.
+\]
+Its restriction to the quotient $S/I=R$ gives an $S$-linear map
+\[
+ \rho_e:C_e(S,I)\longrightarrow H_e(R),
+\]
+where $S$ acts on the target through $\mu$. Define
+$D_e(R/k)=\im\rho_e$. Thus $D_e$ consists exactly of the maps
+that admit an actual diagonal-compatible lift.
+
+Let $k'/k$ be an extension of perfect fields, and put
+$R'=R\otimes_k k'$. The natural isomorphism
+\[
+ R'\otimes_{k'}R'=S\otimes_k k'
+\]
+identifies its multiplication ideal $I'$ with $I\otimes_k k'$.
+
+\begin{theorem}\label{thm:descent}
+There are natural module identifications
+\[
+ H_e(R')=H_e(R)\otimes_k k',\qquad
+ C_e(S\otimes_k k',I')=C_e(S,I)\otimes_k k',
+\]
+which identify the restriction maps. Consequently
+\[
+ D_e(R'/k')=D_e(R/k)\otimes_k k'.                         \tag{1}
+\]
+For $h\in H_e(R)$, its extended Cartier map is diagonally liftable
+over $R'$ if and only if $h\in D_e(R/k)$.
+\end{theorem}
+
+The displayed tensor identifications include the Frobenius twist
+specified below. They do not assert that a Cartier map acts $k'$-linearly
+on the untwisted additive vector space.
+
+\section{Finiteness and the Frobenius identifications}
+Every finite type $k$-algebra $B$ has finite Frobenius. Indeed choose
+finitely many algebra generators $x_1,\ldots,x_a$. Every polynomial
+in them is a sum of expressions $b_\alpha^q x^\alpha$ with
+$0\leq\alpha_j<q$, because coefficients have $q$-th roots in $k$.
+Their images in any quotient retain that expression. Thus the finitely
+many $F_*^ex^\alpha$ generate $F_*^eB$ as a $B$-module. As $B$ is
+Noetherian, this module is finitely presented. For a finite ideal $J$
+of $B$, $F_*^eJ$ is a submodule of this finite module, hence is finite
+and finitely presented as well. This applies to $R,S,I$ and their
+field extensions.
+
+For any such $B$, let $B'=B\otimes_k k'$. There is a $B'$-linear
+isomorphism
+\[
+ \Phi_B:(F_*^eB)\otimes_k k'\longrightarrow F_*^eB',\qquad
+ (F_*^ex)\otimes c\longmapsto F_*^e(x\otimes c^q).          \tag{2}
+\]
+The tensor on the left uses the $k$-module structure inherited from
+the Frobenius $B$-module. In particular
+$(F_*^e(\lambda^q x))\otimes c=(F_*^ex)\otimes\lambda c$.
+This relation is preserved by (2), since
+$\lambda^q x\otimes c^q=x\otimes(\lambda c)^q$.
+Additivity holds because raising to $q$ is additive in characteristic
+$p$. The inverse sends $F_*^e(x\otimes c)$ to
+$(F_*^ex)\otimes c^{1/q}$ and extends additively. It is well defined:
+the relation $\lambda x\otimes c=x\otimes\lambda c$ becomes the
+same tensor relation using $\lambda^{1/q}\in k$.
+Perfectness of both fields supplies all these roots uniquely.
+
+For $a\in B$ and $b,c\in k'$, the action of $a\otimes b$ on the
+right gives $F_*^e(a^q x\otimes b^q c^q)$; this is also the image of
+$a(F_*^ex)\otimes bc$ on the left. Hence (2) and its inverse are
+$B'$-linear. The same formula holds for $J$ in place of $B$ and
+identifies the inclusions $F_*^eJ\subset F_*^eB$ and their quotients
+with the extended inclusions and quotients. No embedding of $B$ in
+a ring of $q$-th roots, or assumption that $B$ is reduced, is used.
+
+\section{Hom modules, compatibility kernels, and restriction images}
+If $M$ is a finitely presented module over a ring $B$ and $B'$ is flat
+over $B$, then
+\[
+ \Hom_B(M,N)\otimes_B B'
+    =\Hom_{B'}(M\otimes_B B',N\otimes_B B').              \tag{3}
+\]
+To prove this directly choose a finite presentation
+$B^a\to B^b\to M\to0$. The Hom module is the kernel of
+$N^b\to N^a$. Flat tensoring preserves that kernel and the finite
+direct sums, giving (3). This proof requires no flatness of $N$.
+
+Apply (3) to $F_*^eR$ and $F_*^eS$, using (2) for their extended
+domains. Tensoring by $B\otimes_k k'$ over $B$ is the same as
+tensoring by $k'$ over $k$. It gives the asserted identification of
+$H_e$ and of the ambient Hom modules on $S$.
+The compatibility module is precisely the kernel of
+\[
+ \Hom_S(F_*^eS,S)\longrightarrow\Hom_S(F_*^eI,S/I),\qquad
+ \psi\longmapsto(\psi|_{F_*^eI}\bmod I).                 \tag{4}
+\]
+The finite presentation of $F_*^eI$ permits (3) on the target also.
+The identifications (2) respect restriction and reduction modulo $I$,
+so (4) after flat extension is exactly the compatibility kernel for
+$(S\otimes_k k',I')$. Flatness preserves its kernel, proving the
+asserted identification of $C_e$.
+
+For a compatible $\psi$, define $\rho_e(\psi)$ by choosing a lift
+of an element of $F_*^eR$ to $F_*^eS$, applying $\psi$, and reducing
+modulo $I$. Different lifts differ by $F_*^eI$ and therefore give
+the same result. The map is $R$-linear for the Frobenius source action.
+The functorial identifications (2) commute with $S\to R$, and hence
+the extended restriction is exactly $\rho'_e$. Taking the image of
+this map commutes with flat tensor product. This proves (1).
+
+Finally form the cokernel $Q=H_e(R)/D_e(R/k)$. Its field extension
+is $H_e(R')/D_e(R'/k')$ by flatness. For an element $h$, its class
+is zero after extension if and only if it was zero beforehand, since
+$k\to k'$ is faithfully flat. This proves the liftability assertion
+and completes the theorem.
+
+\begin{corollary}\label{cor:ideal}
+Let $J\subset R$ be an ideal. If
+$J R'\cdot H_e(R')\subset D_e(R'/k')$, then
+$J\cdot H_e(R)\subset D_e(R/k)$.
+\end{corollary}
+\begin{proof}
+For $a\in J$ and $h\in H_e(R)$, the extension of $ah$ is
+$(a\otimes1)(h\otimes1)$. By hypothesis it belongs to the extended
+image. The final assertion of Theorem~\ref{thm:descent} gives
+$ah\in D_e(R/k)$. Sums of these elements prove the inclusion.
+\end{proof}
+
+\section{Exact finite-field use and limitations}
+When $k$ is finite, take the infinite perfect extension
+$k'=\bigcup_{r\geq0}k(t^{1/p^r})$. The preceding proof applies:
+$R'$ and $S'$ are still finite type algebras over the perfect field
+$k'$, hence Noetherian and Frobenius-finite. No finiteness of $k'/k$
+is required. No multiplicative field retraction $k'\to k$ is used.
+
+For a fixed index $d$, differentials and a finite presentation show
+\[
+ \Omega_{R'/k'}=\Omega_{R/k}\otimes_k k',\qquad
+ \Fitt_d(\Omega_{R'/k'})=\Fitt_d(\Omega_{R/k})R'.          \tag{5}
+\]
+The second equality follows by extending the matrix and its minors.
+Thus Corollary~\ref{cor:ideal} applies to the Jacobian ideal whenever
+it is defined by this same index on the two algebras. In an application
+to reduced equidimensional finite type algebras, one must additionally
+check the retained dimension and geometric-reducedness hypotheses
+needed by a separately applied infinite-field theorem.
+
+Smolkin, \emph{A new subadditivity formula for test ideals},
+\href{https://arxiv.org/abs/1805.08739v3}{arXiv:1805.08739v3},
+Theorem 3.12, seeks the inclusion
+$\operatorname{Jac}(R/k) H_e(R)\subset D_e(R/k)$.
+Its printed finite-field step regards $k$ as an $L$-module via a
+$k$-linear retraction $L\to k$, then tensors an $L$-linear diagram
+by $k$. A merely linear retraction does not provide that module
+structure. Corollary~\ref{cor:ideal}, with (5), supplies a valid
+finite-field reduction \emph{provided the separately justified
+infinite-perfect-field inclusion and its ambient hypotheses hold}.
+It is a descent of the actual compatible Hom kernel and restriction
+image, not a descent of test ideals via a guessed equality.
+
+The full printed statement and immediate proof of Smolkin 3.12,
+including both the problematic finite-field paragraph and its separate
+infinite-field construction, have been read. The relevant printed
+page was physically checked earlier. The infinite-field argument's
+Hochster--Huneke Noether-normalization input is a separate published
+foundation; this paper does not claim a fresh reconstruction of that
+input or grant correctness to the entire source proof. The module
+theorem above was proved independently and does not require it.
+
+Neither (1) nor (5) proves a test-ideal base-change identity,
+singular subadditivity, a trace-image formula, or a uniform all-support
+envelope estimate. Those require their own exact statements and proofs.
+The original normal excellent local-envelope problem P12.3, including
+nonisolated, mixed-characteristic and nonalgebraic residuals, remains
+open. This working paper supplies no new original closure or accepted
+paper count. It does not alter frozen paper377 or provide feedback to
+the active independent campaign269. Full primary bodies and pixels
+remain local research data, and no supplied program was executed.
+\end{document}
