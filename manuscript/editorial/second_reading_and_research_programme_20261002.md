@@ -3,6 +3,38 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest relative Hessian source checkpoint, 8 October 2026
+
+The [source audit](Truong_relative_Hessian_source_review_20261008.md)
+completes all 26 physical pages of arXiv:2609.12032v1 in thirteen individual
+matching displays, complete selected text and sequential notes. Its literal
+definitions lack the boundary premises used in later comparison and global
+Stokes arguments. Smooth examples directly test comparison, injectivity and
+stability; a common-trace bounded radial family has bounded signed relative
+energy but diverging global Hessian mass and fails canonical basic-class
+membership. The constant-shift measure-hypothesis diagnostic is separate from
+the smooth Lp uniqueness example. None of the source's general theorems is
+admitted. External cited foundations remain unverified.
+
+The failed symbolic branch-limit and manually copied catalogue-hash assertion
+are preserved, with corrected subsequent versions; they add no reading credit.
+The [authored archive](artifact_exports/20261008_truong_relative_hessian_sources/README.md)
+has 46 byte-verified members. All original primary text/images and the complete
+75-member source evidence remain in the cloud. Publication has a separate record.
+The active 4,636-page book, all 425 TeX inputs, both bibliographies and the native
+catalogue/editor are preserved. The 42 atoms/twelve formal problems retain
+status: general BJ22 critical homogeneous Siu/envelopes OPEN, LPWZ density
+UNVERIFIED. No original general theorem, independent receipt or new whole-book
+pass is claimed; the last complete ordered pass is 4 October.
+
+A current author-update check found work at 6d73f822905f48811155cbf696510d2b9708f38b
+and main at 00957114db21b627e97369563032ceda9cea09c7, without incoming changes.
+Next publish the authorized authored checkpoint, then add the qualified
+boundary/normalization paragraph in Chapter 51 and direct tests in L.94.
+Preserve historical formal blocks and numbered label values; complete the
+build, actual rendered-reading and post-render gates before cloud activation.
+Continue related primary reading and regular author-update checks.
+
 ## Latest higher-rank GitHub publication checkpoint, 8 October 2026
 
 The [publication record](Kaib_Werner_higher_rank_GitHub_publication_20261008.json)

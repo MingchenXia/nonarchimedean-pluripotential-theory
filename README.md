@@ -4,6 +4,22 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest relative Hessian source checkpoint, 8 October 2026:** the
+[source audit](manuscript/editorial/Truong_relative_Hessian_source_review_20261008.md)
+completes all 26 pages of arXiv:2609.12032v1 in thirteen individually displayed
+matching views with sequential notes. Smooth examples identify missing boundary
+premises in comparison, injectivity, global Stokes and stability. A bounded
+radial family with common boundary trace has uniformly finite signed energy
+and diverging total mass, contradicting the literal canonical basic-class
+membership claim. The unnormalized measure hypothesis also fails a constant-shift
+test for nonzero data. None of the preprint's general theorems is imported.
+The [authored records](manuscript/editorial/artifact_exports/20261008_truong_relative_hessian_sources/README.md)
+are byte-verified; publication receives a separate verification record.
+The active 4,636-page book, native catalogue and all 42 atoms/twelve formal
+problem statuses are preserved. The last complete book reading is 4 October.
+The intended Chapter 51/L.94 boundary and mass explanation follows the full
+build, rendered-reading and post-render gates.
+
 **Latest verified GitHub publication, 8 October 2026:** the 4,636-page
 book and six owned evidence/artifact files are uploaded on `work` in
 `c7a3a5d43bc0a89577c81d4301346f4df65bab51`. All sixteen source/progress/audit/
