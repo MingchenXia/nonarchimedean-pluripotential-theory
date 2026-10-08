@@ -1,0 +1,259 @@
+# Geometric envelopes: delimited normal progress and unresolved original
+
+Candidate=false. Complete proof-bearing local chain, relative only to the entire qualified grants.
+
+# n1. Domain and reconstructed raw envelope calculus
+
+This note uses the entire qualified G331. All assertions below concern its independently geometric cone on the actual primary blowup system. They do not define positivity by an obstacle supremum. Let R be excellent local, replace it by its reduction, and fix a proper maximal-ideal-primary ideal a. In positive dimension X=X_a is the compact Hausdorff section of all centred real semivaluations satisfying v(a)=1. Every prime support below the maximal ideal is retained. The geometric core consists of actual negative effective finite real Cartier presentations on actual primary blowups, with nonnegative degree on every contracted proper integral curve. C is its finite continuous uniform closure; D is the class of actual infima of nonempty decreasing C-nets, with bottom allowed. G331 proves comparison with the ideal classes, rational-profile density in C, finite maximum/addition/nonnegative scaling, and exact positive full-fibre normalization descent. It does not grant any envelope theorem. Write r=-1=-v(a); this is a geometric primary function, not a flat reference for energy.
+
+For a finite continuous obstacle phi define
+\[
+p_C(\phi)=\sup\{g\in C:g\le\phi\},\qquad p_D(\phi)=\sup\{u\in D:u\le\phi\}.
+\]
+The bottom function is admitted in the latter family. A sufficiently negative primary constant belongs to the former, so both suprema are finite, nonpositive and bounded below. If u=inf g_i is an admissible D function, then for epsilon>0 the open sets {g_i<phi+epsilon} cover X. Directedness and compactness select one index valid everywhere. The function g_i-epsilon belongs to C, lies below phi, and is at least u-epsilon. Therefore p_C=p_D, denoted p. This argument involves continuous approximants of a specified D function and no completion of an unknown supremum.
+
+p is lower semicontinuous. The C family is upward directed by finite maxima. If p is continuous, the open sets {g>p-epsilon} cover X, and a finite maximum supplies g with p-epsilon<g<=p. Thus p belongs to C. Conversely, if p belongs to D it is upper semicontinuous and hence continuous. Let
+\[
+p^*(x)=\inf_{U\ni x}\sup_{y\in U}p(y)
+\]
+where U ranges over neighbourhoods in the exact compact pointwise semivaluation topology. Since phi is continuous, p<=p*<=min(phi,0). If p* belongs to D, it is an admissible competitor, so p*<=p and p=p* is continuous. Conversely continuous p belongs to C. Thus positivity of this regularization for finite continuous obstacles is equivalent to continuity of the raw envelope. The equivalence supplies no proof of continuity on a general normal germ.
+
+The raw operator is monotone and 1-Lipschitz in uniform norm. Indeed if phi<=psi+epsilon, any C minorant g of phi has g-epsilon<=psi; take the supremum and interchange phi,psi. Once p is in C it is the greatest geometric minorant and satisfies p(p(phi))=p(phi). For extended obstacles the exact order conventions still apply, but the finite-continuous arguments cannot simply be reused.
+
+Here is an all-support algebraic expression, independently reconstructed from the definitions. For k>=1 put
+\[
+J_k(\phi)=\{f\in R:v(f)\ge-k\phi(v)\text{ for every }v\in X\}.
+\]
+This is an actual ideal: addition uses the semivaluation inequality and multiplication uses v(R)>=0. If M>=max(0,-min phi), it contains a^ceil(kM) (use a^1 if the exponent is zero). If phi is negative somewhere, no unit belongs, so it is proper primary; if phi>=0 everywhere it is the unit ideal. Noetherianity supplies a finite generating set for each individual J_k, not finite generation of the graded system. Each J_k is integrally closed. To check this on all supports, suppose f satisfies an ideal-integrality monic equation of degree d with coefficient c_i in J_k^i. If v(f)<-k phi(v), its leading term has finite value d v(f), while every other term has value at least i(-k phi(v))+(d-i)v(f)>d v(f); a unique finite least term cannot sum to zero. This proves the required bound, including when some other terms have infinite value. When the threshold is nonpositive the bound already follows from v(R)>=0.
+
+The ideal relations are J_k J_l subset J_(k+l) and J_k^l subset J_(kl). Thus a_k=-v(J_k)/k belongs to C, satisfies a_k<=phi, and a_(n!) increases. Its supremum is p. For completeness, let g in C satisfy g<=phi. Uniformly approximate g by a rational unit-or-primary profile h=-v(I)/s with error less than eta/2. Multiply a sufficiently large power of I by a power of a to subtract a rational primary constant between 3eta/2 and 2eta. This gives a rational profile h' with g-3eta<=h'<=g-eta, and a denominator l dividing a sufficiently large factorial. The underlying ideal is contained in J_l, hence h'<=a_l<=a_(n!). Let eta decrease to zero. This proves the formula and shows precisely the missing general-normal step: one needs uniform convergence/continuity, rather than pointwise Fekete convergence or asserted finite generation.
+
+Primary gauge change is exact. For a second proper primary b put d(v)=v(b)>0 and H(v)=v/d(v). On compact X both d and its inverse are bounded continuous. A degree-one homogeneous obstacle transforms by phi_b(H(v))=phi_a(v)/d(v). G331 gives order bijections of C,D under the same transformation. Taking suprema gives
+\[
+p_b(\phi_b)(H(v))=p_a(\phi_a)(v)/d(v).
+\]
+The ideals J_k are literally identical under this synchronized transformation: both sides of their defining inequalities are divided by d(v). For bounded raw envelopes regularization commutes as well, since d is positive continuous. On all centred rays the envelope is homogeneous of degree one. Arbitrary sectionwise constants which are not transported in this way are different obstacles.
+
+Nilpotents are invisible and this theory uses the reduction. Dimension-zero local reduction has empty boundary and its unique empty function/envelope. Unit ideals supply the zero model function but not a level-one gauge section. Zero ideals also supply no such section. Bottom is the least D function and is a minorant of every extended obstacle. On nonpure reductions every normalization centre and every support remains in the function domain; an ambient top-degree energy convention cannot delete lower-dimensional fibres. These conventions will be retained throughout.
+
+This is a mathematical reconstruction relative to G331, not a new normal-envelope closure result. Prior 336/340 bodies were examined as data and are not supports. Artifact: n1.md; it is reproduced in argument.md and P12.3-paper.tex. Rerun the owned artifact audit with python final_audit.py. Execution does not check mathematical correctness.
+
+
+# n2. New actual closure under decreasing D-nets
+
+This note uses qualified G331 and n1; its energy corollary uses qualified E350. It proves a closure statement, rather than presuming one from an energy criterion. It concerns decreasing nets or nonempty downward-directed families; it does not concern arbitrary infima of nondirected families.
+
+First let R be an excellent normal local domain of positive dimension. G331 supplies the following substantive normal zero dichotomy: a D function which is zero at one point is identically zero. It also supplies that D functions are nonpositive upper semicontinuous. Let u_i in D be a decreasing net and u=inf_i u_i. This infimum is upper semicontinuous. If u(x)=0 at some x, all u_i(x)=0 and the zero dichotomy gives u_i=0, hence u=0 in C. Otherwise, if all u_i were zero the same conclusion would follow; choose a nonzero term u_(i0). By upper semicontinuity and compactness it is bounded above by -c for some finite c>0. This includes the case it is bottom. Consequently u<=-c.
+
+We prove an insertion assertion: for every finite continuous F>u there is q in C with u<q<F everywhere. The open sets {u_i<F} cover X and increase under refinement. Compactness selects i>=i0 with u_i<F globally. Choose an actual representation g_alpha downarrow u_i in C. The two strict continuous tests g_alpha<F and g_alpha<-c/2 eventually hold at each point. A compact directed open-cover argument selects one g satisfying both throughout X. Let m=min_X(F-g)>0, and choose 0<b<1 with b||g||<m/2. Then q=(1-b)g is in C, is below F, and exceeds u at every finite value by at least b c/2; at a bottom value q is finite and so also strictly exceeds u. No positive constant was added to the cone.
+
+Let Q be all q in C strictly above u. It contains zero. Given q1,q2 in Q, apply insertion to the finite continuous test min(q1,q2); the test need not itself belong to C. This gives an element below both. Thus Q is downward directed. Its infimum is exactly u. Indeed for x and finite t>u(x), choose a real l with u(x)<l<t and a neighbourhood where u<l. Compact Hausdorff normality gives a cutoff which equals one at x and is supported in that neighbourhood. Interpolate between l there and a global strict upper bound for u outside to obtain a finite continuous F>u with F(x)=l<t. This also works when u(x)=-infinity by choosing any l<t. Insertion gives q(x)<t. Reverse pointwise order on Q is therefore an ACTUAL decreasing C-net with infimum u. It follows that u belongs to D.
+
+For a semilocal normal finite product apply this proof at each of the finitely many marked local normal centres. Finite products of the resulting directed sets give an actual C-net on the disjoint union. For an arbitrary excellent reduced local R, let S be its finite normalization with all local centres above the marked maximal ideal. Pull back u_i to D_S. At every normal centre the pointwise infimum belongs to D by the preceding proof; finite product representations put the tuple in D_S. The tuple is constant on every full restriction fibre because each pulled-back term is. G331's positive D descent then puts its descent, exactly inf_i u_i, in D_R. This includes the conductor-infinite quotient and internal fibres of a single centre. Dimension zero is the unique empty function. Nilpotent reduction is as in n1.
+
+We have proved
+\[
+u_i\in D,\quad u_i\downarrow u\quad\Longrightarrow\quad u\in D
+\]
+on every excellent reduced local germ, with all supports retained. This is not a flattening of nested approximating nets. The normal insertion argument constructs a new directed set of continuous majorants, and normalization supplies positivity of descent only afterwards. Finite minima of D functions remain unproved and are not used.
+
+Now apply E350 at its exact ambient dimension and reference convention. If u_i in E1 decreases pointwise, the new theorem first proves u=inf u_i in D. Its qualified specified-D energy criterion now yields
+\[
+u\in\mathcal E^1\quad\Longleftrightarrow\quad
+\sup_i F_\infty(u_i^{[n]})<+\infty.
+\]
+On such finite-energy limits the qualified decreasing-net weak mixed-measure and capacity convergence, test pairings and open-exception quasicontinuity apply. The energy has sign E=-F_infinity/n; it decreases as a function becomes more negative. In degree zero there is only the empty convention. Lower-dimensional normalization centres retain their function/fibre conditions even when their ambient top-degree energy contribution vanishes.
+
+This removes a membership hypothesis for DECREASING nets by a separate proof. An obstacle supremum is an increasing net of continuous minorants, so the theorem supplies no general envelope positivity, increasing closure, attainment from capacity compactness, or Choquet compact-above property. Artifact: n2.md, reproduced in the main argument and uncompiled paper. Rerun: python final_audit.py. This is an unverified mathematical draft.
+
+
+# n3. Exact smooth continuous-envelope input, independently reconstructed
+
+This note uses G331 and n1. The new published application is Boucksom--Favre--Jonsson, Valuations and plurisubharmonic singularities, specifically its smooth affine CLOSED germ over an algebraically closed field of characteristic zero, dimension at least two. It is not a source of characteristic-free singular multiplier ideals or resolution. Smooth DVR and empty dimension zero are treated directly. The full immediate Setting, retraction/projective-limit statements 1.10--1.15, Definitions 2.1/2.5/2.8 and Proposition 2.7, Proposition 3.11 with proof, and the entire determining-complex envelope argument 3.15--3.22 were read from the retained publication text. Recursive smooth resolution, multiplier ideal subadditivity and historical Izumi/ELS arguments are disclosed published background, not claimed freshly reconstructed in full.
+
+Here are the actual source facts applied. On the smooth simple-modification system, rational divisorial points are dense in each closed simplex, and the compact all-semivaluation space is the inverse limit of the dual complexes. Cartier evaluations are piecewise affine on a determining complex and equal their pullbacks by its retraction. A formal psh function is the nef Weil coefficient function on quasi-monomials with its canonical extension
+\[
+g(v)=\inf_\pi g(r_\pi v).
+\]
+It is continuous on CLOSED simplices by Proposition 3.11, whose proof uses the bounded-thinness multiplier estimate on a simplex; mere interior convexity would not suffice. It satisfies g<=g composed with r_pi. The nef Weil cone is weak closed and stable under finite maximum. For a bounded obstacle determined on one complex the coefficientwise nef envelope is nef, and Proposition 3.18 gives, writing W for this envelope,
+\[
+W_j\le W\le \frac{j}{j+C}W_j,
+\qquad W_j=\frac1j Z(L^\infty(jW)),\qquad j>0,
+\]
+for a constant C>=0 depending on the determining complex and envelope. This is its stated inequality with k=j+C. The zero envelope is handled separately. The constant is obtained by bounding thinness by a multiple of -W on that FIXED complex, not by bounding thinness on the whole boundary. Lemma 3.22 and the proof of 3.18 use the actual graded sections and smooth multiplier subadditivity. No such estimate is imported for a singular excellent germ.
+
+Let h be a finite continuous function determined on a complex. Choose M with -M<=min(h,0). Existence of the source's coefficient envelope can be checked within its precise smooth setup: restrict competitors to those above the nef divisor of -M by finite maximum. Finite maxima direct their coefficients upward, with every coordinate bounded between -M and min(h,0). The coefficientwise supremum is a weak limit in the closed nef Weil cone. Proposition 3.11 and the all-retraction extension then supply its formal psh function g; the constant lower bound survives all retractions, so g is bounded. This is a statement on BFJ's smooth coefficient cone, not a compactness theorem for general singular D. Coefficient order W<=Z(h) on divisorial points gives g<=h on the determining complex: use the substantive closed-face continuity and dense divisorial points. Then for every semivaluation v, g(v)<=g(r_pi v)<=h(r_pi v)=h(v). Conversely, any D minorant of h corresponds by G331 to a canonical BFJ function (bottom separately); its nef coefficients are below Z(h), hence below W. Coefficient order extends on each closed simplex and then through the infimum over all retractions, so the function is below g at EVERY support. Thus g is the greatest D minorant of h.
+
+The ideals L^infinity(jW) contain a power of the completed maximal ideal because W is bounded below by -M; they may be the unit ideal. Their profiles g_j are finite continuous and contract exactly to the original local ring by G331's primary contraction/completion theorem. Coefficient inequalities above extend through all retractions, and therefore
+\[
+g_j\le g\le \frac{j}{j+C}g_j,\qquad
+-M(1+C/j)\le g_j\le0.
+\]
+Consequently 0<=g-g_j<=MC/j uniformly on the full compact section. The profiles are in C; g is in C. In the zero case the unit ideal gives g=0 directly. This is the source's actual uniform estimate, with sign and reference factor retained.
+
+For an arbitrary finite continuous obstacle phi, use the rational difference span of ideal gauges from G331 to choose h_l uniformly approaching phi. Each finite ideal-gauge expression is determined on a common smooth simple modification after principalizing its finitely many ideals in the exact published smooth range. Addition and differences retain determination. Thus each h_l has the positive continuous envelope just proved. By n1's Lipschitz estimate these envelopes converge uniformly to the raw envelope of phi. Uniform closedness of C proves the continuous-envelope property: every finite continuous obstacle has a greatest minorant in C.
+
+This result is first for the maximal-ideal section. The exact degree-one primary transport in n1 gives it for every proper primary gauge. In a DVR the boundary is a singleton and the envelope is min(phi,0). In dimension zero it is the empty function. Later extended-USC results will use an explicitly constructed decreasing C-net, rather than posit usc regularization of an arbitrary supremum.
+
+No new envelope theorem is read from an old acceptance record. The supplied 336/340 source and scope are historical mathematical data, and the true 17,550-byte original plus the mandatory 336 documentary corrigendum remain attached. BFJ's OCR exponents in the unrelated 3.13 approximation are not used here; the application uses the legible 3.18 inequality and its complete proof. Artifact: n3.md; exact source application windows and reading limits are in source-application-ledger.md. Rerun: python final_audit.py. No TeX compilation or source pixel export was performed.
+
+
+# n4. New finite-domain-cover transfer and a positive normal singular sector
+
+This note uses G331, n1--n3, and E350 only for its energy/regularity corollary. R is an excellent NORMAL local domain of positive dimension, B a finite domain extension of R. Use the finite union of all marked semilocal B centres above the maximal ideal, with synchronized gauge aB, and restriction rho:X_B->X_R. Assume every such source centre has the continuous-envelope property: every finite continuous obstacle has its greatest geometric minorant in C. This hypothesis is satisfied, without new assumptions, when those centres are in the smooth range proved in n3. It is not assumed for arbitrary excellent normal germs.
+
+G331's normal-target coefficient trace gives a positive normalized average A:C_B->C_R and A:D_B->D_R, a left inverse to pullback. At every base semivaluation it is integration against a finite probability measure supported on the ENTIRE restriction fibre, with every fibre point of positive weight. These properties include all prime supports and generic inseparable lengths; there is no assumption of flatness, Galois action or defectless ramification formula. B is a domain dominating R; no degree is assigned to vertical components.
+
+For finite continuous phi on X_R let U=P_B(rho*phi), the greatest source envelope, which is in C_B by the hypothesis and finite product of centres. Put p=A(U). Positivity and full-fibre support imply p<=phi, hence p is a C_R minorant. Every D_R minorant u pulls back to an admissible source minorant, so rho*u<=U and u=A(rho*u)<=p. Thus p is the greatest D_R minorant and is continuous and geometric. It is also the raw envelope by n1. Its pullback is a source minorant, giving rho*p<=U. On each fibre, p is a strictly positive weighted average of the finite values U(w); since p<=U(w) for every point w, every value must equal the average. Therefore
+\[
+P_R(\phi)=A(P_B(\rho^*\phi)),\qquad
+\rho^*P_R(\phi)=P_B(\rho^*\phi).
+\]
+The last step uses finiteness of U. It would be invalid to infer fibre constancy from an average of extended bottom values alone.
+
+Extended upper-semicontinuous obstacles are handled separately. Let phi:X_R->[-infinity,M] be upper semicontinuous, with M finite. The finite continuous strict majorants F>phi form a nonempty downward-directed family under finite minimum, and their infimum is phi. To prove the latter, use at each x,t>phi(x) the cutoff interpolation from n2 to make F(x)<t; choose a global bound greater than M elsewhere. Let p_F=P_R(F) in C_R. The family decreases, so n2 proves p=inf_F p_F in D_R. Since p_F<=F, p<=phi. Every D minorant of phi is below every p_F and hence below p, making p the actual greatest envelope.
+
+Moreover rho*p=inf_F rho*p_F=inf_F P_B(rho*F). This is an actual decreasing C_B-net with D limit by n2. It is below rho*phi. Every D_B minorant of rho*phi lies below each P_B(rho*F), hence below rho*p. Thus the extended envelope also commutes with pullback and its trace formula follows from A's left-inverse property. This proof preserves the exact obstacle order at every support, including partial bottom; no capacity-a.e. replacement or assumed arbitrary-supremum closure occurs.
+
+For bounded obstacles this envelope is bounded: a sufficiently negative primary constant is a minorant. It belongs to E1, and E350 gives its actual open-exception quasicontinuity and the geometric products/energy at their full qualifications. For general extended phi, n2 and the E350 criterion give finite energy exactly when the decreasing p_F net has uniformly bounded diagonal F_infinity; the sign is E=-F_infinity/n. Upper semicontinuity and actual D membership hold whether or not energy is finite. Primary-gauge covariance follows from n1 with exactly degree-one obstacles. The proof uses no energy equation uniqueness or strict concavity.
+
+This gives a genuine new sector of singular NORMAL envelopes, not only a conductor criterion. For example, let k be algebraically closed of characteristic zero and d>=2. Set
+\[
+R=k[X,Y,Z,z_3,\ldots,z_d]_{\mathfrak m}/(XY-Z^2),\quad
+B=k[s,t,z_3,\ldots,z_d]_{\mathfrak n},
+\quad X=s^2,\ Y=t^2,\ Z=st.
+\]
+Both s and t are integral; the extension is finite with fraction-field degree two (the even-exponent lattice has index two). The marked fibre is the single origin, and localization of the finite algebra has exactly that marked centre. B is a smooth affine closed germ in n3's range. R is a normal singular domain: let M={(i,j):i+j even}; the ring k[M] is an integrally closed rank-two Laurent polynomial ring and k[s^2,st,t^2]=k[M] intersect k[s,t] in k(s,t). An element of the intersection's fraction field integral over it is integral over each of these two normal rings and hence belongs to their intersection. The same intersection identity after adjoining all the z variables gives normality of the unlocalized product ring, since both larger polynomial/Laurent rings are UFDs. Localization preserves it (clear denominators in an integral equation to reduce to the original normal ring). Its dimension is d and cotangent dimension d+1, since the sole relation has no linear term. Consequently every finite continuous obstacle on this normal singular boundary has a continuous geometric greatest envelope, and every bounded-above extended usc obstacle has the actual D envelope constructed above, on ALL supports. The same conclusion holds for any normal germ with a finite dominating domain cover whose marked centres satisfy the proved property; in particular characteristic-zero finite quotient examples with an actual smooth finite domain cover fit when the marked source centres are as stated.
+
+The trace-transfer proof itself is characteristic-independent. Its presently supplied nontrivial smooth-source hypothesis is only proved in the exact characteristic-zero range (and DVR/empty cases). There is no claim that all excellent normal local domains admit finite smooth covers, nor that arbitrary-characteristic smooth higher-dimensional envelopes are thereby solved. It does not extend to arbitrary nonnormal targets or nondominating finite maps. These residual limits are material to the original-scope decision.
+
+Artifact: n4.md, reproduced in argument.md and P12.3-paper.tex. The full qualified trace premise is retained in inputs/grants/G331.txt; it is stated with its exact hypotheses here and not inferred from an acceptance label. Rerun: python final_audit.py. This is an unverified mathematical proof draft of a delimited new normal construction, not completion of original P12.3.
+
+
+# n5. A normal singular diagnostic: energy maximization and capacity convergence lose exact pointwise membership
+
+This note uses qualified G331, B341, E350 and n1. The construction is over ANY field k, in every characteristic. It is a new limitation of a proposed convergence-to-membership inference on a normal singular germ. It is not a normal-envelope counterexample: the chosen obstacle has a perfectly good envelope.
+
+Let
+\[
+R=k[X,Y,Z]_{(X,Y,Z)}/(XY-Z^2)=k[s^2,st,t^2]_{(s^2,st,t^2)},\quad \mathfrak a=\mathfrak m.
+\]
+The equality follows by reducing monomials modulo XY=Z^2 and their distinct exponent images. Put M={(i,j) in Z^2:i+j even}. The group algebra k[M] is a Laurent polynomial ring on a basis of this free rank-two group and hence integrally closed. In k(s,t),
+\[
+k[s^2,st,t^2]=k[M]\cap k[s,t].
+\]
+Each right-hand ring is integrally closed; an element of the fraction field of the intersection integral over the intersection is integral over both, hence belongs to both. This proves normality, including characteristic two. Localization preserves it. The ring is excellent (finite type over a field), dimension two, and singular because its cotangent dimension is three and the relation is quadratic. This proof uses no resolution or a characteristic-dependent invariant-ring theorem.
+
+For every v in X_m write a=v(X), b=v(Y). The relation gives v(Z)=(a+b)/2, with the extended convention, and normalization gives min(a,b)=1. In particular a and b cannot both be infinite. There is exactly one point q with a=infinity: it kills (X,Z) and is the Y-order normalized to one on the DVR quotient k[Y]_(Y). All supports, cancellation values and infinite coordinates are retained.
+
+For n>=1 use the ACTUAL proper primary ideal
+\[
+I_n=(X^n,XY^{n-1},Y^{2n}),\qquad u_n=-v(I_n)/n\in C.
+\]
+The radical is m since it contains powers of X,Y and the relation then forces Z. Positivity is geometric already: negative primary ideal divisors on their actual blowups belong to the G331 core. For n=1 the middle generator is X, not an expression involving zero times infinity. If a<=b, then a=1 and u_n=-1. If a>b is finite, b=1 and
+\[
+u_n=-\min\{1+(a-1)/n,2\}.
+\]
+At q it is -2. These formulas prove on all points that -2<=u_n<=-1 and u_n increases to
+\[
+h(v)=-1\ (v\ne q),\qquad h(q)=-2.
+\]
+Monomial semigroup valuations v_L(X)=L, v_L(Y)=1, v_L(Z)=(L+1)/2, for L>=1, converge pointwise to q. For a polynomial, terms with positive s-exponent tend to infinite value; among the remaining t-only terms the minimum is its Y-order. Terms of equal weight are combined as a polynomial first, so cancellation creates no exception. Local denominators are units at the origin and have value zero. Hence this is convergence on the entire localized ring. Since h(v_L)=-1, h is not upper semicontinuous at q and therefore is not in D. Its upper regularization is -1 in C. The raw envelope for the obstacle -1 is exactly -1, because that function itself is an admissible greatest minorant. Thus no actual envelope positivity failure on a normal germ is asserted.
+
+Compute the reference moment and capacity explicitly. The m-blowup has closed fibre the smooth conic XY=Z^2 in projective two-space. It is integral and smooth even in characteristic two: the X and Y charts cover it and each is an affine line; on the cone blowup these charts are k[X,Z/X] and k[Y,Z/Y] with the corresponding substitutions. The exceptional generic local ring is a DVR of order o(X)=o(Y)=o(Z)=1. The tautological bundle restricted to the conic is O_conic(1), of degree two over k. E350's independent geometric atomic construction therefore gives
+\[
+\mu(-1)=2\delta_o.
+\]
+The function z=-v(X) belongs to D by the ACTUAL decreasing profiles -v((X)+m^k)=-min(v(X),k). It is not bottom on this normal branch and has finite reference moment L_z=2. The qualified capacity bound consequently gives
+\[
+\operatorname{Cap}\{v(X)>T\}\le2/T,\qquad \operatorname{Cap}\{q\}=0.
+\]
+For 0<epsilon<1 the preceding exact formulas give
+\[
+\{(-1)-u_n>\epsilon\}=\{a>1+n\epsilon\},\qquad
+\operatorname{Cap}\{(-1)-u_n>\epsilon\}\le\frac2{1+n\epsilon}\longrightarrow0.
+\]
+For epsilon>=1 the strict set is empty. Thus u_n converges to -1 in capacity while its exact pointwise limit is h outside D. Even h is quasicontinuous in the open-exception sense: {a>T} is open, contains q, has capacity at most 2/T, and h is constant on its complement. Boundedness plus this quasicontinuity plus convergence in capacity cannot establish actual D membership of an unknown exact pointwise limit.
+
+The energy computation is also exact, rather than a finite-window multiplicity guess. Monomials of R have exponents in S=M intersect the nonnegative quadrant. The number of monomials of even total degree below 2k is sum_(d=0)^(k-1)(2d+1)=k^2. Thus length(R/m^k)=k^2 and e_R(m)=2. For I_n the exponent generators are A=(2n,0), B=(2,2n-2), C=(0,4n). The bounded complement of their upward convex hull is the polygon with vertices 0,A,B,C, of area 2n^2+2n; when n=1 B=A. The ordinary planar area is intended.
+
+Here is a proof that this area computes the multiplicity without invoking an unread Newton-polyhedron theorem. Exponents of I_n^k lie in k times the upward convex hull P. If a lattice point w lies in kP, express it as a nonnegative orthant remainder plus a convex combination of A,B,C with coefficients summing to k. Round the three coefficients down. At most two copies of a generator are missing from a k-fold product. A fixed coordinate shift (D,D), with D at least three times the largest generator coordinate, makes up this deficit in both coordinates. The shifted exponent remains in M, and its remainder after the chosen integer sum of k generators is a nonnegative M-exponent, so it belongs to I_n^k. Thus
+\[
+\operatorname{Exp}(I_n^k)\subset kP\cap M,
+\qquad (kP\cap M)+(D,D)\subset\operatorname{Exp}(I_n^k).
+\]
+Pure powers bound all missing exponents inside a rectangle of side lengths proportional to k. The difference between the actual complement and the polygon complement is confined to constant-width strips along finitely many line segments of length O(k), hence has O(k) lattice points. Counting parity lattice points in a dilated polygon gives one-half its area times k^2 plus O(k): tile by fixed squares with equal even/odd density and bound boundary squares by O(k). Therefore
+\[
+\ell_R(R/I_n^k)=(n^2+n)k^2+O(k),\quad
+e_R(I_n)=2n^2+2n.
+\]
+No stabilization index is guessed from a finite sample. By the qualified ideal moment identity and energy convention,
+\[
+F(u_n,u_n)=e_R(I_n)/n^2=2+2/n,
+\qquad E(u_n)=-1-1/n\uparrow-1=E(-1).
+\]
+Every u_n is a bounded E1 minorant of the continuous obstacle -1. Order gives E(v)<=E(-1) for any E1 minorant v of that obstacle. Thus this is an energy-maximizing sequence with uniformly bounded energy whose exact increasing pointwise limit is infeasible. A maximum exists, namely -1; the example does not disprove every variational construction. It proves that energy convergence and capacity identification alone do not preserve exact all-support obstacle membership. Replacing h by its capacity-equivalent -1 changes the value at q and requires an additional argument in a general envelope problem.
+
+The fresh owned standard-library program finite_diagnostics.py enumerates monomial quotient bases only in its declared finite domain and verifies arithmetic identities for rational weights. Its output is evidence/finite-diagnostics.json. Those observations are separate from the universal all-support, area-asymptotic and capacity proofs above. Artifacts and rerun: n5.md; python finite_diagnostics.py; python final_audit.py. No supplied code, heavy compute, source pixel or compiler was used.
+
+
+# n6. Full conductor constraints, all-characteristic obstruction, and geometric curve comparison
+
+This note uses G331 and n1. The earlier conductor criterion and double-plane calculations are reconstructed mathematical data, not incoming grants or new original completion. They delimit where n4's new normal-domain theorem applies.
+
+Let S be the finite normalization of an excellent reduced local R, split into its local normal CENTRES above the marked point, and rho:X_S->X_R the full restriction quotient with synchronized primary gauge. These centres must not be indexed only by irreducible components. With conductor c=(R:S), finite v(c) has a singleton fibre; infinite v(c) has precisely the conductor-quotient restriction fibre. Different points within a single normal centre may occur in such a fibre. G331 says that C and D descend positively exactly when constant on EVERY full fibre. Thus the exact raw identity for finite continuous phi is
+\[
+p_R(\phi)\circ\rho=\sup\{g\in C_S:g\le\phi\circ\rho,\ g\text{ is full-fibre constant}\}.
+\]
+This is a constrained construction, not an assertion that unrestricted upstairs envelopes commute with normalization.
+
+We record the sharp regularization criterion and its proof. Let p_S be the unrestricted raw envelope of rho*phi. Then p_R* belongs to D_R if and only if p_S is continuous and full-fibre constant. The sufficiency is immediate: continuity gives p_S in C_S by n1, positive G331 descent gives an admissible C_R function, and the constrained supremum must equal it. For necessity we need equality on the finite-conductor locus before using density.
+
+Choose M>0 large enough that -M<=phi and start with a C_S minorant g clipped from below by -M, so -M<=g<=0. For integers N set the actual primary ideal K_N=c+a^N and the downstairs C function b_N=-(M/N)v(K_N). At a conductor-infinite point b_N=-M; everywhere -M<=b_N<=0, including zero-dimensional quotient pieces. The upstairs function max(g+rho*b_N,-M) belongs to C_S, lies below rho*phi, and is full-fibre constant: nontrivial fibres are conductor-infinite and the function is exactly -M there. Hence it descends in C_R. At each finite-conductor point b_N tends to zero, so the constrained and unrestricted suprema coincide there.
+
+This locus is dense upstairs. The conductor contains a regular element, and every centred divisorial valuation on each normal centre has finite value on it. G331 supplies divisorial density on the ALL-support topology. If p_R* is in D, n1 makes p_R continuous. Its pullback u is continuous, u<=p_S, and it equals p_S on the dense finite-conductor locus. At any point choose a net from that locus converging to it. Lower semicontinuity of p_S gives p_S<=u there, so p_S=u everywhere. This proves necessity, including internal normal fibres. The criterion has a continuity CONDITION on the normal centres; it does not establish that condition on arbitrary normal germs. The new class in n4 supplies the condition for its actual finite-cover sector.
+
+Here is the full all-characteristic nonnormal obstruction, retained because original P12.3 includes nonnormal germs. Let k be any field,
+\[
+R=k[x,y,z]_{(x,y,z)}/(xy),\quad
+S=A\times B,
+\quad A=k[x,z]_{(x,z)},\ B=k[y,z]_{(y,z)}.
+\]
+R is the fibre product over k[z]_(z); clearing unit denominators proves the local identity. The idempotents make S finite; its factors are normal and have the component fraction fields. The conductor is (x)A times (y)B, or (x,y) downstairs. The full boundary quotient identifies only q_A (x killed, z-order one) with q_B (y killed, z-order one). This is a nonminimal support at the common image q.
+
+Set upstairs phi_A=-1 and phi_B(w)=-1-1/w(y), where 1/infinity=0. Since w(y)>=1, reciprocal evaluation is continuous, including at infinity. At q_A,q_B both obstacles equal -1, so this is a finite continuous strictly negative downstairs obstacle in [-2,-1]. For B, the maximal-ideal order o_B has w(f)>=o_B(f) for every centred normalized w, because f in m_B^d implies w(f)>=d. For ideal profiles this reverses sign; uniform and actual decreasing limits give g(w)<=g(o_B) for every g in D_B. Since phi_B(o_B)=-2, every B minorant is at most -2 on the whole section. The constant -2 is admissible, so the unrestricted B envelope is exactly -2, while on A it is -1.
+
+For n>=1 the actual A-primary ideals J_n=(x^n,xz^(n-1),z^(2n)) give profiles on A and constant -2 on B. They agree at q_A,q_B, hence descend positively to C_R. Write a=w(x),b=w(z), min(a,b)=1. If a<=b the A profile is -1; if a>b finite it is -min(1+(a-1)/n,2); at q_A it is -2. The same literal-generator convention handles n=1 and infinite b. The profiles are below the obstacle and increase. Consequently the exact raw envelope is -1 on A except q_A, and -2 on q and all of B: every minorant has the asserted upper bounds, and these profiles achieve their pointwise supremum. Monomial valuations with x-weight tending to infinity and z-weight one approach q_A, so this raw envelope is not usc. By n1 its usc regularization is not geometric D. There is no maximal D minorant: a maximal element would dominate every other minorant by finite maxima and hence equal the non-usc raw supremum. The unrestricted upstairs envelope (-1,-2) is continuous but violates the conductor fibre. This proves unrestricted normalization-envelope commutation failure, not a counterexample with a normal target and not a full P12.6 theorem.
+
+For every excellent reduced curve the geometric comparison is completely positive. Its finite boundary consists of local DVR normalization centres q with v_q=ord_q/a_q, a_q=ord_q(a)>0. Every conductor value is finite, so restriction identifies no distinct boundary points. On a DVR the actual closed-point Cartier divisor and its real multiples give every finite nonpositive constant in C, including zero by the unit model. Finite products and G331 positive C descent give C_R exactly all finite nonpositive branch vectors. Decreasing constant cuts give D_R exactly all extended nonpositive vectors. Thus for every extended obstacle on this finite discrete link,
+\[
+P_{\rm geom}\phi(q)=\min\{\phi(q),0\}=P_{\rm ideal}\phi(q).
+\]
+Mixed-zero and partial-bottom patterns are allowed; a bottom obstacle coordinate forces a bottom envelope coordinate. Gauge changes multiply each coordinate by its exact positive order ratio. The E350 curve reference is sum_q f_q a_q delta_(v_q), with actual residue degrees, and its finite-energy class is the finite nonpositive vectors. That reference formula is granted by E350, not a new envelope premise.
+
+This boundary result is distinct from literal classical or CLD logarithmic radial extension. In a complex two-disc node a literal zero slope forces a nodal value at least zero by usc, while a negative branch and its closed-disc subharmonic maximum principle prevent that common value. The boundary vector (-1,0) is nevertheless geometric here by the proved Cartier/conductor comparison. We assert no general CLD theorem; the supplied dossier's radial comparison is a scope distinction and not a grant used to prove the envelope theorem.
+
+Nonpure normalization centres are all retained; zero ambient top-degree contribution never implies that every identified downstairs image point has zero capacity. Nilpotents, empty boundary, unit and bottom conventions remain n1's. The normal-target finite cover construction of n4 has separate hypotheses and is unaffected by this nonnormal example.
+
+Artifacts: n6.md; full prior 336/340 and ROOT348 data, annotations and documentary correction remain under inputs/mathematical unchanged. Rerun: python final_audit.py. The new paper reconstructs the used arguments above and does not use an acceptance/hash as a theorem support.
+
+
+# n7. Entire original judgment and concrete deliverable evidence
+
+This note uses n1--n6 and their qualified G331/B341/E350 supports. Candidate=false: the entire original P12.3 has NOT been solved. The requested concrete implementation deliverable is a complete uncompiled manuscript of the delimited results and an honest original-scope decision, not a declaration of general normal envelope closure.
+
+The new mathematical progress is threefold. First, n2 proves actual closure of D under decreasing D-nets for EVERY excellent reduced local germ, via normal insertion and full positive conductor descent. It separately removes the specified-D-limit hypothesis in the qualified decreasing-net energy criterion. Second, n4 proves genuine greatest continuous geometric envelopes on normal targets with a finite dominating domain cover whose marked source centres have the continuous-envelope property; n3 proves the source property in the exact BFJ smooth affine CLOSED algebraically closed characteristic-zero range. The explicit normal singular quadratic cone and its products with affine space are included. Bounded-above extended usc obstacles have an actual decreasing-C envelope there, and bounded ones have the qualified quasicontinuity. Third, n5 supplies an explicit normal singular, arbitrary-characteristic diagnostic: primary profiles u_n in [-2,-1] have E(u_n)=-1-1/n approaching the optimal energy -1, and converge in capacity to -1 with capacity error at most 2/(1+n epsilon), but their exact pointwise supremum is -2 at a nonminimal-support point and -1 elsewhere, hence not usc and not D. This is a failure of a particular convergence-to-membership inference, not a normal continuous-envelope counterexample or impossibility of the original target.
+
+N1 and n6 independently reconstruct the prior raw-C/raw-D equality, exact factorial primary-ideal formula and integral closedness, primary covariance, sharp full-fibre conductor criterion, all-characteristic nonnormal failure and complete geometric curve clipping. Those are necessary scope and side conditions, not counted as new original completion. Every primary correction is an actual ideal or primary model function. The independent Cartier curve positivity is retained before ideal comparison. No arbitrary-proper-model cofinality, singular multiplier theorem, positive-characteristic resolution, equation uniqueness, strict concavity in null directions, orthogonality, increasing-D closure or Choquet compact-above theorem has been assumed.
+
+The precise unresolved requirement is: for an arbitrary excellent normal local domain of dimension at least two (and each of its marked semilocal normal centres), arbitrary characteristic/residue field and ALL semivaluation supports, prove that the raw envelope for each finite continuous obstacle is continuous, or construct a different non-tautological geometric greatest envelope with the required positivity and exact obstacle order, or prove a genuine impossibility result in that exact normal scope. No such general theorem or counterexample is established here. The factorial ideal formula has integral closedness and pointwise convergence, but lacks a uniform all-support estimate on those arbitrary normal germs. The energy/capacity route lacks the needed upper-envelope regularization/compactness that would preserve exact all-support order; n5 demonstrates why the granted convergence statements alone cannot supply it. Decreasing closure from n2 concerns the wrong direction to close this gap. Arbitrary-characteristic smooth dimension>=2 also remains outside the proved smooth source scope.
+
+Documentary retention is exact: original-task.json is the immutable 17,550-byte original object, SHA-256 d524b816c1462a6909a85bd0e39b84ab34ca04be27ec99eccbfde7ffcc0316a8. Its problem and completion criteria, including the entire original family dossier, are unchanged. The current augmented task and assignment are retained separately. The older 336 mandatory corrigendum is attached unchanged: its historical 21,927-byte object was an augmented assignment mistakenly labelled original, so that historical unchanged-original assertion is not repeated. Old 336/340/348 accepted labels, source ledgers, proof bodies and scope records are retained as DATA and the mathematics used is reconstructed in n1/n3/n6. Only the three full qualified incoming grants and earlier OWN notes are supports. Their mandatory annotations, exact ledgers, scopes and the SH17.4.7 quotient-annihilator correction are inseparable from their use. Retention and prior acceptance/hash do not substitute for proof reading or theorem hypotheses.
+
+The fresh owned byte audit observed 68/68 size/hash matches: 32 mathematical, 33 private primary, and 3 context records. It retained original and local paths and hashes under evidence/input-audit.json. Fresh finite diagnostics observed PASS for 64 parity-semigroup quotient counts (1<=n,k<=8), 48 associated second-difference comparisons, and 272 all-support arithmetic profile cases (1<=n<=16, 17 explicitly listed rational/infinite coordinate pairs). Example outputs are n=1 lengths 4,12,24,40,60,84,112,144 and n=2 lengths 10,32,66,112,170,240,322,416. Their second differences are respectively 4 and 12. These are exhaustive results only for the declared finite inputs; the universal area/multiplicity and capacity results are the mathematical proofs in n5. Artifact integrity and any static TeX audit are not mathematical verification. The paper has NOT been compiled.
+
+The standalone mathematical source is P12.3-paper.tex; all new proof bodies occur in argument.md, n1.md through n7.md, and native-notes.json. The source-application-ledger.md states exact immediate BFJ source hypotheses, complete applicable units read, granted versus new uses, recursive published dependencies and OCR limits. Exact-scope.md, whole-proof-coverage.md, original-scope-and-noncircularity-decision.md and acceptance-decision.json specify the delimited positive results and the residual original gap. Full inputs/grants and bound mathematical/source/context data remain local and unchanged. Own programs are retain_inputs.py, finite_diagnostics.py, build_delivery.py and final_audit.py; inputs, output, environment and command history are retained in inputs and evidence.
+
+Rerun from this workspace: python retain_inputs.py; python finite_diagnostics.py; python build_delivery.py; python final_audit.py. The builder only writes Markdown/JSON/TeX and never invokes a compiler or supplied script. The audit checks exact bytes, references, support order, required artifacts, the candidate=false decision and static source balance; it does not establish mathematical correctness. All execution is bounded standard-library work. No supervised heavy-compute facility was supplied or needed; none was launched. No additional agents/native campaigns/jobs, private ACTIVE253 material or hot feedback, network/auth/runtime changes, publication/catalogue mutations or protected P16 editor access occurred. Sources and pixels remain LOCALONLY; no new pixel was generated. The operator's model designation is not an independently measured provider attestation.
+
+The final flag is false specifically because the general normal residual target is unproved, even though the delimited new paper is fully argued as an unverified draft. No publication or catalogue closure follows from this deliverable or any model flag.

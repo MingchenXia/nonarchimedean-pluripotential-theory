@@ -1,0 +1,332 @@
+# P12.3: conductor obstruction and complete envelope sectors
+
+The unrestricted positive greatest-minorant envelope requirement is obstructed for the unchanged qualified G331 cone. An explicit bounded continuous obstacle on an excellent nonnormal surface has no maximal geometric minorant. Complete positive theorems are proved at the published smooth BFJ hypotheses, on all excellent reduced curves, and on stated bijective-normalization sectors. Every positivity claim follows established class membership. This is an unverified draft with candidate=false; products, energy and P12.6 full operators remain separate.
+
+# n1. Registered geometric class and the exact continuous-obstacle criterion
+
+Support: G331.
+
+This note registers precisely the qualified incoming grant G331. Its entire incoming text, full source/scope annotation and source ledger are retained unchanged in G331-qualified-grant.json; the exact original task and family dossier are retained in original-task.json. No other packet item is a correctness grant. The argument below uses G331's proved conclusions, rather than the candidate flags or review metadata in other files.
+
+Let \(R\) be an excellent local ring, replace it by its reduction, and fix a proper maximal-primary ideal \(\mathfrak a\). Write \(X=V_{\mathfrak a}(R)\) for the compact Hausdorff section of centred real semivaluations satisfying \(v(\mathfrak a)=1\). Every support prime strictly below the maximal ideal is retained. If the local reduction has dimension zero, \(X\) is empty and all function assertions mean the unique empty function.
+
+G331 defines an independent geometric core on directed actual primary blowups: evaluations of actual negative effective finite real Cartier presentations whose degree on every contracted proper integral curve is nonnegative. Its uniform closure \(C=C_{\rm geom}\) consists of finite continuous functions. Its actual decreasing-net completion \(D=D_{\rm geom}\) consists of infima of nonempty decreasing \(C\)-nets, with bottom included. The grant proves
+\[
+C=C_{\rm ideal},\qquad D=D_{\rm ideal}.
+\]
+Here the ideal core consists of finite nonnegative real combinations of negative unit-or-primary ideal values. In particular \(C\) is a uniformly closed convex cone, is stable under finite maxima, and contains all nonpositive constants because \(v(\mathfrak a)=1\). All functions in \(C,D\) are nonpositive. Membership in \(C\) or \(D\) has the granted completed Cartier positivity meaning; no raw Cartier representative of each completed function is asserted.
+
+We also use G331's exact positive descent: for the finite normalization \(\rho:\widetilde X\to X\), where \(\widetilde X\) is the finite disjoint union of local normalization-centre sections, pullback identifies each of \(C_R,D_R\) with its full-fibre-constant subclass upstairs. At finite conductor value the fibre is a singleton; at infinite conductor value it is exactly the restriction fibre over the conductor quotient. No nonminimal support, vertical source component, mixed-zero or partial-bottom case is discarded. On a smooth affine closed germ over an algebraically closed characteristic-zero field, \(C\) is the finite continuous BFJ class and \(D\) is BFJ's canonical all-semivaluation class with bottom adjoined. This uses BFJ only at those published hypotheses. There is no all-proper-model cofinality grant, no increasing-limit theorem, no envelope grant, and no product or energy grant.
+
+Here are elementary consequences, with their limit steps proved. Every \(u=\inf_i u_i\in D\) is upper semicontinuous: for finite \(t\), \(\{u<t\}=\bigcup_i\{u_i<t\}\). If \(u\) is finite continuous, then \(u\in C\). Indeed for every \(\epsilon>0\), the open sets \(\{u_i<u+\epsilon\}\) cover \(X\). Directedness and a finite subcover give a single \(i\) with \(u\le u_i<u+\epsilon\) everywhere. Hence \(u_i\to u\) uniformly along the net, and uniform closedness gives \(u\in C\). This is an actual compactness argument, not a flattening of nested nets.
+
+Subtraction of a finite nonnegative constant preserves \(C\) and \(D\). For \(C\) use addition of the negative constant profile; for \(D\) subtract the constant from every term of its representing net. Finite maxima in \(D\) are also legitimate: take the product directed set of two representing nets. The maximum decreases to the maximum of the limits, since the two finite-index choices can be made simultaneously for every strict upper test. This includes bottom values. We use no infinite-max closure.
+
+For an obstacle \(\phi:X\to[-\infty,+\infty]\), define the raw geometric supremum
+\[
+P_D\phi(v)=\sup\{u(v):u\in D,\ u\le\phi\}.
+\]
+Bottom makes this family nonempty. The word raw expressly leaves class membership undecided. For finite continuous obstacles also define \(P_C\phi\) using \(C\)-minorants. A negative constant is then admissible, so both suprema are finite and bounded, between a negative constant and zero.
+
+For EVERY finite continuous obstacle on EVERY germ in the granted scope,
+\[
+P_D\phi=P_C\phi. \tag{1}
+\]
+To prove the nontrivial inequality, take \(u=\inf_i u_i\in D\) with \(u\le\phi\). For \(\epsilon>0\) the open sets \(\{u_i<\phi+\epsilon\}\) cover \(X\). Compactness and directedness select one common term. Then \(u_i-\epsilon\in C\) and \(u_i-\epsilon\le\phi\), so \(P_C\phi\ge u-\epsilon\) pointwise, also when \(u=-\infty\). Send \(\epsilon\) to zero and then take the supremum over \(u\). No continuity or boundedness of \(u\) was assumed.
+
+The common supremum in \(1\) is lower semicontinuous, since it is a supremum of continuous functions. Consequently there is an exact criterion:
+\[
+P_D\phi\in D
+\quad\Longleftrightarrow\quad
+P_D\phi\text{ is continuous}
+\quad\Longleftrightarrow\quad
+P_D\phi\in C. \tag{2}
+\]
+If it belongs to \(D\), upper semicontinuity combines with the proved lower semicontinuity; the finite-continuous \(D\)-to-\(C\) argument above applies. Conversely membership in \(C\) implies membership in \(D\) by the constant net. If the raw supremum is continuous, the upward directed family of \(C\)-minorants approaches it uniformly: the open sets \(\{u>P_C\phi-\epsilon\}\) cover \(X\), and a finite maximum handles a finite subcover. Thus uniform closedness yields \(P_C\phi\in C\). This last argument proves the middle-to-last implication without presuming that the supremum is already in \(D\).
+
+In particular a greatest geometric minorant exists for a continuous obstacle if and only if the raw supremum is continuous. A greatest member necessarily equals the pointwise supremum. This is a necessary and sufficient obstruction criterion for the EXISTING granted cone, not the definition of a new envelope-positive cone.
+
+There is also a raw uniform estimate independent of \(2\): for finite continuous obstacles,
+\[
+\|P_D\phi-P_D\psi\|_\infty\le\|\phi-\psi\|_\infty. \tag{3}
+\]
+If \(\phi\le\psi+\epsilon\), every \(D\)-minorant of \(\phi\), shifted down by \(\epsilon\), is a minorant of \(\psi\). Taking suprema proves \(P_D\phi-\epsilon\le P_D\psi\); reverse the roles. The same proof applies to \(C\). Monotonicity and positive homogeneity for scalars \(>0\) follow from the admissible families; every envelope may equivalently use \(\min\{\phi,0\}\), since class functions are nonpositive. None of these order identities implies positivity of an output.
+
+Artifacts: n1.md, argument.md, P12.3-paper.tex, G331-qualified-grant.json, original-task.json. Rerun the owned reproducibility checks with `python audit_inputs.py`, `python build_delivery.py`, and `python final_audit.py`. These checks concern bindings and artifacts; the arguments above are mathematical draft proofs.
+
+
+# n2. A continuous obstacle with no maximal geometric minorant on an excellent nonnormal surface
+
+Support: n1.
+
+This is a counterexample for G331's actual geometric boundary class, rather than the different literal logarithmic radial class. It is proved for all semivaluations in the sections below. No finite experiment is used.
+
+Take an algebraically closed field \(k\) of characteristic zero and
+\[
+R=k[x,y,z]_{(x,y,z)}/(xy),\qquad \mathfrak a=\mathfrak m=(x,y,z).
+\]
+This is a reduced excellent nonnormal local surface: a finite-type local ring over a field, followed by a quotient. The standard excellence stability used here is the ordinary background disclosed in G331. Its normalization is
+\[
+S=A\times B,\quad A=k[x,z]_{(x,z)},\quad B=k[y,z]_{(y,z)}.
+\]
+Explicitly \(R=A\times_T B\), where \(T=k[z]_{(z)}\) and the maps set \(x=0\), respectively \(y=0\). Polynomial pairs with equal restrictions are represented by \(f(x,z)+g(y,z)-h(z)\). The same identity after localization proves the displayed local fibre product: clear both denominators with the pair whose two restrictions are the product of their nonzero \(T\)-unit restrictions, so it is a unit in \(R\). The two idempotents make \(S\) finite over \(R\); each factor is a normal UFD with the appropriate component fraction field. Thus it is the finite normalization. The conductor is
+\[
+\mathfrak c=(x)A\times(y)B=(x,y)R,
+\]
+because multiplication by the two idempotents forces both common restrictions to \(T\) to vanish, and pairs with both restrictions zero multiply \(S\) into \(R\).
+
+Write \(X_A,X_B\) for sections normalized by their maximal ideals. For \(w\in X_A\), put \(a=w(x),b=w(z)\). Then \(a,b\in[1,+\infty]\) and \(\min(a,b)=1\). There is a unique point \(q_A\in X_A\) killing \(x\): it is \(\operatorname{ord}_z\) on \(A/(x)\). Define \(q_B\) similarly by killing \(y\). The normalization restriction 
+\[
+\rho:X_A\amalg X_B\longrightarrow X_R
+\]
+identifies exactly \(q_A\sim q_B\), and no other points. Indeed finite conductor values give singleton fibres by n1; at infinite value the conductor quotient is \(T\to T\times T\), whose centred section consists of one DVR order on each factor. Denote the common image by \(q\). This has the NONMINIMAL support \((x,y)\) in \(R\). The compact quotient topology and positivity descent in n1 apply.
+
+Define a finite continuous obstacle upstairs by
+\[
+\widetilde\phi_A=-1,\qquad
+\widetilde\phi_B(w)=-3+\min\{w(y),2\}. \tag{4}
+\]
+Truncated evaluation is continuous, including at \(w(y)=+\infty\). Both values at the identified pair equal \(-1\). The obstacle therefore descends to a continuous real function \(\phi\) on \(X_R\). It lies in \([-2,-1]\).
+
+We first prove an order inequality on \(B\), without a new BFJ application. Let \(o_B=\operatorname{ord}_{(y,z)}\). For every \(w\in X_B\) and every element \(f\), membership \(f\in(y,z)^d\) implies \(w(f)\ge d\). Thus \(w(f)\ge o_B(f)\), including support-infinite values. For every primary ideal \(I\), \(w(I)\ge o_B(I)\). Hence each negative real ideal profile satisfies \(g(w)\le g(o_B)\). Uniform limits and then actual decreasing limits preserve this pointwise inequality. By n1's comparison it follows that
+\[
+g(w)\le g(o_B)\quad(g\in D_B, w\in X_B). \tag{5}
+\]
+Since \(\widetilde\phi_B(o_B)=-2\), any geometric minorant pulled back from \(R\) is at most \(-2\) on the WHOLE \(B\)-section. In particular its value at \(q\) is at most \(-2\).
+
+For every integer \(n\ge1\), form the actual proper primary \(A\)-ideal
+\[
+J_n=(x^n,xz^{n-1},z^{2n}),
+\]
+and the tuple of continuous geometric functions
+\[
+u_{n,A}(w)=-\frac1n w(J_n)
+=-\min\left\{a,\frac{a+(n-1)b}{n},2b\right\},
+\qquad u_{n,B}=-2. \tag{6}
+\]
+For \(n=1\), the middle term is \(a\) even if \(b=+\infty\): it is the value of the actual monomial \(xz^0=x\), not an undefined product \(0\cdot\infty\). The ideals contain powers of both parameters and are proper. Formula \(6\) is an ideal profile, hence belongs to \(C_A\) before descent; the constant \(-2\) belongs to \(C_B\). At \(q_A\) the first two generators have infinite value and the last has value \(2n\), so the tuple agrees at \(q_A,q_B\). N1's GRANTED positive \(C\)-descent therefore gives \(u_n\in C_R=C_{\rm geom,R}\). Their geometric positivity is established at this step, before using them as envelope candidates.
+
+These functions are admissible: on \(A\) all entries in the minimum are at least one, so \(u_{n,A}\le-1\); on \(B\), \(-2\le\widetilde\phi_B\). They increase pointwise. To see this on ALL supports, split into two exhaustive cases. If \(a\le b\), then \(a=1\), the minimum in \(6\) equals \(a\), and every \(u_{n,A}=-1\). If \(a>b\), then \(b=1\). For finite \(a\) the minimum is
+\[
+\min\{a,1+(a-1)/n,2\},
+\]
+which decreases to one. For \(a=+\infty\), the minimum is two for every \(n\), the unique point being \(q_A\). Consequently the pointwise increasing supremum is
+\[
+h_A=-1\text{ on }X_A\setminus\{q_A\},\quad h_A(q_A)=-2,
+\qquad h_B=-2\text{ everywhere}. \tag{7}
+\]
+This tuple is fibre constant and defines a function \(h\) on \(X_R\). We do not infer any positivity from its increasing construction.
+
+In fact \(7\) is the EXACT raw envelope for the continuous obstacle \(4\):
+\[
+P_D\phi=P_C\phi=h. \tag{8}
+\]
+Every admissible minorant is at most \(-1\) on \(A\setminus\{q_A\}\) by \(4\), at most \(-2\) on \(B\) by \(5\), and thus at most \(-2\) at \(q\). These are the upper bounds in \(7\). The already positive \(u_n\) attain the lower bound pointwise in the limit. This proves \(8\) over the entire semivaluation boundary, not just a chosen slice of valuations.
+
+For integer \(L\ge1\), let \(w_L\in X_A\) be the monomial valuation with \(w_L(x)=L,w_L(z)=1\), and let \(v_L=\rho(w_L)\). These have support \((y)\) on \(R\), whereas \(q\) has support \((x,y)\). They converge pointwise to \(q\). Indeed a polynomial's terms with positive \(x\)-degree acquire value tending to infinity, and its \(x^0\)-part has its usual \(z\)-order. Local unit denominators have value zero. This verifies convergence for every element of \(A\) and hence \(R\), including zero \(x^0\)-part. But
+\[
+h(v_L)=-1,\qquad h(q)=-2.
+\]
+Thus \(h\) is not upper semicontinuous and is not in \(D_R\). By n1 it is lower semicontinuous. There is no greatest geometric minorant.
+
+More strongly there is NO MAXIMAL admissible minorant. If \(u\in D_R\), \(u\le\phi\), then \(u(q)\le-2\). Upper semicontinuity gives an open neighbourhood of \(q\) where \(u<-3/2\). Choose a sufficiently large finite \(L\ge2\) with \(v_L\) in this neighbourhood. For \(n>2(L-1)\), \(6\) gives \(u_n(v_L)=-1-(L-1)/n>-3/2\). The function \(\max\{u,u_n\}\in D_R\) is still below \(\phi\), dominates \(u\), and strictly improves it at \(v_L\). This uses only finite-max closure, never an increasing-limit grant.
+
+Upper semicontinuous regularization also fails to repair positivity. In this compact Hausdorff space define \(h^*(v)=\inf_{U\ni v}\sup_Uh\). The two branch images are closed and intersect only at \(q\). Therefore \(h^*=h\) away from \(q\), while \(h^*(q)=-1\) by the sequence \(v_L\). Although \(h^*\le\phi\), its \(B\)-pullback has value \(-1\) at \(q_B\) and \(-2\) at \(o_B\ne q_B\), violating \(5\). It is not in the granted geometric class.
+
+This is an obstruction in excellent singular/nonnormal scope even with smooth characteristic-zero normalization, a bounded continuous strictly negative obstacle, and all actual minorants positively descended. It is not the prior two-branch CURVE radial obstruction: the essential fibre here lies on a positive-dimensional conductor quotient and has a nonminimal support. It refutes a universal greatest-minorant or regularized-supremum envelope theorem for G331's cone. It does not refute the cone comparison itself.
+
+Artifacts: n2.md and its full reproduction in argument.md and P12.3-paper.tex. Rerun artifact generation with `python build_delivery.py`; binding and build evidence are retained under evidence. There is no numerical test offered as a proof of \(8\).
+
+
+# n3. Actual continuous envelopes at the published smooth BFJ hypotheses
+
+Support: n1.
+
+The only NEW essential primary-source application in this note is Boucksom--Favre--Jonsson, Valuations and Plurisubharmonic Singularities, Publ. RIMS 44 (2008), 449--494. The exact authorized PDF and its text derivative are bound in input-bindings.json. The complete immediate statements and proofs used are BFJ's Setting, Sections 1.5--1.7 including 1.11--1.15, Definition 2.1 and 2.5, Proposition 2.7 and Definition 2.8, Proposition 3.11, and the COMPLETE Section 3.5, Definitions 3.15--3.17, Proposition 3.18, Remarks 3.19--3.21, Lemma 3.22 and its proof, and the remainder of the proof of 3.18. The application ledger records exact local reading ranges, hypotheses and the historical smooth resolution and multiplier-ideal dependencies. The publication's argument is applied, not recursively reconstructed from every cited historical source. No singular or arbitrary-characteristic multiplier estimate is imported.
+
+Assume \(R\) is the local ring at a smooth closed point of an affine variety over an algebraically closed characteristic-zero field, and \(\dim R\ge2\). First use the maximal-ideal gauge. BFJ's \(V\) includes ALL normalized semivaluations, with their support primes. By G331 as registered in n1, its finite continuous psh subclass is exactly \(C\), and its canonical full psh class with bottom is exactly \(D\).
+
+We prove that every finite continuous obstacle \(\phi\) has a greatest minorant \(P_D\phi\), and that this actual envelope belongs to \(C_{\rm geom}\). The needed new step is uniform continuity of the envelope, not merely existence of a nef coefficient supremum.
+
+First let \(h\) be a finite continuous function determined on one BFJ dual complex, \(h=h\circ r_\pi\). Choose \(M\ge1\) with \(h\ge-M\). Write \(Z(h)\) for its divisorial coefficient function. On the BFJ Weil divisor space set
+\[
+W=\sup\{Z: Z\text{ is nef and }Z\le Z(h)\}. \tag{9}
+\]
+The supremum in (9) is genuinely nef. The constant profile \(-M\) gives an admissible nef lower bound. Replace every admissible \(Z\) by \(\max\{Z,-M\}\), then direct finite maxima by finite subsets. Their coefficient functions increase to finite values in \([-M,0]\). Coefficient convergence is BFJ's weak topology, and the nef cone is closed and stable under finite maxima by Definition 2.1 and the ideal-sum identity. Thus the limit is nef. This is a use of the ACTUAL published weak nef cone, restricted to the smooth hypotheses; it is not an increasing-limit assertion about arbitrary singular \(D\).
+
+BFJ 3.11 associates a formal psh function \(H\) to \(W\), continuous on every closed simplex, with canonical all-semivaluation extension
+\[
+H(v)=\inf_{\pi'} H(r_{\pi'}v).
+\]
+The estimate \(-M\le H\le0\) holds first on divisorial points, next on each closed simplex by continuity and rational-point density, and then on all semivaluations by the displayed infimum. Also \(H\le h\) on ALL of \(V\). Indeed \(W\le Z(h)\) implies that inequality on the divisorial points of the determining dual complex; closed-simplex continuity extends it there. Proposition 2.7 gives \(H(v)\le H(r_\pi v)\le h(r_\pi v)=h(v)\). This is where the determining-obstacle hypothesis is used.
+
+If \(W=0\), then \(H=0\), already a member of \(C\), and greatestness below follows from (9). Suppose \(W\ne0\). BFJ 3.18 gives a finite constant \(c>0\) such that, for \(k>c\),
+\[
+W_k\le W\le(1-c/k)W_{k-c},
+\qquad
+W_t=t^{-1}Z\bigl(L^\infty(tW)\bigr). \tag{10}
+\]
+Here \(L^\infty(tW)=L^\infty(tZ(h))\) by Definition 3.17, so this is the family constrained by the original obstacle as well as by its nef envelope. Every such ideal contains \(\widehat{\mathfrak m}^{\lceil tM\rceil}\), because \(W\ge-M\) and every normalized valuation of a member of this power is at least \(\lceil tM\rceil\). It is proper if \(W\ne0\): a unit would have divisor zero, contradicting \(tW<0\) at a negative coefficient. Thus it is an actual proper primary ideal.
+
+For positive integers \(t\), contract this completed primary ideal to \(I_t\subset R\). G331's exact completion/contraction preserves its values on ALL semivaluations. Set
+\[
+f_t=-t^{-1}v(I_t)\in C,\qquad -M-1/t\le f_t\le0.
+\]
+Put \(k=t+c\) in (10). The inequalities extend from divisorial points to all closed simplices by continuity, and then to all of \(V\) by BFJ's canonical retraction infima, applied to \(H\), \(f_t\) and their positive scalar multiples. Accordingly
+\[
+f_t\le H\le\frac{t}{t+c}f_t
+\quad\Longrightarrow\quad
+0\le H-f_t\le
+\frac{c}{t+c}\left(M+\frac1t\right). \tag{11}
+\]
+This is a uniform bound on the entire compact ALL-support section. In particular \(H\) is a uniform limit of positively established ideal profiles, so \(H\in C\). Only NOW do n1's accepted geometric comparison and closure interpret \(H\) as a continuous completed geometrically positive function. No arbitrary increasing-limit theorem or closed-simplex boundary continuity from convexity alone was used.
+
+It is also the actual greatest \(D\)-minorant of \(h\). If \(u\in D\), \(u\le h\), then bottom is harmless. Otherwise n1 identifies \(u\) with a BFJ formal psh function and its nef Weil divisor \(Z(u)\). On divisorial points \(Z(u)\le Z(h)\), hence \(Z(u)\le W\) by (9). Closed-simplex continuity and canonical all-retraction infima give \(u\le H\) everywhere. Together with \(H\in C\), \(H\le h\), this proves
+\[
+P_Dh=P_Ch=H\in C_{\rm geom}. \tag{12}
+\]
+
+For clarity, the exact source estimate used in (10) is not a characteristic-free formal order assertion. In the complete published proof of BFJ 3.18, 3.22 identifies \(W=\sup_t W_t\) on divisorial points. Usual smooth multiplier subadditivity applied to the primary ideals \(L^\infty(tW)\) then gives \(W\le Z(L^2(W))\). On the determining dual complex, bounded thinness and strict negativity of a nonzero nef \(W\) give \(A\le-cW\). Hence \(L^2(kW)\subset L^\infty((k-c)W)\); applying the previous inequality to \(kW\) gives (10). The fourth assertion of 3.18 is not used here. The published argument's complete immediate proof was read; its historical resolution, subadditivity and approximation dependencies are disclosed in the ledger. G331 independently supplies the class identification needed to use its conclusion here.
+
+Finally BFJ 1.14--1.15 states and proves that piecewise affine functions, all determined on individual dual complexes, are uniformly dense in \(C^0(V)\). Choose \(h_j\) of that kind with \(\|h_j-\phi\|_\infty\to0\). By n1's raw estimate (3),
+\[
+\|P_Dh_j-P_D\phi\|_\infty\to0.
+\]
+Each \(P_Dh_j\) is already in \(C\) by (12). Uniform closedness of \(C\) proves \(P_D\phi\in C\). It is itself admissible and therefore the greatest geometric minorant. This proves the continuity step for general continuous obstacles by uniform approximation, without interchanging an unproved increasing limit with geometric positivity.
+
+The formula agrees with the actual published BFJ nef envelope for determining obstacles, including all-support values; arbitrary continuous obstacles are its uniquely determined uniform extension by estimate (3). Later primary gauges follow the exact transformation in n5. Smooth dimension one is the singleton DVR computation in n5, and dimension zero is the empty section in n1. These are the precise smooth specializations; no general excellent singular envelope theorem follows from this source.
+
+Artifacts: n3.md, source-application-ledger.md, evidence/reading-record.json, argument.md and P12.3-paper.tex. Local rerun: python build_delivery.py; python final_audit.py. Binding hashes and compilation are reproducibility evidence, not a proof of (10) or (12).
+
+
+# n4. Extended upper semicontinuous obstacles: a proved decreasing construction
+
+Support: n1, n3.
+
+This note supplies a general sufficient condition and a completed positive result on the smooth domain of n3. It does not assume this condition for all excellent germs. Say that a particular \(X,C,D\) has the continuous envelope property when \(P_D\psi\in C\) for every finite continuous real obstacle \(\psi\). This is a property of the UNCHANGED G331 cone, and not a new definition of geometric positivity. N1 proves the necessary and sufficient pointwise criterion for it; n2 exhibits its failure on an excellent nonnormal surface; n3 proves it at the published BFJ smooth hypotheses.
+
+Assume this property. Let \(\phi:X\to[-\infty,M]\) be upper semicontinuous, where \(M\) is finite. Bottom values may occur on any closed or more general upper-semicontinuously permitted set. The function can also have mixed signs or zeros. We construct its actual \(D\)-envelope without invoking increasing closure or a Hartogs theorem.
+
+First, on a compact Hausdorff space, every such \(\phi\) is the pointwise infimum of a NONEMPTY DECREASING NET of finite continuous majorants. Here are the elementary topology details used. Compact Hausdorff spaces are normal: two disjoint closed sets are compact, so pointwise Hausdorff separation, followed by finite subcovers first of one set and then of the other, produces disjoint open neighbourhoods. If a closed set \(F\) lies inside an open \(U\), normality gives \(F\subset O\subset\overline O\subset U\). Iterating this separation at the dyadic rationals gives open sets \(O_r\) with \(\overline O_r\subset O_s\) for \(r<s\), beginning with the two desired closed sets. The function \(\inf\{r:x\in O_r\}\), with endpoint values where the set is empty or contains every positive dyadic, is continuous: its strict sublevel and superlevel sets are unions of the respective open \(O_r\) and complements of \(\overline O_r\). This proves the continuous cutoff assertion needed below without an additional pluripotential source.
+
+For \(v\in X\) and finite \(t>\phi(v)\), choose finite \(\ell\) with \(\phi(v)<\ell<t\). If \(\phi(v)=-\infty\), choose any finite \(\ell<t\). The set \(U=\{\phi<\ell\}\) is open. The preceding normality and cutoff construction gives a continuous \(\chi:X\to[0,1]\) with \(\chi(v)=1\) and with its closed support inside \(U\). Increase a fixed global upper bound to \(M'>\max\{M,\ell\}\) and put
+\[
+F=\chi\ell+(1-\chi)M'.
+\]
+On \(U\), both endpoint values strictly exceed \(\phi\); outside the support, \(F=M'>\phi\). Thus \(F>\phi\) everywhere and \(F(v)=\ell<t\). The family \(\mathcal F\) of all finite continuous functions strictly above \(\phi\) is nonempty and closed under finite minimum, so it is downward directed. Its pointwise infimum is \(\phi\) by the construction just given. Ordered by reverse pointwise comparison, \(\mathcal F\) is an ACTUAL decreasing net, not a sequence asserted to be cofinal in an arbitrary nonmetrizable space.
+
+For \(F\in\mathcal F\), the assumed property gives \(p_F=P_DF\in C\), already positively established. Monotonicity makes these functions a decreasing \(C\)-net. Define
+\[
+u=\inf_{F\in\mathcal F}p_F. \tag{13}
+\]
+By the original definition of \(D\), (13) is in \(D\), with bottom permitted. Also \(p_F\le F\), whence \(u\le\inf F=\phi\). If \(g\in D\) and \(g\le\phi\), then \(g\le F\) for every \(F\), so \(g\le p_F\) for every \(F\). It follows that \(g\le u\). Therefore
+\[
+P_D\phi=u\in D_{\rm geom}, \tag{14}
+\]
+and this is the actual greatest geometric minorant. The order of the proof is membership, obstacle domination, then greatestness and geometric interpretation.
+
+More generally, for ANY particular decreasing net of finite continuous obstacles \(\phi_i\), if all its already established envelopes \(P_D\phi_i\) belong to \(C\), the SAME proof yields
+\[
+P_D(\inf_i\phi_i)=\inf_i P_D\phi_i\in D. \tag{15}
+\]
+This conclusion does not require the continuous envelope property for every obstacle. There is no flattening of a net of \(D\)-representations in (15); the displayed approximants themselves lie in \(C\).
+
+The guaranteed regularity is finite continuous and bounded for finite continuous obstacles, by the property and the compact section. For general bounded-above extended upper semicontinuous obstacles it is extended upper semicontinuous, nonpositive, with an explicit actual decreasing continuous positive representation. No universal continuity assertion is made for merely upper semicontinuous or extended obstacles. Monotonicity, clipping against zero and positive homogeneity remain valid. All-zero output occurs when \(\phi\ge0\) everywhere, since zero is then admissible. If \(\phi\equiv-\infty\), its only minorant is bottom. Partial bottom and mixed-zero outputs are not removed: on reduced curves they have the precise componentwise description in n5. At a normal centre the G331 zero dichotomy still says that a class function with a zero value is identically zero on that centre. This constraint is respected by (14), not replaced by a coordinatewise clipping assertion in higher dimension.
+
+N3 proves the required property on smooth affine closed germs over algebraically closed characteristic-zero fields. Thus (14)--(15) give a complete obstacle theorem there for every upper semicontinuous \([-\infty,M]\)-valued obstacle, on all semivaluations. The singleton and empty-dimensional cases are handled in n5 and n1. On general singular or nonnormal excellent germs the sufficient hypothesis is NOT asserted; the explicit continuous counterexample n2 precludes that.
+
+Artifacts: n4.md, argument.md and P12.3-paper.tex. Rerun python build_delivery.py and python final_audit.py. There is no numerical or compilation-based certification of the decreasing construction.
+
+
+# n5. Exact gauge and conductor rules; complete reduced-curve and bijective-normalization sectors
+
+Support: n1, n2, n3, n4.
+
+No new essential external theorem is used in this note. The gauge and positive class descent are exactly G331 as registered in n1. The extra envelope steps are proved here. The elementary DVR computation also establishes the entire reduced-curve clipping formula through the ACCEPTED geometric comparison, with every zero and bottom pattern retained.
+
+For two proper primary ideals \(\mathfrak a,\mathfrak b\) of \(R\), define
+\[
+T_{\mathfrak a,\mathfrak b}u\left(\frac{v}{v(\mathfrak b)}\right)
+=\frac{u(v)}{v(\mathfrak b)},\qquad v\in V_{\mathfrak a}(R). \tag{16}
+\]
+The denominator is positive continuous, with positive lower and finite upper bounds. G331 proves that (16) is an order bijection for \(C\) and for \(D\), exactly the degree-one homogeneous section change. Apply the SAME transformation to obstacles. Since division by the fixed positive number at a point commutes with suprema, the raw geometric envelope obeys
+\[
+P_{D,\mathfrak b}(T_{\mathfrak a,\mathfrak b}\phi)
+=T_{\mathfrak a,\mathfrak b}(P_{D,\mathfrak a}\phi). \tag{17}
+\]
+For finite continuous obstacles the \(C\)-version is identical by n1. Composing (16) twice telescopes the factors and proves the exact three-gauge cocycle. Continuous regularity, extended upper semicontinuity, zeros, bottom values and the property of belonging to \(C,D\) are all preserved. The discontinuity and failure of positivity in n2 therefore survive every primary-gauge change, rather than depending on the maximal-ideal section.
+
+Next let \(S\) be the finite normalization and \(\rho:\widetilde X\to X\) its exact compact quotient. On \(\widetilde X\) use the extended primary ideal \(\mathfrak aS\), and the product \(C_S,D_S\) over all local normalization centres. For ANY obstacle there is the exact identity
+\[
+\rho^*(P_{D,R}\phi)
+=\sup\{u\in D_S:u\le\rho^*\phi,\ 
+u\text{ is constant on EVERY }\rho\text{-fibre}\}. \tag{18}
+\]
+The supremum is pointwise. Every downstairs admissible function pulls back to the displayed family. Conversely every function in that family descends positively to \(D_R\) by G331. This proves equality of the admissible families after pullback and hence (18), without presuming positivity of their supremum. For finite continuous obstacles the same statement holds for \(C\).
+
+The fibre constraint in (18) means singleton compatibility at finite conductor value and equality of restrictions over \(R/\mathfrak c\to S/\mathfrak c\) on the entire infinite-conductor stratum. All support primes and all zero/bottom patterns are included. It cannot be erased simply because the obstacle is fibre constant. In n2 the UNCONSTRAINED upstairs envelope has values \(-1\) on \(A\) and \(-2\) on \(B\), including their respective \(q_A,q_B\), so it is not fibre constant. Both individual normal centres have the smooth continuous envelope property. Their incompatible envelope values are exactly why positive normalization descent does not manufacture a downstairs greatest minorant.
+
+If the unconstrained upstairs envelope is already known to belong to \(D_S\) AND is fibre constant, it descends positively and is the downstairs envelope. Indeed the descended function is admissible, and every other admissible pullback lies below the upstairs greatest member. For continuous outputs its descent is continuous by the compact quotient, hence in \(C_R\). This is a precise conditional envelope rule; membership and fibre constancy are actual requirements, not consequences of a pulled-back obstacle alone.
+
+There is a complete positive sector without such an extra test. Suppose \(\rho\) is bijective and every local normalization centre has the continuous envelope property. Then compact Hausdorffness makes \(\rho\) a homeomorphism; the fibre constraint is automatic. Envelopes exist in \(C_R\) for every finite continuous obstacle, are continuous, and equal the componentwise upstairs envelopes. N4 then gives an actual \(D_R\)-envelope for every bounded-above extended upper semicontinuous obstacle. This includes any excellent germ whose conductor is primary and whose local normalization centres are smooth affine closed germs in BFJ's algebraically closed characteristic-zero setting. A primary conductor has finite value at every centred section point, so G331 ensures bijectivity. More generally bijectivity itself, rather than primaryness of the conductor, is the relevant sufficient condition. These are proved sufficient assumptions and are not stated as necessary conditions for every individual envelope.
+
+Now take ANY excellent reduced local curve germ of positive dimension, over any residue field and in any characteristic. The finite normalization is a finite semilocal union of DVR centres \(S_i\) above the closed point. This follows from normal Noetherian local rings of dimension one being DVRs, applied to the finite excellent normalization; it is ordinary algebraic background already present in G331. There is no resolution or multiplier approximation in this curve computation.
+
+The conductor is primary. To check this, at every nonmaximal prime of a reduced local curve the prime is minimal, and the localized ring is its generic field. Normalization localizes to that same field. The finite module \(S/R\) is therefore supported only at the maximal ideal and is killed by a maximal-ideal power. Thus \(\mathfrak c\) contains that power. If \(R=S\), the conductor is the unit ideal and the same finite-value conclusion holds. G331 gives a bijective normalization boundary map.
+
+On a DVR with parameter \(t_i\), every centred real semivaluation has \(w(t_i)\) finite positive and is \(w(t_i)\operatorname{ord}_i\), since every nonzero element is \(t_i^d\) times a unit. Write \(b_i=\operatorname{ord}_i(\mathfrak aS_i)>0\). Its normalized section is exactly the singleton \(\operatorname{ord}_i/b_i\). The finite disjoint union of these points, and hence the downstairs link, is a finite discrete set indexed by local normalization CENTRES, not merely minimal primes. Its \(C_S\) is every finite nonpositive tuple: on each singleton the primary ideal \((t_i)\), with an arbitrary nonnegative real coefficient, realizes every finite nonpositive constant; the unit realizes zero. Semilocal gluing/product classes are part of G331. Positive \(C\)-descent and its geometric comparison now prove
+\[
+C_{{\rm geom},R}=C_{{\rm ideal},R}=(-\infty,0]^r. \tag{19}
+\]
+Every extended tuple \(h\in[-\infty,0]^r\) belongs to \(D_{\rm geom,R}\). Indeed the finite continuous nonpositive tuples
+\[
+h^{(N)}_i=\max\{h_i,-N\},\quad N=1,2,\ldots,
+\]
+lie in the class established in (19) and DECREASE to \(h\). Conversely every decreasing completion function is nonpositive. Hence
+\[
+D_{{\rm geom},R}=D_{{\rm ideal},R}=[-\infty,0]^r. \tag{20}
+\]
+Membership in the geometric class was proved using actual positive descent and actual decreasing approximation before making any envelope inference.
+
+For EVERY extended obstacle \(\phi\in[-\infty,+\infty]^r\), the tuple
+\[
+P_D\phi=\bigl(\min\{\phi_i,0\}\bigr)_{i=1}^r \tag{21}
+\]
+belongs to the geometric class by (20), is below \(\phi\), and dominates every nonpositive tuple below \(\phi\). This proves greatestness and positivity of the actual envelope. For finite obstacles it belongs to \(C\) and is continuous. Extended functions are upper semicontinuous on this finite link. All-zero, mixed-zero, all-bottom and partial-bottom patterns are literally included in (21). The geometric formula equals the complete ideal-psh formula THROUGH (19)--(20), rather than by relabeling an ideal order completion as an independent geometric theory.
+
+On the curve branch set, changing primary gauges acts by the positive diagonal factors
+\[
+c_i^{\mathfrak b}=
+\frac{\operatorname{ord}_i(\mathfrak a)}{\operatorname{ord}_i(\mathfrak b)}
+c_i^{\mathfrak a}.
+\]
+They commute with clipping in (21); this is the specialization of (17), including zero and bottom coordinates. The smooth DVR case is \(r=1\), with all finite nonpositive constants in \(C\) and all extended nonpositive constants in \(D\). The empty dimension-zero case remains the unique empty function.
+
+For example, the curve node has two distinct boundary points and a primary conductor; \((-1,0)\) is an actual geometric envelope for that same obstacle. The prior paper's inability to realize this tuple as a literal homogeneous logarithmic radial analytic extension concerns a DIFFERENT class on normalized closed discs and is not imported as a theorem or counterexample here. In contrast n2 uses a two-dimensional conductor quotient with a genuinely identified boundary pair. This distinction preserves the accepted G331 comparison and the original nonnormal-fibre scope.
+
+Artifacts: n5.md, argument.md, P12.3-paper.tex and exact-scope.md. Rerun python build_delivery.py; python final_audit.py. The curve theorem is a mathematical consequence of the registered grant and the DVR argument, not of finite-grid clipping tests.
+
+
+# n6. Original-scope decision, remaining gaps and deliverable evidence
+
+Support: n1, n2, n3, n4, n5.
+
+The ENTIRE original P12.3 and its family dossier remain preserved unchanged in original-task.json. This deliverable is an unverified mathematical draft with candidate=false. It does not claim a complete positive envelope theory on every excellent singular/nonnormal germ, and it does not narrow the original target to the already known radial subcase.
+
+There is a new exact obstruction for the specific independently geometric cone granted by G331. N2 proves that the reduced excellent nonnormal surface \(k[x,y,z]_{(x,y,z)}/(xy)\) has a bounded continuous strictly negative obstacle \(\phi\) for which no maximal geometric minorant exists. Its exact raw supremum is \(-1\) on the first normalization boundary outside the identified conductor point and \(-2\) at that point and on the second boundary. It is not upper semicontinuous, hence not in \(D_{\rm geom}\). Its upper semicontinuous regularization remains below the obstacle but violates the primary-ideal order inequality on the second smooth branch. Every approximating minorant used in the proof belongs positively to \(C_{\rm geom}\) by G331 descent. This is a genuine counterexample for the granted class, not the prior literal radial analytic obstruction.
+
+Thus a universal assertion that continuous-obstacle raw suprema, or their upper semicontinuous regularizations, give positive members of this unchanged class is FALSE in the stated excellent/nonnormal scope. A greatest-minorant envelope satisfying the original unrestricted positivity requirement cannot be constructed for this obstacle. No new tautologically positive subcone, altered support space or deleted conductor fibre is offered to avoid the counterexample. Other possible envelope notions, weaker domains or strengthened geometric classes would require new definitions and comparison theorems, and are not claimed here.
+
+N1 supplies the exact continuous-obstacle criterion: raw \(C\)- and \(D\)-suprema agree, are bounded lower semicontinuous and nonexpansive in uniform norm, and belong to the geometric class if and only if they are continuous. This identifies the actual missing envelope step from G331. N3 proves that step by the published BFJ 3.18 uniform estimate and density at its exact smooth affine, closed-point, algebraically closed characteristic-zero hypotheses. N4 proves actual \(D\)-envelopes for bounded-above extended upper semicontinuous obstacles whenever the continuous envelope property is separately established, using a single decreasing net of ALREADY continuous positive envelopes. N5 establishes exact primary-gauge covariance and the full constrained normalization/conductor rule, and gives complete positive results for bijective-normalization sectors with good centres and for ALL excellent reduced curves. In the curve case every extended obstacle clips componentwise against zero through the accepted geometric comparison, including mixed-zero and partial-bottom cases.
+
+The strongest completed positive domains proved here are the published smooth BFJ range, all excellent reduced curves in arbitrary characteristic/residue field, and bijective-normalization boundaries whose centres have the continuous envelope property. Their precise obstacle domains and regularity are stated in n3--n5. Positive-characteristic or arbitrary excellent NORMAL singular envelope continuity is not settled by this work; there is no source grant for its multiplier estimates or singular all-model cofinality. Even when every normalization centre is smooth, nontrivial conductor-fibre constraints are a real obstruction by n2.
+
+P12.4 mixed products, P12.5 energy and P12.6 full geometric operator functoriality remain separate targets. No such product, energy, intersection theory for nilpotents, arbitrary-model classification, literal classical/CLD identity, unrestricted trace or publication acceptance is asserted.
+
+The supplied DATA packet contains thirteen mathematical records and twenty-three primary records. The fresh owned audit read only manifest path fields as bytes; all thirty-six expected byte counts and SHA-256 values match. Hash matches are input binding observations, not mathematical certification. Only G331 is registered as a supplied support. No supplied executable, author/reviewer/ROOT helper, private active campaign output, origin-path reference, provider command, subagent or network service was executed or accessed. The cloud runtime skill was read; an environment_status tool was not exposed. No supervised heavy-compute facility was available or needed, and no heavy computation was launched. No protected editor or browser tab was opened, and native authentication/runtime/environment/HOME/CODEX_HOME/proxy/CA state was not modified.
+
+Fresh deliverables are P12.3-paper.tex (and its locally compiled PDF), argument.md, source-application-ledger.md, exact-scope.md, whole-proof-coverage.md, original-scope-and-noncircularity-decision.md, native-notes.json, n1.md through n6.md, original-task.json, G331-qualified-grant.json, input-bindings.json, own-bindings.json and bounded evidence records. The entire grant annotation and incoming source ledger remain in the unchanged grant record. NEW primary applications and their complete immediate reading units have a separate ledger; other bound primary files are not silently represented as newly read or used.
+
+Owned scripts and complete rerun commands: python audit_inputs.py; python repair_initial_delimiters.py; python build_delivery.py; python final_audit.py. They bind inputs, generate the standalone paper and full native notes, invoke pdflatex with -no-shell-escape, and check artifact/support consistency. Exact commands, exit statuses and bounded build outputs are retained in evidence. The observed local build returned exit codes 0 and 0 and produced a 23-page PDF; the support/artifact audit passed all 25 checks. The initial inline-math delimiter repair is idempotent. No finite numerical experiment was needed for the counterexample, whose universal proof is n2. Compilation and successful audits establish reproducible artifacts only, not mathematical correctness. The requested model configuration is retained as a caller request, without invented provider attestation.
+
+The final structured result therefore contains useful new mathematical notes and candidate=false. The unrestricted target is not reported solved, while its explicit positivity obstruction and the strongest proved complete envelope sectors are retained for independent review.

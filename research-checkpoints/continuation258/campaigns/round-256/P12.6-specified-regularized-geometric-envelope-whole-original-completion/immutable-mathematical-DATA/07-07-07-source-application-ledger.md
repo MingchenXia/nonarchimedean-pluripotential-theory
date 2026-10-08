@@ -1,0 +1,52 @@
+# Source applications and proof boundary
+
+The sole incoming result is the entire qualified G331. Its full paper, mandatory annotation, original source ledger and scope are preserved unchanged in attachments/00-P12.2-paper.tex, attachments/01-mandatory-source-scope-and-reader-qualifications-after-review240-20261008.json, attachments/02-source-application-ledger.md and attachments/03-exact-scope.md. Our new applications do not enlarge the grant. In particular no intersection, operator, locality or energy theorem is imported from G331.
+
+All other mathematical packets, reviewer prose, PASS labels and source-reading receipts are DATA. Complete ROOT338, ROOT339 and ROOT342 were read; the complete native247 whole-proof.md and supporting review/ledger were read, and pertinent native246 paper proofs were examined. No incoming draft or review verdict is a mathematical premise. The full new proofs are n1--n7, directly included in the paper. We do not claim a fresh whole-page reading of every redundant supplied paper or every primary source in the packet. The byte audit of all 54 bound files is not such a reading claim.
+
+The two explicit supplied manifests, with exact path, URL, size and SHA-256 metadata, are retained in attachments/. Reports/input-audit.json records actual bound bytes and environment. All 21 mathematical and 33 primary files matched. No source acquisition outside these bindings was needed.
+
+## New immediate primary units actually read
+
+The source is the current July 2024 author PDF of Swanson--Huneke, not a claim of identity with the 2006 printing: https://www.math.purdue.edu/~iswanso/book/SwansonHuneke.pdf, PDF SHA-256 a12705f066aee67648768bc37b58a37c661907dc3918a71974c1441bc551a18b; bound text SHA-256 9b15169d0c624e89a2b91153690e8a348c8c9f23e412a6cc0e4bde6510d25392.
+
+| Complete unit read | Application and exact hypotheses | Proof/dependency boundary |
+|---|---|---|
+| 8.4.1--2, construction, full immediate proof, text 7760--7804 | Algebraic R(z), infinite residue field, unchanged dimension and primary quotient lengths | The source proves (9) explicitly; n1 independently proves the needed dimension/length assertions. Faithful flatness, going-down and height are ordinary foundations. No boundary scalar-extension assertion. |
+| 11.1.3--5, full proof/context, text 10308--10380 | One-variable primary Hilbert polynomial and positive one-dimensional leading coefficient | Every Noetherian local ring and finite nonzero module, no CM condition. Historical one-variable superficial and finite-difference Hilbert theory disclosed. |
+| 17.1.6, 17.2.1--4, full statements and immediate proofs, text 16033--16153 | Multi-ideal Artin--Rees; same-simultaneous-superficial choice in the two compared families; colon stabilization and embedded behavior | Infinite residue field after R(z); primary common radical and Krull intersection hold. n1 gives the actual exact sequence and quotient comparison. Primary decomposition, Nakayama and Rees Noetherianity are ordinary dependencies. |
+| 17.3.1--2, complete units/proofs, text 16156--16300 | Generic parameter tuples for the SMOOTH comparison only | Existence of joint reductions and open coefficient choices; n7 explains the rank-matrix open condition. No general geometric application. |
+| 17.4.1--3, full statements, proofs and defining context, text 16315--16396 | Existence of multigraded primary length polynomials; exact factorial coefficients; lower-dimensional degree-n zero | Arbitrary Noetherian local ring, primary labels and finite modules. Standard Hilbert theory is ordinary published background. n1 proves all substitutions, unused-label deletion and closure invariance. |
+| 17.4.4--7, full units/proofs, text 16400--16542 | Exact-sequence leading-form additivity; superficial reduction; coefficient comparison | n1 reconstructs the Artin--Rees and colon arguments without coefficient-order shortcuts or regular-sequence assumptions. The finite annihilator is in the current quotient. |
+| 17.4.8--9, full units/proofs, text 16543--16638 | 17.4.9 generic joint-reduction multiplicity in n7; 17.4.8 reviewed context | Applied at the actual regular local smooth ring for generic colength comparison. N1's general kernel does not depend on these joint-reduction results. Historical Samuel associativity and Rees foundations disclosed. |
+
+Pixels were checked on PDF pages 362/367/369 (printed 348/353/355), confirming the radical condition in 17.2.4, factorial convention, and quotient correction. No conclusion about a printed error was drawn from extraction. We do not use 17.5.3's terse polynomial-domination sentence or 17.5.1's intermediate display as proof of our kernel.
+
+The official complete Stacks bodies were read from their exact bound text, with HTML counterparts integrity-checked. URLs are https://stacks.math.columbia.edu/tag/TAG, exact metadata in the primary manifest.
+
+| Complete immediate units | New application | Hypotheses and historical boundary |
+|---|---|---|
+| 0BEL, 33.45.1--13, all statements/proofs | n3 supported Euler polynomials and full generic-cycle weights through m-filtration; numerical multilinearity and projection; n4 positivity by ample approximation | Proper schemes over a FIELD. E itself is over an Artinian quotient of R, so n3 first filters it into sheaves on the proper k-scheme. We do not falsely apply the field lemma directly to mixed-characteristic E. Coherent filtrations, proper cohomology, Euler additivity and dimension theory are the immediate source's disclosed dependencies. |
+| 0AG7, complete 30.14.3 statement/proof | H0(Y,O(q))=I^q eventually, with the actual standard finite Rees algebra | A0=R Noetherian; A generated in degree one; M=A finite. Proj sheafification and finite section-module results are ordinary recursive dependencies. |
+| 01OF, 31.33.1--14, whole mathematical body | Actual reduced primary blowups, regular Cartier image ideal, universal property, product refinements and ampleness | No normal/CM/residue restriction. Direct local generation argument in n4 proves the exact invertible IMAGE identity. Source's omitted verifications remain ordinary background; we claim no arbitrary-proper-model cofinality. |
+| 0AYA, 42.26.1--4, whole statements/proofs | 42.26.3 ACTUAL divisor-cycle projection on integral top components; n3 model/normalization invariance | Proper dominant integral maps, equal delta-dimension, same function field. Applied componentwise with generic degree one BEFORE any Chow quotient; residue degrees survive. The source's norm/divisor-cycle foundation 42.18.1 is disclosed recursive background, not freshly proved in full. |
+| 02QL, entire Situation 42.7.1 | Excellent universally catenary Spec R with delta(P)=dim R/P | n3 checks the local catenary dimension function. Its finite-type extension and usual dimension formula are ordinary scheme-theoretic background. |
+| 0B5S, 30.16.1 all five clauses/proofs, 30.16.2 and 30.16.3 all proofs | n3 ample Serre vanishing for the raw diagonal; finite proper cohomology; n4 finite generated section modules | Actual proper Noetherian primary models and relatively/absolutely ample tautological bundle over affine base. Projective coherent cohomology, projection formula and preceding Proj lemmas are disclosed recursive dependencies. |
+
+G331's corrected Keeler/real perturbation, finite-span openness, rational ampleness, fixed-primary correction, order unit, and all-support evaluation are used through the ENTIRE qualified grant. No additional fresh Keeler application is inferred from its old reading labels. In n4 positivity is obtained by perturbation ON THE GIVEN PRIMARY MODEL, followed by finite pullback and restriction; it does not require a new theorem for arbitrary singular model systems.
+
+BFJ is the published RIMS paper, https://sebastien.boucksom.perso.math.cnrs.fr/publis/BFJ_psh.pdf, PDF SHA-256 26d2d8dd2546efd55a148b4ff233892e88cfeab6c34de7fa613a7ad2e543d7f8, text SHA-256 9a72054bc227fca9231feb65ec631e6b4a91e68c10307d38fa5c23d5965de93f. The complete Setting (text 346 onward) and ENTIRE Section 4 through 4.9, including every immediate proof and Remark 4.5, were read. PDF pages 32/33 were inspected for (4.3)'s sign, generic colength, and the coefficient-topology argument.
+
+| BFJ application | Exact scope | Limitations |
+|---|---|---|
+| (4.3), 4.6--4.7 | Smooth CLOSED point of an affine variety over algebraically closed characteristic ZERO, n>=2 | n7 compares generic parameter colength with polynomial multiplicity using the regular/CM ring and actual generic joint reductions. Rees/Ramanujam foundations are ordinary background. |
+| Full 4.4 proof and Remark 4.5 | Smooth order/addition and coefficient-topology upper semicontinuity | Its essential multiplier approximation is confined to this published domain. N7 proves the actual arbitrary-net implication from this topology and monotonicity; 4.8 sequences alone do not suffice. |
+| 4.1--4.2, 4.8--4.9 | Full published reference pairing/atom/continuity context | No singular/positive-characteristic transfer. Our n3--n5 separately prove general supported intersections, geometric atoms and locality. |
+
+Other ordinary dependencies are finite excellent normalization and one-dimensional normal local DVRs, flat/finite/coherent basic algebra, real tensor extension of multilinear maps, supported hypercohomology Euler identities, CM parameter multiplicity, and compact-Hausdorff Riesz/Urysohn/Radon regularity. Their exact uses are stated in the proof. We do not claim a recursive fresh reconstruction of all EGA, Hironaka, Rees, Ramanujam, multiplier, or functional-analysis history.
+
+## Independent new results
+
+N1: the entire order-sensitive kernel, including unused labels. N2: positive all-function Riesz extension and every bounded net comparison. N3: supported Artinian-thickening pairing, actual Koszul symmetry, top-component cycle projection and raw ideal identity. N4: positive geometric atoms and their refinement invariance BEFORE section-ideal comparison, exact image identity on one fixed refinement, real polynomial convergence and geometric/function independence. N5: ratio-subideal maximum locality and all bounded open locality. N6: full gauge, normalization/conductor, actual reduced-curve degree, inseparable residue example and degeneracies. N7: exact published smooth OPERATOR specialization.
+
+Every supplied draft and PASS judgment remains data. No unbound campaign, supplied executable or native job was used. Finite observations and hashes verify reproducibility only.
