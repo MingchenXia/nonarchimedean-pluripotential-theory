@@ -3,6 +3,34 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest adiabatic-bundle source checkpoint, 8 October 2026
+
+The [source audit](Ortu_Sektnan_adiabatic_source_review_20261008.md)
+covers the complete 45-page Ortu--Sektnan arXiv:2406.08284v2,
+updated 3 October 2026. Complete selected text, 23 individually
+displayed matching images and 23 sequential notes provide actual
+reading evidence; preparation flags remain unchanged. The surface
+delta2 table is checked by direct Segre expansion and a separate
+Hilbert/weight Riemann--Roch sum. All four coefficient identities
+have zero symbolic residual. Its c2=1 stable rank-two bundle on
+P2 cannot exist by Riemann--Roch and stability. The corrected
+coefficient does not alone reverse the example's eventual sign.
+
+The general analytic equivalence remains a qualified source claim.
+The exact generator and positive/negative Futaki dictionary are
+explicit; norm scaling, uniform linear estimates, parameter-space
+positivity and cited blowup/stability inputs retain their qualifications.
+This source checkpoint does not change the active 4,628-page book
+or native catalogue, and is not a new whole-book pass. The 42 atoms,
+twelve formal problems, general OPEN BJ22 critical homogeneous Siu
+and envelope boundary and UNVERIFIED LPWZ density remain unchanged.
+No independent-model receipt or original general result is claimed.
+The full source evidence archive has 88 byte-verified members;
+export gives zero extra reading credit. GitHub publication remains
+blocked by the recorded automatic-review ownership requirement.
+Read-only checks found work/main unchanged, and no blocked upload
+was retried. Continue with accurately scoped book integration.
+
 ## Latest transcendental-approximation cloud integration checkpoint, 8 October 2026
 
 The current validated cloud edition has 4,628 pages. The
