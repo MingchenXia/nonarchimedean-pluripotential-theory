@@ -3,6 +3,81 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest polarized Calabi–Yau finiteness EOF repair checkpoint, 8 October 2026
+
+The validated edition has 4,647 pages. The
+[integration audit](Truong_polarized_CY_finiteness_staged_integration_audit_v2_20261008.md)
+records the unnumbered paragraph in Section 62.8 and new L.95. They separate
+fixed-polarization stability from varying-family uniformity. The source operator
+is 2 pi times the binding book operator. Capacity/perimeter exponent arithmetic
+is conditional; no actual uniform perimeter bridge or unconditional finiteness
+theorem is imported from arXiv:2610.00361v1.
+
+The literal fixed-exponent and truncation gaps, Bishop–Gromov direction and
+thin flat-torus numerical counterexample, corrected scale-dependent packing,
+Bergman pointwise-versus-section-supremum distinction and arbitrary-scheme
+Hilbert counterexample are stated with their exact scope. Smooth compactness,
+common embeddings, restricted boundedness and smooth-base stratification
+retain explicit hypotheses and attributed classical foundations.
+
+All 34 primary pages were read in seventeen individual matching displays.
+The v1 book gate genuinely read 27 pages in 14 individual matching displays.
+EOF-only v2 reuses that review after complete-text and entire rendered-pixel
+equality on every selected page; it adds zero fresh reading credit. The failed
+commit whitespace gate and one-byte EOF repair remain recorded.
+Required validation and post-render checks pass; all 955 underfull diagnostics
+are inherited. All 13,375 prior numbered values
+and 593 citation labels are preserved.
+One label, one contents row, TD26F and two index terms are added. Other 423 TeX
+inputs, the NonArchimedean bibliography, 46 historical environment blocks
+including 14 proofs, and 61 manual tags remain unchanged.
+
+The native catalogue/editor and all 42 atoms/twelve formal problems are
+preserved: general BJ22 critical homogeneous Siu/envelopes OPEN, LPWZ density
+UNVERIFIED. No original general result, independent receipt or new whole-book
+pass is claimed; the last complete ordered pass remains 4 October.
+The [activation record](Truong_polarized_CY_finiteness_cloud_activation_v2_20261008.json)
+controls the cloud edition; publication receives a separate record.
+Continue author-update checks and the next exact primary source,
+Lyuhui Wu arXiv:2609.27610v1 on local non-Archimedean psh functions.
+Its 55-page PDF and twenty-eight prepared views have zero actual reading credit.
+
+## Latest polarized Calabi–Yau finiteness cloud integration checkpoint, 8 October 2026
+
+The validated edition has 4,647 pages. The
+[integration audit](Truong_polarized_CY_finiteness_staged_integration_audit_20261008.md)
+records the unnumbered paragraph in Section 62.8 and new L.95. They separate
+fixed-polarization stability from varying-family uniformity. The source operator
+is 2 pi times the binding book operator. Capacity/perimeter exponent arithmetic
+is conditional; no actual uniform perimeter bridge or unconditional finiteness
+theorem is imported from arXiv:2610.00361v1.
+
+The literal fixed-exponent and truncation gaps, Bishop–Gromov direction and
+thin flat-torus numerical counterexample, corrected scale-dependent packing,
+Bergman pointwise-versus-section-supremum distinction and arbitrary-scheme
+Hilbert counterexample are stated with their exact scope. Smooth compactness,
+common embeddings, restricted boundedness and smooth-base stratification
+retain explicit hypotheses and attributed classical foundations.
+
+All 34 primary pages were read in seventeen individual matching displays.
+The final book gate freshly reads 27 pages in 14 individual matching displays.
+Required validation and post-render checks pass; all 955 underfull diagnostics
+are inherited. All 13,375 prior numbered values
+and 593 citation labels are preserved.
+One label, one contents row, TD26F and two index terms are added. Other 423 TeX
+inputs, the NonArchimedean bibliography, 46 historical environment blocks
+including 14 proofs, and 61 manual tags remain unchanged.
+
+The native catalogue/editor and all 42 atoms/twelve formal problems are
+preserved: general BJ22 critical homogeneous Siu/envelopes OPEN, LPWZ density
+UNVERIFIED. No original general result, independent receipt or new whole-book
+pass is claimed; the last complete ordered pass remains 4 October.
+The [activation record](Truong_polarized_CY_finiteness_cloud_activation_20261008.json)
+controls the cloud edition; publication receives a separate record.
+Continue author-update checks and the next exact primary source,
+Lyuhui Wu arXiv:2609.27610v1 on local non-Archimedean psh functions.
+Its 55-page PDF and twenty-eight prepared views have zero actual reading credit.
+
 ## Latest polarized Calabi–Yau finiteness source checkpoint, 8 October 2026
 
 The [primary audit](Truong_polarized_CY_finiteness_source_review_20261008.md)

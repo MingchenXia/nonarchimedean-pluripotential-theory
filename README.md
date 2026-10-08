@@ -4,6 +4,29 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest checked book EOF repair, 8 October 2026:** the
+[polarized Calabi–Yau finiteness audit](manuscript/editorial/Truong_polarized_CY_finiteness_staged_integration_audit_v2_20261008.md)
+adds the uniformity paragraph in Section 62.8 and new L.95. It preserves the
+unfinished analytic bridges and qualifies the literal proof gaps, smooth
+diagnostics and classical compactness/boundedness inputs. All 27 selected book
+pages were genuinely read in 14 v1 individual matching displays. EOF-only v2
+reuses that review after exact complete-text and whole-page pixel equality,
+with zero new reading credit; required validation and post-render gates pass. The
+[activation record](manuscript/editorial/Truong_polarized_CY_finiteness_cloud_activation_v2_20261008.json)
+controls the 4,647-page cloud edition. No unconditional finiteness theorem,
+original general result, new whole-book pass or canonical status change is claimed.
+
+**Latest checked book integration, 8 October 2026:** the
+[polarized Calabi–Yau finiteness audit](manuscript/editorial/Truong_polarized_CY_finiteness_staged_integration_audit_20261008.md)
+adds the uniformity paragraph in Section 62.8 and new L.95. It preserves the
+unfinished analytic bridges and qualifies the literal proof gaps, smooth
+diagnostics and classical compactness/boundedness inputs. All 27 selected book
+pages were freshly read in 14 individual matching displays; required validation
+and post-render gates pass. The
+[activation record](manuscript/editorial/Truong_polarized_CY_finiteness_cloud_activation_20261008.json)
+controls the 4,647-page cloud edition. No unconditional finiteness theorem,
+original general result, new whole-book pass or canonical status change is claimed.
+
 **Latest polarized Calabi–Yau finiteness source checkpoint, 8 October 2026:**
 the [primary audit](manuscript/editorial/Truong_polarized_CY_finiteness_source_review_20261008.md)
 reads all 34 pages of arXiv:2610.00361v1 in seventeen individually displayed
@@ -187,7 +210,7 @@ citation values are preserved. The [cloud activation record](manuscript/editoria
 controls the source/PDF update. No whole-book new reading, original general
 result or canonical status change is claimed. Its verified artifacts are uploaded.
 
-The current cloud research-integration build has **4,642 pages**; its
+The current cloud research-integration build has **4,647 pages**; its
 source and checked book/audit exports are published on `work`. The checked
 [geometric-norm account](manuscript/editorial/Temkin_Zutler_geometric_norms_staged_integration_audit_20261008.md)
 adds Sections 4.6.1--4.6.2: tensor and spectral norm distinctions, exact
