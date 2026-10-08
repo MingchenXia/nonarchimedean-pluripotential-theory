@@ -3,6 +3,41 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest Kaib–Werner primary-source checkpoint, 8 October 2026
+
+The [source audit](Kaib_Werner_higher_rank_source_review_20261008.md)
+reads all 24 physical pages of arXiv:2610.01354v1, posted 1 October 2026,
+in twelve individually displayed matching images with complete selected text
+and twelve sequential notes. Preparation flags remain false. The extraction
+font warning and visually resolved algebraic/calligraphic notation remain
+recorded. External foundations are not recursively certified.
+
+The paper retains a complete real-valued rank-one topology and adds a
+possibly higher-rank integral valuation ring. Proper finite-type analytic
+recovery, compatible formal gluing, generically good versus good reduction,
+and full algebraic/marked formal/strong marked models have distinct scopes.
+The composed valuation on Q-p((t)) and an elliptic equation with j=1/p are
+directly checked; only the standard necessary j-integrality criterion is
+used. The DVR residual-ring alternative does not imply the algebraically
+closed residue-field hypothesis of the full algebraic Néron theorem.
+
+The [authored archive](artifact_exports/20261008_kaib_werner_sources/README.md)
+has 43 byte-verified members; the 70-member complete primary evidence stays
+in the cloud. The failed initial baseline-hash assertion is frozen and the
+corrected v2 source checkpoint preserves all 425 active inputs, both
+bibliographies, the 4,634-page PDF and native catalogue/editor. The canonical
+42 atoms/twelve problems, OPEN general BJ22 critical homogeneous Siu/envelopes
+and UNVERIFIED LPWZ density are unchanged. No original general theorem,
+independent-model receipt or new whole-book pass is claimed; export supplies
+zero reading credit. A fresh remote check found work at cd04e6137891e820c1c5fdfc485877dec663da25
+and main at 00957114db21b627e97369563032ceda9cea09c7, without incoming changes.
+
+Next: publish the authorized authored evidence, then integrate the qualified
+discussion and worked example in new 3.12 and L.93. Preserve historical formal
+blocks and number values; complete mechanical, actual rendered-reading and
+post-render gates before cloud activation. Continue related recent primary
+research and author-update checks.
+
 ## Latest Hattori GitHub publication checkpoint, 8 October 2026
 
 The [publication record](Hattori_CY_fibrations_GitHub_publication_20261008.json)

@@ -4,6 +4,18 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest primary-source continuation, 8 October 2026:** the
+[Kaib–Werner audit](manuscript/editorial/Kaib_Werner_higher_rank_source_review_20261008.md)
+reads all 24 pages of arXiv:2610.01354v1 in twelve matching individual
+displays with sequential notes. It distinguishes rank-one norm topology from
+higher-rank integral data, proper analytic recovery from integral-model
+recovery, and three Néron mapping domains. Direct composed-value and elliptic
+examples are checked; source hypotheses and external proof boundaries remain
+explicit. The [authored source archive](manuscript/editorial/artifact_exports/20261008_kaib_werner_sources/README.md)
+is byte-verified. The active 4,634-page book and all canonical statuses are
+preserved at this source checkpoint. Section 3.12 and L.93 integration follows
+the full build and rendered-reading gates.
+
 **Latest verified GitHub publication, 8 October 2026:** the 4,634-page
 book unit and its six owned evidence/artifact files are uploaded on `work`
 in commit `ff2288c22dbb5fe769a21ddb29b833ef82277a2c`. All sixteen
