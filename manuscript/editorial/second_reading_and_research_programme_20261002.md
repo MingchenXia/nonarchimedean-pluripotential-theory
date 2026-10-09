@@ -3,6 +3,43 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest complete published Finski source checkpoint, 9 October 2026
+
+The [full published-source audit](Finski_published_completion_source_review_20261009.md)
+combines pinned actual pages 1–24 with the fresh 25–47 selection: all
+forty-seven physical pages in twenty-four matching text/image views.
+The completion freshly reads twenty-three pages in twelve views, repeats
+old endpoint pages 35–36, and adds twenty-one unique pages against the
+named prior twenty-six-page union. Preparation and export add no credit.
+
+Fourteen exact elementary diagnostic families cover fixed-variable
+Parseval, real/complex and symmetric/full-tensor distinctions, quotient
+extension, commutative homogenization, klt integrability, raw NA FS and
+canonical usc extension, original-degree Veronese volume, integer rounding,
+one-sided moments and correct total-line-bundle powers. The fixed-r
+Parseval explanation is attributed to Remark 4.3; the general quotient
+argument retains its original holomorphic extension input. Source
+questions from Remarks 3.21 and 1.4(c) retain a methodological or big-class
+scope and do not change the canonical list.
+
+The [owned archive](artifact_exports/20261009_Finski_published_completion_sources/README.md)
+preserves the actual records. Complete Finski reading does not recursively
+certify its original references. In particular [16] is the separate
+Annales de l'Institut Fourier 2025 metric-geometry paper and [7] is BBJ's
+JAMS 2021 variational paper. Next audit their exact maximal-ray/energy
+and extension proofs before using further general interfaces. A scoped
+book addition can explain fixed-r Parseval and the explicit raw/usc and
+Veronese calibration without claiming an original general theorem.
+
+The verified 4,663-page book, both bibliographies and native catalogue
+remain unchanged at this source checkpoint. Canonical 42 atoms/twelve
+problems retain their statuses; BJ22 critical homogeneous Siu/general
+envelopes stay OPEN and LPWZ density UNVERIFIED. The Theorem 6.21 warning
+remains binding. No independent-model receipt or new whole-book pass is
+claimed; the last complete ordered pass is 4 October. Continue cloud-only,
+integrate incoming author research and publish reviewed units regularly.
+Xean stays suspended.
+
 ## Latest norm-ray/interface GitHub publication, 9 October 2026
 
 The [publication record](norm_ray_interfaces_GitHub_publication_v5_20261009.json)

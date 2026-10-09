@@ -4,6 +4,17 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest complete published Finski source checkpoint, 9 October 2026:**
+the [complete-source audit](manuscript/editorial/Finski_published_completion_source_review_20261009.md)
+combines actual 1–24 and fresh 25–47 reading into all 47 published pages
+in 24 matching text/image views. Fourteen elementary diagnostics preserve
+symmetric complex tensors, holomorphic quotient premises, raw/usc FS and
+Veronese volume conventions. The
+[authored evidence](manuscript/editorial/artifact_exports/20261009_Finski_published_completion_sources/README.md)
+pins the full scope and repeated old pages. Original cited proofs still
+need separate audit. The 4,663-page book, native editor and canonical
+statuses are unchanged by this source-only checkpoint.
+
 **Latest verified norm-ray/interface GitHub publication, 9 October 2026:**
 the 4,663-page book and six owned artifact files are uploaded on work at
 544d59041c04c336ff1bb9df6f7ede4a70da4b34. All sixteen source/progress/audit/artifact remote blobs match
