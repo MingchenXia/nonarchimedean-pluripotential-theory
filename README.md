@@ -2568,3 +2568,7 @@ The book remains **4,675 pages**, with canonical statuses unchanged.
 
 See [source audit](manuscript/editorial/Kuhne_semiabelian_dependency_source_review_v1_20261009.md)
 and [authored evidence](manuscript/editorial/artifact_exports/20261009_Kuhne_semiabelian_dependency_v1/).
+
+All nine complete published-source evidence files were verified byte-for-byte
+on GitHub at `c1917b72a63af840cd3c451770b0277c3b30d9d3`. See the [publication record](manuscript/editorial/Kuhne_semiabelian_dependency_GitHub_publication_v1_20261009.json).
+Upload adds no reading credit or unverified proof clearance.
