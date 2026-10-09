@@ -1,0 +1,10 @@
+import sys,json,hashlib
+from pathlib import Path
+BASE=Path("/workspace/research/campaigns/round-297/P16.7-whole427-whole-dirac-and-actual-analytic-representation")
+kind=sys.argv[1]; idx=int(sys.argv[2]); lo=int(sys.argv[3]); hi=int(sys.argv[4])
+b=json.loads((BASE/("mathematical-packet-bindings.json" if kind=="math" else "private-primary-packet-bindings.json")).read_text())[idx]
+p=Path(b["path"]); raw=p.read_bytes(); lines=raw.decode().splitlines(keepends=True)
+if not 1<=lo<=hi<=len(lines): raise ValueError((lo,hi,len(lines)))
+print(f"READ {kind}[{idx}] {p.name} LF {lo}-{hi}/{len(lines)}")
+print("".join(lines[lo-1:hi]),end="")
+with Path("physical-read-displays.jsonl").open("a") as f: f.write(json.dumps(dict(kind=kind,index=idx,path=str(p),start=lo,end=hi,total_lines=len(lines),bytes=len(raw),sha256=hashlib.sha256(raw).hexdigest(),display_only=True))+"\n")

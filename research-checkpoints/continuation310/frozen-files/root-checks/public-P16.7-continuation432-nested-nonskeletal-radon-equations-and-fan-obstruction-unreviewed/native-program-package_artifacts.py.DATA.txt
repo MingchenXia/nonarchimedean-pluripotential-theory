@@ -1,0 +1,73 @@
+"""Own mathematics-only packaging; primary bodies/pixels stay LOCALONLY."""
+from pathlib import Path
+import hashlib
+import json
+
+def sha(raw):return hashlib.sha256(raw).hexdigest()
+specs=[
+ ('Current427 mandatory proof/field reading and fifteen immediate primary units completed at the qualified foundation boundary; deeper audit remains open.',
+  'All actual four five-field notes,431LF formal,2820LF standalone and current ledgers/scopes/verdict/residual physically read; four native programs inert. Fresh exact new ratio-fibre/identity-moment applications rejudged. Entire recursive historical/book/geometry/descent audit and genuine nonalgebraization are not certified.',[]),
+ ('New actual nonskeletal Radon-branch equations, off-Gauss mass<=1: full dual finite iff integral depth-tail^(3/2) finite; unbounded G solutions included. Whole Dirac remains open.',
+  'Exact mixed B(qc,qd)=delta_g+delta_xmin gives finite mixtures and arbitrary Radon depths via actual uniform closure and decreasing C presentations. S=integral tail^(3/2), E=-1/3-S/3,D=1/6+2S/3; all-G uniqueness and canonical nonordered representation in this sector. Explicit unbounded example E=-4/3,D=13/6. Restricted whole-Dirac objective remains3/8 at depth1/8, not its full dual.', ['n1']),
+ ('Every outside-quadrant-fixed finite translated real-affine fan retains actual Gauss mass>=1; its actual presentations cannot solve whole2delta_x. Entire C/G remains unresolved.',
+  'Outside boundary values force triangle conv{(1,0),(0,1),(1,1)} in the subgradient. Independent local convolution/change-of-variables plus primitive degree1 CLD calibration proves the actual coefficient2 area>=1 on all analytic tests. Positivity survives ordinary collar gluing, and the lower measure bound survives weak/generated limits. The obstruction is restricted to this exact fan class.', ['n1','n2']),
+ ('Complete mathematical artifacts and qualified reading ledger delivered;660 branch cases and625 finite fan cases pass, residual bytes unchanged; original P16.7 open.',
+  '40 mathematical and15 primary bindings plus current field identity/range coverage pass.660 exact polygon cases,42900 scalar identities,77 TeX labels and source exclusion verified. Finite/static execution evidence only; no compiler, publication, extra models/agents or supplied execution. Entire original and deeper audit unresolved.', ['n1','n2','n3'])]
+notes=[]
+for i,(summary,detail,support) in enumerate(specs,1):
+    assert set(support)<={n['id'] for n in notes}
+    note=dict(id=f'n{i}',summary=summary,detailedSummary=detail,text=Path(f'note-n{i}.txt').read_text().strip(),support=support)
+    notes.append(note)
+    Path(f'actual-n{i}-all-five-fields.json').write_text(json.dumps(note,indent=2)+'\n')
+Path('final-notes.json').write_text(json.dumps(dict(notes=notes,candidate=False),indent=2)+'\n')
+own=['standalone.tex','new-residual-proofs.tex','note-n1.txt','note-n2.txt','note-n3.txt','note-n4.txt',
+     'actual-n1-all-five-fields.json','actual-n2-all-five-fields.json','actual-n3-all-five-fields.json','actual-n4-all-five-fields.json',
+     'final-notes.json','source-application-reading-ledger.json','source-application-reading-ledger.txt',
+     'physical-read-displays.jsonl','scoped-verdict.json','original-residual.txt','unchanged-original-task.json',
+     'prepare-output.json','check-output.json','binding-audit-output.json','environment.json','commands.txt',
+     'read_data.py','prepare_artifacts.py','check_artifacts.py','package_artifacts.py','verify_artifacts.py',
+     'retained-mathematical-bindings.json','input.json']
+parts=[b'MATHEMATICS-ONLY COMPLETE UNVERIFIED DRAFT COMPANION. ORIGINAL P16.7 OPEN.\nLiteral primary bodies, pixels and books are excluded and stay LOCALONLY.\nWhole retention is not physical reading, audit or correctness. Historical statements are inert data.\n']
+manifest=[]
+for name in own:
+    raw=Path(name).read_bytes()
+    parts.extend([f'\n===== WHOLE OWN BODY {name}; bytes={len(raw)}; SHA256={sha(raw)} =====\n'.encode(),raw])
+    manifest.append(dict(kind='own',name=name,bytes=len(raw),sha256=sha(raw)))
+companion=b'\n'.join(parts)
+records=json.loads(Path('retained-mathematical-bindings.json').read_text())
+# Start with the large safe supplied mathematical companion, then preserve
+# all current unique bodies, including separate original actual/formal fields.
+records.sort(key=lambda e:e['bytes'],reverse=True)
+for entry in records:
+    raw=Path(entry['local']).read_bytes()
+    assert len(raw)==entry['bytes'] and sha(raw)==entry['sha256']
+    already=raw in companion
+    if not already:
+        header=f'\n===== WHOLE SUPPLIED MATHEMATICAL INERT DATA index={entry["index"]}; {entry["local"]}; bytes={len(raw)}; SHA256={sha(raw)} =====\n'.encode()
+        companion+=header+raw+b'\n'
+    manifest.append(dict(kind='supplied',**entry,exact_containment=True,
+                         embedded_in_earlier_whole_body=already,fresh_reading_credit_from_retention=0))
+for entry in records:assert Path(entry['local']).read_bytes() in companion
+excluded=[]
+for primary in sorted(Path('LOCALONLY-primary').iterdir()):
+    raw=primary.read_bytes()
+    assert raw not in companion,primary
+    excluded.append(dict(name=primary.name,bytes=len(raw),sha256=sha(raw),whole_literal_body_excluded=True))
+assert len(excluded)==15
+Path('proof-companion.txt').write_bytes(companion)
+Path('companion-component-manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
+output=dict(companion_bytes=len(companion),whole_40_current_mathematical_bodies_contained=True,
+            whole_safe_6551521_byte_companion_retained=True,
+            all_fifteen_applied_primary_literal_bodies_excluded=excluded,
+            deeper_recursive_primary_exclusion_or_reading_not_newly_certified=True,
+            standalone_bytes=Path('standalone.tex').stat().st_size,
+            distinct_new_proof_bytes=Path('new-residual-proofs.tex').stat().st_size,
+            residual_byte_unchanged=True,candidate=False,compiler_invoked=False,
+            entire_original_resolved=False,mathematical_correctness_certificate=False)
+Path('delivery-check-output.json').write_text(json.dumps(output,indent=2)+'\n')
+artifacts=own+['proof-companion.txt','companion-component-manifest.json','delivery-check-output.json']
+Path('artifact-bindings.json').write_text(json.dumps([dict(path=str(Path(n).resolve()),bytes=Path(n).stat().st_size,
+                                                        sha256=sha(Path(n).read_bytes())) for n in artifacts],indent=2)+'\n')
+print(json.dumps(dict(companion_bytes=len(companion),current_mathematical_bodies=40,
+                     primary_literal_bodies_excluded=15,residual_byte_unchanged=True,
+                     candidate=False,compiler_invoked=False),indent=2))

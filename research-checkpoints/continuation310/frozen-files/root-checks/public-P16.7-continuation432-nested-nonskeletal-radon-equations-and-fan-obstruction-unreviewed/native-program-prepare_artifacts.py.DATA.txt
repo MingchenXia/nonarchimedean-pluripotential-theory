@@ -1,0 +1,166 @@
+"""Own passive staging and assembly. Supplied programs remain inert data."""
+from pathlib import Path
+import hashlib
+import json
+import platform
+import sys
+
+BASE = Path('/workspace/research/campaigns/round-297/P16.7-whole427-whole-dirac-and-actual-analytic-representation')
+HERE = Path.cwd()
+def sha(data): return hashlib.sha256(data).hexdigest()
+def dump(name, value): Path(name).write_text(json.dumps(value, indent=2)+'\n')
+math = json.loads((BASE/'mathematical-packet-bindings.json').read_text())
+private = json.loads((BASE/'private-primary-packet-bindings.json').read_text())
+Path('retained-mathematical-DATA').mkdir(exist_ok=True)
+Path('LOCALONLY-primary').mkdir(exist_ok=True)
+Path('LOCALONLY-reading-outputs').mkdir(exist_ok=True)
+records = []
+for i, entry in enumerate(math):
+    raw = Path(entry['path']).read_bytes()
+    assert len(raw)==entry['bytes'] and sha(raw)==entry['sha256']
+    name = Path(entry['path']).name
+    if name.endswith('.py'): name += '.DATA.txt'
+    dest = Path('retained-mathematical-DATA')/name
+    dest.write_bytes(raw)
+    records.append(dict(index=i, source=entry['path'], local=str(dest), bytes=len(raw), sha256=sha(raw)))
+dump('retained-mathematical-bindings.json', records)
+for idx in range(1227, 1242):
+    entry = private[idx]; raw = Path(entry['path']).read_bytes()
+    assert len(raw)==entry['bytes'] and sha(raw)==entry['sha256']
+    (Path('LOCALONLY-primary')/Path(entry['path']).name).write_bytes(raw)
+for name in ['mathematical-packet-bindings.json','private-primary-packet-bindings.json','book-context-bindings.json']:
+    (Path('retained-mathematical-DATA')/name).write_bytes((BASE/name).read_bytes())
+Path('original-residual.txt').write_bytes(Path(math[31]['path']).read_bytes())
+Path('unchanged-original-task.json').write_bytes(Path(math[38]['path']).read_bytes())
+notes = [json.loads(Path(math[i]['path']).read_text()) for i in range(3,7)]
+assembled = [json.loads(Path(math[i]['path']).read_text()) for i in range(16,20)]
+assert notes==assembled
+assert json.loads(Path(math[28]['path']).read_text())['notes']==notes
+assert json.loads(Path(math[29]['path']).read_text())['notes']==notes
+
+events = [json.loads(line) for line in Path('physical-read-displays.jsonl').read_text().splitlines()]
+# The following ranges were displayed in completed bounded cat/sed calls
+# before the range-logging reader was created. They are not inferred from hashes.
+for idx, lo, hi in [(3,1,None),(4,1,None),(5,1,None),(6,1,None),
+                    (30,1,220),(31,1,None),(34,1,None),(36,1,None)]:
+    entry=math[idx]; raw=Path(entry['path']).read_bytes(); lines=raw.decode().splitlines(keepends=True)
+    events.append(dict(kind='math',index=idx,path=entry['path'],start=lo,end=hi or len(lines),
+                       total_lines=len(lines),bytes=len(raw),sha256=sha(raw),display_only=True,
+                       provenance='completed bounded literal cat/sed before reader creation'))
+def coverage(kind, idx):
+    entries=[e for e in events if e['kind']==kind and e['index']==idx]
+    if not entries:return False
+    union=set()
+    for e in entries:union.update(range(e['start'],e['end']+1))
+    return union==set(range(1,entries[0]['total_lines']+1))
+for idx in [0,1,2,3,4,5,6,24,25,26,27,30,31,34,35,36,37,38]:
+    assert coverage('math',idx), idx
+for idx in range(1227,1242):assert coverage('primary',idx),idx
+for j,e in enumerate(events):
+    lines=Path(e['path']).read_text().splitlines(keepends=True)
+    out=f"READ {e['kind']}[{e['index']}] {Path(e['path']).name} LF {e['start']}-{e['end']}/{e['total_lines']}\n"
+    out+=''.join(lines[e['start']-1:e['end']])
+    (Path('LOCALONLY-reading-outputs')/f'{j:03d}-{e["kind"]}-{e["index"]}.txt').write_text(out)
+
+applications = {
+1227:'CLD15.7.1: input separated pure2 boundaryless carrier; actual ordinary-open local charts.',
+1228:'CLD5.11.1: smooth Green/Stokes; all-stage strong-gradient reconstruction retained and checked.',
+1229:'CLD7.2.8--13: positive top Radon measures, coefficient measures and continuous-test weak limits.',
+1230:'CLD8.1.7--8 and8.2.4: real positive convex combinations/log maxima and actual local/global uniform closure.',
+1231:'GR4.1--4.2: classical every-extension curve tests for actual continuous local potentials.',
+1232:'CLD8.5.1/5/6,8.7.1/2/4/5,8.8.5/6/9: recursive products, multilinearity, fixed ratio/coordinate fibres, dimension vanishing.8.6.7 NOT applied.',
+1233:'CLD11.6.3/5(c): retained reconstruction of positive full-point atoms; new explicit maps are isomorphisms.',
+1234:'CLD13.8.1--5: retained full-point Laurent Abhyankar coordinates in the modulus/uniqueness proof.',
+1235:'GR unnumbered1.2: minimal continuous CLD functions imply classical psh; Wanner/Thuillier deeper foundations conventional.',
+1236:'CLD5.10.1(c),(d)/5.10.2: NEW translated identity-torus determinant calibration for finite-fan obstruction; not OCR inequality(a).',
+1237:'GR4.2: functoriality/classical closure only; no recognition of Borel or upper-relaxed limits.',
+1238:'GR6.3/6.4: finite full-dimensional Shilov maxima identify already constructed branch solutions;6.5 NOT applied.',
+1239:'CLD18.6.1: fixed generically-flat fibre formula underlying18.6.2; no new general descent/intersection theorem.',
+1240:'CLD18.6.2 NEW: f=w1/w2,d1,t=r=1 on ordinary open surface, then f=w2,d1,t=exp(-c),r=1 on fixed H(eta1)-curve. Monomial det1 norm proves singleton xc. Translation/inversion baseline products also reconstructed. All maps actual degree1; top-power prose slips excluded.',
+1241:'CLD14.5.2--3 NEW: identity translated wi moment, saturated Z2 and analytic degree1; actual finite-fan atom=2 area(subgradient).',
+}
+ledger = dict(incoming_correctness_grants=[], physical_display_events=events,
+              all_four_current_actual_five_fields_read=True,
+              actual_assembled_fields_structurally_identical=True,
+              whole_431_LF_formal_and_2820_LF_standalone_physically_read=True,
+              all_four_native_programs_read_only_as_inert_data=True,
+              initial_truncated_outputs_add_reading_credit=False,
+              entire_6551521_byte_companion_freshly_read=False,
+              entire_deeper_recursive_book_primary_geometry_descent_audit=False,
+              genuine_nonalgebraization_or_coherent_descent_newly_certified=False,
+              applied_primary_units=[dict(index=i,**private[i],fresh_whole_read=True,
+                                         application=applications[i]) for i in range(1227,1242)],
+              compiler_invoked=False,publication_or_acceptance=False,candidate=False)
+dump('source-application-reading-ledger.json',ledger)
+Path('source-application-reading-ledger.txt').write_text(
+    'Actual bounded literal reading ledger, UNVERIFIED. No incoming correctness grants.\n'
+    'All current427 actual five-field notes, all431LF formal, all2820LF standalone including unique preamble/abstract, complete scope records/ledgers/verdict/residual read.\n'
+    'All four native programs read inertly, none executed/imported. All15 immediate primary units freshly physically read here.\n'
+    'Truncated initial inventory output supplies no reading credit. Exact display ranges are in the JSON ledger.\n'
+    'Entire deeper historical/companion/book/primary/geometric/descent audit remains OPEN. Retention/hash success gives no reading or correctness credit.\n'
+    +'\n'.join(f'{i} {Path(private[i]["path"]).name}\n{applications[i]}' for i in range(1227,1242))
+    +'\nAll new applications rejudged independently. Original P16.7 and whole2delta_x equation remain OPEN.\n')
+
+old=Path(math[37]['path']).read_text()
+assert len(old.encode())==137655 and old.count('\n')==2820
+assert Path(math[30]['path']).read_bytes().count(b'\n')==431
+start=old.index('\\title{'); end=old.index('\\author{',start)
+paper=old[:start]+'\\title{Nested nonskeletal Radon branch equations\\\\and a translated finite-fan obstruction}\n'+old[end:]
+start=paper.index('\\begin{abstract}'); end=paper.index('\\end{abstract}',start)+len('\\end{abstract}')
+abstract=r'''\begin{abstract}
+On the designated input analytic quotient, we construct actual original
+finite-energy solutions for every Radon depth distribution along the nested
+nonskeletal bidisc Gauss branch with off-skeleton mass at most one.
+The necessary and sufficient full-dual condition is the integrability of
+the depth tail to the power $3/2$. Exact mixed fibre currents, genuine
+ordinary collar gluing, actual decreasing continuous presentations, energy,
+full dual, generated uniqueness and canonical nonordered representation
+are proved, including an explicit unbounded finite-energy solution.
+We also prove that every outside-quadrant-fixed finite translated radial
+fan, and every actual presentation using such fans, retains at least one
+unit of Gauss mass. This is a scoped obstruction, not a refutation of the
+whole-mass Dirac equation in the entire original class.
+The full427 body is retained with all qualifications. General dominated
+representation, the whole $2\delta_x$ equation, arbitrary-support existence,
+genuine nonalgebraization/descent and the deeper recursive audit remain
+open. All material is an unverified local draft.
+\end{abstract}'''
+paper=paper[:start]+abstract+paper[end:]
+mark='\\begin{thebibliography}{9}'
+assert paper.count(mark)==1
+paper=paper.replace(mark,Path('new-residual-proofs.tex').read_text()+'\n'+mark)
+Path('standalone.tex').write_text(paper)
+dump('scoped-verdict.json',dict(
+    candidate=False,original_target='UNCHANGED P16.7',original_status='OPEN',
+    new_complete_scoped_results=[
+        'actual mixed B(qc,qd)=delta_g+delta_xmin(c,d), every positive c,d',
+        'every Radon depth distribution zeta with total off-skeleton mass<=1: FULL dual finite iff integral tail^(3/2) finite',
+        'explicit actual decreasing original-C presentation and genuine G equation; E=-1/3-S/3,D=1/6+2S/3',
+        'uniqueness among all actual original G solutions and nonordered canonical representation in this sector',
+        'explicit unbounded generated solution for zeta=c^-2 dc on [1,infinity), E=-4/3,D=13/6',
+        'actual MA Gauss mass>=1 for every specified translated finite real-affine fan and its actual presentations/weak MA limits'],
+    whole_mass_2delta_x_solution_constructed=False,
+    arbitrary_dominated_measure_analytic_representation=False,
+    entire_original_resolved_or_refuted=False,
+    incoming_correctness_grants=[],
+    current_required_bounded_physical_reading_complete=True,
+    entire_deeper_recursive_audit=False,
+    genuine_nonalgebraization_descent_certified=False,
+    sources='CLD v2 and GR v2 at exactly disclosed conventional foundation boundary; independently rejudged new applications',
+    compiler_invoked=False,compilation='UNVERIFIED',publication=False,acceptance=False,
+    mathematical_correctness_certificate=False))
+dump('environment.json',dict(python=sys.version,platform=platform.platform(),cwd=str(HERE),
+                            supplied_programs_executed_or_imported=False,agents=0,
+                            extra_model_or_native_calls=0,network_calls=0,compiler_invoked=False,
+                            publication=False,runtime_auth_proxy_CA_changes=False,
+                            supervised_heavy_compute_available=False,heavy_compute_launched=False))
+dump('binding-audit-output.json',dict(mathematical_bindings_verified=len(math),
+                                     primary_bindings_verified=15,failures=[],
+                                     actual_vs_assembled_identical=True,
+                                     residual_sha256=sha(Path('original-residual.txt').read_bytes()),
+                                     whole_current_read_range_coverage=True,
+                                     retention_is_not_reading_or_correctness=True))
+Path('commands.txt').write_text('python3 prepare_artifacts.py > prepare-output.json\npython3 check_artifacts.py > check-output.json\npython3 package_artifacts.py > package-output.json\npython3 verify_artifacts.py > final-integrity-output.json\n')
+print(json.dumps(dict(verified_math=len(math),verified_primary=15,actual_assembled_identity=True,
+                     current_reading_range_coverage=True,standalone_bytes=len(paper.encode()),
+                     candidate=False)))

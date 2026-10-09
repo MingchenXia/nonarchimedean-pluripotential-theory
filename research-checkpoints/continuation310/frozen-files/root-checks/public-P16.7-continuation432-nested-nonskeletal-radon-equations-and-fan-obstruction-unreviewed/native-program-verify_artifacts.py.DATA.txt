@@ -1,0 +1,20 @@
+"""Own final passive artifact verification, independent of supplied programs."""
+from pathlib import Path
+import hashlib
+import json
+
+records=json.loads(Path('artifact-bindings.json').read_text())
+for r in records:
+    raw=Path(r['path']).read_bytes()
+    assert len(raw)==r['bytes']
+    assert hashlib.sha256(raw).hexdigest()==r['sha256']
+notes=json.loads(Path('final-notes.json').read_text())
+assert notes['candidate'] is False
+comp=Path('proof-companion.txt').read_bytes()
+for i,n in enumerate(notes['notes'],1):
+    assert n==json.loads(Path(f'actual-n{i}-all-five-fields.json').read_text())
+    assert set(n)=={'id','summary','detailedSummary','text','support'}
+    assert set(n['support'])<={f'n{k}' for k in range(1,i)}
+    assert Path(f'actual-n{i}-all-five-fields.json').read_bytes() in comp
+print(json.dumps(dict(artifact_hashes_checked=len(records),own_note_fields_contained=4,
+                     candidate=False,correctness_certificate=False),indent=2))
