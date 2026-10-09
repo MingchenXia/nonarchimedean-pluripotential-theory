@@ -1,0 +1,78 @@
+"""Own exact finite diagnostics; they do not certify analytic theorems."""
+from fractions import Fraction as F
+from itertools import product
+import json
+from pathlib import Path
+
+HERE=Path(__file__).resolve().parent
+DEPTHS=(F(1),F(3),F(7))
+LENGTHS=(F(1),F(2),F(4))
+
+def primitive(h,t):
+    left=F(0); value=F(0)
+    for right,slope in zip(DEPTHS,h):
+        value += slope*max(F(0),min(t,right)-left)
+        left=right
+    return value
+
+def main():
+    levels=tuple(F(i,4) for i in range(5))
+    profiles=[x for x in product(levels,repeat=3) if x[0]>=x[1]>=x[2]]
+    tangent_checks=0; majorization_checks=0
+    for h,k in product(profiles,repeat=2):
+        zh=sum(l*a**3 for l,a in zip(LENGTHS,h))
+        zk=sum(l*a**3 for l,a in zip(LENGTHS,k))
+        first=-sum(l*(b-a)*a*a for l,a,b in zip(LENGTHS,h,k))
+        gap=(-F(1,6)-zh/3)+first-(-F(1,6)-zk/3)
+        expected=sum(l*(b-a)**2*(b+2*a)/3 for l,a,b in zip(LENGTHS,h,k))
+        assert gap==expected and gap>=0
+        tangent_checks+=1
+        delta=max([F(0)]+[primitive(h,t)-primitive(k,t) for t in DEPTHS])
+        lhs=sum(l*a**3 for l,a in zip(LENGTHS,h))
+        rhs=sum(l*a*a*b for l,a,b in zip(LENGTHS,h,k))+delta*h[0]**2
+        assert lhs<=rhs
+        majorization_checks+=1
+    h=(F(5,6),F(1,2),F(0))
+    tails=h+(F(0),)
+    masses=[tails[i]**2-tails[i+1]**2 for i in range(3)]
+    z=sum(l*a**3 for l,a in zip(LENGTHS,h))
+    integral_top=-F(1,3)-sum(p*primitive(h,n) for p,n in zip(masses,DEPTHS))
+    energy=-F(1,6)-z/3
+    full_dual=F(1,6)+2*z/3
+    assert energy-integral_top==full_dual
+    clip_rows=[]
+    for m in [F(1,4),primitive(h,F(1)),primitive(h,F(2)),primitive(h,F(3)),F(5)]:
+        if m>=primitive(h,DEPTHS[-1]):
+            clip_rows.append({'M':str(m),'bounded_unchanged':True})
+            continue
+        left=F(0); previous=F(0)
+        for right,slope in zip(DEPTHS,h):
+            at_right=previous+slope*(right-left)
+            if m<=at_right and slope:
+                r=left+(m-previous)/slope
+                clamp=slope**2
+                retained=sum(p for p,n in zip(masses,DEPTHS) if n<r)
+                assert retained+clamp==h[0]**2
+                restricted=F(2)-h[0]**2+retained
+                assert restricted==F(2)-clamp
+                clip_rows.append({'M':str(m),'r_M':str(r),
+                                  'clamp_mass_left_tail_squared':str(clamp),
+                                  'strict_restricted_mass':str(restricted)})
+                break
+            left=right;previous=at_right
+    output={'kind':'exhaustive finite rational observations ONLY',
+            'profiles':len(profiles),'ordered_profile_pairs':len(profiles)**2,
+            'tangent_gap_checks':tangent_checks,'majorization_checks':majorization_checks,
+            'finite_example':{'h':list(map(str,h)),
+                              'branch_masses':list(map(str,masses)),
+                              'outside_mass':str(F(2)-h[0]**2),
+                              'Z':str(z),'E':str(energy),
+                              'integral_u_MA':str(integral_top),
+                              'claimed_full_dual_formula':str(full_dual)},
+            'clips':clip_rows,
+            'universal_analytic_correctness_from_execution':False}
+    (HERE/'evidence').mkdir(exist_ok=True)
+    (HERE/'evidence'/'diagnostics.json').write_text(json.dumps(output,indent=2)+'\n')
+    print(json.dumps(output,indent=2))
+
+if __name__=='__main__':main()

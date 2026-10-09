@@ -1,0 +1,159 @@
+"""Own standard-library serializer and static document checks; never compiles TeX."""
+import hashlib
+import json
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+
+def sha(data):
+    return hashlib.sha256(data).hexdigest()
+
+def escape(s):
+    table = {'\\':r'\textbackslash{}', '{':r'\{', '}':r'\}',
+             '_':r'\_', '^':r'\textasciicircum{}', '&':r'\&',
+             '%':r'\%', '#':r'\#', '$':r'\$', '~':r'\textasciitilde{}'}
+    return ''.join(table.get(c,c) for c in s)
+
+def encode(body):
+    result=[]
+    for line in body.splitlines():
+        if line.startswith('## '): result.append(r'\subsection*{'+escape(line[3:])+'}')
+        elif line.startswith('# '): result.append(r'\section*{'+escape(line[2:])+'}')
+        elif line.strip(): result.append(escape(line))
+        else: result.append('')
+    return '\n'.join(result)+'\n'
+
+METADATA = [
+('n1',
+ 'Draft bounded C_theta mixed products, integration by parts, first variation, concavity, tangent inequality and comparison on compact good smooth boundaryless analytic surfaces; no global positive approximation or unbounded E1 theorem assumed.',
+ 'For continuous potentials locally uniformly approximable by ordinary smooth middle-positive weights, coefficient Radon control and a fixed-current local Dirichlet estimate construct global first-order currents. This proves integration by parts, E\' = integral(v-u)MA(u_t), E\'\'<=0, and the tangent inequality for every bounded competitor. Finite-max locality and conserved raw mass also give comparison for the entire bounded class. The proof uses the specified published CLD form/current/integration infrastructure; it does not transfer to arbitrary unbounded decreasing limits.',
+ []),
+('n2',
+ 'Reconstructed quotient foundation and genuine finite radial MA formula on K=C((s)), periods(s^8,2),(3,s^8), raw mass two; essential published descent/flatness foundations explicitly retained, not fully recursively audited.',
+ 'The quotient is good strict smooth separated proper boundaryless connected of dimension two; Picard triviality uses Gruson only for pure discs/circles, determinant cancellation, rational annulus filling and compatible frames. Signed Laurent recurrences and coherent pole ideals exclude all separated finite-type K-algebraic-space algebraizations under the named published foundations. Ordinary convex moment approximants, calibrated softmax and the actual Ducros 2012 local-dimension theorem give MA(u_h)=(2-c^2)delta_o+xi_*[-d(h^2)], E=-1/6-integral h^3/3 and MA(U_N)=delta_o+delta_xi_N for every real N>0. Deeper source trees and all book contexts are not certified wholly read.',
+ ['n1']),
+('n3',
+ 'New exact FULL bounded dual 1/6+(2/3)integral h^3 for every genuine continuous/discrete finite-energy radial solution measure; genuine full-mass clamp construction, radial continuity/comparison/compactness and radial uniqueness only.',
+ 'For right-continuous nonincreasing 0<=h<=1 constant on [0,1), with integral h^3 finite, the actual analytic operator is (2-c^2)delta_o+xi_*[-d(h^2)] and mixed branch measure -d(hk). Explicit endpoint clamps construct its nonpluripolar full-mass extension with no rigid atom. All radial segment variations, variable-constant decreasing energy continuity, comparison and separated locally uniform off-rigid compactness are proved. Applying n1 to finite-profile approximants bounds the ENTIRE bounded C_theta dual above; Tonelli and bounded tests give the same lower limit. Arbitrary Radon depth measures of branch mass <=1 and L^(3/2) tail are solved, including an explicit unbounded countable example. No intrinsic all-direction E1 recognition or full uniqueness follows.',
+ ['n1','n2']),
+('n4',
+ 'Independent whole-proof/version audit and re-proved restricted dual thresholds; original P16.7 remains unresolved and the unrestricted whole-source/book audit is incomplete. Candidate=false.',
+ 'The pencil criterion is weak t^(-2/3), whereas finite-combination radial finiteness requires the depth tail in L^(3/2); the critical actual analytic measure has infinite full bounded dual and is not eligible as a counterexample. The exact restricted 2delta_xi_N value 1/6+5N/3 remains a lower bound only. Whole383/384/385/387 proof bodies and actual-vs-expanded FINAL distinctions were independently examined; all 757 identities and 1225 finite rational pairs are observations, not correctness grants. The 20-of-21 strong Plucker span and middle PSD order unit are separated. Full all-direction E1, full mass/continuity/compactness/envelopes/orthogonality, every arbitrary-support equation and full uniqueness remain unproved, as do complete fresh readings of all book/deeper source trees.',
+ ['n1','n2','n3'])]
+
+def main():
+    notes=[]
+    for ident,summary,detailed,support in METADATA:
+        text=(HERE/(ident+'.md')).read_text()
+        notes.append({'id':ident,'summary':summary,'detailedSummary':detailed,'text':text,'support':support})
+    result={'notes':notes,'candidate':False}
+    raw=(json.dumps(result,ensure_ascii=False,indent=2)+'\n').encode()
+    for name in ('final-notes.json','actual-final-notes.json'):
+        (HERE/name).write_bytes(raw)
+    ledger=(HERE/'source-application-ledger.md').read_text()
+    companion='# Full bounded dual on a concrete nonalgebraizable surface\n\nUnverified standalone scoped paper. Original P16.7: incomplete; candidate=false.\n\n'+ '\n\n'.join(n['text'].rstrip() for n in notes)+'\n\n'+ledger
+    (HERE/'proof-companion.md').write_text(companion)
+    preamble=r'''\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsthm}
+\newtheorem{theorem}{Scoped theorem}
+\setlength{\emergencystretch}{4em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.6em}
+\title{Bounded variation and the full bounded dual for analytic radial equations}
+\author{Independent unverified proof draft}
+\date{9 October 2026; uncompiled}
+\begin{document}
+\maketitle
+Original P16.7 remains unresolved. All claims below retain the exact stated
+analytic infrastructure and the explicit deeper published-source boundaries.
+No incoming note supplies a correctness grant.
+\begin{theorem}
+For the bounded class $C_\theta$ of continuous locally uniformly ordinary
+smooth middle-positive weights on a compact good smooth boundaryless analytic
+surface, the genuine mixed products have conserved mass
+$V=\int_X\theta^2$. With $\alpha_u=\theta+d'd''[u]$,
+\[
+ E(u)=\frac13\int_Xu(\theta^2+\theta\wedge\alpha_u+\alpha_u^2),
+ \qquad \frac{d}{dt}E(u+t(v-u))=\int_X(v-u)\alpha_{u+t(v-u)}^2.
+\]
+The energy is concave and its tangent inequality holds for every bounded
+competitor. Comparison holds for this entire bounded class.
+\end{theorem}
+\begin{theorem}
+On the quotient over $K=\mathbf C((s))$, $|s|=e^{-1/8}$, with periods
+$(s^8,2),(3,s^8)$, retain the specified published foundations. For
+right-continuous nonincreasing $0\le h\le1$, constant $c$ on $[0,1)$,
+put $Z=\int_0^\infty h^3<\infty$ and
+$u_h=u_0-\int_0^{R}h$. Its genuine radial nonpluripolar measure has mass two:
+\[
+ \mu_h=(2-c^2)\delta_o+\xi_*[-d(h^2)],\qquad
+ E(u_h)=-\frac16-\frac Z3.
+\]
+Its dual over the entire bounded class is exactly
+\[
+ \sup_{v\in C_\theta}\left(E(v)-\int_Xv\,d\mu_h\right)
+ =\frac16+\frac{2Z}{3}.
+\]
+The unbounded operator and uniqueness asserted here are restricted to the
+radial domain. No full intrinsic all-direction finite-energy theory follows.
+\end{theorem}
+Complete proofs, version distinctions, evidence and exact residual follow.
+'''
+    encoded=encode(companion)
+    tex=preamble+'\n'+encoded+'\n\\end{document}\n'
+    (HERE/'P16.7-bounded-dual-paper.tex').write_text(tex)
+    scoped={
+      'status':'unverified scoped proof draft under named published analytic foundations',
+      'bounded_mixed_products_mass_variation_concavity_tangent_comparison':'proved by reconstructed local arguments',
+      'full_bounded_dual_for_constructed_radial_solutions':'exact 1/6+2 integral h^3/3',
+      'continuous_Stieltjes_nonpluripolar_radial_operator':'proved by explicit analytic clamps',
+      'uniqueness':'radial domain only',
+      'incoming_correctness_grants':0,
+      'mandatory_unrestricted_source_book_reading_complete':False,
+      'deeper_published_foundations':'named and retained; not recursively fully audited',
+      'mathematical_acceptance':False}
+    original={
+      'target':'literal original P16.7 only','candidate':False,'complete_solution_claimed':False,
+      'missing':['intrinsic all-direction E1 and approximation independence',
+        'full unbounded mixed operator, full mass and decreasing continuity',
+        'full normalized separated energy-sublevel compactness',
+        'all analytic obstacle envelopes and orthogonality',
+        'full unbounded first variation and sufficient arbitrary-support measure criterion',
+        'existence for every admissible arbitrary-support measure',
+        'full uniqueness modulo constants',
+        'complete fresh source-tree and whole-book audit'],
+      'fixed_2delta_xi_N':'full admissibility and universal solution/obstruction unresolved',
+      'universal_branch_mass_cap_claimed':False,
+      'native_compiler_acceptance_publication':'ROOT only; none invoked here'}
+    for filename,data in [('scoped-verdict.json',scoped),('original-verdict.json',original)]:
+        (HERE/filename).write_text(json.dumps(data,indent=2)+'\n')
+    seen=set()
+    for n in notes:
+        assert n['support']==[s for s in n['support'] if s in seen]
+        assert set(n)=={'id','summary','detailedSummary','text','support'}
+        assert all(isinstance(n[k],str) and n[k] for k in ('id','summary','detailedSummary','text'))
+        seen.add(n['id'])
+    assert json.loads(raw)['candidate'] is False
+    assert (HERE/'actual-final-notes.json').read_bytes()==raw
+    assert tex.count(r'\begin{document}')==tex.count(r'\end{document}')==1
+    assert tex.count(r'\begin{theorem}')==tex.count(r'\end{theorem}')==2
+    assert encoded in tex
+    checks={'kind':'static serialization/body checks ONLY; no TeX compiler or mathematical acceptance',
+      'note_count':len(notes),'legal_earlier_own_supports_only':True,
+      'candidate':False,'actual_notes_equal_full_notes':True,
+      'entire_companion_encoded_in_TeX':True,
+      'TeX_document_environment_counts':[1,1],
+      'TeX_theorem_environment_counts':[2,2],
+      'supplied_program_import_or_execution':False,
+      'outputs':{f:{'bytes':(HERE/f).stat().st_size,'sha256':sha((HERE/f).read_bytes())}
+        for f in ('final-notes.json','actual-final-notes.json','proof-companion.md',
+                  'P16.7-bounded-dual-paper.tex','source-application-ledger.md',
+                  'scoped-verdict.json','original-verdict.json')}}
+    (HERE/'evidence'/'build-checks.json').write_text(json.dumps(checks,indent=2)+'\n')
+    print(json.dumps(checks,indent=2))
+
+if __name__=='__main__':
+    main()

@@ -1,0 +1,259 @@
+"""Own bounded standard-library diagnostics/retention/document assembly.
+
+Does not execute/import supplied programs, invoke a compiler, or make network calls.
+"""
+from pathlib import Path
+from fractions import Fraction as F
+import hashlib
+import json
+import platform
+import re
+import sys
+
+BASE = Path('/workspace/research/campaigns/round-272/P16.7-whole383-intrinsic-E1-and-actual-branch-Dirac')
+WORK = Path(__file__).resolve().parent
+assert Path.cwd() == WORK
+for d in ['evidence', 'inputs-LOCALONLY', 'sources-LOCALONLY']:
+    (WORK / d).mkdir(exist_ok=True)
+
+def save(name, obj):
+    (WORK / name).write_text(json.dumps(obj, indent=2, ensure_ascii=False) + '\n')
+
+def digest(b):
+    return hashlib.sha256(b).hexdigest()
+
+math_entries = json.loads((BASE / 'mathematical-packet-bindings.json').read_text())
+private_entries = json.loads((BASE / 'private-primary-packet-bindings.json').read_text())
+selected_ids = {99,100,101,102,105,107,111,112,116,117,118,119,120,121,122,123,124,125,126,127,133,134,135,136}
+retained = []
+math_files = {}
+def retain(e, directory):
+    p = Path(e['path'])
+    b = p.read_bytes()
+    assert len(b) == e['bytes'] and digest(b) == e['sha256'], p.name
+    dest = WORK / directory / p.name
+    if dest.exists():
+        assert dest.read_bytes() == b
+    else:
+        dest.write_bytes(b)
+    retained.append({'source':str(p),'destination':str(dest.relative_to(WORK)),
+                     'bytes':len(b),'sha256':digest(b),'semantic_reading_not_inferred':True})
+    return p
+for e in math_entries:
+    i = int(Path(e['path']).name.split('-')[0])
+    if i in selected_ids:
+        math_files[i] = retain(e, 'inputs-LOCALONLY')
+
+# Only declared applied primary bodies are opened. Other active mathematics is excluded.
+primary_names = {
+ '004-004-CLD-literal_extract.txt','005-005-CLD-pdf.pdf',
+ '022-Gruson-Fibres-vectoriels-polydisque-1968.pdf',
+ '023-Gruson-Fibres-vectoriels-polydisque-1968.txt',
+ '050-Van-der-Put-Rigid-analytic-spaces-1975-1976.pdf',
+ '051-Van-der-Put-Rigid-analytic-spaces-1975-1976.txt',
+ '024-ROOT374-full-literal-applied-source-units-LOCALONLY.json',
+ 'ROOT383-fresh-full-Gruson-Fibres-vectoriels-polydisque-1968-LF1510-1690-LOCALONLY.txt',
+ 'ROOT383-fresh-full-Van-der-Put-Rigid-analytic-spaces-1975-1976-LF575-707-LOCALONLY.txt',
+ 'ROOT383-Van-der-Put-PDF-page10-coherent-descent.png',
+}
+seen = set()
+for e in private_entries:
+    p = Path(e['path'])
+    apply = p.name in primary_names
+    if '/native-full-source-evidence/' in str(p):
+        apply = apply or p.name in {'analytic1.json','analytic2.json','analytic3.json',
+          'coherentfind.json','divisoropen.json','stacks1.json','cldauth.json'}
+        apply = apply or '/units/' in str(p)
+    if apply and p.name not in seen:
+        retain(e, 'sources-LOCALONLY'); seen.add(p.name)
+
+# Newly applied local dimension and diagnostic max units from the authentic full body.
+cld = (WORK/'sources-LOCALONLY/004-004-CLD-literal_extract.txt').read_text().split('\n')
+for lo,hi in [(16858,16926),(6040,6118),(10595,10740),(21543,21696)]:
+    unit = '\n'.join(cld[lo-1:hi])+'\n'
+    name = f'sources-LOCALONLY/CLD-new-LF{lo}-{hi}.txt'
+    (WORK/name).write_text(unit)
+    retained.append({'source':'CLD full body','destination':name,'inclusive_LF':[lo,hi],
+                     'bytes':len(unit.encode()),'sha256':digest(unit.encode()),
+                     'semantic_reading_not_inferred':True})
+save('evidence/retention.json',retained)
+
+actual = json.loads(math_files[102].read_text())
+expanded = json.loads(math_files[116].read_text())
+companion = math_files[134].read_text()
+md = math_files[99].read_text()
+tex = math_files[100].read_text()
+ledger = math_files[135].read_text()
+mapping = {'\\':r'\textbackslash{}','{':r'\{','}':r'\}',
+           '_':r'\_','^':r'\textasciicircum{}','~':r'\textasciitilde{}',
+           '&':r'\&','%':r'\%','$':r'\$','#':r'\#'}
+def encode(s):
+    return ''.join(mapping.get(c,c) for c in s)
+ident = {'MD_is_exact_companion_suffix': companion.endswith(md),
+         'ledger_entire_exact_substring':ledger in companion,
+         'actual_candidate':actual['candidate'],'expanded_candidate':expanded['candidate'],
+         'original_task_bytes':len(math_files[133].read_bytes()),'notes':[]}
+assert ident['MD_is_exact_companion_suffix'] and ident['ledger_entire_exact_substring']
+for a,e in zip(actual['notes'],expanded['notes']):
+    expanded_header, expanded_body = e['text'].split('\n',1)
+    assert expanded_header.startswith('# ')
+    expanded_tex = r'\section{'+encode(expanded_header[2:])+'}\n'+encode(expanded_body)
+    row={'id':a['id'],'actual_bytes':len(a['text'].encode()),
+         'expanded_bytes':len(e['text'].encode()),
+         'actual_sha256':digest(a['text'].encode()),
+         'expanded_sha256':digest(e['text'].encode()),
+         'actual_differs_expanded':a['text']!=e['text'],
+         'entire_expanded_in_companion':e['text'] in companion,
+         'entire_expanded_encoding_in_tex':expanded_tex in tex}
+    assert row['actual_differs_expanded'] and row['entire_expanded_in_companion']
+    ident['notes'].append(row)
+ledger_lines=[line for line in ledger.split('\n') if line and not line.startswith('#')]
+ident['ledger_lines_encoding_in_tex'] = all(encode(line) in tex for line in ledger_lines)
+ident['duplicate_identity_is_not_separate_fresh_reading'] = True
+save('evidence/identities.json',ident)
+
+# Exact finite illustrations of the NEW polynomial mass/energy identities.
+rows=[]
+for depths,coeffs in [([F(1)],[F(1)]),([F(1),F(3)],[F(1,3),F(1,2)]),
+                       ([F(1,2),F(2),F(7)],[F(1,8),F(1,4),F(1,2)])]:
+    tails=[sum(coeffs[i:],F(0)) for i in range(len(coeffs))]+[F(0)]
+    masses=[tails[i]**2-tails[i+1]**2 for i in range(len(coeffs))]
+    S=sum((masses[i]*sum((coeffs[j]*min(depths[i],depths[j]) for j in range(len(coeffs))),F(0))
+           for i in range(len(coeffs))),F(0))
+    prev=F(0);integral=F(0)
+    for i,n in enumerate(depths): integral+=(n-prev)*tails[i]**3;prev=n
+    assert S==integral and sum(masses,F(0))==sum(coeffs,F(0))**2
+    rows.append({'depths':list(map(str,depths)),'coefficients':list(map(str,coeffs)),
+                 'branch_masses':list(map(str,masses)),
+                 'original_Gauss_mass':str(2-tails[0]**2),'S':str(S),
+                 'tail_integral':str(integral),'E':str(-F(1,6)-S/3)})
+unbounded=[]
+for m in [1,2,4,8,16,32]:
+    c=[F(1,i*(i+1)) for i in range(1,m+1)]
+    total=sum(c,F(0));S=sum(((F(1,i)-F(1,m+1))**3 for i in range(1,m+1)),F(0))
+    assert total==1-F(1,m+1)
+    unbounded.append({'m':m,'total_coefficient':str(total),
+                      'partial_branch_mass':str(total**2),'S':str(S),
+                      'rigid_depth_drop':str(sum((c[i-1]*i for i in range(1,m+1)),F(0)))})
+save('evidence/diagnostics.json',{'kind':'exact finite observations only',
+ 'finite_mixtures':rows,'canonical_unbounded_partial_sums':unbounded,
+ 'universal_analytic_correctness_established_by_execution':False})
+
+summaries=[
+ ('Independent whole383 reconstruction supports its scoped base-K Picard/nonalgebraization and bounded/circle arguments under stated analytic foundations.',
+  'The full companion and distinct actual/expanded finals were examined. Disc/circle SK0 plus rational G-cover filling proves finite Picard vanishing. Compatible frames, signed recurrence, intrinsic pole ideals and checked algebraic-space hypotheses give base-K nonalgebraization. Ordinary bounded products/mass/branch energy and the restricted circle theory are reconstructed. Deeper cited foundations and CT/Ducros raw-PDF retention limits are disclosed; this is not original closure.'),
+ ('New genuine two-atom identity and bounded equations for every finite nested branch measure of total branch mass at most one.',
+  'For all positive real depths, MA(U_N)=delta_o+delta_xi_N. Refined unit moments identify the old unspecified mass at o. For coefficients c_i summing to C<=1, branch atom masses are successive differences of squared tails and the remaining mass is 2-C^2 at o. Square-root tail inversion solves every such finite target, with uniqueness within the finite family and exact energy. No full-class branch cap or full dual admissibility is inferred.'),
+ ('The actual finite-depth mass-two Dirac has exact dual 1/6+5N0/3 over the finite branch family; its full admissibility remains unresolved.',
+  'A universal tail-integral calculation optimizes all finite mixtures, not only the old single pencils. The maximizer U_N0 has actual MA delta_o+delta_xi_N0, not 2delta_xi_N0. The restricted finiteness is only a lower bound for the entire C_theta dual, and it proves neither a universal obstruction nor a full-domain solution.'),
+ ('New restricted intrinsic unbounded radial finite-energy domain with genuine full-mass mixed products, comparison, separated compactness, variation and countable branch equations.',
+  'On a fixed grid N_i tending to infinity, summable nonnegative coefficients of total <=1 give locally bounded potentials away from the rigid point. Local ordinary products and checked nonpluripolar truncations give mass two; energy is -1/6-(1/3) integral T^3. Its finite-energy normalized subsets are compact in the separated local-uniform topology off the rigid point, with energy-bounded decreasing continuity and all segment variations inside this domain. Square-root tails solve countable branch measures of total <=1 and finite integral P_tail^(3/2), uniquely in the domain. This is a restricted intrinsic class, not the original full class or full measure criterion.'),
+ ('Original P16.7 remains unresolved; complete standalone scoped proof and rerunnable evidence are saved.',
+  'New bounded/countable branch theory includes genuine unbounded examples but does not supply full all-direction psh/E1, every analytic-obstacle envelopes, full measure criterion or every arbitrary-support equation. Full-dual admissibility and universal solvability/obstruction for the actual finite-depth Dirac remain unknown. Reading/retention/version distinctions, failures and execution boundaries are explicit; candidate=false.'),
+]
+supports=[[],['n1'],['n1','n2'],['n1','n2','n3'],['n1','n2','n3','n4']]
+notes=[]
+for i,(summary,detail) in enumerate(summaries,1):
+    text=(WORK/f'notes/n{i}.md').read_text()
+    notes.append({'id':f'n{i}','summary':summary,'detailedSummary':detail,'text':text,'support':supports[i-1]})
+expanded_own={'notes':notes,'candidate':False}
+save('expanded-notes.json',expanded_own)
+actual_own=json.loads((WORK/'actual-final-notes.json').read_text())
+def validate_own_notes(obj):
+    assert set(obj)=={'notes','candidate'} and obj['candidate'] is False
+    previous=set()
+    assert [n['id'] for n in obj['notes']]==[f'n{i}' for i in range(1,6)]
+    for n in obj['notes']:
+        assert set(n)=={'id','summary','detailedSummary','text','support'}
+        assert all(isinstance(n[k],str) and n[k] for k in ['id','summary','detailedSummary','text'])
+        assert isinstance(n['support'],list) and set(n['support'])<=previous
+        previous.add(n['id'])
+validate_own_notes(expanded_own)
+validate_own_notes(actual_own)
+save('final-notes.json',actual_own)
+save('evidence/own-version-identities.json',{'actual_equals_final_data':actual_own==json.loads((WORK/'final-notes.json').read_text()),
+    'duplicate_version_is_not_additional_proof':True,'notes':[
+    {'id':a['id'],'actual_text_bytes':len(a['text'].encode()),
+     'expanded_text_bytes':len(e['text'].encode()),
+     'actual_text_sha256':digest(a['text'].encode()),
+     'expanded_text_sha256':digest(e['text'].encode()),
+     'texts_differ':a['text']!=e['text']}
+    for a,e in zip(actual_own['notes'],notes)]})
+body='\n\n'.join(n['text'].rstrip() for n in notes)+'\n\n'+(WORK/'source-application-ledger.md').read_text()
+(WORK/'proof-companion.md').write_text('# Complete independent scoped proof companion\n\n'+body)
+(WORK/'P16.7-independent-paper.md').write_text(body)
+
+# A complete standalone prose TeX encoding of EVERY proof line; no compiler invoked.
+tex_lines=[r'\documentclass[11pt]{article}',r'\usepackage[margin=1in]{geometry}',
+ r'\usepackage[T1]{fontenc}',r'\usepackage{amsmath,amssymb}',
+ r'\setlength{\emergencystretch}{3em}',
+ r'\title{An independent P16.7 audit and intrinsic radial branch energy}',
+ r'\author{Independent research draft}',r'\date{9 October 2026; uncompiled}',
+ r'\begin{document}',r'\maketitle',
+ r'Original P16.7 closure: false. Complete scoped proofs follow.']
+for line in body.split('\n'):
+    if line.startswith('## '): tex_lines.append(r'\subsection*{'+encode(line[3:])+'}')
+    elif line.startswith('# '): tex_lines.append(r'\section*{'+encode(line[2:])+'}')
+    else: tex_lines.append(encode(line))
+tex_lines.append(r'\end{document}')
+own_tex='\n'.join(tex_lines)+'\n'
+(WORK/'P16.7-independent-paper.tex').write_text(own_tex)
+own_lines=[line for line in body.split('\n') if line and not line.startswith('#')]
+assert all(encode(line) in own_tex for line in own_lines)
+assert all(n['text'].rstrip() in (WORK/'proof-companion.md').read_text() for n in notes)
+# Lexical checks only, deliberately no compiler.
+group_depth=0
+for i,c in enumerate(own_tex):
+    if c not in '{}':
+        continue
+    j=i-1; backslashes=0
+    while j>=0 and own_tex[j]=='\\':
+        backslashes+=1; j-=1
+    if backslashes%2:
+        continue
+    group_depth+=1 if c=='{' else -1
+    assert group_depth>=0, i
+assert group_depth==0
+environments=[]
+for operation,name in re.findall(r'\\(begin|end)\{([^{}]+)\}',own_tex):
+    if operation=='begin':
+        environments.append(name)
+    else:
+        assert environments and environments.pop()==name
+assert not environments
+
+save('evidence/environment.json',{'python':sys.version,'platform':platform.platform(),
+ 'cwd':str(WORK),'libraries':'standard library only','compiler_used':False,
+ 'heavy_compute':'none; no supervised facility supplied or needed'})
+save('evidence/verdicts.json',{
+ 'whole383_scoped_mathematical_decision':'positive under explicitly stated published foundations',
+ 'deeper_foundation_formalization_or_acceptance':False,
+ 'new_scoped_theorems':['complete branch mass identity','finite nested branch equations',
+ 'exact finite-depth restricted dual','restricted intrinsic unbounded radial energy theory'],
+ 'original_P16_7_complete':False,'candidate':False,
+ 'actual_branch_Dirac_full_admissibility':'unresolved',
+ 'actual_branch_Dirac_full_solution_or_universal_obstruction':'unresolved',
+ 'all_direction_full_domain_and_all_obstacle_theory':'unresolved',
+ 'raw_CT_Ducros_PDF_retention':'direct sandbox retrieval failed; complete applied primary retrieval units retained',
+ 'original_task_sha256':digest(math_files[133].read_bytes()),
+ 'supplied_or_native_programs_executed_or_imported':False,
+ 'compiler_publication_editor_catalogue_operations':False})
+checks={'own_schema_and_prior_support_order':True,'complete_own_proofs_in_companion_and_tex':True,
+ 'incoming_versions_byte_bound':True,'incoming_tex_encoding':ident,
+ 'actual_final_data_equals_saved_input':actual_own==json.loads((WORK/'final-notes.json').read_text()),
+ 'own_tex_lexical_groups_and_environments':True,
+ 'compiled':False,'mathematical_correctness_from_execution':False,
+ 'original_task_unchanged':len(math_files[133].read_bytes())==19980,
+ 'original_candidate':False}
+save('evidence/checks.json',checks)
+(WORK/'commands.txt').write_text('python packet_read.py math 134 1 190\n'
+ 'python packet_read.py math 134 191 289\npython audit_and_build.py\n'
+ 'python public_reader.py\nFull source-reading details and truncation repairs: source-application-ledger.md\n')
+report={'retained_records':len(retained),'own_notes':len(notes),
+ 'incoming_note_tex_encoding':[r['entire_expanded_encoding_in_tex'] for r in ident['notes']],
+ 'incoming_ledger_tex_encoding':ident['ledger_lines_encoding_in_tex'],
+ 'finite_diagnostic_rows':len(rows)+len(unbounded),'candidate':False,
+ 'compiled':False,'own_companion_bytes':len((WORK/'proof-companion.md').read_bytes())}
+assert all(report['incoming_note_tex_encoding']) and report['incoming_ledger_tex_encoding']
+(WORK/'evidence/build-output.txt').write_text(json.dumps(report)+'\n')
+print(json.dumps(report))

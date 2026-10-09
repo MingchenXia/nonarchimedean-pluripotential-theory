@@ -1,0 +1,7 @@
+Checkpoint279: canonical generated energy and full bounded dual drafts
+
+Whole ROOT389 proves canonical energy independent of bounded continuous decreasing presentations and integrability/L1 convergence against every finite FULL bounded-dual measure, under its explicit unreviewed bounded foundation388. It does not construct an all-direction unbounded analytic operator. Whole native273 draft390 supplies actual continuous/discrete radial nonpluripolar equations and exact full dual1/6+2Z/3 for its DECLARED locally smooth-approximable bounded class. ROOT records the distinct smallest continuous-psh-sheaf definition in388, and corrects native version evidence concerning incoming387 rather than current390. All proofs and exact residuals are included UNREVIEWED.
+
+G331 completion invariance was already accepted; the new scope record gives envelope/Jensen transfer as a corollary and preserves general CE as OPEN. Native274 completed; its settled FINAL is captured but whole review is pending. Native275 is frozen and UNLAUNCHED pending this verified NONFORCE checkpoint, with whole390388389 and fresh Ducros source evidence for a general E1 operator advance.
+
+16/42 original problems solved,26 OPEN,97 accepted scoped papers unchanged. No full primary bodies, literal units, pixels or whole book context published. No supplied/native program executed, protected editor OPEN UNCHANGED. Compiler requests unverified. Independent native Git tree, all remote blob bindings and branch are verified for the nonforce push.

@@ -1,0 +1,63 @@
+"""Own bounded, standard-library, read-only packet reader. Never imports packet code."""
+import argparse
+import hashlib
+import json
+from pathlib import Path
+
+BASE = Path('/workspace/research/campaigns/round-273/P16.7-whole385387-full-bounded-dual-and-intrinsic-E1')
+HERE = Path(__file__).resolve().parent
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('packet', choices=['math', 'primary', 'book'])
+    parser.add_argument('index', type=int)
+    parser.add_argument('--start', type=int, default=0)
+    parser.add_argument('--end', type=int)
+    parser.add_argument('--key')
+    parser.add_argument('--block', type=int)
+    parser.add_argument('--unit', type=int)
+    parser.add_argument('--inventory', action='store_true')
+    parser.add_argument('--lines', type=int, nargs=2, metavar=('FIRST', 'LAST'))
+    args = parser.parse_args()
+    filename = {'math':'mathematical-packet-bindings.json',
+                'primary':'private-primary-packet-bindings.json',
+                'book':'book-context-bindings.json'}[args.packet]
+    bindings = json.loads((BASE / filename).read_text())
+    binding = bindings[args.index]
+    source = Path(binding['path'])
+    raw = source.read_bytes()
+    actual = hashlib.sha256(raw).hexdigest()
+    if actual != binding['sha256'] or len(raw) != binding['bytes']:
+        raise ValueError('Binding mismatch: ' + str(source))
+    body = raw.decode('utf-8')
+    if args.key:
+        value = json.loads(body)[args.key]
+        body = value if isinstance(value, str) else json.dumps(value, ensure_ascii=False, indent=2)
+    if args.block is not None:
+        body = json.loads(raw.decode('utf-8'))['content'][args.block]['text']
+    if args.unit is not None:
+        body = json.loads(raw.decode('utf-8'))['units'][args.unit]['body']
+    if args.inventory:
+        for number,line in enumerate(body.split('\n'), 1):
+            if line.startswith(('#', '\\section', '\\subsection')):
+                print(number, line)
+        return
+    if args.lines:
+        lines = body.splitlines(keepends=True)
+        first, last = args.lines
+        if not 1 <= first <= last <= len(lines):
+            raise ValueError('Invalid inclusive line interval')
+        args.start = sum(map(len, lines[:first-1]))
+        args.end = args.start + sum(map(len, lines[first-1:last]))
+    end = len(body) if args.end is None else min(args.end, len(body))
+    record = {'packet':args.packet,'index':args.index,'path':str(source),
+              'bytes':len(raw),'sha256':actual,'key':args.key,'block':args.block,'unit':args.unit,
+              'start':args.start,'end':end,'selected_length':len(body),
+              'record_kind':'emitted content; NOT automatic reading or correctness credit'}
+    with (HERE/'emissions.jsonl').open('a') as handle:
+        handle.write(json.dumps(record)+'\n')
+    print(json.dumps(record))
+    print(body[args.start:end])
+
+if __name__ == '__main__':
+    main()

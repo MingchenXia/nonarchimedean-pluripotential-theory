@@ -1,0 +1,23 @@
+"""Own bounded read-only public-PDF reader; no environment/network changes."""
+import urllib.request
+import json
+from pathlib import Path
+
+p = Path('sources-LOCALONLY')
+p.mkdir(exist_ok=True)
+out = []
+for name, url in [
+    ('Conrad-Temkin-2009.pdf', 'https://math.stanford.edu/~conrad/papers/analgpaper.pdf'),
+    ('Ducros-Families.pdf', 'https://webusers.imj-prg.fr/~antoine.ducros/Families-Berko.pdf'),
+]:
+    try:
+        with urllib.request.urlopen(url, timeout=10) as r:
+            b = r.read(8000001)
+        if len(b) > 8000000 or not b.startswith(b'%PDF'):
+            raise ValueError('invalid or over-limit PDF')
+        (p / name).write_bytes(b)
+        out.append({'url': url, 'saved': name, 'bytes': len(b)})
+    except Exception as e:
+        out.append({'url': url, 'failure': type(e).__name__ + ': ' + str(e)})
+(p / 'direct-retrieval.json').write_text(json.dumps(out, indent=2) + '\n')
+print(json.dumps(out))
