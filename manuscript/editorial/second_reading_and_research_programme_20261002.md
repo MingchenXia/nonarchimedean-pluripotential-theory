@@ -7709,3 +7709,8 @@ OPEN. The book, native catalogue/editor and canonical statuses are unchanged.
 All nine scoped incoming P12.3 review/evidence files were downloaded from
 GitHub and verified byte-for-byte at `8c33e9b611b6a992354959dd2c6ffba0cd412980`. See the [publication record](P12_3_incoming_continuation302_GitHub_publication_v1_20261009.json).
 The new claims remain UNVERIFIED; upload adds no proof or reading credit.
+
+The sixteen translated-abelian book/source/progress/audit/artifact blobs
+were downloaded from GitHub and verified byte-for-byte at `250e50271eaf85b1b6f9bff1af36d1e8b1b38862`.
+See the [publication record](Chambert_Loir_abelian_GitHub_publication_v2_20261009.json).
+Upload adds no reading credit or theorem clearance.
