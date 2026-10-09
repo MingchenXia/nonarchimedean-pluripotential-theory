@@ -4,6 +4,17 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest verified adelic-equidistribution GitHub publication, 9 October 2026:**
+the 4,675-page book and evidence are published on work at
+4355ff74e5b25c4422bfd3bf0ea5f2465dea183a. All sixteen remote book/source/progress/audit/artifact
+blobs match local hashes and sizes. The [artifacts](manuscript/editorial/artifact_exports/20261009_Ballay_Sombra_published_v3/README.md)
+contain full PDF, fifteen-page actual review, 132-member evidence and
+472-member minimal build source. The [publication record](manuscript/editorial/Ballay_Sombra_published_GitHub_publication_v3_20261009.json)
+pins the separately verified complete 99-page published source checkpoint.
+Fifteen final pages were read in eight fresh displays. Published packaging
+v3 preserves the exact checked mathematical/PDF version v2. General BJ22
+Siu/envelopes remain OPEN; the native catalogue/editor is preserved.
+
 **Latest checked adelic-equidistribution book integration, 9 October 2026:**
 the [integration audit](manuscript/editorial/Ballay_Sombra_published_staged_integration_audit_v3_20261009.md)
 records the 4,675-page edition: Chapter 27 explains the published

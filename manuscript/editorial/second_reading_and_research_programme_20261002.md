@@ -3,6 +3,39 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest verified adelic-equidistribution GitHub publication, 9 October 2026
+
+The [publication record](Ballay_Sombra_published_GitHub_publication_v3_20261009.json)
+verifies 4355ff74e5b25c4422bfd3bf0ea5f2465dea183a: all sixteen remote book/source/progress/audit/artifact
+blobs match local hashes and sizes. The [artifacts](artifact_exports/20261009_Ballay_Sombra_published_v3/README.md)
+contain the 4,675-page full book, fifteen-page actual review, 132-member
+evidence and 472-member minimal source. Required validation, six existing
+tests, eight fresh final-PDF displays and final checks pass. The published
+99-page source read in fifty matching displays is separately pinned.
+PR #2's exact title/body now describe this 4,675-page final scope.
+
+The imported arithmetic signature, derivative correction, place weights
+and approximant mass are explicit. The quadratic roof has strict Zhang
+lower bound 11/12 and essential minimum 1, yet satisfies the wide-roof
+criterion. Arithmetic necessity and logarithmic stabilization questions
+remain open in their stated scopes. No new theorem or independent-model
+receipt is introduced. All 13,382 prior numbered values, 601 cited labels,
+2,765 prior TOC titles/hierarchy and 900 index entries remain. BS26Eq and
+one unnumbered entry give 602 citations and 2,766 TOC entries. Links resolve;
+955 inherited underfull diagnostics remain identical. Publication v3 only
+repairs audit EOF formatting/progress links; mathematical/PDF v2 and its
+actual fifteen-page reading remain unchanged. Earlier records stay frozen.
+
+Last complete ordered book reading remains 4 October. Native 86-page
+catalogue/editor, 42 atoms/twelve problems and tiers (0,3,7,15,17) remain
+unchanged in this checkpoint. General BJ22 homogeneous Siu/envelopes stay
+OPEN, LPWZ density UNVERIFIED, and the Theorem 6.21 warning is binding.
+Main remains 00957114db21b627e97369563032ceda9cea09c7; PR #2 stays draft.
+Continue cloud-only: read Xue 2608.08262v2 before using its claims, update
+related source questions in the native catalogue with full hypotheses,
+and keep checking incoming author progress. Xean remains suspended.
+Upload adds no reading credit.
+
 ## Latest checked adelic-equidistribution book checkpoint, 9 October 2026
 
 The [integration audit](Ballay_Sombra_published_staged_integration_audit_v3_20261009.md)
