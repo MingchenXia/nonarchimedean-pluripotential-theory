@@ -3,6 +3,28 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest published adelic-equidistribution source checkpoint, 9 October 2026
+
+The [source audit](Ballay_Sombra_published_source_review_20261009.md) records
+99/99 physical published pages in fifty ordered matching displays.
+Ten calibrations and seventeen source diagnostics keep approximation
+mass, adelic neffness, strict thresholds, local/global roof comparison,
+logarithmic tails and quasi-projective tightness separate. Imported
+arithmetic Hodge/Siu/Fujita and convex originals are not recursively
+certified. Question 6.21 is this source's necessity question, distinct
+from BJ22 Theorem 6.21. Related open directions remain research notes,
+not canonical register additions. Xue arXiv2608.08262 is metadata-only.
+
+The [authored evidence](artifact_exports/20261009_Ballay_Sombra_published_sources/README.md)
+is ready for authorized publication. The active 4,671-page book, native
+86-page catalogue/editor, 42 atoms/twelve problems and tiers (0,3,7,15,17)
+are preserved. No independent-model receipt or new result is claimed.
+General BJ22 Siu/envelopes remain OPEN and LPWZ density UNVERIFIED.
+Last complete ordered book reading remains 4 October. Next: scoped
+projective variational exposition and a fully computed quadratic roof,
+followed by validation and actual final-page reading. Cloud only;
+Xean remains suspended. Export/upload adds no reading credit.
+
 ## Latest verified curvature-rank GitHub publication, 9 October 2026
 
 The [publication record](Qin_curvature_rank_GitHub_publication_v3_20261009.json)

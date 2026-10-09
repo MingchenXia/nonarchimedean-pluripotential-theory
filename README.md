@@ -4,6 +4,15 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest published adelic-equidistribution source checkpoint, 9 October 2026:**
+the [source audit](manuscript/editorial/Ballay_Sombra_published_source_review_20261009.md)
+records all 99 physical pages of Ballaÿ–Sombra's 5 October Inventiones
+version in fifty matching displays. It preserves the inradius criterion,
+strict-Zhang toric example, logarithmic-test hypotheses and seventeen
+literal-source diagnostics. The [authored evidence](manuscript/editorial/artifact_exports/20261009_Ballay_Sombra_published_sources/README.md)
+is prepared for authorized publication. The 4,671-page book and native
+catalogue/editor are unchanged in this source-only checkpoint.
+
 **Latest verified curvature-rank GitHub publication, 9 October 2026:**
 the 4,671-page book and evidence are published on work at
 439b5a62470dace7884f00349ae6373696a19afc. All sixteen remote book/source/progress/audit/artifact
