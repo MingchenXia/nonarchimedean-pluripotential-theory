@@ -3,6 +3,40 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest selected published BJKS1 dependency checkpoint, 9 October 2026
+
+The [actual source audit](BJKS1_Finski_dependencies_source_review_20261009.md)
+reads fifty distinct physical pages of the hundred-page AIF 2025 primary
+PDF in twenty-five matching views. Four are repeated against the named
+eight-page Chapter 50 audit; 46 new unique pages give a named union of 54.
+This is a partial primary reading, not a full source or whole-book pass.
+The [owned archive](artifact_exports/20261009_BJKS1_Finski_dependencies_sources/README.md)
+retains all actual notes and later clarifications; preparation, composite
+metadata correction, export and upload add zero reading credit.
+
+The exact gate in Lemma 6.17(iii) requires upper-regularized FS to be psh
+before strong E1 convergence. Full and weak envelope properties are kept
+separate. Published Example 2.21 anchors the book's raw P1 downward jump;
+Definition 1.12 clarifies its original-degree approximant weights.
+Ten elementary diagnostic families also check probability MA mass,
+Veronese barycenters, the value-lattice steps in arbitrary-subalgebra
+Okounkov arguments, toric signs, redundant higher-rank directions,
+ordered rooftop estimates, integer floors/units and signed versus L1
+distance. They do not prove the imported general pluripotential inputs.
+
+The original citation chain includes BJ22 Global pluripotential theory
+and its separate addendum. No independence from the reported Theorem 6.21
+gap or repair is claimed. Next a scoped book increment can attribute
+the P1 example, retain the explicit FS membership gate and explain
+Finski's fixed-r Parseval argument. BBJ21 maximal rays, holomorphic
+extension and the original Okounkov lattice prerequisites remain source
+tasks. The 4,663-page book, both bibliographies, native editor and canonical
+42 atoms/twelve problems remain unchanged in this source checkpoint.
+BJ22 critical Siu/general envelopes remain OPEN and LPWZ density
+UNVERIFIED. No independent-model receipt or new complete book pass is
+asserted; the last ordered pass is 4 October. Continue cloud only and
+integrate incoming author research while publishing reviewed units.
+
 ## Latest complete published Finski source checkpoint, 9 October 2026
 
 The [full published-source audit](Finski_published_completion_source_review_20261009.md)

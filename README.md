@@ -4,6 +4,17 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest selected BJKS1 dependency source checkpoint, 9 October 2026:**
+the [published-source audit](manuscript/editorial/BJKS1_Finski_dependencies_source_review_20261009.md)
+checks fifty of the hundred physical pages in twenty-five matching views,
+including Finski's original FS/energy and test-configuration interfaces.
+Lemma 6.17(iii) retains the psh-membership gate for regularized FS; raw FS,
+probability volume and original Veronese degree stay distinct. The
+[authored evidence](manuscript/editorial/artifact_exports/20261009_BJKS1_Finski_dependencies_sources/README.md)
+records exact scope and ten elementary diagnostics. BJ22 and its addendum
+remain explicit original dependencies; no Siu proof repair is claimed.
+The 4,663-page book and native catalogue are unchanged here.
+
 **Latest complete published Finski source checkpoint, 9 October 2026:**
 the [complete-source audit](manuscript/editorial/Finski_published_completion_source_review_20261009.md)
 combines actual 1–24 and fresh 25–47 reading into all 47 published pages
