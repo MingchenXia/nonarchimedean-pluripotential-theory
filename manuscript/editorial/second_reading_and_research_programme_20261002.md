@@ -1,5 +1,38 @@
 # Second reading and sequential research programme
 
+## Current related-source checkpoint: GVF foundations 52/52, 9 October 2026
+
+All 52 physical pages of arXiv:2409.04570v2 were actually read in 26
+ordered matching complete-text/image displays. The [complete audit](GVF_Foundations_complete_source_review_v1_20261009.md)
+records the six-way dictionary, countable ordinary adelic representation,
+symmetric finite-Galois extension and fixed common triangle-error scope.
+Conjecture 12.7, the model companion for every fixed GVF_e, remains OPEN.
+
+Literal diagnostics isolate the L1 disjointness definition, meromorphic
+origin omission, constant-height scale mismatch, positive-part root bound
+and the closed-point cycle-versus-normalized-height convention. The audit
+also discloses deeper imported proofs and ultrafilter-bound corrections.
+The [64-member authored evidence](artifact_exports/20261009_GVF_Foundations_complete_v1/README.md)
+includes all notes/receipts and 64 lattice, 32 prime-weight, 52 root-bound,
+256 meromorphic and 24 scaling diagnostics. All seven remote blobs are
+byte-verified at `7be025409f533c6ff8c6cf708013c68949503fb4`; see the [publication record](GVF_Foundations_complete_source_GitHub_publication_v1_20261009.json).
+
+A fresh generic-line scope reconstruction pins the same algebraically
+closed base height using invariant finite-Galois extensions, while preserving
+the two different heights on K(x). This original candidate remains UNVERIFIED
+without an exact-current independent production-verifier receipt. The unique
+trivial subfield within one fixed height is a separate statement.
+
+The active Luo–Yu book remains 4,681 pages. Incoming continuation309 is
+metadata-only; no new incoming proof or supplied engine is executed. Earlier
+eight-page or unread-source reports below are historical checkpoints. The
+last whole-book ordered read remains 4 October; this source-only audit adds
+no whole-book credit. Canonical 42-atom/twelve-problem tiers remain unchanged,
+BJ22 general homogeneous Siu/envelopes OPEN and LPWZ density UNVERIFIED.
+The native catalogue/editor and historical PDF are preserved; native compilation
+remains unverified. Continue cloud-only with Xean suspended.
+
+
 ## Current checked small-points edition: 4,681 pages, 9 October 2026
 
 The [integration audit](Luo_Yu_small_points_staged_integration_audit_v1_20261009.md)

@@ -4,6 +4,18 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest verified GVF foundations source audit, 9 October 2026:**
+the [complete audit](manuscript/editorial/GVF_Foundations_complete_source_review_v1_20261009.md)
+records all 52 pages of arXiv:2409.04570v2 in 26 matching displays.
+The [64-member authored evidence](manuscript/editorial/artifact_exports/20261009_GVF_Foundations_complete_v1/README.md)
+and seven source files are remotely byte-verified at `7be025409f533c6ff8c6cf708013c68949503fb4`.
+The [publication record](manuscript/editorial/GVF_Foundations_complete_source_GitHub_publication_v1_20261009.json)
+preserves countability, invariant finite-Galois uniqueness, local literal
+repairs and the OPEN fixed-e model-companion conjecture. The generic-line
+candidate remains UNVERIFIED after its algebraic-base reconstruction.
+This source audit leaves the 4,681-page book and canonical statuses unchanged.
+Incoming continuation309 is metadata-only. Earlier entries retain their dated scopes.
+
 **Latest verified small-points GitHub publication, 9 October 2026:**
 the 4,681-page book and [artifacts](manuscript/editorial/artifact_exports/20261009_Luo_Yu_small_points_v1/README.md)
 are published on work at `3100b09d65cfa06fd90f2f5e41d9fca79c20b0a5`. All sixteen remote blobs were
