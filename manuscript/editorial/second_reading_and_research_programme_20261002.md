@@ -1,5 +1,38 @@
 # Second reading and sequential research programme
 
+## Current checked small-points edition: 4,681 pages, 9 October 2026
+
+The [integration audit](Luo_Yu_small_points_staged_integration_audit_v1_20261009.md)
+imports Luo–Yu Example 1.2 with a direct rank-two model reconstruction.
+Over K=C(E), non-torsion Q in Pic0(E) excludes zero-height points in the
+open torsor over every finite extension. Ample integral divisors give
+positive heights a/n tending to zero; the compactification has normalized
+height and both minima zero, but only its two boundary points have exact
+zero height. This is an imported classical worked case, with disclosed
+norm, projective-bundle, Riemann–Roch and Bertini dependencies. The general
+geometric and number-field Bogomolov proofs remain pending reconstruction.
+
+All 31 primary pages were read in sixteen ordered matching displays.
+All thirteen selected final book pages were read in seven fresh matching
+views. Page 4430 now contains the complete provenance continuation; no
+selected page is blank. Required validation and six existing tests pass.
+All 13,382 numbered values, 605 cited labels, 2,766 contents titles/hierarchy
+and 900 index terms remain; LY25 gives 606 citations. All destinations
+resolve and the 955 underfull blocks are identical to the preceding edition.
+Other 423 core TeX inputs and the complex bibliography are unchanged.
+See the [artifacts](artifact_exports/20261009_Luo_Yu_small_points_v1/README.md).
+
+The last ordered whole-book read remains 4 October. GVF foundations v2
+has eight of 52 pages actually read; later proof sections are unread.
+Continuation307 is metadata-only. Canonical 42-atom/twelve-problem tiers
+remain (0,3,7,15,17), P12.2/P12.3 and BJ22 general homogeneous Siu/envelopes
+remain OPEN, and LPWZ density remains UNVERIFIED. No original result or
+independent production-verifier receipt is promoted. The native catalogue,
+editor and historical PDF are preserved; native compilation is unverified.
+Work continues in the cloud with Xean suspended. Earlier entries below
+are dated historical checkpoints and retain their original reading scopes.
+
+
 ## Current related-source checkpoint: Luo–Yu 31/31, 9 October 2026
 
 All thirty-one physical pages of arXiv:2505.07193v3 were actually read

@@ -4,6 +4,22 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Current checked small-points edition: 4,681 pages, 9 October 2026.**
+The [integration audit](manuscript/editorial/Luo_Yu_small_points_staged_integration_audit_v1_20261009.md)
+adds the Luo–Yu example over C(E): non-torsion Picard data excludes
+height-zero points in the open torsor, while explicit integral curves
+supply positive heights tending to zero. The compactified height and
+minima are zero, with exactly two zero-height boundary points. Chapter 27
+contains the direct model proof; Appendix L pins the source and imported
+dependencies. All 31 source pages and thirteen selected final book pages
+were actually read with matching text/images. The [artifacts](manuscript/editorial/artifact_exports/20261009_Luo_Yu_small_points_v1/README.md)
+contain the full book, actual review, minimal source and authored evidence.
+Required checks pass and all prior numbered values, contents and index
+terms remain; the bibliography now has 606 cited entries. The last ordered
+whole-book read remains 4 October. GVF foundations has eight of 52 pages
+read; continuation307 remains metadata-only. Original candidates and
+canonical statuses are unchanged. Continue cloud-only, Xean suspended.
+
 **Latest verified related-source audit, 9 October 2026:**
 the [complete Luo–Yu audit](manuscript/editorial/Luo_Yu_complete_source_review_v1_20261009.md)
 records all 31 pages in sixteen matching complete-text/image views.
