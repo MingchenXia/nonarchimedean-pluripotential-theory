@@ -1,5 +1,19 @@
 # Non-Archimedean Pluripotential Theory
 
+**Latest verified adelic Fujita source audit, 9 October 2026:**
+all 27 primary pages of Liu arXiv:2401.15271v4 were actually read in fourteen
+ordered matching displays. The [complete review](manuscript/editorial/Liu_adelic_Fujita_complete_source_review_v1_20261009.md)
+retains proper/perfect and measurability hypotheses and marks the general
+main theorem UNVERIFIED FOR BOOK IMPORT pending norm/degree reconstruction.
+A direct three-place projective model separates positive arithmetic volume
+from simultaneous small sections and gives nontrivial ample approximants.
+The [43-member authored evidence](manuscript/editorial/artifact_exports/20261009_Liu_adelic_Fujita_complete_v1/README.md)
+excludes primary PDF/text/images. All seven remote audit/evidence blobs were
+verified byte-for-byte at `f0f01eecede3609b62efcaeae903edb7e8540efe`; see the [publication record](manuscript/editorial/Liu_adelic_Fujita_complete_source_GitHub_publication_v1_20261009.json).
+The active 4,685-page book and canonical statuses are unchanged by this
+source-only audit. Upload adds no reading credit or theorem clearance.
+
+
 **Latest verified GVF representation GitHub publication, 9 October 2026:**
 the 4,685-page book and [artifacts](manuscript/editorial/artifact_exports/20261009_GVF_Foundations_representation_v1/README.md)
 are published on work at `9f7c40d987a184c602e71d1ea4fb7b8caac7afcb`. All sixteen remote blobs were

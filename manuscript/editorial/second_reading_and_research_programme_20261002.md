@@ -1,5 +1,22 @@
 # Second reading and sequential research programme
 
+## Latest complete adelic Fujita source audit, 9 October 2026
+
+Read all 27 physical pages of Liu arXiv:2401.15271v4 in fourteen ordered
+complete-text/image views. The [review](Liu_adelic_Fujita_complete_source_review_v1_20261009.md)
+and [43-member authored evidence](artifact_exports/20261009_Liu_adelic_Fujita_complete_v1/README.md)
+retain proper/perfect and common countable-density/discrete conditions.
+Main-theorem import is pending original/spectral norm, analytic-point,
+Veronese degree and approximation reconstruction. Its intended conclusion
+is not refuted. The direct three-place classical model has volume 1/2,
+no all-places small positive-power section, and nontrivial ample/small
+residuals with error 1/(2p). Evaluate a fresh staged explanatory import.
+All seven remote files were byte-verified at `f0f01eecede3609b62efcaeae903edb7e8540efe`; see the [publication record](Liu_adelic_Fujita_complete_source_GitHub_publication_v1_20261009.json).
+The active 4,685-page book, native editor and canonical 42 atoms remain
+unchanged by the source-only audit. No original production receipt is
+promoted. The last ordered whole-book reading remains 4 October.
+
+
 ## Current checked GVF representation edition: 4,685 pages, 9 October 2026
 
 The [integration audit](GVF_Foundations_representation_staged_integration_audit_v1_20261009.md)
