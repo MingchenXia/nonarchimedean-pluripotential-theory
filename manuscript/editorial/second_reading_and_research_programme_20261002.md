@@ -3,6 +3,50 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest model Green-current primary checkpoint, 9 October 2026
+
+The [complete primary audit](Dubocs_Green_currents_source_review_20261009.md)
+reads all 27 pages of arXiv:2606.19160v1 in fourteen individually displayed
+matching views with complete text and sequential notes/receipts. Source
+acquisition and initial views retain their 8 October names across the UTC
+date rollover. Six exact diagnostic families pass. The initial SymPy
+integer-type helper failure remains frozen; fresh v2 passes and no reading
+credit is created by a helper, export or upload.
+
+The source uses regular/cofinal proper flat models over an excellent DVR,
+operational Chow forms and inverse-limit algebraic currents. It supplies
+no comparison to CLD analytic currents or arbitrary-open/current-product
+extension. The rank-one Poincare–Lelong and section-ideal minimum
+construction are supported in their precise model hypotheses. The general
+higher-rank proof applies regular-model Poincare duality to an unregularized
+raw blowup. A regular sequence can produce a singular generic blowup;
+even a smooth generic centre does not make the raw total model regular.
+No general higher-rank Green formula is imported, and no intended identity
+after a valid resolution construction is asserted false.
+
+The [authored archive](artifact_exports/20261009_dubocs_green_current_sources/README.md)
+has 45 byte-verified members. The separate 75-member full source evidence
+retains the primary PDF/text/images in the cloud. The
+[formula rendering addendum](Local_psh_norm_dependencies_formula_rendering_addendum_20261009.md)
+supplies correct readable notation for the frozen prior BE21 audit with
+zero additional source-reading credit or mathematical status change.
+
+The 4,651-page book, all 425 core TeX inputs, two bibliographies and native
+catalogue/editor remain unchanged. The 42 atoms/twelve problems retain
+general BJ22 critical homogeneous Siu/envelopes OPEN and LPWZ density
+UNVERIFIED. The last complete ordered whole-book pass remains 4 October.
+Main and draft PR #2 are unchanged at the precommit author-update check;
+work matched e4b7b2ae57a0a2481ad723f64c4b635afadd84c2.
+
+Continue by adding a precise model-current comparison boundary to Chapter
+17, the finite-flat norm hypotheses to Chapter 19, and a reusable audited
+discussion in Appendix L. Use an isolated source stage, full validation,
+complete selected text and fresh individual rendered-book displays.
+Then continue related primary literature and sequential open-problem
+interfaces, preserving the missing comparison/regularization bridges.
+Remote publication receives a separate verification record. Cloud-only
+execution and the suspension of Xean remain binding.
+
 ## Latest norm-dependency primary checkpoint, 8 October 2026
 
 The [source audit](Local_psh_norm_dependencies_source_review_20261008.md)

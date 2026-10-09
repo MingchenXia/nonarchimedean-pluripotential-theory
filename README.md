@@ -4,6 +4,22 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest model Green-current primary checkpoint, 9 October 2026:** the
+[Dubocs source audit](manuscript/editorial/Dubocs_Green_currents_source_review_20261009.md)
+reads all 27 pages of arXiv:2606.19160v1 with complete text and fourteen
+individual matching displays. Six exact elementary diagnostic families pass.
+The model-Chow category is distinguished from CLD analytic currents.
+Regular-section zero schemes can have singular generic blowups, and raw
+total blowups can be singular even with smooth generic centres; the general
+higher-rank formula is not imported. Rank-one model identities and vertical
+coefficient constructions retain their exact scope. The
+[authored evidence](manuscript/editorial/artifact_exports/20261009_dubocs_green_current_sources/README.md)
+has 45 byte-verified members; full 75-member source evidence remains in
+the cloud. The
+[norm formula addendum](manuscript/editorial/Local_psh_norm_dependencies_formula_rendering_addendum_20261009.md)
+repairs notation in the frozen BE21 audit without new reading credit.
+The 4,651-page book, native editor and canonical statuses are unchanged.
+
 **Latest norm-dependency primary checkpoint, 8 October 2026:** the
 [BE21 source audit](manuscript/editorial/Local_psh_norm_dependencies_source_review_20261008.md)
 freshly reads 29 selected published-source pages in fifteen individually
