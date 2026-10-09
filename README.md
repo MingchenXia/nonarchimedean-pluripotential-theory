@@ -1,5 +1,14 @@
 # Non-Archimedean Pluripotential Theory
 
+**Latest verified GVF representation GitHub publication, 9 October 2026:**
+the 4,685-page book and [artifacts](manuscript/editorial/artifact_exports/20261009_GVF_Foundations_representation_v1/README.md)
+are published on work at `9f7c40d987a184c602e71d1ea4fb7b8caac7afcb`. All sixteen remote blobs were
+downloaded and verified byte-for-byte against local hashes and sizes.
+The [publication record](manuscript/editorial/GVF_Foundations_representation_GitHub_publication_v1_20261009.json)
+pins the complete 52-page source checkpoint, exact application locators
+and fourteen final pages actually read in seven fresh views. Canonical
+statuses remain unchanged; general BJ22 Siu/envelopes stay OPEN.
+
 **Current checked GVF representation edition: 4,685 pages, 9 October 2026.**
 The [integration audit](manuscript/editorial/GVF_Foundations_representation_staged_integration_audit_v1_20261009.md)
 adds the countable-field proper adelic presentation of heights, symmetric

@@ -7954,3 +7954,8 @@ All nine continuation309 scoped audit/evidence files were downloaded from
 GitHub and verified byte-for-byte at `1d5e9cdc39b0cdcc03e53e0dca224681ffc8def4`. See the [publication record](P12_3_incoming_continuation309_GitHub_publication_v1_20261009.json).
 The current research head is `9556f41667eb56aea7e4ec0ddf1b8665a320698e`; only the pinned reviewed
 snapshot receives scoped reading credit. Claims remain UNVERIFIED.
+
+The sixteen GVF representation book/source/progress/audit/artifact blobs
+were downloaded from GitHub and verified byte-for-byte at `9f7c40d987a184c602e71d1ea4fb7b8caac7afcb`.
+See the [publication record](GVF_Foundations_representation_GitHub_publication_v1_20261009.json).
+Upload adds no reading credit or theorem clearance.
