@@ -4,6 +4,18 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest Chen–Maclean spectral primary checkpoint, 9 October 2026:**
+the [complete source audit](manuscript/editorial/CM15_spectral_distribution_source_review_20261009.md)
+reads all 27 pages of arXiv:1304.5842v3 in fourteen individual matching
+displays. Nine elementary diagnostic families check spectral/probability
+and polygon degree conventions, near-orthogonal loss allocation, exact
+non-Archimedean truncation and bounded paired-tail estimates. The
+[authored evidence](manuscript/editorial/artifact_exports/20261009_CM15_spectral_distribution_sources/README.md)
+retains actual notes/receipts. Regular rational-point, admissible-lattice
+and coefficient-estimate dependencies stay explicit. The 2015 published
+edition is not claimed audited. Book, native editor and canonical statuses
+stay unchanged; export/upload supply zero reading credit.
+
 **Latest verified graded-norm and upper semicontinuous FS GitHub publication, 9 October 2026:**
 the 4,661-page book and six owned artifact files are uploaded on work at
 f2d9da4450a7e93efba6ae9f82467a48feed939b. All sixteen source/progress/audit/artifact remote blobs match

@@ -3,6 +3,45 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest Chen–Maclean spectral source checkpoint, 9 October 2026
+
+The [complete source audit](CM15_spectral_distribution_source_review_20261009.md)
+reads all 27 pages of arXiv:1304.5842v3 with fourteen individual matching
+image displays, complete selected text and chronological notes. Nine
+exact elementary diagnostic families pass. The initial tracked/core TeX
+list mismatch failed before any view preparation and is frozen; fresh v2
+uses the actual validated 425-input book core. The pinned PDF's internal
+May 30, 2018 footer differs from its arXiv version stamp and is separately
+recorded. The 2015 published edition is not claimed audited.
+
+The non-Archimedean proof uses determinant degree, common diagonal
+approximations, exact max-norm truncation, admissible semigroups and
+bounded-variable stop-loss means. It explicitly excludes the critical
+tail endpoint and clips negative marginal tails before taking paired
+mean differences. The middle correlated-tail bound is replaced by the
+correct A times union probability, retaining its needed final estimate.
+Complex Haar/Gram calibration, squared norm displays, the omitted degree
+division in polygon statement 5.2(2) and the earlier one-norm loss
+allocation remain explicit corrections. No intended correctly formulated
+spectral theorem is declared false. Lattice counts, the actual
+Chambert-Loir coefficient source and regular rational-point reductions
+remain separate external inputs.
+
+The [owned archive](artifact_exports/20261009_CM15_spectral_distribution_sources/README.md)
+pins the audit and reading evidence; the cloud archive additionally holds
+external primary PDF/text/images. Export/upload add zero credit. The
+4,661-page book, all 425 core TeX inputs, bibliographies, native editor,
+42 atoms/twelve problem statuses and 4 October complete ordered pass stay
+unchanged. General BJ22 critical homogeneous Siu/envelopes remain OPEN,
+LPWZ density UNVERIFIED; BJ22 Theorem 6.21 proof warning remains binding.
+No original general theorem or independent-model receipt is claimed.
+
+Continue cloud-only with the actual coefficient/lattice primary inputs,
+the later published comparison editions and Reboulet arXiv2508.16322v2
+of 3 March 2026. Its downloaded 39 pages have zero reading credit until
+actually inspected. Check incoming author updates and regularly push
+verified authored evidence. Xean stays suspended.
+
 ## Latest graded-norm and upper semicontinuous FS GitHub publication, 9 October 2026
 
 The [publication record](graded_FS_GitHub_publication_v1_20261009.json)
