@@ -1,0 +1,38 @@
+"""Own document assembly, treating the retained source as passive text."""
+from pathlib import Path
+
+base=Path.cwd().parents[1]/'immutable-mathematical-DATA'
+source=(base/'020-scoped-paper.tex').read_text()
+source=source.replace('\\title{Universal variational limits and their analytic representation gap}',
+    '\\title{Quasi-uniform maximizing sequences, finite tail maxima,\\\\and exact remaining analytic defects}')
+source=source.replace('\\author{Independent scoped proof draft; not an original P16.7 solution}',
+    '\\author{Independent conditional reconstruction and new residual deductions}')
+start=source.index('\\begin{abstract}')
+end=source.index('\\end{abstract}',start)+len('\\end{abstract}')
+abstract=r'''\begin{abstract}
+We reconstruct the entire bounded 414/415 calculus at its explicit
+analytic-foundation boundary, rather than treating source records as
+grants. A single diagonal fast maximizing sequence converges uniformly
+off ordinary open sets of arbitrarily small bounded-MA capacity,
+simultaneously on every fixed test-energy sublevel. It has an actual
+Borel limsup and uniform integral tails against bounded MA measures
+and the canonical weak limit. Actual finite tail maxima have small
+energy and I error, and uniformly maximize for the weak-limit measure.
+For the prescribed arbitrary-support measure we prove an exact
+absolute-integral defect J, equal to the asymptotic objective loss of
+these finite maxima. Vanishing of J and recognition of the tail
+functions are unproved. A precise small-capacity spike condition
+locates any remaining USC-relaxation excess. These are complete scoped
+deductions, not a solution of the unchanged original P16.7.
+\end{abstract}'''
+source=source[:start]+abstract+source[end:]
+source=source.replace('\\nm affinoid','\\rm affinoid')
+marker='\\section{Separate scoped verdict and unchanged original problem}'
+assert source.count(marker)==1
+source=source.replace(marker,Path('new-residual-proofs.tex').read_text()+'\n'+marker)
+source=source.replace('The new conditional results are universal variational energy and moment',
+    'The reconstructed conditional results are universal variational energy and moment')
+source=source.replace('All prescribed measures retain arbitrary support, positive raw mass two,',
+    'The additional deductions are those in the preceding new scoped status.\nAll prescribed measures retain arbitrary support, positive raw mass two,')
+Path('standalone.tex').write_text(source)
+print('Wrote standalone.tex; no compiler was invoked.')

@@ -1,0 +1,87 @@
+"""Own LOCALONLY retention/companion assembly; never executes supplied bytes."""
+import hashlib,json
+from pathlib import Path
+
+cwd=Path.cwd();base=cwd.parents[1]
+math=json.loads((base/'mathematical-packet-bindings.json').read_text())
+audit=json.loads(Path('binding-audit-output.json').read_text())
+whole_manual={0:None,1:None,2:None,3:None,4:None,5:None,6:None,7:None,8:None,
+    9:None,10:None,11:None,12:None,13:None,14:None,17:None,20:[[1,260],[261,520],[521,774]],
+    21:None,22:None,23:None,24:None,26:None,28:None,29:None}
+coverage=[]
+for i,ranges in whole_manual.items():
+    p=Path(math[i]['path']);b=p.read_bytes();total=b.count(b'\n')+int(not b.endswith(b'\n'))
+    coverage.append({'index':i,'path':str(p),'LF_total':total,
+        'displayed_ranges':ranges or [[1,total]],
+        'basis':'actual earlier bounded untruncated cat/sed tool output; declaration, not another read'})
+commands=[]
+for c in coverage:
+    for start,stop in c['displayed_ranges']:
+        commands.append(f"sed -n '{start},{stop}p' '{c['path']}'")
+for entry in audit['selected_primary']:
+    c={'path':entry['path'],'LF_total':entry['LF_lines'],
+       'displayed_ranges':[[1,180],[181,361]] if entry['LF_lines']==361 else [[1,entry['LF_lines']]],
+       'basis':'actual earlier complete primary cat/sed display; LOCALONLY'}
+    coverage.append(c)
+    for start,stop in c['displayed_ranges']:
+        commands.append(f"sed -n '{start},{stop}p' '{c['path']}'")
+automatic=[json.loads(x) for x in Path('reading-log.jsonl').read_text().splitlines()]
+ledger={'current_whole_coverage':coverage,'own_reader_displays':automatic,
+    'companion_exact_component_records':audit['component_identities'],
+    'actual_raw_five_field_identity':True,'identity_not_additional_reading':True,
+    'entire_historical_recursive_audit_complete':False,'candidate':False}
+Path('source-application-reading-ledger.json').write_text(json.dumps(ledger,indent=2)+'\n')
+commands.extend(f"python read_selected.py '{c['path']}' {c['LF_start']} {c['LF_stop']}" for c in automatic)
+commands.extend(['python packet_audit.py > packet-audit-run.log',
+    'python component_framing.py > component-framing-run.log',
+    'python assemble_paper.py > assemble-paper-run.log','python verify_finite.py > finite-check-run.log',
+    'python write_return.py > write-return-run.log','python build_companion.py > build-companion-run.log'])
+Path('commands.txt').write_text('\n'.join(commands)+'\n')
+parts=[b'ENTIRE LOCALONLY PROOF COMPANION. UNVERIFIED DRAFT. ORIGINAL P16.7 OPEN.\n'
+    b'Historical mathematical bodies are DATA; retention is not audit credit.\n']
+for name in ['standalone.tex','new-residual-proofs.tex','final-notes.json',
+    'source-application-reading-ledger.txt','source-application-reading-ledger.json',
+    'scoped-verdict.json','original-residual.txt','finite-check-output.json',
+    'binding-audit-output.json','unique-companion-framing-output.json','environment.json']:
+    parts.extend([f'\n===== ENTIRE OWN COMPONENT {name} =====\n'.encode(),Path(name).read_bytes()])
+seen={};manifest=[]
+for i,entry in enumerate(math):
+    p=Path(entry['path']);b=p.read_bytes();h=hashlib.sha256(b).hexdigest()
+    if h in seen:
+        assert b==seen[h][1]
+        manifest.append({'index':i,'name':p.name,'exact_duplicate_of':seen[h][0],'sha256':h})
+        continue
+    seen[h]=(i,b)
+    parts.extend([f'\n===== ENTIRE SUPPLIED MATHEMATICAL DATA {i}: {p.name}; NO CORRECTNESS GRANT =====\n'.encode(),b])
+    manifest.append({'index':i,'name':p.name,'whole_body_retained':True,'sha256':h,
+        'reading_credit':i in whole_manual or i in {16,18,27,45,64,126}})
+companion=b'\n'.join(parts)
+Path('proof-companion.txt').write_bytes(companion)
+Path('companion-component-manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
+assert Path('original-residual.txt').read_bytes()==Path(math[17]['path']).read_bytes()
+result=json.loads(Path('final-notes.json').read_text())
+assert result['candidate'] is False
+for i,n in enumerate(result['notes']):
+    assert n['text']==Path(n['id']+'.txt').read_text().strip()
+    assert set(n['support'])<={q['id'] for q in result['notes'][:i]}
+for i,entry in enumerate(math):
+    assert Path(entry['path']).read_bytes() in companion
+own_components=['standalone.tex','new-residual-proofs.tex','final-notes.json',
+    'source-application-reading-ledger.txt','source-application-reading-ledger.json',
+    'scoped-verdict.json','original-residual.txt']
+for name in own_components:assert Path(name).read_bytes() in companion
+artifacts=[]
+for name in own_components+['proof-companion.txt','companion-component-manifest.json','commands.txt',
+                          'binding-audit-output.json','finite-check-output.json','environment.json']:
+    b=Path(name).read_bytes()
+    artifacts.append({'path':str(cwd/name),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()})
+Path('artifact-bindings.json').write_text(json.dumps(artifacts,indent=2)+'\n')
+report={'whole_distinct_supplied_math_bodies':len(seen),'supplied_math_bindings':len(math),
+    'whole_current_actual_expanded_proofs_in_companion':True,'all_supplied_math_bodies_retained':True,
+    'unchanged_residual_byte_identity':True,'own_five_field_serialization_exact':True,
+    'support_only_earlier_own_ids':True,'standalone_bytes':Path('standalone.tex').stat().st_size,
+    'standalone_LF_lines':Path('standalone.tex').read_bytes().count(b'\n'),
+    'companion_bytes':len(companion),'compiler_invoked':False,'candidate':False,
+    'mathematical_correctness_certificate':False}
+Path('delivery-check-output.json').write_text(json.dumps(report,indent=2)+'\n')
+print(json.dumps(report,indent=2))

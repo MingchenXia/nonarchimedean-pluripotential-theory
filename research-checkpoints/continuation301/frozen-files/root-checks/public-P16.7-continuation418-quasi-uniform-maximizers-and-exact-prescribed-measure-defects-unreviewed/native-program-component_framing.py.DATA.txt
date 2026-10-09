@@ -1,0 +1,21 @@
+"""Own complete component-subtraction display; identity is not reading credit."""
+import json
+from pathlib import Path
+
+base=Path.cwd().parents[1]
+entries=json.loads((base/'mathematical-packet-bindings.json').read_text())
+def body(i):return Path(entries[i]['path']).read_text()
+report={}
+for parent,components in [(16,[20,23,17,21]),(18,[16,20,8,1]),(27,[24,26])]:
+    text=body(parent)
+    for comp in components:
+        assert body(comp) in text
+        text=text.replace(body(comp),f'[EXACT COMPLETE COMPONENT {comp}; previously displayed whole]')
+    if parent==18:
+        for i in range(3,8):
+            value=json.dumps(json.loads(body(i)),ensure_ascii=False,indent=2)
+            assert value in text
+            text=text.replace(value,f'[EXACT ALL-FIVE-FIELD NOTE COMPONENT {i}; previously displayed whole]')
+    report[str(parent)]=text
+Path('unique-companion-framing-output.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+print(json.dumps(report,ensure_ascii=False,indent=2))

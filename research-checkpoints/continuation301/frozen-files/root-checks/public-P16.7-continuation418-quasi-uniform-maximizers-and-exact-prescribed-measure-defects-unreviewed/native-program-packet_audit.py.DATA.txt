@@ -1,0 +1,62 @@
+"""Own passive packet audit. Supplied programs are bytes, never imported/run."""
+import json, hashlib, platform, sys
+from pathlib import Path
+
+BASE = Path.cwd().parents[1]
+MATH = json.loads((BASE/'mathematical-packet-bindings.json').read_text())
+PRIMARY = json.loads((BASE/'private-primary-packet-bindings.json').read_text())
+
+def body(i):
+    return Path(MATH[i]['path']).read_text()
+
+def run():
+    out = Path('LOCALONLY-inputs')
+    out.mkdir(exist_ok=True)
+    observations = []
+    for entry in MATH:
+        p = Path(entry['path'])
+        b = p.read_bytes()
+        digest = hashlib.sha256(b).hexdigest()
+        assert len(b) == entry['bytes'] and digest == entry['sha256'], str(p)
+        (out/p.name).write_bytes(b)
+        observations.append({'name':p.name,'bytes':len(b),'sha256':digest})
+    for name in ['mathematical-packet-bindings.json','private-primary-packet-bindings.json','book-context-bindings.json']:
+        (out/name).write_bytes((BASE/name).read_bytes())
+    notes = [json.loads(body(i)) for i in range(3,8)]
+    raw = json.loads(body(15))
+    assert raw['notes'] == notes
+    identities = []
+    for container, components in [(16,[20,23,17,21]),(18,[20,8,16,1]),(27,[24,26])]:
+        text = body(container)
+        offsets=[]
+        for comp in components:
+            needle=body(comp)
+            assert needle in text,(container,comp)
+            offsets.append({'component':comp,'offset':text.find(needle),'characters':len(needle),'occurrences':text.count(needle)})
+        identities.append({'container':container,'components':offsets})
+    text=body(18)
+    for note in notes:
+        assert json.dumps(note,ensure_ascii=False,indent=2) in text
+    selected=[e for e in PRIMARY if 'P16.7-ROOT415-bounded-calculus-local-Gauss-and-Shilov-source' in e['path']]
+    assert len(selected)==15
+    primary_observations=[]
+    pout=Path('LOCALONLY-primary');pout.mkdir(exist_ok=True)
+    for entry in selected:
+        p=Path(entry['path']);b=p.read_bytes();digest=hashlib.sha256(b).hexdigest()
+        assert len(b)==entry['bytes'] and digest==entry['sha256'],str(p)
+        (pout/p.name).write_bytes(b)
+        primary_observations.append({'path':str(p),'bytes':len(b),'sha256':digest,'LF_lines':b.count(b'\n')})
+    Path('original-residual.txt').write_bytes(Path(MATH[17]['path']).read_bytes())
+    report={'mathematical_bindings_checked':len(observations),'failures':[],
+        'actual_five_notes_equal_raw_FINAL':True,'component_identities':identities,
+        'selected_primary_count':len(selected),'selected_primary':primary_observations,
+        'observations_only':True,'mathematical_correctness_grant':False,'bindings':observations}
+    Path('binding-audit-output.json').write_text(json.dumps(report,indent=2)+'\n')
+    Path('environment.json').write_text(json.dumps({'python':sys.version,'platform':platform.platform(),
+        'cwd':str(Path.cwd()),'supplied_programs_executed_or_imported':False,'agents':0,
+        'extra_native_or_model_calls':0,'compiler_invoked':False,'publication':False,
+        'runtime_auth_proxy_CA_changes':False,'operator_supervised_compute_exposed':False,
+        'xean_native_campaign_facility_exposed':False},indent=2)+'\n')
+    print(json.dumps({k:report[k] for k in ['mathematical_bindings_checked','failures','actual_five_notes_equal_raw_FINAL','component_identities','selected_primary_count']},indent=2))
+
+if __name__=='__main__':run()

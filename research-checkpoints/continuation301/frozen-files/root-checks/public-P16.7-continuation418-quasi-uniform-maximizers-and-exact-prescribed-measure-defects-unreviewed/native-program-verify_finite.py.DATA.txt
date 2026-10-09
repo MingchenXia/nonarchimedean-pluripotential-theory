@@ -1,0 +1,58 @@
+"""Own finite algebra/document checks; no supplied-code imports or compiler."""
+from fractions import Fraction as F
+from itertools import product
+from pathlib import Path
+import json,re
+
+midpoint=[]
+for degree in range(4):
+    p0=F(int(degree==0));p1=F(1);pm=F(1,2)**degree
+    dp0=F(int(degree==1));dp1=F(degree)
+    lhs=pm-(p0+p1)/2;rhs=(dp0-dp1)/8
+    assert lhs==rhs
+    midpoint.append({'degree':degree,'gap':str(lhs)})
+columns=[[F(0),F(1),F(0),F(0)], [F(0),F(0),F(1),-F(1,3)], [F(0),F(0),F(0),F(1,3)]]
+assert [sum(c) for c in columns]==[F(1),F(2,3),F(1,3)]
+assert [[2*c[2],6*c[3]] for c in columns]==[[F(0),F(0)],[F(2),-F(2)],[F(0),F(2)]]
+finite_vectors=0
+for a in product(range(-3,1),repeat=5):
+    for j in range(5):
+        variation=sum(abs(a[n+1]-a[n]) for n in range(j,4))
+        for q in range(j,5):
+            m=max(a[j:q+1]);assert 0<=m-a[j]<=variation
+            assert abs(m-a[4])<=variation
+    finite_vectors+=1
+absolute_cases=0
+for a,u in product(range(-4,1),repeat=2):
+    assert abs(a-u)==u-a+2*max(a-u,0)
+    absolute_cases+=1
+for m in range(1,21):
+    exact=F(8,7)*F(1,8)**m
+    partial=sum(F(1,8)**n for n in range(m,m+20))
+    assert partial+F(8,7)*F(1,8)**(m+20)==exact
+source=Path('standalone.tex').read_text()
+stack=[]
+for match in re.finditer(r'\\(begin|end)\{([^}]+)\}',source):
+    typ,env=match.groups()
+    if typ=='begin':stack.append(env)
+    else:assert stack and stack.pop()==env, (typ,env,stack)
+assert not stack
+labels=re.findall(r'\\label\{([^}]+)\}',source)
+refs=re.findall(r'\\(?:ref|eqref)\{([^}]+)\}',source)
+assert len(set(labels))==len(labels)
+assert set(refs)<=set(labels)
+assert '\\nm ' not in source
+assert not re.search(r'(?<!\\)\\\n',Path('new-residual-proofs.tex').read_text())
+depth=0
+for match in re.finditer(r'(?<!\\)[{}]',source):
+    depth+=1 if match.group()=='{' else -1
+    assert depth>=0
+assert depth==0
+report={'cubic_basis':midpoint,'scaling_columns':[[str(x) for x in c] for c in columns],
+    'exhaustive_five_term_integer_vectors':finite_vectors,'absolute_value_identity_cases':absolute_cases,
+    'geometric_capacity_tail_cases':20,'tex_environments_balanced':True,'tex_braces_balanced':True,
+    'unique_labels':len(labels),'undefined_references':[],
+    'inherited_undefined_nm_corrected_in_new_source_only':True,
+    'compiler_invoked':False,'mathematical_correctness_certificate':False}
+Path('finite-check-output.json').write_text(json.dumps(report,indent=2)+'\n')
+print(json.dumps(report,indent=2))

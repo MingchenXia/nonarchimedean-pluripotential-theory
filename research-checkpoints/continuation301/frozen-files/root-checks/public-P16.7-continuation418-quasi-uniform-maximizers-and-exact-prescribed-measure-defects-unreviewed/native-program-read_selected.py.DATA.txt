@@ -1,0 +1,21 @@
+"""Own bounded text display with explicit LF records; no supplied imports."""
+import argparse, hashlib, json
+from pathlib import Path
+
+ap=argparse.ArgumentParser()
+ap.add_argument('path')
+ap.add_argument('start',type=int)
+ap.add_argument('stop',type=int)
+args=ap.parse_args()
+p=Path(args.path)
+b=p.read_bytes()
+lines=b.decode().split('\n')
+if lines[-1]=='':lines.pop()
+assert 1<=args.start<=args.stop<=len(lines)
+chunk='\n'.join(lines[args.start-1:args.stop])+'\n'
+record={'path':str(p.resolve()),'sha256':hashlib.sha256(b).hexdigest(),
+    'LF_start':args.start,'LF_stop':args.stop,'LF_total':len(lines),
+    'characters_displayed':len(chunk),'bounded_output':True}
+with Path('reading-log.jsonl').open('a') as f:f.write(json.dumps(record)+'\n')
+print(json.dumps(record))
+print(chunk,end='')
