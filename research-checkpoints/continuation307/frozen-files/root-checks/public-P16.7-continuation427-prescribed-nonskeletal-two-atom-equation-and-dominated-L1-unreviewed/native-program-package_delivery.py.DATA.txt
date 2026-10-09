@@ -1,0 +1,73 @@
+"""Own complete inert-body packaging; no source execution or import."""
+from pathlib import Path
+import hashlib
+import json
+
+here=Path.cwd()
+
+def sha(b):return hashlib.sha256(b).hexdigest()
+
+specs=[
+    ('Whole current424 proofs and15 immediate primary units read; bounded calculus reconstructed at the explicit conventional foundation boundary.',
+     'All four actual five-field notes, distinct expansions, whole588LF formal proof and2390LF standalone, ledgers/scopes/verdict/residual and three inert programs read. Reconstructs entire-C Green, tangent/midpoint, fixed-test/full-point moduli, actual fixed-fibre calibration and fast-sequence inputs. Deeper historical/source/book/nonalgebraization/descent audit remains incomplete.',[]),
+    ('Actual nonskeletal equation for every (2-m)delta_Gauss+m delta_xc, c>0,0<=m<=1, with full-dual attainment and original-G uniqueness; whole-mass Dirac remains open.',
+     'Finite logarithmic maximum glues on an ordinary collar. Exact fixed-fibre products give MA(qc)=delta_g+delta_xc and B(q0,qc)=2delta_g. Explicit q=q0+sqrt(m)vc, E=-1/3-c m^(3/2)/3, D=1/6+2c m^(3/2)/3. Actual decreasing presentation, all-G uniqueness and actual representation of the canonical nonordered maximizing tuple in this sector. Segment extension lambda>1 has negative curve curvature; this is a route obstruction, not nonexistence.', ['n1']),
+    ('All raw-mass-two measures dominated by a fixed bounded MA have canonical maximizing L1 limits and J=0; specified2delta_x now has dual bounds3/8 to4, but no equation.',
+     'For mu<=A MA(w), D(mu)<=A(1+Bw)+(3/2)A^2 Bw. Every fast family obeys int|aj-u|mu<=(16A/15)2^-4j eventually, with actual integrability, bounded-truncation convergence and uniform integrability. New explicit half-mixture dominates2delta_x with A=2,Bw=1/4. No C/G recognition of its Borel limit, no K=0, no nu=mu or whole-mass Dirac existence inferred.', ['n1','n2']),
+    ('Standalone, full retained proof companion, exact reading/application ledger, separate verdict and byte-unchanged original residual delivered; finite checks pass.',
+     '46 mathematical and15 primary bindings and actual/assembled note identity checked.12 corner checks,39366 scalar max cases,810 exact mass/energy/dual cases and69 TeX labels pass. These finite observations are not analytic or correctness certificates. No compilation, publication, acceptance, supplied execution or extra model/agent calls. P16.7 remains open.', ['n1','n2','n3']),
+]
+notes=[]
+for i,(summary,detail,support) in enumerate(specs,1):
+    note={'id':f'n{i}','summary':summary,'detailedSummary':detail,'text':Path(f'note-n{i}.txt').read_text().strip(),'support':support}
+    assert set(support)<={n['id'] for n in notes}
+    notes.append(note)
+    Path(f'actual-n{i}-all-five-fields.json').write_text(json.dumps(note,indent=2)+'\n')
+Path('final-notes.json').write_text(json.dumps({'notes':notes,'candidate':False},indent=2)+'\n')
+
+own_names=['standalone.tex','new-residual-proofs.tex','note-n1.txt','note-n2.txt','note-n3.txt','note-n4.txt',
+           'actual-n1-all-five-fields.json','actual-n2-all-five-fields.json','actual-n3-all-five-fields.json','actual-n4-all-five-fields.json',
+           'final-notes.json','source-application-reading-ledger.json','source-application-reading-ledger.txt',
+           'scoped-verdict.json','original-residual.txt','unchanged-original-task.json','binding-audit-output.json',
+           'check-output.json','environment.json','commands.txt','prepare_delivery.py','assemble_delivery.py',
+           'check_delivery.py','package_delivery.py','prepare-delivery.log','assemble-delivery.log','check-delivery.log','input.json']
+parts=[b'WHOLE LOCALONLY UNVERIFIED PROOF COMPANION. UNCHANGED ORIGINAL P16.7 OPEN.\nAll supplied programs are inert DATA. Retention is not reading or correctness.\n']
+manifest=[]
+for name in own_names:
+    b=Path(name).read_bytes()
+    parts += [f'\n===== WHOLE OWN BODY {name}; bytes {len(b)}; SHA256 {sha(b)} =====\n'.encode(),b]
+    manifest.append({'kind':'own','name':name,'bytes':len(b),'sha256':sha(b)})
+records=json.loads(Path('LOCALONLY-mathematical/mathematical-packet-bindings.json').read_text())
+seen={}
+for i,r in enumerate(records):
+    local=Path('LOCALONLY-mathematical')/Path(r['path']).name
+    b=local.read_bytes()
+    h=sha(b)
+    assert len(b)==r['bytes'] and h==r['sha256']
+    if h not in seen:
+        seen[h]=i
+        parts += [f'\n===== WHOLE SUPPLIED INERT BODY {i}; {local.name}; bytes {len(b)}; SHA256 {h} =====\n'.encode(),b]
+    manifest.append({'kind':'supplied','index':i,'name':local.name,'bytes':len(b),'sha256':h,'first_whole_component':seen[h],'fresh_reading_credit_from_retention':0})
+for local in sorted(Path('LOCALONLY-primary').iterdir()):
+    b=local.read_bytes()
+    parts += [f'\n===== WHOLE PRIMARY LOCALONLY {local.name}; bytes {len(b)}; SHA256 {sha(b)} =====\n'.encode(),b]
+    manifest.append({'kind':'primary_LOCALONLY','name':local.name,'bytes':len(b),'sha256':sha(b)})
+companion=b'\n'.join(parts)
+Path('proof-companion.txt').write_bytes(companion)
+for r in records:
+    assert (Path('LOCALONLY-mathematical')/Path(r['path']).name).read_bytes() in companion
+for name in own_names:
+    assert Path(name).read_bytes() in companion
+Path('companion-component-manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
+delivery={
+    'standalone_bytes':Path('standalone.tex').stat().st_size,'new_proof_bytes':Path('new-residual-proofs.tex').stat().st_size,
+    'companion_bytes':len(companion),'whole_46_supplied_bodies_retained':True,
+    'all_current_unique_actual_expanded_formal_and_source_qualification_bodies_retained':True,
+    'residual_byte_unchanged':True,'residual_sha256':sha(Path('original-residual.txt').read_bytes()),
+    'support_only_earlier_own_ids':True,'candidate':False,'compiler_invoked':False,
+    'complete_original_solution':False,'entire_deeper_recursive_audit':False,
+}
+Path('delivery-check-output.json').write_text(json.dumps(delivery,indent=2)+'\n')
+artifacts=own_names+['proof-companion.txt','companion-component-manifest.json','delivery-check-output.json']
+Path('artifact-bindings.json').write_text(json.dumps([{'path':str(here/n),'bytes':Path(n).stat().st_size,'sha256':sha(Path(n).read_bytes())} for n in artifacts],indent=2)+'\n')
+print(json.dumps(delivery,indent=2))

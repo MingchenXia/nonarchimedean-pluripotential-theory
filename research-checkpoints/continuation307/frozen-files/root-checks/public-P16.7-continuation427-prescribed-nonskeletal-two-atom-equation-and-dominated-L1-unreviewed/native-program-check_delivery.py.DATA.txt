@@ -1,0 +1,104 @@
+"""Own bounded exact finite checks, not theorem or compiler certification."""
+from pathlib import Path
+from fractions import Fraction as F
+from itertools import combinations, product
+import hashlib
+import json
+import re
+
+slopes=[(F(0),F(0)),(F(1),F(0)),(F(0),F(1)),(F(1),F(1))]
+
+def solve(a,b,c,d,e,f):
+    determinant=a*d-b*c
+    if not determinant:
+        return None
+    return ((e*d-b*f)/determinant,(a*f-e*c)/determinant)
+
+vertex_cases=0
+scalar_cases=0
+segment_cases=0
+for c in [F(1,128),F(1,16),F(1,8),F(1,2),F(1),F(7,3)]:
+    constants=[-c,F(0),F(0),F(0)]
+    vertices={}
+    for i,j,k in combinations(range(4),3):
+        x=solve(slopes[i][0]-slopes[j][0],slopes[i][1]-slopes[j][1],
+                slopes[i][0]-slopes[k][0],slopes[i][1]-slopes[k][1],
+                constants[j]-constants[i],constants[k]-constants[i])
+        if x is None:
+            continue
+        values=[constants[l]+sum(slopes[l][n]*x[n] for n in range(2)) for l in range(4)]
+        active=tuple(l for l,v in enumerate(values) if v==max(values))
+        if set((i,j,k)) <= set(active):
+            vertices[x]=active
+    assert vertices=={(-c,-c):(0,1,2),(F(0),F(0)):(1,2,3)}
+    # Each slope triangle has Euclidean area1/2, hence raw mass1.
+    for active in vertices.values():
+        a,b,d=[slopes[l] for l in active]
+        doubled_area=abs((b[0]-a[0])*(d[1]-a[1])-(b[1]-a[1])*(d[0]-a[0]))
+        assert doubled_area==1
+        vertex_cases+=1
+    for b1,b2 in product([F(j,8) for j in range(-40,41)],repeat=2):
+        v=max(-c,b1,b2,b1+b2)-max(F(0),b1)-max(F(0),b2)
+        assert -c<=v<=0
+        if b1>=0 or b2>=0:
+            assert v==0
+        else:
+            assert v==max(-c,b1,b2)
+        scalar_cases+=1
+    for denominator in range(1,16):
+        for numerator in range(denominator+1):
+            lam=F(numerator,denominator)
+            m=lam*lam
+            raw_gauss=2*(1-lam)**2+4*lam*(1-lam)+lam**2
+            assert raw_gauss==2-m
+            assert raw_gauss+m==2
+            energy=-F(1,3)-c*lam**3/3
+            target_moment=-F(1,2)-c*lam**3
+            assert energy-target_moment==F(1,6)+2*c*lam**3/3
+            segment_cases+=1
+assert -F(1,3)-F(1,8)/3 == -F(3,8)
+assert F(1,6)+2*F(1,8)/3 == F(1,4)
+assert -F(3,8)-2*(-F(3,8))==F(3,8)
+assert 2*(1+F(1,4))+F(3,2)*4*F(1,4)==4
+assert sum(F(1,16)**j for j in range(1,101)) < F(1,15)
+assert F(1,16)/(1-F(1,16))==F(1,15)
+for lam in [F(17,16),F(5,4),F(3,2),F(2),F(3)]:
+    assert 1-lam<0
+
+tex=Path('standalone.tex').read_text()
+stack=[]
+for m in re.finditer(r'\\(begin|end)\{([^}]+)\}',tex):
+    direction,env=m.groups()
+    if direction=='begin':stack.append(env)
+    else:assert stack and stack.pop()==env
+assert not stack
+labels=re.findall(r'\\label\{([^}]+)\}',tex)
+refs=re.findall(r'\\(?:eqref|ref)\{([^}]+)\}',tex)
+assert len(labels)==len(set(labels)) and set(refs)<=set(labels)
+depth=0
+for m in re.finditer(r'(?<!\\)[{}]',tex):
+    depth+=1 if m[0]=='{' else -1
+    assert depth>=0
+assert depth==0
+assert Path('new-residual-proofs.tex').read_text() in tex
+old=Path('LOCALONLY-mathematical/042-standalone.tex').read_text()
+oldbody=old[old.index('\\section{Domain'):old.index('\\begin{thebibliography}')]
+assert oldbody in tex
+assert Path('original-residual.txt').read_bytes()==Path('LOCALONLY-mathematical/037-original-residual.txt').read_bytes()
+assert Path('unchanged-original-task.json').read_bytes()==Path('LOCALONLY-mathematical/043-unchanged-original-task.json').read_bytes()
+out={
+    'exact_corner_triangle_checks':vertex_cases,
+    'exact_scalar_maximum_cases':scalar_cases,
+    'exact_mass_energy_dual_segment_cases':segment_cases,
+    'specific_half_mixture_E':'-3/8','specific_half_mixture_D':'1/4',
+    'whole_dirac_dual_lower':'3/8','whole_dirac_dual_upper':'4',
+    'negative_curve_curvature_examples':5,
+    'geometric_tail_sum_identity':True,
+    'tex_brace_environment_balance':True,'unique_labels':len(labels),'undefined_references':[],
+    'entire_current424_mathematical_body_retained':True,
+    'unchanged_residual':True,
+    'compiler_invoked':False,
+    'observations_and_finite_results_NOT_infinite_proof_or_correctness_certificate':True,
+}
+Path('check-output.json').write_text(json.dumps(out,indent=2)+'\n')
+print(json.dumps(out,indent=2))

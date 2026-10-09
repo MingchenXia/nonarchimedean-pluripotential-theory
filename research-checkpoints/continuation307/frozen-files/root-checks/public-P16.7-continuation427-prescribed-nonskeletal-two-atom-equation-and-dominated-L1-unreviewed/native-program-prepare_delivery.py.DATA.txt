@@ -1,0 +1,123 @@
+"""Own passive preparation; never execute or import supplied programs."""
+from pathlib import Path
+import hashlib
+import json
+import platform
+import sys
+
+HERE = Path.cwd()
+BASE = HERE.parents[1]
+
+def digest(b):
+    return hashlib.sha256(b).hexdigest()
+
+bindings = json.loads((BASE / 'mathematical-packet-bindings.json').read_text())
+primary = json.loads((BASE / 'private-primary-packet-bindings.json').read_text())
+for directory in ['LOCALONLY-mathematical', 'LOCALONLY-primary']:
+    (HERE / directory).mkdir(exist_ok=True)
+verified = []
+for r in bindings:
+    b = Path(r['path']).read_bytes()
+    assert len(b) == r['bytes'] and digest(b) == r['sha256'], r['path']
+    (HERE / 'LOCALONLY-mathematical' / Path(r['path']).name).write_bytes(b)
+    verified.append({'name': Path(r['path']).name, 'bytes': len(b), 'sha256': digest(b)})
+selected = [r for r in primary if 'P16.7-ROOT415-bounded-calculus-local-Gauss-and-Shilov-source' in r['path']]
+assert len(selected) == 15
+for r in selected:
+    b = Path(r['path']).read_bytes()
+    assert len(b) == r['bytes'] and digest(b) == r['sha256']
+    (HERE / 'LOCALONLY-primary' / Path(r['path']).name).write_bytes(b)
+for name in ['mathematical-packet-bindings.json', 'private-primary-packet-bindings.json', 'book-context-bindings.json']:
+    (HERE / 'LOCALONLY-mathematical' / name).write_bytes((BASE / name).read_bytes())
+
+def original(index):
+    return Path(bindings[index]['path']).read_bytes()
+
+(HERE / 'original-residual.txt').write_bytes(original(37))
+(HERE / 'unchanged-original-task.json').write_bytes(original(43))
+notes = [json.loads(original(i)) for i in range(4, 8)]
+assembled = [json.loads(original(i)) for i in [20, 22, 24, 26]]
+assert notes == assembled
+whole_final = json.loads(original(35))
+assert whole_final['notes'] == notes and whole_final['candidate'] is False
+assert original(36).count(b'\n') == 588
+assert original(42).count(b'\n') == 2390
+assert len(original(42)) == 115639
+
+read_ranges = {
+    '004-actual-n1-all-five-fields.json': 'whole',
+    '005-actual-n2-all-five-fields.json': 'whole',
+    '006-actual-n3-all-five-fields.json': 'whole complete final displayed item',
+    '007-actual-n4-all-five-fields.json': 'whole complete final displayed item',
+    '015-expanded-note-n1.txt': 'whole',
+    '016-expanded-note-n2.txt': 'whole',
+    '017-expanded-note-n3.txt': 'whole',
+    '036-new-residual-proofs.tex': [[1,300],[301,588]],
+    '042-standalone.tex': [[1,400],[401,800],[801,1200],[1201,1600],[1601,2000],[2001,2390]],
+    '002-ROOT-whole-proof-source-application-scope-and-residual.json': 'whole',
+    '003-ROOT-whole-proof-source-scope-and-binding.json': 'whole',
+    '037-original-residual.txt': 'whole',
+    '039-scoped-verdict.json': 'whole',
+    '040-source-application-reading-ledger.json': [[1,300],[301,630]],
+    '041-source-application-reading-ledger.txt': 'whole',
+    '032-native-program-assemble_local.py.DATA.txt': 'whole inert text',
+    '033-native-program-package_local.py.DATA.txt': 'whole inert text',
+    '034-native-program-verify_local.py.DATA.txt': 'whole inert text',
+}
+applications = {
+    '1150': 'CLD15.7.1: separated pure2 analytic input, empty boundary; calibrated calculus.',
+    '1151': 'CLD5.11.1: smooth Green/Stokes, global boundary terms vanish; strong-gradient reconstruction.',
+    '1152': 'CLD7.2.8--13: positive top Radon currents, coefficient measures and continuous-test upgrade.',
+    '1153': 'CLD8.1.7--8 and8.2.4: entire continuous sheaf, uniform closure and finite convex maxima; no recognition of Borel limits.',
+    '1170': 'GR4.1--4.2: every-curve/every-extension classical class; used via bridge in Shilov estimates.',
+    '1180': 'CLD8.5.1/5/6 and8.7.1/2/4/5,8.8.4/5/6/9: actual recursive products, uniform continuity, smooth-null changes, dimension vanishing, fixed-fibre restriction.8.6.7 NOT applied.',
+    '1203': 'CLD11.6.3/5(c): reconstructed full-point atoms only; new explicit coordinates themselves are isomorphisms.',
+    '1204': 'CLD13.8.1--5: full-point graded coordinates in inherited modulus reconstruction; new Gauss bidiscs direct degree1.',
+    '1218': 'GR unnumbered1.2: CLD-to-classical bridge for affinoid maximum; Wanner/Thuillier remain conventional deeper foundations.',
+    '1221': 'CLD5.10.1(c),(d)/5.10.2: calibrated integration and Radon reconstruction; no application of OCR inequality in(a).',
+    '1222': 'GR4.2 full unit: classical functoriality/sheaf/limits; no upper-envelope conclusion.',
+    '1223': 'GR6.3/6.4: finite full-dimensional affinoid Shilov boundaries and maximum;6.5 NOT a representation input.',
+    '1224': 'CLD18.6.1: deeper relative curvature/fibre identification underlying18.6.2; actual fixed fibres only.',
+    '1225': 'CLD18.6.2: NEW d2,t=exp(-c),r=(1,1),f=(z1-1,z2-1); d2,t=1,r=(1,1),f=(1/(z1-1),1/(z2-1)); d1,t=r1=1,fi=zi, then same on fixed completed-residue-field curve. Each applied on ordinary open boundaryless separated equidimensional charts, degree1; coefficient1, NOT2.',
+    '1226': 'CLD14.5.2--3: primitive saturated identity calibration; triangle area1/2 times raw2! gives coefficient1. Direct fibre theorem already fixes normalization.',
+}
+ledger = {
+    'incoming_correctness_grants': [],
+    'mathematical_current_reads': read_ranges,
+    'initial_truncated_inventory_and_batch_add_no_reading_credit': True,
+    'primary_units_whole_freshly_read': [dict(r, own_read='whole literal cat, bounded untruncated output', application=applications[Path(r['path']).name[:4]]) for r in selected],
+    'all_four_current_actual_five_fields_read': True,
+    'actual_assembled_whole_final_identity_independently_checked': True,
+    'whole_current_standalone_and_distinct_expansions_read': True,
+    'entire_older_companion_or_recursive_source_book_geometry_audit': False,
+    'genuine_nonalgebraization_coherent_descent_certified': False,
+    'new_sector': 'mu=(2-m)delta_Gauss+m delta_xc, 0<=m<=1, c>0; actual original C solution, generated uniqueness and canonical representation for nonordered maximizing families.',
+    'still_open': ['2delta_xc equation', 'all arbitrary-support finite-full-dual inputs', 'general nonordered analytic representation/envelopes', 'genuine nonalgebraization/descent/deeper audit'],
+    'native_supplied_program_execution_import': False,
+    'compiler_invoked': False,
+    'candidate': False,
+}
+(HERE / 'source-application-reading-ledger.json').write_text(json.dumps(ledger,indent=2)+'\n')
+(HERE / 'source-application-reading-ledger.txt').write_text(
+    'OWN LOCALONLY reading/application ledger; unverified draft.\n'
+    'All actual current424 note fields, distinct expansions, all2390LF standalone and588LF formal proofs read.\n'
+    'All fifteen complete immediate primary units freshly read; all three supplied native programs read inertly.\n'
+    'Initial truncated output grants no reading credit; subsequent bounded displays listed in JSON establish coverage.\n'
+    'Entire recursive historical/primary/book/geometry/descent audit NOT complete.\n'
+    'Complete current proofs at the named conventional foundation boundary are distinct from deeper certification.\n'
+    + '\n'.join(Path(r['path']).name+'\n'+applications[Path(r['path']).name[:4]] for r in selected)
+    + '\nOriginal P16.7 OPEN. No general representation theorem or whole-mass nonskeletal Dirac solution.\n')
+(HERE / 'binding-audit-output.json').write_text(json.dumps({
+    'mathematical_bindings_verified':len(verified),'primary_bindings_verified':15,
+    'failures':[], 'actual_assembled_notes_identical':True,
+    'residual_sha256':digest(original(37)), 'records':verified,
+    'retention_is_not_reading_or_correctness':True,
+},indent=2)+'\n')
+(HERE / 'environment.json').write_text(json.dumps({
+    'python':sys.version,'platform':platform.platform(),'cwd':str(HERE),
+    'supplied_programs_run_or_imported':False,'compiler_invoked':False,
+    'agents':0,'extra_model_native_calls':0,'publication':False,
+    'network_runtime_auth_proxy_CA_changes':False,
+    'supervised_heavy_compute_available':False,'heavy_compute_launched':False,
+},indent=2)+'\n')
+print(json.dumps({'verified_math':len(verified),'verified_primary':15,'actual_assembled_identity':True,'residual_sha256':digest(original(37))},indent=2))

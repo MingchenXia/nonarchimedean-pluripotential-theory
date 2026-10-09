@@ -1,0 +1,55 @@
+"""Own assembly only, preserving every incoming body as inert DATA."""
+from pathlib import Path
+import json
+
+here = Path.cwd()
+old = (here/'LOCALONLY-mathematical/042-standalone.tex').read_text()
+start = old.index('\\title{')
+stop = old.index('\\author{', start)
+paper = old[:start] + '\\title{A prescribed nonskeletal two-atom equation sector\\\\on the designated analytic quotient}\n' + old[stop:]
+start = paper.index('\\begin{abstract}')
+stop = paper.index('\\end{abstract}',start)+len('\\end{abstract}')
+paper = paper[:start] + r'''\begin{abstract}
+We retain the complete qualified current424 proof body and its source
+limitations, then construct actual continuous weights solving the
+prescribed nonskeletal targets $(2-m)\delta_g+m\delta_{x_c}$ for
+$c>0$, $0\le m\le1$. A finite logarithmic maximum glues across an
+ordinary collar. Exact CLD fixed-fibre products identify every atom and
+the mixed product, giving the equation, full-dual attainment, energy,
+generated uniqueness, and actual representation of the canonical tuple
+from nonordered maximizing families. Domination by a fixed bounded MA
+measure gives quantitative prescribed-measure $L^1$ convergence and
+zero integral defect, including for the unchanged input $2\delta_x$.
+That whole-mass Dirac equation, general nonordered representation,
+arbitrary-support existence and genuine nonalgebraization/descent remain
+open. All material is an unverified local draft.
+\end{abstract}''' + paper[stop:]
+marker = '\\begin{thebibliography}{9}'
+assert paper.count(marker)==1
+paper=paper.replace(marker,(here/'new-residual-proofs.tex').read_text()+'\n'+marker)
+(here/'standalone.tex').write_text(paper)
+verdict={
+    'candidate':False,'original_target':'UNCHANGED P16.7','original_status':'OPEN',
+    'new_complete_scoped_results':[
+        'actual prescribed nonskeletal (2-m)delta_g+m delta_xc equation, c>0,0<=m<=1',
+        'full dual attainment with exact E=-1/3-c m^(3/2)/3 and D=1/6+2c m^(3/2)/3',
+        'actual decreasing presentation and uniqueness among all original G solutions',
+        'canonical nonordered maximizing tuple represented by explicit original-C solution in this sector',
+        'exact negative curve curvature obstruction for segment parameter greater than1',
+        'all dominated rawmass2 Radon inputs: finite full dual, canonical L1 maximizing limit, every fast J=0',
+        'specified 2delta_x has J=0 and full dual between3/8 and4; its equation remains open',
+    ],
+    'whole_current_required_proof_reading_completed':True,
+    'all15_immediate_primary_units_freshly_read':True,
+    'entire_deeper_historical_source_book_geometry_audit':False,
+    'genuine_nonalgebraization_descent_certified':False,
+    'general_arbitrary_support_equation_or_representation':False,
+    'whole_mass_2delta_x_solution_constructed':False,
+    'incoming_correctness_grants':[],
+    'analytic_boundary':'named conventional CLD/Berkovich/Temkin/Ducros/Wanner/Thuillier foundations; no full recursive audit',
+    'compiler_invoked':False,'compilation':'UNVERIFIED','publication_or_acceptance':False,
+    'mathematical_correctness_certificate':False,
+}
+(here/'scoped-verdict.json').write_text(json.dumps(verdict,indent=2)+'\n')
+(here/'commands.txt').write_text('python prepare_delivery.py > prepare-delivery.log\npython assemble_delivery.py > assemble-delivery.log\npython check_delivery.py > check-delivery.log\npython package_delivery.py > package-delivery.log\n')
+print(json.dumps({'standalone_bytes':len(paper.encode()),'original_status':'OPEN','candidate':False},indent=2))
