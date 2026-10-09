@@ -2815,3 +2815,8 @@ Own exact finite checks include both canonical parity formulas and signed
 power-cover inequalities. The4,679-page book, native catalogue/editor and
 canonical42-atom problem statuses remain unchanged. No independent
 production receipt is present; upload adds no proof or reading credit.
+
+All nine continuation306 scoped audit/evidence files were downloaded from
+GitHub and verified byte-for-byte at `4d55b54066a13a157456bfd720e78f890ccb3ebe`. See the [publication record](manuscript/editorial/P12_3_incoming_continuation306_GitHub_publication_v1_20261009.json).
+The current research head is `6a6bdf513eff650f8971b9cf59ef281de7b6c160`; only the pinned reviewed
+snapshot receives scoped reading credit. Claims remain UNVERIFIED.
