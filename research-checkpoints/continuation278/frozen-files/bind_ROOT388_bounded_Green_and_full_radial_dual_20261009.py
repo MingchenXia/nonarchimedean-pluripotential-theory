@@ -1,0 +1,32 @@
+from pathlib import Path
+from datetime import datetime, timezone
+import hashlib, json, re
+
+R=Path('/workspace/research'); K=R/'root-checks'
+P=K/'P16.7-continuation388-bounded-Green-and-full-class-radial-dual-working-paper-20261009.tex'
+B=K/'P16.7-continuation388-ROOT-whole-proof-source-scope-and-binding-20261009.json'
+S=R/'primary-data-LOCALONLY/P16.7-ROOT388-bounded-Green-source-units-20261009'
+C=R/'primary-data-LOCALONLY/P16.7-native264-whole-primary-and-retrieval-evidence-20261008/sources/CLD-v2-whole.txt'
+sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
+assert sha(P)=='7e5eb11cc158c75d94b5498f860d5545c251883a3fbdec0593538de50f21029f'
+assert sha(K/'public-P16-round-46-final-reader/P16.4-paper.tex')=='09a83320fbb8fd7f468329307136ccaa146ea4ad07e9a23437ec3dd688ed942a'
+assert not B.exists() and not S.exists()
+text=P.read_text(); stack=[]
+for m in re.finditer(r'\\(begin|end)\{([^}]+)\}',text):
+    op,name=m.groups()
+    if op=='begin':stack.append(name)
+    else:assert stack and stack.pop()==name,(op,name)
+assert not stack and text.count(r'\[')==text.count(r'\]') and text.count('$')%2==0
+assert ',+then' not in text
+S.mkdir(); lines=C.read_text().splitlines(keepends=True); units=[]
+for lo,hi,label in [(9724,9864,'Full continuous psh definition/sheaf closure and immediate proofs through8.1.11'),(9885,9980,'Full8.2.1-4 maximum/convex composition statements and immediate proofs'),(10249,10490,'Full8.5-8.7 bounded multipliers/positive Laplacians/mixed products with immediate proofs'),(10494,10574,'Full8.8.1-7 dpsh extension and skeletal support statements with immediate proofs'),(6990,7024,'Full5.11.1 smooth Stokes/Green statement and immediate proof')]:
+    p=S/('ROOT388-CLDv2-full-LF%d-%d-LOCALONLY.txt'%(lo,hi))
+    p.write_text(''.join(lines[lo-1:hi]))
+    units.append(dict(path=str(p),bytes=p.stat().st_size,sha256=sha(p),source=str(C),whole_source_sha256=sha(C),literal_LF_inclusive=[lo,hi],content=label,ROOT_full_physical_read_untruncated=True,LOCALONLY=True))
+premises=[]
+for name,expected in [('P16.7-continuation384-ROOT-whole-proof-source-scope-and-binding-20261009.json','104270b5de7f5e67e9421c5d0755ba445c86c47a726756da33f005e5f3fa6f95'),('P16.7-continuation385-ROOT-whole-proof-source-scope-and-binding-20261009.json','2b5eac68918f10ccb5423ff982318051dbb431e5131c9008705661411ce830a9'),('P16.7-round272-whole-candidate387-ROOT-proof-source-scope-and-binding-20261009.json','d3ce5e9f3aff42c2d6755481f1197706b95067cea2001400491b276a32192769'),('P16.7-Ducros2012-local-dimension-ROOT-primary-reading-and-version-scope-20261009.json','24b3d447aa522fa6d49cc80697d45bb9f19cae45c36cc174118496c70eeb7b48')]:
+    p=K/name; assert sha(p)==expected
+    premises.append(dict(path=str(p),bytes=p.stat().st_size,sha256=sha(p),status='Source-scope identity only; no new acceptance or correctness grant'))
+out=dict(recorded_utc=datetime.now(timezone.utc).isoformat(),status='ROOT complete new working proof UNREVIEWED; conditional geometric/calibration inputs disclosed; no original closure',paper=dict(path=str(P),bytes=P.stat().st_size,sha256=sha(P),ROOT_entire_initial_source_physically_read_untruncated=True,ROOT_entire_all_later_amendments_physically_read_untruncated=True),new_proof_scope=['Local Hilbert gradient completion with uniqueness, compact-test integration and uniform psh sheaf closure at every stage','Global continuous-dpsh Green identity and nonpositive Dirichlet diagonal for positive closed T','Entire ordinary bounded Ctheta first variation, concavity, tangent inequality, common-mass Lipschitz bound and monotonicity','Entire bounded Ctheta comparison from max/locality/mass, including contact-level avoidance','Full bounded Ctheta dual for the specified discrete radial measures with branch mass at mostone:1/6+(2/3)integralh^3, finite iff cubic tail integral finite'],exact_hypotheses=['Good Hausdorff boundaryless analytic space with ordinary smooth forms/cutoffs and finite smooth-factor current pairings','Continuous psh is the minimal sheaf containing smooth psh and stable under uniform limits, not a presumed stage1 local regularization','Positive closed T and already constructed signed bounded dpsh Laplacians','Surface Ctheta defined by local continuous psh after adding an actual smooth potential for a smooth closed positive theta','Actual multilinear symmetric positive closed bounded mixed products and ordinary locality/common raw mass','Radial potential membership, actual two-atom outside identification, full bounded analytic calibration and its energy identities from unreviewed383-387'],new_full_read_primary_units=units,premise_and_source_scope_bindings=premises,source_warning='Literal-text8.6.7 arbitrarypositivecontinuousmultiplier statement is not used to infer closedness; its actual PDF pixels were not freshly checked here.',deeper_background_not_newly_full_proof_read=['CLD4.6.15 full paralinéaire Stokes proof and recursive foundations','CLD smooth partition/cutoff/density foundational proof trees already qualified in383','CLD foundational positivity and current coefficient results','Ducros/Temkin/ACVF foundations as qualified by the separate new source-scope record','Quotient/nonalgebraization/Picard/calibration complete geometric dependencies383-387'],remaining_original=['Intrinsic all-direction unbounded E1 recognition','All-direction decreasing product continuity and comparison in E1','Separated intrinsic compactness','All obstacle/envelope/orthogonality steps','Arbitrary-support admissible-measure criterion and all-direction existence/uniqueness'],supplied_or_native_programs_executed_or_imported=False,other_ACTIVE_native_math_read_or_hot_feedback=False,all_full_primary_bodies_literal_units_pixels_and_book_context_LOCALONLY=True,compilation='UNVERIFIED pending built-in editor requestcell122 for finalsource; priorcell116 bound earlier source. No diagnostics/PDF observed.',static_source_sanity='Own environment-stack/display-delimiter/dollar-parity checks only; not a compiler or proof verification',protected_editor_OPEN_UNCHANGED=True,new_correctness_grant=False,accepted_paper=False,original_closed=False,counts=dict(solved=16,open=26,accepted_scoped_papers=97))
+B.write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n')
+print(json.dumps(dict(paper=str(P),paper_sha256=sha(P),binding=str(B),binding_sha256=sha(B),private_full_source_units=len(units),status='UNREVIEWED',solved=16,open=26,accepted=97),indent=2))
