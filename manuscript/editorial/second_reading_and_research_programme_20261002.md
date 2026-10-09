@@ -3,6 +3,39 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest asymptotic Fubini–Study source checkpoint, 9 October 2026
+
+The [complete primary audit](Reboulet_asymptotic_FS_source_review_20261009.md)
+reads all 43 physical pages of arXiv:2004.11635v1 in order, with 22 individual
+matching displays, full selected text and sequential notes/receipts. The
+2020 dependency is not a newly discovered 2026 paper. Thirteen exact
+diagnostic families include 5,376 supplemental rational product checks.
+
+Main A--C are not accepted as independently complete proofs from this v1.
+Discrete lattice versus diagonal density, semiample versus big/ample,
+probability and original-degree Veronese scaling, Fekete order, horizontal
+valuation typing over nontrivial K, Q versus Q-star, energy strictness and
+non-Noetherian section comparison retain explicit qualifications. No
+intended correctly typed theorem is declared false. The P1 norm example
+is an explanatory instance of an already sourced d1/operator distinction,
+not a promoted new general result.
+
+The [owned archive](artifact_exports/20261009_Reboulet_asymptotic_FS_sources/README.md)
+pins notes, receipts, diagnostics, helpers and records; external source
+PDF/text/images stay in the cloud evidence archive. Export/upload add zero
+reading credit. The 4,659-page book, all 425 core TeX inputs, bibliographies,
+native editor and 42 atoms/twelve problems are unchanged. General BJ22
+critical homogeneous Siu/envelopes remain OPEN and LPWZ density UNVERIFIED.
+The BJ22 6.21 proof warning remains binding; no independent model receipt
+or new whole-book pass is claimed.
+
+Continue with qualified finite/graded and bounded-FS explanations through
+isolated build and actual rendered seam gates. Check Chen--Maclean's
+primary spectral proof and correctly typed nontrivial-ground energy
+strictness before a stronger correspondence import. Periodically check
+incoming author updates and push verified evidence. Cloud only; Xean
+remains suspended.
+
 ## Latest global psh approximation source checkpoint, 9 October 2026
 
 The [source audit](BE21_global_psh_approximation_source_review_20261009.md)

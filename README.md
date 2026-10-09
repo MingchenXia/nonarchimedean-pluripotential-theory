@@ -4,6 +4,18 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest asymptotic Fubini–Study primary checkpoint, 9 October 2026:**
+the [source audit](manuscript/editorial/Reboulet_asymptotic_FS_source_review_20261009.md)
+reads all 43 pages of the pinned Reboulet v1 in 22 individual matching
+displays. Thirteen exact elementary diagnostic families track signed versus
+absolute means, probability/Veronese normalization, semiample/big scope,
+Fekete order, valuation typing and usc envelopes. A concrete P1 norm example
+explains d1 equivalence without operator-norm equivalence. The
+[authored evidence](manuscript/editorial/artifact_exports/20261009_Reboulet_asymptotic_FS_sources/README.md)
+retains sequential notes and receipts; preparation/export/upload add zero
+credit. The v1 main proofs require qualified dependencies before import.
+The 4,659-page book, native editor and canonical statuses are unchanged.
+
 **Latest global psh approximation primary checkpoint, 9 October 2026:**
 the [source audit](manuscript/editorial/BE21_global_psh_approximation_source_review_20261009.md)
 reads twelve selected BE21 pages in six fresh individual matching displays.
