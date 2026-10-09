@@ -1,0 +1,33 @@
+"""Read immutable documents as data, with bounded literal output and hash receipts."""
+from pathlib import Path
+import hashlib, json, sys
+
+ROOT = Path('/workspace/research/campaigns/round-288/P12.3-whole413-general-excellent-and-characteristic-envelope-residual')
+MATH = json.loads((ROOT/'mathematical-packet-bindings.json').read_text())
+PRIMARY = json.loads((ROOT/'private-primary-packet-bindings.json').read_text())
+
+def body(key):
+    if key.startswith('actual'):
+        i=int(key[6:])-1
+        p=Path(MATH[18]['path'])
+        n=json.loads(p.read_text())['notes'][i]
+        return str(p)+'::notes['+str(i)+']', json.dumps({k:n[k] for k in n if k!='text'},ensure_ascii=False,indent=2)+'\n'+n['text']
+    if key.startswith('tex'):
+        p=Path(MATH[2*int(key[3:])+3]['path'])
+    elif key.startswith('primary'):
+        p=Path(PRIMARY[int(key[7:])]['path'])
+    elif key.startswith('math'):
+        p=Path(MATH[int(key[4:])]['path'])
+    else:
+        p=Path(key)
+    return str(p),p.read_text()
+
+if __name__=='__main__':
+    key=sys.argv[1]
+    origin,s=body(key)
+    start=int(sys.argv[2]) if len(sys.argv)>2 else 0
+    end=min(int(sys.argv[3]) if len(sys.argv)>3 else len(s),len(s))
+    print(json.dumps({'origin':origin,'characters':len(s),'range':[start,end],'sha256_utf8':hashlib.sha256(s.encode()).hexdigest()}))
+    print(s[start:end])
+    with Path('reading-emissions.jsonl').open('a') as out:
+        out.write(json.dumps({'key':key,'origin':origin,'range':[start,end],'length':len(s),'sha256_utf8':hashlib.sha256(s.encode()).hexdigest()})+'\n')

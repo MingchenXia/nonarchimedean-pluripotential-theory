@@ -1,0 +1,211 @@
+"""Own data-only assembly. Never executes/imports a supplied program or invokes a compiler."""
+from pathlib import Path
+import hashlib, json, platform, shutil, sys
+
+ROOT=Path('/workspace/research/campaigns/round-288/P12.3-whole413-general-excellent-and-characteristic-envelope-residual')
+HERE=Path.cwd()
+
+def sha(b):return hashlib.sha256(b).hexdigest()
+def esc(s):
+    table={'\\':r'\textbackslash{}','{':r'\{','}':r'\}','$':r'\$','&':r'\&','#':r'\#','%':r'\%','_':r'\_','^':r'\textasciicircum{}','~':r'\textasciitilde{}'}
+    return ''.join(table.get(c,c) for c in s)
+
+meta=[
+ ('n1','Independent canonical envelope reconstruction on every excellent reduced germ; uniform convergence remains the decisive condition.',
+  'Proves all-support raw C/D equality, every-degree canonical primary profiles and convergence, exact continuity criterion, fixed-obstacle FG equivalence, gauges, conditional full-fibre conductor descent and geometric curve clipping, relative only to qualified G331.', ['G331']),
+ ('n2','Exact smooth, quotient, coefficient-field and Frobenius-root current413 results independently reconstructed at their stated scopes.',
+  'Reconstructs BFJ real-parameter/all-support model estimate only at published char-zero smooth hypotheses, full orbit quotient descent, every-degree separable coefficient descent, and unique-lift root transport. Characteristic-p source CE is not inferred from BFJ.', ['G331','n1']),
+ ('n3','New CE theorem for every excellent normal local surface, arbitrary residue field and positive or mixed characteristic.',
+  'Proves actual regular primary refinements using exact two-dimensional Lipman resolution and a section/Rees presentation; solves the finite nef degree maximum; controls every primary-ideal competitor on every support. Uniform density gives every continuous signed obstacle and uniform all-degree canonical convergence. Higher dimension and unrestricted nonnormal conductor descent remain open.', ['G331','n1']),
+ ('n4','Complete surface-scoped proof deliverables and entire-current413 audit; unchanged original P12.3 remains open.',
+  'Standalone TeX, entire actual/expanded companion, full qualified G331, exact source/reading ledger and unchanged residual retained. Tiny225-obstacle/925-vertex-pair diagnostics are finite observations, not certification. No compiler/publication or supplied-program execution; candidate=false.', ['G331','n1','n2','n3'])
+]
+
+expansions={
+ 'n1':r'''
+\subsection*{Expanded canonical convergence and gauge formulae}
+The full sequence is not presumed monotone. For $m=kr+s$, $0\le s<r$,
+\[
+ A_r^k A_1^s\subset A_m,\qquad
+ H_N-\frac{NM_1}{m}\le h_m\le p(f),\qquad
+ p(f)=\sup_m h_m.
+\]
+The compact increasing-error-cover argument applies to $H_N$ and gives
+\[
+ p(f)\in C(X)\ \Longleftrightarrow\ H_N\to p(f)\text{ uniformly}
+ \ \Longleftrightarrow\ h_m\to p(f)\text{ uniformly}.
+\]
+Under $T(v)=v/v(\mathfrak b)$ all canonical ideals are unchanged;
+only evaluations change by the bounded positive factor $v(\mathfrak b)^{-1}$.
+Rational envelope attainment and canonical finite generation are equivalent
+for the fixed obstacle; neither is a universal regularity hypothesis.
+''',
+ 'n2':r'''
+\subsection*{Expanded scope-sensitive transport identities}
+On the published smooth source, using one fixed compact complex,
+\[
+ W_t\le W\le(1-C/t)W_{t-C},\qquad t=m+C,
+ \qquad (1+C/m)W\le W_m\le W.
+\]
+All-retraction infima give the all-support estimate
+$0\le H-h_m\le CM/m$.
+The separable coefficient identity carries the actual degree:
+\[
+ A_m^{R_{k^s}}(\rho^*f)=A_m^R(f)R_{k^s},\qquad
+ h_m^{R_{k^s}}=\rho^*h_m^R,\qquad
+ p_{R_{k^s}}(\rho^*f)=\rho^*p_R(f).
+\]
+The Frobenius-root formula instead gives
+\[
+ w(s)=q^{-1}v(s^q),\qquad v(J_m)=q\,w(B_m),\qquad
+ J_m\subset A_{qm}.
+\]
+It does not assert the same-degree scalar-extension identity.
+For a source bound $E/m$ and $k\ge2q$ the target bound is
+$0\le p_R-h_k^R\le(2qE+qM_1)/k$.
+''',
+ 'n3':r'''
+\subsection*{Expanded finite surface degree construction}
+On the regular ACTUAL primary model, write
+\[
+ E_{\mathfrak a}=\sum_{i=1}^r a_i E_i,\qquad a_i>0,
+ \qquad D=\sum_i d_i E_i,\qquad
+ Q_{ij}=\deg_{E_i}\mathcal O_Y(E_j).
+\]
+For $i\ne j$, $Q_{ij}\ge0$ is the symmetric local intersection-length
+sum. Every contracted integral curve is an $E_i$. If
+$b_i=-Ma_i$ is the primary nef barrier and $c_i=\min(d_i,0)$, set
+\[
+ K=\{z\in\mathbb R^r:b\le z\le c,\ Qz\ge0\}.
+\]
+It is nonempty compact. For each $i$ choose a coordinate maximizer
+$z^{(i)}\in K$. If $u=\max(z,w)$, choose $z_i=u_i$; then
+\[
+ (Qu)_i=Q_{ii}z_i+\sum_{j\ne i}Q_{ij}u_j
+ \ge (Qz)_i\ge0.
+\]
+Thus $z^*=\max_i z^{(i)}\in K$ is its greatest vector. Replacing any
+unbounded feasible vector $z$ by $\max(z,b)$ proves it is greatest
+in the full problem as well. The actual negative effective divisor
+$Z^*=\sum_i z_i^*E_i$ is curve-nef before the envelope is identified.
+
+For every rational competitor $q_I=-v(I)/s$, put
+\[
+ F_I=\sum_i\operatorname{ord}_{E_i}(I)E_i,\qquad A=-F_I/s.
+\]
+The inclusion $I\mathcal O_Y\subset\mathcal O_Y(-F_I)$ and a generator
+attaining the generic minimum on each $E_i$ give a nonzero section of
+$\mathcal O_Y(-F_I)|_{E_i}$. Its degree is nonnegative. Hence $QA\ge0$.
+Testing $q_I\le f_D$ at $\operatorname{ord}_{E_i}/a_i$ yields
+$A_i\le d_i$, and the valued quotient-field lattice proves
+\[
+ q_I(v)\le f_A(v)\le f_{Z^*}(v)\qquad\text{for EVERY support}.
+\]
+The rational-competitor identity in n1 therefore gives
+$p(f_D)=f_{Z^*}\in C_{\rm geom}$. Uniform signed-model density and
+$\|p(f)-p(g)\|\le\|f-g\|$ give the theorem for every continuous signed
+obstacle. There is no claimed canonical approximation rate.
+
+The two-blowup computation is
+\[
+ Q=\begin{pmatrix}-2&1\\1&-1\end{pmatrix},\quad
+ d=\binom{-1}{-3},\quad z^*=\binom{-3/2}{-3},\quad
+ Qz^*=\binom0{3/2}.
+\]
+With $I=(x^2,y)$ and $F_I=E_1+2E_2$, the actual envelope is
+$p(f_D)=-\tfrac32 v(I)$, also on $\mathbb Z_p[[u]]$ for $x=p,y=u$.
+''',
+ 'n4':r'''
+\subsection*{Expanded original-scope decision}
+The dimension-two normal theorem supplies positive and mixed
+characteristic source CE at that dimension. It does not imply general
+higher-dimensional regularity or unrestricted conductor constancy.
+\[
+ \text{surface CE}\quad\not\Longrightarrow\quad
+ \text{entire ORIGINAL P12.3 closure}.
+\]
+The candidate flag is false. ROOT retains compilation and acceptance.
+'''
+}
+
+def main():
+    (HERE/'reports').mkdir(exist_ok=True)
+    ret=HERE/'retained'; ret.mkdir(exist_ok=True)
+    inp=json.loads((HERE/'input.json').read_text())
+    g=next(n for n in inp['notes'] if n['id']=='G331')
+    (ret/'G331-qualified.txt').write_text(g['text'])
+    (ret/'G331-note-DATA.json').write_text(json.dumps(g,ensure_ascii=False,indent=2)+'\n')
+    (HERE/'original-task.json').write_text(json.dumps(inp['task'],ensure_ascii=False,indent=2)+'\n')
+    (HERE/'original-problem.txt').write_text(inp['task']['problem'])
+    (HERE/'original-completion-criteria.txt').write_text(inp['task']['completionCriteria'])
+    bindings=json.loads((ROOT/'mathematical-packet-bindings.json').read_text())
+    receipts=[]
+    for i,x in enumerate(bindings[:22]):
+        p=Path(x['path']); b=p.read_bytes()
+        assert len(b)==x['bytes'] and sha(b)==x['sha256'],p
+        dst=ret/('current413-'+p.name)
+        dst.write_bytes(b)
+        receipts.append({'path':str(p),'bytes':len(b),'sha256':sha(b),'retained':str(dst),'correctness_grant':False})
+    (HERE/'original-residual.md').write_bytes(Path(bindings[16]['path']).read_bytes())
+    notes=[]
+    texes=[]
+    for id,summary,detail,support in meta:
+        body=(HERE/(id+'.txt')).read_text()
+        notes.append({'id':id,'summary':summary,'detailedSummary':detail,'text':body,'support':support})
+        t='\\section{'+esc(id+'. '+summary)+'}\n\\textit{Supports: '+esc(', '.join(support))+'.}\n\n'+esc(body)+expansions[id]
+        (HERE/(id+'.tex')).write_text(t)
+        texes.append(t)
+    output={'notes':notes,'candidate':False}
+    (HERE/'notes.json').write_text(json.dumps(output,ensure_ascii=False,indent=2)+'\n')
+    source=Path(bindings[0]['path']).read_text()
+    pre=source.split('\\begin{document}')[0]
+    pre=pre.replace('Geometric obstacle envelopes under algebraic field and Frobenius-root descent','Continuous geometric envelopes on excellent normal surfaces')
+    head=pre+r'''
+\begin{document}
+\maketitle
+\begin{abstract}
+We independently reconstruct the entire current413 scoped proof chain and
+prove a new dimension-two characteristic-free theorem: every continuous
+signed obstacle has a continuous independently geometric envelope on every
+excellent normal local surface. We prove the regular model is an ACTUAL
+primary blowup, construct its greatest negative curve-nef coefficient vector,
+and dominate all primary-ideal competitors on every semivaluation support.
+Uniform signed-model density gives full continuous-obstacle regularity,
+including positive and mixed characteristic. The entire original general
+excellent problem remains open. This is an unverified scoped draft with
+candidate=false; ROOT handles compilation, publication and acceptance.
+\end{abstract}
+\tableofcontents
+\newpage
+'''
+    paper=head+'\n'.join(texes)
+    for title,name in [('Exact source/application/reading ledger','source-application-reading-ledger.md'),('Separate scoped verdict','scoped-verdict.md'),('Unchanged original residual','original-residual.md')]:
+        paper+='\n\\section*{'+esc(title)+'}\n'+esc((HERE/name).read_text())+'\n'
+    paper+='\n\\appendix\n\\section{Entire qualified incoming G331, with all qualifications}\n\\begin{QualifiedGrantDATA}\n'+g['text']+'\n\\end{QualifiedGrantDATA}\n'
+    paper+='\n\\section{Entire current413 actual and distinct expanded proof DATA}\n'
+    actual=json.loads(Path(bindings[18]['path']).read_text())
+    for j,n in enumerate(actual['notes'],1):
+        paper+='\n\\subsection*{Audited current413 actual FINAL '+esc(n['id'])+'}\n'+esc(json.dumps(n,ensure_ascii=False,indent=2))+'\n'
+        paper+=Path(bindings[2*j+3]['path']).read_text()+'\n'
+    paper+='\n\\section{Entire unchanged original task and criteria}\n'+esc(json.dumps(inp['task'],ensure_ascii=False,indent=2))+'\n\\end{document}\n'
+    (HERE/'P12.3-surface-envelopes.tex').write_text(paper)
+    companion='# ENTIRE proof companion; unverified scoped draft, candidate=false\n\n'
+    for n,t in zip(notes,texes):
+        companion+='\n## Own actual FINAL '+n['id']+'\n\n'+json.dumps(n,ensure_ascii=False,indent=2)+'\n\n## Entire literal authoritative actual text '+n['id']+'\n\n'+n['text']+'\n\n## Distinct expanded TeX '+n['id']+'\n\n'+t+'\n'
+    companion+='\n## ENTIRE qualified G331\n\n'+g['text']+'\n'
+    for i in [18,5,7,9,11,13,20,19,16,0,17]:
+        p=Path(bindings[i]['path'])
+        companion+='\n## ENTIRE retained current413 DATA '+p.name+'\n\n'+p.read_text()+'\n'
+    for name in ['source-application-reading-ledger.md','scoped-verdict.md','original-residual.md','original-task.json']:
+        companion+='\n## ENTIRE own '+name+'\n\n'+(HERE/name).read_text()+'\n'
+    (HERE/'proof-companion.md').write_text(companion)
+    primary=json.loads((ROOT/'private-primary-packet-bindings.json').read_text())
+    for i in [12,14,16,20,34,36,38,40,42,*range(1244,1254)]:
+        x=primary[i];p=Path(x['path']);b=p.read_bytes()
+        assert len(b)==x['bytes'] and sha(b)==x['sha256'],p
+        receipts.append({'path':str(p),'bytes':len(b),'sha256':sha(b),'LOCALONLY':True,'retained':False,'reading_claim':'See exact ledger; hash alone is not reading.'})
+    (HERE/'reports/input-integrity.json').write_text(json.dumps(receipts,indent=2)+'\n')
+    (HERE/'reports/environment.json').write_text(json.dumps({'cwd':str(HERE),'python':sys.version,'platform':platform.platform(),'machine':platform.machine(),'compiler_run':False,'supplied_program_imports_or_executions':False,'new_native_campaigns':0,'subagents':0,'supervised_compute':'No facility exposed; no resource-heavy work launched.'},indent=2)+'\n')
+    print(json.dumps({'notes':len(notes),'candidate':False,'paper_bytes':len(paper.encode()),'companion_bytes':len(companion.encode()),'input_hash_matches':len(receipts)},indent=2))
+
+if __name__=='__main__':main()

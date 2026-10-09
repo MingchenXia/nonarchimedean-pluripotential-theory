@@ -1,0 +1,36 @@
+"""Static artifact checks only. Not mathematical certification or compilation."""
+from pathlib import Path
+import hashlib,json
+
+def main():
+    d=json.loads(Path('notes.json').read_text())
+    seen={'G331'}
+    paper=Path('P12.3-surface-envelopes.tex').read_text()
+    comp=Path('proof-companion.md').read_text()
+    for n in d['notes']:
+        assert set(n['support'])<=seen
+        assert n['text']==Path(n['id']+'.txt').read_text()
+        tex=Path(n['id']+'.tex').read_text()
+        assert tex in paper and tex in comp and n['text'] in comp
+        assert len(tex)>len(n['text'])
+        seen.add(n['id'])
+    assert d['candidate'] is False
+    assert Path('retained/G331-qualified.txt').read_text() in paper
+    assert Path('retained/G331-qualified.txt').read_text() in comp
+    assert Path('original-residual.md').read_bytes()==Path('retained/current413-016-original-residual.md').read_bytes()
+    assert paper.count('\\begin{QualifiedGrantDATA}')==1
+    assert paper.count('\\end{QualifiedGrantDATA}')==1
+    # Literal primary source units are deliberately not serialized.
+    for r in json.loads(Path('reports/input-integrity.json').read_text()):
+        if r.get('LOCALONLY') and r['path'].endswith('.txt'):
+            assert Path(r['path']).read_text() not in paper
+            assert Path(r['path']).read_text() not in comp
+    own=[]
+    for p in sorted(Path('.').iterdir()):
+        if p.is_file() and p.name!='input.json':
+            b=p.read_bytes();own.append({'path':str(p.resolve()),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()})
+    result={'static_status':'PASS','notes':len(d['notes']),'candidate':False,'unchanged_residual':True,'primary_literals_embedded':False,'mathematical_certification':False,'compiler_run':False,'artifacts':own}
+    Path('reports/delivery-checks.json').write_text(json.dumps(result,indent=2)+'\n')
+    print(json.dumps({k:v for k,v in result.items() if k!='artifacts'},indent=2))
+
+if __name__=='__main__': main()
