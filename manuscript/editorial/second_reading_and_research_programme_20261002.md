@@ -3,6 +3,40 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest selected norm/ray/volume dependencies, 9 October 2026
+
+The [qualified primary audit](Metric_radial_dependencies_source_review_20261009.md)
+reads Finski published 1–24, Parreau author 21–26 and BE21 published
+87–94 with 38 complete selected source/page pairs, nineteen matching
+individual displays and chronological notes. All three PDFs remain partial.
+Against the specifically pinned earlier records, 33 selected pairs are
+new. Frozen note 16's BE21 novelty sentence is corrected by a fresh
+addendum: physical 87–88 overlap the earlier four-checkpoint union.
+
+Published Finski Lemma 2.6 and Corollary 3.5 identify the actual ray and
+finite-p FS-isometry interfaces. The factor-two norm convention, genuine
+bounded references, actual distance limits, complex envelope/Hermitian
+comparison, endpoint continuity and external tensor/quantization proofs
+stay explicit. Parreau's ray and Euclidean flat containment require a
+maximal apartment system. BE21 adds geometric integrality, a complete
+algebraically closed extension before the regular rational point, and
+signed determinant rather than probability normalization. Its trivial
+classical-disc and nonpure component proof scopes are qualified.
+
+Ten elementary diagnostic families and the [owned evidence archive](artifact_exports/20261009_Metric_radial_dependencies_sources/README.md)
+preserve the observations. Preparation/export/upload add zero reading
+credit. The 4,661-page book, native editor, both bibliographies and canonical
+42 atoms/twelve problems stay unchanged at this source checkpoint.
+General BJ22 critical Siu/envelopes remain OPEN, LPWZ density UNVERIFIED,
+and the Theorem 6.21 warning binding. No independent-model receipt or
+new whole-book pass is claimed. The last complete ordered pass is 4 October.
+
+Continue cloud-only with a staged explanatory integration of the calibrated
+ray construction, finite-p/strong topology and volume interfaces; original
+general claims still require independent hostile verification. Monitor
+incoming author research and regularly publish reviewed authored evidence.
+Xean stays suspended.
+
 ## Latest Reboulet–Witt Nyström revised flat source checkpoint, 9 October 2026
 
 The [complete source audit](RWN25_flats_source_review_20261009.md)

@@ -4,6 +4,17 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest norm/ray/volume dependency checkpoint, 9 October 2026:**
+the [selected-source audit](manuscript/editorial/Metric_radial_dependencies_source_review_20261009.md)
+reads 38 source/page pairs in nineteen matching displays across Finski's
+published norm classification, Parreau's maximal apartment system and
+BE21's relative-volume proof. Published Lemma 2.6/Corollary 3.5 supply
+version-specific ray/FS locators; ten elementary diagnostics retain norm
+factors, limit premises, apartment maximality and signed-volume mass.
+The [authored evidence](manuscript/editorial/artifact_exports/20261009_Metric_radial_dependencies_sources/README.md)
+includes a correction for overlapping old BE21 pages. All PDFs remain
+partial; the book, native editor and canonical statuses stay unchanged.
+
 **Latest Reboulet–Witt Nyström revised flat checkpoint, 9 October 2026:**
 the [complete source audit](manuscript/editorial/RWN25_flats_source_review_20261009.md)
 reads all nineteen pages of arXiv:2311.13451v2 in ten matching displays.
