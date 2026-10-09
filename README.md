@@ -1,5 +1,15 @@
 # Non-Archimedean Pluripotential Theory
 
+**Latest verified three-place metric GitHub publication, 9 October 2026:**
+the 4,685-page book and [artifacts](manuscript/editorial/artifact_exports/20261009_Liu_adelic_small_sections_v1/README.md)
+are published on work at `8cd0f7400a5a1d541fa75d00621dbb49a973b079`. All sixteen remote blobs were
+downloaded and verified byte-for-byte against local hashes and sizes.
+The [publication record](manuscript/editorial/Liu_adelic_small_sections_GitHub_publication_v1_20261009.json)
+pins the complete 27-page primary source and direct classical model, with
+thirteen final pages actually read in seven fresh views. Page 4434 contains
+the provenance continuation. Canonical statuses remain unchanged;
+the general Fujita proof remains pending separate reconstruction.
+
 **Current checked three-place metric edition: 4,685 pages, 9 October 2026.**
 The [integration audit](manuscript/editorial/Liu_adelic_small_sections_staged_integration_audit_v1_20261009.md)
 adds a canonical projective metric model over three trivial places.

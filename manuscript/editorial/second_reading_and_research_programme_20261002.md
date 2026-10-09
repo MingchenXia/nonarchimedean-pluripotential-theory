@@ -8005,3 +8005,8 @@ The sixteen GVF representation book/source/progress/audit/artifact blobs
 were downloaded from GitHub and verified byte-for-byte at `9f7c40d987a184c602e71d1ea4fb7b8caac7afcb`.
 See the [publication record](GVF_Foundations_representation_GitHub_publication_v1_20261009.json).
 Upload adds no reading credit or theorem clearance.
+
+The sixteen three-place model book/source/progress/audit/artifact blobs
+were downloaded from GitHub and verified byte-for-byte at `8cd0f7400a5a1d541fa75d00621dbb49a973b079`.
+See the [publication record](Liu_adelic_small_sections_GitHub_publication_v1_20261009.json).
+Upload adds no reading credit or theorem clearance.
