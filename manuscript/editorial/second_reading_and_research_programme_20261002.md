@@ -3,6 +3,31 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest verified curvature-rank GitHub publication, 9 October 2026
+
+The [publication record](Qin_curvature_rank_GitHub_publication_v3_20261009.json)
+verifies 439b5a62470dace7884f00349ae6373696a19afc: all sixteen remote book/source/progress/audit/artifact
+blobs match local hashes and sizes. The [artifacts](artifact_exports/20261009_Qin_curvature_rank_v3/README.md)
+contain the 4,671-page full book, 24-page actual review, 166-member
+evidence and 472-member minimal source. Required validation, six existing
+tests, all twelve fresh matching displays and post-render checks pass.
+The complete 39-page Qin v1 source publication is pinned separately.
+Draft PR #2's exact title/body now describe the 4,671-page final scope.
+
+The imported fixed-epsilon estimate keeps smooth complex hypotheses and
+fixed E. Sharp intermediate-degree O(p^r) remains open for n>=3,
+1<=r<n; no original result or independent-model receipt is introduced.
+All 13,382 prior numbered values, 600 old cited keys/labels, 2,765 TOC
+entries and 900 index entries are preserved; Qin26CR gives 601 cited keys.
+All 48,774 internal links resolve; inherited underfull blocks are identical.
+Last complete ordered book pass remains 4 October. The native catalogue,
+42 atoms/twelve problems and tiers (0,3,7,15,17) remain unchanged.
+General BJ22 homogeneous Siu/envelopes stay OPEN, LPWZ density UNVERIFIED,
+and the Theorem 6.21 warning remains binding. Main stays
+00957114db21b627e97369563032ceda9cea09c7; PR #2 remains draft. Continue cloud-only with
+the newly published Ballaÿ–Sombra source, incoming author progress and
+further book polishing. Xean remains suspended.
+
 ## Latest verified maximal-ray/extension GitHub publication, 9 October 2026
 
 The [publication record](NA_maximal_extension_GitHub_publication_v2_20261009.json)

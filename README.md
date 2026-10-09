@@ -4,6 +4,17 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest verified curvature-rank GitHub publication, 9 October 2026:**
+the 4,671-page book and evidence are published on work at
+439b5a62470dace7884f00349ae6373696a19afc. All sixteen remote book/source/progress/audit/artifact
+blobs match local hashes and sizes. The [artifacts](manuscript/editorial/artifact_exports/20261009_Qin_curvature_rank_v3/README.md)
+contain full PDF, 24-page actual review, 166-member evidence and
+472-member minimal build source. The [publication record](manuscript/editorial/Qin_curvature_rank_GitHub_publication_v3_20261009.json)
+pins the separately verified complete Qin source checkpoint. All 24
+selected final pages were read in twelve fresh matching displays; upload
+adds no reading credit. Sharp intermediate-degree O(p^r) and general
+BJ22 Siu/envelopes remain OPEN. The native catalogue/editor is preserved.
+
 **Latest verified maximal-ray/extension GitHub publication, 9 October 2026:**
 the 4,669-page book and evidence are published on work at
 b82a20e7d7135b54e86c63ec08e85b99cf13fe4d. All seventeen remote source/progress/audit/artifact blobs match
