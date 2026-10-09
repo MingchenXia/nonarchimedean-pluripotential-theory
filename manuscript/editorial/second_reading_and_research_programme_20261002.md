@@ -3,6 +3,44 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest model Green-current and norm GitHub publication, 9 October 2026
+
+The [publication record](Model_Green_norm_GitHub_publication_v3_20261009.json)
+verifies 81a1d3ca7584d89cbb9b807fac161f5d6de49704 on work: all eighteen final source/progress/audit/addendum/
+artifact remote hashes and sizes match. The six
+[artifact files](artifact_exports/20261009_model_green_norm_v3/README.md)
+contain the 4,657-page PDF, 34-page selected review, 188-member actual
+book evidence and 472-member minimal sources. All 34 final-v3 pages were
+freshly read in seventeen individually displayed matching images with full
+text and sequential notes. No reuse is claimed. Frozen v1 overflow and
+failed diagnostic preflights remain; partial v2's sixteen-page/eight-view
+reading found the regular-section/regular-zero-scheme heading ambiguity.
+V3 corrects it without changing the length-four lci, nonreduced example.
+Full validation and post-render gates pass.
+
+The ten-file Dubocs checkpoint in 03fddb8a1fc634d78cc09670f3edd4264aa8d185 is separately uploaded and
+verified: all 27 source pages were actually read in fourteen matching views.
+The nine-file published BE21 checkpoint in e4b7b2ae57a0a2481ad723f64c4b635afadd84c2 retains only its
+29 selected pages in fifteen views; the whole 125-page PDF is not claimed read.
+Earlier classical foundations remain attributed and not recursively certified.
+The singular generic blowup and singular raw total model diagnose unprovided
+proof constructions, without refuting an intended identity after a valid
+repair. Global norm preservation retains finite flat, projective, geometrically
+reduced, ample rational and continuous psh hypotheses. Chow-to-CLD comparison,
+nondiscrete affine regularization and arbitrary local weak-psh descent remain
+separate unresolved interfaces. No general higher-rank formula is imported.
+
+Main remains 00957114db21b627e97369563032ceda9cea09c7 and PR #2 remains a draft.
+The 42 atoms/twelve problems, native catalogue/editor and complete 4 October
+ordered pass retain their scopes. General BJ22 critical homogeneous
+Siu/envelopes remain OPEN; LPWZ density remains UNVERIFIED. No original
+general theorem or independent-model receipt is asserted.
+
+Continue cloud-only with precise primary verification of the remaining
+supremum-norm/base-change and approximation dependencies, and pursue related
+open-problem interfaces sequentially. Check incoming author updates and
+periodically push checked additions and evidence. Xean stays suspended.
+
 ## Latest model Green-current and norm book checkpoint, 9 October 2026
 
 The [integration audit](Model_Green_norm_staged_integration_audit_v3_20261009.md)

@@ -4,6 +4,20 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest verified model Green-current and norm GitHub publication, 9 October 2026:**
+the 4,657-page book and six owned artifact files are uploaded on work in
+81a1d3ca7584d89cbb9b807fac161f5d6de49704. All eighteen final source/progress/audit/addendum/artifact remote
+blobs match local hashes and sizes. The
+[artifact directory](manuscript/editorial/artifact_exports/20261009_model_green_norm_v3/README.md) contains the complete
+PDF, 34-page selected review, 188-member actual book evidence and
+472-member minimal source checkpoint. All 34 final pages were freshly read
+in seventeen individual matching displays. Frozen failures and partial-v2
+observations remain preserved. The
+[publication record](manuscript/editorial/Model_Green_norm_GitHub_publication_v3_20261009.json)
+also pins the complete Dubocs and partial published BE21 source checkpoints.
+General higher-rank, local weak-psh and critical Siu/envelope interfaces
+retain their qualifications and open statuses. Upload adds zero reading credit.
+
 **Latest checked model Green-current and norm book integration, 9 October 2026:**
 the [integration audit](manuscript/editorial/Model_Green_norm_staged_integration_audit_v3_20261009.md)
 adds precise interfaces to Chapters 17 and 19 and new L.97. It distinguishes
