@@ -3,6 +3,39 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest original NA/model dependency source checkpoint, 9 October 2026
+
+The [source audit](BJ_original_NA_model_dependencies_source_review_20261009.md)
+records actual selected text and 36 individual matching displays:
+68 distinct source/page pairs. BoJ18a v1 has 35/79 read pages;
+BoJ18b v1 20/39; Berman v3 13/41. Every source remains partial.
+The original 55-page/29-view selection and additional 13-page/seven-view
+definition/proof selection retain separate immutable preparation records.
+The supplement explicitly resolves the provisional raw/usc concern:
+the exact 2018 FS and Q definitions both include upper regularization.
+
+Twelve exact elementary families calibrate constants, mass, coercivity,
+directional envelopes, Ding/Deligne factors, local weights, adjoint signs,
+rare weights and semigroup periods. Original NA countable regularization,
+mixed-MA continuity, orthogonality and duality retain smooth projective,
+ample, trivially/discretely valued characteristic-zero premises. Berman
+Proposition 2.7 supplies the bounded model-ray construction, with external
+compactness/Bedford–Taylor inputs; its full main proof is unread here.
+Printed defects and additional proof steps do not disprove the intended
+main theorems. The [authored evidence](artifact_exports/20261009_BJ_original_NA_model_dependencies_sources/README.md)
+preserves notes and calculations; external PDF/text/images remain cloud.
+
+Next return to a scoped book unit: published BBJ21 maximal-ray anchors,
+quotient normalization and Finski Corollary 2.12's exact holomorphic
+input. Check incoming GitHub author changes before integrating them.
+The 4,667-page book and native catalogue/editor are unchanged here.
+Canonical inventory remains 42 atoms/twelve formal problems and tiers
+(0,3,7,15,17). BJ22 homogeneous Siu/general envelopes remain OPEN,
+LPWZ density UNVERIFIED, and the user's Theorem 6.21 warning binding.
+No new general result, independent-model receipt or complete book pass.
+Last complete ordered whole-book read remains 4 October. Continue cloud
+only, keep Xean suspended and publish checked units regularly.
+
 ## Latest original maximal-ray/extension source checkpoint, 9 October 2026
 
 The [original-source audit](BBJ21_Finski_original_dependencies_source_review_20261009.md)

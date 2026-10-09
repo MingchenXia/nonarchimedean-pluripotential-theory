@@ -4,6 +4,16 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest original NA/model dependency source checkpoint, 9 October 2026:**
+the [source audit](manuscript/editorial/BJ_original_NA_model_dependencies_source_review_20261009.md)
+records 68 actually read source/page pairs in 36 matching displays:
+BoJ18a 35/79, BoJ18b 20/39 and Berman v3 13/41, all partial.
+Twelve elementary diagnostics preserve constants, energy and Ding signs,
+original field hypotheses and the explicitly upper-regularized 2018
+FS/Q definitions. The [authored evidence](manuscript/editorial/artifact_exports/20261009_BJ_original_NA_model_dependencies_sources/README.md)
+pins initial and supplemental scope. The 4,667-page book/native editor
+are unchanged; general BJ22 Siu/envelopes remain OPEN.
+
 **Latest original maximal-ray/extension source checkpoint, 9 October 2026:**
 the [source audit](manuscript/editorial/BBJ21_Finski_original_dependencies_source_review_20261009.md)
 reads all 48 published BBJ21 pages and 18 of 50 Finski metric-structure
