@@ -4,6 +4,17 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest original maximal-ray/extension source checkpoint, 9 October 2026:**
+the [source audit](manuscript/editorial/BBJ21_Finski_original_dependencies_source_review_20261009.md)
+reads all 48 published BBJ21 pages and 18 of 50 Finski metric-structure
+v2 pages in 33 matching displays. Thirteen elementary diagnostics record
+the literal constant-potential failure of BBJ21 Lemma A.2, fibre energy
+and squared-FS calibration, while preserving the intended main theorems'
+original proof obligations. Finski Corollary 2.12 retains its exact
+holomorphic hypotheses. The [authored evidence](manuscript/editorial/artifact_exports/20261009_BBJ21_Finski_original_dependencies_sources/README.md)
+pins complete versus partial scope. The 4,667-page book and native editor
+are unchanged; general BJ22 Siu/envelopes remain OPEN.
+
 **Latest verified Parseval/raw-FS GitHub publication, 9 October 2026:**
 the 4,667-page book and reviewed evidence are published on work at
 e186e3b69045e73282bfc3f89d9173bb8227530d. All sixteen source/progress/audit/artifact remote blobs match

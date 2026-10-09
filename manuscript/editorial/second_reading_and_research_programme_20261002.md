@@ -3,6 +3,44 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest original maximal-ray/extension source checkpoint, 9 October 2026
+
+The [original-source audit](BBJ21_Finski_original_dependencies_source_review_20261009.md)
+completes actual reading of BBJ21's published 48-page offprint in 24
+ordered matching displays, including both appendices and references.
+Finski metric structure arXiv:2209.03853v2 is read only on 1–14 and
+47–50: 18 of 50 pages in nine displays. Physical 15–46 remain unread
+in this round. Total: 66 source/page pairs, 33 actual views. Neither
+preparation nor export/upload adds reading credit.
+
+The original maximal-ray chain retains Berman16's model construction,
+NA MA uniqueness/duality and decreasing model regularization. Ordered
+energy strictness and the NA lower slope bound identify the datum;
+monotone energy alone does not. Literal BBJ21 Lemma A.2 fails for
+constant potentials; Corollary A.3 and the intended main theorems are
+not declared false. General-origin, signed-log numerator and epsilon
+steps remain explicit obligations. Thirteen exact elementary families
+also calibrate fibre energy, multiplier shifts, klt/SNC thresholds,
+trivial ratios, squared FS, psh representatives and fixed extension twists.
+
+The read Corollary 2.12 of Finski supplies the exact continuous-psh,
+ample, smooth projective/closed-submanifold restriction quotient input.
+Its OT/Bernstein–Markov original proofs are separate dependencies.
+Next audit exact BoJ18a/BoJ18b and Berman16 inputs, plus the original
+semiclassical extension sources and Okounkov lattice arguments, before
+further general book integrations. The [authored archive](artifact_exports/20261009_BBJ21_Finski_original_dependencies_sources/README.md)
+preserves the actual notes and diagnostics; primary PDFs/images stay cloud.
+
+The current verified 4,667-page book, both bibliographies and native
+catalogue/editor are unchanged in this source unit. The canonical
+42 atoms/twelve problems and tiers (0,3,7,15,17) are unchanged.
+BJ22 critical homogeneous Siu/general envelopes stay OPEN, LPWZ density
+UNVERIFIED, and the user's Theorem 6.21 warning binding. No original
+general theorem, independent-model receipt or fresh complete book pass
+is claimed. Last complete ordered book reading remains 4 October.
+Continue cloud-only, integrate incoming author progress and publish
+checked units regularly. Xean stays suspended.
+
 ## Latest verified Parseval/raw-FS GitHub publication, 9 October 2026
 
 The [publication record](parseval_raw_FS_GitHub_publication_v2_20261009.json)
