@@ -7735,3 +7735,21 @@ All nine GVF source audit/evidence files were downloaded from GitHub and
 verified byte-for-byte at `09abcd6a6cdfaaada3c9f9db5303c7b8256f969e`. See the [publication record](Hultberg_GVF_gap_complete_GitHub_publication_v1_20261009.json).
 The research branch was checked at `47246110a56af214776920dc8d4822bed2b38c83`; this read adds no
 engine execution or new incoming-proof clearance. Upload adds no credit.
+
+## Incoming GitHub continuation306 audit, 9 October 2026
+
+Read the complete conductor-power-cover working paper425, current paper426
+lines1–313 and all five actual native294 FINAL objects at research commit
+`47246110a56af214776920dc8d4822bed2b38c83`. The full qualified G331
+carries previous complete reading by exact byte identity; no new recursive
+primary audit is claimed. The later paper426 retained body and companion
+remain unread. Distinct-centre self-crossing and same-centre nonradicial
+power-cover failures remain UNVERIFIED conditional deductions. Radicial
+higher-dimensional cases transport the unresolved normal-source problem;
+surface conclusions retain the qualified excellent-normal-surface input.
+
+See [scoped proof review](P12_3_incoming_continuation306_scoped_review_v1_20261009.md) and [authored evidence](artifact_exports/20261009_P12_3_incoming_continuation306_v1/README.md).
+Own exact finite checks include both canonical parity formulas and signed
+power-cover inequalities. The4,679-page book, native catalogue/editor and
+canonical42-atom problem statuses remain unchanged. No independent
+production receipt is present; upload adds no proof or reading credit.
