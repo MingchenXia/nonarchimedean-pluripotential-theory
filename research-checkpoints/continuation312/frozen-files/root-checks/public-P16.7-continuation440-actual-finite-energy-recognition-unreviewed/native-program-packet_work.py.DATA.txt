@@ -1,0 +1,95 @@
+"""Passive packet inventory, bounded display, and byte retention only.
+
+This helper never imports or executes supplied programs.  Display records are
+observations of emitted text; they are not proof of physical reading or correctness.
+"""
+import argparse
+import hashlib
+import json
+from pathlib import Path
+import shutil
+import sys
+import zipfile
+
+ROOT = Path(__file__).resolve().parent
+BASE = ROOT.parent.parent
+BINDINGS = {
+    "math": BASE / "mathematical-packet-bindings.json",
+    "primary": BASE / "private-primary-packet-bindings.json",
+    "book": BASE / "book-context-bindings.json",
+}
+
+
+def entries(kind):
+    return json.loads(BINDINGS[kind].read_text())
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("action", choices=["inventory", "display", "retain"])
+    parser.add_argument("kind", choices=list(BINDINGS))
+    parser.add_argument("index", nargs="?", type=int)
+    parser.add_argument("start", nargs="?", type=int, default=1)
+    parser.add_argument("end", nargs="?", type=int)
+    args = parser.parse_args()
+    records = entries(args.kind)
+    if args.action == "inventory":
+        for i, record in enumerate(records):
+            path = Path(record["path"])
+            data = path.read_bytes()
+            print(i, len(data), len(data.splitlines()), path.name)
+        return
+    if args.action == "display":
+        record = records[args.index]
+        path = Path(record["path"])
+        data = path.read_bytes()
+        lines = data.decode("utf-8").splitlines(keepends=True)
+        stop = args.end if args.end is not None else len(lines)
+        if not (1 <= args.start <= stop <= len(lines)):
+            raise ValueError("invalid bounded display range")
+        print(f"BODY {args.kind}[{args.index}] {path} lines {args.start}-{stop}/{len(lines)}")
+        for i in range(args.start - 1, stop):
+            sys.stdout.write(f"{i + 1:05d} " + lines[i])
+            if not lines[i].endswith("\n"):
+                sys.stdout.write("\n")
+        log = {
+            "kind": args.kind, "index": args.index, "path": str(path),
+            "start": args.start, "end": stop, "total_lines": len(lines),
+            "sha256": hashlib.sha256(data).hexdigest(),
+            "claim": "emission only; physical reading separately recorded",
+        }
+        with (ROOT / "display-emissions.jsonl").open("a") as handle:
+            handle.write(json.dumps(log) + "\n")
+        return
+    if args.kind == "primary":
+        raise ValueError("primary bodies remain at their original LOCALONLY paths")
+    archive_path = ROOT / (args.kind + "-whole-incoming-companion.zip")
+    manifest = []
+    with zipfile.ZipFile(archive_path, "w", zipfile.ZIP_DEFLATED) as archive:
+        archive.write(BINDINGS[args.kind], "bindings.json")
+        for i, record in enumerate(records):
+            path = Path(record["path"])
+            data = path.read_bytes()
+            digest = hashlib.sha256(data).hexdigest()
+            name = f"whole/{i:03d}-{path.name}"
+            archive.writestr(name, data)
+            manifest.append({
+                "index": i, "source": str(path), "archive_member": name,
+                "bytes": len(data), "sha256": digest,
+                "expected_sha256": record.get("sha256"),
+                "byte_match": digest == record.get("sha256"),
+                "physical_read": False, "correctness_grant": False,
+            })
+    (ROOT / (args.kind + "-retention.json")).write_text(
+        json.dumps(manifest, indent=2) + "\n")
+    shutil.copyfile(BINDINGS[args.kind], ROOT / BINDINGS[args.kind].name)
+    print(json.dumps({
+        "archive": str(archive_path), "bodies": len(manifest),
+        "bytes": sum(r["bytes"] for r in manifest),
+        "all_binding_hashes_match": all(r["byte_match"] for r in manifest),
+        "meaning": "byte retention only; no reading or correctness claim",
+    }))
+
+
+if __name__ == "__main__":
+    main()

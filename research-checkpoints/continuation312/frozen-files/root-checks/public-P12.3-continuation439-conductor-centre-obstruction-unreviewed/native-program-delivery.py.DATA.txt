@@ -1,0 +1,136 @@
+"""Own passive assembly and finite static checks; never runs supplied code."""
+import hashlib
+import json
+import pathlib
+import platform
+import re
+import sys
+
+HERE = pathlib.Path(__file__).resolve().parent
+
+def sha(data):
+    return hashlib.sha256(data).hexdigest()
+
+def write_json(name, obj):
+    (HERE / name).write_text(json.dumps(obj, ensure_ascii=False, indent=2) + '\n')
+
+bindings = json.loads((HERE / 'mathematical-packet-bindings.json').read_text())
+retained = HERE / 'whole-companion'
+incoming = []
+for row in bindings:
+    path = retained / pathlib.Path(row['path']).name
+    data = path.read_bytes()
+    assert len(data) == row['bytes'] and sha(data) == row['sha256']
+    incoming.append((path.name, data))
+
+for old, new in [('035-original-completion-criteria.txt', 'original-completion-criteria.txt'),
+                 ('036-original-residual.md', 'original-residual.md'),
+                 ('037-original-task.json', 'original-task.json'),
+                 ('010-assignment-task.json', 'historical-assignment-task.json'),
+                 ('000-ENTIRE-qualified-G331-all-fields-and-annotations.json', 'ENTIRE-qualified-G331.json')]:
+    (HERE / new).write_bytes((retained / old).read_bytes())
+(HERE / 'assignment-input.json').write_bytes((HERE / 'input.json').read_bytes())
+
+actual = json.loads((retained / '033-native298-actual-FINAL-all-five-fields.json').read_text())
+assembled = json.loads((retained / '034-native298-assembled-notes-separate-from-actual.json').read_text())
+field_checks = []
+for i in range(5):
+    a = actual['notes'][i]
+    b = assembled['notes'][i]
+    one = json.loads((retained / f'{i+5:03d}-actual-n{i+1}-all-five-fields.json').read_text())
+    check = {k: a[k] == b[k] == one[k] for k in ['id', 'summary', 'detailedSummary', 'text', 'support']}
+    assert all(check.values())
+    formal = (retained / f'{i+12:03d}-n{i+1}.tex').read_bytes()
+    assert formal == a['text'].encode()
+    field_checks.append({'id': a['id'], 'all_five_fields': check, 'formal_text_identical': True})
+assert (retained / '001-P12.3-normal-finite-cover-transfer.tex').read_bytes() == (retained / '032-native-standalone-DATA.tex').read_bytes()
+
+meta = json.loads((HERE / 'notes-meta.json').read_text())
+notes = []
+seen = {'G331'}
+for entry in meta:
+    assert set(entry['support']) <= seen
+    note = dict(entry)
+    note['text'] = (HERE / (note['id'] + '.tex')).read_text()
+    assert set(note) == {'id', 'summary', 'detailedSummary', 'text', 'support'}
+    notes.append(note)
+    seen.add(note['id'])
+write_json('notes.json', {'notes': notes, 'candidate': False})
+paper = (HERE / 'header.tex').read_text() + '\n' + '\n'.join(n['text'] for n in notes) + '\n\\end{document}\n'
+(HERE / 'P12.3-conductor-centre-obstruction.tex').write_text(paper)
+assert paper.count('\\documentclass') == 1
+assert paper.count('\\begin{document}') == paper.count('\\end{document}') == 1
+assert paper.count('\\[') == paper.count('\\]')
+stack = []
+for kind, name in re.findall(r'\\(begin|end)\{([^}]+)\}', paper):
+    if kind == 'begin':
+        stack.append(name)
+    else:
+        assert stack and stack.pop() == name
+assert not stack
+assert len(re.findall(r'(?<!\\)\$', paper)) % 2 == 0
+
+ledger = {'sole_support': 'ENTIRE qualified G331, all fields and all annotations',
+          'new_external_published_theorem_applications': [],
+          'grant_applications': {'n1': ['G331 n1/n3/n8 boundary, density, geometry comparison'],
+                                 'n2': ['G331 n1/n3 conductor and gluing', 'G331 n6 quantitative normal inequality and full divisorial density'],
+                                 'n3': ['G331 full positive C/D descent and gauge/completion']},
+          'whole_grant_physically_read': True,
+          'current_actual_all_five_fields_physically_read': True,
+          'current_formal_source_physically_read_lines': [1, 830],
+          'reading_credit_from_hashes': False,
+          'complete_historical_and_deeper_recursive_audit': False,
+          'full_reading_details': 'source-application-reading-ledger.txt',
+          'qualified_grant_sha256': sha((HERE / 'ENTIRE-qualified-G331.json').read_bytes())}
+write_json('source-application-reading-ledger.json', ledger)
+write_json('environment.json', {'python': sys.version, 'platform': platform.platform(), 'cwd': str(HERE),
+    'network_used': False, 'compiler_invoked': False, 'supplied_program_executed_or_imported': False,
+    'agents_or_provider_calls': False, 'model_signin': 'Not independently attested',
+    'environment_status_tool': 'Unavailable in exposed tool metadata',
+    'supervised_compute': 'No suitable service exposed; none needed or launched',
+    'runtime_changes': False})
+
+parts = [b'WHOLE new mathematical companion. Unverified scoped draft; original P12.3 OPEN; candidate=false.\n']
+own_names = ['notes.json', 'P12.3-conductor-centre-obstruction.tex', 'n1.tex', 'n2.tex', 'n3.tex', 'n4.tex',
+             'source-application-reading-ledger.txt', 'source-application-reading-ledger.json', 'scoped-verdict.txt',
+             'original-task.json', 'original-completion-criteria.txt', 'original-residual.md', 'assignment-input.json',
+             'historical-assignment-task.json', 'ENTIRE-qualified-G331.json', 'passive_packet.py', 'delivery.py',
+             'retention-report.json', 'environment.json', 'notes-meta.json', 'header.tex']
+for name in own_names:
+    parts.extend([('\n===== OWN WHOLE ' + name + ' =====\n').encode(), (HERE / name).read_bytes(), b'\n'])
+for name, data in incoming:
+    parts.extend([('\n===== EXACT WHOLE INCOMING ' + name + ' =====\n').encode(), data, b'\n'])
+for name in ['mathematical-packet-bindings.json', 'private-primary-packet-bindings.json', 'book-context-bindings.json']:
+    parts.extend([('\n===== METADATA ONLY ' + name + ' =====\n').encode(), (HERE / name).read_bytes(), b'\n'])
+companion = b''.join(parts)
+(HERE / 'proof-companion.txt').write_bytes(companion)
+assert all(data in companion for _, data in incoming)
+private = json.loads((HERE / 'private-primary-packet-bindings.json').read_text())
+excluded = []
+for row in private:
+    path = pathlib.Path(row['path'])
+    if ('P12.3-ROOT413-algebraic-field-root-descent-source-20261009' in str(path)
+            or path.name in ['Swanson-Huneke-author-book.txt', 'BFJ-valuations-psh.txt',
+                             'Keeler-ample-filters-corrected-v5.txt']):
+        data = path.read_bytes()
+        assert data not in companion and data not in paper.encode()
+        excluded.append({'path': str(path), 'sha256': sha(data), 'literal_excluded': True})
+for row in json.loads((HERE / 'book-context-bindings.json').read_text()):
+    data = pathlib.Path(row['path']).read_bytes()
+    assert data not in companion
+    excluded.append({'path': row['path'], 'sha256': sha(data), 'literal_excluded': True})
+
+report = {'status': 'PASS finite static artifact checks only', 'mathematical_certification': False,
+          'candidate': False, 'incoming_carriers': len(incoming),
+          'incoming_bytes': sum(len(b) for _, b in incoming),
+          'current_actual_field_and_formal_identity': field_checks,
+          'own_notes': len(notes), 'own_all_five_fields_present': True,
+          'paper_bytes': len(paper.encode()), 'companion_bytes': len(companion),
+          'companion_sha256': sha(companion), 'source_literal_exclusions_checked': excluded,
+          'originals_byte_unchanged': True, 'compiler_invoked': False,
+          'complete_historical_and_deeper_audit': False,
+          'command': 'python delivery.py'}
+write_json('delivery-report.json', report)
+print(json.dumps({k: report[k] for k in ['status', 'candidate', 'incoming_carriers', 'incoming_bytes',
+                                      'own_notes', 'paper_bytes', 'companion_bytes',
+                                      'mathematical_certification', 'compiler_invoked']}, indent=2))

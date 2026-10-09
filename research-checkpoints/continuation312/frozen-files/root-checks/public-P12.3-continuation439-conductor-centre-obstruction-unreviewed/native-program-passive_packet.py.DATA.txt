@@ -1,0 +1,58 @@
+"""Own passive retention/index helper. Never imports or runs supplied programs."""
+import hashlib
+import json
+import pathlib
+import sys
+
+ROOT = pathlib.Path('/workspace/research/campaigns/round-300/P12.3-whole435-normal-nonisolated-and-conductor-classification')
+HERE = pathlib.Path.cwd()
+
+def digest(data):
+    return hashlib.sha256(data).hexdigest()
+
+def retain():
+    rows = json.loads((ROOT / 'mathematical-packet-bindings.json').read_text())
+    folder = HERE / 'whole-companion'
+    folder.mkdir(exist_ok=True)
+    report = []
+    for row in rows:
+        src = pathlib.Path(row['path'])
+        data = src.read_bytes()
+        dst = folder / src.name
+        dst.write_bytes(data)
+        report.append({'name': src.name, 'bytes': len(data), 'sha256': digest(data),
+                       'expected_match': digest(data) == row['sha256'],
+                       'reading_credit': False})
+    (HERE / 'retention-report.json').write_text(json.dumps(report, indent=2) + '\n')
+    for name in ('mathematical-packet-bindings.json', 'private-primary-packet-bindings.json', 'book-context-bindings.json'):
+        (HERE / name).write_bytes((ROOT / name).read_bytes())
+    print(json.dumps({'files': len(report), 'bytes': sum(x['bytes'] for x in report),
+                      'all_expected_hashes_match': all(x['expected_match'] for x in report)}))
+
+def decoded(name):
+    p = HERE / 'whole-companion' / name
+    obj = json.loads(p.read_text())
+    out = HERE / 'read-data'
+    out.mkdir(exist_ok=True)
+    if isinstance(obj, dict):
+        for k, v in obj.items():
+            text = v if isinstance(v, str) else json.dumps(v, indent=2, ensure_ascii=False)
+            safe = ''.join(c if c.isalnum() or c in '-_' else '_' for c in k)
+            dest = out / (p.stem + '--' + safe + '.txt')
+            dest.write_text(text + ('\n' if not text.endswith('\n') else ''))
+            print(str(dest.relative_to(HERE)), len(text), 'characters')
+    else:
+        print(json.dumps(obj, indent=2, ensure_ascii=False))
+
+if __name__ == '__main__':
+    if sys.argv[1] == 'retain':
+        retain()
+    elif sys.argv[1] == 'decode':
+        decoded(sys.argv[2])
+    elif sys.argv[1] == 'index':
+        for label in ('mathematical-packet-bindings.json', 'private-primary-packet-bindings.json'):
+            print(label)
+            for row in json.loads((ROOT / label).read_text()):
+                print(pathlib.Path(row['path']).name, row.get('bytes'), row['path'])
+    else:
+        raise SystemExit('Use retain, decode NAME, or index')

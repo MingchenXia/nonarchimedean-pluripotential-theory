@@ -1,0 +1,37 @@
+"""Retain independent438 before any active300301 mathematics is inspected."""
+from pathlib import Path
+from datetime import datetime,timezone
+import hashlib,json
+
+R=Path('/workspace/research');K=R/'root-checks'
+P=K/'P16.7-continuation438-angular-convex-hull-current-and-energy-working-paper-20261009.tex'
+Q=K/'P16.7-continuation438-ROOT-source-scope-and-residual-20261009.json'
+O=K/'P16.7-continuation438-desktop-compiler-observation-20261009.json'
+T=K/'P16.7-continuation438-entire-proof-companion-20261009.txt'
+B=K/'P16.7-continuation438-ROOT-whole-paper-source-scope-and-binding-20261009.json'
+parent=K/'P16.7-continuation437-ROOT-whole-paper-source-scope-and-binding-20261009.json'
+sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
+load=lambda p:json.loads(Path(p).read_text())
+write=lambda p,x:Path(p).write_text(json.dumps(x,ensure_ascii=False,indent=2)+'\n')
+assert all(not p.exists() for p in [Q,O,T,B])
+assert sha(K/'public-P16-round-46-final-reader/P16.4-paper.tex')=='09a83320fbb8fd7f468329307136ccaa146ea4ad07e9a23437ec3dd688ed942a'
+for n in ['active-work.json','checklist-current.json']:
+    y=load(R/n);assert y['current_active_batch']==[300,301] and y['github_pending_checkpoint']['continuation']==311 and y['latest_verified_github_checkpoint']['continuation']==310
+    assert len(y['fully_solved_original_atoms'])==16 and y['remaining_open_original_atoms']==26 and y['historical_reviewed_scoped_papers']==97
+z=load(parent);assert not z['accepted'] and not z['original_closed']
+for e in z['public_files']:assert sha(e['path'])==e['sha256'] and Path(e['path']).stat().st_size==e['bytes']
+units=load(K/'P16.7-continuation437-ROOT-source-scope-and-residual-20261009.json')['all15_complete_primary_units_reused_ZEROnew_reading_credit']
+for e in units:assert sha(e['path'])==e['sha256']
+fresh=[e for e in units if Path(e['path']).name in ['1224-1216-CLD-18.6.1-LF27560-27607-LOCALONLY.txt','1225-1217-CLD-18.6.2-LF27608-27671-LOCALONLY.txt','1180-CLD-literal-LF10249-10609-LOCALONLY.txt']];assert len(fresh)==3
+s=P.read_text();assert s.endswith('\\end{document}\n') and not any(ord(c)<32 and c not in '\r\n\t' for c in s)
+now=datetime.now(timezone.utc).isoformat()
+scope=dict(recorded_utc=now,paper=438,atom='P16.7',UNREVIEWED=True,accepted=False,original_closed=False,candidate=False,counts=dict(solved=16,open=26,accepted_scoped_papers=97),incoming_correctness_grants=[],whole_current_source_ROOT_physically_read=True,whole_reading_output='c62794 entirecorrected438 source2844tokens untruncated;8f60d5 priorwholeversion hadoneproseplus typo, correctedbeforefinalbinding',proof_origin='Independent ROOT after native300301launch, before ANY active mathematics. Neverfedtoeither. Frozen311already excludes438; nextcheckpoint312.',new_scoped_deductions=['ForEVERYdistinctconstantresidueangles, actualmixedB(Qj,Qk)=g+x2a: translatednorm-one linearGaussfibre atx2a coefficient1 andactualinverse-coordinate linearGaussfibre atg coefficient1 exhaustpositiveboundedmixedrawmass2. B(Qj,qstar) sameviauniformaveragesofOTHERangles.', 'ENTIREuniformclosedconvexhull ofcountableQj exactlysubprobabilityparameters beta_j>=0,sum<=1, supnormisometry a sup|beta-gamma| viaatmostonepointwisedefectandvaluesatxi_j. ActualuniformC positive finite/truncated constructions.', 'ActualMA=(1-S2)(g+x2a)+2sum beta_j²xi_j, E=-1/3-(2a/3)(1+S3), FULLDattained=1/6+(4a/3)(1+S3). S2=sum beta²,S3=sum beta³; countablepositiveRadonseries totalvariationconvergence.', 'EqualaveragesN exactMA=(1-1/N)(g+x2a)+(2/N²)sumxi_j, energyerror-2a/(3N²), exactuniformerrora/N.', 'AgainstOLD2delta_x_a EVERYmember ofENTIREclosedangularconvexhull objective1/6+4a/3-(2a/3)S3 andFULLDgap>=a/3+(2a/3)S3. NOmaximizingsequence evenwithconstantnormalization. ONLYthisclosedhull, notENTIREoriginalC/Gnonexistence.'],all15_current_complete_immediate_primary_units_reused_ZEROextra_credit=units,three_whole_immediate_units_fresh_ROOT_physically_read=fresh,fresh_reading_outputs=['6d4132 WHOLE18.6.1 AND18.6.2 statementsandcompleteproofs','b0160e carrierLF1-185','e5c932 carrierLF186-361 WHOLE8.5/8.7/8.8 appliedstatementsandproofs'],exact_new_primary_application='Boundarylessseparatedordinary neighborhood m<sqrtR of x2a, coordinateisomorphism(Lj,Lk) unitdeterminant, fixedGaussetaR curveanditsone-variablecap; inverseordinaryopen |u|,|v|>sqrtR aroundg, capstrictlyinactive, (1/u,1/v)->(sj,sk) norm-onelineariso withwholejointunitGaussfibreg. Topologicallyproperfixedfibre restriction8.5.6; smoothDD-null subtractiononly; finite/infiniteuniformpositiveproducts8.7.2, multilinearity8.8.5. Source18.6.2 prosefirst-current slips NOTused; 8.6.7 NOTused. No degree2 pointprobabilityshortcut.',wholehistorical_books_recursivefoundations_genuine_geometry_audit_INCOMPLETE=True,complete_entire_original_audit=False,new_all_G_uniqueness_audit=False,residual=['OLDspecifiedisotropicwholeDirac existence/attainment stillOPEN;437 bound3/8<=D<=1/2 unchanged.', 'Generalanalyticrecognition/arbitraryeligiblemeasure/envelopecompactness/comparison/fullP16.7 OPEN.', 'Genuine nonalgebraization/coherentdescent andwholedeeperaudit remainqualifiedOPEN.'],supplied_or_native_programs_executed_or_imported=False,active300301_math_NOTread_or_hotfed=True,compiler='UNVERIFIED notyetrequested438',primary_literal_bodies_pixels_books_LOCALONLY=True,protected_editor_OPEN_UNCHANGED=True)
+write(Q,scope);write(O,dict(recorded_utc=now,paper=438,source_path=str(P),source_sha256=sha(P),actual_builtin_compile_request_invoked=False,compilation_verified=False,result='Notyetrequestedatretention; nosuccessobserved',source_preserved=True,no_local_TeX_plugin=True,no_new_editor_tabs=True,protected_editor_OPEN_UNCHANGED=True))
+components=[('WHOLEindependent438',P),('WHOLE437entireproofcompanion with434wholeand436currentproof/actualfields/qualifications',Path(z['whole_companion']['path'])),('WHOLE437binding',parent),('WHOLE438scope',Q),('438compilerUNVERIFIED',O)]
+T.write_text('ENTIREindependentROOT438packet. UNREVIEWED originalOPEN; literalprimary/pixels/books LOCALONLY; notpartoffrozen311.\n'+''.join('\n===== '+title+' =====\n'+p.read_text()+'\n' for title,p in components))
+body=T.read_bytes();assert all(p.read_bytes() in body for _,p in components) and all(Path(e['path']).read_bytes() not in body for e in units)
+public=[P,Q,O,T]
+write(B,dict(recorded_utc=now,paper=438,whole_source=dict(path=str(P),bytes=P.stat().st_size,sha256=sha(P)),whole_companion=dict(path=str(T),bytes=T.stat().st_size,sha256=sha(T)),public_files=[dict(path=str(p),bytes=p.stat().st_size,sha256=sha(p)) for p in public],UNREVIEWED=True,accepted=False,original_closed=False,compiler=scope['compiler'],counts=scope['counts'],primary_bodies_LOCALONLY=True,protected_editor_OPEN_UNCHANGED=True))
+for n in ['active-work.json','checklist-current.json']:
+    p=R/n;y=load(p);y.update(updated_utc=now,ROOT438_whole_unreviewed=dict(binding=str(B),sha256=sha(B)),next_work='FinishNONFORCE311 boundedWHOLE434435436437 andfrozen300301. IndependentWHOLE438 nowretainedBEFOREANYactive300301math: exactangularmixedproducts/ENTIREuniformclosedconvexhull/operator/cubicenergy andpersistentOLDtargetobjectivegap>=a/3. Keep438fornext312, nohotfeedback,maxTWO, originals/deeperauditOPEN,counts/editorunchanged.');write(p,y)
+print(json.dumps(dict(paper=438,source_bytes=P.stat().st_size,source_LF=s.count('\n'),source_sha256=sha(P),companion_bytes=T.stat().st_size,public_files=5,binding=str(B),accepted=False,original_closed=False),indent=2))

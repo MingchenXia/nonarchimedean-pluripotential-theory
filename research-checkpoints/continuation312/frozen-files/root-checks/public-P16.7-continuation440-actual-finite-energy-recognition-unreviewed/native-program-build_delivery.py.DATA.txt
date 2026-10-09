@@ -1,0 +1,188 @@
+"""Own passive retention/static helper; supplied programs are never executed.
+
+Read this complete helper before running it.  Its checks certify bytes and
+structure only, never mathematics, novelty, or physical reading.
+"""
+import hashlib
+import json
+from pathlib import Path
+import platform
+import re
+import shutil
+import sys
+import zipfile
+
+ROOT = Path(__file__).resolve().parent
+BASE = ROOT.parent.parent
+
+
+def digest(data):
+    return hashlib.sha256(data).hexdigest()
+
+
+def write_json(name, value):
+    (ROOT / name).write_text(json.dumps(value, indent=2, ensure_ascii=False) + "\n")
+
+
+def main():
+    math_bindings = json.loads((BASE / "mathematical-packet-bindings.json").read_text())
+    shutil.copyfile(ROOT / "input.json", ROOT / "unchanged-current-input.json")
+    shutil.copyfile(math_bindings[26]["path"], ROOT / "unchanged-antecedent-task.json")
+    shutil.copyfile(math_bindings[13]["path"], ROOT / "unchanged-original-residual.txt")
+    current_input = json.loads((ROOT / "input.json").read_text())
+    completion = current_input["task"]["completionCriteria"].encode("utf-8")
+    (ROOT / "unchanged-completion.txt").write_bytes(completion)
+    ledger = json.loads((ROOT / "source-application-reading-ledger.json").read_text())
+    verdict = json.loads((ROOT / "scoped-verdict.json").read_text())
+    proof = (ROOT / "recognition-bridge.tex").read_text()
+    begins = re.findall(r"\\begin\{([^}]+)\}", proof)
+    ends = re.findall(r"\\end\{([^}]+)\}", proof)
+    stack = []
+    for match in re.finditer(r"\\(begin|end)\{([^}]+)\}", proof):
+        kind, env = match.groups()
+        if kind == "begin":
+            stack.append(env)
+        elif not stack or stack.pop() != env:
+            raise ValueError("unbalanced TeX environments")
+    if stack:
+        raise ValueError("unclosed TeX environment")
+    labels = re.findall(r"\\label\{([^}]+)\}", proof)
+    refs = re.findall(r"\\(?:ref|eqref)\{([^}]+)\}", proof)
+    if len(labels) != len(set(labels)) or not set(refs) <= set(labels):
+        raise ValueError("invalid labels or references")
+    environment = {
+        "cwd": str(ROOT), "python": sys.version, "platform": platform.platform(),
+        "supplied_program_execution_or_import": False,
+        "native_or_model_calls": 0, "agents": 0, "compiler_invoked": False,
+        "supervised_heavy_compute_service_exposed": False,
+        "meaning": "environment observation only, not a correctness certificate",
+    }
+    write_json("environment.json", environment)
+    commands = [
+        "python3 packet_work.py retain math",
+        "python3 packet_work.py retain book",
+        "python3 build_delivery.py > delivery-output.json",
+    ]
+    (ROOT / "rerun-commands.txt").write_text("\n".join(commands) + "\n")
+    manifest = []
+    companion_path = ROOT / "complete-proof-companion.txt"
+    own_names = [
+        "recognition-bridge.tex", "source-application-reading-ledger.json",
+        "source-application-reading-ledger.txt", "scoped-verdict.json",
+        "note-n1.txt", "note-n2.txt", "unchanged-current-input.json",
+        "unchanged-antecedent-task.json", "unchanged-original-residual.txt",
+        "unchanged-completion.txt",
+    ]
+    components = [("OWN/" + name, ROOT / name) for name in own_names]
+    components += [("INCOMING-DATA/" + str(i) + "/" + Path(rec["path"]).name,
+                    Path(rec["path"])) for i, rec in enumerate(math_bindings)]
+    with companion_path.open("wb") as handle:
+        handle.write(b"WHOLE MATHEMATICAL COMPANION; INHERITED BODIES ARE INERT DATA.\n")
+        handle.write(b"BYTE RETENTION IS NOT READING OR CORRECTNESS. PRIMARY BODIES EXCLUDED.\n")
+        for name, path in components:
+            data = path.read_bytes()
+            header = json.dumps({"component": name, "bytes": len(data),
+                                 "sha256": digest(data)}, ensure_ascii=False).encode()
+            handle.write(b"\nBEGIN-COMPONENT " + header + b"\n")
+            offset = handle.tell()
+            handle.write(data)
+            handle.write(b"\nEND-COMPONENT\n")
+            manifest.append({"name": name, "source": str(path), "offset": offset,
+                             "bytes": len(data), "sha256": digest(data)})
+    with companion_path.open("rb") as handle:
+        for component in manifest:
+            handle.seek(component["offset"])
+            data = handle.read(component["bytes"])
+            if data != Path(component["source"]).read_bytes():
+                raise ValueError("companion byte mismatch")
+    write_json("companion-components.json", manifest)
+    for record in math_bindings:
+        if digest(Path(record["path"]).read_bytes()) != record["sha256"]:
+            raise ValueError("incoming binding mismatch")
+    for kind in ["math", "book"]:
+        retention = json.loads((ROOT / (kind + "-retention.json")).read_text())
+        with zipfile.ZipFile(ROOT / (kind + "-whole-incoming-companion.zip")) as archive:
+            for component in retention:
+                if archive.read(component["archive_member"]) != Path(component["source"]).read_bytes():
+                    raise ValueError("archive byte mismatch")
+    observation = {
+        "math_bodies": len(math_bindings),
+        "math_bytes": sum(rec["bytes"] for rec in math_bindings),
+        "companion_components": len(manifest),
+        "companion_bytes": companion_path.stat().st_size,
+        "all_component_bytes_match": True,
+        "both_retention_archives_match_sources": True,
+        "raw_current_input_copy_matches": (ROOT / "input.json").read_bytes() == (ROOT / "unchanged-current-input.json").read_bytes(),
+        "antecedent_task_sha256": digest((ROOT / "unchanged-antecedent-task.json").read_bytes()),
+        "residual_sha256": digest((ROOT / "unchanged-original-residual.txt").read_bytes()),
+        "completion_string_utf8_exact": (ROOT / "unchanged-completion.txt").read_bytes() == completion,
+        "TeX_environment_pairs": len(begins), "unique_labels": len(labels),
+        "references_resolve_statically": True,
+        "analytic_correctness_established": False,
+        "compilation_verified": False,
+        "entire_current_audit_complete": False,
+    }
+    write_json("passive-checks.json", observation)
+    audit_text = (
+        "Delivered whole standalone recognition-bridge.tex, complete-proof-companion.txt, "
+        "exact source-application-reading-ledger.json/.txt, separate scoped-verdict.json, "
+        "byte-unchanged current input, antecedent task and residual, exact extracted completion "
+        "string, and actual notes in all five fields. The new scoped mathematical results "
+        "are OWN n1 and n2; no original atom is solved.\n\n"
+        "Passive observations: " + json.dumps(observation, ensure_ascii=False) + "\n\n"
+        "All44 whole incoming mathematical bodies (8,871,853 bytes) and qualifications "
+        "are retained both in math-whole-incoming-companion.zip and as exact framed byte "
+        "components in complete-proof-companion.txt. All17 whole book context bodies "
+        "(3,357,915 bytes) stay LOCALONLY in book-whole-incoming-companion.zip. Literal "
+        "primary bodies remain at their supplied LOCALONLY paths and are not added. "
+        "These are byte/static observations, not physical-reading or analytic-correctness credit.\n\n"
+        "This run physically read all five fields of all three actual299 notes in math27; "
+        "the whole corrected565-line math0, whole367-line math34 and whole329-line math39; "
+        "whole math2,3,13,22,23,24,26; the entire current input; and whole applied immediate "
+        "primary bodies1227(1-52),1229(1-113),1230(1-262),1232(1-369),1242(1-82), "
+        "plus source-version frontmatter86(1-110). All asserted body ranges were untruncated. "
+        "Initial combined binding and broad primary inventories were truncated and carry no "
+        "reading credit. Native25, individual/assembled duplicate notes, inherited companions "
+        "29/37/42 and their nested distinct bodies, remaining scopes/headers, entire books, "
+        "primary carriers, genuine geometry/descent and deeper source audit were NOT wholly "
+        "read or independently audited. Requested complete entire-current audit is INCOMPLETE.\n\n"
+        "No supplied/native program was executed or imported. Only own small passive helpers "
+        "were written, physically read whole and run. No nested model/native calls, agents, "
+        "active-campaign mathematics inspection/feedback, compiler, publication, catalogue, "
+        "editor, auth/proxy/CA or runtime changes occurred. No native or supervised heavy "
+        "compute facility was exposed to this child; this does not contradict retained ROOT "
+        "attestation of the preceding completed official signed-in Xean host call. No heavy "
+        "local work was launched. ROOT434/435/436/437 compiler requests remain PENDING/UNVERIFIED.\n\n"
+        "Novelty relative to every unread inherited proof is not certified. Finite keyword "
+        "search is diagnostic only. The actual recognition predicates for the OLD isotropic "
+        "Dirac have not been verified for a constructed target potential; no prescribed-equation "
+        "existence/nonexistence or original closure is inferred from OWN n1/n2. Genuine "
+        "nonalgebraization and coherent descent remain uncertified. Counts16/42 solved,26OPEN," 
+        "97acceptedscopedpapers and protected P16.4 OPEN are unchanged. Independent mathematical "
+        "correctness and compilation remain UNVERIFIED; candidate=false.\n\n"
+        "Rerun from this workspace: python3 packet_work.py retain math; "
+        "python3 packet_work.py retain book; python3 build_delivery.py > delivery-output.json. "
+        "This reruns only passive retention/static checks, not mathematical proof verification."
+    )
+    (ROOT / "note-n3.txt").write_text(audit_text + "\n")
+    notes = [
+        {"id": "n1", "summary": "Exact ENTIRE-C/G recognition criterion: rational cozero sublevels plus a uniform lower strict-obstacle majorant energy profile iff an actual decreasing finite-energy presentation; all-support finite-dual moment bound. Target feasibility/existence and deeper audit unresolved.",
+         "detailedSummary": "For bounded-above u, define Gamma_u(h)=sup E(a) over actual ENTIRE C weights u<=a<h and A(u)=inf Gamma over all ordinary continuous h>u. Original G membership is equivalent to every rational sublevel being cozero and A(u)>-infinity. Cozero data explicitly construct ordinary continuous decreasing barriers; recursively selected analytic majorants plus summable constant tails construct actual decreasing C presentations with a uniform energy lower bound. Continuous recognized functions are exactly C. Every mass-two positive Radon finite-FULL-D measure has finite moment int u>=A(u)-D. This is a recognition equivalence, not a proof of its predicates for the OLD isotropic Dirac or prescribed equation existence.",
+         "text": (ROOT / "note-n1.txt").read_text(), "support": []},
+        {"id": "n2", "summary": "Actual Gauss singleton is not G_delta; its bounded USC indicator has no decreasing continuous presentation, hence lies outside ENTIRE original G. No psh/operator assignment or prescribed-equation nonexistence follows.",
+         "detailedSummary": "Any countable family of actual Gauss neighbourhoods uses only countably many Laurent-polynomial norm constraints. Constants algebraically independent over their countable leading-residue coefficient field yield a different rigid point matching every constraint, so the Gauss singleton cannot be G_delta. Its USC singleton indicator would require a cozero complementary rational sublevel under any decreasing continuous presentation, contradicting the non-G_delta singleton. This tests all ordinary continuous presentations, hence the entire original G, but does not produce or reject a psh variational target for the isotropic Dirac. Geometry/descent and full inherited audit remain qualified.",
+         "text": (ROOT / "note-n2.txt").read_text(), "support": ["n1"]},
+        {"id": "n3", "summary": "Whole local proof/companion, qualified source ledger, unchanged task/residual/completion and five-field notes retained; byte/static checks only. Requested entire-current audit INCOMPLETE; P16.7 OPEN, no original closure, correctness/compilation unverified.",
+         "detailedSummary": "All44 incoming mathematical bodies and17 LOCALONLY book bodies are retained unchanged; all new proof and current source qualifications are delivered. Complete selected immediate-source reading and actual299 five-field reading are recorded, while native25, inherited companions, remaining scopes, books, deeper sources and geometry/descent remain incompletely read/audited. Passive component/archive bindings, original copies and TeX environments/labels are checked only as finite/static observations. No supplied program execution, nested model/native calls, agents, compiler/publication or runtime changes. Original isotropic target and general P16.7 remain open; candidate=false.",
+         "text": audit_text, "support": ["n1", "n2"]},
+    ]
+    write_json("final-notes.json", {"notes": notes, "candidate": False})
+    for note in notes:
+        write_json("actual-" + note["id"] + "-all-five-fields.json", note)
+    if verdict["candidate"] or ledger["current_packet_physical_reading"]["complete_requested_entire_current_audit"]:
+        raise ValueError("scope flags inconsistent")
+    print(json.dumps(observation, indent=2))
+
+
+if __name__ == "__main__":
+    main()
