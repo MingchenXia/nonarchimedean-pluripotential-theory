@@ -1,0 +1,855 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm,mathrsfs}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newcommand{\DD}{d'd''}
+\newcommand{\MA}{\operatorname{MA}}
+\newcommand{\C}{\mathcal C}
+\newcommand{\G}{\mathcal G}
+\newcommand{\GN}{\mathcal G_{\mathrm{net}}}
+\newcommand{\GS}{\mathcal G_{\mathrm{seq}}}
+\newcommand{\RR}{\mathbb R}
+\newcommand{\HH}{\mathscr H}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\title{Energy-bounded decreasing completions on a nonmetrizable analytic space\\Actual nets, countable flattening, and finite Shilov coordinates}
+\author{Research working paper 406; unreviewed}
+\date{9 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We give an actual continuous presentation for the infimum of an
+energy-bounded decreasing net of continuously generated weights on
+a compact Hausdorff space. Its energy is canonical and equals the
+decreasing limit of the outer energies. In the sequential case a
+countable diagonal of the supplied presentations suffices, without
+a countable dense set or a metrizability assumption. Finite full
+bounded-energy dual measures give genuine integrability and
+$L^1$ convergence for every presentation net, using Radon
+regularity rather than a false arbitrary-net monotone convergence
+principle for measurable functions. On the actual analytic surface,
+bounded atomic tests and classical Shilov reconstruction extend to
+the net-generated class. These results do not identify the sequential
+and net classes or prove representability of arbitrary product
+limits. Original P16.7 remains open. All new claims are unreviewed.
+\end{abstract}
+
+\section{The class being completed}
+For the first six sections let $X$ be a nonempty compact Hausdorff
+space. Let $\C\subset C(X,\RR)$ contain every constant and be stable
+under addition of constants. Suppose $E:\C\to\RR$ is monotone for
+the pointwise order and satisfies
+\[
+ E(0)=0,\qquad E(a+c)=E(a)+Mc,\qquad M>0.
+\]
+No lattice closure, envelopes, measure operator, metrizability,
+countable cofinality, or continuity of $E$ is assumed in these
+abstract arguments. These hypotheses hold for the actual continuous
+CLD class and raw energy on the analytic surface described in the
+appendix, where $M=2$.
+
+A directed index set is nonempty and every finite set of indices
+has an upper bound. Write $a_i\downarrow u$ when $a_i\in\C$ is
+decreasing in this order and $u(x)=\inf_i a_i(x)$ for every $x$.
+Define $\GN$ by such actual presentations with
+$\inf_iE(a_i)>-\infty$. Define $\GS$ by presentations indexed by
+$\mathbb N$ with the same bound. Thus $\GS\subset\GN$; equality
+is not part of the definition or a conclusion below. The weights
+are actual functions $X\to\RR\cup\{-\infty\}$, not measure
+equivalence classes. Each is upper semicontinuous and is bounded
+above after restricting to the tail of any fixed presentation index.
+Restricting to a tail changes neither the pointwise infimum nor
+the energy infimum, by directedness.
+
+\section{Compact strict domination and canonical energy}
+\begin{lemma}\label{strict}
+Let $f_i$ be a decreasing net of upper semicontinuous functions,
+let $f=\inf_i f_i$, and let $a$ be continuous with $f<a$ everywhere.
+There is an index $i_0$ such that $f_i<a$ everywhere for every
+$i\ge i_0$. If $f_{i_0}<a$, there is a real $\delta>0$ such that
+$f_{i_0}<a-\delta$ everywhere.
+\end{lemma}
+\begin{proof}
+The ordinary open sets $\{f_i<a\}$ cover $X$. Choose a finite
+subcover and an upper bound of its indices. Decrease then gives
+the first assertion. For the second assertion the open sets
+$\{f_{i_0}<a-1/n\}$, $n\ge1$, cover $X$ and are increasing;
+compactness gives one of these sets equal to $X$.
+This argument includes poles and uses no countable cofinality
+of the original directed index set.
+\end{proof}
+
+\begin{theorem}\label{canonical}
+For $u\in\GN$, every continuous decreasing presentation has the
+same finite energy limit, denoted $E(u)$, and
+\begin{equation}\label{majorant}
+ E(u)=\inf\{E(a):a\in\C,\ a>u\text{ everywhere}\}.
+\end{equation}
+If $u,v\in\GN$ and $u\le v$, then $E(u)\le E(v)$.
+For every finite constant $c$, $u+c\in\GN$ and
+$E(u+c)=E(u)+Mc$.
+No element of $\GN$ is identically $-\infty$; its supremum is a
+finite real number, and $E(u)\le M\sup_Xu$.
+\end{theorem}
+\begin{proof}
+Fix a presentation $a_i\downarrow u$ and set
+$e=\inf_iE(a_i)\in\RR$. If $a\in\C$ is strictly above $u$,
+Lemma\ref{strict} gives some $a_i<a$ globally, so $e\le E(a)$.
+Conversely $a_i+\epsilon>u$ is a permitted majorant, and
+$E(a_i+\epsilon)=E(a_i)+M\epsilon$. Infimizing over $i$ and
+$\epsilon>0$ proves\eqref{majorant}. In particular the right side
+is independent of the presentation. If another presentation has
+no stated lower bound, the same strict-domination comparison
+forces its energy infimum to equal $e$, so it has the bound as well.
+Monotonicity follows because every strict continuous majorant of
+$v$ is also a majorant of $u$.
+Shifting an actual presentation by $c$ proves the stated constant
+rule and membership.
+
+If $u\equiv-\infty$, compact strict domination eventually places
+the presentation below each constant $-N$, forcing $e\le-MN$ for
+every $N$. This contradicts finiteness. The first continuous term
+of a tail gives a finite upper bound, while a finite value of $u$
+gives a finite lower bound for its supremum. Constants
+$\sup_Xu+\epsilon$ in\eqref{majorant} give the last inequality.
+\end{proof}
+
+The assertion about an arbitrary second presentation can also be
+seen directly: for fixed $a_i+\epsilon$, a term of the second
+presentation lies below it, giving its energy infimum at most
+$e$; for every term $b_j$ of the second presentation,
+$b_j+\epsilon>u$, and strict domination by the first presentation
+gives $e\le E(b_j)+M\epsilon$. Let $\epsilon$ decrease to zero
+and infimize over $j$.
+
+\section{Actual flattening of an energy-bounded decreasing net}
+\begin{theorem}\label{netflat}
+Let $u_\gamma\in\GN$ be a decreasing net with
+$E(u_\gamma)\ge L$ for a real $L$. Then its pointwise infimum
+$u=\inf_\gamma u_\gamma$ belongs to $\GN$ and
+\[
+ E(u)=\inf_\gamma E(u_\gamma)\ge L.
+\]
+An actual continuous presentation is the net of all members of
+\begin{equation}\label{D}
+ \mathscr D_L(u)=\{a\in\C:a>u\text{ everywhere},\ E(a)\ge L\},
+\end{equation}
+ordered by reverse pointwise order. This set is nonempty,
+downward filtered, and has pointwise infimum $u$.
+\end{theorem}
+\begin{proof}
+Fix any outer index $\gamma$ and a continuous presentation
+$c_i\downarrow u_\gamma$. Every $c_i$ has energy at least
+$E(u_\gamma)\ge L$. For $\epsilon>0$, $c_i+\epsilon>u_\gamma\ge u$
+and has energy at least $L$, so\eqref{D} is nonempty.
+
+Given $a,b\in\mathscr D_L(u)$, their ordinary continuous minimum
+$m=\min(a,b)$ is strictly above $u$. We do not assume $m\in\C$.
+Apply Lemma\ref{strict} to the outer USC net to choose an index
+$\gamma$ and a number $\delta>0$ with $u_\gamma<m-\delta$ globally.
+Apply the same lemma to a continuous presentation $c_i$ of this
+$u_\gamma$ to choose $c_i<m-\delta/2$ everywhere. Pick
+$0<\epsilon<\delta/2$. Then
+\[
+ c_i+\epsilon\in\mathscr D_L(u),\qquad
+ c_i+\epsilon<a,\qquad c_i+\epsilon<b.
+\]
+Thus the set is downward filtered even though $\C$ need not be
+closed under minima.
+
+Every member of\eqref{D} is above $u$. Fix $x\in X$ and a real
+$T>u(x)$, where any real $T$ is permitted at a pole. Choose
+$\gamma$ with $u_\gamma(x)<T$, then a term $c_i$ of its
+presentation with $c_i(x)<T$. A sufficiently small positive
+$\epsilon$ leaves $(c_i+\epsilon)(x)<T$ while making it a member
+of\eqref{D}. Hence the infimum is exactly $u$ at every point.
+The net so obtained has energy bounded below by $L$, proving
+actual membership in $\GN$ before its energy is used.
+
+Monotonicity in Theorem\ref{canonical} gives
+$E(u)\le E(u_\gamma)$ for every $\gamma$. Conversely, for any
+$a\in\C$ strictly above $u$, compact strict domination gives
+$u_\gamma<a$ everywhere for some $\gamma$.
+By\eqref{majorant}, $E(u_\gamma)\le E(a)$. Taking the infimum
+over $\gamma$ and then over all such $a$ gives
+$\inf_\gamma E(u_\gamma)\le E(u)$. This proves equality.
+\end{proof}
+
+\begin{remark}
+The index set\eqref{D} is an actual set of finite continuous
+functions. It is not a presumed cofinal family of algebraic models,
+an abstract functional completion, or a prescribed sequence.
+In particular the theorem supplies decreasing-net closure of the
+net-generated class at a common finite energy bound without
+enlarging its definition by an iterated completion.
+\end{remark}
+
+\section{A countable diagonal using the supplied presentations}
+\begin{theorem}\label{seqflat}
+Suppose $u_n\in\GS$ decreases and $E(u_n)\ge L$.
+Then $u=\inf_nu_n\in\GS$ and $E(u)=\inf_nE(u_n)$.
+This conclusion uses no countable dense set of points of $X$.
+\end{theorem}
+\begin{proof}
+Choose each supplied presentation $a_{n,k}\downarrow u_n$.
+All its terms satisfy $E(a_{n,k})\ge L$.
+Start with $v_1=a_{1,1}+1$, which is strictly above $u_1$.
+Given $v_{n-1}>u_{n-1}$, the finite collection
+\[
+ v_{n-1},\qquad a_{i,k}+2^{-n}\quad(1\le i,k\le n)
+\]
+consists of continuous functions strictly above $u_n$.
+Let $m_n$ be their ordinary continuous minimum. Compactness gives
+a number $\delta_n>0$ with $u_n<m_n-\delta_n$ everywhere.
+Compact strict domination chooses $k(n)$ with
+$a_{n,k(n)}<m_n-\delta_n/2$ everywhere. Pick
+$0<\epsilon_n<\min(\delta_n/2,2^{-n})$ and set
+$v_n=a_{n,k(n)}+\epsilon_n$. Then $v_n\in\C$,
+$v_n>u_n$, $v_n<v_{n-1}$ and $E(v_n)\ge L$.
+
+Write $v=\inf_n v_n$. It is at least $u$.
+For fixed $i,k$, every sufficiently large $n$ gives
+$v_n<a_{i,k}+2^{-n}$, hence $v\le a_{i,k}$.
+Infimizing first over $k$ and then over $i$ gives $v\le u$.
+Thus this actual sequence presents $u$ with the required energy
+bound. The energy equality follows from Theorem\ref{netflat},
+which applies to the same outer sequence, and from canonical energy.
+\end{proof}
+
+\section{Radon integrals for monotone continuous nets}
+Arbitrary directed monotone convergence for measurable functions
+is false: indicators of finite subsets of $[0,1]$, directed by
+inclusion, have Lebesgue integrals zero but supremum one.
+The following topological version is the one needed here.
+
+\begin{lemma}\label{radon}
+Let $\mu$ be a finite positive Radon measure on compact Hausdorff
+$X$, and let $g_i$ be an increasing net of nonnegative continuous
+functions. For $g=\sup_i g_i$, possibly infinite,
+\[
+ \int g\,d\mu=\sup_i\int g_i\,d\mu.
+\]
+\end{lemma}
+\begin{proof}
+The function $g$ is lower semicontinuous and therefore Borel.
+Radon regularity gives
+\begin{equation}\label{lscint}
+ \int g\,d\mu=
+ \sup\{\int h\,d\mu:h\in C(X,\RR),\ 0\le h\le g\}.
+\end{equation}
+Here is a direct verification of the nontrivial inequality.
+For a finite step $\delta>0$ and cutoff $N$, choose compact sets
+$K_k\subset\{g>k\delta\}$, $1\le k\le N$, whose measures
+approximate these open-set measures from below. Normality of
+compact Hausdorff $X$ gives $h_k\in C(X,[0,1])$, equal to one
+on $K_k$ and with support inside $\{g>k\delta\}$.
+Then $h=\delta\sum_{k=1}^N h_k$ is continuous and at most $g$:
+only indices $k$ with $k\delta<g(x)$ can contribute at $x$.
+Its integral approximates the finite lower layer-cake sums.
+Letting the compact-set errors tend to zero, then refining
+$\delta$ and increasing the cutoff, proves\eqref{lscint},
+including the infinite-integral case.
+
+For $0\le h\le g$ and $\epsilon>0$, the open sets
+$\{g_i>h-\epsilon\}$ cover $X$. A finite subcover and
+directedness give a single $i$ with $g_i>h-\epsilon$ globally.
+Consequently $\sup_i\int g_i\,d\mu\ge\int h\,d\mu-
+\epsilon\mu(X)$. Use\eqref{lscint} and let $\epsilon$ tend to
+zero. The opposite inequality is immediate from $g_i\le g$.
+\end{proof}
+
+\section{The full bounded dual controls actual net presentations}
+For a finite positive Radon measure define
+\[
+ E^*(\mu)=\sup_{a\in\C}\left(E(a)-\int a\,d\mu\right).
+\]
+Constants show that $E^*(\mu)<\infty$ forces $\mu(X)=M$;
+the zero competitor gives $E^*(\mu)\ge0$.
+
+\begin{theorem}\label{dualmoment}
+If $E^*(\mu)<\infty$ and $u\in\GN$ with $u\le0$, then
+\[
+ \int(-u)\,d\mu\le E^*(\mu)-E(u)<\infty.
+\]
+Every decreasing continuous presentation converges to $u$ in
+$L^1(\mu)$ as an actual net. For a general $u$, the same assertion
+holds after a finite constant shift, so poles are $\mu$-null.
+\end{theorem}
+\begin{proof}
+Fix a presentation and a tail bounded above by a constant $B$.
+The continuous nonnegative functions $B-a_i$ increase to $B-u$.
+For each $i$, the definition of the dual gives
+\[
+ \int(B-a_i)\,d\mu\le MB+E^*(\mu)-E(a_i).
+\]
+Lemma\ref{radon} and the canonical energy limit give
+$\int(B-u)\,d\mu\le MB+E^*(\mu)-E(u)$.
+This establishes integrability before using an integral of $u$.
+Subtracting $MB$ proves the displayed bound. Since $a_i\ge u$,
+\[
+ \|a_i-u\|_{L^1(\mu)}=\int a_i\,d\mu-\int u\,d\mu
+ \longrightarrow0
+\]
+by the same integral limit. Finite supremum and the constant rule
+in Theorem\ref{canonical} justify the stated shift.
+\end{proof}
+
+\section{Application to actual analytic weights}
+Now specialize to the actual surface
+\[
+ K=\mathbb C((s)),\quad |s|=e^{-1/8},\quad t=s^8,
+ \qquad X=(\mathbb G_m^2)^{\mathrm{an}}_K/
+          \langle(t,2),(3,t)\rangle.
+\]
+Use the all-stage continuous CLD sheaf $\mathscr P$, local
+$\rho=|\tau|^2/2$, and $\theta=\DD\rho$ in the appendix.
+Its bounded Green calculus proves the energy hypotheses and
+\[
+ E^*(\MA(w))=E(w)-\int w\MA(w)<\infty\qquad(w\in\C).
+\]
+The appendix reproduces the complete atomic construction: at
+each point $x$ of graded dimension two there is an actual bounded
+$w_x\in\C$ with
+\[
+ \MA(w_x)\ge\alpha_x\delta_x,\qquad\alpha_x>0.
+\]
+Its raw calibrated coefficient and finite flat map are established
+there without a change of ground field. This is an unreviewed
+working foundation whose full proof is supplied, not a new
+independent correctness grant or a consequence of compilation.
+
+\begin{corollary}\label{netpoints}
+For every normalized $u\in\GN$ with $\sup_Xu=0$ and
+$E(u)\ge-C$, all graded-dimension-two values are finite and
+\[
+ 0\ge u(x)\ge-
+ \frac{E^*(\MA(w_x))+C}{\alpha_x}.
+\]
+\end{corollary}
+\begin{proof}
+Apply Theorem\ref{dualmoment} to the whole mass-$M$ measure
+$\MA(w_x)$. Positivity gives
+$\alpha_x(-u(x))\le\int(-u)\MA(w_x)\le E^*(\MA(w_x))+C$.
+No finite-dual assertion for the isolated component $\delta_x$
+is used.
+\end{proof}
+
+The all-stage CLD-to-classical recognition in the appendix applies
+to continuous presentation terms. The literal GRv2
+Proposition4.2(4) explicitly permits a decreasing \emph{net} of
+classically psh functions. Thus every local weight $\rho+u$ for
+$u\in\GN$ is actual USC classical psh, including at poles.
+Theorem6.4 gives its maximum on each affinoid Shilov boundary.
+For an arbitrarily small affinoid neighborhood $A$ of $y$ in
+one quotient chart, it follows that
+\[
+ (\rho+u)(y)=\inf_{A\ni y\,\mathrm{neighborhood}}
+ \max_{\xi\in\Gamma_A}(\rho+u)(\xi).
+\]
+One inequality is the maximum principle; the other follows from
+USC by shrinking $A$, using every finite upper threshold when
+$u(y)=-\infty$. The union $\mathscr S$ of these Shilov boundaries
+therefore determines actual net-generated weights at every point.
+Every such Shilov point has graded dimension two, by the exact
+general-radius GRv2 Lemma6.3 and the Abhyankar inequality retained
+in the appendix. Corollary\ref{netpoints} bounds all its values.
+
+\section{What this closure theorem supplies for compactness}
+The evaluation map on $\mathscr S$ embeds the normalized
+energy sublevel of $\GN$ as a set into
+\[
+ \prod_{\xi\in\mathscr S}[-L_\xi(C),0],\qquad
+ L_\xi(C)=\frac{E^*(\MA(w_\xi))+C}{\alpha_\xi}.
+\]
+The ambient product is compact. Theorems\ref{netflat} and
+\ref{seqflat} resolve actual representability of a
+\emph{decreasing} outer family with a common finite energy bound.
+They do not resolve representability of an arbitrary convergent
+subnet of this product. A product limit need not be a decreasing
+limit of supplied weights, and a continuous positive majorant
+directed family cannot be presumed to exist for a merely specified
+coordinate tuple. No closed-image or energy-semicontinuity theorem
+for arbitrary coordinate limits is claimed.
+
+In particular we have not proved $\GS=\GN$, a countable cofinal
+presentation for arbitrary nets, upper-envelope positivity or
+regularity, Monge--Ampere existence for arbitrary finite-dual
+measures, or full original P16.7. A Radon measure with prescribed
+properties cannot be replaced by countably many point tests without
+proof. These remain separate mathematical tasks.
+
+\section{Reading scope and reproducibility}
+The new abstract proofs above are supplied in full. They use
+ordinary compact Hausdorff normality, finite-cover directedness,
+Radon inner regularity on open sets, Urysohn functions, and the
+ordinary scalar layer-cake integral formula at the stated finite
+measure hypotheses. They use no arbitrary-measurable-net monotone
+convergence theorem.
+
+The complete immediate GRv2 Proposition4.2 statement and proof
+were physically read with their surrounding LF1116--1198 context.
+Its decreasing-net assertion reduces to Proposition3.5(5), whose
+recursive whole proof is not freshly claimed read here.
+The smooth recognition statement is the unnumbered argument of
+Section1.2, not a theorem numbered1.2. The whole exact affinoid
+maximum statement and immediate proof of Theorem6.4, and the
+whole Lemma6.3 Shilov-dimension argument, retain the appendix's
+qualified primary reading scope. Deeper Temkin, Ducros, Berkovich,
+intersection and calibration results remain named published
+foundations, not an invented new recursive audit.
+
+The appendix is the complete literal mathematical body of the
+current citation-corrected paper402. Exact identity is retention,
+not a second independent proof reading. Its historical residual
+language describes that paper's scope at writing and grants no
+new status. All primary bodies, literal source units, pixels and
+book contexts remain LOCALONLY. All new claims are UNREVIEWED;
+original closure and counts remain unchanged at16/42 solved,
+26OPEN and97accepted scoped papers. Native/generated programs
+are DATA and are not executed or imported. The protected P16.4
+editor remains OPEN UNCHANGED; this new paper is not hot feedback
+to the active frozen campaigns.
+
+\appendix
+\section{Complete point-test and bounded-energy foundation from paper402}
+The following full mathematical body is retained literally.
+Its section structure and labels are preserved; its actual
+notation is shared with the main text.
+\section{The actual analytic object and proof foundations}
+Put $K=\mathbb C((s))$, $|s|=e^{-1/8}$, $t=s^8$,
+$Y=(\mathbb G_m^2)^{\mathrm{an}}_K$, and
+\[
+ X=Y/\langle(t,2),(3,t)\rangle,\qquad
+ \tau=(-\log|z_1|,-\log|z_2|).
+\]
+The translations on $\tau$ form $\mathbb Z^2$. Ordinary open tropical
+boxes of width less than one give injective quotient charts. We use
+the previously reconstructed analytic quotient: compact, separated,
+good, boundaryless, connected, smooth, and pure of dimension two.
+The quotient construction and its nonalgebraization proof are not
+reproved here and are not consequences of the present point test.
+On a chart let $\rho=|\tau|^2/2$ and $\theta=\DD\rho$.
+Changes of reference are affine unit logarithms. With the identity
+torus's saturated lattice and degree one,
+\[
+ M=\int_X\theta^2=2.
+\]
+This is the raw CLD convention; no probability normalization is made.
+
+Let $\mathscr P$ be the minimal continuous CLD psh sheaf containing
+the ordinary smooth psh functions and closed under local uniform
+limits. All stages of this sheaf are retained. Set
+\[
+ \C=\{a\in C(X,\RR):\rho+a\in\mathscr P\text{ locally}\},\quad
+ \theta_a=\theta+\DD a,\quad B(a,b)=\theta_a\wedge\theta_b.
+\]
+We use the actual recursive continuous products. Their positivity,
+symmetry, closedness, locality, local uniform continuity, and
+invariance under smooth $\DD$-null reference changes are precisely
+CLDv2 8.5.1, 8.5.3, 8.5.5--6, 8.7.1--4 and 8.8.4--5, at the stated
+continuous psh/dpsh and positive closed-current hypotheses. Positive
+top currents are Radon measures by 7.2.8 on these locally
+differentially separated charts. Smooth cutoffs, partitions, scalar
+approximation and boundaryless Stokes are the conventional analytic
+foundations. Arbitrary continuous-multiplier closedness in 8.6.7 is
+not a premise. No first-stage identity for $\mathscr P$ is assumed.
+
+Constants, convex combinations and finite maxima preserve $\C$.
+For a smooth slot, convex regularized maxima are smooth psh.
+Uniform continuity and sheaf minimality extend the operation one
+slot at a time to all stages. This also proves ordinary convex
+composition with finite continuous psh slots by the same argument.
+
+\section{Bounded Green calculus and the full bounded dual}
+Here we give the extra energy argument rather than infer it from
+a positivity label. For a positive closed $(1,1)$ current $T$,
+complete compact smooth $(1,0)$ forms modulo the null space of
+\[
+ (a,b)\longmapsto\int a\wedge Jb\wedge T.
+\]
+Use a nonnegative compact smooth cutoff $\chi$ for the corresponding
+local seminorm $Q_{T,\chi}$. Let $\HH_T$ consist of continuous
+functions locally uniformly approximable by smooth functions whose
+gradients converge strongly in these seminorms. The gradient is
+unique: for a uniformly zero sequence $f_j$ with a strong gradient
+limit and a compact smooth form $b$, closedness gives
+\[
+ \int d'f_j\wedge Jb\wedge T=-\int f_jd'(Jb)\wedge T\longrightarrow0.
+\]
+The right-hand coefficient measure is finite on the fixed compact
+support; smooth Hilbert tests are dense. The limit gradient is zero.
+Partitions patch local approximants by the Leibniz rule.
+Bounded continuous coefficients act by scalar approximation and the
+bound $\|fa\|\le\|f\|_\infty\|a\|$. Products and cutoffs have their
+usual gradient rules.
+
+If $f\in\HH_T$ and $L_Tf=\DD(fT)$ is signed Radon, smooth
+approximation first in $f$, then uniformly and strongly in a
+compactly supported $g$, yields
+\[
+ \int gL_Tf=-Q_T(f,g),\qquad
+ Q_{T,\chi}(w,w)=\frac12\int w^2\DD\chi\wedge T-\int\chi wL_Tw.
+\]
+The sheaf of $f\in\HH_T$ with $L_Tf\ge0$ contains smooth psh
+functions and is uniformly closed. Indeed take nested cutoffs
+$\chi,\eta$, $\eta=1$ near $\operatorname{supp}\chi$,
+a common bound $|f_j|\le B$ on the whole support of $\eta$, and
+$\epsilon=\|f_j-f_k\|$ there. Positivity and the preceding identity give
+\[
+ 0\le Q_{T,\chi}(f_j-f_k,f_j-f_k)
+ \le\frac{\epsilon^2}{2}\|\DD\chi\wedge T\|_{\mathrm{TV}}
+ +2B\epsilon\|\chi\|_\infty\|\DD\eta\wedge T\|_{\mathrm{TV}}.
+\]
+Choose smooth approximants to $f_j$ with uniform and smaller-patch
+gradient errors below $1/j$. The estimate proves strong convergence;
+distributional positivity survives. Minimality places every stage
+of $\mathscr P$ in this sheaf. Its vector span includes continuous
+dpsh functions. Finite patching on compact $X$ proves
+\[
+ \int f\DD(gT)=\int g\DD(fT)=-Q_T(f,g),\qquad Q_T(f,f)\ge0.
+\]
+In particular all the following computations hold at every
+continuous stage. The exact terms in the bounded product expansion
+have zero total integral, so every $B(a,b)$ has mass $M=2$.
+
+Define
+\[
+ E(a)=\frac13\int_X a[\theta^2+\theta_a\wedge\theta+\theta_a^2].
+\]
+For $a_t=(1-t)a+tb$, the cubic expansion and Green give
+\[
+ \frac{d}{dt}E(a_t)=\int(b-a)\MA(a_t),\qquad
+ \frac{d^2}{dt^2}E(a_t)=-2Q_{\theta_{a_t}}(b-a,b-a)\le0.
+\]
+Thus $E$ is concave and monotone, $E(0)=0$, and
+$E(a+c)=E(a)+Mc$. Its tangent inequality is
+\[
+ E(a)\le E(w)+\int(a-w)\MA(w)\qquad(a,w\in\C).
+\]
+For a positive Radon measure $\mu$ define the \emph{full} bounded dual
+\[
+ E^*(\mu)=\sup_{a\in\C}\left(E(a)-\int a\,d\mu\right).
+\]
+Constants force $\mu(X)=M$ whenever this quantity is finite.
+The tangent inequality, with equality at $a=w$, proves the exact
+formula
+\begin{equation}\label{dual}
+ E^*(\MA(w))=E(w)-\int w\MA(w)<\infty
+ \quad\text{for every }w\in\C.
+\end{equation}
+It is nonnegative, since $a=0$ is one of the competitors.
+
+\section{The actual generated class and a moment bound}
+Let $\G$ consist of actual pointwise limits
+$a_j\downarrow u$ on $X$, where $a_j\in\C$ and
+$\inf_jE(a_j)>-\infty$. These limits are USC.
+They are not abstract functionals or equivalence classes modulo
+null sets. Define $E(u)=\lim_jE(a_j)$.
+This is independent of every continuous decreasing presentation.
+To see this, if $b_k\downarrow u$ and $a$ is continuous with $u<a$
+everywhere, the increasing ordinary open sets $\{b_k<a\}$ cover
+compact $X$. One index therefore works everywhere. Apply this to
+$a=a_j+\epsilon$, use monotonicity and the constant rule, and
+then reverse the roles of the presentations. The limits agree.
+In particular $E(u)>-\infty$ for every presentation of a member
+of $\G$. The identically $-\infty$ limit is excluded: compact
+strict domination would eventually put a presentation below every
+negative constant, contradicting its energy lower bound.
+
+\begin{lemma}\label{moment}
+If $u\in\G$, $u\le0$, and $E^*(\mu)<\infty$ for a positive
+Radon measure $\mu$, then
+\[
+ \int(-u)\,d\mu\le E^*(\mu)-E(u)<\infty.
+\]
+\end{lemma}
+\begin{proof}
+Every term of a presentation satisfies
+$\int(-a_j)\,d\mu\le E^*(\mu)-E(a_j)$.
+The continuous first term bounds all terms above. Apply monotone
+convergence to that common bound minus $a_j$ and pass to the limit.
+This proves the claim even at poles and does not presume
+integrability before the bound. The same argument proves
+$L^1(\mu)$ convergence of the whole presentation.
+\end{proof}
+
+\section{Laurent Abhyankar moments without changing the field}
+Write $d_K(x)=\operatorname{trdeg}_{\widetilde K}
+\widetilde{\mathscr H(x)}$, with graded residue fields.
+Let $\mathscr A$ be the set of points of $X$ with $d_K(x)=2$.
+A lift of such a point in $Y$ will also be denoted $x$.
+
+\begin{lemma}\label{moments}
+There are two nonzero Laurent polynomials $P_1,P_2$ over $K$
+whose initial forms at $x$ are algebraically independent over
+$\widetilde K$. Put $r_i=|P_i(x)|>0$. Then
+\[
+ (P_1,P_2)(x)=\eta_{(r_1,r_2)}
+\]
+in $(\mathbb A_K^2)^{\mathrm{an}}$. The map is finite and flat at
+$x$, and admits a local finite flat representative with a positive
+constant degree $D$ and with $x$ the only point above this Gauss point.
+\end{lemma}
+\begin{proof}
+The support of $x$ on the Laurent polynomial ring is zero.
+Otherwise it lies on a proper algebraic subvariety of dimension
+at most one, contradicting $d_K(x)=2$ and the Abhyankar inequality.
+Thus $\mathscr H(x)$ is the completion of the valued field
+$K(z_1,z_2)$. Completion does not add graded residue elements:
+approximate a nonzero element with error strictly less than its
+norm. Its initial form agrees with that of the approximant.
+Consequently the initial forms of all nonzero Laurent polynomials
+generate the graded residue \emph{field}, allowing ratios.
+A maximal algebraically independent subfamily of these homogeneous
+generators has cardinal two. Choosing its members gives $P_1,P_2$.
+
+For every polynomial $\sum_I c_IP^I$, the initial terms of maximal
+norm cannot cancel by graded algebraic independence. Its norm is
+$\max_I|c_I|r^I$. This is exactly the Gauss seminorm, for arbitrary
+real $r_i>0$; no scaling of $r_i$ into $|K^\times|$ is required.
+This is also the Abhyankar-basis criterion of CLD 13.8.5.
+
+The torus is boundaryless, hence $x$ is in the relative interior
+of the map to $\mathbb A^2$. The target is reduced and the Gauss
+point has graded dimension two. CLD 11.6.5(c) makes the map finite
+and flat at $x$. Its 11.6.3 local representative can be chosen
+with a single point of that fibre. The rank is a positive integer
+$D$. After shrinking the target inside its ordinary interior,
+the source is an ordinary open neighborhood of $x$, and the finite
+flat degree remains $D$ there.
+\end{proof}
+
+\section{The actual atomic mass and its global test}
+We spell out the local calibrated number.
+On a real two-plane set $g(t)=\max(0,t_1,t_2)$ and
+$g_\epsilon=\epsilon\log(1+e^{t_1/\epsilon}+e^{t_2/\epsilon})$.
+For $g_1$, write $p_i=e^{t_i}/(1+e^{t_1}+e^{t_2})$ and
+$p_0=1-p_1-p_2$. The Hessian determinant is $p_0p_1p_2$.
+The gradient maps the plane diffeomorphically to
+$\{p_1,p_2>0:p_1+p_2<1\}$ with that Jacobian.
+The raw superform rule is $2!\det(\operatorname{Hess}g_1)\,dt_1dt_2$.
+Its integral is $2!\,(1/2)=1$.
+Dilation and dominated convergence concentrate this finite measure
+at the origin as $\epsilon\downarrow0$, so
+\[
+ (\DD g)^2=\delta_0.
+\]
+This is the explicit case of CLD 1.7.1 and 1.7.6--8, including
+their factor $2!$.
+
+Near $x$, both $P_i$ are invertible. Apply the pleasant moment
+$(P_1,P_2)$ there. Finite flatness and the single Gauss fibre imply
+full tropical dimension and that the calibrated tropical cone at
+$x$ is the whole real plane with multiplicity $D$.
+Indeed the map is open, so the Gauss section of a neighborhood of
+the target gives a neighborhood in the tropical plane. The explicit
+calibration formula CLD 14.5.2--3 makes its image calibration
+$D$ times the standard one. Locality removes other fibre points,
+since there are none in this representative. More explicitly,
+smooth log-sum-exp approximants have top measures strongly
+supported on the inverse image of the target Gauss section.
+The calibrated integration formula pushes them to $D$ times the
+corresponding real-plane measures near the target tropical value.
+Those measures concentrate there with mass one. Finite properness
+and the single Gauss fibre imply that every inverse Gauss point
+over a sufficiently small tropical neighborhood lies in any
+prescribed ordinary neighborhood of $x$: otherwise compactness
+would give another point of that fibre. Continuous tests therefore
+converge to $D$ times evaluation at $x$. Local uniform continuity
+of the actual product identifies the limit with the log-maximum
+product. This reconstructs the atomic calculation 8.9.2--4 and yields
+\begin{equation}\label{localatom}
+ \left(\DD\max(0,\log(|P_1|/r_1),\log(|P_2|/r_2))\right)^2
+ =D\delta_x
+ \quad\text{on some ordinary neighborhood of }x.
+\end{equation}
+Formula \eqref{localatom} uses the normalized
+canonical calibration over the unchanged field $K$ and the actual
+finite flat degree. No arbitrary-current pullback is invoked.
+CLD 18.6.2 gives the equivalent Gauss-fibre description, but its
+relative-intersection proof is not needed for this argument.
+
+\begin{theorem}\label{atom}
+For every $x\in\mathscr A$ there is $w_x\in\C$ and
+$\alpha_x>0$ such that the actual positive Radon measure
+$\MA(w_x)$ satisfies
+\[
+ \MA(w_x)(\{x\})=\alpha_x.
+\]
+One can take $\alpha_x=\varepsilon^2D$ in the construction below.
+\end{theorem}
+\begin{proof}
+Choose an injective lift chart around the tropical class
+$a=\tau(x)$ and a small Euclidean tropical ball of radius $R$ there.
+Its inverse image has compact closure inside a polyannulus.
+Set $\rho_a=|\tau-a|^2/2$; its difference from $\rho$ is
+smooth affine and $\DD$-null.
+The function
+\[
+ \psi=\max(0,\log(|P_1|/r_1),\log(|P_2|/r_2))
+\]
+is finite, continuous, nonnegative and psh on this whole chart,
+including zeros of the polynomials. Here is a direct check at all
+continuous stages. Choose a smooth convex $\chi$ equal to zero for
+$v\le0$, with $0\le\chi'\le1$, and equal to $v-c$ for $v\ge1$,
+where $0<c<1$. For $N>3$ the finite smooth psh function
+\[
+ p_{i,N}=\chi(\log(|P_i|/r_i)+N)-N+c
+\]
+is locally constant at zeros. Where it can be positive it equals
+$\log(|P_i|/r_i)$, so $\psi=\max(0,p_{1,N},p_{2,N})$ exactly.
+Smooth convex regularized maxima place it in $\mathscr P$.
+
+Take $0<\delta<R^2/4$ and choose $\varepsilon>0$ so small that
+$\delta+\varepsilon\sup\psi<R^2/2$ on the compact closure.
+Then
+\[
+ w_x=\max(\rho_a,\delta+\varepsilon\psi)-\rho_a
+\]
+vanishes on a tropical boundary collar. Extend it by zero to $X$.
+It belongs to $\C$: regularize the inner finite maximum, and then
+use a smooth convex regularized outer maximum which agrees exactly
+with the larger slot when the gap exceeds its regularization
+width. The fixed collar gap ensures that each sufficiently small
+regularization extends by zero smoothly and $\theta$-psh.
+Their uniform limit is the displayed function.
+
+On the fixed inner neighborhood $\rho_a<\delta/2$ we have
+$\theta_{w_x}=\varepsilon\DD\psi$. Shrink further to the
+neighborhood in \eqref{localatom}. Locality of the actual recursive
+product gives
+$\MA(w_x)=\varepsilon^2D\delta_x$ there.
+Outside it the global product remains positive and has raw mass
+$M=2$. Thus its atom at $x$ is precisely the positive number
+$\alpha_x=\varepsilon^2D$.
+\end{proof}
+
+\section{Finiteness, sublevel bounds, and the precise compactness limit}
+\begin{corollary}\label{finite}
+For every $u\in\G$ and every $x\in\mathscr A$, $u(x)$ is finite.
+More precisely, if $\sup_Xu=0$ and $E(u)\ge-C$, then
+\[
+ -\frac{E^*(\MA(w_x))+C}{\alpha_x}\le u(x)\le0 .
+\]
+\end{corollary}
+\begin{proof}
+Use \eqref{dual} and Lemma \ref{moment} for the \emph{whole}
+positive measure $\mu_x=\MA(w_x)$.
+Since $-u\ge0$ and $\mu_x$ contains the positive atom
+$\alpha_x\delta_x$,
+\[
+ \alpha_x(-u(x))\le\int(-u)\,d\mu_x
+ \le E^*(\mu_x)-E(u)\le E^*(\mu_x)+C.
+\]
+This excludes a pole at $x$ and proves the bound.
+An arbitrary $u$ can be shifted by its finite supremum.
+A member of $\G$ has a finite upper bound and is not identically
+$-\infty$, so that shift is legitimate.
+\end{proof}
+
+Every Shilov point of a pure-dimensional two-dimensional affinoid
+domain in a local chart has $d_K=2$. At the exact general-radius
+hypotheses, GRv2 Lemma6.3(3)--(4) expresses these Shilov points as
+the strata with two graded algebraically independent generators;
+the Abhyankar inequality gives the reverse bound.
+The entire lemma and its immediate proof were read, including its
+Temkin graded-reduction and Ducros fibre-dimension foundations.
+These deeper theorems are named published foundations, not freshly
+recursively reproved here. Hence Corollary \ref{finite} applies to
+every such Shilov point, not only to the reference torus skeleton.
+On a fixed finite Shilov boundary the lower bound can be chosen
+uniformly by taking the maximum of the finitely many displayed
+constants.
+
+For clarity, actual local weights are classically psh at all
+stages. The published smooth CLD-to-classical bridge is the
+unnumbered statement and argument in GRv2 Section1.2.
+Its Proposition4.2 gives sheafiness and decreasing-net
+closure. A uniform limit of finite continuous classical psh
+functions is classical psh: select errors at most $2^{-j}$ and add
+$3\cdot2^{-j}$, obtaining a decreasing sequence with the same limit.
+Sheaf minimality then recognizes all of $\mathscr P$, and a
+continuous decreasing presentation recognizes $\rho+u$ at poles.
+GRv2 Theorem6.4 therefore gives the affinoid Shilov maximum
+principle for these actual USC weights.
+For all arbitrarily small affinoid neighborhoods $A$ in one chart,
+\[
+ (\rho+u)(y)=\inf_{A\ni y\ \mathrm{neighborhood}}
+                \max_{\xi\in\Gamma_A}(\rho+u)(\xi).
+\]
+The maximum principle gives one inequality. USC gives the other
+by every finite upper bound at a pole and by
+$(\rho+u)(y)+\eta$ at a finite value. Thus values on the union
+$\mathscr S$ of \emph{all} these Shilov boundaries determine the
+actual weight, including all poles.
+
+Fix a normalized energy sublevel
+$\G_C=\{u\in\G:\sup u=0,\ E(u)\ge-C\}$.
+Its evaluation map on $\mathscr S$ is injective and takes values in
+\[
+ \prod_{\xi\in\mathscr S}[-L_\xi(C),0],\qquad
+ L_\xi(C)=\frac{E^*(\MA(w_\xi))+C}{\alpha_\xi}.
+\]
+Tychonoff compactness implies that every net of such evaluations
+has a coordinatewise convergent subnet with finite coordinates.
+This is compactness in the product space of boundary values.
+It does \emph{not} show that the limit coordinates are represented
+by an actual member of $\G$, that the normalized image is closed,
+or that energy is semicontinuous there. Those are still mathematical
+gates for actual energy-sublevel compactness.
+Likewise this point bound alone does not prove uniqueness from
+equality of generated MA measures.
+
+\begin{remark}
+We have not claimed that $\delta_x$ itself has finite full bounded
+dual merely because it is part of $\MA(w_x)$.
+The whole test measure has the supporting-energy formula
+\eqref{dual}; its positivity is exactly what gives the atomic
+point inequality. The distinction retains the raw mass-two dual
+and avoids an invalid componentwise assertion.
+\end{remark}
+
+\section{Source scope and original residual}
+The exact CLDv2 full source is bound locally by SHA256
+\texttt{64846cb00926267c6238d1afac61b5eaed0a0e3a6349725738f9b1bf163de085}.
+Applied immediate readings include 1.7.1 and1.7.6--8
+(LF1773--1830 and1931--2135), the complete local finite-flat block
+11.6.1--5 (LF15846--15912), the graded Abhyankar criterion13.8.1--5
+(LF19772--19820), the full calibration formula/proof14.5.2--3
+(LF20953--21008), and the entire atomic calculation8.9.1--4
+(LF10595--10739). The LF windows actually retained may include
+adjacent context; essential statements and whole immediate proofs
+were read in bounded outputs. The full relative atom formula18.6.2
+(LF27607--27671) was read as corroboration, not a premise of the
+finite-flat/calibration proof.
+No algebraically closed standing hypothesis from14.6 is imported.
+The real-plane coefficient one was computed above rather than
+inferred from an OCR inequality.
+
+The continuous products and bounded Green foundations retain the
+exact earlier 8.5--8.8 source applications and all their hypotheses;
+the complete fresh point construction and energy argument are
+given here. GR is the full17September2025 v2 source, bound by
+\texttt{3a221b86116604c950db07e4c60ab184701f0624deebabd92502e5c81871436b}.
+Lemma6.3 and its whole immediate proof were read at LF1673--1780.
+Its deeper Temkin/Ducros reduction proofs, basic Berkovich
+relative-interior/dimension and completed-residue facts, graded
+field transcendence, and the analytic quotient construction are
+disclosed conventional foundations. There is no claim of an
+entire new recursive source audit. All full primary bodies,
+literal units, pixels and book contexts remain LOCALONLY.
+
+Original P16.7 still requires actual separated energy-sublevel
+compactness/representability, envelopes or a proved variational
+replacement, arbitrary-support equation existence at the stated
+full bounded-dual criterion, and full generated pointwise uniqueness.
+This paper proves the previously missing actual point-finiteness
+and coordinate lower bounds. It neither closes the original nor
+changes any accepted count. The protected P16.4 editor remains open
+and unchanged; new work is not sent as hot feedback to active
+native campaigns. All claims remain UNREVIEWED.
+
+\end{document}
