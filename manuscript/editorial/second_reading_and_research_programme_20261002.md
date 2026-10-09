@@ -1,5 +1,37 @@
 # Second reading and sequential research programme
 
+## Current checked GVF representation edition: 4,685 pages, 9 October 2026
+
+The [integration audit](GVF_Foundations_representation_staged_integration_audit_v1_20261009.md)
+imports the countable-field proper adelic representation, product-formula
+coordinate invariance, symmetric finite-Galois uniqueness and the open
+fixed-GVF_e model-companion question. Lemma 10.2 gives r log2; the bound
+in Definition 11.8 is an upper bound. The general-cardinality framework
+and uncountable geometric examples retain their separate presentations.
+The number-field transition and Ballaÿ–Sombra residuals remain explicit.
+
+All 52 primary pages were previously read in 26 ordered matching views;
+fourteen were repeated for exact book locators without new unique credit.
+Fourteen selected final book pages were read in seven fresh matching views,
+including blank physical page 4434. Required validation and six existing
+tests pass. All 13,382 numbered values, 606 prior cited labels, 2,766 contents
+titles/hierarchy and 900 index terms remain; BDHS26 gives 607 citations.
+All destinations resolve and all 955 underfull blocks match the preceding
+edition. Other 423 core TeX inputs and the complex bibliography are unchanged.
+See the [artifacts](artifact_exports/20261009_GVF_Foundations_representation_v1/README.md).
+
+The last ordered whole-book reading remains 4 October. Continuation309's
+current 429/430, all five actual native296 annotations and formal proofs
+were separately read at the pinned research commit. These original
+candidates and the generic-line GVF candidate remain UNVERIFIED. Canonical
+42 atoms/twelve problems and tiers (0,3,7,15,17) stay unchanged; P12.2/P12.3
+and BJ22 general homogeneous Siu/envelopes remain OPEN, LPWZ density
+UNVERIFIED. No independent production receipt or original theorem is
+promoted. Native catalogue/editor and historical PDF are preserved; native
+compilation is unverified. Continue cloud-only with Xean suspended.
+Earlier checkpoints below remain dated historical evidence.
+
+
 ## Current related-source checkpoint: GVF foundations 52/52, 9 October 2026
 
 All 52 physical pages of arXiv:2409.04570v2 were actually read in 26

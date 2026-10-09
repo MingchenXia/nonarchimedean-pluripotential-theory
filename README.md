@@ -1,5 +1,20 @@
 # Non-Archimedean Pluripotential Theory
 
+**Current checked GVF representation edition: 4,685 pages, 9 October 2026.**
+The [integration audit](manuscript/editorial/GVF_Foundations_representation_staged_integration_audit_v1_20261009.md)
+adds the countable-field proper adelic presentation of heights, symmetric
+finite-Galois extension scope and the open fixed-GVF_e model-companion
+question to Chapter 27. Appendix L pins the primary locators and scale.
+All 52 primary pages and fourteen selected final book pages were actually
+read with matching text/images. The [artifacts](manuscript/editorial/artifact_exports/20261009_GVF_Foundations_representation_v1/README.md)
+contain the full book, actual review, minimal source and authored evidence.
+Required checks pass; all prior numbered values, contents and index terms
+remain, with 607 cited entries. The last ordered whole-book reading remains
+4 October. Continuation309's current scoped proofs were separately read;
+original candidates and canonical statuses remain unchanged. Cloud only,
+Xean suspended. Earlier checkpoints below retain their dated reading scopes.
+
+
 This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
