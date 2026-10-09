@@ -4,6 +4,17 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest verified Parseval/raw-FS GitHub publication, 9 October 2026:**
+the 4,667-page book and reviewed evidence are published on work at
+e186e3b69045e73282bfc3f89d9173bb8227530d. All sixteen source/progress/audit/artifact remote blobs match
+their local hashes and sizes. The [artifact directory](manuscript/editorial/artifact_exports/20261009_parseval_raw_FS_v2/README.md)
+contains the full PDF, 31-page actual review, 116-member book evidence
+and 472-member minimal build source. The [publication record](manuscript/editorial/parseval_raw_FS_GitHub_publication_v2_20261009.json)
+also pins the separately published complete Finski and partial BJKS1 source
+checkpoints. All 31 selected pages were read in 16 matching views; upload
+adds zero reading credit. General BJ22 Siu/envelopes remain OPEN and the
+canonical statuses/native editor are preserved.
+
 **Latest checked Parseval/raw-FS book integration, 9 October 2026:**
 the [integration audit](manuscript/editorial/parseval_raw_FS_staged_integration_audit_v2_20261009.md)
 records the 4,667-page edition: fixed-variable symmetric Parseval in

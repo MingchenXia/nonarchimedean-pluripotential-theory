@@ -3,6 +3,35 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest verified Parseval/raw-FS GitHub publication, 9 October 2026
+
+The [publication record](parseval_raw_FS_GitHub_publication_v2_20261009.json)
+verifies e186e3b69045e73282bfc3f89d9173bb8227530d on work: sixteen source/progress/audit/artifact remote
+blobs have identical hashes and sizes. The [six artifact files](artifact_exports/20261009_parseval_raw_FS_v2/README.md)
+include the 4,667-page full book, 31-page actual review, 116-member
+actual book evidence and 472-member minimal source. The sources, required
+validation, six existing tests, actual 31-page/16-view rendered clearance,
+mathematical self-audit and post-render reference/inventory gates all pass.
+The two explicit blank versos carry no mathematical-content credit.
+
+The independently published source checkpoints retain their actual scopes:
+Finski's complete published 47 pages/24 views at 9f789371c3f56be040de94ed846cb9aab9a06580, and BJKS1's
+partial published 50 of 100 pages/25 views at 8bded7da74d163839a26bdac35259df4b655a8c7. These source
+records are pinned separately; this publication adds zero primary reading
+or recursive proof certification. The first mistaken-reference preflight
+and all old source/reading records remain frozen. Last complete ordered
+whole-book pass remains 4 October. All 13,382 old numbered values and 599
+old citation labels are retained; no new general theorem, source key,
+semantic label, formal block, manual tag or independent-model receipt.
+
+Main remains 00957114db21b627e97369563032ceda9cea09c7 and PR #2 is a draft.
+Native catalogue/editor and canonical 42 atoms/twelve formal problems are
+preserved. General BJ22 critical homogeneous Siu/envelopes remain OPEN,
+LPWZ density UNVERIFIED, and the Theorem 6.21 proof warning binding.
+Continue cloud-only with original maximal-ray, holomorphic-extension and
+Okounkov lattice inputs, incoming author progress and relevant recent
+papers. Publish checked units regularly; Xean stays suspended.
+
 ## Latest checked Parseval/raw-FS book checkpoint, 9 October 2026
 
 The [integration audit](parseval_raw_FS_staged_integration_audit_v2_20261009.md)
