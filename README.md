@@ -3008,3 +3008,8 @@ requirements. The normalized-concavity candidate is UNVERIFIED FOR
 PROMOTION. The 2025 journal proof cited by Liu remains unread; its PDF
 request returned HTML without full-text access. The 4,685-page book,
 same native catalogue and canonical statuses are unchanged.
+
+All nine Luo chi-volume arXiv v1 source/evidence/progress blobs were downloaded
+and verified byte-for-byte on GitHub at `6028a2713eb9f353bf90d6af48ad45d837abd3f0`.
+See the [publication record](manuscript/editorial/Luo_chi_volume_complete_source_GitHub_publication_v1_20261009.json). Upload adds no reading credit,
+theorem clearance or journal-version proof verification.

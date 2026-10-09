@@ -8061,3 +8061,8 @@ and [43-member evidence](artifact_exports/20261009_Luo_chi_volume_arxiv_v1/READM
 The active 4,685-page book and same native catalogue are unchanged;
 tiers (0,3,7,15,17) remain exact. Upload adds no reading credit or
 independent mathematical clearance. Work continues cloud-only.
+
+All nine Luo chi-volume arXiv v1 source/evidence/progress blobs were downloaded
+and verified byte-for-byte on GitHub at `6028a2713eb9f353bf90d6af48ad45d837abd3f0`.
+See the [publication record](Luo_chi_volume_complete_source_GitHub_publication_v1_20261009.json). Upload adds no reading credit,
+theorem clearance or journal-version proof verification.
