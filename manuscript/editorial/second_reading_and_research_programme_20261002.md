@@ -7615,3 +7615,22 @@ The sixteen checked arithmetic-example book/source/progress/audit/artifact
 blobs were downloaded from GitHub and verified byte-for-byte at `f68fe0e60bee52f4356b9cd00d8f0eed1fb5bbfc`.
 See the [publication record](BGPS_Fubini_Study_GitHub_publication_v3_20261009.json).
 Upload adds no reading credit or theorem clearance.
+
+## Complete toric-bundle arXiv reading, 9 October 2026
+
+Read all **42 pages** of Hultberg arXiv:2412.04169v1 in 21 matching
+complete-text/image displays. Seven exact calibrations isolate tensor,
+derivative, lattice-Jacobian and arithmetic-height normalization defects
+in the literal 2024 text. The intended main results remain unverified
+for book import; no new result or source-wide refutation is promoted.
+
+A primary metadata check found the later IMRN 2026(4) edition rnag015,
+published 11 February 2026. Its full text is unread: the arXiv diagnoses
+must not be transferred to that version. Chambert–Loir's published 2000
+paper is the next normalization dependency; the author's 2026 GVF gap
+principle is a later research direction with metadata-only status.
+
+See [version-specific full source audit](Hultberg_toric_bundles_complete_source_review_v1_20261009.md)
+and [53-member authored evidence](artifact_exports/20261009_Hultberg_toric_bundles_complete_v1/README.md).
+The **4,677-page book**, native catalogue source/PDF/editor and canonical
+problem statuses are unchanged. Upload adds no reading or proof credit.

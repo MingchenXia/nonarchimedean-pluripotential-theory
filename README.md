@@ -2690,3 +2690,22 @@ The earlier bounded checkpoints and evidence are preserved without rewriting.
 All nine complete toric-source evidence files were verified byte-for-byte
 on GitHub at `1a16af3ae42dd796d96f6465b82f0af080134777`. See the [publication record](manuscript/editorial/BGPS_toric_attainment_complete_GitHub_publication_v3_20261009.json).
 The candidate has no independent VERIFIED verdict; upload adds zero reading credit.
+
+## Complete toric-bundle arXiv reading, 9 October 2026
+
+Read all **42 pages** of Hultberg arXiv:2412.04169v1 in 21 matching
+complete-text/image displays. Seven exact calibrations isolate tensor,
+derivative, lattice-Jacobian and arithmetic-height normalization defects
+in the literal 2024 text. The intended main results remain unverified
+for book import; no new result or source-wide refutation is promoted.
+
+A primary metadata check found the later IMRN 2026(4) edition rnag015,
+published 11 February 2026. Its full text is unread: the arXiv diagnoses
+must not be transferred to that version. Chambert–Loir's published 2000
+paper is the next normalization dependency; the author's 2026 GVF gap
+principle is a later research direction with metadata-only status.
+
+See [version-specific full source audit](manuscript/editorial/Hultberg_toric_bundles_complete_source_review_v1_20261009.md)
+and [53-member authored evidence](manuscript/editorial/artifact_exports/20261009_Hultberg_toric_bundles_complete_v1/README.md).
+The **4,677-page book**, native catalogue source/PDF/editor and canonical
+problem statuses are unchanged. Upload adds no reading or proof credit.
