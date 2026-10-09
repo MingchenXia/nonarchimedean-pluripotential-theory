@@ -7730,3 +7730,8 @@ integrated. The [authored evidence](artifact_exports/20261009_Hultberg_GVF_gap_c
 preserves exact checks, notes, receipts, failure record and frozen helpers.
 The 4,679-page book, native catalogue/editor and canonical statuses remain
 unchanged. Continue primary foundations/LY25 checking and cloud book polishing.
+
+All nine GVF source audit/evidence files were downloaded from GitHub and
+verified byte-for-byte at `09abcd6a6cdfaaada3c9f9db5303c7b8256f969e`. See the [publication record](Hultberg_GVF_gap_complete_GitHub_publication_v1_20261009.json).
+The research branch was checked at `47246110a56af214776920dc8d4822bed2b38c83`; this read adds no
+engine execution or new incoming-proof clearance. Upload adds no credit.
