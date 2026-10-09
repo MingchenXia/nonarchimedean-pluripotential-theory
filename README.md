@@ -2914,3 +2914,8 @@ unread; no recursive clearance or independent production receipt is claimed.
 General normal dimension≥3 and arbitrary conductor classification remain
 OPEN. The4,681-page book, same native editor/catalogue and42 canonical
 problem statuses are unchanged. Xean remains suspended in the cloud.
+
+All nine continuation309 scoped audit/evidence files were downloaded from
+GitHub and verified byte-for-byte at `1d5e9cdc39b0cdcc03e53e0dca224681ffc8def4`. See the [publication record](manuscript/editorial/P12_3_incoming_continuation309_GitHub_publication_v1_20261009.json).
+The current research head is `9556f41667eb56aea7e4ec0ddf1b8665a320698e`; only the pinned reviewed
+snapshot receives scoped reading credit. Claims remain UNVERIFIED.
