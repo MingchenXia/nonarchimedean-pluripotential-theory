@@ -3,6 +3,43 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest Reboulet 2026 filtration revision source checkpoint, 9 October 2026
+
+The [complete source audit](Reboulet_filtrations_source_review_20261009.md)
+reads all 39 physical pages of arXiv:2508.16322v2 with complete text,
+twenty individual matching image displays and chronological notes.
+The external version stamp is 3 March 2026; the internal title page is
+4 March. Twelve exact elementary diagnostic families pass. Initial
+rational-number JSON serialization and dependent finalization failures
+are frozen with zero output/credit; fresh v2 passes without changing
+the primary source or actual notes.
+
+The finite product-gauge envelope gives direct infinity contraction;
+determinant means, relative spectral signs and power scaling are
+calibrated explicitly. The general graded/radial/flat conclusions remain
+qualified: the literal boundedness definition is vacuous, an increasing
+linearly bounded graded family can fail strong convergence, and finite
+spectral values need not lie in the limiting measure support. These
+diagnostics do not refute the intended corrected main theorems.
+Parreau's selected-ray apartment input, full scalar-extension/root-limit
+compatibility, RWN25's admissible function construction and completion
+injectivity/finite-energy identifications remain explicit source gates.
+
+The [authored archive](artifact_exports/20261009_Reboulet_filtrations_sources/README.md)
+preserves notes, receipts, calculations and helpers; the cloud archive
+also keeps the external primary PDF/text/images. Upload/export add zero
+credit. The 4,661-page book, 425 core inputs, bibliographies, native editor,
+42 atoms/twelve problem statuses and last complete ordered 4 October
+pass stay unchanged. General BJ22 critical Siu/envelopes remain OPEN,
+LPWZ density UNVERIFIED, and the BJ22 Theorem 6.21 warning remains binding.
+No original general theorem or independent-model receipt is claimed.
+
+Continue cloud-only with RWN25's actual revised support/function domain,
+Parreau 2000 Proposition 2.18, BE21 Theorem 9.5, the underlying analytic
+coefficient/lattice inputs and exact published comparison editions.
+Check incoming author research and regularly push verified authored
+evidence. Xean stays suspended.
+
 ## Latest Chen–Maclean spectral source checkpoint, 9 October 2026
 
 The [complete source audit](CM15_spectral_distribution_source_review_20261009.md)

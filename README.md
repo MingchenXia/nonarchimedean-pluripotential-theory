@@ -4,6 +4,19 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest Reboulet 2026 filtration revision checkpoint, 9 October 2026:**
+the [complete primary audit](manuscript/editorial/Reboulet_filtrations_source_review_20261009.md)
+reads all 39 pages of arXiv:2508.16322v2 in twenty individual matching
+displays. Twelve elementary diagnostic families check calibrated finite
+norm actions and the separate graded/radial/flat proof interfaces.
+Monotone boundedness does not alone imply strong graded convergence;
+finite-degree spectral values can lie outside the limiting support.
+The [authored evidence](manuscript/editorial/artifact_exports/20261009_Reboulet_filtrations_sources/README.md)
+preserves the notes and exact diagnostics. The intended corrected main
+theorems remain qualified pending their original dependencies. The book,
+native editor and canonical statuses stay unchanged; upload adds no
+reading or independent-verification credit.
+
 **Latest Chen–Maclean spectral primary checkpoint, 9 October 2026:**
 the [complete source audit](manuscript/editorial/CM15_spectral_distribution_source_review_20261009.md)
 reads all 27 pages of arXiv:1304.5842v3 in fourteen individual matching
