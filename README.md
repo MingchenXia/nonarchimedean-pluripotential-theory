@@ -4,6 +4,15 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest verified relative-minima GitHub publication, 9 October 2026:**
+the 4,681-page book and [artifacts](manuscript/editorial/artifact_exports/20261009_Guo_Yuan_relative_minima_v2/README.md)
+are published on work at `cbeda27b19e816cb903c7a20bfb1f3de0c94b6c9`. All sixteen remote blobs were
+downloaded and verified byte-for-byte against local hashes and sizes.
+The [publication record](manuscript/editorial/Guo_Yuan_relative_minima_GitHub_publication_v2_20261009.json)
+pins the complete sixteen-page primary-source checkpoint and fourteen final
+pages read in seven fresh views, including one intentional blank verso.
+Canonical statuses remain unchanged; general BJ22 Siu/envelopes stay OPEN.
+
 **Current checked edition: 4,681 pages, 9 October 2026.**
 The [relative-minima integration audit](manuscript/editorial/Guo_Yuan_relative_minima_staged_integration_audit_v2_20261009.md)
 adds Guo–Yuan's curve over the polarized base k(J) to Chapter 27. Both

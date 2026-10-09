@@ -7794,3 +7794,8 @@ All nine continuation306 scoped audit/evidence files were downloaded from
 GitHub and verified byte-for-byte at `4d55b54066a13a157456bfd720e78f890ccb3ebe`. See the [publication record](P12_3_incoming_continuation306_GitHub_publication_v1_20261009.json).
 The current research head is `6a6bdf513eff650f8971b9cf59ef281de7b6c160`; only the pinned reviewed
 snapshot receives scoped reading credit. Claims remain UNVERIFIED.
+
+The sixteen relative-minima book/source/progress/audit/artifact blobs
+were downloaded from GitHub and verified byte-for-byte at `cbeda27b19e816cb903c7a20bfb1f3de0c94b6c9`.
+See the [publication record](Guo_Yuan_relative_minima_GitHub_publication_v2_20261009.json).
+Upload adds no reading credit or theorem clearance.
