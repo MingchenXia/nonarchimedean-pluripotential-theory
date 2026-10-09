@@ -1,5 +1,21 @@
 # Non-Archimedean Pluripotential Theory
 
+**Current checked three-place metric edition: 4,685 pages, 9 October 2026.**
+The [integration audit](manuscript/editorial/Liu_adelic_small_sections_staged_integration_audit_v1_20261009.md)
+adds a canonical projective metric model over three trivial places.
+Field height zero and line-bundle height1/4 are explicit. Positive arithmetic
+volume1/2 coexists with no all-places small positive-power section; nontrivial
+ample/small-residual approximants have normalized error1/(2p). Appendix L
+pins the fully read27-page v4 source and its main-proof reconstruction boundary.
+All thirteen selected final pages were actually read in seven fresh matching
+views. The [artifacts](manuscript/editorial/artifact_exports/20261009_Liu_adelic_small_sections_v1/README.md)
+contain the full book, actual review, minimal source and authored evidence.
+Required checks pass; all prior numbered values, contents and index terms
+remain, with608 cited entries. The last ordered whole-book read remains
+4October. Canonical statuses and original candidates remain unchanged.
+Continue cloud-only, Xean suspended. Earlier checkpoints retain dated scopes.
+
+
 **Latest verified adelic Fujita source audit, 9 October 2026:**
 all 27 primary pages of Liu arXiv:2401.15271v4 were actually read in fourteen
 ordered matching displays. The [complete review](manuscript/editorial/Liu_adelic_Fujita_complete_source_review_v1_20261009.md)

@@ -1,5 +1,34 @@
 # Second reading and sequential research programme
 
+## Current checked three-place metric edition: 4,685 pages, 9 October 2026
+
+The [integration audit](Liu_adelic_small_sections_staged_integration_audit_v1_20261009.md)
+adds the direct canonical-metric model. Q's three trivial places give field
+height0, while O(1) shifts total1/4 and give line-bundle height1/4 and volume1/2.
+No positive-power section is small at every place, but explicit nontrivial
+ample factors with a small residual give normalized volume error1/(2p).
+The transition returns to the usual number-field adelic structure.
+The general Fujita main theorem remains UNVERIFIED FOR BOOK IMPORT.
+
+All27 primary pages and thirteen selected final book pages were actually
+read with matching complete text/images. Page4434 now contains provenance;
+no selected page is blank. All607 prior cited labels remain, giving608
+entries; all13,382 numbered values,2,766 contents entries and900 index terms
+are preserved. Required validation and six existing tests pass; all955
+underfull blocks have identical normalized contents/multiplicities.
+Other423 core TeX inputs and the complex bibliography are unchanged.
+See the [artifacts](artifact_exports/20261009_Liu_adelic_small_sections_v1/README.md).
+
+The last ordered whole-book reading remains4October. Canonical42 atoms,
+twelve problems and tiers(0,3,7,15,17) remain unchanged. BJ22 general
+homogeneous Siu/envelopes stay OPEN, LPWZ density UNVERIFIED. The latest
+incoming-research metadata still has the actually audited309 head and
+adds no proof credit. Original candidates remain UNVERIFIED, with no
+new production receipt. Native catalogue/editor and historical PDF are
+preserved; native compilation is unverified. Cloud-only, Xean suspended.
+Earlier checkpoints below remain frozen dated evidence.
+
+
 ## Latest complete adelic Fujita source audit, 9 October 2026
 
 Read all 27 physical pages of Liu arXiv:2401.15271v4 in fourteen ordered
