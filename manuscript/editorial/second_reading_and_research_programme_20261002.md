@@ -1,5 +1,35 @@
 # Second reading and sequential research programme
 
+## Current checked translated-abelian edition: 4,679 pages, 9 October 2026
+
+The [integration audit](Chambert_Loir_abelian_staged_integration_audit_v2_20261009.md)
+records the canonical equality case in Chapter 27. For rational q over Q,
+the translated bundle minus its fibre constant has both minima and normalized
+arithmetic height -h_q. Theorem 2.5's mixed term receives binomial(g+1,2)
+in the full power. Flat Picard-zero curvature is unchanged; zero-defect
+constant approximation yields the original normalized measure. The published
+34-page source and complete proof are separately pinned. No original result
+or independent production-verifier receipt is introduced.
+
+All fourteen final selected pages were actually read in seven fresh views,
+including intentional blank verso 4428. Required validation and six existing
+tests pass. All 13,382 earlier numbered values, 603 cited labels, 2,766 contents
+titles/hierarchy and 900 index terms remain; CL00 gives 604 citations. All
+destinations resolve and the 955 inherited underfull diagnostics are unchanged.
+Other 423 core TeX inputs and the complex bibliography are identical.
+
+See the [artifacts](artifact_exports/20261009_Chambert_Loir_abelian_v2/README.md).
+The last ordered whole-book reading remains 4 October; this increment is a
+scoped final-PDF read. Earlier reports and evidence are historical and frozen.
+The incoming continuation302 P12.3 core and whole qualified G331 have a separate
+scoped audit; no exact-current independent receipt, so P12.2/P12.3 remain OPEN.
+BJ22 general homogeneous Siu/envelopes remain OPEN, LPWZ density UNVERIFIED,
+and the native catalogue/editor is preserved with compilation unverified.
+Continue cloud-only. Hultberg's GVF gap-principle arXiv:2601.04972v1 is being
+read: only its first two of 43 pages are actually read at this checkpoint.
+No claims from its unread proof are integrated. Xean stays suspended.
+
+
 ## Checked Fubini–Study arithmetic example, 9 October 2026
 
 The [integration audit](BGPS_Fubini_Study_staged_integration_audit_v3_20261009.md)

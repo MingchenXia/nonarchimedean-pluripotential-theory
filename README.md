@@ -4,6 +4,19 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Current checked edition: 4,679 pages, 9 October 2026.**
+The [translated-abelian integration audit](manuscript/editorial/Chambert_Loir_abelian_staged_integration_audit_v2_20261009.md)
+adds the canonical equality case to Chapter 27 beside the strict Fubini–Study
+example. It keeps the rational translation, fibre constant, binomial factor
+and normalized height explicit; Appendix L pins the full published proof.
+All fourteen selected final pages were read in seven fresh displays,
+including one intentional blank verso. Required checks and compilation pass.
+All prior numbered values, citations, contents and index terms remain.
+The [artifacts](manuscript/editorial/artifact_exports/20261009_Chambert_Loir_abelian_v2/README.md)
+contain the full book, actual review, minimal source and authored evidence.
+The last complete ordered book reading remains 4 October. Canonical open
+problem statuses and the native catalogue/editor remain unchanged.
+
 **Latest verified arithmetic-example GitHub publication, 9 October 2026:**
 the 4,677-page book and [artifacts](manuscript/editorial/artifact_exports/20261009_BGPS_Fubini_Study_v3/README.md)
 are published on work at `f68fe0e60bee52f4356b9cd00d8f0eed1fb5bbfc`. All sixteen remote blobs were
