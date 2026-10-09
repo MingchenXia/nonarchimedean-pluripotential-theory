@@ -2713,3 +2713,20 @@ problem statuses are unchanged. Upload adds no reading or proof credit.
 All nine toric-bundle arXiv source-audit/evidence files were downloaded from
 GitHub and verified byte-for-byte at `2cda4438a07662063c5e2040674dcaa1c01264c8`. See the [publication record](manuscript/editorial/Hultberg_toric_bundles_complete_GitHub_publication_v1_20261009.json).
 The later journal full text is unread; upload grants no proof or reading credit.
+
+## Complete Chambert–Loir normalization dependency, 9 October 2026
+
+Read all **34 physical pages** of the published 2000 paper in 17 matching
+text/image displays. Theorem 2.5 gives a mixed arithmetic coefficient;
+the full power has its binomial multiplier. Theorem 4.2 keeps the raw
+intersection, geometric degree and normalized height distinct. Six exact
+calibrations include 25 dimension/rank normalization samples. Fresh
+addenda preserve the frozen Hultberg audit and correct its previously
+unread primary-import boundary. The later Hultberg journal remains unread.
+
+See [complete published-source review](manuscript/editorial/Chambert_Loir_complete_source_review_v1_20261009.md)
+and [46-member authored evidence](manuscript/editorial/artifact_exports/20261009_Chambert_Loir_complete_v1/README.md).
+Almost-split/product hypotheses and scoped literal proof qualifications
+remain explicit. No new result or independent VERIFIED receipt is claimed.
+The 4,677-page book, catalogue/editor and canonical statuses are unchanged.
+Incoming continuation302/P12.3 is unreviewed and under a separate audit.
