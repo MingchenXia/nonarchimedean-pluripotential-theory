@@ -1,0 +1,35 @@
+"""Own data-only retention and companion writer; no supplied-code imports."""
+import hashlib,json,platform,shutil,sys
+from pathlib import Path
+BASE=Path('/workspace/research/campaigns/round-287/P16.7-whole411412-universal-variational-limits-and-actual-representability')
+math=json.loads((BASE/'mathematical-packet-bindings.json').read_text())
+primary=json.loads((BASE/'private-primary-packet-bindings.json').read_text())
+out=Path('LOCALONLY-inputs');out.mkdir(exist_ok=True)
+audit=[]
+for e in math:
+ p=Path(e['path']);b=p.read_bytes();h=hashlib.sha256(b).hexdigest()
+ assert len(b)==e['bytes'] and h==e['sha256'],p
+ shutil.copyfile(p,out/p.name);audit.append({'name':p.name,'bytes':len(b),'sha256':h})
+for name in ['mathematical-packet-bindings.json','private-primary-packet-bindings.json','book-context-bindings.json']:
+ shutil.copyfile(BASE/name,out/name)
+sel=[1150,1151,1152,1153,1170,1180,1203,1204,1218,1221,1222,1223,1224,1225,1226]
+pout=Path('LOCALONLY-primary');pout.mkdir(exist_ok=True)
+for i in sel:
+ e=primary[i];p=Path(e['path']);b=p.read_bytes();h=hashlib.sha256(b).hexdigest()
+ assert h==e['sha256'] and len(b)==e['bytes'],p
+ shutil.copyfile(p,pout/(str(i)+'-'+p.name))
+shutil.copyfile(Path(math[12]['path']),'original-residual.txt')
+assert Path('original-residual.txt').read_bytes()==Path(math[12]['path']).read_bytes()
+Path('binding-audit-output.json').write_text(json.dumps({'mathematical_bindings_checked':len(audit),'failures':[],'selected_primary_checked':sel,'observations_only':True,'bindings':audit},indent=2)+'\n')
+Path('environment.json').write_text(json.dumps({'python':sys.version,'platform':platform.platform(),'cwd':str(Path.cwd()),'native_campaign_calls':0,'agents_spawned':0,'compiler_invoked':False,'supervised_compute_facility_exposed':False,'xean_native_facility_exposed':False,'environment_status_exposed':False,'supplied_programs_executed_or_imported':False},indent=2)+'\n')
+verdict={'candidate':False,'original_target':'UNCHANGED ORIGINAL P16.7','status':'conditional bounded-calculus progress; no original solution','entire_independent_audit_complete':False,'new_claims':['universal normalized full-maximizer energy and all bounded moving-moment limits','uniform third-slot absolute MA moment estimate','common weak genuine bounded-MA limits against every continuous test','exact limiting full-dual energy and nonnegative prescribed-measure defect','uniform common caps and uniform convergence on local compact finite-Gauss-fibre families','common actual USC upper relaxation determined by all affinoid Shilov boundaries'],'unresolved':['geometric nonalgebraization/source-chain acceptance','positivity and finite-energy analytic representation of upper relaxation','equality of full-point limit tuple with upper relaxation','weak MA limit equals prescribed measure','arbitrary prescribed-measure L1 convergence','sufficient actual envelope/variation inputs','original arbitrary-support existence theorem','entire historical primary/book audit'],'conditional_analytic_foundations_explicit':True,'correctness_certificate':False,'compiler_invoked':False,'publication_or_acceptance_performed':False}
+Path('scoped-verdict.json').write_text(json.dumps(verdict,indent=2)+'\n')
+parts=['ENTIRE NEW PROOF COMPANION — UNVERIFIED CONDITIONAL DRAFT\n','===== COMPLETE STANDALONE TEX =====\n',Path('scoped-paper.tex').read_text(),'\n===== COMPLETE SOURCE / APPLICATION / READING LEDGER =====\n',Path('source-application-reading-ledger.txt').read_text(),'\n===== BYTE-IDENTICAL UNCHANGED ORIGINAL RESIDUAL — HISTORICAL DATA =====\n',Path('original-residual.txt').read_text(),'\n===== SEPARATE SCOPED VERDICT =====\n',Path('scoped-verdict.json').read_text()]
+Path('proof-companion.txt').write_text('\n'.join(parts))
+exposures=[json.loads(s) for s in Path('reading-log.jsonl').read_text().splitlines()]
+Path('source-application-reading-ledger.json').write_text(json.dumps({'whole_historical_primary_book_audit_complete':False,'display_log':'reading-log.jsonl','fresh_primary_indices':sel,'primary_full_carriers_read_whole':False,'current_math_whole_read_or_component_identity':[5,6,7,8,9,10,11,12,13,14,15,18,19,34,36,86,90,96,97,99],'identity_not_extra_reading_credit':True,'compiler_and_metadata_not_correctness_grants':True,'note_support_references_only_earlier_own_ids':True,'displays':exposures},indent=2)+'\n')
+manifest=[]
+for p in [Path('scoped-paper.tex'),Path('proof-companion.txt'),Path('original-residual.txt'),Path('source-application-reading-ledger.txt'),Path('scoped-verdict.json')]:
+ b=p.read_bytes();manifest.append({'path':str(p),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()})
+Path('artifact-bindings.json').write_text(json.dumps(manifest,indent=2)+'\n')
+print(json.dumps({'mathematical_bindings_checked':len(audit),'byte_hash_failures':0,'selected_primary_checked':len(sel),'artifact_bindings':manifest,'candidate':False},indent=2))

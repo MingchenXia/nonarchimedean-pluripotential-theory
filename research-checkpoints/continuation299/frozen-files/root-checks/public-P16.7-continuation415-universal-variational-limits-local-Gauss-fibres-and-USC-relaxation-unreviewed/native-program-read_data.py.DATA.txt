@@ -1,0 +1,12 @@
+import argparse, hashlib, json
+from pathlib import Path
+BASE=Path('/workspace/research/campaigns/round-287/P16.7-whole411412-universal-variational-limits-and-actual-representability')
+p=argparse.ArgumentParser();p.add_argument('kind',choices=['math','primary','path']);p.add_argument('index');p.add_argument('start',type=int);p.add_argument('stop',type=int);p.add_argument('--note',type=int);a=p.parse_args()
+if a.kind=='path': path=Path(a.index)
+else:
+ entries=json.loads((BASE/('mathematical-packet-bindings.json' if a.kind=='math' else 'private-primary-packet-bindings.json')).read_text());path=Path(entries[int(a.index)]['path'])
+b=path.read_bytes();s=b.decode()
+if a.note is not None:
+ obj=json.loads(s);obj=obj['notes'] if isinstance(obj,dict) and 'notes' in obj else obj;s=json.dumps(obj[a.note],ensure_ascii=False,indent=2)
+lines=s.splitlines(keepends=True);out=''.join(lines[a.start-1:a.stop]);print(f'FILE {path.name} SHA256 {hashlib.sha256(b).hexdigest()} LINES {a.start}-{a.stop} / {len(lines)}');print(out,end='')
+with open('reading-log.jsonl','a') as f:f.write(json.dumps({'path':str(path),'sha256':hashlib.sha256(b).hexdigest(),'note':a.note,'first_line':a.start,'last_line':min(a.stop,len(lines)),'line_count':len(lines),'characters':len(out)})+'\n')

@@ -1,0 +1,18 @@
+"""Own final byte/structure check, no compiler and no supplied-code imports."""
+import hashlib,json
+from pathlib import Path
+s=Path('scoped-paper.tex').read_text();depth=0
+for i,c in enumerate(s):
+    if c not in '{}':continue
+    k=0;j=i-1
+    while j>=0 and s[j]=='\\':k+=1;j-=1
+    if k%2:continue
+    depth+=1 if c=='{' else -1
+    assert depth>=0
+assert depth==0
+comp=Path('proof-companion.txt').read_text()
+for f in ['scoped-paper.tex','source-application-reading-ledger.txt','original-residual.txt','scoped-verdict.json']:assert comp.count(Path(f).read_text())==1
+result=json.loads(Path('final-notes.json').read_text());assert result['candidate'] is False
+for n in result['notes']:assert n['text']==Path(n['id']+'.txt').read_text().strip()
+report={'tex_braces_balanced':True,'whole_companion_exact_components':True,'notes_text_serialization_exact':True,'unchanged_residual_sha256':hashlib.sha256(Path('original-residual.txt').read_bytes()).hexdigest(),'standalone_bytes':Path('scoped-paper.tex').stat().st_size,'companion_bytes':Path('proof-companion.txt').stat().st_size,'candidate':False,'mathematical_correctness_certificate':False}
+Path('delivery-check-output.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))

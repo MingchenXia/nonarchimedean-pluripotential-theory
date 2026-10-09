@@ -1,0 +1,20 @@
+"""Own serialization/component identity checks; all supplied programs inert."""
+import ast,difflib,hashlib,json
+from pathlib import Path
+P=Path('LOCALONLY-inputs');m=json.loads((P/'mathematical-packet-bindings.json').read_text())
+rd=lambda i:(P/Path(m[i]['path']).name).read_text()
+a=json.loads(rd(5));b=json.loads(rd(14));o=json.loads(rd(19))
+assert a['notes']==b['notes']
+report={'actual005_014_five_field_equality':True,'plain_note_texts':[],'retention019_artifact_tails':[],'complete_component_identity':{},'diffs':{}}
+for i in range(6,10):assert rd(i).strip()==a['notes'][i-6]['text'].strip();report['plain_note_texts'].append(i)
+for n,new in zip(a['notes'],o['campaign_result']['notes']):
+ assert all(new[k]==n[k] for k in ['id','summary','detailedSummary','support'])
+ assert new['text'].startswith(n['text']);report['retention019_artifact_tails'].append(new['text'][len(n['text']):])
+for i,j in [(11,15),(10,13)]:report['diffs'][str((i,j))]=''.join(difflib.unified_diff(rd(i).splitlines(True),rd(j).splitlines(True)))
+for i,components in [(10,[11,18,12]),(13,[15,18,12]),(99,[96,97])]:
+ s=rd(i);report['complete_component_identity'][str(i)]=[{'component':j,'offset':s.find(rd(j)),'characters':len(rd(j)),'occurrences':s.count(rd(j))} for j in components]
+ assert all(v['offset']>=0 and v['occurrences']==1 for v in report['complete_component_identity'][str(i)])
+key='\\section{The actual analytic object and proof foundations}';x=rd(86);y=rd(90)
+assert x[x.index(key):]==y[y.index(key):]
+report['406_407_appendix_identity_characters']=len(x[x.index(key):]);report['identity_not_correctness_grant']=True
+Path('component-identities.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))
