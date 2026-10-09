@@ -7485,3 +7485,17 @@ and [authored evidence](artifact_exports/20261009_Kuhne_semiabelian_dependency_v
 All nine complete published-source evidence files were verified byte-for-byte
 on GitHub at `c1917b72a63af840cd3c451770b0277c3b30d9d3`. See the [publication record](Kuhne_semiabelian_dependency_GitHub_publication_v1_20261009.json).
 Upload adds no reading credit or unverified proof clearance.
+
+## Arithmetic catalogue source supplement, 9 October 2026
+
+The existing [LaTeX catalogue](../../output/open_problems_catalogue_2026-10-03.tex)
+now includes full statements and known results for BS.Q6.21 (necessity of
+the arithmetic inradius criterion) and BS.R7.16 (logarithmic tests without
+eventual measure constancy). Twelve canonical problem bodies, 42 atoms
+and their tiers are unchanged. **Source audit passes; native compilation
+is unverified:** three calls returned no diagnostics. The historical
+86-page PDF is unchanged and is not verified as current. The same editor
+and source are preserved. The 4,675-page book is unchanged.
+
+See [source audit](Ballay_Sombra_catalogue_supplement_source_review_v1_20261009.md)
+and [source evidence](artifact_exports/20261009_Ballay_Sombra_catalogue_supplement_v1/).
