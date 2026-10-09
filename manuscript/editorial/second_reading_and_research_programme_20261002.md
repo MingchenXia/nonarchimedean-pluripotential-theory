@@ -3,6 +3,45 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest Reboulet–Witt Nyström revised flat source checkpoint, 9 October 2026
+
+The [complete source audit](RWN25_flats_source_review_20261009.md)
+reads all nineteen pages of arXiv:2311.13451v2, 29 October 2025, with
+complete selected text, ten individually displayed matching images and
+chronological notes. Eleven elementary diagnostic families are archived.
+The IMRN publisher PDF returned HTTP 429 and was not acquired; no
+published-PDF byte identity or reading is claimed.
+
+The actual v2 support repair affinely extends finite-right-derivative
+functions across the full finite spectral interval. This is an additional
+source input to the preceding 2026 review, not a retroactive enlargement
+of its receipt. Decreasing-convex norm submultiplicativity and a correctly
+summed complex norm-envelope product proof are useful attributed inputs.
+The complex envelope is generally not Hermitian, but has the required
+logarithmic-rank comparison. Squared metric/norm factors, probability vs
+DH mass, degree powers, endpoint Lp quotients and uniform completion
+bounds remain explicit. The intended corrected main flat theorem is not
+declared false or independently complete.
+
+The source's common-flat, big/prescribed/Kahler and toric-degeneration
+questions remain research directions without new canonical atoms or
+solved statuses. Actual toric monomial-basis premises must be retained.
+The [owned evidence](artifact_exports/20261009_RWN25_flats_sources/README.md)
+and separate cloud full-source archive preserve the calculations and
+notes. Preparation/export/upload add zero credit. The 4,661-page book,
+core inputs, bibliographies, native editor, canonical 42 atoms/twelve
+problems and last complete ordered 4 October pass stay unchanged.
+General BJ22 critical Siu/envelopes remain OPEN, LPWZ density UNVERIFIED,
+and the BJ22 Theorem 6.21 warning remains binding. No independent-model
+receipt or original general theorem is claimed.
+
+Continue cloud-only with the exact Finski isometry/version, Parreau
+Proposition 2.18, BE21 Theorem 9.5 and original analytic/lattice inputs.
+Existing cloud Finski and Parreau copies/partial notes must be checked
+before acquisition or new reading; old partial scopes stay fixed.
+Monitor incoming author research and regularly publish verified authored
+evidence. Xean stays suspended.
+
 ## Latest Reboulet 2026 filtration revision source checkpoint, 9 October 2026
 
 The [complete source audit](Reboulet_filtrations_source_review_20261009.md)

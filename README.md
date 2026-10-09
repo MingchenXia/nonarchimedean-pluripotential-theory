@@ -4,6 +4,18 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest Reboulet–Witt Nyström revised flat checkpoint, 9 October 2026:**
+the [complete source audit](manuscript/editorial/RWN25_flats_source_review_20261009.md)
+reads all nineteen pages of arXiv:2311.13451v2 in ten matching displays.
+The actual revision extends functions beyond limiting DH support before
+finite spectral evaluation. Eleven elementary diagnostics calibrate norm
+and metric factors, distinguish the complex envelope from a Hermitian
+norm, and retain completion/endpoint and toric-basis premises. The
+[authored evidence](manuscript/editorial/artifact_exports/20261009_RWN25_flats_sources/README.md)
+preserves actual notes and calculations. The intended corrected theorem
+retains its original quantization dependencies. The book, native editor
+and canonical statuses stay unchanged; export/upload supply zero credit.
+
 **Latest Reboulet 2026 filtration revision checkpoint, 9 October 2026:**
 the [complete primary audit](manuscript/editorial/Reboulet_filtrations_source_review_20261009.md)
 reads all 39 pages of arXiv:2508.16322v2 in twenty individual matching
