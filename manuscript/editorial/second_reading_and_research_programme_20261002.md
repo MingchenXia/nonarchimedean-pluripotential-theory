@@ -3,6 +3,38 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest supnorm and logarithmic-integrability GitHub publication, 9 October 2026
+
+The [publication record](BE21_supnorm_integrability_GitHub_publication_v1_20261009.json)
+verifies f09e115bcccdf0ff03162459db3e083c749686ac on work: all fifteen source/progress/audit/artifact
+remote hashes and sizes match. The six
+[artifact files](artifact_exports/20261009_BE21_supnorm_integrability_v1/README.md)
+contain the 4,659-page PDF, 24-page selected review, 80-member actual
+book evidence and 472-member minimal sources. All 24 final book pages were
+freshly read in twelve individual matching displays with complete text and
+sequential notes. Full validation and post-render gates pass; upload supplies
+zero reading credit.
+
+The reduced-fibre/log-integrability and supnorm source units in
+265c02ae7e55b5e365329d8d701a00ca94ca1ebf and 1078c9f41128ee4049250bf889c85a38e5c7b178 are separately uploaded and verified,
+each with nine files. Fresh source scopes are eighteen pages/nine views and
+eleven pages/six views. Together with the previous 29-page/fifteen-view
+selection, their union covers 53 distinct pages of 125, with 72 unread.
+Earlier foundations remain attributed rather than recursively certified.
+The first failed source Python parse and corrected v2 diagnostics are retained.
+
+Main remains 00957114db21b627e97369563032ceda9cea09c7; PR #2 stays a draft.
+The 42 atoms/twelve problems, native catalogue/editor and complete ordered
+4 October book pass retain their scopes. General BJ22 critical homogeneous
+Siu/envelopes stay OPEN and LPWZ density UNVERIFIED. The BJ22 6.21 proof
+warning remains binding. No original general theorem or independent-model
+receipt is claimed.
+
+Continue cloud-only with remaining approximation/comparison dependencies,
+related recent primary literature and sequential open-problem research.
+Check incoming author updates and periodically push checked evidence.
+Xean stays suspended.
+
 ## Latest supnorm and logarithmic-integrability book checkpoint, 9 October 2026
 
 The [integration audit](BE21_supnorm_integrability_staged_integration_audit_v1_20261009.md)

@@ -4,6 +4,20 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest verified supnorm and logarithmic-integrability GitHub publication, 9 October 2026:**
+the 4,659-page book and six owned artifact files are uploaded on work in
+f09e115bcccdf0ff03162459db3e083c749686ac. All fifteen source/progress/audit/artifact remote blobs
+match local hashes and sizes. The
+[artifact directory](manuscript/editorial/artifact_exports/20261009_BE21_supnorm_integrability_v1/README.md) contains the complete
+PDF, 24-page review, 80-member actual book evidence and 472-member
+minimal source checkpoint. All 24 selected pages were freshly read in twelve
+individual matching displays. The
+[publication record](manuscript/editorial/BE21_supnorm_integrability_GitHub_publication_v1_20261009.json)
+also pins the two separately verified nine-file BE21 source units. Their
+three-checkpoint source union covers 53 of 125 pages; it is partial.
+General local/Siu/envelope boundaries, canonical statuses and native editor
+remain unchanged. Export/upload supplies zero reading credit.
+
 **Latest checked supnorm and logarithmic-integrability book integration, 9 October 2026:**
 the [integration audit](manuscript/editorial/BE21_supnorm_integrability_staged_integration_audit_v1_20261009.md)
 adds Chapter 19's global comparison paragraph and L.98. The exact section-norm,
