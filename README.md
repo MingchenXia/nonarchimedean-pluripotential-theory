@@ -3026,3 +3026,8 @@ dependency and normalization checks for book integration. No original
 book result or canonical problem is promoted. The active 4,685-page
 book and same native catalogue/editor are unchanged by this audit.
 Work continues cloud-only; upload supplies no additional reading credit.
+
+All nine Ye concave-transform source/evidence/progress blobs were downloaded
+and verified byte-for-byte on GitHub at `768006bdd23be61d1311d96954606b99d7f683cd`.
+See the [publication record](manuscript/editorial/Ye_adelic_concave_transforms_complete_source_GitHub_publication_v1_20261009.json). Upload adds no reading credit,
+recursive dependency clearance or original-result promotion.
