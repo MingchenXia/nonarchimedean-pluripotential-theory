@@ -2554,3 +2554,17 @@ and [authored evidence](manuscript/editorial/artifact_exports/20261009_Xue_theta
 All nine theta-source evidence files were verified byte-for-byte on GitHub
 at `eebd188402cd3b69bfce72676bef9ead461dbd17`. See the [publication record](manuscript/editorial/Xue_theta_dependency_GitHub_publication_v1_20261009.json).
 Upload adds no reading credit or main-theorem clearance.
+
+## Kühne published source: complete dependency read, 9 October 2026
+
+All **55 published pages** were read in twenty-eight ordered matching
+text/image displays. The audit retains canonical-metric theorem scope,
+field and mixed-mass normalization, two-parameter estimates and explicit
+source-input cautions. Xue's attributed Raynaud/theta locators do not
+match the published edition. Appendix A's printed smooth-domination
+input is not cleared; no main-theorem refutation or repair is claimed.
+Xue remains **20/83**, with main proofs unverified and unintegrated.
+The book remains **4,675 pages**, with canonical statuses unchanged.
+
+See [source audit](manuscript/editorial/Kuhne_semiabelian_dependency_source_review_v1_20261009.md)
+and [authored evidence](manuscript/editorial/artifact_exports/20261009_Kuhne_semiabelian_dependency_v1/).
