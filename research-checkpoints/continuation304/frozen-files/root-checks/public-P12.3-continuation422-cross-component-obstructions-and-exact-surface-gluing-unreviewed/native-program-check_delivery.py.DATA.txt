@@ -1,0 +1,60 @@
+"""Verify literal retention, support order and new diagnostic evidence only."""
+from pathlib import Path
+import hashlib
+import json
+
+HERE=Path(__file__).resolve().parent
+PACKET=HERE.parent.parent
+rows=json.loads((PACKET/'mathematical-packet-bindings.json').read_text())
+out=json.loads((HERE/'notes.json').read_text())
+assert out['candidate'] is False
+seen={'G331'}
+comp=(HERE/'proof-companion.md').read_bytes()
+tex=(HERE/'P12.3-nonsingleton-conductor.tex').read_bytes()
+for note in out['notes']:
+    assert set(note)=={'id','summary','detailedSummary','text','support'}
+    assert set(note['support']) <= seen
+    assert note['text']==(HERE/(note['id']+'.md')).read_text().strip()
+    assert json.dumps(note,ensure_ascii=False,indent=2).encode() in comp
+    assert (HERE/(note['id']+'.tex')).read_bytes() in tex
+    seen.add(note['id'])
+for idx in [4,5,6,7,8,10,11,12,13,14,1,2,3,31,32,34,35,27,28,0,30]:
+    original=Path(rows[idx]['path']).read_bytes()
+    assert original in comp
+    assert original==(HERE/'retained'/Path(rows[idx]['path']).name).read_bytes()
+for idx in [0,32]:
+    assert Path(rows[idx]['path']).read_bytes() in tex
+for idx,target in [(28,'original-residual.md'),(27,'original-completion-criteria.txt'),
+                   (1,'original-task.json')]:
+    assert Path(rows[idx]['path']).read_bytes()==(HERE/target).read_bytes()
+source=Path(rows[0]['path']).read_bytes()
+for idx in [10,11,12,13,14]:
+    assert Path(rows[idx]['path']).read_bytes().rstrip() in source
+assert json.loads((HERE/'qualified-G331.json').read_text())==next(
+    n for n in json.loads((HERE/'input.json').read_text())['notes'] if n['id']=='G331')
+
+exclusion_count=0
+for rec in json.loads((PACKET/'private-primary-packet-bindings.json').read_text()):
+    if rec['path'].endswith('.txt') and any(s in rec['path'] for s in
+          ['P12.3-ROOT413-algebraic-field-root-descent-source',
+           'P12.3-ROOT416-normal-surface-resolution-and-primary-model-source']):
+        body=Path(rec['path']).read_bytes()
+        assert body not in comp and body not in tex
+        exclusion_count+=1
+diagnostic=json.loads((HERE/'reports/diagnostics.json').read_text())
+assert diagnostic['status']=='PASS' and diagnostic['mathematical_certification'] is False
+checks=json.loads((HERE/'reports/input-hashes.json').read_text())
+assert all(x['binding_match'] for x in checks)
+report={'status':'PASS','candidate':False,'notes':len(out['notes']),
+        'incoming_source_bytes':len(source),
+        'incoming_companion_bytes':Path(rows[30]['path']).stat().st_size,
+        'five_actual_all_fields_retained':True,'five_distinct_expanded_retained':True,
+        'full_G331_identical_to_input':True,'original_residual_byte_unchanged':True,
+        'ordered_supports_valid':True,'primary_body_exclusions':exclusion_count,
+        'compiler_invoked':False,'mathematical_certification':False}
+(HERE/'reports/check-delivery.json').write_text(json.dumps(report,indent=2)+'\n')
+files={str(p.relative_to(HERE)):hashlib.sha256(p.read_bytes()).hexdigest()
+       for p in HERE.rglob('*') if p.is_file() and p.name!='own-hashes.json'
+       and p.relative_to(HERE).parts[0] not in ['.git','.aws','.codex','.agents']}
+(HERE/'reports/own-hashes.json').write_text(json.dumps(files,indent=2)+'\n')
+print(json.dumps(report,indent=2))

@@ -1,0 +1,260 @@
+"""Own data-only delivery. Never execute/import supplied programs or compile."""
+from pathlib import Path
+import hashlib
+import json
+import platform
+import sys
+import shutil
+
+HERE = Path(__file__).resolve().parent
+PACKET = HERE.parent.parent
+MATH_BINDING = PACKET/'mathematical-packet-bindings.json'
+PRIMARY_BINDING = PACKET/'private-primary-packet-bindings.json'
+BOOK_BINDING = PACKET/'book-context-bindings.json'
+records = json.loads(MATH_BINDING.read_text())
+(HERE/'reports').mkdir(exist_ok=True)
+(HERE/'retained').mkdir(exist_ok=True)
+
+def sha(b):
+    return hashlib.sha256(b).hexdigest()
+
+def literal(index):
+    return Path(records[index]['path']).read_bytes().decode('utf-8')
+
+copies = []
+for index in [0,1,2,3,4,5,6,7,8,10,11,12,13,14,15,16,17,25,26,27,28,29,30,31,32,34,35]:
+    source = Path(records[index]['path'])
+    target = HERE/'retained'/source.name
+    shutil.copyfile(source, target)
+    copies.append({'source': str(source), 'target': str(target.relative_to(HERE)),
+                   'bytes': source.stat().st_size, 'sha256': sha(source.read_bytes())})
+for source in [MATH_BINDING, PRIMARY_BINDING, BOOK_BINDING]:
+    shutil.copyfile(source, HERE/'retained'/source.name)
+for index, target in [(28,'original-residual.md'), (27,'original-completion-criteria.txt'),
+                      (1,'original-task.json'), (31,'qualified-G331.json'), (32,'qualified-G331.txt')]:
+    shutil.copyfile(Path(records[index]['path']), HERE/target)
+
+spec = [
+ ('n1','Whole419 reconstructed at its exact geometric, normal-surface, smooth and conductor scopes.',
+  'Reproves canonical C/D raw identity and all-degree criterion; actual primary normal-surface refinement and all-support nef domination; exact BFJ real-parameter estimate; bijective conductor descent, cusp CE/non-FG and the actual threefold obstruction. Current419 remains data; G331 alone is granted; historical audit remains qualified.', ['G331']),
+ ('n2','Explicit normal-crossing surface: signed primary-model obstacle has no greatest geometric C or D minorant.',
+  'Proves every-support continuity, quotient fibres, ENTIRE geometric inequality, actual all-curve-positive primary competitors and non-USC supremum. Computes both proposed and signed model obstacles, exact canonical ideals in all degrees, error1/2, non-FG, gauge covariance and an open family of failures. The example is nonnormal, over every field.', ['G331','n1']),
+ ('n3','Positive-dimensional intersections of distinct irreducible components obstruct geometric envelopes in every characteristic.',
+  'Actual conductor separators and G331 normal divisorial bounds produce a strictly negative continuous signed primary-model obstacle with no greatest C/D minorant. All-support divisorial density proves the USC contradiction. Requires a cross-component normalization fibre; no source CE or higher-dimensional resolution is assumed.', ['G331','n1','n2']),
+ ('n4','Exact crossing-surface conductor criterion; mixed-characteristic failures and a normal-component surface classification.',
+  'Raw envelopes equal normal-component envelopes away from the shared conductor and the minimum of conductor values at it. A greatest C/D minorant exists iff all conductor values match. Proves positive gluing by primary truncation, extends explicit failures to mixed characteristic/every dimension, and classifies universal CE for excellent surfaces with normal components by zero-dimensional pairwise intersections.', ['G331','n1','n2','n3']),
+ ('n5','Complete scoped delivery and reproducible evidence; unchanged original P12.3 remains unresolved.',
+  'Retains whole419 source/companion, all five actual and expanded proofs, every G331/source qualification and byte-unchanged residual. Reports exact finite diagnostics and artifact checks without mathematical certification. General normal dimension>=3 and irreducible nonnormal gluing remain open; no compiler, agents, provider or supplied-program execution.', ['G331','n1','n2','n3','n4'])
+]
+notes = []
+for ident, summary, detailed, support in spec:
+    notes.append({'id':ident,'summary':summary,'detailedSummary':detailed,
+                  'text':(HERE/(ident+'.md')).read_text().strip(),'support':support})
+(HERE/'notes.json').write_text(json.dumps({'notes':notes,'candidate':False}, ensure_ascii=False, indent=2)+'\n')
+
+def escape(t):
+    substitutions = {'\\':r'\textbackslash{}', '{':r'\{', '}':r'\}',
+                     '$':r'\$', '&':r'\&', '%':r'\%', '#':r'\#', '_':r'\_',
+                     '^':r'\textasciicircum{}', '~':r'\textasciitilde{}',
+                     '<':r'\textless{}', '>':r'\textgreater{}'}
+    return ''.join(substitutions.get(c,c) for c in t)
+
+formulae = [r'''
+\subsection*{Canonical and surface equations}
+\[
+ A_m(f)=\{g:v(g)+mf(v)\ge0\ (v\in V_{\mathfrak a})\},\qquad
+ h_m=-\frac{v(A_m)}m,\qquad p(f)=\sup_m h_m .
+\]
+\[
+ H_N-\frac{N\|v(A_1)\|_\infty}{m}\le h_m\le p(f),\qquad
+ p(f)\in C\ \Longleftrightarrow\ p(f)\text{ continuous}.
+\]
+On the proved actual regular primary surface model,
+\[
+ z^*=\max\{z:z\le\min(d,0),\ Qz\ge0\},\qquad
+ p(f_D)=f_{\sum z_i^*E_i}.
+\]
+The greatest vector is proved by compact coordinate maximization and
+closure under maxima. It is not an assumed numerical positivity test.
+''',r'''
+\subsection*{Exact crossing formulas}
+\[
+ R=k[x,y,z]_{(x,y,z)}/(xy),\quad
+ J=(y)+\mathfrak m^2,\quad F=\tfrac12v(J)-\tfrac32v(\mathfrak m).
+\]
+\[
+ g(o)\le g(v_1)\quad(g\in C\cup D),\qquad
+ h_n=-\frac{v(\mathfrak m^{2n}+x^2\mathfrak m^n)}{2n}.
+\]
+\[
+ p=\begin{cases}-\tfrac12&\text{first component, }v(x)<\infty,\\
+ -1&\text{otherwise},\end{cases}\qquad p\notin\operatorname{USC}(X).
+\]
+\[
+ A_m=(z^m)+x(x,z)^{\lceil m/2\rceil-1}+y(y,z)^{m-1},\qquad
+ \|p-h_m\|_\infty=\tfrac12\quad(m\ge1).
+\]
+''',r'''
+\subsection*{Cross-component signed model obstruction}
+For actual conductor elements $j=c_0e_1$, $\ell=c_0e_2$ choose
+$L>\nu(\ell)$ and $B$ with $1+B(1-\nu(\ell)/L)>K$. Then
+\[
+ F=\frac BLv((\ell)+\mathfrak a^L)-(B+1)v(\mathfrak a),\qquad
+ q_n=-\frac{v(\mathfrak a^{(B+1)n}+(j)\mathfrak a^n)}n.
+\]
+\[
+ g(\rho\beta)\le\frac{g(\rho\nu)}K<-1,\qquad
+ \sup_n q_n=-1\text{ on a dense first-component locus}.
+\]
+This contradicts upper semicontinuity of any greatest minorant at
+$\rho\alpha=\rho\beta$; the constants use the granted NORMAL bound.
+''',r'''
+\subsection*{Exact surface gluing and classification}
+\[
+ a=\min_i H_i(o_i),\qquad
+ p(\rho w)=H_i(w)\ (w(x_i)<\infty),\qquad p(o)=a.
+\]
+For $B_i(o_i)=a$ and $B_i\le H_i$ the positive gluing functions are
+\[
+ G_{i,n}=\max\{B_i,H_i-w(x_i)/n\}
+ =\max\{B_i,H_i-v((x_i)+\mathfrak a_i^N)/n\}
+\]
+whenever $N\ge n\|H_i-B_i\|_\infty$.
+\[
+ \text{greatest C/D minorant exists}\ \Longleftrightarrow\ H_i(o_i)=a\ \forall i.
+\]
+For excellent reduced surfaces with normal irreducible components,
+\[
+ \operatorname{CE}(R)\ \Longleftrightarrow\
+ \dim R/(\mathfrak p_i+\mathfrak p_j)=0\quad(i\ne j).
+\]
+''',r'''
+\subsection*{Original decision}
+\[
+ \text{complete scoped nonnormal envelope deductions}
+ \quad\not\Longrightarrow\quad\text{entire ORIGINAL P12.3 closure}.
+\]
+General normal higher-dimensional envelopes and irreducible nonnormal
+gluing remain open. Products, energy and full finite operators are separate.
+''']
+
+chapters = []
+for note, formulas in zip(notes, formulae):
+    body = '\\section{'+escape(note['id']+'. '+note['summary'])+'}\n'
+    body += '\\textit{Supports: '+escape(', '.join(note['support']))+'.}\n\n'
+    body += escape(note['text'])+'\n'+formulas+'\n'
+    (HERE/(note['id']+'.tex')).write_text(body)
+    chapters.append(body)
+
+header = r'''\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyvrb}
+\DefineVerbatimEnvironment{Full419Data}{Verbatim}{fontsize=\tiny}
+\DefineVerbatimEnvironment{FullQualifiedGrantData}{Verbatim}{fontsize=\tiny}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+\emergencystretch=5em
+\DeclareUnicodeCharacter{00A7}{\S}
+\DeclareUnicodeCharacter{00B2}{\textsuperscript{2}}
+\DeclareUnicodeCharacter{00E8}{\`e}
+\DeclareUnicodeCharacter{03B4}{\ensuremath{\delta}}
+\DeclareUnicodeCharacter{03C1}{\ensuremath{\rho}}
+\DeclareUnicodeCharacter{03C6}{\ensuremath{\phi}}
+\DeclareUnicodeCharacter{03C8}{\ensuremath{\psi}}
+\DeclareUnicodeCharacter{2013}{--}
+\DeclareUnicodeCharacter{201C}{``}
+\DeclareUnicodeCharacter{201D}{''}
+\DeclareUnicodeCharacter{2020}{\ensuremath{\dagger}}
+\DeclareUnicodeCharacter{2192}{\ensuremath{\rightarrow}}
+\DeclareUnicodeCharacter{2208}{\ensuremath{\in}}
+\DeclareUnicodeCharacter{2212}{\ensuremath{-}}
+\DeclareUnicodeCharacter{2217}{\ensuremath{\ast}}
+\DeclareUnicodeCharacter{221E}{\ensuremath{\infty}}
+\DeclareUnicodeCharacter{222A}{\ensuremath{\cup}}
+\DeclareUnicodeCharacter{2264}{\ensuremath{\le}}
+\DeclareUnicodeCharacter{2297}{\ensuremath{\otimes}}
+\DeclareUnicodeCharacter{FB00}{ff}
+\DeclareUnicodeCharacter{FB01}{fi}
+\DeclareUnicodeCharacter{FB02}{fl}
+\DeclareUnicodeCharacter{FB03}{ffi}
+\title{Nonsingleton conductor fibres and geometric obstacle envelopes\\
+Exact surface gluing and a signed primary-model obstruction}
+\author{Unverified scoped ORIGINAL P12.3 progress; candidate=false}
+\date{9 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Relative to the entire qualified G331 geometric cone, a reduced excellent
+normal-crossing surface has a strictly negative continuous signed primary
+model obstacle with no greatest C or D minorant. Its raw supremum is not
+upper semicontinuous; every canonical degree has exact uniform error one
+half. The obstruction extends to positive-dimensional intersections of
+distinct components in arbitrary characteristic and dimension. On surface
+branches glued along a marked DVR, exact conductor compatibility of the
+normal envelopes characterizes existence and gives the raw envelope on
+every support. We obtain a universal criterion for reduced excellent
+surfaces with normal components, retaining the normal-surface, smooth,
+bijective-normalization and reduced-curve theorems. Entire ORIGINAL P12.3
+and the recursive historical audit remain unresolved. Compilation,
+publication and acceptance are reserved to ROOT.
+\end{abstract}
+\tableofcontents
+'''
+tail = '\n\\section*{Source, application and reading ledger}\n'
+tail += escape((HERE/'source-application-reading-ledger.md').read_text())
+tail += '\n\\section*{Scoped verdict}\n'+escape((HERE/'scoped-verdict.md').read_text())
+tail += '\n\\section*{Byte-unchanged original residual as DATA}\n'+escape(literal(28))
+tail += '\n\\appendix\n\\section{ENTIRE qualified G331, all annotations}\n'
+tail += '\\begin{FullQualifiedGrantData}\n'+literal(32)+'\n\\end{FullQualifiedGrantData}\n'
+tail += '\\section{ENTIRE current419 source, literal inert DATA}\n'
+tail += '\\begin{Full419Data}\n'+literal(0)+'\n\\end{Full419Data}\n\\end{document}\n'
+assert '\\end{Full419Data}' not in literal(0)
+assert '\\end{FullQualifiedGrantData}' not in literal(32)
+(HERE/'P12.3-nonsingleton-conductor.tex').write_text(header+'\n'.join(chapters)+tail)
+
+parts = ['# ENTIRE proof companion: unverified scoped progress, candidate=false\n']
+for note in notes:
+    parts += ['\n## New actual FINAL fields '+note['id']+'\n',
+              json.dumps(note, ensure_ascii=False, indent=2)+'\n',
+              '\n## New distinct expanded TeX '+note['id']+'\n',
+              (HERE/(note['id']+'.tex')).read_text()]
+for index in [4,5,6,7,8,10,11,12,13,14,1,2,3,31,32,34,35,27,28,0,30]:
+    parts += ['\n## ENTIRE incoming DATA '+Path(records[index]['path']).name+'\n\n',
+              literal(index),'\n']
+for name in ['source-application-reading-ledger.md','scoped-verdict.md']:
+    parts += ['\n## New '+name+'\n\n',(HERE/name).read_text(),'\n']
+(HERE/'proof-companion.md').write_text(''.join(parts))
+
+checks = []
+for rec in records:
+    b = Path(rec['path']).read_bytes()
+    checks.append({'path':rec['path'],'bytes':len(b),'sha256':sha(b),
+                   'binding_match':len(b)==rec['bytes'] and sha(b)==rec['sha256'],
+                   'read_credit':False})
+primary = json.loads(PRIMARY_BINDING.read_text())
+selected = [r for r in primary if any(s in r['path'] for s in
+             ['P12.3-ROOT413-algebraic-field-root-descent-source',
+              'P12.3-ROOT416-normal-surface-resolution-and-primary-model-source'])]
+for rec in selected:
+    b=Path(rec['path']).read_bytes()
+    checks.append({'path':rec['path'],'bytes':len(b),'sha256':sha(b),
+                   'binding_match':len(b)==rec['bytes'] and sha(b)==rec['sha256'],
+                   'LOCALONLY':True,'read_credit_from_hash':False})
+assert all(x['binding_match'] for x in checks)
+(HERE/'reports/input-hashes.json').write_text(json.dumps(checks,indent=2)+'\n')
+(HERE/'reports/retention.json').write_text(json.dumps(copies,indent=2)+'\n')
+(HERE/'reports/environment.json').write_text(json.dumps({
+    'python':sys.version,'platform':platform.platform(),'cwd':str(HERE),
+    'compiler_invoked':False,'agents':0,'additional_provider_calls':0,
+    'supplied_programs_executed_or_imported':False,'network_used':False,
+    'operator_native_service_exposed':False,'supervised_compute_exposed':False,
+    'heavy_compute_needed':False,'mathematical_certification':False},indent=2)+'\n')
+print(json.dumps({'notes':len(notes),'candidate':False,'bound_math_files':len(records),
+                  'selected_primary_hashes':len(selected),
+                  'tex_bytes':(HERE/'P12.3-nonsingleton-conductor.tex').stat().st_size,
+                  'companion_bytes':(HERE/'proof-companion.md').stat().st_size,
+                  'compiler_invoked':False},indent=2))

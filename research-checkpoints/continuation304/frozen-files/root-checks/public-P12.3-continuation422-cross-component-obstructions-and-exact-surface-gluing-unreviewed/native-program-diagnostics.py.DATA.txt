@@ -1,0 +1,95 @@
+"""Small exact diagnostics for NEW formulas. No supplied program is imported.
+
+This tests explicit finite monomials and rational coordinates only. It does
+not implement the geometric cone, prove comparison, or certify envelopes.
+"""
+from fractions import Fraction
+from itertools import product
+from math import inf, ceil
+from pathlib import Path
+import json
+
+F = Fraction
+HERE = Path(__file__).resolve().parent
+(HERE / 'reports').mkdir(exist_ok=True)
+weights = [F(1), F(3, 2), F(2), F(3), F(7), inf]
+cases = []
+for branch in [1, 2]:
+    for s, t in product(weights, repeat=2):
+        if min(s, t) == 1:
+            cases.append((branch, s, t))
+
+def value(exp, vals):
+    # 0 * infinity means a variable is absent, not an undefined product.
+    return sum(e * v for e, v in zip(exp, vals) if e)
+
+def minimum(gens, vals):
+    return min(value(e, vals) for e in gens)
+
+def power_m(n):
+    return [(i, j, n-i-j) for i in range(n+1)
+            for j in range(n-i+1) if not (i and j)]
+
+def contains(gens, exp):
+    return any(all(e >= g for e, g in zip(exp, gen)) for gen in gens)
+
+profile_checks = membership_checks = witness_checks = 0
+largest_gap = F(0)
+for m in range(1, 25):
+    a = (m+1)//2
+    canonical = [(0, 0, m)] + [(i, 0, a-i) for i in range(1, a+1)]
+    canonical += [(0, j, m-j) for j in range(1, m+1)]
+    tentative = power_m(2*m) + [(i+2, j, k) for i, j, k in power_m(m) if not j]
+    for branch, s, t in cases:
+        vals = (s, inf, t) if branch == 1 else (inf, s, t)
+        actual_canonical = minimum(canonical, vals)
+        expected_canonical = min(m*t, s+a-1) if branch == 1 else m
+        assert actual_canonical == expected_canonical
+        actual_tentative = -minimum(tentative, vals)/(2*m)
+        expected_tentative = max(F(-1), -F(1, 2)-s/m) if branch == 1 else F(-1)
+        assert actual_tentative == expected_tentative
+        obstacle = -F(1, 2) if branch == 1 else -F(1, 2)- (0 if s == inf else 1/(2*s))
+        signed_model = F(-1, 2) if branch == 1 else min(s, 2)/2-F(3, 2)
+        assert actual_tentative <= obstacle and actual_tentative <= signed_model
+        raw = F(-1, 2) if branch == 1 and s != inf else F(-1)
+        gap = raw + actual_canonical/m
+        assert 0 <= gap <= F(1, 2)
+        largest_gap = max(largest_gap, gap)
+        profile_checks += 1
+    witness_s = m-a+1
+    assert -minimum(canonical, (witness_s, inf, 1))/m == -1
+    witness_checks += 1
+    for i, j in product(range(2*m+1), repeat=2):
+        for branch in [1, 2]:
+            exp = (i, 0, j) if branch == 1 else (0, i, j)
+            expected = j >= m if i == 0 else i+j >= (a if branch == 1 else m)
+            assert contains(canonical, exp) == expected
+            membership_checks += 1
+
+truncation_checks = 0
+for H, B, n, s in product([F(-1, 2), F(-1), F(-3)],
+                         [F(-1), F(-2), F(-4)], [1, 2, 7], weights):
+    if B > H:
+        continue
+    N = max(1, ceil(n*(H-B)))
+    lhs = max(B, H-s/n)
+    rhs = max(B, H-min(s, N)/n)
+    assert lhs == rhs
+    truncation_checks += 1
+
+def encode(x):
+    return 'infinity' if x == inf else str(x)
+
+inputs = {'m_range': [1, 24], 'weights': list(map(encode, weights)),
+          'normalized_cases': [[b, encode(s), encode(t)] for b,s,t in cases],
+          'monomial_box': '0<=i,j<=2m on each nonzero component monomial',
+          'limitations': 'Finite monomial/value arithmetic only; all-support and geometric proofs are n1--n4.'}
+result = {'status': 'PASS', 'profile_cases': len(cases),
+          'profile_checks': profile_checks, 'monomial_membership_checks': membership_checks,
+          'exact_gap_witness_degrees': witness_checks,
+          'largest_sampled_canonical_gap': str(largest_gap),
+          'truncation_identity_checks': truncation_checks,
+          'mathematical_certification': False}
+(HERE/'diagnostics-input.json').write_text(json.dumps(inputs, indent=2)+'\n')
+(HERE/'reports/diagnostics.json').write_text(json.dumps(result, indent=2)+'\n')
+print(json.dumps(result, indent=2))
