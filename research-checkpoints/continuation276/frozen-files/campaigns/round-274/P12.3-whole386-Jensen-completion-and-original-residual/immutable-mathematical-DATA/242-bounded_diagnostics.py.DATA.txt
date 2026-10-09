@@ -1,0 +1,67 @@
+"""Own small standard-library diagnostics; finite observations, not proofs."""
+from fractions import Fraction
+from itertools import product
+import json, pathlib
+
+def products_of(gens, k):
+    out={(0,0)}
+    for _ in range(k):
+        out={(a+c,b+d) for a,b in out for c,d in gens}
+    return out
+
+def colength(gens, parity=False):
+    xmax=min(a for a,b in gens if b==0)
+    ymax=min(b for a,b in gens if a==0)
+    return sum(1 for a in range(xmax) for b in range(ymax)
+               if (not parity or (a-b)%2==0)
+               and not any(a>=c and b>=d for c,d in gens))
+
+def mul(a,b):
+    z=0
+    while b:
+        if b&1:z^=a
+        b>>=1;a<<=1
+        if a&4:a^=7
+    return z
+
+def pow4(a,n):
+    z=1
+    for _ in range(n):z=mul(z,a)
+    return z
+
+out={'kind':'exhaustive finite arithmetic observations only','rounding_cases':0,
+     'smooth_colength_cases':0,'quadratic_colength_cases':0,'F4_balance_cases':0}
+out['inputs']={'rounding':{'q':[2,3,4,5,8,9,16,25,27,32],'r':[1,8],'numerator':[0,16],'denominator':[1,6]},'smooth_colength':{'j':[1,8],'r':[0,4],'s':[0,4],'omit':'r=s=0'},'quadratic_colength':{'n':[2,8],'k':[1,5]},'F4_balance':{'a':[0,3],'c':[0,3],'q':[2,4,8],'polynomial':'X^2+X+1'},'F4_to_F2':'both possible images 0,1 of the quadratic generator'}
+for q,r,numer,denom in product([2,3,4,5,8,9,16,25,27,32],range(1,9),range(17),range(1,7)):
+    t=Fraction(numer,denom)
+    a=-(-q*t.numerator//t.denominator)
+    b=r*(-(-q*t.numerator//(t.denominator*r)))
+    assert a<=b<=a+r-1
+    out['rounding_cases']+=1
+for j,r,s in product(range(1,9),range(5),range(5)):
+    if r+s==0:continue
+    gi=products_of([(1,0),(0,j)],s)
+    gm=products_of([(1,0),(0,1)],r)
+    gs={(a+c,b+d) for a,b in gi for c,d in gm}
+    got=colength(gs)
+    want=r*(r+1)//2+r*s+j*s*(s+1)//2
+    assert got==want,(j,r,s,got,want)
+    out['smooth_colength_cases']+=1
+for n,k in product(range(2,9),range(1,6)):
+    gs=products_of([(2*n,0),(2,2*n-2),(0,4*n)],k)
+    got=colength(gs,True)
+    want=(n*n+n)*k*k+(n*n-n+2)*k
+    assert got==want,(n,k,got,want)
+    out['quadratic_colength_cases']+=1
+for a,c,q in product(range(4),range(4),[2,4,8]):
+    assert pow4(mul(a,c),q)==mul(pow4(a,q),pow4(c,q))
+    inv=next(z for z in range(4) if pow4(z,q)==c)
+    assert pow4(inv,q)==c
+    out['F4_balance_cases']+=1
+out['F4_to_F2_unital_hom_candidates']=2
+out['F4_to_F2_valid_unital_homs']=sum((a*a+a+1)%2==0 for a in range(2))
+assert out['F4_to_F2_valid_unital_homs']==0
+out['status']='PASS'
+pathlib.Path('reports').mkdir(exist_ok=True)
+pathlib.Path('reports/bounded-diagnostics.json').write_text(json.dumps(out,indent=2)+'\n')
+print(json.dumps(out,indent=2))

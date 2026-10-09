@@ -1,0 +1,15 @@
+Use qualified G331 and n1–n3. The smooth application is ONLY a smooth affine CLOSED germ over an algebraically closed characteristic-zero field, dimension at least two. G331 already grants the full BFJ class specialization on every semivaluation, with global bottom adjoined. DVR and empty cases are direct.
+
+The actual BFJ setting, all-support retractions 1.11–1.14, extension 2.7–2.8, substantive closed-simplex 3.11 and the ENTIRE 3.18 proof including 3.22 were checked. Closed-face continuity uses multiplier profiles with error A/k and thinness bounded on the fixed closed simplex. Interior convexity does not prove boundary continuity. Extension is the infimum over EVERY retraction.
+
+A signed primary obstacle is determined on a simple modification's dual complex. For its BFJ nef envelope W, write W_j=j^-1 Z(L_infinity(jW)). In the nonzero case, reindexing 3.18 gives W_j<=W<=(j/(j+C0))W_j on divisors. The profiles are actual primary for sufficiently large indices; unit and zero are handled separately. If -M<=W, then 0<=W-W_j<=MC0/j. Closed-simplex continuity extends the inequality on every face; taking all-retraction infima preserves the SAME uniform bound on every semivaluation. Contract completed primary ideals exactly by G331. The uniform limit is in C and dominates every D competitor by the full granted specialization. Signed density and nonexpansivity give CE. No global thinness bound is used.
+
+Now suppose a normal section has GLOBAL CE. For an extended USC obstacle phi, clip by zero. It is bounded above and may have poles. The finite continuous nonpositive majorants F are downward directed by minimum and have infimum phi. At x and finite t>phi(x), upper semicontinuity and a Urysohn cutoff give a continuous majorant whose value at x is below t; this also works at a pole. If t>0, zero already suffices.
+
+Each P(F) lies in C by CE. Ordered by decreasing F, these form ONE actual decreasing C-net. Its infimum u is in D by definition, lies below phi, and dominates every D competitor below phi. Thus u is the greatest geometric minorant P(phi). The bottom obstacle is obtained directly by decreasing negative constants. This construction follows CE and does not exchange unproved arbitrary suprema and infima.
+
+If phi_i decreases as an arbitrary USC net to phi, its envelopes decrease. Their infimum belongs to D by n1's proved decreasing-D closure and lies below phi; maximality forces it to equal P(phi). The positive bounded gauge cocycle transports the result exactly. These extended results require GLOBAL CE; n3's finite-Q open-locus result does not establish them on the omitted support stratum.
+
+For a smooth DVR the normalized boundary is a singleton, actual Cartier point divisors give all nonpositive slopes, and P(phi)=min(phi,0). Dimension zero is empty. No singular or positive-characteristic SNC transfer or unconditional pole normalization formula is claimed.
+
+Complete artifacts: n4.md, whole-proof.md and source-application-ledger.md. Rerun python build_delivery.py; python final_audit.py.

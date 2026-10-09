@@ -1,0 +1,70 @@
+"""Bounded exact standard-library diagnostics, not universal proof checks."""
+from pathlib import Path
+from fractions import Fraction as F
+from itertools import product, combinations
+import json, time
+root=Path(__file__).resolve().parent
+spec=dict(smooth_j=[1,8],smooth_r_s=[0,6],parity_n=[1,6],parity_k=[1,8],
+          chain_sizes=[1,4],chain_weights=[1,2],strict_root_weights=[1,2],
+          polytope_matrix=[[-2,1],[1,-1]],polytope_grid='half integers in [-4,0]^2',
+          polytope_upper=['-1','-1/2'])
+(root/'diagnostic-inputs.json').write_text(json.dumps(spec,indent=2)+'\n')
+def det(a):
+    if not a:return F(1)
+    return sum((-1)**j*a[0][j]*det([row[:j]+row[j+1:] for row in a[1:]]) for j in range(len(a)))
+def inverse(a):
+    n=len(a);b=[[F(x) for x in row]+[F(i==j) for j in range(n)] for i,row in enumerate(a)]
+    for j in range(n):
+        q=next(i for i in range(j,n) if b[i][j]);b[j],b[q]=b[q],b[j]
+        d=b[j][j];b[j]=[x/d for x in b[j]]
+        for i in range(n):
+            if i!=j:
+                d=b[i][j];b[i]=[x-d*y for x,y in zip(b[i],b[j])]
+    return [row[n:] for row in b]
+started=time.monotonic(); matrices=principals=quadratics=0
+for n in range(1,5):
+ for weights in product([1,2],repeat=n-1):
+  for r in range(n):
+   for strict in [1,2]:
+    a=[[F(0) for _ in range(n)] for _ in range(n)]
+    for i,w in enumerate(weights):
+     a[i][i]+=w;a[i+1][i+1]+=w;a[i][i+1]-=w;a[i+1][i]-=w
+    a[r][r]+=strict;matrices+=1
+    for size in range(1,n+1):
+     for inds in combinations(range(n),size):
+      b=[[a[i][j] for j in inds] for i in inds]
+      assert det(b)>0 and all(x>=0 for row in inverse(b) for x in row);principals+=1
+    for z in product([-2,-1,0,1,2],repeat=n):
+     left=sum(z[i]*a[i][j]*z[j] for i in range(n) for j in range(n))
+     right=strict*z[r]**2+sum(w*(z[i]-z[i+1])**2 for i,w in enumerate(weights))
+     assert left==right;quadratics+=1
+smooth=0
+for j in range(1,9):
+ for r in range(7):
+  for s in range(7):
+   gens={(r-i+s-l,i+j*l) for i in range(r+1) for l in range(s+1)}
+   # Independent finite enumeration from the actual product generators.
+   length=sum(min(y for gx,y in gens if gx<=x) for x in range(r+s))
+   expected=r*(r+1)//2+r*s+j*s*(s+1)//2
+   assert length==expected;smooth+=1
+parity=[]
+for n in range(1,7):
+ vals=[]
+ for k in range(1,9):
+  gens={(2*n*i+2*j,(2*n-2)*j+4*n*l) for i in range(k+1) for j in range(k-i+1) for l in [k-i-j]}
+  count=sum(1 for x in range(2*n*k) for y in range(4*n*k)
+            if (x+y)%2==0 and not any(gx<=x and gy<=y for gx,gy in gens))
+  vals.append(count)
+ parity.append(dict(n=n,lengths_k_1_to_8=vals,second_differences=[vals[i+2]-2*vals[i+1]+vals[i] for i in range(6)],
+                    universal_predicted_leading_coefficient=n*n+n))
+grid=[F(i,2) for i in range(-8,1)]
+feasible=[(x,y) for x,y in product(grid,repeat=2) if x<=-1 and y<=-F(1,2) and -2*x+y>=0 and x-y>=0]
+for x,y in product(feasible,repeat=2):assert tuple(max(x[i],y[i]) for i in range(2)) in feasible
+greatest=tuple(max(x[i] for x in feasible) for i in range(2));assert greatest in feasible
+result=dict(status='finite exact checks completed',matrices=matrices,principal_submatrices=principals,
+            quadratic_inputs=quadratics,smooth_generator_counts=smooth,parity_count_cases=48,parity=parity,
+            polytope_feasible_grid_points=len(feasible),polytope_ordered_max_pairs=len(feasible)**2,
+            polytope_grid_greatest=list(map(str,greatest)),elapsed_seconds=time.monotonic()-started,
+            limitation='Only the enumerated arithmetic domains. No resolution, all-support theorem, source inequality, continuity, or original completion is certified.')
+(root/'diagnostic-output.json').write_text(json.dumps(result,indent=2)+'\n')
+print(json.dumps({k:v for k,v in result.items() if k!='parity'},indent=2))

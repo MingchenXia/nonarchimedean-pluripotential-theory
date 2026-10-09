@@ -1,0 +1,74 @@
+"""Own deterministic prose/source builder. Never compiles or runs supplied code."""
+import hashlib,json,pathlib
+P=pathlib.Path('.')
+meta=[
+('Evidence boundary; repaired source omissions','245 hashes and separate actual/expanded bodies match. Smolkin finite-field action is defective; HLS literal captures are incomplete. Neither byte identity nor compilation proves mathematics.',[]),
+('Raw envelope calculus and gauge rules','C/D raw envelopes agree for finite continuous obstacles; continuity is exactly geometric recognition/greatest-minorant existence. Actual decreasing-D closure is proved by insertion, not nested-net flattening.',['G331']),
+('Relative CM regularity over a singular affine base; finite-dimensional projective Y and an ample globally generated A','A full Koszul proof gives global generation from H^i(M A^-i)=0, without smoothness, flatness or Cohen--Macaulayness.',[]),
+('Faithfully flat Jacobian big-subadditivity repair for reduced equidimensional finite-type algebras over perfect charp','Perfect extension identifies Frobenius modules with twisted scalars; finite-presentation Hom kernels/images descend diagonal compatibility. Corrected Jacobian big subadditivity follows with disclosed HH02 foundations.',[]),
+('Isolated normal affine perfect-charp germs: canonical flattening and actual primary raw model envelopes','Every finite primary collection is carried by an actual normal primary model with Cartier K+Delta. Hartogs/Fekete/height-one tests give all-support raw envelopes before positivity.',['G331','n2']),
+('Isolated normal affine finite-type CLOSED codimension>=2 perfect-charp germs: continuous geometric envelopes on ALL supports','Relative trace generation and bounded full-fibre Jacobian corrections give uniform primary approximants for all support quotients. All continuous and one-net boundedUSC envelopes follow without a smooth model or resolution; the general excellent original remains unresolved.',['G331','n2','n3','n4','n5']),
+('Whole376 reconstruction and nonisolated finite-cover examples','Scoped surfaces, char0 finite-Q/isolated, exact BFJ, actual finite covers, SM and energy/capacity diagnostics reconstructed. New377 transfers CE to nonisolated quadratic cones with extra variables in every perfect charp.',['G331','B341','E350','n2','n3','n4','n5','n6']),
+('Conductor positive domain, node failure and curves','Full conductor masks give the exact finite-continuous positive domain. A nonnormal double plane has no maximal minorant; every excellent reduced curve has geometric envelope min(phi,0).',['G331','B341','E350','n2','n7']),
+('Original remains incomplete','General normal excellent higher-dimensional residual, nonisolated/mixed/imperfect/nonalgebraic/nonclosed and char0 infinite-Q stratum remain unresolved. No normal counterexample, acceptance or count increase.',['G331','B341','E350','n1','n2','n3','n4','n5','n6','n7','n8'])]
+notes=[]
+for i,(summary,detail,support) in enumerate(meta,1):
+    body=(P/f'n{i}.md').read_text()
+    notes.append({'id':f'n{i}','summary':summary,'detailedSummary':detail,'text':body,'support':support})
+result={'notes':notes,'candidate':False}
+(P/'native-notes.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
+intro='# Independently geometric local envelopes: isolated characteristic p and the original residual\n\nUnverified standalone proof paper. Candidate=false for the literal original P12.3. Only ENTIRE qualified G331/B341/E350 are incoming results. ROOT377 and WHOLE376 are reconstructed data, not grants.\n\n'
+proof=intro+'\n\n'.join(n['text'] for n in notes)
+(P/'whole-proof.md').write_text(proof)
+(P/'comparison-376.md').write_text(notes[6]['text']+'\n\n'+notes[7]['text'])
+paper=proof+'\n\n'+(P/'source-application-ledger.md').read_text()+'\n\n'+(P/'exact-scope.md').read_text()+'\n\n'+(P/'whole-proof-coverage.md').read_text()
+for name in ('G331','B341','E350'):
+    paper+='\n\n# Entire qualified incoming grant '+name+'\n\n'+(P/'qualified-grants'/f'{name}.txt').read_text()
+(P/'P12.3-paper.md').write_text(paper)
+head=r'''% Own standalone source, UNCOMPILED. Suggested engine LuaLaTeX.
+\documentclass[11pt]{article}
+\usepackage{fontspec}
+\setmainfont{DejaVu Serif}
+\setmonofont{DejaVu Sans Mono}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fvextra}
+\DefineVerbatimEnvironment{OwnProofBody}{Verbatim}{fontsize=\footnotesize,breaklines=true,breakanywhere=true}
+\DefineVerbatimEnvironment{QualifiedBody}{Verbatim}{fontsize=\tiny,breaklines=true,breakanywhere=true}
+\title{Geometric local obstacle envelopes: isolated characteristic p and the original residual}
+\author{Independent WHOLE377 and WHOLE376 reconstruction}
+\date{8 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We reconstruct a singular relative-generation proof and repair finite-field
+diagonal subadditivity, obtaining continuous geometric envelopes on isolated
+normal affine finite-type germs over perfect positive-characteristic fields,
+on all semivaluation supports. Actual finite covers give explicit nonisolated
+examples. The entire original excellent-germ problem remains unresolved.
+This is an unverified mathematical draft; candidate=false.
+\end{abstract}
+\tableofcontents
+'''
+tex=head
+for n in notes:
+    title=n['summary'].replace('_',r'\_')
+    tex+='\n\\section{'+n['id']+'. '+title+'}\n\\begin{OwnProofBody}\n'+n['text']+'\n\\end{OwnProofBody}\n'
+for fname in ('source-application-ledger.md','exact-scope.md','whole-proof-coverage.md'):
+    tex+='\n\\section{'+fname.replace('-', ' ').replace('.md','')+'}\n\\begin{OwnProofBody}\n'+(P/fname).read_text()+'\n\\end{OwnProofBody}\n'
+for name in ('G331','B341','E350'):
+    body=(P/'qualified-grants'/f'{name}.txt').read_text()
+    assert '\\end{QualifiedBody}' not in body
+    tex+='\n\\section{Entire qualified grant '+name+'}\n\\begin{QualifiedBody}\n'+body+'\n\\end{QualifiedBody}\n'
+tex+='\n\\end{document}\n'
+(P/'P12.3-paper.tex').write_text(tex)
+verdict={'candidate':False,'original_problem_unchanged':True,'original_complete':False,
+ 'new_scoped_claim':'Isolated normal affine finite-type perfect-charp closed codim>=2 CE, singular model and all supports, with faithful-flat and relative-Koszul repairs',
+ 'new_nonisolated_examples':'Quadratic cones times affine spaces through ACTUAL finite smooth covers, all perfect charp including inseparable char2',
+ 'residual':'General normal excellent dimension>=3, nonisolated outside proved sectors, mixed/imperfect/nonalgebraic/nonclosed and char0 infinite-Q support stratum',
+ 'normal_counterexample':False,'compilation':False,'acceptance_count_changed':False,
+ 'only_grants':['ENTIRE qualified G331','ENTIRE qualified B341','ENTIRE qualified E350'],
+ 'source_capture_repairs':['HLS7.5(f) tail','HLS8.4 and8.5'],
+ 'execution_is_mathematical_verification':False}
+(P/'original-verdict.json').write_text(json.dumps(verdict,indent=2)+'\n')
+print(json.dumps({'notes':len(notes),'proof_bytes':len(proof.encode()),'paper_bytes':len(paper.encode()),'tex_bytes':len(tex.encode()),'compiled':False}))

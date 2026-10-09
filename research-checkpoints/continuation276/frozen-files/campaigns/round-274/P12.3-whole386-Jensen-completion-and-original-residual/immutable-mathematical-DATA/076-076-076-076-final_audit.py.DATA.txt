@@ -1,0 +1,113 @@
+"""Artifact consistency only; no mathematical acceptance or compilation."""
+import hashlib
+import json
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent
+BASE = ROOT.parent.parent
+
+def read(name):
+    return json.loads((ROOT / name).read_text())
+
+def digest(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+def esc(s):
+    table = {'\\': r'\textbackslash{}', '&': r'\&', '%': r'\%',
+             '$': r'\$', '#': r'\#', '_': r'\_', '{': r'\{',
+             '}': r'\}', '~': r'\textasciitilde{}', '^': r'\textasciicircum{}'}
+    return ''.join(table.get(c, c) for c in s)
+
+required = ['P12.3-paper.md', 'P12.3-paper.tex', 'whole-proof.md',
+            'native-notes.json', 'actual-FINAL.json', 'whole-source-application-ledger.md',
+            'whole-proof-coverage.md', 'exact-scope.md',
+            'original-scope-and-noncircularity.md', 'acceptance-decision.json',
+            'diagnostic-inputs.json', 'diagnostic-output.json', 'README.md',
+            'audit_inputs.py', 'audit_coverage.py', 'finite_diagnostics.py',
+            'reconstruct.py', 'write_docs.py', 'prepare_final.py', 'final_audit.py',
+            'reports/environment.json', 'reports/rerun-commands.json',
+            'inputs/original-task.json'] + [f'n{i}.md' for i in range(1, 15)]
+for name in required:
+    assert (ROOT / name).is_file() and (ROOT / name).stat().st_size > 0, name
+
+records = read('reports/input-audit.json')
+assert len(records) == 102
+for record in records:
+    local = ROOT / record['local']
+    assert local.stat().st_size == record['bytes'], record['local']
+    assert digest(local) == record['sha256'], record['local']
+assert (ROOT / 'inputs/original-task.json').read_bytes() == (BASE / 'original-task.json').read_bytes()
+
+expanded, actual = read('native-notes.json'), read('actual-FINAL.json')
+grant_ids = {'G331', 'B341', 'E350'}
+for data in [expanded, actual]:
+    assert set(data) == {'notes', 'candidate'} and data['candidate'] is False
+    assert len(data['notes']) == 14
+    prior = set()
+    for i, note in enumerate(data['notes'], 1):
+        assert set(note) == {'id', 'summary', 'detailedSummary', 'text', 'support'}
+        assert note['id'] == f'n{i}'
+        assert all(isinstance(note[k], str) and note[k] for k in ['summary', 'detailedSummary', 'text'])
+        assert isinstance(note['support'], list)
+        assert set(note['support']) <= grant_ids | prior
+        prior.add(note['id'])
+
+core = (ROOT / 'whole-proof.md').read_text()
+paper = (ROOT / 'P12.3-paper.md').read_text()
+tex = (ROOT / 'P12.3-paper.tex').read_text()
+for x, y in zip(expanded['notes'], actual['notes']):
+    assert all(x[k] == y[k] for k in ['id', 'summary', 'detailedSummary', 'support'])
+    assert x['text'] != y['text']
+    assert x['text'] in core and x['text'] in paper
+    assert x['text'] in (ROOT / (x['id'] + '.md')).read_text()
+    assert esc(x['text']) in tex
+incoming = read('input.json')
+for note in incoming['notes']:
+    assert note['id'] in grant_ids
+    literal = (ROOT / 'inputs/grants' / (note['id'] + '.txt')).read_text()
+    assert literal == note['text'] and literal in paper
+
+old = ROOT / 'inputs/mathematical'
+real = json.loads((old / '19-actual-native258-final.json').read_text())
+old_expanded = json.loads((old / '18-native-notes.json').read_text())
+misnamed = json.loads((old / '20-native-artifact-actual-FINAL-expanded-DATA.json').read_text())
+assert old_expanded == misnamed and real != misnamed
+assert (old / '19-actual-native258-final.json').stat().st_size == 49494
+assert (old / '20-native-artifact-actual-FINAL-expanded-DATA.json').stat().st_size == 66436
+assert len(real['notes']) == len(old_expanded['notes']) == 12
+assert all(a['text'] != b['text'] for a, b in zip(real['notes'], old_expanded['notes']))
+coverage = read('reports/duplicate-coverage.json')
+assert len(coverage) == 12
+assert all(all(v is True for k, v in row.items() if k != 'id') for row in coverage)
+
+diagnostic = read('diagnostic-output.json')
+expected = dict(matrices=98, principal_submatrices=1154, quadratic_inputs=43210,
+                smooth_generator_counts=392, parity_count_cases=48,
+                polytope_feasible_grid_points=22, polytope_ordered_max_pairs=484)
+for key, count in expected.items():
+    assert diagnostic[key] == count
+assert diagnostic['polytope_grid_greatest'] == ['-1', '-1']
+for row in diagnostic['parity']:
+    n = row['n']
+    assert row['lengths_k_1_to_8'] == [(n*n+n)*k*k+(n*n-n+2)*k for k in range(1, 9)]
+assert read('acceptance-decision.json')['candidate'] is False
+assert not (ROOT / 'P12.3-paper.pdf').exists()
+
+hashes = []
+for directory in [ROOT, ROOT / 'reports', ROOT / 'review-data']:
+    for path in sorted(directory.iterdir()):
+        if not path.is_file() or path.name in ['own-artifact-hashes.json', 'final-audit.json']:
+            continue
+        hashes.append(dict(path=str(path.relative_to(ROOT)), bytes=path.stat().st_size,
+                           sha256=digest(path)))
+(ROOT / 'reports/own-artifact-hashes.json').write_text(json.dumps(hashes, indent=2) + '\n')
+report = dict(status='artifact consistency checks passed', retained_manifest_records=102,
+              new_expanded_notes=14, separately_written_actual_FINAL_notes=14,
+              historical_actual_expanded_text_differences=12,
+              new_actual_expanded_text_differences=14, candidate=False,
+              original_complete=False, required_artifacts=len(required),
+              own_hashed_artifacts=len(hashes), finite_diagnostic_counts=expected,
+              mathematical_verification=False, compilation=False,
+              limitation='Body identity, legal support ordering and finite arithmetic are not theorem acceptance.')
+(ROOT / 'reports/final-audit.json').write_text(json.dumps(report, indent=2) + '\n')
+print(json.dumps(report, indent=2))

@@ -1,0 +1,51 @@
+"""Retain exact literal immediate application units, as DATA only."""
+from pathlib import Path
+import hashlib
+import json
+
+records=json.loads(Path('evidence/packet-retention.json').read_text())
+paths={r['id']:Path(r['local']) for r in records}
+specs=[
+    ('Stacks-surface-current-whole','P034',1,None,'Entire current Section 54.14, including condition (4) and immediate proof'),
+    ('Stacks-surface-counterpart','P036',1,None,'Entire bound 0BGP counterpart'),
+    ('Stacks-normal-completion','P010',1,None,'Full immediate HTML lemma and proof; parsed text previously read'),
+    ('Stacks-connected-full-fibre','P038',1,None,'Entire immediate connected-fibre lemma and proof'),
+    ('Stacks-fibre-curves-ample','P040',1,None,'Entire bound fibre-ampleness section'),
+    ('Stacks-relative-fibre-ample','P014',1,None,'Entire immediate 30.21.4'),
+    ('Stacks-proper-coherence-Serre','P012',1,None,'Entire 30.16.1-3'),
+    ('Stacks-ample-generation','P016',12,108,'Complete 28.27.1-13; excludes unused later partial units'),
+    ('Stacks-relative-ample','P020',12,100,'Complete 29.38.1-10 with adjacent page context'),
+    ('Stacks-divisor-cycle-projection','P030',1,None,'Entire bound 42.26'),
+    ('BdFF-1.8','P048',302,485,'Exact setting, b-divisor/ideal definitions and complete immediate 1.8 with numerical context'),
+    ('BdFF-1.11-1.12','P048',490,572,'Complete immediate numerical/finite-trace units'),
+    ('BdFF-env-2.1-2.17','P048',716,1065,'Complete applied envelope units including all three steps of 2.12'),
+    ('BdFF-2.24-2.25','P048',1180,1255,'Complete immediate statements with source context'),
+    ('BdFF-multiplier-coherence-and-3.12-3.17','P048',1520,1840,'Definitions/coherence and complete asymptotic/subadditivity immediate proofs'),
+    ('BdFF-isolated-4.7-4.9','P048',1936,1987,'Complete immediate bound/Izumi/strict-negativity units'),
+    ('BdFF-isolated-integral-4.11','P048',2040,2073,'Complete integral theorem and immediate proof; no 4.10 application'),
+    ('BFJ-setting','P001',349,359,'Exact smooth affine closed algclosed characteristic-zero setting'),
+    ('BFJ-all-retractions','P001',680,835,'Complete applied simple-modification/retraction units through 1.14'),
+    ('BFJ-full-extension','P001',910,1070,'Definitions and complete applied 2.7-2.8 all-support extension'),
+    ('BFJ-closed-faces-and-envelope','P001',1170,1450,'Complete closed-simplex 3.11 and entire 3.18/3.22 proof with context'),
+]
+units=[]
+for name,pid,lo,hi,scope in specs:
+    whole=paths[pid].read_text()
+    lines=whole.splitlines(keepends=True)
+    end=len(lines) if hi is None else hi
+    body=''.join(lines[lo-1:end])
+    units.append({'id':name,'source_id':pid,'source_path':str(paths[pid]),'line_window':[lo,end],
+                  'exact_literal_body':body,'bytes':len(body.encode()),
+                  'sha256':hashlib.sha256(body.encode()).hexdigest(),'application_boundary':scope,
+                  'reading_claim':'Complete immediate applied units read; adjacent context is not an additional premise',
+                  'recursive_foundations':'disclosed in source-application-ledger.md; not recursively freshly certified'})
+for row in json.loads(Path('evidence/literal-unit-checks.json').read_text()):
+    body=Path(row['path']).read_text()
+    units.append({'id':row['id'],'exact_literal_body':body,'bytes':len(body.encode()),
+                  'sha256':hashlib.sha256(body.encode()).hexdigest(),'source_matches':row['source_substring_matches'],
+                  'exact_suffix_qualification':row.get('exact_suffix_qualification'),
+                  'reading_claim':'Entire capture read after extraction; old metadata is DATA only',
+                  'application_boundary':'n8; exact source scope and recursive boundary in own ledger'})
+out=Path('evidence/source-units-LOCALONLY.json')
+out.write_text(json.dumps({'privacy':'LOCALONLY; no publication','units':units},ensure_ascii=False,indent=2)+'\n')
+print(json.dumps({'literal_units':len(units),'path':str(out),'bytes':out.stat().st_size}))

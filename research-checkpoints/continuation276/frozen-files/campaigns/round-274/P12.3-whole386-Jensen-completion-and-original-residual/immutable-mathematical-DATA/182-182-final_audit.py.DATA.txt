@@ -1,0 +1,28 @@
+"""Own consistency/support audit; not a mathematical verifier."""
+import hashlib,json,pathlib
+P=pathlib.Path('.')
+data=json.loads((P/'native-notes.json').read_text());allowed={'G331','B341','E350'}
+for n in data['notes']:
+    assert set(n)=={'id','summary','detailedSummary','text','support'}
+    assert set(n['support'])<=allowed
+    assert n['text']==(P/(n['id']+'.md')).read_text()
+    allowed.add(n['id'])
+assert data['candidate'] is False
+tex=(P/'P12.3-paper.tex').read_text();md=(P/'P12.3-paper.md').read_text()
+for name in ('G331','B341','E350'):
+    b=(P/'qualified-grants'/f'{name}.txt').read_text()
+    assert b in tex and b in md
+for env,count in [('OwnProofBody',12),('QualifiedBody',3)]:
+    assert tex.count('\\begin{'+env+'}')==count
+    assert tex.count('\\end{'+env+'}')==count
+# Imported grant prose itself contains control bytes in published extractions.
+# Only our new proof/record bodies are checked here.
+for p in [P/f'n{i}.md' for i in range(1,10)]:
+    assert all(ord(c)>=32 or c in '\n\t\r' for c in p.read_text())
+out=[]
+for p in sorted(P.iterdir()):
+    if p.is_file() and p.name not in ('input.json',):
+        b=p.read_bytes();out.append({'file':p.name,'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()})
+(P/'reports/own-artifact-hashes.json').write_text(json.dumps(out,indent=2))
+(P/'reports/final-audit.json').write_text(json.dumps({'status':'PASS','notes':9,'support_order':'PASS','whole_grants':'PASS','matched_environments':'PASS','candidate':False,'compiled':False,'mathematical_verification':False},indent=2))
+print('PASS: 9 complete note bodies, ordered legal supports, literal whole grants, source environments; candidate=false; uncompiled.')

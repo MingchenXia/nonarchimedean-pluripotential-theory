@@ -1,0 +1,61 @@
+"""Own source-only delivery assembly. Never invokes a compiler or supplied code."""
+import hashlib,json,pathlib,re,sys,platform
+
+root=pathlib.Path('.')
+proof=(root/'whole-proof.md').read_text()
+parts=re.split(r'(?m)^## (\d+)\. (.+)\n',proof)
+sections={}
+for i in range(1,len(parts),3):
+    sections[int(parts[i])]='## '+parts[i]+'. '+parts[i+1]+'\n'+parts[i+2]
+
+summaries=[
+('Raw geometric envelope calculus, exact gauges and actual decreasing-net closure; no universal CE assumed.',[1],['G331']),
+('Independent PASS for ROOT380 and the distinct ample globally generated Koszul theorem; trace applications stay conditional.',[2],[]),
+('Independent PASS for ROOT381; HH02 arbitrary-element wording rejected and repaired generatorwise over perfect fields, with historical foundations disclosed.',[3],[]),
+('Repaired isolated closed normal perfect-charp all-support CE theorem, including non-CM canonical flattening and uniform actual-primary recognition.',[4,5,6],['G331','n1','n2','n3']),
+('Independent surrounding surface, isolated char0 and exact BFJ smooth envelope chain; nonisolated char0 infinite-Q stratum unresolved.',[7],['G331','n1','n2']),
+('Actual finite dominating-cover transfer gives CE to quadratic cone times affine space in every perfect charp, including nonflat radicial char2.',[8],['G331','n1','n4','n5']),
+('Full finite-continuous conductor positivity criterion, genuine nonnormal failure, all reduced-curve geometric clipping and diagnostic energy distinctions.',[9,10],['G331','B341','E350','n1','n4','n5','n6']),
+('New Jensen subprobability duality and exact lower-hemicontinuity criterion; normal raw envelopes are uniformly negative unless zero. General CE still unproved.',[11],['G331','n1','n6','n7']),
+('Separate whole scoped and unchanged original verdicts; new standalone uncompiled proof and reproducibility evidence, original candidate=false.',[12],['G331','B341','E350','n1','n2','n3','n4','n5','n6','n7','n8'])
+]
+notes=[]
+for i,(summary,nums,support) in enumerate(summaries,1):
+    text='\n\n'.join(sections[n] for n in nums).strip()
+    text+='\n\nArtifacts: whole-proof.md, P12.3-independent-paper.tex, source-ledger.md, coverage.md, scope-and-verdict.json, native-notes.json and reports. Rerun: python reader.py m --retain; python reader.py p --retain; python reader.py b --retain; python identity_audit.py; python bounded_diagnostics.py; python build_delivery.py; python final_audit.py. The paper is intentionally uncompiled; ROOT retains compilation and publication. Execution and hashes do not certify the mathematics.'
+    notes.append({'id':'n'+str(i),'summary':summary,'detailedSummary':summary+' Complete independent argument and exact limitations are in this note; incoming grant qualifications and disclosed ordinary published foundations remain binding.','text':text,'support':support})
+notes[-1]['text']+='\n\nFinite observations: PASS on 8160 rounding cases (q=2,3,4,5,8,9,16,25,27,32; r=1..8; numerator=0..16; denominator=1..6), 192 smooth colength cases (j=1..8,r,s=0..4 excluding r=s=0), 35 quadratic parity colength cases (n=2..8,k=1..5), and 48 F4 Frobenius balance/root cases (a,c=0..3,q=2,4,8). Both possible unital field-map images F4 to F2 fail the defining polynomial, so zero such maps occur. These observations are diagnostic, not the universal proofs. No supplied program was executed/imported. All 607 manifest records matched (212 math,392 private primary,3 book); this is retention only. A slow character-level duplicate diagnostic was cancelled and replaced by a bounded line comparison, with no mathematical inference. No agent/native/model job, active output, compiler/editor/publication/catalogue/auth/runtime mutation or heavy compute was used. No supervised heavy-compute facility was supplied or required. Private sources and pixels remain LOCALONLY. Whole original P12.3 remains INCOMPLETE.'
+(root/'native-notes.json').write_text(json.dumps({'notes':notes,'candidate':False},ensure_ascii=False,indent=2)+'\n')
+for n in notes:(root/(n['id']+'.md')).write_text(n['text']+'\n')
+
+def esc(s):
+    substitutions={'\\':r'\textbackslash{}','{':r'\{','}':r'\}','$':r'\$','&':r'\&','#':r'\#','%':r'\%','_':r'\_','~':r'\textasciitilde{}','^':r'\textasciicircum{}'}
+    return ''.join(substitutions.get(c,c) for c in s)
+
+def prose(s):
+    # Preserve the author's literal TeX math, escape all other text.
+    bits=re.split(r'(\\\(.*?\\\)|\\\[.*?\\\])',s,flags=re.S)
+    return ''.join(b if j%2 else esc(b) for j,b in enumerate(bits))
+
+tex=[r'\documentclass[11pt]{article}',r'\usepackage[T1]{fontenc}',r'\usepackage[utf8]{inputenc}',r'\usepackage{amsmath,amssymb}',r'\usepackage[margin=1in]{geometry}',r'\usepackage{fancyvrb}',r'\usepackage[hidelinks]{hyperref}',r'\setlength{\parindent}{0pt}',r'\setlength{\parskip}{0.5em}',r'\emergencystretch=4em',r'\DefineVerbatimEnvironment{ImportedQualifiedGrant}{Verbatim}{fontsize=\tiny}',r'\title{Geometric local envelopes: independent proof and a Jensen-measure residual criterion}',r'\author{Unverified independent reconstruction}',r'\date{9 October 2026}',r'\begin{document}',r'\maketitle',r'\tableofcontents']
+paras=proof.split('\n\n')
+for para in paras:
+    if para.startswith('# '):continue
+    if para.startswith('## '):
+        head,_,rest=para.partition('\n')
+        tex.append(r'\section{'+esc(head[3:])+ '}')
+        if rest:tex.append(prose(rest))
+    else:tex.append(prose(para))
+tex.append(r'\appendix')
+for name in ['source-ledger.md','coverage.md','scope-and-verdict.json']:
+    tex += [r'\section{'+esc(name)+'}',r'\begin{ImportedQualifiedGrant}',(root/name).read_text(),r'\end{ImportedQualifiedGrant}']
+m=json.loads((root/'reports/m-integrity.json').read_text())
+for label,index in [('G331',191),('B341',189),('E350',190)]:
+    body=pathlib.Path(m[index]['local']).read_text()
+    assert r'\end{ImportedQualifiedGrant}' not in body
+    tex += [r'\section{Entire qualified '+label+'}',r'\begin{ImportedQualifiedGrant}',body,r'\end{ImportedQualifiedGrant}']
+tex.append(r'\end{document}')
+(root/'P12.3-independent-paper.tex').write_text('\n\n'.join(tex)+'\n')
+env={'python':sys.version,'platform':platform.platform(),'cwd':str(root.resolve()),'assembly':'source only, no compiler','incoming_program_execution':False,'agents':0,'native_campaigns':0,'extra_model_calls':0,'supervised_heavy_compute':'not supplied or needed'}
+(root/'reports/delivery-environment.json').write_text(json.dumps(env,indent=2)+'\n')
+print(json.dumps({'notes':len(notes),'candidate':False,'proof_bytes':len(proof.encode()),'tex_bytes':(root/'P12.3-independent-paper.tex').stat().st_size,'compiled':False}))

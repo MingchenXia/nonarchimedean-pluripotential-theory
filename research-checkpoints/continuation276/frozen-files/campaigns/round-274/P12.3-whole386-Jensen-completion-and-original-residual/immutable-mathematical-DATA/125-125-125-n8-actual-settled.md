@@ -1,0 +1,25 @@
+Use qualified G331 and n1. Let k be PERFECT of characteristic p>0, B normal integral affine finite-type over k, x CLOSED of codimension n>=2, and a a proper x-primary gauge. Assume an ACTUAL primary blowup Y=Bl_J B is smooth over k, identical off x and principalizes a; J is x-primary. Put A=J O_Y=O(-F_J), ample and globally generated, and H=-F_J. Fix an integral fibre-supported Cartier divisor C, without a sign assumption. No universal existence of Y is asserted.
+
+For every support FIRST use Frac(B/support(v)) and its valuation ring. Its generic point is on the puncture, where Y is the identity. Properness gives a centre. The generically trivial lattice O(C) has a nonzero quotient-field generator, and f_C is minus its value. Cartier order bounds by the principalized primary divisor make all evaluations finite and bounded; G331 gives continuity. No map from Frac(B) to a nonminimal-support quotient is presumed.
+
+Set I_m=Gamma(Y,O(mC)), m>=1. Proper coherence makes it finite. Sections are regular at every codimension-one point of B because C is supported over codimension-at-least-two x; normal Hartogs puts them in B. Hence I_m is an actual ideal, unit off x. For a fixed integer M with C>=-M E_a, it contains a^(Mm), so is nonzero unit/primary. The section family is graded; no graded finite generation is claimed.
+
+The finite nonnegative values v(I_m) are subadditive. ALL-index Fekete gives s(v)=lim_m[-v(I_m)/m]=sup_m[-v(I_m)/m]. These profiles are actual C competitors below f_C. Conversely -v(L)/r<=f_C implies, at every fibre prime divisor of NORMAL Y, ord_E(L)>=-r coeff_E(C). At other prime divisors C is zero and L is regular. The height-one criterion for invertible fractional ideals gives L O_Y subset O(rC), hence L subset I_r. Rational profile density with a small negative shift, then n1's C/D equality, prove p(f_C)=s on the ENTIRE section. Fekete alone does not prove positivity.
+
+On smooth Y define the actual graded base ideals b_m=I_m O_Y tensor O(-mC), unit off the fibre, and t_m=tau(b_bullet^m). The ENTIRE GJKM arXiv:1712.00980v3 Section 4, 4.1–4.6 and immediate proof, together with Mustata's entire Section 3, gives b_m subset tau(b_m) subset t_m and t_(ml) subset t_m^l. Coherence, BMS subadditivity and Frobenius-trace foundations are disclosed published dependencies.
+
+Apply GJKM 4.6 with D=C,E=mC,lambda=m,d=n+1. A nonzero I_r supplies a section of rC; H is ample globally generated and E-lambda D=0 is nef. Y is smooth integral over PERFECT k and projective over finite-type AFFINE B, precisely the source's hypotheses. Thus O(K_Y+mC+dH)t_m is generated for EVERY m. K_Y is ON Y; K_B need not be Cartier.
+
+Ordinary Serre generation supplies ONE fixed c>=0 such that A^c O(-K_Y-dH) is generated. Tensoring gives F_m=O(mC)t_m A^c globally generated for ALL m. J_m=Gamma(Y,F_m) is an actual coherent ideal in B by the same Hartogs argument. The inclusion b_m subset t_m gives I_m J^c subset J_m, so it is unit/primary. Generation yields the ACTUAL fractional-ideal equality J_m O_Y=O(mC)t_m A^c, not merely numerical equality.
+
+Pull this equality to every support quotient centre. Values of t_m are finite because it contains b_m, unit on the generic puncture. A finite global generating set has a unit coefficient at the valued centre. Therefore g_m(v)=-v(J_m)/m=f_C(v)-(c/m)v(J)-(1/m)v(t_m). Both losses are nonnegative. Thus g_m is an ACTUAL continuous geometric profile below f_C on ALL supports.
+
+For fixed m and every l, b_(ml) subset t_(ml) subset t_m^l implies -v(I_(ml))/(ml)=f_C-v(b_(ml))/(ml)<=f_C-v(t_m)/m=g_m+(c/m)v(J). The all-index Fekete limit is unchanged along multiples ml. Letting l tend to infinity gives p(f_C)<=g_m+c v(J)/m. Since g_m is a competitor,
+
+0<=p(f_C)-g_m<=c v(J)/m<=cN/m,
+
+where a^N subset J. The error is uniform on the FULL primary section, including nonminimal supports. Hence p(f_C) belongs to C, is finite continuous, equals its USC regularization and is the greatest D minorant.
+
+Source precision is essential. Mustata 1109.3825v2 Section 3 allows PERFECT k, but Section 4.1 is projective over ALGEBRAICALLY CLOSED k and alone cannot prove affine-base generation. GJKM 4.6 is the exact extension. Its complete immediate proof uses Frobenius trace, projection formula, Castelnuovo–Mumford regularity and corrected Keeler 1.5. The complete Keeler statement/immediate proof and ENTIRE v5 erratum were read. False old 3.3 is not used; E1.3 employs finite faithfully flat altered base, and E2.4/E2.5 repair the argument and retain 1.5. Deeper BMS, trace, regularity, alteration/EGA, Fujita/Serre, Hartogs and coherence foundations are disclosed, not recursively freshly certified.
+
+No source-b-divisor converse, singular Jacobian bound, Cartier K_B assumption, energy/capacity premise or increasing-supremum D recognition enters. Complete artifacts: n8.md, whole-proof.md, source-application-ledger.md, private source units and evidence/literal-unit-checks.json. Rerun python extract_literal.py; python capture_source_units.py; python build_delivery.py; python final_audit.py. Primary bodies remain LOCALONLY.

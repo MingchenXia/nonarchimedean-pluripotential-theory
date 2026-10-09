@@ -1,0 +1,28 @@
+"""Own integrity/support audit only; no theorem checker or supplied import."""
+import hashlib,json,pathlib,re
+root=pathlib.Path('.')
+payload=json.loads((root/'native-notes.json').read_text())
+seen={'G331','B341','E350'}
+for n in payload['notes']:
+    assert n['id'] not in seen
+    assert set(n['support'])<=seen,(n['id'],n['support'])
+    assert all('/' not in x and '.' not in x for x in n['support'])
+    assert (root/(n['id']+'.md')).read_text()==n['text']+'\n'
+    seen.add(n['id'])
+assert payload['candidate'] is False
+assert json.loads((root/'scope-and-verdict.json').read_text())['candidate'] is False
+counts={}
+for kind in ['m','p','b']:
+    rows=json.loads((root/'reports'/f'{kind}-integrity.json').read_text())
+    for r in rows:
+        data=pathlib.Path(r['local']).read_bytes()
+        assert len(data)==r['bytes'] and hashlib.sha256(data).hexdigest()==r['sha256']
+    counts[kind]=len(rows)
+tex=(root/'P12.3-independent-paper.tex').read_text()
+rows=json.loads((root/'reports/m-integrity.json').read_text())
+for i in [191,189,190]:assert pathlib.Path(rows[i]['local']).read_text() in tex
+files=[p for p in root.iterdir() if p.is_file() and p.name!='input.json']
+records=[{'path':str(p),'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in sorted(files)]
+out={'support_graph':'PASS','immutable_retention_counts':counts,'all_607_match':sum(counts.values())==607,'grant_appendices':'entire exact literal bodies','compiler_used':False,'candidate':False,'mathematical_verification':False,'artifacts':records}
+(root/'reports/final-audit.json').write_text(json.dumps(out,indent=2)+'\n')
+print(json.dumps({k:v for k,v in out.items() if k!='artifacts'},indent=2))

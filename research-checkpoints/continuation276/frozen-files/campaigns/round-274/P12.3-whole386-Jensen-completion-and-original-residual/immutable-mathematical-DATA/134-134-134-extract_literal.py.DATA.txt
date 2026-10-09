@@ -1,0 +1,22 @@
+"""Data extraction and exact-source matching, never code execution."""
+from pathlib import Path
+import json, hashlib
+
+records=json.loads(Path('evidence/packet-retention.json').read_text())
+byid={x['id']:Path(x['local']) for x in records}
+data=json.loads(byid['P056'].read_text())
+out=Path('review-data/primary-units-LOCALONLY');out.mkdir(parents=True,exist_ok=True)
+checks=[]
+for unit in data['units']:
+    body=unit['literal_complete_immediate_unit']
+    path=out/(unit['id']+'.txt');path.write_text(body)
+    matches=[pid for pid in ['P051','P053','P055'] if body in byid[pid].read_text()]
+    suffix_match = None
+    if unit['id']=='Keeler-entire-erratum':
+        primary=byid['P055'].read_text()
+        pos=primary.find(body[:-1])
+        if body.endswith('\n') and pos>=0 and primary[pos:]==body[:-1]:
+            suffix_match={'source':'P055','character_offset':pos,'source_suffix_characters':len(primary)-pos,'exact_difference':'capture appends exactly one LF after the complete primary suffix','both_bodies_retained':True}
+    checks.append({'id':unit['id'],'bytes':len(body.encode()),'hash_matches':hashlib.sha256(body.encode()).hexdigest()==unit['unit_sha256'],'source_substring_matches':matches,'exact_suffix_qualification':suffix_match,'path':str(path),'metadata':{k:v for k,v in unit.items() if k!='literal_complete_immediate_unit'}})
+Path('evidence/literal-unit-checks.json').write_text(json.dumps(checks,indent=2))
+print(json.dumps([{k:v for k,v in c.items() if k!='metadata'} for c in checks],indent=2))
