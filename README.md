@@ -4,6 +4,20 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest checked Parseval/raw-FS book integration, 9 October 2026:**
+the [integration audit](manuscript/editorial/parseval_raw_FS_staged_integration_audit_v2_20261009.md)
+records the 4,667-page edition: fixed-variable symmetric Parseval in
+Chapter 65.19, BJKS1 attribution of L.99's P1 example, and the canonical
+FS psh-membership gate in L.100. All 31 selected physical pages were
+read in 16 matching views, including two explicit blank versos and the
+complete index. Required validation and post-render checks pass; all
+13,382 old numbered values and 599 citation labels are preserved.
+The [owned artifacts](manuscript/editorial/artifact_exports/20261009_parseval_raw_FS_v2/README.md)
+contain the full PDF, selected review, minimal sources and actual evidence.
+The [activation record](manuscript/editorial/parseval_raw_FS_cloud_activation_v2_20261009.json)
+will record cloud activation separately. BJ22 critical Siu/general envelopes
+remain OPEN; no new general theorem or complete whole-book pass is claimed.
+
 **Latest selected BJKS1 dependency source checkpoint, 9 October 2026:**
 the [published-source audit](manuscript/editorial/BJKS1_Finski_dependencies_source_review_20261009.md)
 checks fifty of the hundred physical pages in twenty-five matching views,

@@ -3,6 +3,47 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest checked Parseval/raw-FS book checkpoint, 9 October 2026
+
+The [integration audit](parseval_raw_FS_staged_integration_audit_v2_20261009.md)
+records fixed-variable Parseval in 65.19, the published BJKS1 anchor for
+L.99's P1 raw-FS example, and L.100's raw/canonical FS distinction with
+the exact psh premise of Lemma 6.17(iii). Full and weak envelope properties
+remain separate, as do the original BBJ21, holomorphic extension, Okounkov
+and BJ22/addendum proof obligations. Finski's published 47 pages/24 views
+are completely read; BJKS1's 50 of 100 pages/25 views remain partial.
+This integration adds no new primary-reading credit or recursive certificate.
+
+The final book has 4,667 physical pages: two additional content pages and
+two ordinary recto-opening blank versos relative to 4,663. All 31 selected
+physical pages were read with complete text and 16 matching individual
+displays. They include both changed sections and seams, contents, the full
+12-page index, and the complete updated reference entry. Two blank versos
+are recorded separately and do not add mathematical-content credit.
+Last complete ordered whole-book reading remains 4 October.
+
+Required validation and six existing tests pass. Post-render references
+and canonical inventory pass; zero errors, unresolved references, missing
+glyphs, overfull boxes or invalid internal links. All 955 inherited
+underfull blocks have identical normalized content and multiplicities.
+All 13,382 numbered values, 599 citation labels and 2,765 TOC titles/
+hierarchies are retained; no new formal block, manual tag, semantic label
+or bibliography key is added. Two index terms give 898 accepted entries.
+Other 423 core TeX inputs and the NA bibliography remain unchanged.
+The v1 mistaken-reference preflight is preserved with no TeX/PDF credit.
+
+The [artifact directory](artifact_exports/20261009_parseval_raw_FS_v2/README.md)
+contains full book, 31-page review, 472-member build source and actual
+evidence. Activation and remote publication get separate verified records;
+upload adds zero reading credit. Preserve the native catalogue/editor and
+canonical 42 atoms/twelve problems. BJ22 critical homogeneous Siu/general
+envelopes remain OPEN, LPWZ density UNVERIFIED, and the Theorem 6.21 warning
+binding. No original general result or independent-model receipt is added.
+Next read the original maximal-ray and holomorphic-extension sources and
+the relevant Okounkov lattice prerequisites, integrate incoming author
+progress and publish reviewed units regularly. Continue cloud only;
+Xean stays suspended.
+
 ## Latest selected published BJKS1 dependency checkpoint, 9 October 2026
 
 The [actual source audit](BJKS1_Finski_dependencies_source_review_20261009.md)
