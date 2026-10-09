@@ -2606,3 +2606,7 @@ and [authored evidence](manuscript/editorial/artifact_exports/20261009_Xue_semia
 The active **4,675-page book** and canonical statuses are unchanged.
 The catalogue's supplementary source upload is separately verified;
 native compilation remains unverified and its historical PDF is unchanged.
+
+All nine forty-page source-evidence files were verified byte-for-byte on
+GitHub at `164ca5aeca4ec8d7e456595942f91c005825d36a`. See the [publication record](manuscript/editorial/Xue_semiabelian_partial_GitHub_publication_v2_20261009.json).
+Upload adds no reading credit, main-theorem clearance or native compilation verdict.
