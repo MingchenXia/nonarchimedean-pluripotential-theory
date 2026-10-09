@@ -4,6 +4,20 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest checked graded-norm and upper semicontinuous FS integration, 9 October 2026:**
+the [integration audit](manuscript/editorial/graded_FS_staged_integration_audit_v1_20261009.md)
+adds Chapter 19's common-core paragraph and L.99. A direct P1 calculation
+separates asymptotic d1, normalized operator distance and raw/usc FS limits;
+signed means and Veronese scaling are explicit. The Reboulet v1 general
+comparison retains its qualified proof dependencies. All 25 affected
+pages were freshly read in 13 individual matching displays; validation
+and post-render checks pass. The
+[activation record](manuscript/editorial/graded_FS_cloud_activation_v1_20261009.json)
+controls the 4,661-page cloud edition. One pinned bibliography entry is
+added. Native editor and canonical statuses stay unchanged; general
+Siu/envelope questions remain OPEN. No original general theorem or new
+whole-book reading is claimed.
+
 **Latest asymptotic Fubini–Study primary checkpoint, 9 October 2026:**
 the [source audit](manuscript/editorial/Reboulet_asymptotic_FS_source_review_20261009.md)
 reads all 43 pages of the pinned Reboulet v1 in 22 individual matching
@@ -393,7 +407,7 @@ citation values are preserved. The [cloud activation record](manuscript/editoria
 controls the source/PDF update. No whole-book new reading, original general
 result or canonical status change is claimed. Its verified artifacts are uploaded.
 
-The current cloud research-integration build has **4,659 pages**; its
+The current cloud research-integration build has **4,661 pages**; its
 source and checked book/audit exports are published on `work`. The checked
 [geometric-norm account](manuscript/editorial/Temkin_Zutler_geometric_norms_staged_integration_audit_20261008.md)
 adds Sections 4.6.1--4.6.2: tensor and spectral norm distinctions, exact

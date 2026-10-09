@@ -3,6 +3,37 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest graded-norm and upper semicontinuous FS book checkpoint, 9 October 2026
+
+The [integration audit](graded_FS_staged_integration_audit_v1_20261009.md)
+adds Chapter 19's common-core paragraph and L.99. Its direct P1 computation
+separates asymptotic d1 from normalized operator distance, and the bounded
+raw FS limit Q from its usc regularization Q*. Signed/absolute means,
+Hilbert n! and Veronese degree scaling remain explicit. The controlling
+Reboulet v1 general comparison retains its envelope and determination
+qualifications; no general correspondence is independently established.
+
+The 4,661-page book passes full validation and post-render gates. All 25
+selected pages were freshly read in 13 individually displayed matching
+views with complete text and sequential notes. All 955 underfull blocks,
+13,379 prior numbered values and 596 citation labels are preserved. One
+pinned bibliography entry makes 597 citations. The other 423 TeX inputs
+and ComplexGeometry.bib are unchanged; 92 historical blocks including
+25 proofs and six manual tags are preserved. The separating-newline
+finalizer preflight failure is frozen; the fresh v2 passes with no source
+change. All 43 Reboulet v1 primary pages were actually read in 22 views;
+BE21 has a partial four-checkpoint union of 58 of 125 pages.
+
+The [activation record](graded_FS_cloud_activation_v1_20261009.json)
+controls this cloud edition; publication receives a separate later record.
+Native catalogue/editor and 42 atoms/twelve problem statuses stay unchanged.
+General BJ22 critical homogeneous Siu/envelopes remain OPEN and LPWZ density
+UNVERIFIED. No original general theorem, independent-model receipt or new
+complete ordered book reading is claimed; the latter remains 4 October.
+Continue cloud-only related primary reading, sequential open-problem
+interfaces, incoming author-update checks and regular checked pushes.
+Xean stays suspended.
+
 ## Latest asymptotic Fubini–Study source checkpoint, 9 October 2026
 
 The [complete primary audit](Reboulet_asymptotic_FS_source_review_20261009.md)
