@@ -7659,3 +7659,19 @@ Incoming continuation302/P12.3 is unreviewed and under a separate audit.
 All nine Chambert–Loir published-source audit/evidence files were downloaded
 from GitHub and verified byte-for-byte at `173818ea12531966e5916bcd8dd6a150913be031`. See the [publication record](Chambert_Loir_complete_GitHub_publication_v1_20261009.json).
 Upload adds no reading credit or new-result promotion.
+
+## Incoming GitHub P12.3 proof audit, 9 October 2026
+
+At research commit `1aeb16838fc957d36947eb70664cab1ea15335e6`, read
+paper419's current core and the entire qualified G331 with all attached
+scope/reader annotations. Later retained historical source and companion
+are unread. Freshly read complete Stacks sections 54.14 and 29.38. Own
+exact diagnostics cover 720 cases and 23,040 explicit-ideal values.
+
+See [scoped incoming-proof review](P12_3_incoming_continuation302_scoped_review_v1_20261009.md)
+and [17-member authored evidence](artifact_exports/20261009_P12_3_incoming_scoped_v1/README.md).
+The conductor/cusp deductions are UNVERIFIED; the threefold degree -1
+obstructs a proof strategy and is not a continuous-envelope counterexample.
+No exact-current independent production-verifier receipt is present.
+General higher-dimensional and nonsingleton-conductor questions remain
+OPEN. The book, native catalogue/editor and canonical statuses are unchanged.
