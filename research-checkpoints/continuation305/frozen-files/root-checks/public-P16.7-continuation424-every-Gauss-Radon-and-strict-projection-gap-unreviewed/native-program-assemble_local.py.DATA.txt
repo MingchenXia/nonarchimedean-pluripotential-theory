@@ -1,0 +1,175 @@
+"""Own passive artifact assembly. Supplied programs are never run or imported."""
+from pathlib import Path
+import hashlib
+import json
+import platform
+import sys
+
+HERE = Path.cwd()
+BASE = HERE.parents[1]
+def sha(b):
+    return hashlib.sha256(b).hexdigest()
+
+bindings = json.loads((BASE / 'mathematical-packet-bindings.json').read_text())
+primary = json.loads((BASE / 'private-primary-packet-bindings.json').read_text())
+book = json.loads((BASE / 'book-context-bindings.json').read_text())
+for dirname in ['LOCALONLY-mathematical', 'LOCALONLY-primary']:
+    (HERE / dirname).mkdir(exist_ok=True)
+checked = []
+for i, record in enumerate(bindings):
+    p = Path(record['path'])
+    b = p.read_bytes()
+    assert len(b) == record['bytes'] and sha(b) == record['sha256'], str(p)
+    (HERE / 'LOCALONLY-mathematical' / p.name).write_bytes(b)
+    checked.append({'index': i, 'name': p.name, 'bytes': len(b), 'sha256': sha(b)})
+selected = [r for r in primary if 'P16.7-ROOT415-bounded-calculus-local-Gauss-and-Shilov-source' in r['path']]
+assert len(selected) == 15
+for record in selected:
+    b = Path(record['path']).read_bytes()
+    assert len(b) == record['bytes'] and sha(b) == record['sha256']
+    (HERE / 'LOCALONLY-primary' / Path(record['path']).name).write_bytes(b)
+for name in ['mathematical-packet-bindings.json', 'private-primary-packet-bindings.json', 'book-context-bindings.json']:
+    (HERE / 'LOCALONLY-mathematical' / name).write_bytes((BASE / name).read_bytes())
+
+def blob(i):
+    return Path(bindings[i]['path']).read_bytes()
+Path('original-residual.txt').write_bytes(blob(20))
+Path('unchanged-original-task.json').write_bytes(blob(0))
+old = blob(27).decode()
+paper = old
+start = paper.index('\\title{')
+stop = paper.index('\\author{', start)
+paper = paper[:start] + '\\title{Every Gauss-supported Radon equation on the designated analytic quotient\\\\and strict full-dual separation of nonskeletal measures}\n' + paper[stop:]
+start = paper.index('\\begin{abstract}')
+stop = paper.index('\\end{abstract}', start) + len('\\end{abstract}')
+abstract = r'''\begin{abstract}
+We retain the full qualified 421 proof body, then prove periodic real
+Alexandrov existence and uniqueness for every Radon probability by
+finite Laguerre cells, Legendre conjugation and a proved weak-limit
+argument. Positive convex convolution and actual recursive CLD products
+lift these solutions to bounded continuous weights in the original
+entire CLD class on the designated input quotient. Every raw-mass-two
+Gauss-supported Radon target, including atoms and singular measures,
+therefore has an actual solution and full-dual attainment at the explicit
+conventional analytic foundation boundary. A direct presentation argument
+gives uniqueness against all actual generated solutions. For arbitrary
+eligible support, equality of the full dual with the dual of the Gauss
+projection holds exactly for skeletal measures; a nonskeletal measure has
+a strictly positive quantified gap. General arbitrary-support existence,
+genuine nonalgebraization/coherent descent, and the deeper recursive audit
+remain open. All material is an unverified local draft.
+\end{abstract}'''
+paper = paper[:start] + abstract + paper[stop:]
+marker = '\\begin{thebibliography}{9}'
+assert paper.count(marker) == 1
+paper = paper.replace(marker, '\n' + Path('new-residual-proofs.tex').read_text() + '\n' + marker)
+Path('standalone.tex').write_text(paper)
+
+ranges = {
+    3: 'whole all five actual fields', 4: 'whole all five actual fields',
+    5: 'whole all five actual fields', 6: 'whole all five actual fields',
+    27: [[1,240],[241,600],[601,1000],[1001,1400],[1401,1797]],
+    19: 'whole distinct 367-LF expansion',
+    1: 'whole', 2: 'whole', 20: 'whole', 24: 'whole',
+    25: [[1,360],[361,718]], 26: 'whole',
+    16: 'whole inert text', 17: 'whole inert text',
+    15: 'whole by decoded character ranges 0:10500 and 10500:end; inert text'
+}
+applications = {
+    '1150': 'CLD15.7.1--3: separated pure2 analytic input with empty boundary; calibrated calculus. Its deeper richness/differential-separation sources are conventional foundations.',
+    '1151': 'CLD5.11.1: smooth compact-support Stokes/Green, boundary terms vanish on X; reconstruct strong gradients using finite coefficient masses and local cutoff estimates.',
+    '1152': 'CLD7.2.8--12 and displayed7.2.13: positive top currents/Radon, coefficient measures, continuous multiplication, smooth-test density. Used in actual lift on all continuous analytic tests.',
+    '1153': 'CLD8.1.7--8,8.1.9--11,8.2.4: entire minimal continuous sheaf and transfinite uniform closure; coordinate convex convolution gives actual positive generators and uniform limit; finite maxima for reconstruction.',
+    '1170': 'GR4.1--4.2 and context: USC every-curve every-extension classical positivity. Applied only via the explicit bridge and fixed coordinate curves; full retained proof read.',
+    '1180': 'CLD8.5.1/5,8.7.1--2/4,8.8.4--6/8--9: actual recursive positive closed products, local uniform continuity, symmetry, dpsh and smooth-null reference changes, coordinate support/dimension.8.6.7 not applied.',
+    '1203': 'CLD11.6.3,5(c): input local finite-flat positive-degree singleton-Gauss representatives at full points, reduced target and relative interior. Conventional deeper Ducros/Berkovich inputs remain named.',
+    '1204': 'CLD13.8.1--5: full graded dimension and independent Laurent initials, support-free full points, completion preserves initials. Needed only in reconstructed full-point atoms.',
+    '1218': 'GR unnumbered Section1.2: CLD positivity implies classical curve-test positivity. Wanner/Thuillier smooth-curve foundations after algebraically closed nontrivial extension remain conventional, not independently fully audited.',
+    '1221': 'CLD5.10.1(c),(d),5.10.2: pleasant calibrated coordinate charts, top Radon pushforward/reconstruction. Raw square factor2 proved by wedge expansion; OCR inequality in(a) not applied.',
+    '1222': 'GR4.2 whole proof/context: sheaf, maxima, extension and decreasing nets. No supplied general upper-envelope recognition is inferred.',
+    '1223': 'GR6.1--6.5 whole chain: pure2 affinoid Shilov points have full graded dimension, maximum at finite Shilov boundary. Used for full generated uniqueness against a bounded solution;6.5 not used, requires already-USC full pointwise limit.',
+    '1224': 'CLD18.6.1: separated equidimensional boundaryless generically-flat relative intersection formula. Applied in reconstructed fixed fibres, not to a varying analytic section; deeper intersection sources remain named.',
+    '1225': 'CLD18.6.2: log-max fibre current with t=1, actual boundaryless torus chart; local integer degree for full-point atoms. No extra extension-degree factor.',
+    '1226': 'CLD14.5.2--3 full proof end: pleasant identity coordinate moment on full open2 cells, saturated primitive lattice, degree1. Applied to every smooth invariant approximant in actual lift.'
+}
+read_primary = []
+for r in selected:
+    name = Path(r['path']).name
+    count = Path(r['path']).read_bytes().count(b'\n')
+    display_count = len(Path(r['path']).read_text().splitlines()) if name.startswith('1180') else count
+    rg = [[1,190],[191,display_count]] if name.startswith('1180') else [[1,count]]
+    read_primary.append({**r, 'raw_LF_count': count,
+        'display_index_convention': 'Python str.splitlines(), including 8 form-feed breaks' if name.startswith('1180') else 'whole literal text display; raw LF range',
+        'own_untruncated_display_ranges': rg, 'exact_new_application': applications[name[:4]]})
+ledger = {
+    'no_incoming_correctness_grants': True,
+    'own_current_bounded_untruncated_math_displays': [{'index': i, 'path': bindings[i]['path'], 'ranges': r} for i,r in ranges.items()],
+    'own_fifteen_complete_immediate_primary_units_read': read_primary,
+    'full421_standalone_read': True, 'full421_distinct_expansion_read': True,
+    'all_four_current_actual_notes_all_five_fields_read': True,
+    'entire_current_unique_historical_companion_independently_read_or_audited': False,
+    'current_whole_companion_retained_bytes': len(blob(21)),
+    'retention_hash_or_search_adds_no_reading_credit': True,
+    'deep_recursive_source_book_nonalgebraization_descent_audit_complete': False,
+    'book_context_bound_paths_not_freshly_read': book,
+    'real_Alexandrov_or_transport_external_existence_theorem_used': False,
+    'scope': 'Real theorem closed-book complete proof; analytic conclusions at explicit conventional CLD/Berkovich/GR foundation boundary on the input quotient. Original arbitrary-support existence open.',
+    'excluded_truncated_inventory_and_search_outputs': True,
+    'native_program_execution_import': False, 'compiler_invoked': False,
+    'candidate': False
+}
+Path('source-application-reading-ledger.json').write_text(json.dumps(ledger,indent=2)+'\n')
+text = '''OWN LOCALONLY SOURCE/APPLICATION/READING LEDGER. UNVERIFIED DRAFT.
+All four actual current421 notes were physically read in all five fields;
+all1797LF/85806 bytes of standalone and distinct367LF/17296 bytes of
+new proofs, current001/002 scopes, both complete ledgers, verdict and
+byte-unchanged residual were read in bounded untruncated outputs.
+All fifteen immediate units were independently freshly displayed with
+their complete retained statements and proofs. Three current native
+programs were read as inert text only. Truncated inventories/searches
+have no reading credit. Search found no Laguerre/semi-discrete or
+every-Gauss-Radon theorem text in the retained historical companion;
+this lexical observation is not an entire historical proof audit.
+
+The full5347835-byte current companion and every202 supplied mathematical
+body are retained as inert DATA; their retention is not independent
+reading or correctness. The entire unique historical companion and
+deeper recursive primary/book/geometric/descent source audit are NOT
+complete. Genuine nonalgebraization/coherent descent are NOT certified.
+The explicit compact good strict smooth separated boundaryless pure2
+quotient is input. No current-campaign feedback or mathematics was read.
+
+The analytic theorem uses original C, actual uniform positive smooth
+coordinate approximation, recursive products on all continuous analytic
+tests, calibrated primitive lattice degree1 and raw2!. The real theorem
+is proved here by compact finite-dimensional Laguerre minimization,
+hyperplane null sets, Fenchel conjugacy, graph convergence and a limiting
+finite-grid approximation. No external periodic OT/Alexandrov existence,
+Vilsmeier/model-lattice/algebraization theorem is presumed.
+
+Foundations left conventional: CLD6.2.4--8 smooth partitions/cutoffs and
+density; Berkovich ordinary affinoid neighborhood bases and polyannulus
+Shilov vertices; Temkin graded reduction; Ducros relative-interior/flat
+and relative-intersection facts; Wanner/Thuillier smooth-curve comparison.
+The exact fifteen applications are listed below. GR6.5 is never used
+to recognize a Borel/upper-regularized function. Full generated uniqueness
+against a bounded solution is reproved by generated calibration,
+full-point moduli, dense Shilov points, USC and actual Shilov bounds.
+
+New arbitrary-support result: D(mu)=D(Gauss projection) exactly when
+mu is skeletal. Nonskeletal eligible input has a strict quantified dual
+gap and cannot have any continuous invariant full-dual maximizer.
+There is no claim that projection recovers lost fibre data or that this
+gap supplies every-measure noninvariant attainment/representation.
+Original P16.7 OPEN. candidate=false. No compiler/publication/acceptance,
+agents, extra model/native calls, supplied execution/import, runtime/
+auth/proxy/CA changes. No supervised heavy compute exposed or needed.
+'''
+for r in read_primary:
+    text += '\n' + Path(r['path']).name + '\n' + r['exact_new_application'] + '\n'
+Path('source-application-reading-ledger.txt').write_text(text)
+Path('binding-audit-output.json').write_text(json.dumps({'math_checked':len(checked),'primary_checked':len(selected),'failures':[],'records':checked,'mathematical_certification':False},indent=2)+'\n')
+Path('environment.json').write_text(json.dumps({'python':sys.version,'platform':platform.platform(),'cwd':str(HERE),'input_programs_executed_or_imported':False,'compiler_invoked':False,'subagents':0,'extra_native_model_calls':0,'network_or_publication':False,'runtime_auth_proxy_CA_changes':False,'operator_supervised_compute_exposed':False,'resource_heavy_local_job':False},indent=2)+'\n')
+Path('scoped-verdict.json').write_text(json.dumps({'candidate':False,'original_target':'unchanged P16.7','original_status':'OPEN','new_proofs':['every periodic real Radon probability Alexandrov existence/uniqueness','actual every-Gauss rawmass2 Radon solution in entire C and full-dual attainment','uniqueness in actual G against bounded solutions','strict quantitative full-dual gap for nonskeletal arbitrary support','no invariant attained maximizer for nonskeletal eligible input'],'analytic_foundation_boundary':'named conventional CLD/Berkovich/GR foundations; all fifteen immediate full units freshly read; no complete deeper recursive audit','whole421_standalone_and_distinct_expansion_read':True,'entire_unique_historical_companion_independently_audited':False,'genuine_nonalgebraization_coherent_descent_certified':False,'general_arbitrary_support_attainment_representation_existence':False,'compiler_invoked':False,'compilation_status':'UNVERIFIED','publication_or_acceptance':False,'mathematical_correctness_certificate':False},indent=2)+'\n')
+Path('commands.txt').write_text('python assemble_local.py > assemble-local-run.log\npython verify_local.py > verify-local-run.log\npython package_local.py > package-local-run.log\n')
+print(json.dumps({'math_bindings':len(checked),'primary_bindings':len(selected),'failures':0,'standalone_bytes':len(paper.encode()),'residual_sha256':sha(blob(20)),'compiler_invoked':False},indent=2))
