@@ -1,0 +1,132 @@
+"""Assemble complete OWN research drafts; no supplied program is imported."""
+from pathlib import Path
+import json
+import hashlib
+
+ROOT=Path(__file__).resolve().parents[1]
+META=[
+ ("n1","Base-K finite wide-polyannulus Picard vanishing by staged disc/circle gluing; no arbitrary-extension claim.",
+  "Using only Gruson IV.5 for pure discs and unit circles, SK0 cancellation trivializes rank-one projectives. Filling an annular hole along its inner circle reduces the number of wide factors in both the boundary and filled spaces. This proves Pic(P_m,K)=0 for every m over K=C((s)), under the named coherent-affinoid foundations. It is a finite Picard bridge, not the original E1 theorem.",[]),
+ ("n2","Base-field nonalgebraization of the explicit proper analytic surface, excluding all separated finite-type algebraic spaces.",
+  "The Picard bridge from n1 gives compatible global torus frames. Inner Gauss bounds, the signed coefficient recurrence and every meromorphic pole divisor yield Gamma(X,M)=K for periods (s^8,2),(3,s^8). Smoothness reflection, generic-field hypotheses and analytic divisor descent exclude all separated finite-type K-algebraic-space algebraizations. Exact deeper analytic foundations remain cited; no arbitrary-extension scope or full equation theory is claimed.",["n1"]),
+ ("n3","New constant-energy branch pencils defeat uniform energy-bounded compactness and force a quantitative finite-dual branch-tail bound.",
+  "The ordinary bounded middle-positive class C_theta has genuine mixed measures of raw mass two. For every real N>=1, U_N has mass-one delta_xi_N off the original Gauss section and energy -1/6-N/3. The pencil u0+aD_N has E=-1/6-a^3 N/3 and MA=(1-a^2)MA(u0)+a^2 MA(U_N). Choosing a=N^(-1/3) gives normalized E=-2/3 and rigid value -1/4-N^(2/3), disproving uniform compactness on this energy-bounded set. Finite bounded dual energy implies mu(B_N)<=constant*N^(-2/3). These are necessary constraints, not unbounded E1 or an admissible counterexample.",["n2"]),
+ ("n4","Complete reconstruction of circle equations, envelopes, energy and variation, with explicit separable skeletal scope.",
+  "The periodic Green kernel solves every circle probability curvature and every skeletal product equation uniquely within S_theta. Normalized circle compactness, contact orthogonality and every circle-direction first variation are proved. All mass-two analytic measures have finite restricted dual energy, whose maximizer sees only marginals; this does not certify all-support admissibility. Concrete full-E1 attempts are constrained by n3 and remain unresolved.",["n2","n3"]),
+ ("n5","Original P16.7 remains incomplete; full proof artifacts, precise source coverage, finite diagnostics and residual quantifiers are retained.",
+  "New exact partial progress is the finite base-field Picard bridge, base-field nonalgebraization and stronger bounded branch-energy/tail results. The full intrinsic unbounded domain, all-direction envelopes and suitable compactness, full-mass products and continuity, full first variation, every-admissible-measure existence and full uniqueness modulo constants remain missing. Entire specified whole378 and earlier proof bodies were read, with fresh source reading separated from retention and historical attribution. Finite diagnostics and structural checks are not mathematical verification.",["n1","n2","n3","n4"])
+]
+notes=[{"id":i,"summary":s,"detailedSummary":d,"text":(ROOT/"notes"/(i+".md")).read_text(),"support":p}
+       for i,s,d,p in META]
+payload={"notes":notes,"candidate":False}
+(ROOT/"final-notes.json").write_text(json.dumps(payload,ensure_ascii=False,indent=2)+"\n")
+title="Finite polyannulus Picard vanishing, a nonalgebraizable surface, and bounded branch energy"
+intro=("Unverified research draft, 8 October 2026. ONLY original P16.7 is active. "
+       "Original completion: FALSE. The new finite base-field Picard bridge and bounded branch results "
+       "are proved below under the explicitly stated published analytic foundations. "
+       "No full intrinsic unbounded E1 equation theorem or admissible counterexample is claimed. "
+       "Raw analytic mass is two. Saved TeX is uncompiled; ROOT retains compilation and acceptance.")
+ledger=(ROOT/"source-application-ledger.md").read_text()
+paper="# "+title+"\n\n"+intro+"\n\n"+"\n\n".join(n["text"] for n in notes)+"\n\n"+ledger
+(ROOT/"P16.7-standalone-paper.md").write_text(paper)
+(ROOT/"proof-companion.md").write_text("# Complete own proof companion\n\n"+paper)
+
+def escape(text):
+    mapping={"\\":r"\textbackslash{}","{":r"\{","}":r"\}","$":r"\$","&":r"\&",
+             "#":r"\#","%":r"\%","_":r"\_","~":r"\textasciitilde{}","^":r"\textasciicircum{}"}
+    return "".join(mapping.get(c,c) for c in text)
+header=r"""\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\setlength{\emergencystretch}{3em}
+\title{Finite polyannulus Picard vanishing, a nonalgebraizable surface, and bounded branch energy}
+\author{Independent P16.7 research draft}
+\date{8 October 2026; uncompiled and unverified}
+\begin{document}
+\maketitle
+"""
+core=r"""
+\section*{Precise new partial results}
+Retain $K=\mathbb C((s))$, $|s|=e^{-1/8}$, $t=s^8$.
+\begin{theorem}[Finite Picard bridge]
+Every finite product of closed discs, circles and nonzero-width closed annuli
+with positive radii in $|K^\times|$ has zero analytic Picard group.
+In particular $\operatorname{Pic}(P_m)=0$ for all integers $m\geq1$,
+where $P_m=\{|s|^m\leq|z_j|\leq|s|^{-m},\ j=1,2\}$.
+\end{theorem}
+The complete proof in Section 1 applies Gruson only to pure disc/circle products
+and uses coherent finite rational-cover gluing to fill each hole.
+\begin{theorem}[Chosen base-field example]
+The quotient $X=(\mathbb G_m^2)^{\rm an}/\langle(t,2),(3,t)\rangle$ is good,
+strict, smooth, separated, proper and boundaryless. Its meromorphic field is $K$.
+No separated finite-type $K$-algebraic space has analytification $X$.
+\end{theorem}
+The full compatible-frame, pole-divisor and algebraic-space proof is Section 2.
+\begin{theorem}[Bounded branch pencils]
+For the real analytic datum $\theta=d'd''(|x|^2/2)$ of raw mass two and the
+specified ordinary locally smooth-positive bounded class $\mathcal C_\theta$,
+the potentials $V_{a,N}=u_0+aD_N$, $0\leq a\leq1$, $N\geq1$ real, satisfy
+\[
+ E_\theta(V_{a,N})=-\frac16-\frac{a^3N}{3},\qquad
+ \operatorname{MA}_\theta(V_{a,N})=(1-a^2)\operatorname{MA}_\theta(u_0)
+      +a^2\operatorname{MA}_\theta(U_N).
+\]
+For $v_N=V_{N^{-1/3},N}-1/12$ one has
+\[
+ \sup_Xv_N=0,\quad E_\theta(v_N)=-\frac23,\quad
+ v_N(1,1)=-\frac14-N^{2/3}.
+\]
+Consequently this normalized energy-bounded family fails uniform relative compactness.
+If a positive raw-mass-two measure $\mu$ has finite bounded dual energy $M$,
+put $C=M-[E_\theta(u_0)-\int u_0\,d\mu]$. Then for $N\geq1$ and $N>3C/2$,
+\[
+ \mu\{ |z_j-1|\leq e^{-N},\ j=1,2\}
+ \leq (3C/2)^{2/3}N^{-2/3}.
+\]
+\end{theorem}
+These statements do not establish compactness in a weaker topology,
+an unbounded operator, a sufficient finite-energy criterion or the original equation theorem.
+The complete bounded-current and ordinary-support proof is Section 3.
+"""
+sections=[]
+for n in notes:
+    heading,body=n["text"].split("\n",1)
+    sections.append("\\section{"+escape(heading.removeprefix("# "))+"}\n"+escape(body)+"\n")
+tex=header+escape(intro)+"\n"+core+"\n"+"\n".join(sections)
+tex+="\n\\section{Full source application and reading ledger}\n"+escape(ledger)+"\n\\end{document}\n"
+(ROOT/"P16.7-standalone-paper.tex").write_text(tex)
+gaps=["full intrinsic unbounded psh/E1/full-mass domain and bounded-class comparison",
+      "genuine unbounded mixed/MA products and decreasing continuity",
+      "energy-bounded compactness in a useful separated topology",
+      "all-analytic-direction envelopes and orthogonality",
+      "full energy first variation and sufficient finite-energy measure criterion",
+      "existence for every admissible arbitrary-analytic-support mass-two measure",
+      "uniqueness modulo constants in the full domain"]
+verdict={"atomic_target":"P16.7","candidate":False,"complete_original_solution":False,
+ "base_field":"C((s)), |s|=exp(-1/8)","new_partial_results":[n["summary"] for n in notes[:3]],
+ "nonalgebraization_scope":"every separated finite-type K-algebraic space; no arbitrary-extension claim",
+ "original_counterexample":False,"remaining_original_quantifiers":gaps,"other_atoms_counted":[],
+ "imported_correctness_grants":[],"status":"unverified drafts under the named published analytic foundations"}
+(ROOT/"evidence"/"original-verdict.json").write_text(json.dumps(verdict,indent=2)+"\n")
+coverage={"kind":"manually attested fresh reading, not automatically inferred from hashes",
+ "whole378":[64,66,72,79,80,81,82,83,84,85,86,87,88,93,94,95,96,97,98],
+ "earlier_proof_bodies":{"373":[[1,240],[241,500],[501,730],[731,858]],
+                         "374":[[1,220],[221,426]],"372":[[1,195],[196,405],[406,605],[606,779]]},
+ "details":"source-application-ledger.md; includes truncation repairs and splitlines correction",
+ "reading_equals_correctness":False,"retention_equals_fresh_reading":False,
+ "newly_viewed_pixels":["Van der Put index10","Van der Put index15","Gruson printed80","Gruson printed81"],
+ "not_claimed":"all book chapters, all primary pages, deeper foundation proof trees, separate earlier actual/expanded JSON sets"}
+(ROOT/"evidence"/"coverage.json").write_text(json.dumps(coverage,indent=2)+"\n")
+commands=["python scripts/retain_sources.py > evidence/retention-output.txt",
+          "python scripts/diagnostics.py > evidence/diagnostics-output.txt",
+          "python scripts/build_deliverables.py > evidence/build-output.txt",
+          "python scripts/check_deliverables.py > evidence/check-output.txt"]
+(ROOT/"evidence"/"commands.json").write_text(json.dumps(commands,indent=2)+"\n")
+inventory=[]
+for path in sorted(ROOT.glob("notes/*.md")):
+    inventory.append({"path":str(path.relative_to(ROOT)),"sha256":hashlib.sha256(path.read_bytes()).hexdigest()})
+(ROOT/"evidence"/"own-note-bindings.json").write_text(json.dumps(inventory,indent=2)+"\n")
+print(json.dumps({"notes":len(notes),"candidate":False,"paper_bytes":len(tex.encode()),"compiled":False},indent=2))

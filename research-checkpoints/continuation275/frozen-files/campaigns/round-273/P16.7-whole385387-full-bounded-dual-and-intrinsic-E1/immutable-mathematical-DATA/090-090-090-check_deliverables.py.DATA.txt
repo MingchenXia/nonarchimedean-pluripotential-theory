@@ -1,0 +1,35 @@
+"""Own structural checks, not a verifier of mathematical proof."""
+import hashlib
+import json
+import pathlib
+
+root=pathlib.Path(__file__).resolve().parent.parent
+d=json.loads((root/'final-notes.json').read_text())
+assert d['candidate'] is False
+assert set(d)=={'notes','candidate'}
+seen=set()
+for n in d['notes']:
+    assert set(n)=={'id','summary','detailedSummary','text','support'}
+    assert n['id'] not in seen and set(n['support'])<=seen
+    assert n['text']==(root/'notes'/f'{n["id"]}.md').read_text()
+    assert all(isinstance(n[k],str) and n[k] for k in ['id','summary','detailedSummary','text'])
+    seen.add(n['id'])
+for name in ['P16.7-partial-paper.md','proof-companion.md','nonalgebraization-conditional-paper.md',
+             'source-application-ledger.md','evidence/coverage.json','evidence/original-verdict.json',
+             'evidence/diagnostics.json','evidence/environment.json','inputs/original-task.json']:
+    assert (root/name).is_file() and (root/name).stat().st_size>0
+assert (root/'inputs/original-task.json').read_bytes()==(root.parent.parent/'original-task.json').read_bytes()
+paper=(root/'P16.7-partial-paper.md').read_text()
+assert all(n['text'] in paper for n in d['notes'])
+bindings=[]
+for f in sorted(root.rglob('*')):
+    if f.is_file() and f.name not in ['artifact-bindings.json','checks-output.json']:
+        b=f.read_bytes()
+        bindings.append({'path':str(f.relative_to(root)),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()})
+(root/'evidence/artifact-bindings.json').write_text(json.dumps(bindings,indent=2)+'\n')
+out={'schema':True,'earlier_own_supports_only':True,'note_bodies_match':True,
+     'unchanged_original_input':True,'paper_contains_all_full_note_bodies':True,
+     'artifact_files':len(bindings),'candidate':False,
+     'interpretation':'structural checks only; execution does not establish mathematical correctness'}
+(root/'evidence/checks-output.json').write_text(json.dumps(out,indent=2)+'\n')
+print(json.dumps(out,indent=2))

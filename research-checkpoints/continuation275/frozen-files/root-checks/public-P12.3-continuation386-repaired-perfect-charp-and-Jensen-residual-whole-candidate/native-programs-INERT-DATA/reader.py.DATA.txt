@@ -1,0 +1,22 @@
+"""Own bounded data-only reader; never imports supplied programs."""
+import argparse, hashlib, json, pathlib, platform, shutil, sys
+BASE = pathlib.Path('/workspace/research/campaigns/round-271/P12.3-whole382380381-independent-proof-and-original-residual')
+NAMES = {'m':'mathematical-packet-bindings.json','p':'private-primary-packet-bindings.json','b':'book-context-bindings.json'}
+def main():
+    p=argparse.ArgumentParser();p.add_argument('kind',choices=NAMES);p.add_argument('index',type=int,nargs='?');p.add_argument('--start',type=int,default=0);p.add_argument('--length',type=int,default=16000);p.add_argument('--retain',action='store_true');a=p.parse_args()
+    rows=json.loads((BASE/NAMES[a.kind]).read_text())
+    pathlib.Path('reports').mkdir(exist_ok=True)
+    if a.retain:
+        out=[]; folder=pathlib.Path('inputs')/a.kind;folder.mkdir(parents=True,exist_ok=True)
+        for i,r in enumerate(rows):
+            data=pathlib.Path(r['path']).read_bytes();sha=hashlib.sha256(data).hexdigest(); dest=folder/(str(i).zfill(3)+'-'+pathlib.Path(r['path']).name)
+            dest.write_bytes(data);out.append(dict(r,index=i,local=str(dest),observed_bytes=len(data),observed_sha256=sha,match=len(data)==r['bytes'] and sha==r['sha256']))
+        (pathlib.Path('reports')/(a.kind+'-integrity.json')).write_text(json.dumps(out,indent=2));print(json.dumps({'kind':a.kind,'count':len(out),'matched':sum(r['match'] for r in out)}));return
+    if a.index is None:
+        for i,r in enumerate(rows):print(i,r['bytes'],pathlib.Path(r['path']).name)
+        return
+    r=rows[a.index];s=pathlib.Path(r['path']).read_text(); chunk=s[a.start:a.start+a.length]
+    record=dict(kind=a.kind,index=a.index,start=a.start,end=a.start+len(chunk),whole_chars=len(s),sha256=hashlib.sha256(chunk.encode()).hexdigest())
+    with open('reports/displays.jsonl','a') as f:f.write(json.dumps(record)+'\n')
+    print(json.dumps(record));print(chunk)
+if __name__=='__main__':main()

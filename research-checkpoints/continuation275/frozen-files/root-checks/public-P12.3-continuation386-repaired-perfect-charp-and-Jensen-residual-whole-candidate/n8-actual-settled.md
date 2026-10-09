@@ -1,0 +1,17 @@
+This is a new residual mechanism, proved from the independently geometric C rather than by defining another psh completion.
+
+Let M_<=1(X) be the weakly compact positive Radon subprobabilities and define J_x={mu:h(x)<=integral h dmu for every h in C}. Delta_x belongs, and J_x is compact convex. Its graph is closed because each defining h is continuous.
+
+The exact dual formula is p(f)(x)=min_(mu in J_x) integral f dmu for every finite continuous f. Competitors give one inequality. For the other, consider the convex cone W={(g,t):some h in C satisfies h<=g and t<=h(x)} in C(X) times R. If t>p(f)(x), then (f,t) is outside its closure: norm convergence (g_i,t_i)->(f,t) would contradict n1's nonexpansivity and t_i<=p(g_i)(x).
+
+Hahn--Banach separation gives L(g,t)=mu(g)-alpha t nonnegative on W and negative at (f,t). The pairs (r,-s), r>=0,s>=0, imply positivity of mu and alpha>=0. If alpha=0, testing the negative constant pairs forces mu(X)=0, contradicting nonzero separation. Divide by alpha>0. The pairs (h,h(x)) give the Jensen inequalities; h=-1 gives mass<=1. Separation gives integral f dmu<t. Let t decrease to p(f)(x); compactness attains the infimum. Hahn--Banach, positive-functional/Radon correspondence and weak compactness are explicitly disclosed ordinary functional foundations; this dual argument itself is new.
+
+CE holds exactly when x->J_x is weakly lower hemicontinuous. Closed graph in a compact ambient measure space already gives upper hemicontinuity and lower semicontinuity of the minimum. Lower hemicontinuity gives its upper semicontinuity, hence CE by the dual formula.
+
+For necessity, suppose lower hemicontinuity fails at x0 for mu0 in J_x0. A weak neighbourhood is specified by finitely many continuous f_j and an Euclidean ball of radius epsilon about their integrals at mu0. There is a net x_i->x0 whose compact convex projected J_xi avoid that ball. Closest-point separation gives unit a_i with a_i dot (projection(mu)-projection(mu0))>=epsilon for all mu in J_xi. A subnet has a_i->a. Uniform boundedness of all projections gives the same inequality for a with epsilon/2 eventually. For f=sum a_j f_j, duality says p(f)(x_i)>=integral f dmu0+epsilon/2, while p(f)(x0)<=integral f dmu0. This contradicts CE. The proof retains nonmetrizable links and actual nets.
+
+A second reduction uses the ACTUAL G331 divisorial inequality g(nu)>=A_nu g(v), with A_nu>0 fixed for all g in C and all v. If continuous f is negative somewhere, divisorial density gives nu with f(nu)<0. Every competitor then has g(v)<=f(nu)/A_nu<0 uniformly over ALL v. Taking the raw supremum preserves the bound without assuming D membership. Thus on a normal branch p(f) is zero exactly when f>=0; otherwise it is uniformly strictly negative. A normal continuous-obstacle counterexample cannot be a mixed-zero spike. It would have to fail upper semicontinuity while bounded and uniformly negative.
+
+This genuinely advances the residual to a geometric measure-continuity question. It does NOT prove lower hemicontinuity for arbitrary excellent normal dimension>=3. Primary correction truncations reverse the required inequality; n6's quadratic family has a good cover; n7's nonnormal obstruction and increasing energy spikes do not supply a normal raw-envelope counterexample. No such normal example was obtained. The original completion criteria are unchanged and original candidate remains false.
+
+Complete proof: whole-proof.md Section11.

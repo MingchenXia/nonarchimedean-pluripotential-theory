@@ -1,0 +1,25 @@
+"""Own exact body comparison and readable extraction; no supplied execution."""
+import hashlib,json,pathlib,platform,sys
+m=json.loads(pathlib.Path('reports/m-integrity.json').read_text());p=json.loads(pathlib.Path('reports/p-integrity.json').read_text())
+def read(i):return pathlib.Path(m[i]['local']).read_text()
+out=pathlib.Path('review');out.mkdir(exist_ok=True)
+proof=read(205);grants=[read(i) for i in (191,189,190)]
+records={}
+for i in (152,153):
+    s=read(i);r=[]
+    for j,g in [('E350',grants[2]),('G331',grants[0]),('B341',grants[1])]:
+        n=s.count(g);r.append({'grant':j,'literal_count':n});s=s.replace(g,'[ENTIRE '+j+' BODY: exact duplicate of incoming grant]')
+    if i==152:s=s.replace(proof,'[ENTIRE 382 WHOLE PROOF: literal duplicate of m205]')
+    (out/(str(i)+'-outside.txt')).write_text(s);records[str(i)]={'matches':r,'outside_chars':len(s)}
+for i,label in [(155,'actual'),(179,'expanded')]:
+    a=json.loads(read(i));rows=[]
+    for n in a['notes']:
+        (out/(label+'-'+n['id']+'.txt')).write_text(json.dumps(n,ensure_ascii=False,indent=2))
+        rows.append({'id':n['id'],'text_chars':len(n['text']),'whole_proof_contains':n['text'] in proof})
+    records[label]=rows
+for i in (206,208,210):
+    a=json.loads(read(i));(out/(str(i)+'-binding.txt')).write_text(json.dumps(a,indent=2,ensure_ascii=False))
+for i in (56,64,385):
+    a=json.loads(pathlib.Path(p[i]['local']).read_text());(out/('primary-'+str(i)+'.txt')).write_text(json.dumps(a,indent=2,ensure_ascii=False))
+pathlib.Path('reports/identity.json').write_text(json.dumps(records,indent=2));print(json.dumps(records,indent=2))
+pathlib.Path('reports/environment.json').write_text(json.dumps({'python':sys.version,'platform':platform.platform(),'cwd':str(pathlib.Path.cwd()),'supplied_programs_executed':False,'compiler_used':False,'agents_used':False,'native_campaigns_used':0,'supervised_heavy_compute':'not supplied, not required'},indent=2))

@@ -1,0 +1,30 @@
+"""Own bounded exact checks; never imports or executes packet programs."""
+from fractions import Fraction as F
+from itertools import product
+import datetime, json, pathlib, platform, sys
+out = pathlib.Path(__file__).resolve().parent.parent / 'evidence'
+out.mkdir(exist_ok=True)
+solutions=[]
+for A,B,C,D in product(range(-4,5),repeat=4):
+    if B==C and F(2)**D==F(3)**A:
+        solutions.append([A,B,C,D])
+assert solutions==[[0,k,k,0] for k in range(-4,5)]
+def plucker(w):
+    return w[0]*w[5]-w[1]*w[4]+w[2]*w[3]
+count=0
+for a,b in product(product(range(-1,2),repeat=4),repeat=2):
+    w=[a[i]*b[j]-a[j]*b[i] for i,j in [(0,1),(0,2),(0,3),(1,2),(1,3),(2,3)]]
+    assert plucker(w)==0
+    count+=1
+assert plucker([1,0,0,0,0,1])==1
+rows=[]
+for N in range(1,9):
+    energy=-F(1,6)-F(N,3)
+    value=-F(1,6)-N
+    objective=energy-2*value
+    assert objective==F(1,6)+F(5*N,3)
+    rows.append({'N':N,'E':str(energy),'U_at_rigid':str(value),'objective':str(objective)})
+result={'period_box':[-4,4],'period_tuples':9**4,'solutions':solutions,'plucker_pairs':count,'nondecomposable_witness':1,'branch_energy_rows':rows,'analytic_expected_constants_not_computed':{'simplex_Alexandrov_mass':'1/2','CLD_atom_mass':1,'raw_reference_mass':2},'scope':'finite diagnostic only; the universal proofs are in the notes and paper'}
+(out/'diagnostics.json').write_text(json.dumps(result,indent=2)+'\n')
+(out/'environment.json').write_text(json.dumps({'python':sys.version,'platform':platform.platform(),'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'cwd':str(pathlib.Path.cwd()),'heavy_compute':'not needed or launched; no supervised facility supplied','supplied_programs':'none executed/imported'},indent=2)+'\n')
+print(json.dumps(result,indent=2))
