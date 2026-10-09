@@ -4,6 +4,21 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest checked norm-ray/interface book integration, 9 October 2026:**
+the [integration audit](manuscript/editorial/norm_ray_interfaces_staged_integration_audit_v5_20261009.md)
+adds Chapter 65's two norm rays and L.100's finite spectral, apartment
+and volume interfaces. A complete C2 calculation distinguishes the
+envelope from a Hermitian norm, with a logarithmic-rank comparison.
+All 25 affected pages retain actual V3 reading in 13 matching displays
+under exact text and full rendered-pixel verification; V4 has no new
+fresh display credit;
+validation and post-render checks pass, retaining all old numbered
+values and citation labels. The
+[activation record](manuscript/editorial/norm_ray_interfaces_cloud_activation_v5_20261009.json)
+controls the 4,663-page cloud edition. Two pinned sources are added.
+Native editor and canonical statuses stay unchanged; general Siu and
+envelope problems remain OPEN. No new whole-book pass is claimed.
+
 **Latest norm/ray/volume dependency checkpoint, 9 October 2026:**
 the [selected-source audit](manuscript/editorial/Metric_radial_dependencies_source_review_20261009.md)
 reads 38 source/page pairs in nineteen matching displays across Finski's
@@ -469,7 +484,7 @@ citation values are preserved. The [cloud activation record](manuscript/editoria
 controls the source/PDF update. No whole-book new reading, original general
 result or canonical status change is claimed. Its verified artifacts are uploaded.
 
-The current cloud research-integration build has **4,661 pages**; its
+The current cloud research-integration build has **4,663 pages**; its
 source and checked book/audit exports are published on `work`. The checked
 [geometric-norm account](manuscript/editorial/Temkin_Zutler_geometric_norms_staged_integration_audit_20261008.md)
 adds Sections 4.6.1--4.6.2: tensor and spectral norm distinctions, exact

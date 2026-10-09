@@ -3,6 +3,37 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest norm-ray/interface book checkpoint, 9 October 2026
+
+The [integration audit](norm_ray_interfaces_staged_integration_audit_v5_20261009.md)
+adds Chapter 65's two norm rays and L.100's source interfaces. The worked
+C2 envelope differs from its Hermitian ray; the logarithmic-rank bound,
+factor-two convention and summed graded product argument are explicit.
+Finite spectral extension, maximal apartment and signed-volume mass
+premises retain their source scopes. No general flat theorem is promoted.
+
+The 4,663-page stage passes validation and rendered checks. All 25
+selected pages retain actual V3 reading in 13 matching displays under
+verified exact selected text and full rendered pixel equality; V4 only
+removes one extra blank source line and gets zero fresh display credit.
+All prior numbered values and 597 citation labels are preserved; two
+pinned entries give 599 citations. The 423 other core TeX and NA bibliography
+are unchanged. V1's historical source-note label shift is frozen; fresh
+v2 preserves the label by moving the new section after that note.
+Fresh v3 repairs two short closing pages found by actual v2 reading.
+V4 removes only one extra EOF blank line after actual V3 reading.
+All mathematical hypotheses and source scopes are preserved.
+
+The [activation record](norm_ray_interfaces_cloud_activation_v5_20261009.json)
+controls this cloud edition; remote publication is recorded separately.
+Native editor and canonical 42 atoms/twelve problems retain their status.
+General BJ22 critical Siu/envelopes remain OPEN, LPWZ density UNVERIFIED.
+No original general result, independent-model receipt or new full ordered
+book reading is claimed; the last full pass remains 4 October. Continue
+cloud-only with the original tensor/quantization inputs and related
+research, incoming author updates and regular verified pushes. Xean
+stays suspended.
+
 ## Latest selected norm/ray/volume dependencies, 9 October 2026
 
 The [qualified primary audit](Metric_radial_dependencies_source_review_20261009.md)
