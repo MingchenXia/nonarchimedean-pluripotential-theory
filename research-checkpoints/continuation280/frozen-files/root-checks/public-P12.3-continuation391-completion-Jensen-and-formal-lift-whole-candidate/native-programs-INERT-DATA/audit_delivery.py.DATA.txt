@@ -1,0 +1,66 @@
+"""Fresh byte/structure checks; never import or execute bound code."""
+import hashlib, json, re
+from pathlib import Path
+
+ROOT=Path(__file__).resolve().parent
+def bound(i):
+    return next((ROOT/'inputs-LOCALONLY/math').glob(f'{i}-*'))
+def digest(b): return hashlib.sha256(b).hexdigest()
+def prose(s):
+    table={'\\':r'\textbackslash{}','{':r'\{','}':r'\}','_':r'\_',
+           '&':r'\&','#':r'\#','$':r'\$','%':r'\%',
+           '~':r'\textasciitilde{}','^':r'\textasciicircum{}'}
+    return ''.join(table.get(c,c) for c in s)
+def native_encode(s):
+    parts=[]
+    for p in s.strip().split('\n\n'):
+        if p.startswith('# '):
+            continue
+        if p.startswith('## '):
+            parts.append(r'\section{'+prose(p[3:])+'}')
+        else:
+            atoms=re.split(r'(\\\[.*?\\\]|\\\(.*?\\\))',p,flags=re.S)
+            parts.append(''.join(a if (a.startswith(r'\[') or a.startswith(r'\(')) else prose(a) for a in atoms))
+    return '\n\n'.join(parts)
+
+actual=json.loads(bound(214).read_text()); expanded=json.loads(bound(241).read_text())
+actual=actual['notes'] if isinstance(actual,dict) else actual
+expanded=expanded['notes'] if isinstance(expanded,dict) else expanded
+whole=bound(257).read_text(); tex=bound(212).read_text()
+sections={int(m.group(1)):m.group(0).strip() for m in re.finditer(r'^## (\d+)\..*?(?=^## \d+\.|\Z)',whole,re.M|re.S)}
+mapping=[[1],[2],[3],[4,5,6],[7],[8],[9,10],[11],[12]]
+rows=[]
+for i,(a,e,ids) in enumerate(zip(actual,expanded,mapping),1):
+    body=e['text']; footer=body[body.index('Artifacts:'):]
+    before=body[:body.index('Artifacts:')]
+    eparts={int(m.group(1)):m.group(0).strip() for m in re.finditer(r'^## (\d+)\..*?(?=^## \d+\.|\Z)',before,re.M|re.S)}
+    equal=[eparts[n]==sections[n] for n in ids]
+    fields={k:e[k] for k in e if k!='text'}
+    apath=bound(223+2*(i-1)); epath=bound(224+2*(i-1))
+    rows.append({'id':a['id'],'all_fields_actual':list(a),'all_fields_expanded':list(e),
+      'actual_expanded_different':a!=e,'section_numbers':ids,'whole_sections_exact':all(equal),
+      'actual_md_exact':apath.read_text()==a['text']+'\n',
+      'expanded_md_exact':epath.read_text()==body+'\n',
+      'expanded_nonbody_fields':fields,'outside_footer':footer})
+core=native_encode(whole)
+core_exact=core in tex
+if not core_exact:
+    prefix=tex.split(r'\appendix')[0]
+    # Retain differing positions for diagnosis, not silent normalization.
+    import difflib
+    d=list(difflib.unified_diff(core.splitlines(),prefix.splitlines(),n=1))
+    (ROOT/'reports/native-encoding-diff.txt').write_text('\n'.join(d))
+appendices={}
+for title,index in [('source-ledger.md',256),('coverage.md',215),('scope-and-verdict.json',255)]:
+    body=bound(index).read_text()
+    appendices[title]=body in tex
+grants={g:(ROOT/'inputs-LOCALONLY/grants'/f'{g}.txt').read_text() in tex for g in ['G331','B341','E350']}
+report={'actual_bytes':bound(214).stat().st_size,'expanded_bytes':bound(241).stat().st_size,
+ 'actual_count':len(actual),'expanded_count':len(expanded),'whole_characters':len(whole),
+ 'whole_bytes':len(whole.encode()),'tex_bytes':len(tex.encode()),'ledger_bytes':bound(256).stat().st_size,
+ 'rows':rows,'native_entire_math_prose_encoding_exact':core_exact,
+ 'appendices_literal_exact':appendices,'full_grants_literal_exact':grants,
+ 'note':'Identity is not physical rereading or mathematical correctness. No supplied program executed.'}
+(ROOT/'reports/independent-native-identity.json').write_text(json.dumps(report,indent=2)+'\n')
+print(json.dumps({k:v for k,v in report.items() if k not in ['rows','note']},indent=2))
+print('all 12 expanded proof sections exact:',all(x['whole_sections_exact'] for x in rows))

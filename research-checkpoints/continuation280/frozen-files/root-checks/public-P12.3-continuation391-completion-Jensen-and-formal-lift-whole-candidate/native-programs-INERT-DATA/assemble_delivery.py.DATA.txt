@@ -1,0 +1,150 @@
+"""Create fresh uncompiled deliverables; every imported source is read as data."""
+import hashlib
+import json
+import re
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent
+
+def escaped(s):
+    substitutions = {'\\':r'\textbackslash{}','{':r'\{','}':r'\}',
+                     '#':r'\#','$':r'\$','%':r'\%','&':r'\&',
+                     '_':r'\_','^':r'\textasciicircum{}','~':r'\textasciitilde{}'}
+    return ''.join(substitutions.get(c,c) for c in s)
+
+MATH = re.compile(r'(\\\[.*?\\\]|\\\(.*?\\\)|\$\$.*?\$\$|\$[^$]*?\$)',re.S)
+
+def prose(s):
+    out = []
+    for line in s.splitlines(keepends=True):
+        heading = re.match(r'^(#{1,6}) (.*?)(\n?)$',line)
+        if heading:
+            depth = len(heading[1])
+            command = 'section' if depth <= 2 else 'subsection'
+            out.append('\\'+command+'{'+escaped(heading[2])+'}\n')
+        else:
+            out.append(escaped(line))
+    return ''.join(out)
+
+def encode(s):
+    # Math tokens are literal, only surrounding prose is escaped.
+    return ''.join(token if MATH.fullmatch(token) else prose(token)
+                   for token in MATH.split(s))
+
+def read(name):
+    return (ROOT/name).read_text()
+
+def section(text, start, end=None):
+    a=text.index(start)
+    b=text.index(end,a+len(start)) if end else len(text)
+    return text[a:b].strip()+'\n'
+
+def main():
+    completion=read('completion-proof.md')
+    review=read('independent-review.md')
+    ledger=read('source-application-ledger.md')
+    residual=read('original-residual.md')
+    coverage=read('coverage.md')
+    rerun='\nArtifacts: P12.3-completion-and-formal-lifting.tex, whole-proof.md, completion-proof.md, independent-review.md, source-application-ledger.md, coverage.md, original-residual.md, scope-and-decision.json, native-notes.json and reports. Rerun from this directory: python retain_and_identify.py; python audit_delivery.py; python finite_checks.py; python assemble_delivery.py; python final_audit.py. No supplied program is executed or imported. Source uncompiled; ROOT retains compiler/acceptance/publication. Execution and hashes do not certify the mathematics.\n'
+    notes=[
+      {'id':'n1','summary':'Completion invariance of full semivaluations and primary ideals; qualified G331 gives equality of geometric completed C/D, raw envelopes, gauges, conductor and CE. No raw model-category descent claimed.',
+       'detailedSummary':'For every Noetherian local ring, exp(-v) gives uniform jet error exp(-N/r) and a homeomorphism of full normalized links including infinite values/nonzero supports. Completed primary ideals descend exactly. For excellent germs, G331 comparison on both rings transports geometric uniform cones and actual decreasing nets, hence all raw obstacles/regularizations, gauge cocycles and Jensen sets. Finite normalization and conductor commute by finite semilocal completion and a flat annihilator kernel. This is a complete scoped theorem, not universal envelope continuity.',
+       'text':section(completion,'## 1.','## 4.')+rerun,'support':['G331']},
+      {'id':'n2','summary':'Complete compact-Hausdorff Jensen duality with subprobabilities and nets; CE iff weak lower hemicontinuity. Normal raw envelopes are zero or uniformly negative; general lower hemicontinuity remains unproved.',
+       'detailedSummary':'A Banach-cone separation proves raw p(f)(x)=min over positive Radon Jensen measures of mass at most one, with alpha>0 forced by negative constants. Closed graph supplies upper hemicontinuity only. Failure of lower hemicontinuity gives finite continuous tests, Euclidean convex separation and a convergent coefficient subnet contradicting CE. The actual G331 divisorial inequality rules out mixed-zero normal raw envelopes. These equivalent criteria do not close original P12.3.',
+       'text':section(completion,'## 4.','## 6.')+rerun,'support':['G331','n1']},
+      {'id':'n3','summary':'New formal trace-discriminant compatible Frobenius lift over a finite generically separable power-series normalization; Delta^q source precomposition. A single discriminant does not prove the isolated formal envelope theorem.',
+       'detailedSummary':'For perfect char-p k and complete normal R finite over A=k[[x]], with separable fraction-field extension, a trace-basis determinant Delta independent of q satisfies Delta R^(1/q) inside finite-free A^(1/q)tensor_A R. Free lifting gives every R-linear map a diagonal-compatible lift after output multiplication by Delta; the source multiplier in F_* notation is Delta^q. The completed-diagonal assertion additionally assumes k is the residue coefficient field. A ramified regular example gives v(Delta)=infinity on a nonzero support, so a primary compatible-multiplier ideal and BIG completed-diagonal product/restriction/subadditivity are still required.',
+       'text':section(completion,'## 6.','## 8.')+rerun,'support':['n1','n2']},
+      {'id':'n4','summary':'Entire actual/expanded/whole386 independent scoped PASS with precise source qualifications and generatorwise perfect-field repair; literal382 rejected. Original P12.3 remains incomplete.',
+       'detailedSummary':'All nine actual FINAL fields, all nine different expanded fields/footers, all twelve whole proof sections, literal mathematical/prose TeX and grant/ledger/scope appendices were examined or exact-matched without duplicate-reading credit. The scoped review checks ROOT380/381, corrected HH root lifting, actual non-CM Fitt1 models and primary Rees graphs, BIG late-tail generation, all-index Fekete and pointwise-then-uniform positivity, surfaces/char0/finite-cover/conductor/curves, actual-D diagnostics and Jensen. Deeper historical inputs remain disclosed published background; no positive verdict or paper supplies a correctness grant.',
+       'text':review+rerun,'support':['G331','B341','E350','n1','n2','n3']},
+      {'id':'n5','summary':'Standalone uncompiled scoped paper and reproducible evidence delivered; exact original residual retained, candidate=false. Finite checks and hashes are diagnostics only.',
+       'detailedSummary':'All 992 supplied manifest records matched and the actual versus expanded identity/encoding audit passed. Fresh finite checks passed on 593 root coefficient regroupings, 8 trace determinants, 5 clipping grids and the Frobenius/finite-field counterchecks. New complete results are full geometric completion invariance and the stated formal discriminant lift. General Jensen lower hemicontinuity and the isolated formal compatible-primary-multiplier/subadditivity gate remain unproved; no genuine normal counterexample was obtained. No compiler, agent/native/model, editor/tab/catalogue/publication/auth/runtime action occurred.',
+       'text':residual+'\nObserved finite evidence: PASS on exactly593 finite polynomial coefficient regroupings;8 trace-Gram determinant cases for p=2,3,5 and 2<=n<=5 with p not dividing n;5 clipping-grid obstacles -2,-1,0,1,3 with masses0,1/4,1/2,3/4,1; the p=q=3 Delta^q versus Delta precomposition example; and both possible F4-to-F2 generator images, giving zero unital field maps. These are exhaustive only on the displayed finite domains, not proofs of formal or geometric claims. Every input and output is in reports/finite-inputs.json and reports/finite-checks.json.\n'+rerun,
+       'support':['n1','n2','n3','n4']},
+    ]
+    native={'notes':notes,'candidate':False}
+    (ROOT/'native-notes.json').write_text(json.dumps(native,ensure_ascii=False,indent=2)+'\n')
+    for note in notes:
+        (ROOT/(note['id']+'.md')).write_text(note['text'])
+    decision={'candidate':False,'original_problem_unchanged':True,
+      'scoped386':'PASS as an unverified draft judgment with full grant/source qualifications',
+      'literal382':'arbitrary-element/single-normalization and imperfect k(t) Frobenius route REJECTED',
+      'new_complete_results':['full Noetherian semivaluation/primary completion invariance',
+                              'excellent geometric completed C/D/raw-envelope/Jensen/CE/conductor invariance relative to qualified G331',
+                              'compact-Hausdorff subprobability Jensen duality and CE/lower-hemicontinuity equivalence',
+                              'formal trace-discriminant diagonal lift at displayed separability/coefficient hypotheses'],
+      'unproved':['general Jensen lower hemicontinuity/normal higher-dimensional CE',
+                  'formal compatible primary multiplier ideal on all actual models',
+                  'BIG completed-diagonal product/restriction/subadditivity',
+                  'full isolated excellent formal perfect-charp envelope theorem',
+                  'entire unchanged original P12.3'],
+      'normal_counterexample_obtained':False,
+      'only_incoming_grants':['ENTIRE qualified G331','ENTIRE qualified B341','ENTIRE qualified E350'],
+      'compiler_used':False,'supplied_programs_executed_or_imported':False,
+      'extra_agents_native_model_calls':False,'protected_editor':'UNACCESSED_UNCHANGED',
+      'publication_catalogue_count_change':False,'heavy_compute':False,
+      'supervised_compute_service':'none supplied; none needed',
+      'primary_book_pixels':'LOCALONLY','execution_establishes_mathematical_correctness':False}
+    (ROOT/'scope-and-decision.json').write_text(json.dumps(decision,indent=2)+'\n')
+    companion=completion+'\n'+review
+    (ROOT/'whole-proof.md').write_text(companion)
+    examined=next((ROOT/'inputs-LOCALONLY/math').glob('257-*')).read_text()
+    preamble=r'''\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyvrb}
+\usepackage[hidelinks]{hyperref}
+\DefineVerbatimEnvironment{QualifiedData}{Verbatim}{fontsize=\tiny}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.6em}
+\emergencystretch=4em
+\title{Completion invariance of geometric singular envelopes\\and a formal Frobenius lifting mechanism}
+\author{Independent scoped proof and whole386 review}
+\date{9 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We prove full valuative completion invariance and, using the qualified
+independent geometric comparison, transport actual completed cones,
+raw envelopes, gauges, conductor rules and the Jensen continuity criterion.
+We give complete compact-Hausdorff subprobability Jensen duality and a
+formal trace-discriminant compatible Frobenius lifting theorem.
+The formal primary-multiplier/subadditivity gate and general envelope
+continuity remain open. The unchanged original candidate flag is false.
+This standalone source is uncompiled and all conclusions are unverified drafts.
+\end{abstract}
+\tableofcontents
+\newpage
+'''
+    parts=[preamble,'% BEGIN OWN COMPLETE MATH/PROSE\n',encode(companion),
+           '% END OWN COMPLETE MATH/PROSE\n',
+           '\\appendix\n\\section{Examined immutable386 mathematical DATA}\n',
+           'The following complete examined argument is retained as DATA. Its scoped independent judgment is in the preceding review. It is not a correctness premise of the new completion or formal proofs.\n',
+           '% BEGIN EXAMINED MATH/PROSE\n',encode(examined),'% END EXAMINED MATH/PROSE\n']
+    for title,body in [('Own full source/application ledger',ledger),
+                       ('Own full coverage',coverage),('Own unchanged original residual',residual),
+                       ('Own exact decision',read('scope-and-decision.json'))]:
+        assert '\\end{QualifiedData}' not in body
+        parts += ['\\section{'+escaped(title)+'}\n\\begin{QualifiedData}\n',body,
+                  '' if body.endswith('\n') else '\n','\\end{QualifiedData}\n']
+    for grant in ('G331','B341','E350'):
+        body=read('inputs-LOCALONLY/grants/'+grant+'.txt')
+        assert '\\end{QualifiedData}' not in body
+        parts += ['\\section{Entire qualified '+grant+' unchanged}\n\\begin{QualifiedData}\n',
+                  body,'' if body.endswith('\n') else '\n','\\end{QualifiedData}\n']
+    parts.append('\\end{document}\n')
+    (ROOT/'P12.3-completion-and-formal-lifting.tex').write_text(''.join(parts))
+    report={'notes':len(notes),'candidate':False,'compilation':False,
+            'tex_bytes':(ROOT/'P12.3-completion-and-formal-lifting.tex').stat().st_size,
+            'own_companion_bytes':len(companion.encode()),
+            'examined_data_bytes':len(examined.encode()),
+            'new_theorem_scope':'completed geometric cones, not raw model equivalence; generically separable formal trace multiplier, not primary subadditivity'}
+    (ROOT/'reports/assembly.json').write_text(json.dumps(report,indent=2)+'\n')
+    print(json.dumps(report,indent=2))
+
+if __name__=='__main__':
+    main()

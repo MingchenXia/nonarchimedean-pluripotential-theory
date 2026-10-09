@@ -1,0 +1,70 @@
+"""Fresh artifact audit. Imports only our own guarded assembler."""
+import hashlib
+import json
+import platform
+import sys
+from pathlib import Path
+from assemble_delivery import encode, MATH
+
+ROOT=Path(__file__).resolve().parent
+
+def main():
+    notes=json.loads((ROOT/'native-notes.json').read_text())
+    available={'G331','B341','E350'}
+    for note in notes['notes']:
+        assert set(note)=={'id','summary','detailedSummary','text','support'}
+        assert all(s in available for s in note['support']), (note['id'],note['support'])
+        assert note['id'] not in available
+        assert (ROOT/(note['id']+'.md')).read_text()==note['text']
+        available.add(note['id'])
+    assert notes['candidate'] is False
+    tex=(ROOT/'P12.3-completion-and-formal-lifting.tex').read_text()
+    companion=(ROOT/'whole-proof.md').read_text()
+    body=tex.split('% BEGIN OWN COMPLETE MATH/PROSE\n',1)[1].split('% END OWN COMPLETE MATH/PROSE\n',1)[0]
+    assert body==encode(companion)
+    # Independent token-list check: no literal mathematical unit disappeared or changed.
+    assert MATH.findall(companion)==MATH.findall(body)
+    examined=next((ROOT/'inputs-LOCALONLY/math').glob('257-*')).read_text()
+    examined_body=tex.split('% BEGIN EXAMINED MATH/PROSE\n',1)[1].split('% END EXAMINED MATH/PROSE\n',1)[0]
+    assert examined_body==encode(examined)
+    grant_checks={}
+    input_notes=json.loads((ROOT/'input.json').read_text())['notes']
+    for note in input_notes:
+        grant=note['id']
+        raw=(ROOT/'inputs-LOCALONLY/grants'/f'{grant}.txt').read_text()
+        assert raw==note['text']
+        assert raw in tex
+        grant_checks[grant]={'bytes':len(raw.encode()),'sha256':hashlib.sha256(raw.encode()).hexdigest(),'literal':True}
+    identity=json.loads((ROOT/'reports/independent-native-identity.json').read_text())
+    assert identity['actual_count']==identity['expanded_count']==9
+    assert identity['native_entire_math_prose_encoding_exact']
+    assert all(row['actual_expanded_different'] and row['whole_sections_exact'] and row['actual_md_exact'] and row['expanded_md_exact'] for row in identity['rows'])
+    assert all(identity['appendices_literal_exact'].values()) and all(identity['full_grants_literal_exact'].values())
+    integrity=json.loads((ROOT/'reports/input-integrity.json').read_text())
+    for row in integrity:
+        raw=Path(row['local']).read_bytes()
+        assert len(raw)==row['bytes'] and hashlib.sha256(raw).hexdigest()==row['sha256']
+    finite=json.loads((ROOT/'reports/finite-checks.json').read_text())
+    assert finite['status']=='PASS'
+    own=[]
+    for path in sorted(ROOT.iterdir()):
+        if path.is_file() and path.name!='input.json':
+            raw=path.read_bytes()
+            own.append({'path':path.name,'bytes':len(raw),'sha256':hashlib.sha256(raw).hexdigest()})
+    (ROOT/'reports/own-artifact-hashes.json').write_text(json.dumps(own,indent=2)+'\n')
+    commands=['python retain_and_identify.py','python audit_delivery.py','python finite_checks.py','python assemble_delivery.py','python final_audit.py']
+    (ROOT/'reports/rerun-commands.txt').write_text('\n'.join(commands)+'\n')
+    report={'status':'PASS','notes':len(notes['notes']),'candidate':False,
+            'retained_records_rechecked':len(integrity),'own_math_prose_encoding_exact':True,
+            'own_literal_math_units':len(MATH.findall(companion)),
+            'examined_native_complete_encoding_exact':True,'full_qualified_grants':grant_checks,
+            'native_actual_and_expanded_separate':True,'note_bodies_exact':True,'supports_valid':True,
+            'finite_status':finite['status'],'compiler_used':False,'PDF_created':False,
+            'python':sys.version,'platform':platform.platform(),'cwd':str(ROOT),
+            'execution_boundary':'Rerun commands and outputs are retained; this is not an assertion that every ad-hoc read-only display command was transcribed. No supplied program imported/executed.',
+            'mathematical_correctness_established_by_audit':False}
+    (ROOT/'reports/final-audit.json').write_text(json.dumps(report,indent=2)+'\n')
+    print(json.dumps(report,indent=2))
+
+if __name__=='__main__':
+    main()

@@ -1,0 +1,43 @@
+"""Fresh standard-library, data-only retention and duplicate identity audit."""
+import hashlib, json, pathlib, platform, shutil, sys
+ROOT=pathlib.Path(__file__).resolve().parent
+BASE=ROOT.parents[1]
+OUT=ROOT/'inputs-LOCALONLY'
+OUT.mkdir(exist_ok=True)
+records=[]
+for kind, manifest in [('math','mathematical-packet-bindings.json'),('primary','private-primary-packet-bindings.json'),('book','book-context-bindings.json')]:
+    dest=OUT/kind; dest.mkdir(exist_ok=True)
+    data=json.loads((BASE/manifest).read_text())
+    shutil.copyfile(BASE/manifest,OUT/manifest)
+    for i,r in enumerate(data):
+        p=pathlib.Path(r['path']); raw=p.read_bytes()
+        sha=hashlib.sha256(raw).hexdigest()
+        if len(raw)!=r['bytes'] or sha!=r['sha256']: raise ValueError(str(p))
+        local=dest/(f'{i:03d}-'+p.name)
+        local.write_bytes(raw)
+        records.append(dict(kind=kind,index=i,local=str(local.relative_to(ROOT)),bytes=len(raw),sha256=sha,origin=str(p)))
+(ROOT/'reports').mkdir(exist_ok=True)
+(ROOT/'reports/input-integrity.json').write_text(json.dumps(records,indent=2)+'\n')
+inp=json.loads((ROOT/'input.json').read_text())
+grants=OUT/'grants';grants.mkdir(exist_ok=True)
+for n in inp['notes']: (grants/(n['id']+'.txt')).write_text(n['text'])
+byindex={r['index']:ROOT/r['local'] for r in records if r['kind']=='math'}
+actual=json.loads(byindex[214].read_text()); expanded=json.loads(byindex[241].read_text())
+read=ROOT/'review-data';read.mkdir(exist_ok=True)
+for label,obj in [('actual',actual),('expanded',expanded)]:
+    for n in obj['notes']:
+        (read/(label+'-'+n['id']+'.json')).write_text(json.dumps(n,ensure_ascii=False,indent=2)+'\n')
+whole=byindex[257].read_text(); tex=byindex[212].read_text()
+audit={'actual_count':len(actual['notes']),'expanded_count':len(expanded['notes']),'whole_chars':len(whole),'whole_bytes':byindex[257].stat().st_size,'tex_bytes':byindex[212].stat().st_size,'notes':[],'grants_in_tex':{}}
+for a,e in zip(actual['notes'],expanded['notes']):
+    body=e['text']; longest=''
+    # The native expansion marks its proof with a "##" header; retain exact matches only.
+    import difflib
+    blocks=difflib.SequenceMatcher(None,body,whole,autojunk=False).get_matching_blocks()
+    b=max(blocks,key=lambda z:z.size)
+    longest=body[b.a:b.a+b.size]
+    audit['notes'].append({'id':a['id'],'different':a!=e,'actual_keys':list(a),'expanded_keys':list(e),'expanded_body_chars':len(body),'longest_exact_whole_block_chars':len(longest),'outside_before':body[:b.a],'outside_after':body[b.a+b.size:]})
+for n in inp['notes']: audit['grants_in_tex'][n['id']]=n['text'] in tex
+(ROOT/'reports/identity-audit.json').write_text(json.dumps(audit,ensure_ascii=False,indent=2)+'\n')
+(ROOT/'reports/environment.json').write_text(json.dumps({'python':sys.version,'platform':platform.platform(),'cwd':str(ROOT),'compiler_used':False,'supplied_code_executed':False},indent=2)+'\n')
+print(json.dumps({'retained':len(records),'all_bound_hashes_match':True,'identity':{k:v for k,v in audit.items() if k not in ('notes',)}}))
