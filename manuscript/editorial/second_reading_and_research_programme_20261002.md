@@ -7543,3 +7543,18 @@ main-theorem counterexample or independent verifier receipt is claimed.
 All nine complete source-evidence files were verified byte-for-byte on
 GitHub at `124561ff9bb204b2e05a7a694bde35e619041bfe`. See the [publication record](Xue_semiabelian_complete_GitHub_publication_v3_20261009.json).
 Upload adds no reading credit, main-theorem clearance or native compilation verdict.
+
+## Original toric attainment input, 9 October 2026
+
+Read **twenty selected pages of 74** from published BGPS 2019, in ten
+matching displays, including the full special-point and translated-subtorus
+proofs and controlling place/height conventions. A real-quadratic adversarial
+candidate tests the printed separate-place-to-simultaneous attainment
+converse. It has **no independent production-verifier receipt**, remains
+a research candidate and is not promoted to book typography. The geometric
+Bogomolov and equidistribution clauses are not refuted by the candidate.
+
+See [bounded original-source audit](BGPS_toric_attainment_bounded_source_review_v2_20261009.md)
+and [42-member authored evidence](artifact_exports/20261009_BGPS_toric_attainment_bounded_v2/).
+The **4,675-page book**, canonical statuses, catalogue source and historical
+PDF remain unchanged. Native catalogue compilation is still unverified.
