@@ -4,6 +4,18 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest reduced-fibre and logarithmic-integrability primary checkpoint, 9 October 2026:**
+the [source audit](manuscript/editorial/BE21_reduced_fibre_integrability_source_review_20261009.md)
+reads eighteen selected BE21 pages in nine fresh matching displays.
+Six elementary diagnostic families retain the field, model, regular-section
+and psh-regularizable hypotheses. The audit clarifies a printed CLN sign,
+the non-Archimedean log-sum smoothness issue and an explanatory integrability
+reformulation using existing global estimates. The
+[authored evidence](manuscript/editorial/artifact_exports/20261009_BE21_reduced_fibre_integrability_sources/README.md)
+preserves those observations and the failed first parse preflight.
+Only fifteen pages are new relative to the two preceding selections.
+The active book, native editor and open-problem statuses are unchanged.
+
 **Latest section-supnorm field-extension primary checkpoint, 9 October 2026:**
 the [source audit](manuscript/editorial/BE21_supnorm_basechange_source_review_20261009.md)
 reads eleven selected published BE21 pages in six individual matching displays.

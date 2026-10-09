@@ -3,6 +3,50 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest reduced-fibre and logarithmic-integrability source checkpoint, 9 October 2026
+
+The [source audit](BE21_reduced_fibre_integrability_source_review_20261009.md)
+freshly reads BE21 physical pages 39--47, 63--64 and 72--78: eighteen pages
+in nine individually displayed matching views with complete text and sequential
+notes/receipts. Three overlap the two previous checkpoints. The combined
+three-checkpoint scope has 53 distinct pages, leaving 72 unread; this is
+not a whole-paper claim. Six elementary diagnostic families pass in fresh v2.
+The first helper's Python parse failure executed no diagnostics and remains frozen.
+
+Theorem 4.19's integral-closure converse requires a dense value group;
+Theorem 4.20's finiteness requires the stated discrete or algebraically
+closed field hypotheses. The completed Gauss field with value group
+Z+sqrt(2)Z illustrates the nonfinite relative integral-closure boundary
+already described by Remark 4.21. Generic properness and a model's own
+properness are distinct; a generic-only model can have an empty tube.
+
+Theorem 8.12 retains a regular section and continuous global
+psh-regularizable factors. The printed non-Archimedean ordinary log-sum
+weight is not CLD-smooth at a rational zero. The audit reformulates the
+argument using continuous FS maxima, the read smooth-max regularization
+input, two semipositive reference metrics and a finite smooth anchor for
+the decreasing integrals. The CLN proof needs a minus sign. Neither
+observation refutes the intended corrected integrability theorem.
+Earlier BGR, Berkovich, CLD and classical projective foundations are
+attributed and not recursively certified by this selection.
+
+The [authored archive](artifact_exports/20261009_BE21_reduced_fibre_integrability_sources/README.md)
+retains actual observations, diagnostics and helpers. Primary PDF/text/images
+remain in the cloud. Export/upload gives zero extra reading credit.
+The 4,657-page book, 425 core TeX inputs, bibliographies and native
+catalogue/editor are unchanged. All 42 atoms/twelve problems retain their
+statuses; general BJ22 critical homogeneous Siu/envelopes remain OPEN and
+LPWZ density UNVERIFIED. No original general theorem or independent-model
+receipt is claimed. The last complete ordered book pass is 4 October.
+
+Continue cloud-only by integrating the exact norm and reduced-fibre/global
+integrability interfaces as attributed material, with these proof clarifications,
+through an isolated stage, required build and actual rendered-book gates.
+Keep arbitrary local weak-psh and affine regularization comparisons unresolved.
+Then continue related primary literature and sequential open problems.
+Check incoming author updates and periodically push checked evidence.
+Xean remains suspended.
+
 ## Latest section-supnorm base-change source checkpoint, 9 October 2026
 
 The [source audit](BE21_supnorm_basechange_source_review_20261009.md)
