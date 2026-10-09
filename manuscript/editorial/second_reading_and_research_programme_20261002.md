@@ -7539,3 +7539,7 @@ Earlier partial checkpoints remain frozen. The **4,675-page book**, its
 canonical statuses and the historical catalogue PDF are unchanged.
 Native catalogue compilation remains unverified. No new whole-book pass,
 main-theorem counterexample or independent verifier receipt is claimed.
+
+All nine complete source-evidence files were verified byte-for-byte on
+GitHub at `124561ff9bb204b2e05a7a694bde35e619041bfe`. See the [publication record](Xue_semiabelian_complete_GitHub_publication_v3_20261009.json).
+Upload adds no reading credit, main-theorem clearance or native compilation verdict.
