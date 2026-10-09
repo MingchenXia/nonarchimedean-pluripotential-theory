@@ -2649,3 +2649,20 @@ PDF remain unchanged. Native catalogue compilation is still unverified.
 All nine bounded toric-source evidence files were verified byte-for-byte
 on GitHub at `f36acaaa0ccd30d8fcb7609653b0f7a0e54f74e0`. See the [publication record](manuscript/editorial/BGPS_toric_attainment_bounded_GitHub_publication_v2_20261009.json).
 The candidate has no independent VERIFIED verdict; upload adds zero reading credit.
+
+## Complete published toric-source reading, 9 October 2026
+
+Read **all 74 physical pages** of published BGPS 2019 in 37 matching displays.
+The complete source audit now also covers the density construction, all model
+and Fubini–Study examples, potential theory and cross-place phase arguments.
+It distinguishes exact point attainment from approximation and preserves
+weighted-capacity and neighborhood-estimate diagnostics. The real-quadratic
+attainment candidate still has **no independent production-verifier receipt**;
+it is not promoted to a book theorem or a verified counterexample to geometric
+Bogomolov, equidistribution or Xue's intended main result.
+
+See [complete published-source audit](manuscript/editorial/BGPS_toric_complete_source_review_v3_20261009.md)
+and [105-member authored evidence](manuscript/editorial/artifact_exports/20261009_BGPS_toric_complete_v3/).
+The **4,675-page book**, canonical 42-atom/twelve-problem inventory, catalogue
+source and historical PDF are unchanged; native compilation remains unverified.
+The earlier bounded checkpoints and evidence are preserved without rewriting.
