@@ -25,6 +25,47 @@ receipt or new general result. Main remains 00957114db21b627e97369563032ceda9cea
 Continue cloud-only with recent related papers, original extension and
 Okounkov inputs, further book polishing and incoming author progress.
 
+## Latest checked curvature-rank book checkpoint, 9 October 2026
+
+The [integration audit](Qin_curvature_rank_staged_integration_audit_v3_20261009.md)
+records the 4,671-page edition. Chapter 55 imports Qin v1's fixed-positive-
+exponent-loss estimate with exact smooth complex hypotheses, fixed E and
+constants chosen before degree growth. The sharp intermediate-degree
+question retains n>=3, 1<=r<n; endpoints and surfaces remain classical.
+Smooth metric rank, Kodaira growth and numerical/mass data are distinct.
+Appendix L records the positive Chern conversion and literal source sign.
+The complete source read is 39/39 pages, twenty matching views; deeper
+original references are not recursively certified.
+
+All 24 selected final book pages were actually read in twelve fresh
+matching displays, including all twelve index pages and the entire new
+Qin26CR bibliography entry. Physical 4420 is an explicitly reviewed blank
+verso. Two contents pages and contextual orientation page 102 were read.
+The earlier v2 source-paragraph spill was repaired in fresh v3 before
+activation; all prior helpers, stages and partial observations stay frozen.
+Last complete ordered whole-book read remains 4 October.
+
+Required validation, six tests and post-render checks pass. All 13,382
+old numbered values, 600 prior cited keys/labels, 2,765 contents titles
+and 900 index entries are preserved. One new key gives 601 cited entries.
+All internal links resolve. Zero overfull boxes; the 955 inherited
+underfull blocks are identical in normalized content/multiplicity.
+The other 423 selected core TeX inputs and NA bibliography are unchanged.
+No new formal result, semantic label or manual tag is added.
+
+The [artifacts](artifact_exports/20261009_Qin_curvature_rank_v3/README.md)
+preserve full PDF, actual review, minimal source and reading evidence.
+The Qin source/evidence commit ded64b93658e0d4d7b52f4e052b9f57a44ddfc38
+has all nine remote blobs verified. Activation and book publication are
+separate records. Preserve the native catalogue/editor and canonical
+42 atoms/twelve problems, tiers (0,3,7,15,17). General BJ22 Siu/envelopes
+remain OPEN, LPWZ density UNVERIFIED and Theorem 6.21 warning binding.
+No independent-model receipt or critical homogeneous repair is claimed.
+Continue cloud-only with incoming author progress and related papers.
+The newly published Ballaÿ–Sombra adelic approximation/equidistribution
+edition is a next source candidate; its acquisition adds no reading credit.
+Xean remains suspended.
+
 ## Latest curvature-rank source checkpoint, 9 October 2026
 
 The [source review](Qin_curvature_rank_source_review_20261009.md) records

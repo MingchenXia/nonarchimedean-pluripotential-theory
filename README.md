@@ -15,6 +15,19 @@ maximal-ray anchors, holomorphic quotient hypotheses and compactness
 normalization. All 33 selected pages were read in 17 matching displays;
 upload adds no reading credit. General BJ22 Siu/envelopes remain OPEN.
 
+**Latest checked curvature-rank book integration, 9 October 2026:**
+the [integration audit](manuscript/editorial/Qin_curvature_rank_staged_integration_audit_v3_20261009.md)
+records the 4,671-page edition: Chapter 55 connects smooth curvature rank
+to section growth, keeping the fixed-exponent-loss preprint estimate and
+sharp intermediate-degree question separate. Appendix L records source
+scope and the Chern sign. All 24 selected final pages were read in twelve
+fresh matching displays; required validation and post-render checks pass.
+All old numbered values, cited labels, contents and index terms remain.
+The [artifacts](manuscript/editorial/artifact_exports/20261009_Qin_curvature_rank_v3/README.md)
+preserve full book, selected review, minimal source and actual evidence.
+The [activation record](manuscript/editorial/Qin_curvature_rank_cloud_activation_v3_20261009.json)
+records activation separately. General BJ22 Siu/envelopes remain OPEN.
+
 **Latest curvature-rank source checkpoint, 9 October 2026:**
 the [source review](manuscript/editorial/Qin_curvature_rank_source_review_20261009.md)
 records the complete 39-page Qin arXiv v1 read in twenty matching displays.
