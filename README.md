@@ -2521,3 +2521,16 @@ build and 103-page final selected review pass; prior formal proofs, canonical
 statuses and the native catalogue are preserved. No original theorem or
 general BJ22 Siu/envelope repair is claimed. See
 [the integration audit](manuscript/editorial/Seo_toric_multiplier_integration_audit_20261007.md).
+
+## Xue semiabelian candidate: partial source evidence, 9 October 2026
+
+The latest checked book remains **4,675 pages**. The candidate
+arXiv:2608.08262v2 has been read on physical pages **1–20 of 83**, in ten
+matching text/image views. Its main proofs remain unverified and have
+not been integrated. The source's general-fan Bogomolov conclusion keeps
+its explicit curvature–Haar slice input. Period-transition and
+theta/canonical-metric normalization checks continue against the original
+sources; no canonical problem status changes.
+
+See [partial source audit](manuscript/editorial/Xue_semiabelian_partial_source_review_v1_20261009.md)
+and [authored evidence](manuscript/editorial/artifact_exports/20261009_Xue_semiabelian_partial_v1/).
