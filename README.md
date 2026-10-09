@@ -4,6 +4,17 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest verified maximal-ray/extension GitHub publication, 9 October 2026:**
+the 4,669-page book and evidence are published on work at
+b82a20e7d7135b54e86c63ec08e85b99cf13fe4d. All seventeen remote source/progress/audit/artifact blobs match
+local hashes and sizes. The [artifacts](manuscript/editorial/artifact_exports/20261009_NA_maximal_extension_v2/README.md)
+include full PDF, 33-page actual review, 145-member evidence and
+472-member minimal source. The [publication record](manuscript/editorial/NA_maximal_extension_GitHub_publication_v2_20261009.json)
+pins the separate original-source checkpoints. This increment clarifies
+maximal-ray anchors, holomorphic quotient hypotheses and compactness
+normalization. All 33 selected pages were read in 17 matching displays;
+upload adds no reading credit. General BJ22 Siu/envelopes remain OPEN.
+
 **Latest checked maximal-ray/extension book integration, 9 October 2026:**
 the [integration audit](manuscript/editorial/NA_maximal_extension_staged_integration_audit_v2_20261009.md)
 records the 4,669-page edition: published BBJ21 maximal-ray anchors in

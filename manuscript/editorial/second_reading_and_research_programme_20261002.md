@@ -3,6 +3,28 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest verified maximal-ray/extension GitHub publication, 9 October 2026
+
+The [publication record](NA_maximal_extension_GitHub_publication_v2_20261009.json)
+verifies b82a20e7d7135b54e86c63ec08e85b99cf13fe4d: all seventeen source/progress/audit/artifact remote
+blobs match their local hashes and sizes. The [artifacts](artifact_exports/20261009_NA_maximal_extension_v2/README.md)
+contain the 4,669-page full book, 33-page actual review, 145-member
+evidence and 472-member minimal build source. Required validation, six
+existing tests, actual 33-page/17-view reading and post-render gates pass.
+The mean-control paragraph records the literal BBJ Lemma A.2 defect
+without claiming a replacement proof or a false intended existence result.
+
+All prior numbered values, cited keys and TOC hierarchy are retained;
+one existing key is newly cited, with expected Fin22a/Fin22b disambiguation.
+The original-source publications are pinned separately with their honest
+complete/partial scopes. Last full ordered book reading remains 4 October.
+The native catalogue/editor and canonical 42 atoms/twelve problems remain
+unchanged. General BJ22 homogeneous Siu/envelopes remain OPEN, LPWZ
+density UNVERIFIED and the Theorem 6.21 warning binding. No independent
+receipt or new general result. Main remains 00957114db21b627e97369563032ceda9cea09c7; PR #2 stays draft.
+Continue cloud-only with recent related papers, original extension and
+Okounkov inputs, further book polishing and incoming author progress.
+
 ## Latest checked maximal-ray/extension book checkpoint, 9 October 2026
 
 The [integration audit](NA_maximal_extension_staged_integration_audit_v2_20261009.md)
