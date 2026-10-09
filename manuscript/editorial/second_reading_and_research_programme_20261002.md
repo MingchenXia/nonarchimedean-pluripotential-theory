@@ -1,5 +1,32 @@
 # Second reading and sequential research programme
 
+## Checked Fubini–Study arithmetic example, 9 October 2026
+
+The [integration audit](BGPS_Fubini_Study_staged_integration_audit_v3_20261009.md)
+records the 4,677-page edition. The standard P1_Q example has essential
+minimum log2/2, normalized intersection 1/4 and absolute minimum zero at
+the boundary. Its original smooth curvature is distinct from the generic
+small-point Haar/Gauss limit. The ordinary norm height and squared-norm
+Chern convention are explicit and calibrated against the published source.
+
+All thirteen final selected pages were actually read in seven fresh views.
+The first staged review stopped after twelve pages when two appendix lines
+spilled; the fresh v2 fixes that pagination and transfers no reading credit.
+Required validation and six tests pass. All 13,382 old numbered values,
+602 cited labels, 2,766 contents titles/hierarchy and 900 index entries remain;
+one new BGPRS19 key gives 603 citations. All links resolve and 955 inherited
+underfull blocks are unchanged. The last whole-book ordered read is 4 October.
+
+See the [artifacts](artifact_exports/20261009_BGPS_Fubini_Study_v3/README.md).
+Complete BGPS source evidence is separately published at
+1a16af3ae42dd796d96f6465b82f0af080134777. The point-attainment candidate
+has no independent production-verifier receipt and is not a book theorem.
+The native catalogue/editor and canonical statuses are preserved; native
+compilation remains unverified. No Siu/envelope repair or problem closure.
+Continue cloud-only. Hultberg 2412.04169v1 is a related source-reading target;
+its main statements are not integrated or cleared by metadata inspection.
+
+
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 

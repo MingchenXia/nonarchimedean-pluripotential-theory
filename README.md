@@ -4,6 +4,17 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest checked arithmetic worked example, 9 October 2026:**
+the [integration audit](manuscript/editorial/BGPS_Fubini_Study_staged_integration_audit_v3_20261009.md)
+records the 4,677-page edition. Chapter 27 computes the standard Fubini–Study
+entropy roof and height bound, and distinguishes smooth Chern curvature
+from the Haar/Gauss small-point limit. Appendix L pins the published source
+and norm conventions. All thirteen selected final pages were read in seven
+fresh displays; required checks and compilation pass. Earlier numbering,
+citations, contents and index are preserved. The [artifacts](manuscript/editorial/artifact_exports/20261009_BGPS_Fubini_Study_v3/README.md)
+contain full PDF, actual review, minimal source and authored evidence.
+The attainment candidate remains unverified; general BJ22 Siu/envelopes remain OPEN.
+
 **Latest verified adelic-equidistribution GitHub publication, 9 October 2026:**
 the 4,675-page book and evidence are published on work at
 4355ff74e5b25c4422bfd3bf0ea5f2465dea183a. All sixteen remote book/source/progress/audit/artifact
