@@ -8066,3 +8066,16 @@ All nine Luo chi-volume arXiv v1 source/evidence/progress blobs were downloaded
 and verified byte-for-byte on GitHub at `6028a2713eb9f353bf90d6af48ad45d837abd3f0`.
 See the [publication record](Luo_chi_volume_complete_source_GitHub_publication_v1_20261009.json). Upload adds no reading credit,
 theorem clearance or journal-version proof verification.
+
+### Ye concave-transform full-source checkpoint, 9 October 2026
+
+All 23 physical pages of arXiv:2609.23722v1 were actually read in twelve
+ordered matching text/image views. The [source audit](Ye_adelic_concave_transforms_complete_source_review_v1_20261009.md)
+and [34-member authored evidence](artifact_exports/20261009_Ye_adelic_concave_transforms_v1/README.md) retain the Chebyshev/HN
+distinction, signed-volume factorial and [K:Q] normalization, boundary
+terms, curve/theta proof structure and higher-dimensional flag scope.
+The new preprint results remain source-reported pending controlling
+dependency and normalization checks for book integration. No original
+book result or canonical problem is promoted. The active 4,685-page
+book and same native catalogue/editor are unchanged by this audit.
+Work continues cloud-only; upload supplies no additional reading credit.
