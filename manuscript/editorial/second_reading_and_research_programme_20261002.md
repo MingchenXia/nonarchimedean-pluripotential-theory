@@ -8010,3 +8010,24 @@ The sixteen three-place model book/source/progress/audit/artifact blobs
 were downloaded from GitHub and verified byte-for-byte at `8cd0f7400a5a1d541fa75d00621dbb49a973b079`.
 See the [publication record](Liu_adelic_small_sections_GitHub_publication_v1_20261009.json).
 Upload adds no reading credit or theorem clearance.
+
+### GVF catalogue source question, 9 October 2026
+
+Edited the existing open-problem catalogue in the same native editor.
+Added GVF.C12.7 with full fixed-e height/language conventions, model
+companion definition, approximate bounded-height existential closure,
+known representation results, and conditional scaled classification.
+All twelve formal problem bodies, the complete canonical family block,
+42 atoms, tiers (0,3,7,15,17), prior arithmetic supplement and 31 previous
+bibliography entries are byte-identical. The source leaves the conjecture
+OPEN. No exhaustive current literature verdict is claimed.
+
+The fresh built-in compiler call returned no diagnostics in bounded
+waits; the waiting client was ended. Backend state is UNKNOWN, without
+a success or failure verdict. Preserve the source and same open editor;
+no replacement document, updated catalogue PDF or native preview reading.
+The active 4,685-page book and historical 86-page catalogue PDF are exact.
+See [source audit](GVF_model_companion_catalogue_supplement_source_review_v1_20261009.md)
+and [twelve-member evidence](artifact_exports/20261009_GVF_model_companion_catalogue_v1/README.md).
+No primary reading credit, original-result promotion or independent
+verifier clearance is added by this supplement or its upload.

@@ -2983,3 +2983,13 @@ All nine continuation309 scoped audit/evidence files were downloaded from
 GitHub and verified byte-for-byte at `1d5e9cdc39b0cdcc03e53e0dca224681ffc8def4`. See the [publication record](manuscript/editorial/P12_3_incoming_continuation309_GitHub_publication_v1_20261009.json).
 The current research head is `9556f41667eb56aea7e4ec0ddf1b8665a320698e`; only the pinned reviewed
 snapshot receives scoped reading credit. Claims remain UNVERIFIED.
+
+**GVF open-problem catalogue source update, 9 October 2026:**
+the [saved standalone LaTeX source](manuscript/editorial/artifact_exports/20261009_GVF_model_companion_catalogue_v1/Open_Problems_Catalogue_GVF_Supplement_V1_2026-10-09.tex)
+adds the complete fixed-parameter GVF model-companion question alongside
+the two arithmetic source questions. The [source audit](manuscript/editorial/GVF_model_companion_catalogue_supplement_source_review_v1_20261009.md)
+preserves all twelve canonical problem bodies, 42 atoms and their tiers.
+Native compilation is unverified after the fresh editor call returned no
+diagnostics; no updated catalogue PDF is claimed. The 4,685-page book is
+unchanged. [Twelve-member evidence](manuscript/editorial/artifact_exports/20261009_GVF_model_companion_catalogue_v1/README.md)
+records the source formulation, checks and compiler limitation.
