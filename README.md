@@ -4,6 +4,20 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest verified norm-ray/interface GitHub publication, 9 October 2026:**
+the 4,663-page book and six owned artifact files are uploaded on work at
+544d59041c04c336ff1bb9df6f7ede4a70da4b34. All sixteen source/progress/audit/artifact remote blobs match
+local hashes and sizes. The [artifact directory](manuscript/editorial/artifact_exports/20261009_norm_ray_interfaces_v5/README.md)
+contains the full PDF, 25-page review, 198-member actual evidence
+and 472-member minimal source. All 25 pages were actually read in 13
+matching V3 text/image views; V4 removes one blank source line and retains
+that reading only under exact full-text and rendered-pixel equality.
+The [publication record](manuscript/editorial/norm_ray_interfaces_GitHub_publication_v5_20261009.json)
+also pins the separately verified nine-file selected source checkpoint:
+38 source/page pairs in 19 actual displays, with frozen overlap correction.
+General Siu/envelopes remain OPEN and canonical statuses and native editor
+are unchanged. Upload supplies zero reading credit.
+
 **Latest checked norm-ray/interface book integration, 9 October 2026:**
 the [integration audit](manuscript/editorial/norm_ray_interfaces_staged_integration_audit_v5_20261009.md)
 adds Chapter 65's two norm rays and L.100's finite spectral, apartment

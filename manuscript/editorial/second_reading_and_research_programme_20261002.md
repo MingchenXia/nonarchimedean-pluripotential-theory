@@ -3,6 +3,46 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest norm-ray/interface GitHub publication, 9 October 2026
+
+The [publication record](norm_ray_interfaces_GitHub_publication_v5_20261009.json)
+verifies 544d59041c04c336ff1bb9df6f7ede4a70da4b34 on work: sixteen source/progress/audit/artifact remote
+hashes and sizes match. The six [artifact files](artifact_exports/20261009_norm_ray_interfaces_v5/README.md)
+contain the 4,663-page PDF, 25-page review, 198-member actual evidence
+and 472-member minimal sources. Twenty-five selected pages were completely
+read in thirteen individually displayed matching V3 views. V4 removes
+only one extra blank EOF source line; exact complete selected text and
+full rendered pixel equality retain that reading without fresh credit.
+V5 trims only the audit EOF in fresh publication artifacts, without
+changing validated V4 book/source mathematics. All frozen V4 evidence
+and its failed commit preflight remain preserved. Full validation and
+source/release/post-render gates pass. All 13,380
+prior numbered values and 597 prior citation labels are preserved; two
+source entries give 599 citations. All 955 inherited underfull blocks
+have identical normalized content and multiplicities. Other 423 core
+TeX inputs and the NA bibliography are unchanged. Fifty-one historical
+formal blocks and 92 manual tags are preserved. Failed V1 label, V2
+layout and V3 whitespace preflights and actual notes remain frozen.
+
+The nine-file selected dependency source checkpoint at 8987e5cefb9cc75145bb78dba6db1c46500a96cf is
+separately verified: Finski published 1–24, Parreau author 21–26 and BE21
+published 87–94, 38 source/page pairs in 19 actual views, all partial.
+The named previous-record comparison adds 33 unique pairs; the old BE21
+87–88 overlap correction is an addendum, not an overwritten receipt.
+Separately audited RWN25 arXiv v2 is fully read, 19 pages/10 views; the
+IMRN published edition remains unread. The tensor classification and
+original Darvas/Okounkov inputs remain external to this selection.
+
+Main remains 00957114db21b627e97369563032ceda9cea09c7; PR #2 stays a draft.
+Native editor, 42 atoms/twelve formal problems and the last complete
+ordered 4 October book pass retain their scopes. General BJ22 critical
+homogeneous Siu/envelopes remain OPEN, LPWZ density UNVERIFIED and the
+BJ22 Theorem 6.21 proof warning binding. No original general theorem or
+independent-model receipt is claimed. Continue cloud-only with Finski's
+remaining published pages 25–47 and the tensor classification proof,
+incoming author research and related recent primary literature; push
+checked units regularly. Xean stays suspended.
+
 ## Latest norm-ray/interface book checkpoint, 9 October 2026
 
 The [integration audit](norm_ray_interfaces_staged_integration_audit_v5_20261009.md)
