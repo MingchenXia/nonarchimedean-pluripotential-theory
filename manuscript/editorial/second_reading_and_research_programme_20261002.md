@@ -8036,3 +8036,28 @@ All ten GVF catalogue source/audit/evidence/progress blobs were downloaded
 and verified byte-for-byte on GitHub at `ec8f6bd5b207343965cb58750eef5d8f98b88517`.
 See the [publication record](GVF_model_companion_catalogue_supplement_GitHub_publication_v1_20261009.json). This verifies saved source bytes;
 native compilation remains unverified and no updated catalogue PDF is claimed.
+
+### Complete Luo chi-volume arXiv v1 reading, 9 October 2026
+
+Read all 25 physical pages of 2303.01604v1 in thirteen ordered matching
+text/image views. The primary audit distinguishes signed chi-volume from
+positive-degree arithmetic volume, retains the Section 3/4 hypotheses,
+and records product-norm, factorial and section-direction reconstruction.
+An explicit toric normalized-concavity candidate has exact lattice sums
+and polygon integrals, with normalized difference -8/7, but remains
+UNVERIFIED FOR PROMOTION without an independent exact-current receipt.
+It does not close a canonical problem or refute the intended main
+Hilbert–Samuel, birational-invariance or continuity conclusions.
+
+The 2025 journal edition, DOI 10.1007/s40879-025-00826-9, is separate.
+Public publisher responses give abstract/metadata only; the PDF URL
+returned HTML, never counted as a PDF or proof reading. Open-copy
+metadata found no open location. No version-wide proof comparison is
+claimed. Liu cites this journal version for the preceding birational
+bigness step, not its later small-section step.
+
+See [full source audit](Luo_chi_volume_complete_source_review_v1_20261009.md)
+and [43-member evidence](artifact_exports/20261009_Luo_chi_volume_arxiv_v1/README.md).
+The active 4,685-page book and same native catalogue are unchanged;
+tiers (0,3,7,15,17) remain exact. Upload adds no reading credit or
+independent mathematical clearance. Work continues cloud-only.

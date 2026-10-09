@@ -2998,3 +2998,13 @@ All ten GVF catalogue source/audit/evidence/progress blobs were downloaded
 and verified byte-for-byte on GitHub at `ec8f6bd5b207343965cb58750eef5d8f98b88517`.
 See the [publication record](manuscript/editorial/GVF_model_companion_catalogue_supplement_GitHub_publication_v1_20261009.json). This verifies saved source bytes;
 native compilation remains unverified and no updated catalogue PDF is claimed.
+
+**Luo chi-volume primary-source checkpoint, 9 October 2026:**
+all 25 physical pages of arXiv:2303.01604v1 were actually read in thirteen
+ordered matching text/image views. The [complete source audit](manuscript/editorial/Luo_chi_volume_complete_source_review_v1_20261009.md)
+and [43-member evidence](manuscript/editorial/artifact_exports/20261009_Luo_chi_volume_arxiv_v1/README.md)
+retain the signed-degree convention and version-specific reconstruction
+requirements. The normalized-concavity candidate is UNVERIFIED FOR
+PROMOTION. The 2025 journal proof cited by Liu remains unread; its PDF
+request returned HTML without full-text access. The 4,685-page book,
+same native catalogue and canonical statuses are unchanged.
