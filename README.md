@@ -2993,3 +2993,8 @@ Native compilation is unverified after the fresh editor call returned no
 diagnostics; no updated catalogue PDF is claimed. The 4,685-page book is
 unchanged. [Twelve-member evidence](manuscript/editorial/artifact_exports/20261009_GVF_model_companion_catalogue_v1/README.md)
 records the source formulation, checks and compiler limitation.
+
+All ten GVF catalogue source/audit/evidence/progress blobs were downloaded
+and verified byte-for-byte on GitHub at `ec8f6bd5b207343965cb58750eef5d8f98b88517`.
+See the [publication record](manuscript/editorial/GVF_model_companion_catalogue_supplement_GitHub_publication_v1_20261009.json). This verifies saved source bytes;
+native compilation remains unverified and no updated catalogue PDF is claimed.

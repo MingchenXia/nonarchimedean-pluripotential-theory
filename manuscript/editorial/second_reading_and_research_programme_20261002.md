@@ -8031,3 +8031,8 @@ See [source audit](GVF_model_companion_catalogue_supplement_source_review_v1_202
 and [twelve-member evidence](artifact_exports/20261009_GVF_model_companion_catalogue_v1/README.md).
 No primary reading credit, original-result promotion or independent
 verifier clearance is added by this supplement or its upload.
+
+All ten GVF catalogue source/audit/evidence/progress blobs were downloaded
+and verified byte-for-byte on GitHub at `ec8f6bd5b207343965cb58750eef5d8f98b88517`.
+See the [publication record](GVF_model_companion_catalogue_supplement_GitHub_publication_v1_20261009.json). This verifies saved source bytes;
+native compilation remains unverified and no updated catalogue PDF is claimed.
