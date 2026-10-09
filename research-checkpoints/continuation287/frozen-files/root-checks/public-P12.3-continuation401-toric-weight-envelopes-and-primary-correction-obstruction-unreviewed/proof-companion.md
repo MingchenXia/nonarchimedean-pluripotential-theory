@@ -1,0 +1,305 @@
+# n1. Whole corrected396 audit and the envelope criterion
+
+This note uses only the entire qualified G331. The independently geometric core is its actual negative effective real Cartier presentations on actual primary blowups, tested by nonnegative degree on every contracted integral curve. Let C be its continuous uniform closure and D its actual decreasing-C-net completion, including bottom. Every prime support is retained. No envelope assertion is included in the grant. B341 and E350 are retained with their qualifications but are not needed below.
+
+The entire 288-line corrected proof, all seven actual native276 notes with every field, their separate expanded framing, all current ledgers/coverage/verdict/residual, the 459-line ROOT392 proof, and the entire 386 mathematical appendix were examined. The standalone current TeX is 697312 bytes. An independently written serialization matches every nonempty line of the corrected proof and six ledger/scope blocks; all three full incoming grant texts occur literally. These facts identify duplicate content; they do not prove it correct or provide additional readings of historical sources. The terminal retention adds an artifact-location suffix to each actual note; this is separately retained. The actual native n2 text differs from corrected396 at the root-multiplier paragraph, and remains immutable.
+
+The native assertion phi(d^q z)=d phi(z), for an R-linear phi:R^(1/q)->R, is false. In k[[x]] over a perfect field of characteristic3, q=3, use the free root basis 1,x^(1/3),x^(2/3) and the linear functional selecting the last basis vector. With d=x and z=x^(2/3), phi(d^q z)=x^3 whereas d phi(z)=x. The corrected formula is phi(dz)=d phi(z). Root multiplication by d is underlying Frobenius-source multiplication by d^q. The complete repair and full rooted-kernel argument are proved in n2; this note does not give the immutable paragraph a positive verdict.
+
+For finite continuous f on the compact primary section X, define p(f)=sup{u in D:u<=f}. A sufficiently negative primary constant is a competitor. If g_i decreases in C to u<=f, the open sets {g_i<f+epsilon} cover X. Compactness and directedness select one term satisfying the inequality everywhere. Its negative constant shift g_i-epsilon is in C and below f, and is at least u-epsilon. Therefore C and D give the same raw supremum. It is finite, bounded, lower semicontinuous and nonexpansive in the uniform norm. Negative shifts in both directions prove the latter; no positive-translation invariance is used.
+
+If p(f) is continuous, finitely many continuous competitors and their maximum approximate it uniformly from below, so p(f) belongs to C. If p(f) belongs to D, upper semicontinuity plus the preceding lower semicontinuity makes it continuous. Any maximal D minorant is greatest, since its maximum with another minorant is again a minorant. Conversely a greatest minorant equals the raw supremum. If the upper regularization p(f)^* belongs to D, continuity of f gives p(f)^*<=f, so it too is a competitor and equals p(f). Thus raw continuity, C positivity, D positivity, a greatest/maximal D minorant, and positive upper regularization are equivalent. Regularization by itself is not positivity recognition.
+
+Actual decreasing closure of D needs a proof. On each normal centre G331 gives the zero dichotomy: a nonzero D function is everywhere strictly negative and hence bounded above by -c on the compact section. For u_i in D decreasing to u, either all terms are zero or a tail has this common bound. Given finite continuous F>u, compactness of the open strict tests selects u_i<F everywhere, then a continuous representing term g with u_i<=g<F and g<-c/2. A small positive b keeps (1-b)g below F and makes it strictly above u at each finite point, with bottom automatic. The family of continuous C majorants strictly above u is downward directed: apply this insertion to the continuous minimum of two majorants. Upper semicontinuity of u and a Urysohn cutoff give, at each point and finite t>u(x), a continuous F>u with F(x)<t. Insertion then shows this single decreasing net has infimum u. On a reduced germ pull back to the finitely many normal centres, apply the argument there, and use G331 full-fibre D descent. This avoids flattening nested representations and assumes no increasing closure.
+
+If CE holds (p(f) in C for every continuous f), the finite continuous nonpositive majorants of min(phi,0), for bounded-above extended upper semicontinuous phi, are directed by minima and have that infimum. Their envelopes form a single decreasing C net. Its infimum is in D by the preceding closure proof, is below phi, and dominates every D competitor. This is the greatest D envelope. The same reasoning proves commutation with decreasing obstacle nets having a specified upper semicontinuous limit. The statements include poles and bottom.
+
+For another primary gauge b, d(v)=v(b) and its inverse are bounded positive continuous. The section map T(v)=v/d(v) and the homogeneous rule u_b(Tv)=u_a(v)/d(v) give a bijection of competitors. Hence p_b(f_b)(Tv)=p_a(f_a)(v)/d(v), with the exact three-gauge cocycle. G331 already proves the all-support completion homeomorphism, exact primary contraction and C/D identification. The envelope transport is a corollary; it is not new algebraization or model-category equivalence.
+
+The Jensen calculation was also checked, but remains a reduction. For positive Radon subprobabilities set J_x={mu:h(x)<=integral h dmu for all h in C}. They are nonempty compact convex sets with closed graph. Separate (f,t), t>p(f)(x), from the closure of {(g,s):some h in C has h<=g, s<=h(x)} in C(X) times R. Nonexpansivity keeps the point outside that closure. A separating functional has form mu(g)-alpha s, with mu positive and alpha>=0. Testing (-a,-a) rules out alpha=0, since then mu(X)=0. Normalize alpha=1; testing (h,h(x)) gives the Jensen inequalities, and h=-1 gives mass<=1. Let t decrease and use compactness to obtain p(f)(x)=min_{mu in J_x} integral f dmu. Conversely, failure of weak lower hemicontinuity of J_x is detected by finitely many continuous tests. Their compact convex projections avoid a fixed ball about a member of J_x; unit separating vectors have a convergent subnet and retain half the gap by uniform boundedness. A fixed linear combination of the tests then has discontinuous p. Thus CE iff this correspondence is weakly lower hemicontinuous. Hahn--Banach, Riesz and positive-dual weak compactness are named ordinary foundations. No general lower hemicontinuity is proved.
+
+Audit verdict at this point: native276 is incorrect as written at the displayed scalar paragraph. Corrected396 repairs this defect. The remaining formal theorem is judged in n2--n4, with every mathematical gate reconstructed. Historical386 assertions were read as data; no historical acceptance or compilation is a correctness premise. The normal raw envelope of an obstacle negative somewhere is uniformly negative: divisorial density finds nu with f(nu)<0, and G331's g(nu)>=A_nu g(v) gives p(f)(v)<=f(nu)/A_nu. A mixed-zero normal counterexample cannot be inferred from the nonnormal example or increasing spikes.
+
+Evidence: reports/input-integrity.json records 1258/1258 bound records matching; reports/serialization.json records the complete current-content identity and separate actual/expanded/terminal framing. Full actual fields remain in review-data/actual-FINAL and expanded fields in review-data/expanded. Rerun: python audit_packet.py; python audit_serialization.py. These are own data readers, not supplied programs. No compiler, agent, network or heavy computation was used.
+
+# n2. Corrected completed free lift and full root kernel
+
+All statements here are reconstructed; neither corrected396 nor ROOT392 is a grant. Let R be a complete normal local domain of characteristic p>0 with perfect coefficient/residue field k. Set S=R completed-tensor_k R, multiplication mu:S->R, I=ker(mu), q=p^e, and T=R^(1/q). A presentation R=k[[u]]/(f) gives S=k[[u,v]]/(f(u),f(v)), a Noetherian complete local ring. Exponent grouping and perfect coefficient roots make both rings F-finite and identify S^(1/q)=T completed-tensor_k T. The compatible kernel is I^(1/q), the whole kernel of root multiplication, not merely the extension of I to the root ring.
+
+Here is the exactness argument needed for these completed tensors. A finite module V over R is the inverse limit of its finite-dimensional k quotients; its continuous dual V^o is their direct-limit dual. Artin--Rees makes a finite submodule's induced topology cofinal with its adic topology. A continuous functional on a submodule extends through a sufficiently deep finite quotient. Thus continuous duality is exact on the relevant finite-module sequences. Algebraic vector-space tensor and duality are exact, and
+\[
+ V\widehat\otimes_k W=(V^o\otimes_k W^o)^*.
+\]
+This proves completed exactness in either slot. It does not appeal to completion over an uncompleted non-Noetherian tensor ring. Applied twice to R->R^(1/p), it makes S->S^(1/p) injective. This is the Frobenius map under the root presentation, so S is reduced.
+
+Present finite R modules M,N by finite free modules. In S^(ab), impose the M-relation matrix, then the N-relation matrix. Completed exactness identifies the first kernel with Hom_R(M,R) completed-tensor R^b and the second with the corresponding completed tensor of Hom modules. Therefore
+\[
+\operatorname{Hom}_S(M\widehat\otimes_k N,S)
+=\operatorname{Hom}_R(M,R)\widehat\otimes_k\operatorname{Hom}_R(N,R).
+\]
+This is the full Hom factorization, including finite ideals/twists and every S Cartier map. Finite paired generators generate the right-hand module; no decomposability assertion for individual maps is needed.
+
+If a regular Noetherian subring A makes R module finite, integral locality makes A local. Its maximal-adic and R maximal-adic topologies on R are cofinal. Exact completion embeds A-hat in R, so A-hat/A is a finite A module, with zero residue quotient. Nakayama gives A=A-hat. The residue field F has finite extension k; perfection of k and [k:F]=[k^p:F^p] force F perfect. Cohen structure then gives A=F[[x]], whose roots are finite free. This broader ROOT392 claim is valid, but the Jacobian sum below uses only the fixed common field k.
+
+Fix A=k[[x_1,...,x_d]] inside R, finite over A. Let K_A=Fitt_0 Omega_(R/A) and N_A=mu_A(Ann ker(mu_A)) in R tensor_A R. A finite polynomial presentation R=A[z]/(g) expresses differences g(z tensor 1)-g(1 tensor z) as a matrix times the diagonal generators z_i tensor1-1tensor z_i. Each square adjugate makes its determinant annihilate all these generators. After multiplication its determinant is the corresponding relative Jacobian minor. Hence K_A subset N_A. This uses ordinary finite relative differentials and no CM or A-flatness.
+
+For K_A nonzero the fraction field extension L/K is separable. If d in N_A, choose z=sum r_i tensor s_i annihilating the diagonal with product d. Over L tensor_K L, z is d times the separability idempotent. The trace in the second slot gives
+\[
+d w=\sum_i r_i\operatorname{Tr}(s_i w).
+\]
+The purely inseparable extension K^(1/q)/K is linearly disjoint from L/K, and L K^(1/q)=L^(1/q). The same identity holds there. Elements of R^(1/q) are integral over A^(1/q), so their trace coefficients are integral and in its fraction field. Normality of the regular A^(1/q) puts them in A^(1/q). Consequently dT subset A^(1/q)[R]. The multiplication of P=A^(1/q) tensor_A R into L^(1/q) is injective: its generic map is an isomorphism and the free R module P is torsion-free over A. Thus P is the indicated submodule of T and is finite free over R. Freeness of R over A is not asserted.
+
+Set B=R completed-tensor_k T. The multiplication B->T is surjective and B-linear. The module P completed-tensor_k T is free over B, so its multiplication into T lifts to a B-linear map Psi into B, by lifting its finite free basis. Compose
+\[
+T\widehat\otimes_k T\xrightarrow{,d\otimes1,}
+P\widehat\otimes_k T\xrightarrow{\Psi}
+R\widehat\otimes_k T\xrightarrow{1\widehat\otimes\phi}S
+\]
+for any R-linear phi:T->R. This is S-linear with the Frobenius root source action. On pure tensors, applying mu gives phi(dxy)=d phi(xy). Finite-module continuity extends this equality to the completed tensor. Its reduction therefore factors through the surjective root multiplication to T. It takes the ENTIRE kernel I^(1/q) into I, and induces the OUTPUT multiple d phi. In the identification F_*^e z->z^(1/q), the first arrow uses underlying source multiplier d^q. Multiplication by d^q in T would instead induce d^q phi, the immutable error demonstrated in n1. No claim about only pure tensors or the ordinary extended diagonal kernel suffices.
+
+Let D_e be the quotient-restriction image of all compatible S maps in C_e=Hom_R(F_*^e R,R). These finite kernel/image modules form a Cartier algebra: lift left/right scalars arbitrarily to S and compose compatible maps. The root kernel remains preserved. Summing lifts over finitely many parameter normalizations proves J_norm C_e subset D_e for every degree, where J_norm=sum_A K_A.
+
+Wang's fixed-coefficient-field Definition4.1/4.2 and whole Lemma4.3 identify this sum with the formal Jacobian Fitt_d of continuous differentials. Finite residue fields require no generic rational-coordinate assumption: prescribe a basis modulo m^2, and at each stage avoid the finitely many nonmaximal minimal primes of subset-generated ideals. Discard contained primes. For incomparable P_i, choose a_i in m^2 intersect all other P_j but outside P_i, using products and prime avoidance. Add a_i only where the original representative lies in P_i. Its cotangent coset is unchanged and every bad prime is avoided. The height theorem/catenarity preserves the expected drop for every subset, so each d-subset is a parameter system. Formal coordinate changes preserving the cotangent basis have invertible Jacobian. Their complementary minors give the required finite sum exactly as in Wang. This explicitly repairs the finite-field reading boundary.
+
+The singular-locus criterion used is ONLY for reduced equidimensional complete equicharacteristic rings with perfect residue. Liu4.8--4.9 and immediate proof state it; Wang4.5 and its entire postponed proof supply the pertinent source context. All six official printed pages597--602 were actually viewed and their text units read in this run. The cited analytic universal-finite results, Matsumura criterion and earlier historical foundations remain named published background, not newly recursively proved. Iyengar--Takahashi's complete definition and Section3 block corroborate but do not replace the fixed-field Wang sum. No Ext/CM theorem is applied. The criterion gives J_norm nonzero; isolatedness gives a primary power in it.
+
+Verdict: corrected completed module/different theorem and the amended ROOT392 direct algebraic part are valid at these exact hypotheses. ROOT392's BIG-product application was conditional and is discharged separately in n3. S was proved reduced, not normal. Matching files and old correctness labels were not used as mathematical premises.
+
+Artifacts: n2.md; reports/finite-diagnostics.json includes the exact scalar counterexample. Primary statements/pixels remain under inputs/primary-LOCALONLY, including Wang page11--16. Rerun: python finite_diagnostics.py. No supplied program or compiler is executed.
+
+# n3. BIG minima, late tails, and the actual completed diagonal
+
+Use the completed module and lift theorem of n2, not a grant from396. Let B be reduced excellent Noetherian F-finite. Let C be a Cartier subalgebra with finite degree modules and C_0=B. Assume c in B^o has B_c regular, all C_e become the full Hom modules there, and finitely many regular-element pair ideals a_i become units there. These explicit regular-open hypotheses will be verified for the product and diagonal; no graded finite generation is presumed. Put r_i(e)=ceil(t_i(p^e-1)). Stability means that all maps in C_e take F_*^e((product a_i^r_i(e))H) into H. The twisted maps compose because r_i(e)+p^e r_i(f)>=r_i(e+f).
+
+Every stable H meeting B^o has H_c=B_c. At a regular maximal localization of B_c, F-finiteness and Kunz give a finite free Frobenius module. A regular h in H is outside n^[q] for large q, since n^[q] subset n^q and Krull intersection. Thus F_*h is primitive in that free module and a linear map sends it to1. Hom localization holds by finite presentation; localized stability gives the unit ideal. This holds at every maximal localization. Kunz is the named ordinary theorem at exactly regular Noetherian characteristic-p rings; its full statement in Smolkinv3 2.3 was read, not its entire original historical proof.
+
+There is one universal power of c in EVERY such H. Choose a positive degree q. Evaluation at1 splits on B_c; clear denominators to obtain theta in C_e with theta(F_*1)=c^a. Choose B_0 so c^(q B_0) belongs to that degree's pair coefficient ideal. For the least n with c^n in H, stability and the Frobenius scalar rule give c^(B_0+ceil(n/q)+a) in H. Therefore
+\[
+n\le B_0+a+\lceil n/q\rceil\le B_0+a+n/q+1,
+\qquad n\le\frac{q(B_0+a+1)}{q-1}.
+\]
+Fix an integer L at least this bound. The intersection of all stable ideals meeting B^o is stable and contains c^L in B^o, so it is the actual smallest such ideal tau. This is BIG, not finitistic. The ideal generated by all twisted maps of an arbitrary regular d, with degree zero included, is stable and generically nonzero, and therefore contains c^L. Thus the construction supplies the required universal BIG test element, rather than assuming arbitrary-Cartier-algebra existence.
+
+If d belongs to tau intersect B^o, every late tail generated by twisted images of dB lies in tau. Composition shows the tail is stable. On B_c the pair ideals are units; for each maximal localization a sufficiently large degree sends the regular d to1 by the preceding primitive-vector argument. Hence the tail is generically nonzero and minimality makes it equal tau. This holds for EVERY cutoff E, not merely for all degrees starting at0.
+
+Both exponent conventions ceil(t_i q) and ceil(t_i(q-1)) give the same ideal and all their late tails. Their gaps are bounded by ceil(t_i)+1 independently of e. Construct the minima for both conventions by the same argument and choose a common regular seed in their intersection. Multiplication by a fixed regular element of product a_i^(ceil(t_i)+1) is enough to bridge the bounded gaps. Since a seed in tau can be multiplied by a regular element and remains a seed, the two tail sums sandwich each other. The same argument proves power invariance tau((a^r)^(t/r))=tau(a^t): the exponents ceil(qt) and r ceil(qt/r) differ by at most r-1. No finite-tail approximation or Q-Gorenstein index enters.
+
+Localization of these ideals follows from finite Hom localization and shared nonzero seeds. Full-algebra completion is also exact for excellent F-finite normal local A: the m-adic and Frobenius filtrations are cofinal, so F_*A completes to F_*(A-hat), and finite Hom commutes with faithful flat completion. Extending tau_A is stable, giving tau_hat subset tau_A A-hat. Choose c in A with A_c regular and pair ideals unit. Regular formal fibres make A-hat_c regular; the same cleared splitting supplies a common c^L in tau_hat. Its contraction is nonzero and stable, giving the reverse inclusion. An arbitrary nonzero formal ideal is never assumed to have nonzero contraction. This proves the completion rule for full algebras only.
+
+If J C_e subset D_e, the correct comparison is J tau_C subset tau_D. Choose a regular seed in both minima. The C late-tail formula expresses tau_C; multiplying each output by J turns the map into a D map, whose image of the common seed lies in tau_D. This proves the comparison without claiming J tau_C is itself D-stable.
+
+Return to n2's S. It is reduced F-finite and equidimensional of dimension2d. Indeed a parameter ring A_0=k[[x_1,...,x_d]] makes R finite torsion-free. Clear denominators of a generic basis to embed R in a finite free A_0 module. Completed exactness embeds S in a free module over k[[x,y]]. Every minimal prime of this finite torsion-free algebra contracts to0, so all minimal quotients have dimension2d. A nonzero d-codimensional Jacobian minor j of R yields the block minor j(u)j(v) in Jac(S). At the diagonal prime I its image is j^2, nonzero in R. The exact reduced-equidimensional perfect-residue singular-locus criterion of n2 makes S_I regular. No S normality or product-domain assertion is needed.
+
+Choose regular a_0 in a and b_0 in b and set c_S=j(u)j(v)(a_0 tensor b_0). Completed exactness makes multiplication by a_0 and b_0 injective in their slots, and similarly for j; thus c_S is regular. Its diagonal image j^2 a_0 b_0 is nonzero. On S_cS the ring is regular and both pair ideals A=aS, B=bS are units. For R's diagonal algebra D, n2 gives j C_e subset D_e, so localization at j is full and regular. Thus the BIG framework applies to all three actual algebras.
+
+Let T_S=tau_S(A^t B^s). Its image mu(T_S) is D-stable: compatible lifts carry its coefficient-twisted roots into T_S, and passage to the quotient gives the required maps. Its image is nonzero because it contains mu(c_S^L). Minimality therefore gives tau_D(a^t b^s) subset mu(T_S).
+
+The completed product of tau_R(a^t) and tau_R(b^s), extended into S, is stable for EVERY full S Cartier map by n2's full Hom factorization and stability in each factor. It contains a regular pure tensor, again by completed exactness, so T_S lies in this product ideal. Multiplication sends it to tau_R(a^t) tau_R(b^s). Combining the common-seed comparison with these two inclusions gives
+\[
+\operatorname{Jac}(R)\tau_R(a^t b^s)
+\subset\tau_D(a^t b^s)
+\subset\mu(T_S)
+\subset\tau_R(a^t)\tau_R(b^s).
+\]
+Iteration yields Jac^(ell-1) tau(a^(ell t)) subset tau(a^t)^ell. This is the corrected direction. A primary multiplier is obtained only under isolatedness; no finite value of a nonprimary Jacobian on every support is inferred.
+
+Verdict: the complete formal BIG/subadditivity gate is discharged for complete normal characteristic-p perfect-residue R, with no finite-type-over-field, CM, algebraizability, Q-Gorenstein or graded Cartier-finite-generation assumption. The verification uses the explicit nonzero diagonal seed, rather than a guessed image theorem. Local source and arithmetic checks are evidence, not a correctness grant.
+
+Artifacts: n3.md and proof-companion.md. Own finite seed/rounding proofs are universal arguments above; reports/finite-diagnostics.json concerns only the later new semigroup example. Rerun: python build_delivery.py; python check_delivery.py. Neither command runs a compiler or any supplied program.
+
+# n4. Entire isolated formal envelope chain and scoped verdict
+
+Use n1--n3 and the full qualified G331. Let R be complete normal local, characteristic p>0, perfect residue, isolated singularity, dimension d>=2. This note reconstructs the entire model/trace/primary approximation chain. In dimension1 R is a DVR; dimension0 has empty boundary. No algebraizability, CM, Q-Gorenstein or resolution is assumed.
+
+First justify model transfer. Exponent grouping in R over R^p makes ordinary Omega_(R/k) finite: every element is a finite sum b_i^p u^i and every k-derivation kills the pth powers and the perfect field. This agrees with continuous formal differentials. A finite-type affine model algebra A is F-finite and has finite Omega_(A/k). Grouping over A^p and cofinal filtrations similarly gives Omega_(A/k) completed at a closed point equal to the formal differential module of its completion. Its closed residue field is a finite extension of perfect k, hence perfect. Hensel lifting of that finite separable extension gives a coefficient field compatible with k, and its differentials vanish. Closed points of a projective birational model over this local base lie above m and have local dimension d by catenarity and the residue/dimension formula. Normality, F-finiteness and excellence pass to their completions. Consequently the dth Fitting Jacobian and full BIG ideals commute with this completion. Apply n3 at every completed closed model point and descend by faithful flatness. A coherent failure elsewhere has closed support and a closed point, so the Jacobian subadditivity holds on the entire model.
+
+CEMS1412.6453v4 Setting2.1 explicitly includes schemes essentially of finite type over an F-finite LOCAL base with dualizing complexes and the stated Frobenius-duality compatibility. The complete base R has a dualizing complex, and the projective models inherit one. The canonical sheaf used is the divisorial reflexive rank-one sheaf, not a locally free CM canonical module. Definition2.2 and Lemmas2.3--2.4 with their entire immediate proofs give the BIG trace formula, localization, monotonicity and Cartier shift at precisely this setting. Those immediate units were read in full. Their finite-duality/divisor foundations are named ordinary published background; no anti-canonical finite generation or Lemma2.10 is used. The following globalization uses their arbitrary-late formula, with BIG existence, roundings and seeds already proved in n3.
+
+Principalize any finite primary collection, including the gauge, on its product blowup and normalize. Its pulled-back exceptional F_0 is actual Cartier with full-fibre positive coefficients and relatively ample negative bundle. On this normal model omega has rank one. Blow up Fitt_1(omega). On an affine G/a blowup chart, discard a-power torsion in the pullback. The full Stacks15.27.3--4 proof makes its first Fitting ideal unit. Its zeroth Fitting ideal vanishes after inverting a and hence vanishes in the chart domain. The full15.8.8--9 criterion makes the strict transform a rank-one line bundle. Normalize and pull back that bundle. Choose the SAME rational section for its Cartier divisor L_0 and for K_Y; they agree on the puncture. Thus K_Y-L_0 is an exceptional Weil divisor. For sufficiently large r,
+\[
+\Delta=rF_0-(K_Y-L_0)\ge0,\qquad K_Y+\Delta=L_0+rF_0=:L
+\]
+is Cartier. This allows non-CM models throughout.
+
+The negative Fitting blowup bundle times a sufficiently high pullback power of O(-F_0) is ample; finite normalization preserves it. A high power A=O(-F), H=-F, is very ample and generated with full-fibre support. Its global sections J belong to R by normal Hartogs, are finite by proper coherence, unit off m and proper because they vanish on the nonempty fibre. Generation gives J O_Y=A. Very ample section generators give a closed immersion into the projective space of J; its integral image and Bl_J R have the same dense punctured graph. Scheme-theoretic closure proves Y=Bl_J R. This is an actual primary model in G331, rather than an assumed cofinal arbitrary model. Every prescribed factor remains invertible.
+
+The coherent model Jacobian J_Y is unit on the puncture. Full-fibre support and a finite affine cover give integers a,b,N_J with J^a O_Y subset J_Y, Delta<=bF, and a_gauge^N_J subset J. The inequalities imply v(J_Y)<=a v(J)<=a N_J at EVERY support. This primary containment is the precise use of isolatedness.
+
+For an integral signed exceptional Cartier obstacle C_0, set for EVERY m>=1
+\[
+I_m=\Gamma(Y,O(mC_0)),\quad
+b_m=I_mO_Y O(-mC_0),\quad u_m=-v(I_m)/m.
+\]
+Hartogs gives I_m subset R. An actual Cartier order-unit bound C_0>=-M F_gauge gives a_gauge^(Mm) subset I_m. Therefore I_m is unit or primary at every index. Section products are graded and u_m=f_(C_0)-v(b_m)/m<=f_(C_0) at all valued centres, using the support quotient field and canonical punctured trivialization of the invertible sheaf. No total fraction field is mapped through a nonzero support.
+
+For each v, v(I_m) is finite nonnegative and subadditive. Writing arbitrary indices as multiples plus bounded remainders proves the ALL-index Fekete limit u_m->sup_m u_m, without monotonicity of the sequence. A rational primary profile -v(I)/q below f_(C_0) satisfies the requisite order at every exceptional height-one point of the normal Y; at other height-one points it is automatically regular. The normal codimension-one section criterion gives I^r subset I_(rq) for all r. It follows that every rational competitor is below the Fekete limit. Rational density with negative shifts handles C; n1 handles D. Thus BEFORE positivity recognition,
+\[
+p(f_{C_0})=\lim_m u_m=\sup_m u_m,\qquad h=f_{C_0}-p(f_{C_0})\ge0.
+\]
+
+Define t_m=tau(Y,Delta,b_bullet^m) and s_m=tau(Y,b_bullet^m). Gradedness and n3 power invariance direct their defining families by common multiples. Noetherianity on a finite affine cover makes each stabilize at a common index for any finite list. The transferred subadditivity gives J_Y^(ell-1) s_(m ell) subset s_m^ell, with the correct direction.
+
+A scheme-global effective Cartier test divisor D_0 exists. On a finite affine cover choose the BIG seeds and finite Weil rounding corrections. Dominate their divisors by an effective Weil E. A high ample negative-fibre twist of O(-E) is generated; a nonzero rational section has divisor at least E and cuts an effective Cartier divisor D_0>=E. Normal height-one regularity makes its local equations multiples of every chosen seed. By n3 any such regular multiples still give EVERY late tail. CEMS therefore yields, for a chosen stabilizing ell and every cutoff E_0,
+\[
+t_m=\sum_{e\ge E_0}\operatorname{Im}
+\left[F_*^e\big(b_\ell^{\lceil q m/\ell\rceil}
+ O(K_Y-qL-D_0)\big)\longrightarrow O_Y\right].
+\]
+D_0, ell and the Serre threshold may depend on m. The generation constant below does not.
+
+The relative Koszul generation statement works over ANY Noetherian affine base. If A is ample generated and H^i(M A^(-i))=0 for 1<=i<=dim Y, choose finitely many generating sections. Their Koszul complex is locally split exact, so remains exact after tensoring M. Its higher groups successively prove the same vanishings at the next twist and surjectivity of multiplication by the generating sections. Beyond dim Y coherent cohomology vanishes. Repetition and high Serre generation show M generated. There is no flatness hypothesis on M or the base. Thus choose c_0 once so (c_0-i)H-L is ample for every required i. For each fixed finite coherent list M_j,
+\[
+F_*^e(M_j O(q(c_0H-L)))
+\]
+is generated for all sufficiently late e: projection formula makes the Koszul vanishings Serre vanishings for (c_0-i)H-L. Frobenius is finite; all sheaves are coherent.
+
+Put a_e=ceil(qm/ell), j_e=ell a_e-qm, so 0<=j_e<ell. Products of the actual global I_ell sections generate b_ell^a_e O(ell a_e C_0). After twisting the trace target by O(mC_0+c_0H), its source is a quotient of finitely many copies of
+\[
+Q_{e,j}=F_*^e O(q(c_0H-L)+K_Y-D_0-jC_0).
+\]
+The multiplication is F_*t->F_*(s t), INSIDE Frobenius; coefficients are not extracted as ordinary R scalars. For fixed m the finite list j=0,...,ell-1 is coherent even when K_Y is not Cartier. The preceding regularity argument generates every sufficiently late source. The arbitrary-tail trace formula permits restriction to those degrees. A finite coherent image sum stabilizes on the quasicompact Noetherian scheme, possibly using DIFFERENT late exponents. Its target t_m O(mC_0+c_0H) is therefore generated. One exponent realizing the whole trace is neither asserted nor needed.
+
+Set c=c_0+1. The sections of F_m=t_m O(mC_0) A^c form an actual ideal J_m of R, with J_m O_Y=F_m. Before the extra A twist the generated sheaf's sections are in R by Hartogs and it embeds in O_Y; afterwards it lies in J O_Y. Thus J_m is proper. Let T_0=tau(Y,Delta), unit on the puncture and containing J^r O_Y. The tail formula and the identity f phi(F_*z)=phi(F_*(f^q z)) give b_m T_0 subset t_m, by a common regular seed and the bounded exponent gap. Consequently I_m J^(r+c) subset J_m, proving primaryness for EVERY m. Its actual geometric profile satisfies
+\[
+g_m=-v(J_m)/m=f_{C_0}-(c v(J)+v(t_m))/m\le f_{C_0}.
+\]
+
+Now b_(m ell) T_0 subset t_(m ell) subset s_(m ell), and J_Y^(ell-1) s_(m ell) subset s_m^ell, yield
+\[
+\frac{v(s_m)}m\le
+\frac{v(b_{m\ell})+v(T_0)}{m\ell}
+ +\frac{\ell-1}{m\ell}v(J_Y).
+\]
+All values here are finite because the ideals contain closed-fibre primary powers. FIRST let ell tend to infinity pointwise. Fekete gives v(s_m)<=m h+v(J_Y); the finite v(T_0) term disappears. Cartier shift and Delta<=bF give O(-bF)s_m subset t_m subset s_m. Since g_m is already an actual competitor, substitution proves
+\[
+0\le p(f_{C_0})-g_m
+\le\frac{(c+b)v(J)+v(J_Y)}m
+\le\frac{(c+a+b)N_J}{m}
+\]
+on the ENTIRE link. The last step, after the pointwise limit, is uniformly primary and retains all nonminimal supports. Hence the raw envelope is in C. Signed rational primary lattice functions are dense by G331; each is determined by a finite collection principalized above. Clear denominators and use n1 nonexpansivity to obtain CE for every finite continuous obstacle.
+
+The greatest D envelopes for bounded-above extended upper semicontinuous obstacles, decreasing-obstacle-net continuity and exact gauge cocycle now follow from n1. G331 completion transports the result exactly to excellent normal characteristic-p local rings whose completions have perfect residue and are regular away from the maximal ideal. Isolated excellent normal rings with perfect residue satisfy this: normal completion and regular formal fibres give regularity over every nonmaximal regular prime, and the fibre over m is the residue field. This is existing G331 completion transport, not new algebraization. At smooth closed affine algebraically closed characteristic-zero germs G331 gives the exact published BFJ class; the historical BFJ envelope comparison remains at that scope, not at arbitrary singular/imperfect germs.
+
+Independent scoped verdict: PASS corrected396's entire new formal BIG theorem and isolated perfect-residue formal CE theorem, as unverified mathematical drafts relative to G331 and the named ordinary foundations. The immutable native paragraph is rejected; corrected396 is accepted only after the explicit n2 repair. No new gap was found in the stated isolated chain. This judgment is not mathematical certification, publication, a catalogue action or a grant derived from compilation. General P12.3 is not closed.
+
+Artifacts: n4.md, proof-companion.md, independent-scoped-verdict.md, source-application-ledger.md. Rerun: python build_delivery.py; python check_delivery.py. Source is deliberately uncompiled; essential private primary bodies and pixels remain LOCALONLY.
+
+# n5. New positive sector: all monomial-weight obstacles on complete normal toric germs
+
+Use G331 and the raw-envelope/nonexpansivity/decreasing-closure results proved in n1. This is new scoped progress on the original envelope target, valid over ANY field, including imperfect fields and every characteristic. It concerns actual geometric positivity and all geometric competitors, not a new order definition or a restriction to radial functions on a finite link.
+
+Let M be a lattice of rank d, C_0 a pointed full-dimensional rational polyhedral cone in M_R, and S=C_0 intersect M its saturated positive monoid. Let R be the completion at the monomial maximal ideal of k[S]. For precision, k[S] is the intersection, in its fraction field, of the normal Laurent polynomial ring k[M] with the valuation rings given by the finitely many primitive facet weights. On a Laurent polynomial the least facet weight is the least term weight, so these inequalities mean that every exponent belongs to C_0 intersect M. This proves the asserted intersection and hence normality. Finite generation is the elementary rational-cone lattice-point theorem. The finite-type ring is excellent, and excellent normal completion is normal; thus R is an excellent normal local domain. Its elements are formal sums of monomials chi^u, with the maximal-adic completion topology. Fix a monomial primary gauge a. G331 supplies its full all-support compact boundary X and independently geometric C,D. These conventional algebraic foundations are used at this exact saturated positive affine-monoid setup; no perfect-field base change or torus averaging is used.
+
+The monomial weight of v is w_v(u)=v(chi^u). It is additive, may take infinity, and is strictly positive on nonzero monoid elements when finite. The finite-valued elements form a face of S. For finite weights w in the interior of the dual cone sigma=C_0^vee, taking the least weight of the terms defines a monomial valuation v_w on the completed ring. Positivity makes the least value well-defined and makes the operation compatible with the completion. Distinct monomials in its associated graded cannot cancel. Divide by w(a) to obtain its primary-section point.
+
+Every extended monomial weight arising from v is a limit of these finite interior weights, after normalization. Indeed its finite face is cut out by a rational exposing functional lambda>=0, zero on that face and strictly positive on its complement. Extend its finite additive weight linearly from the face span to M_R. Add N lambda, and if necessary a vanishing small positive interior functional. For large N the finitely many monoid generators outside the face become positive, and the generators inside the face have their given positive values. The outside values tend to infinity. Some primary-gauge generator has finite value; hence normalized primary values converge as well. Monomial primary profiles are continuous on all X by G331. Thus inequalities between such profiles and signed monomial obstacles, checked on finite interior weights, hold on every extended monomial weight and hence on EVERY semivaluation having that weight.
+
+For any ideal I of R, let M(I) be the monomial ideal generated by all monomials appearing with nonzero coefficient in a finite set of formal generators. Noetherianity makes this ideal finitely generated. A monomial ideal is maximal-adically closed, since its finite-module quotient is separated; therefore each series whose terms lie in it belongs to it. Hence I subset M(I). If I contains a primary power then so does M(I). At a finite interior monomial valuation, v_w(I)=v_w(M(I)): the least appearing monomial realizes the value and cannot cancel. At a general semivaluation, -v(M(I))>=-v(I). This is a domination of arbitrary ideal profiles, proved by term membership, not by an averaging operation over k-rational torus points.
+
+Consider a rational signed monomial primary obstacle on rays,
+\[
+F(w)=\frac{w(A)-w(B)}r,
+\]
+where A,B are monomial unit-or-primary ideals and r is a positive integer. Finite lattice combinations are of this form by synchronized products and sums. On X its restriction f is finite continuous. Write phi=-F, a homogeneous rational piecewise-linear function on sigma. Common normal fans of the finite exponent sets of A and B make phi linear on finitely many rational cones. Define
+\[
+P=\{x\in C_0:\langle x,w\rangle\ge\phi(w)\text{ for all }w\in\sigma\}.
+\]
+These conditions reduce to the finitely many rays of that fan, together with the cone inequalities. Thus P is a rational polyhedron. Because |f| is bounded on the a-section, phi(w)<=T w(a) for a finite T. Therefore P contains T times the Newton polyhedron of a and is nonempty. Its recession cone is exactly C_0. The finite polyhedral vertex/recession decomposition, obtained by successively moving a nonvertex to bounding faces, gives P=conv(x_1,...,x_h)+C_0, with rational vertices. Pointedness rules out a lineality factor.
+
+Clear denominators with q so q x_i belong to M and hence S. Add sufficiently large powers of EACH monoid generator to the ideal generated by chi^(q x_i). These added exponents can be chosen inside qP: for a fan ray w with w(u)=0 on a nonzero monoid generator u, primaryness implies w(a)=0 and hence phi(w)=0. All remaining finite inequalities are met by a sufficiently large multiple of u. Call the resulting monomial ideal J. Its radical is the maximal ideal, unless P contains0, in which case include1 and use the unit ideal. Adding these points does not change its Newton polyhedron, which is qP. Thus
+\[
+h(w):=\min_{x\in P}\langle x,w\rangle=w(J)/q,
+\qquad -h\le F
+\]
+for finite weights, and the preceding extended-weight continuity proves -v(J)/q<=f on ALL supports. This is an actual primary ideal profile and hence an actual negative effective curve-nef Cartier presentation on Bl_J R by G331's independently proved geometric comparison/core inclusion.
+
+It is the raw envelope among ALL geometric competitors. For any rational arbitrary-ideal profile -v(I)/l<=f, equality at monomial valuations shows -v(M(I))/l<=f there and hence everywhere, while this monomialized profile dominates the original. Each generating exponent u of M(I) satisfies u/l in P, so w(M(I))/l>=h(w); the same domination holds at extended weights by continuity. Consequently -v(I)/l<=-v(J)/q at every semivaluation. To handle C competitors, approximate by rational primary profiles, then make a negative rational gauge shift to keep them below f. Their errors vanish. N1 identifies the C and D raw suprema. Therefore
+\[
+p(f)=-v(J)/q\in C_{\rm geom}
+\]
+and this is the greatest D minorant. This controls arbitrary nonmonomial ideal profiles, their real uniform limits, and completed D competitors; it is not merely a toric-restricted supremum. The formula gives a finite rational polyhedral construction for every rational signed monomial model obstacle.
+
+Let W be the compact image of X under all monomial evaluations. Primary monomial profile differences contain rational constants, form a lattice by products and ideal sums, and separate W using (chi^u)+a^N, whose value is min(w(u),N). The compact lattice approximation proof therefore makes their rational span uniformly dense in C(W). For every finite continuous obstacle f=F_0 composed with the weight map, choose such rational signed obstacles tending uniformly to it. N1 nonexpansivity makes their raw envelopes uniformly Cauchy. Their limit is p(f), belongs to C_geom, and is weight-dependent. Thus EVERY finite continuous monomial-weight obstacle has an actually positive continuous envelope, not just the rational ones.
+
+For a bounded-above extended upper semicontinuous obstacle on W, take all finite continuous nonpositive majorants of its clipping to0, directed by minima. Their envelopes are in C_geom by the preceding theorem and form one decreasing net. N1 decreasing closure shows its infimum is in D_geom; it is below the obstacle and dominates every D competitor. This gives its greatest D envelope, with the appropriate upper semicontinuity, poles/bottom, and decreasing-obstacle-net stability for specified upper semicontinuous limits. The ray formulation and n1 give the exact gauge cocycle for ANY primary section; changing a monomial gauge is the immediate weight-coordinate formula. At these normal germs normalization is the identity and conductor fibres are singletons. No nonnormal monomial descent theorem is asserted.
+
+This includes normal nonisolated toric germs of arbitrary dimension and monomial-weight obstacles over imperfect residue fields. For example k[[s^2,st,t^2,z]] has a nonisolated singular line in dimension3. The nonsimplicial rank3 saturated cone generated by (1,0,0),(1,1,0),(1,0,1),(1,1,1) gives k[[a,b,c,d]]/(ad-bc); adding formal monomial variables gives nonisolated examples. The theorem does NOT prove CE for arbitrary obstacles that distinguish valuations with the same monomial values, or for arbitrary excellent germs. Its smooth specialization uses the same G331 cone; in the published smooth affine closed/algebraically closed/characteristic-zero range it is the restriction of the BFJ envelope, because both are greatest minorants of that identical class. This does not extend BFJ's published hypotheses or identify literal analytic/CLD radial extensions.
+
+Artifacts: n5.md, toric_envelope.py, inputs/toric-examples.json and reports/toric-envelopes.json. The own exact program implements the finite rational fan/vertex construction for its two explicitly supplied rank3 examples; its finite outputs are certificates of those computations, not a proof of the universal theorem. Rerun: python toric_envelope.py. No supplied code, solver, compiler, field extension, network or resource-heavy computation is used.
+
+# n6. New normal nonisolated obstruction to a universal primary correction
+
+Use the explicit BIG convention in n3 and the toric setup of n5 only at its stated scope. The calculation below proves its all-map test-ideal formula independently; no toric test-ideal formula or finite-map operator is imported. Let k be perfect of odd characteristic p, and
+\[
+R=k[[U,V,W,z]]/(UW-V^2)=k[[s^2,st,t^2,z]],
+\quad B=k[[s,t,z]],\quad P=(U,V,W).
+\]
+R is an excellent normal three-dimensional domain, and its singular locus is the formal line P. This follows from the saturated monoid or the hypersurface and its codimension-two Jacobian locus. Write monomials as chi^m=s^a t^b z^c, with m in M={(a,b,c) in Z^3:a+b even}, all coordinates nonnegative. For N>=1 set A_N=(U,W^N,z^N), a genuine primary ideal, and
+\[
+w_N(a,b,c)=a/2+b/(2N)+c/N,\qquad
+H_{N,t}=\langle\chi^m:w_N(m+(1,1,1))>t\rangle.
+\]
+We claim tau_R(A_N^t)=H_(N,t) for every real t>=0, using stability exponents ceil(t(q-1)).
+
+First every R Cartier map extends to a B Cartier map. The fraction field extension L/K is separable quadratic; purely inseparable root extension gives L tensor_K K^(1/q)=L^(1/q). Hence an R-linear phi extends uniquely to an L-linear map on L^(1/q). Outside (s,t) the finite cover is etale: where s is invertible, B is given by S^2=U with derivative2S a unit, and similarly for t. Frobenius root base change on this chart is explicit, since s^(1/q)=s (U^(1/q))^(-(q-1)/2), with t=V/s; the t-chart is analogous. Thus the extended map carries the root module into B at every height-one localization. Since B^(1/q) is finite free and B is normal, the intersection-of-height-one-localizations criterion makes all its coefficients integral globally. The extension is an actual B-linear map B^(1/q)->B. Codimension-two etaleness and normality, not a general trace theorem, justify this step.
+
+In the regular ring B, the root monomials with residues0,...,q-1 in each coordinate form a free basis. For any monomial chi^h in a source and any output monomial chi^n of any B Cartier map, these basis expansions give
+\[
+q n_i+(q-1)\ge h_i\quad(i=1,2,3).
+\]
+The map coefficients are power series with nonnegative exponents. Thus cancellation can only remove possible output monomials. If chi^h is in A_N^r H_(N,t), r=ceil(t(q-1)), then w_N(h)+w_N(1,1,1)>r+t. The displayed coordinate bound gives
+\[
+q w_N(n+(1,1,1))\ge w_N(h)+w_N(1,1,1)>r+t\ge qt.
+\]
+H_(N,t) is therefore stable under every extended B map and hence EVERY R map. Monomial ideals are adically closed, so this calculation handles formal series as well as polynomial monomials. It is nonzero, indeed contains sufficiently high primary powers.
+
+To prove minimality, let K be any generically nonzero stable ideal. Invert c=UW. The ring becomes regular and A_N becomes unit. Finite Hom localization and the primitive-vector Frobenius argument of n3 give K_c=R_c. Hence d=(UW)^L belongs to K for some integer L. For a target m=(a,b,c_0) satisfying w_N(m+1)>t, choose q=p^e large and r=ceil(t(q-1)). The three capacities
+\[
+\left\lfloor\frac{q(a+1)-2L-1}{2}\right\rfloor,
+\quad\left\lfloor\frac{q(b+1)-2L-1}{2N}\right\rfloor,
+\quad\left\lfloor\frac{q(c_0+1)-1}{N}\right\rfloor
+\]
+are nonnegative and their sum exceeds r for all sufficiently large e: dividing by q gives w_N(m+1)>t. Choose i,j,h within these capacities with i+j+h=r. The monomial d U^i W^(Nj) z^(Nh) lies in A_N^r K; its exponent A has A_i<q(m_i+1). Put alpha=m-A/q, so alpha_i>-1 and alpha in (1/q)M.
+
+Define the R-linear map pi_alpha on root monomials chi^u by pi_alpha(chi^u)=chi^(u+alpha) if u+alpha belongs to M, and0 otherwise. Whenever the lattice condition holds, its coordinates are integers strictly greater than-1, hence nonnegative. It therefore maps into R, not merely its fraction field. Translation by an ordinary monoid exponent preserves the selection condition and proves R-linearity. Its residue-class selection and rescaling make it adically continuous; it extends to completed series. Applied to the chosen source root it returns chi^m. Stability implies chi^m belongs to K. This works for each target and every fixed L, with arbitrarily large Frobenius exponents. Thus H_(N,t) is the smallest stable generically nonzero ideal and proves the formula. The strict threshold and the q-versus-q-1 rounding are checked directly, not inferred from an asymptotic name.
+
+Now let Q be ANY fixed proper primary ideal of R. Choose L>=1 with z^L in Q and choose N>6L+9. Set t=2/3. Since
+\[
+w_N((2,0,0)+(1,1,1))=3/2+3/(2N)>4/3,
+\]
+U belongs to tau(A_N^(4/3)). For every0<=j<=L,
+\[
+w_N((0,0,j)+(1,1,1))=1/2+(j+3/2)/N<2/3.
+\]
+Hence no z^j, j<=L, belongs to H=tau(A_N^(2/3)). A factorization of U z^L into two monomials in R has t-exponent0 and s-exponents summing to2. Each s-exponent is even, so one factor has s=t exponent0 and is z^j with j<=L. That factor is outside H. Monomial ideal products have ordinary monomial membership, also after completion. Therefore
+\[
+U z^L\in Q\tau(A_N^{4/3}),\qquad
+U z^L\notin\tau(A_N^{2/3})^2.
+\]
+There is NO single primary Q for which Q tau(a^(2t)) subset tau(a^t)^2 holds for all genuine primary ideals a, even at the fixed rational t=2/3, on this normal nonisolated germ. Taking Q=m^h in particular disproves a uniform primary replacement of the Jacobian over all primary pair models. The example is normal and uses actual primary ideals; a nonnormal conductor or unsupported radial example is not involved.
+
+This is a proof-route obstruction, NOT an envelope counterexample. Indeed this ring has CE over perfect odd characteristic by the actual finite regular cover: the full fibre has the two sign conjugates (or their coincident specialization), as follows from the qualified G331 normal coefficient trace/full-fibre theorem. Max(g,g composed with sign) stays in C_B, is full-fibre constant, and descends positively; finite maximum commutes with actual decreasing nets, so likewise in D. Source competitors below a pulled-back obstacle yield descended majorants, and base competitors pull back. Thus p_B(rho^*f)=rho^*p_R(f). The regular complete B satisfies n4 CE; quotient topology and G331 positive descent give CE on R. This finite-cover conclusion is previously known in the historical sector and is reconstructed here to prevent an erroneous normal-counterexample inference.
+
+The Jacobian (U,V,W) has infinite value on the supported valuation killing P and giving z value1. Its failure to be primary is real, but CE still holds. The obstruction excludes a fixed primary correction independent of the ideal/model. It does NOT exclude corrections depending on an individual obstacle or a fixed model, does not prove failure of Jensen lower hemicontinuity, and does not decide arbitrary normal nonisolated CE. Those distinctions are essential to the unchanged original target.
+
+Evidence: reports/finite-diagnostics.json independently checks L=1,...,32 with N=6L+10 and all1120 admissible factorizations of U z^L; none is a product of two H monomials. It also constructs270 exact Frobenius witnesses for p=3,5,7, N=16,22,40, t=2/3,4/3,5/2, seed powers1,2,5 and the recorded target list whenever eligible. These are exhaustive ONLY on those explicit finite domains. The universal theorem is the preceding algebraic proof. Rerun: python finite_diagnostics.py. Sources, inputs and outputs are local; no supplied code is run.
+
+# n7. Full conductor rules, geometric curves, evidence and unchanged original residual
+
+Use G331 and earlier own n1--n6. The standalone source and proof companion contain the complete reconstructed chain, the entire incoming qualified grants unchanged, exact source/reading ledger, scoped verdict and original residual. Candidate=false: the last note makes no complete solution claim for the literal original P12.3.
+
+Full conductor fibres remain binding. Let S normalize an excellent reduced germ and rho:X_S->X_R be G331's compact quotient, with conductor c. Fibres are singletons at finite conductor value; at infinite value, equality through the conductor quotient is the exact identification. Suppose every normal centre has CE, and let f be finite continuous. Clip it to [-B,0], and clamp source competitors to -B. The primary masks b_N=-(B/N)v(c+a^N) are exactly -B on the conductor-infinite locus and tend to0 at every finite-conductor point. For any source C competitor g, max(g+rho^*b_N,-B) is full-fibre constant and descends POSITIVELY by G331. Sending N to infinity proves rho^*p_R(f)=p_S(rho^*f) on the finite-conductor locus. The reverse inequality everywhere is immediate by pullback of competitors. No nonprimary conductor value divided by N is used as a uniform error.
+
+Write U=p_S(rho^*f), continuous by the stated normal-centre CE assumption. Finite-conductor points are dense on each normal centre, since the conductor contains a regular element and centred divisorial points are dense. The preceding equality and the upper bound imply that the upstairs upper regularization of the pulled-back raw envelope is U. A compact-fibre neighbourhood cover gives the quotient regularization identity p_R(f)^*(x)=max_{rho^-1(x)}U. This is not a positivity theorem for a fibre maximum. The raw envelope is continuous and D-positive exactly when U is constant on EVERY full fibre: if constant, its positive C descent is a competitor and equals the raw supremum; if the raw supremum is continuous, its pullback equals U on a dense set and hence everywhere. If the displayed fibre maximum is continuous, its pullback similarly forces fibre constancy. If positive upper regularization exists, n1 gives the same condition. Outside this compatibility domain no maximal D minorant exists. For arbitrary extended upper semicontinuous obstacles the unconditional formula is instead the supremum over full-fibre-constant source D competitors; the continuous fibre-maximum formula is not extended without proof. No deletion of the infinite-conductor stratum is permitted.
+
+On EVERY excellent reduced curve the normalized link is the finite set of normalization DVR centres, retaining separate branches even on one irreducible component. The conductor has finite value on every branch, so these boundary fibres are singletons. At each DVR, the marked point is an actual effective Cartier divisor and there are no contracted curves to test. Its negative real multiples realize every finite nonpositive branch value. Semilocal gluing and G331 positive descent give all finite nonpositive vectors downstairs. For an extended vector u, max(u,-j) is an actual decreasing sequence of these C vectors with infimum u, including mixed zero and partial bottom. Consequently the greatest geometric envelope is EXACTLY min(phi,0) for every branch obstacle. It equals the known complete ideal envelope by the proved geometric cone comparison, rather than by redefining positivity. If a_q and b_q are the branch orders of two gauges, the coordinate factor is a_q/b_q. The literal disc logarithmic radial class from the dossier remains different and excludes mixed-zero patterns; no classical/CLD identification is inferred.
+
+The new normal positive sector is n5: on every complete normal affine-monoid germ over any field, all continuous monomial-weight obstacles have geometrically positive continuous envelopes among ALL competitors. Rational signed monomial obstacles admit an actual primary profile from a finite rational polyhedron. This includes imperfect-residue and nonisolated examples, but not obstacles separating valuations with equal monomial weights. The new negative result is n6: on the normal three-dimensional A1-times-line germ in perfect odd characteristic, no fixed primary correction works for all actual primary pair ideals at t=2/3. It excludes the universal-primary-replacement route, not a correction depending on a particular model or obstacle, and not CE. This ring itself has CE by its actual finite regular cover.
+
+The exact new finite outputs are also explicit. On k[[s^2,st,t^2,z]], with A=m and B=(U,W^2,z^2), the program finds P vertices (0,0,1),(0,2,0),(1,0,0); q=2 gives J=(U,W^2,z^2,V^2), with V^2 redundant, and the envelope of v(m)-v(B) is -v(J)/2. It enumerates14 fan rays. On the nonsimplicial determinantal cone with generators a,b,c,d and ad=bc, B=(a^2,b^2,c^3,d^3) and A=m, it finds four vertices (4/3,0,0),(4/3,4/3,0),(2,0,2),(2,2,2), giving q=3 and J=(a^4,b^4,c^6,d^6); the envelope is -v(J)/3. It enumerates24 fan rays. Exact half-space/vertex/generator certificates are retained. The diagnostics additionally check32 primary-correction failures, all1120 monomial factorizations in those cases and270 Frobenius witnesses. These are finite observations at specified inputs; the universal proofs are n5/n6.
+
+The corrected formal theorem of n2--n4 is independently judged PASS within its complete-normal/perfect-residue/characteristic-p scope, and the entire isolated formal CE chain is PASS after the mandatory scalar repair. Native276 remains REJECTED AS WRITTEN at its root paragraph. ROOT392's conditional BIG gate was separately proved, not granted. Completion transport is already G331, not new novelty. Full immediate Wang597--602 pixels, CEMSv4 Setting2.1/Definition2.2/Lemmas2.3--2.4, Stacks strict-transform/Fitting statements and proofs, Smolkin's exact Kunz setting, IT/Liu units and BFJ3.15--3.22 immediate envelope proof were read at their precise hypotheses. Recursive Cohen/Artin--Rees/Kunz/duality/normal-formal-fibre/proper-cohomology/polyhedral and BFJ smooth historical foundations are disclosed; they are not all claimed freshly reproved. Historical386's whole argument was read, but deeper historical source bodies are not assigned fresh reading credit merely by appendix identity.
+
+The unchanged ORIGINAL residual remains: arbitrary normal nonisolated dimension>=3 CE beyond the proved obstacle sectors; arbitrary higher-dimensional mixed-characteristic and imperfect-residue CE; general excellent germs outside the exact formal/monoid hypotheses; the characteristic-zero nonprimary-correction infinity stratum; general canonical Jensen weak lower hemicontinuity; and a genuine normal continuous signed primary/model obstacle whose raw envelope or regularization fails geometric positivity. No such normal counterexample was obtained. The nonnormal double-plane obstruction and increasing energy spikes do not settle this residual. General normalization/conductor envelopes remain within the full-fibre criterion, not an unrestricted clipping rule. Original 'when possible/appropriate regularity' is preserved. P12.4 products, P12.5 energy and full P12.6 operators remain separate.
+
+Evidence and rerun: python audit_packet.py; python audit_serialization.py; python finite_diagnostics.py; python toric_envelope.py; python build_delivery.py; python check_delivery.py. The deliverables are P12.3-audit-and-toric-envelopes.tex, proof-companion.md, source-application-ledger.md, whole-reading-ledger.md, coverage.md, independent-scoped-verdict.md, original-residual.md and native-notes.json, plus separate actual/expanded input records and own scripts/reports. The exact original task object/problem bytes are retained separately. All full primary bodies/pixels and book chapters are LOCALONLY. No supplied program was imported/executed, and no agent, additional native/model campaign, compiler, publication, network, authentication/runtime/proxy/CA or protected-editor change occurred. No supervised heavy-compute service was supplied or needed. Compilation and retention identity are not mathematical certification; the source is deliberately uncompiled for ROOT.

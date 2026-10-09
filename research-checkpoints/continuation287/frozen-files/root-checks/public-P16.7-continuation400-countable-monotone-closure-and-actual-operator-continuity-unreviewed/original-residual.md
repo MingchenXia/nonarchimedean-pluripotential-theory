@@ -1,0 +1,15 @@
+# Unchanged original target and remaining gates
+
+P16.7 asks to construct the finite-energy operator and its existence-and-uniqueness theory on genuinely nonalgebraizable analytic spaces, with an explicit positivity datum and the necessary compactness, envelope and comparison replacements. A complete solution must state the retained hypotheses, the mass and energy condition, and uniqueness modulo constants. A generated operator by itself, a conditional variational reduction, a single skeleton, radial or finitely atomic measures, or already-realized measures does not meet this original requirement.
+
+The current independent scoped construction uses K=C((s)), the proper smooth two-dimensional analytic period quotient by (s^8,2),(3,s^8), rho=|x|^2/2 and theta=DD rho, with raw mass2. Its generated domain consists of ACTUAL continuous theta-psh decreasing presentations with finite canonical lower energy. The operator, mixed products, finite full bounded dual, moments, first variation, comparison and exact contact-excluding clamps are proved under named conventional foundations. Classical recognition holds via the exact GR-v2 source. New in this deliverable: every energy-bounded decreasing SEQUENCE of generated weights has one actual continuous decreasing presentation of its pointwise limit, with energy continuity; ordered MA/L1 continuity and summable convex-series closure follow.
+
+Remaining original gates, with none silently deleted:
+
+1. Intrinsic finite-energy recognition or a justified actual analytic completion adequate for variational existence. Countable downward closure has now been proved, but arbitrary net representations and closure of limits of nonordered variational families have not.
+2. Separated normalized energy-sublevel compactness in a specified topology, including lower/tail control and actual generated limit representatives. Pointwise valuation/Shilov upper bounds and individual finite moments do not prove this.
+3. Actual obstacle envelopes and orthogonality, or a proved replacement sufficient for the variational maximizer and all variations. No unrestricted envelope theorem is claimed.
+4. Existence for EVERY positive Radon measure of raw mass2 with finite FULL bounded dual E*(mu), arbitrary support, or another explicit noncircular sufficient class justified against the literal criteria. The condition is stated and is necessary for generated MA measures; no surjectivity theorem is proved.
+5. Genuine full pointwise uniqueness modulo constants. Equal generated MA gives all-test gradient limits, and bounded continuous solutions give ambient divisor-current identities. Curve-restriction/test-extension/base-change and, for unbounded solutions, divisor integrability and null-set removability have not been proved. Q_theta=0 cannot imply constancy because theta degenerates on residue bidiscs.
+
+No P16.1--P16.6 target is claimed solved, and P16.7 remains open in its unchanged original scope. This is a complete scoped proof-progress deliverable and independent current-proof audit, not a complete solution or a counterexample to the original atom. candidate=false.
