@@ -3,6 +3,33 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest graded-norm and upper semicontinuous FS GitHub publication, 9 October 2026
+
+The [publication record](graded_FS_GitHub_publication_v1_20261009.json)
+verifies f2d9da4450a7e93efba6ae9f82467a48feed939b on work: all sixteen source/progress/audit/artifact
+remote hashes and sizes match. The six [artifact files](artifact_exports/20261009_graded_FS_v1/README.md)
+contain the 4,661-page PDF, 25-page review, 88-member actual book
+evidence and 472-member minimal sources. All 25 final pages were freshly
+read in thirteen individual matching displays. Full validation and
+post-render gates pass; export/upload supplies zero reading credit.
+
+The nine-file Reboulet v1 authored source unit at 51905508d307a13c1c2cb9342992d00dbb7235d9 is separately
+verified: complete 43-page actual source reading, 22 views and thirteen
+elementary diagnostic families. The later published edition is not audited.
+Published BE21's four-checkpoint union covers 58 of 125 pages, leaving 67
+unread in that union; external foundations remain attributed. The finalizer
+separating-newline preflight failure is frozen and fresh v2 passes.
+
+Main remains 00957114db21b627e97369563032ceda9cea09c7; PR #2 stays a draft.
+The native editor, 42 atoms/twelve problem statuses and complete ordered
+4 October pass retain their scopes. General BJ22 critical homogeneous
+Siu/envelopes remain OPEN, LPWZ density UNVERIFIED; the BJ22 6.21 proof
+warning remains binding. No original general theorem or independent-model
+receipt is claimed. Continue cloud-only with Chen–Maclean's spectral
+primary, the published Reboulet comparison edition and the March 2026
+filtration revision. Check incoming author updates and push checked evidence
+regularly. Xean stays suspended.
+
 ## Latest graded-norm and upper semicontinuous FS book checkpoint, 9 October 2026
 
 The [integration audit](graded_FS_staged_integration_audit_v1_20261009.md)

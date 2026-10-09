@@ -4,6 +4,20 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest verified graded-norm and upper semicontinuous FS GitHub publication, 9 October 2026:**
+the 4,661-page book and six owned artifact files are uploaded on work at
+f2d9da4450a7e93efba6ae9f82467a48feed939b. All sixteen source/progress/audit/artifact remote blobs match
+local hashes and sizes. The [artifact directory](manuscript/editorial/artifact_exports/20261009_graded_FS_v1/README.md)
+contains the complete PDF, 25-page review, 88-member actual book
+evidence and 472-member minimal source checkpoint. All 25 selected pages
+were freshly read in thirteen individual matching displays. The
+[publication record](manuscript/editorial/graded_FS_GitHub_publication_v1_20261009.json)
+also pins the separately verified nine-file Reboulet v1 source unit:
+43 actual primary pages in 22 views. The later published edition is not
+claimed audited. General correspondence qualifications, canonical statuses,
+Siu/envelope OPEN boundaries and native editor are preserved. Upload adds
+zero reading credit.
+
 **Latest checked graded-norm and upper semicontinuous FS integration, 9 October 2026:**
 the [integration audit](manuscript/editorial/graded_FS_staged_integration_audit_v1_20261009.md)
 adds Chapter 19's common-core paragraph and L.99. A direct P1 calculation
