@@ -1,0 +1,96 @@
+"""Own passive artifact checks and finite rational identities; no source execution."""
+from fractions import Fraction as F
+from itertools import product, combinations_with_replacement
+from pathlib import Path
+import hashlib, json, re
+
+ROOT = Path(__file__).resolve().parent
+retained = ROOT / 'retained-mathematical-DATA'
+hash_bytes = lambda b: hashlib.sha256(b).hexdigest()
+negative_infinity = float('-inf')
+negative = [-F(1,8), -F(1), -F(2), negative_infinity]
+pairs = [(F(0), F(0))] + [(a,F(0)) for a in negative] + [(F(0),a) for a in negative] + [(a,a) for a in [F(1,8),F(1),F(2)]]
+depths = [F(1,8),F(1,4),F(1),F(2)]
+norm_cases = 0
+for (u,v),(p,q),c1,c2 in product(pairs,pairs,depths,depths):
+    g1=max(0,-max(u,p)); g2=max(0,-max(v,q))
+    assert not (g1>0 and g2>0)
+    baseline=max(0,u,v)+max(0,p,q)
+    observed=max(u+q,v+p,-c1+v,-c1+q,-c2+u,-c2+p)
+    predicted=baseline-min(c1,g1)-min(c2,g2)
+    assert observed==predicted
+    norm_cases+=1
+
+grid=[F(k,8) for k in range(9)]
+states=[(0,0),(1,0),(0,1),(1,1)]
+corner_cases=0
+for l1,l2,c1,c2 in product(grid,grid,depths,depths):
+    weights=[(1-l1)*(1-l2),l1*(1-l2),(1-l1)*l2,l1*l2]
+    assert sum(weights)==1 and min(weights)>=0
+    masses=[F(0),F(0),F(0)]
+    for s,ws in zip(states,weights):
+        for t,wt in zip(states,weights):
+            a,b=s[0]*t[0],s[1]*t[1]
+            for k,x in enumerate([2-a-b,a,b]):masses[k]+=ws*wt*x
+    assert masses==[2-l1*l1-l2*l2,l1*l1,l2*l2]
+    assert sum(masses)==2 and min(masses)>=0
+    s=l1**3*c1+l2**3*c2
+    e=-F(1,3)-s/3; moment=-F(1,2)-s
+    assert e-moment==F(1,6)+2*s/3
+    corner_cases+=1
+
+alphas=[tuple(reversed(a)) for a in combinations_with_replacement([F(k,4) for k in range(5)],3)]
+triple_depths=[(F(1,8),F(1,4),F(1,2)),(F(1,6),F(1,3),F(2,3))]
+branch_records=[]
+for cs in triple_depths:
+    current=[]
+    for alpha in alphas:
+        ae=alpha+(F(0),);beta=[ae[k]-ae[k+1] for k in range(3)]
+        mass=[ae[k]**2-ae[k+1]**2 for k in range(3)]
+        depth_function=[sum(beta[j]*min(c,cs[j]) for j in range(3)) for c in cs]
+        S=sum(mass[k]*depth_function[k] for k in range(3))
+        widths=[cs[0],cs[1]-cs[0],cs[2]-cs[1]]
+        assert S==sum(alpha[k]**3*widths[k] for k in range(3))
+        assert sum(mass)==alpha[0]**2
+        for k in range(3):assert beta[k]**2+2*beta[k]*sum(beta[k+1:])==mass[k]
+        current.append((sum(mass),S))
+    branch_records.append(current)
+two_branch_cases=0
+for (m1,s1),(m2,s2) in product(*branch_records):
+    assert 2-m1-m2>=0
+    e=-F(1,3)-(s1+s2)/3; moment=-F(1,2)-s1-s2
+    assert e-moment==F(1,6)+2*(s1+s2)/3
+    two_branch_cases+=1
+
+tex=(ROOT/'standalone.tex').read_text()
+stack=[]
+for match in re.finditer(r'\\(begin|end)\{([^}]+)\}',tex):
+    act,env=match.groups()
+    if act=='begin':stack.append(env)
+    else:assert stack and stack.pop()==env
+assert not stack
+labels=re.findall(r'\\label\{([^}]+)\}',tex)
+refs=re.findall(r'\\(?:eqref|ref)\{([^}]+)\}',tex)
+assert len(labels)==len(set(labels)) and set(refs)<=set(labels)
+assert tex.count('\\documentclass')==1 and tex.count('\\begin{abstract}')==1 and tex.count('\\end{document}')==1
+brace_balance=0
+for i,ch in enumerate(tex):
+    if ch in '{}' and (i==0 or tex[i-1]!='\\'):
+        brace_balance+=1 if ch=='{' else -1
+        assert brace_balance>=0
+assert brace_balance==0
+
+inventory=json.loads((ROOT/'retention.json').read_text())
+for e in inventory:
+    b=(retained/e['name']).read_bytes()
+    assert len(b)==e['bytes'] and hash_bytes(b)==e['sha256']
+actual=json.loads((retained/'021-native297-actual-FINAL-all-five-fields.json').read_text())
+assembled=json.loads((retained/'022-native297-assembled-notes-separate-from-actual.json').read_text())
+assert actual['notes']==assembled['notes']
+for i,n in enumerate(actual['notes'],4):
+    individual=json.loads(next(retained.glob(f'{i:03d}-actual-*.json')).read_text())
+    assert individual==n
+for retained_name,name in [('028-original-residual.txt','original-residual.txt'),('038-unchanged-original-task.json','unchanged-original-task.json')]:
+    assert (retained/retained_name).read_bytes()==(ROOT/name).read_bytes()
+result={'status':'PASS','ultrametric_norm_patterns':len(pairs),'norm_identity_cases':norm_cases,'four_corner_cases':corner_cases,'two_finite_branch_cases':two_branch_cases,'tex_labels':len(labels),'tex_static_checks':True,'compiler_invoked':False,'mathematical_bindings_retained':len(inventory),'all_five_note_fields_structurally_identical':True,'residual_sha256':hash_bytes((ROOT/'original-residual.txt').read_bytes()),'whole_original_task_sha256':hash_bytes((ROOT/'unchanged-original-task.json').read_bytes()),'finite_checks_establish_mathematical_correctness':False}
+print(json.dumps(result,indent=2))

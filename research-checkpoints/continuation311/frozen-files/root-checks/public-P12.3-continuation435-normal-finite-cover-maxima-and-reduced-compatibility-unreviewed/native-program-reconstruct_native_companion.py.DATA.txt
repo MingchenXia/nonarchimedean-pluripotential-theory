@@ -1,0 +1,77 @@
+"""Own passive literal reconstruction from the explicitly retained, settled 296 datum.
+
+No program from that campaign is imported or executed. No active campaign is read.
+"""
+from pathlib import Path
+import hashlib, json
+
+HERE=Path(__file__).resolve().parent
+ledger=json.loads((HERE/'retained-data/001-ROOT-whole-companion-containment-ledger.json').read_bytes())
+record=ledger['native_companion']
+raw=Path(record['path']).read_bytes()
+sha=lambda b:hashlib.sha256(b).hexdigest()
+assert len(raw)==record['bytes'] and sha(raw)==record['sha256']
+
+prefix=b'\n===== BINDING METADATA ONLY '
+names=['mathematical-packet-bindings.json','private-primary-packet-bindings.json','book-context-bindings.json']
+# Use the LAST metadata block: older nested incoming companions have their own.
+positions=[raw.rfind(prefix+n.encode()+b' =====\n') for n in names]
+assert positions==sorted(positions) and all(x>=0 for x in positions)
+metadata=[]
+for i,(name,pos) in enumerate(zip(names,positions)):
+    start=pos+len(prefix+name.encode()+b' =====\n')
+    end=positions[i+1] if i+1<len(positions) else len(raw)
+    body=raw[start:end]
+    # Each assembly section ends in one extra LF; following markers start LF.
+    assert body.endswith(b'\n')
+    body=body[:-1]
+    json.loads(body)
+    metadata.append(body)
+math=json.loads(metadata[0])
+assert len(math)==44
+
+def extract(marker,size,expected):
+    offset=0
+    while True:
+        pos=raw.find(marker,offset)
+        assert pos>=0, marker.decode()
+        start=pos+len(marker); b=raw[start:start+size]
+        if sha(b)==expected: return b
+        offset=pos+1
+
+parts=[b'# ENTIRE mathematical companion; unverified scoped progress, candidate=false.\n']
+current=[('notes.json','033-native296-assembled-notes-separate-from-actual.json'),
+         ('P12.3-quotients-and-wild-conductors.tex','031-native-standalone-DATA.tex'),
+         ('source-application-reading-ledger.md','040-source-application-reading-ledger.md'),
+         ('scoped-verdict.md','039-scoped-verdict.md')]
+for label,filename in current:
+    b=(HERE/'retained-data'/filename).read_bytes()
+    marker=('\n===== CURRENT WHOLE '+label+' =====\n').encode()
+    assert extract(marker,len(b),sha(b))==b
+    parts.extend([marker,b,b'\n'])
+incoming=[]
+for e in math:
+    marker=('\n===== EXACT WHOLE INCOMING '+Path(e['path']).name+' =====\n').encode()
+    b=extract(marker,e['bytes'],e['sha256'])
+    parts.extend([marker,b,b'\n'])
+    incoming.append(dict(path=e['path'],bytes=len(b),sha256=sha(b),physical_reading_credit=False))
+for name,b in zip(names,metadata):
+    parts.extend([prefix+name.encode()+b' =====\n',b,b'\n'])
+rebuilt=b''.join(parts)
+assert rebuilt==raw
+private=json.loads(metadata[1])
+assert len(private)==1260
+excluded=[]
+for e in private[1244:1260]:
+    b=Path(e['path']).read_bytes()
+    assert len(b)==e['bytes'] and sha(b)==e['sha256']
+    assert b not in rebuilt
+    excluded.append(dict(path=e['path'],bytes=len(b),sha256=sha(b)))
+(HERE/'retained-data/native296-exact-reconstructed-companion.txt').write_bytes(rebuilt)
+(HERE/'reports/native-companion-reconstruction.json').write_text(json.dumps(dict(
+    bytes=len(rebuilt),sha256=sha(rebuilt),exact_literal_reconstruction=True,
+    settled_record_path=record['path'],programs_executed_or_imported=False,
+    physical_reading_credit=False,incoming=incoming,excluded_primary_carriers=excluded),indent=2)+'\n')
+print(json.dumps(dict(bytes=len(rebuilt),exact_literal_reconstruction=True,
+    incoming_bodies=len(incoming),excluded_primary_carriers=len(excluded),
+    physical_reading_credit=False),indent=2))

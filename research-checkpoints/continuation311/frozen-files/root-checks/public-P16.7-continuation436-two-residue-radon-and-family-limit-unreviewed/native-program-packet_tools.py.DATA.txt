@@ -1,0 +1,22 @@
+import argparse,json,pathlib,hashlib,shutil,sys,platform
+BASE=pathlib.Path('/workspace/research/campaigns/round-299/P16.7-whole432-two-point-mass-and-whole-dirac')
+ROOT=pathlib.Path(__file__).resolve().parent
+ap=argparse.ArgumentParser();ap.add_argument('action',choices=['retain','read']);ap.add_argument('--kind',default='math',choices=['math','primary']);ap.add_argument('--index',type=int);ap.add_argument('--first',type=int,default=1);ap.add_argument('--last',type=int);args=ap.parse_args()
+name='mathematical-packet-bindings.json' if args.kind=='math' else 'private-primary-packet-bindings.json'
+entries=json.loads((BASE/name).read_text())
+if args.action=='read':
+ e=entries[args.index];p=pathlib.Path(e['path']);b=p.read_bytes();lines=b.decode().splitlines(True);last=args.last or len(lines)
+ out=''.join(lines[args.first-1:last]);print(f'FILE {p} LINES {args.first}-{last} OF {len(lines)}');print(out,end='')
+ rec={'kind':args.kind,'index':args.index,'path':str(p),'first':args.first,'last':last,'total_lines':len(lines),'sha256':hashlib.sha256(b).hexdigest(),'display_bytes':len(out.encode()),'status':'emitted; physical reading only if received untruncated'}
+ with (ROOT/'read-displays.jsonl').open('a') as f:f.write(json.dumps(rec)+'\n')
+else:
+ dest=ROOT/'retained-mathematical-DATA';dest.mkdir(exist_ok=True);inventory=[]
+ for e in entries:
+  p=pathlib.Path(e['path']);b=p.read_bytes();h=hashlib.sha256(b).hexdigest()
+  assert h==e['sha256'] and len(b)==e['bytes'];(dest/p.name).write_bytes(b)
+  inventory.append({'name':p.name,'bytes':len(b),'sha256':h,'read_credit':False,'correctness_grant':False})
+ (ROOT/'retention.json').write_text(json.dumps(inventory,indent=2)+'\n')
+ for i,n in [(28,'original-residual.txt'),(38,'unchanged-original-task.json')]:
+  shutil.copyfile(entries[i]['path'],ROOT/n)
+ (ROOT/'environment.json').write_text(json.dumps({'python':sys.version,'platform':platform.platform(),'cwd':str(ROOT),'supplied_programs_executed':False,'agents':0,'native_provider_calls':0,'Xean_service_exposed':False,'supervised_heavy_compute_service_exposed':False,'compiler_invoked':False,'publication':False},indent=2)+'\n')
+ print(json.dumps({'verified_and_retained_mathematical_components':len(inventory),'physical_reading_credit_from_retention':False,'correctness_credit':False}))

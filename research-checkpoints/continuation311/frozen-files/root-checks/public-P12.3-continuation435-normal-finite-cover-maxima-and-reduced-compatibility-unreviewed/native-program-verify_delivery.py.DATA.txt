@@ -1,0 +1,88 @@
+"""Own static artifact audit; no compiler and no source execution."""
+from pathlib import Path
+import hashlib,json,re
+
+HERE=Path(__file__).resolve().parent
+BASE=Path('/workspace/research/campaigns/round-298/P12.3-whole429430-normal-finite-cover-envelope-transfer')
+notes=json.loads((HERE/'notes.json').read_bytes())
+assert notes['candidate'] is False
+assert len(notes['notes'])==5
+seen={'G331'}
+paper=(HERE/'P12.3-normal-finite-cover-transfer.tex').read_bytes()
+comp=(HERE/'proof-companion.txt').read_bytes()
+for i,n in enumerate(notes['notes'],1):
+    assert set(n)=={'id','summary','detailedSummary','text','support'}
+    assert n['id']==f'n{i}' and set(n['support'])<=seen
+    body=(HERE/'notes'/f'n{i}.tex').read_bytes()
+    assert n['text'].encode()==body and body in paper
+    seen.add(n['id'])
+math=json.loads((BASE/'mathematical-packet-bindings.json').read_bytes())
+for e in math:
+    b=Path(e['path']).read_bytes()
+    assert len(b)==e['bytes'] and hashlib.sha256(b).hexdigest()==e['sha256']
+    assert b==(HERE/'retained-data'/Path(e['path']).name).read_bytes()
+    assert b in comp
+for i,name in [(34,'original-completion-criteria.txt'),(35,'original-residual.md'),(36,'original-task.json')]:
+    assert Path(math[i]['path']).read_bytes()==(HERE/name).read_bytes()
+assert (BASE/'task.json').read_bytes()==(HERE/'assignment-task.json').read_bytes()
+assert json.loads((HERE/'reports/current296-field-identity.json').read_bytes())==[
+    dict(id=f'n{i}',fields={k:True for k in ['id','summary','detailedSummary','text','support']}) for i in range(1,6)]
+native=(HERE/'retained-data/native296-exact-reconstructed-companion.txt').read_bytes()
+assert len(native)==9522630 and hashlib.sha256(native).hexdigest()=='c03a7ca4f38348bedea8cc4f92c6ffb80fcceb7835d6d74d4242f31442b3a66a'
+assert native in comp
+private=json.loads((BASE/'private-primary-packet-bindings.json').read_bytes())
+exclusions=[]
+for e in private[1244:1260]:
+    b=Path(e['path']).read_bytes()
+    assert b not in comp and b not in paper
+    exclusions.append(dict(path=e['path'],sha256=hashlib.sha256(b).hexdigest()))
+# Whole book/PDF/pixel exclusions. Private mathematical/evidence duplicates are
+# deliberately not mistaken for source books or carrier bodies.
+book=json.loads((BASE/'book-context-bindings.json').read_bytes())
+for e in book:
+    assert Path(e['path']).read_bytes() not in comp
+for e in private:
+    p=Path(e['path'])
+    if p.suffix.lower() in ['.pdf','.png','.html'] or p.name in [
+            'Swanson-Huneke-author-book.txt','BFJ-valuations-psh.txt','BdFF-volume-isolated-singularity-author-published.txt']:
+        assert p.read_bytes() not in comp, str(p)
+ledger=(HERE/'source-application-reading-ledger.md').read_text()
+prefix='/workspace/research/primary-data-LOCALONLY/P12.3-ROOT413-algebraic-field-root-descent-source-20261009/'
+names=['BFJ-setting-and-modification-domain.txt','BFJ-simple-modification-domain.txt',
+       'BFJ-1.10-1.15-whole-immediate-chain.txt','BFJ-2.1-2.8-whole-immediate-chain.txt',
+       'BFJ-3.1-3.14-whole-immediate-chain.txt','BFJ-3.15-3.25-whole-model-envelope-and-immediate-proofs.txt']
+for name in names:
+    assert hashlib.sha256(Path(prefix+name).read_bytes()).hexdigest() in ledger
+s=paper.decode()
+assert s.count('\\documentclass')==1
+assert s.count('\\begin{document}')==s.count('\\end{document}')==1
+assert s.count('\\[')==s.count('\\]')
+assert len(re.findall(r'(?<!\\)\$',s))%2==0
+stack=[]
+for kind,name in re.findall(r'\\(begin|end)\{([^}]+)\}',s):
+    if kind=='begin': stack.append(name)
+    else: assert stack and stack.pop()==name,(kind,name,stack)
+assert not stack
+level=0
+for m in re.finditer(r'(?<!\\)[{}]',s):
+    level+=1 if m.group()=='{' else -1
+    assert level>=0
+assert level==0
+assert not any(ord(c)<32 and c not in '\n\r\t' for c in s)
+audit=json.loads((HERE/'reports/input-byte-audit.json').read_bytes())
+assert len(audit)==1313 and all(x['match'] for x in audit)
+checks=json.loads((HERE/'reports/exact-checks.json').read_bytes())
+assert checks['status']=='PASS' and checks['polynomial_cases']==19460
+assert checks['multiplicity_infinity_cases']==21816 and checks['all_degree_arithmetic_cases']==9600
+result=dict(status='PASS',candidate=False,notes=5,mathematical_certification=False,
+    matched_bindings=1313,whole_current_mathematical_carriers=50,native_incoming_whole_carriers=44,
+    current296_all_five_fields_equal=True,whole_native_companion_exact=True,
+    immediate_primary_exclusions=16,books_pixels_pdfs_excluded=True,
+    original_residual_sha256=hashlib.sha256((HERE/'original-residual.md').read_bytes()).hexdigest(),
+    standalone_bytes=len(paper),companion_bytes=len(comp),static_tex_checks_only=True,
+    required_entire_current_physical_audit_complete=False,compiler_invoked=False)
+(HERE/'reports/verification.json').write_text(json.dumps(result,indent=2)+'\n')
+print(json.dumps(result,indent=2))
+hashes={str(p.relative_to(HERE)):hashlib.sha256(p.read_bytes()).hexdigest() for p in HERE.rglob('*')
+        if p.is_file() and p.name!='own-hashes.json' and not any(x.startswith('.') for x in p.relative_to(HERE).parts)}
+(HERE/'reports/own-hashes.json').write_text(json.dumps(hashes,indent=2)+'\n')

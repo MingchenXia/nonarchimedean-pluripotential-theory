@@ -1,0 +1,61 @@
+"""Retain all mathematical data verbatim; never execute/import supplied programs."""
+from pathlib import Path
+import json, hashlib
+
+ROOT=Path(__file__).resolve().parent
+BASE=Path('/workspace/research/campaigns/round-299/P16.7-whole432-two-point-mass-and-whole-dirac')
+math=json.loads((BASE/'mathematical-packet-bindings.json').read_text())
+primary=json.loads((BASE/'private-primary-packet-bindings.json').read_text())
+hash_bytes=lambda b:hashlib.sha256(b).hexdigest()
+binding_dir=ROOT/'LOCALONLY-bindings';binding_dir.mkdir(exist_ok=True)
+for name in ['mathematical-packet-bindings.json','private-primary-packet-bindings.json','book-context-bindings.json']:
+    (binding_dir/name).write_bytes((BASE/name).read_bytes())
+primary_dir=ROOT/'LOCALONLY-primary';primary_dir.mkdir(exist_ok=True)
+for i in list(range(1227,1242))+[4]:
+    e=primary[i];b=Path(e['path']).read_bytes()
+    assert len(b)==e['bytes'] and hash_bytes(b)==e['sha256']
+    (primary_dir/(str(i)+'-'+Path(e['path']).name)).write_bytes(b)
+applications={
+1227:'CLD 15.7.1: compatible calibrated structure on supplied separated pure boundaryless surface and ordinary opens; recursive foundations not entirely audited.',
+1228:'CLD 5.11.1: smooth Green/Stokes; compact X and empty boundary; extended to entire C by the written strong-gradient uniform-closure argument.',
+1229:'CLD 7.2.8-13: positive Radon reconstruction, coefficient measures, and all-continuous-test upgrade on locally differentially separated ordinary interiors.',
+1230:'CLD 8.1.7-8 and 8.2.4: ENTIRE minimal continuous sheaf and smooth convex maxima of nonvanishing polynomial unit slots; constants/collars give actual weights.',
+1232:'CLD 8.5.1/5/6, 8.7.1/2/4/5 and 8.8.4/5: positive local recursive products, local uniform continuity, proper fixed-fibre restriction, symmetry, multilinearity and smooth-DD-null subtraction. CLD 8.6.7 not used.',
+1236:'CLD 5.10.1(c),(d)/5.10.2: identity coordinate and fixed-curve integration, reference/baseline energy normalization on actual analytic tests.',
+1239:'CLD 18.6.1: standing boundaryless separated equidimensional generically-flat relative fibre formula underlying 18.6.2; our applied coordinate maps are explicit isomorphisms or projections.',
+1240:'CLD 18.6.2: translated bidisc maps for each atom, inverse translated coordinates at g, fixed original coordinate Gauss curves, ratio Gauss curve and its coordinate curve. d=2 or d=1 as stated, all radii positive real, degree one; literal prose Hessian-vanishing slips excluded.',
+1241:'CLD 14.5.2-3: identity moments on actual torus charts and fixed completed-residue-field curves; saturated lattice and analytic degree one, raw square factor two.',
+}
+records=[]
+for i,application in applications.items():
+    e=primary[i];b=Path(e['path']).read_bytes()
+    assert hash_bytes(b)==e['sha256'] and len(b)==e['bytes']
+    records.append({'index':i,'path':e['path'],'bytes':len(b),'sha256':hash_bytes(b),'physical_reading':'whole immediate unit received and read in untruncated output','application':application,'correctness_grant':False,'recursive_audit_complete':False})
+e=primary[4]
+records.append({'index':4,'path':e['path'],'sha256':e['sha256'],'display_lines':[7170,7300],'line_convention':'Python str.splitlines(keepends=True), including page-feed separators; not literal-LF numbering','physical_reading':'complete 6.2.4-8 statements and immediate proofs within this bounded untruncated display','application':'CLD 6.2.4-8 smooth cutoffs/density/partitions; compact Hausdorff is paracompact, ordinary interior is locally differentially separated. Appendix A deeper proofs not freshly read.','correctness_grant':False})
+manual=[{'kind':'math','index':21,'first':1,'last':'whole','physical_received_untruncated':True,'tool_chunk_id':'84d4b0','scope':'all five fields of all four ACTUAL notes'},
+{'kind':'math','index':23,'first':1,'last':275,'physical_received_untruncated':True,'tool_chunk_id':'664827'},
+{'kind':'math','index':0,'first':1,'last':550,'physical_received_untruncated':True,'tool_chunk_id':'0d5da8'},
+{'kind':'math','index':0,'first':551,'last':1100,'physical_received_untruncated':True,'tool_chunk_id':'30e6cf'}]
+ledger={'incoming_correctness_grants':[],'allowed_note_supports':'earlier OWN returned notes only; supplied notes retained as data, never treated as grants','source_applications':records,'manual_prior_displays':manual,'subsequent_emitted_displays':[json.loads(x) for x in (ROOT/'read-displays.jsonl').read_text().splitlines()],'physical_source_reading_all_15_requested_units':False,'current_actual_four_notes_all_five_fields_read':True,'distinct_552_line_formal_read_complete':True,'current_3376_LF_standalone_read_ranges':[[1,1100]],'current_3376_LF_standalone_whole_read':False,'current_JSON_TXT_ledgers_scopes_whole_read':False,'complete_independent_entire_current_audit':False,'recursive_book_primary_geometry_audit':False,'genuine_nonalgebraization_descent_certified':False,'retention_hash_inventory_or_emission_implies_reading':False,'truncated_displays':'Initial broad tool metadata/manifest and 1282-primary inventory outputs were truncated. They carry NO whole-reading credit. All asserted physical ranges were bounded untruncated mathematical/source body outputs.'}
+(ROOT/'source-application-reading-ledger.json').write_text(json.dumps(ledger,indent=2)+'\n')
+(ROOT/'source-application-reading-ledger.txt').write_text('Incoming correctness grants: EMPTY.\nActual four notes: all five fields physically read.\n552-LF formal proof: whole physically read (1-275,276-552).\n3376-LF standalone: only 1-1100 physically read; 1101-3376 NOT claimed read.\nNine whole selected primary units plus the entire 6.2.4-8 immediate chain physically read; not all requested fifteen.\nCurrent scope/JSON/TXT ledgers: retained whole; NOT claimed wholly read.\nAll 40 mathematical bodies and whole 7,084,039-byte companion retained as data.\nActual/assembled notes structurally identical; identity is a finite observation, not reading credit.\nComplete independent entire-current audit: INCOMPLETE.\nDeeper recursive book/primary/geometry/descent audit: INCOMPLETE.\nNo source primary bodies in new mathematical companion.\nNo supplied programs executed/imported; no agents/provider calls/compiler/publication/runtime changes.\nNative Xean campaign service and supervised heavy-compute service not exposed among available tools.\n')
+verdict={'candidate':False,'original_target':'UNCHANGED P16.7','original_status':'OPEN','new_draft_claims':['two different residues in BOTH coordinates: actual C solution delta_x1+delta_x2, no Gauss mass, all positive real depths','actual cross DD v1,c wedge DD v2,d=0; independent branch masses m_i in [0,1]','two Radon depth distributions each of mass<=1: actual decreasing C/G presentations and full dual iff sum integral tail^(3/2) finite','M1=M2=1 yields full nonskeletal rawmass2, including explicit unbounded E=-7/3,D=25/6 example','moving-centre measures in this constructed family and their weak limits retain mass<=1 in every fixed ordinary residue bidisc; no whole-Dirac coalescence within this family'],'single_whole_mass_Dirac_constructed':False,'general_dominated_recognition_proved':False,'general_arbitrary_support_equation_proved':False,'new_all_G_uniqueness_audit':False,'genuine_nonalgebraization_descent_certified':False,'entire_current_independent_audit_complete':False,'incoming_correctness_grants':[],'native_campaign_facility_exposed':False,'native_provider_calls':0,'agents':0,'supplied_program_execution_or_import':False,'compiler_invoked':False,'compilation':'UNVERIFIED','independent_correctness_verdict':'UNVERIFIED DRAFT; finite/static PASS is not a mathematical certificate','publication':False,'requirements_not_fully_met':['complete entire-current physical reading/audit','specified Xean native campaign route unavailable'],'residual_bytes_unchanged':True}
+(ROOT/'scoped-verdict.json').write_text(json.dumps(verdict,indent=2)+'\n')
+(ROOT/'commands.txt').write_text('python3 packet_tools.py retain\npython3 checks.py > check-output.json\npython3 write_notes.py\npython3 package.py > package-output.json\npython3 delivery_check.py > delivery-check-output.json\n# Bounded reading: python3 packet_tools.py read --kind math|primary --index N --first A --last B\n# No compiler invoked. ROOT performs independent review/compilation/publication.\n')
+own=['standalone.tex','source-application-reading-ledger.json','source-application-reading-ledger.txt','scoped-verdict.json','original-residual.txt','unchanged-original-task.json','input.json','check-output.json','environment.json','commands.txt']
+if (ROOT/'final-notes.json').exists():own.append('final-notes.json')
+manifest=[]
+with (ROOT/'proof-companion.txt').open('wb') as out:
+    out.write(b'LOCAL MATHEMATICAL DATA COMPANION. Retention is not physical reading, correctness, or a grant. Supplied program bodies are INERT DATA. All new results are unverified scoped drafts. Literal immediate primary bodies excluded.\n')
+    for name in own:
+        b=(ROOT/name).read_bytes();out.write(('\nBEGIN OWN ARTIFACT '+name+'\n').encode());offset=out.tell();out.write(b);out.write(('\nEND OWN ARTIFACT '+name+'\n').encode());manifest.append({'kind':'own','name':name,'offset':offset,'bytes':len(b),'sha256':hash_bytes(b)})
+    for e in math:
+        p=ROOT/'retained-mathematical-DATA'/Path(e['path']).name;b=p.read_bytes();assert len(b)==e['bytes'] and hash_bytes(b)==e['sha256']
+        out.write(('\nBEGIN INCOMING WHOLE INERT DATA '+p.name+'\n').encode());offset=out.tell();out.write(b);out.write(('\nEND INCOMING WHOLE INERT DATA '+p.name+'\n').encode());manifest.append({'kind':'incoming-inert-data','name':p.name,'offset':offset,'bytes':len(b),'sha256':hash_bytes(b),'whole_retained':True,'correctness_grant':False})
+(ROOT/'companion-component-manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
+b=(ROOT/'proof-companion.txt').read_bytes()
+for e in manifest:assert hash_bytes(b[e['offset']:e['offset']+e['bytes']])==e['sha256']
+for i in range(1227,1242):assert Path(primary[i]['path']).read_bytes() not in b
+assert Path(primary[4]['path']).read_bytes() not in b
+print(json.dumps({'whole_incoming_mathematical_bodies':len(math),'companion_bytes':len(b),'companion_sha256':hash_bytes(b),'all_whole_component_bytes_verified':True,'all15_literal_immediate_primary_bodies_excluded':True,'full_primary_CLD_carrier_excluded':True,'whole_reading_or_correctness_inferred':False,'full_current_audit_complete':False},indent=2))

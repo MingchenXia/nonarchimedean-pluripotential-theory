@@ -1,0 +1,79 @@
+"""Own small exhaustive finite diagnostics; not universal proof verification."""
+from pathlib import Path
+from fractions import Fraction
+from itertools import product
+from math import inf
+import json
+
+HERE = Path(__file__).resolve().parent
+spec = dict(primes=[2,3,5,7], orders=[0,1,2,3], root_counts=list(range(1,7)),
+            cancellation_example='(Z-a)(Z+a)=Z^2-a^2',
+            model_constants=list(range(4)), residue_bound=4)
+(HERE/'exact-check-input.json').write_text(json.dumps(spec,indent=2)+'\n')
+
+# Multiply exact polynomials in a uniformizer a and Z over F_p.
+def multiply(f,g,p):
+    h={}
+    for (i,j),c in f.items():
+        for (k,l),d in g.items():
+            key=(i+k,j+l); h[key]=(h.get(key,0)+c*d)%p
+    return {k:v for k,v in h.items() if v}
+
+count=0; erased=0
+for p in spec['primes']:
+    # Every nonzero residue coefficient and order 0..3, lengths 1..3.
+    choices=[(v,c) for v in spec['orders'] for c in range(1,p)]
+    for n in range(1,4):
+        for roots in product(choices,repeat=n):
+            poly={(0,0):1}
+            for v,c in roots: poly=multiply(poly,{(0,1):1,(v,0):-c%p},p)
+            values=[]
+            for l in range(1,n+1):
+                vals=[i for (i,j),c in poly.items() if j==n-l and c]
+                values.append(min(vals) if vals else inf)
+            s=min(v for v,c in roots)
+            k=sum(v==s for v,c in roots)
+            assert values[k-1]==k*s
+            assert min(Fraction(x,l) if x!=inf else inf for l,x in enumerate(values,1))==s
+            N=max(v for v,c in roots)+1
+            assert min(Fraction(min(x,l*N),l) for l,x in enumerate(values,1))==s
+            erased+=sum(x==inf for x in values)
+            count+=1
+
+# Distinct inseparable multiplicities and infinite coordinates: formal root-value
+# lower bounds, with equality at the total number of least-valued labelled roots.
+multi=0
+for roots_n in spec['root_counts']:
+    for vals in product([0,1,2,inf], repeat=roots_n):
+        if all(v==inf for v in vals): continue
+        for q in [1,2,3,5]:
+            labelled=sorted(vals*q)
+            s=labelled[0];k=labelled.count(s)
+            lower=[sum(labelled[:l]) for l in range(1,len(labelled)+1)]
+            assert lower[k-1]==k*s
+            assert min(Fraction(min(x,l*3),l) for l,x in enumerate(lower,1))==s
+            multi+=1
+
+# Exact arithmetic in the transferred all-degree estimate. This checks only the
+# displayed numerical inequality on a finite grid, not ring or envelope hypotheses.
+rates=0
+for n,K,M,H in product(range(1,6),range(4),range(4),[-3,-1,0]):
+    for degree in range(1,41):
+        m,s=divmod(degree,n)
+        if m:
+            bound=Fraction(n*m,degree)*(H-Fraction(K,m))-Fraction(s*M,degree)
+            assert bound>=H-Fraction(n*(K+M),degree)
+        else:
+            assert -M>=H-Fraction(n*(K+M),degree)
+        rates+=1
+
+examples={}
+for p in spec['primes']:
+    f=multiply({(0,1):1,(1,0):-1%p},{(0,1):1,(1,0):1},p)
+    examples[str(p)]={str(k):v for k,v in sorted(f.items())}
+out=dict(status='PASS', polynomial_cases=count, vanished_intermediate_coefficients=erased,
+         multiplicity_infinity_cases=multi, all_degree_arithmetic_cases=rates,
+         cancellation_examples=examples,
+         limitations='Exhaustive finite tests only; mathematical proofs are in notes n1-n4.')
+(HERE/'reports/exact-checks.json').write_text(json.dumps(out,indent=2)+'\n')
+print(json.dumps(out,indent=2))

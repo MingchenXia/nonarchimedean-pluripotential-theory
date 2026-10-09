@@ -1,0 +1,18 @@
+"""Own passive final schema/containment checks; no compilation or source execution."""
+from pathlib import Path
+import json, hashlib
+
+p=json.loads(Path('final-notes.json').read_text())
+seen=set()
+for n in p['notes']:
+    assert set(n)=={'id','summary','detailedSummary','text','support'}
+    assert n['id'] not in seen and set(n['support'])<=seen
+    seen.add(n['id'])
+assert p['candidate'] is False
+components=json.loads(Path('companion-component-manifest.json').read_text())
+b=Path('proof-companion.txt').read_bytes()
+for e in components:
+    assert hashlib.sha256(b[e['offset']:e['offset']+e['bytes']]).hexdigest()==e['sha256']
+for source in Path('LOCALONLY-primary').iterdir():
+    assert source.read_bytes() not in b
+print(json.dumps({'final_note_schema_and_ordered_supports':'PASS','notes':len(seen),'companion_component_slices':len(components),'literal_primary_bodies_excluded':True,'candidate':False,'source_audit_complete':False,'native_campaign_executed':False,'compilation':'UNVERIFIED'},indent=2))

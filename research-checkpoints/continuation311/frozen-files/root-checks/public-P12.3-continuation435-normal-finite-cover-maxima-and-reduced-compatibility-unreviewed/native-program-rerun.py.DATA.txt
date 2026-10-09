@@ -1,0 +1,15 @@
+"""Run ONLY own explicitly listed programs and capture commands and outputs."""
+from pathlib import Path
+import subprocess,sys,json,hashlib
+
+HERE=Path(__file__).resolve().parent
+commands=[]
+for name in ['retain_inputs.py','reconstruct_native_companion.py','exact_checks.py','assemble_delivery.py','verify_delivery.py']:
+    run=subprocess.run([sys.executable,str(HERE/name)],cwd=HERE,text=True,capture_output=True)
+    commands.append(dict(command='python '+name,exit_code=run.returncode,stdout=run.stdout,stderr=run.stderr))
+    print(run.stdout,end='')
+    (HERE/'reports/command-evidence.json').write_text(json.dumps(commands,indent=2)+'\n')
+    if run.returncode: print(run.stderr);sys.exit(run.returncode)
+hashes={str(p.relative_to(HERE)):hashlib.sha256(p.read_bytes()).hexdigest() for p in HERE.rglob('*')
+        if p.is_file() and p.name!='own-hashes.json' and not any(x.startswith('.') for x in p.relative_to(HERE).parts)}
+(HERE/'reports/own-hashes.json').write_text(json.dumps(hashes,indent=2)+'\n')

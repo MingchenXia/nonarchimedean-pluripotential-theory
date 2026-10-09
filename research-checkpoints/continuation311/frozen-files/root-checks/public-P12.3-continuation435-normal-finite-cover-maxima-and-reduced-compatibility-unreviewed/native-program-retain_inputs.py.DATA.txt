@@ -1,0 +1,53 @@
+"""Own byte-only retention. Supplied programs are never loaded as code."""
+from pathlib import Path
+import hashlib, json, platform, sys
+
+BASE = Path('/workspace/research/campaigns/round-298/P12.3-whole429430-normal-finite-cover-envelope-transfer')
+OUT = Path(__file__).resolve().parent
+for d in ['retained-data', 'reports', 'notes']:
+    (OUT / d).mkdir(exist_ok=True)
+cache = {}
+audit = []
+for name in ['mathematical-packet-bindings.json', 'private-primary-packet-bindings.json', 'book-context-bindings.json']:
+    bb = (BASE / name).read_bytes()
+    (OUT / 'retained-data' / name).write_bytes(bb)
+    entries = json.loads(bb)
+    for i, e in enumerate(entries):
+        p = Path(e['path'])
+        if str(p) not in cache:
+            b = p.read_bytes()
+            cache[str(p)] = (len(b), hashlib.sha256(b).hexdigest())
+        size, sha = cache[str(p)]
+        ok = (size == e['bytes'] and sha == e['sha256'])
+        audit.append(dict(binding=name, index=i, path=str(p), bytes=size,
+                          sha256=sha, match=ok, physical_reading_credit=False))
+        assert ok, str(p)
+        if name == 'mathematical-packet-bindings.json':
+            (OUT / 'retained-data' / p.name).write_bytes(p.read_bytes())
+math = json.loads((BASE / 'mathematical-packet-bindings.json').read_bytes())
+def datum(i):
+    return Path(math[i]['path']).read_bytes()
+actual, assembled = json.loads(datum(32)), json.loads(datum(33))
+field_checks = []
+for i, (a,b) in enumerate(zip(actual['notes'], assembled['notes']), 1):
+    single = json.loads(datum(i+3))
+    checks = {k: a[k] == b[k] == single[k] for k in
+              ['id', 'summary', 'detailedSummary', 'text', 'support']}
+    assert all(checks.values())
+    field_checks.append(dict(id=a['id'], fields=checks))
+for i,name in [(34,'original-completion-criteria.txt'), (35,'original-residual.md'), (36,'original-task.json')]:
+    (OUT/name).write_bytes(datum(i))
+roottex, nativetex = datum(0), datum(31)
+assert nativetex.replace(b',qquad', b',\\qquad') == roottex
+assert nativetex.count(b',qquad') == 2
+(OUT/'reports/input-byte-audit.json').write_text(json.dumps(audit,indent=2)+'\n')
+(OUT/'reports/current296-field-identity.json').write_text(json.dumps(field_checks,indent=2)+'\n')
+(OUT/'reports/environment.json').write_text(json.dumps(dict(
+    python=sys.version, platform=platform.platform(), cwd=str(OUT),
+    supervised_compute='No suitable supervised service exposed; none needed or launched',
+    model_signin='Not independently attested', supplied_programs_executed=False,
+    compiler_invoked=False, network_used=False, agents_used=False,
+    scope='Offline standard-library byte retention and small finite diagnostics'),indent=2)+'\n')
+print(json.dumps(dict(matched=len(audit), mathematical=len(math),
+    actual_assembled_allfive_equal=True, root_only_two_separator_changes=True,
+    no_physical_reading_credit_from_hashes=True),indent=2))
