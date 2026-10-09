@@ -2538,3 +2538,15 @@ and [authored evidence](manuscript/editorial/artifact_exports/20261009_Xue_semia
 All nine partial-evidence files were verified byte-for-byte on GitHub at
 commit `437039f5698a6a399e37067aef042f46026b445c`. The draft PR retains the partial-reading and
 unverified-proof scope. See the [publication record](manuscript/editorial/Xue_semiabelian_partial_GitHub_publication_v1_20261009.json).
+
+## Original theta dependency: source addendum, 9 October 2026
+
+All **21 pages of FRSS arXiv:1705.08212v2** were read in eleven matching
+text/image displays. Its formal-model canonical base point clears the
+conditional arbitrary-affinoid Gauss-norm objection. Period multiplier
+norms persist; Xue's raw-theta/canonical-metric identification remains
+unverified. Journal numbering differs and is not authenticated by this
+arXiv reading. Xue remains **20/83**; the active book remains **4,675 pages**.
+
+See [source addendum](manuscript/editorial/Xue_theta_dependency_source_review_v1_20261009.md)
+and [authored evidence](manuscript/editorial/artifact_exports/20261009_Xue_theta_dependency_v1/).
