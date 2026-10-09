@@ -1,5 +1,32 @@
 # Second reading and sequential research programme
 
+## Current related-source checkpoint: Luo–Yu 31/31, 9 October 2026
+
+All thirty-one physical pages of arXiv:2505.07193v3 were actually read
+in sixteen matching complete-text/image views. The primary algebraically
+closed-constant and dense-generation conventions resolve earlier scope
+questions. The [complete audit](Luo_Yu_complete_source_review_v1_20261009.md)
+records literal matrix/height and exponent diagnostics, selected-component
+scope and remaining general-proof reconstruction requirements. No main
+Bogomolov refutation or original-result promotion is claimed.
+
+The [43-member authored evidence](artifact_exports/20261009_Luo_Yu_complete_v1/README.md)
+includes a complete classical reconstruction of Example 1.2: a non-torsion
+degree-zero bundle over C(E) prevents open height-zero points, while
+integral ample divisors yield generic heights deg(A)/n tending to zero.
+This model case is a next checked integration target; it is not yet in
+the active 4,681-page book. All seven remote source blobs were downloaded
+and verified byte-for-byte at `cec444f3e1bcfc3222f01505fdfaf693f7e4b56a`; see the
+[publication record](Luo_Yu_complete_source_GitHub_publication_v1_20261009.json).
+
+The 52-page latest GVF foundations v2 has zero actual pages read.
+Incoming continuation307 remains metadata-only. Earlier four-page Luo–Yu
+and partial-proof reports below are dated historical checkpoints. The last
+ordered whole-book read remains 4 October; the current source audit adds
+no whole-book credit. Native catalogue/editor and canonical statuses remain
+unchanged. Continue cloud-only with Xean suspended.
+
+
 ## Current checked relative-minima edition: 4,681 pages, 9 October 2026
 
 The [integration audit](Guo_Yuan_relative_minima_staged_integration_audit_v2_20261009.md)
