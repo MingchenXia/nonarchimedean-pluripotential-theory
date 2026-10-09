@@ -7503,3 +7503,19 @@ and [source evidence](artifact_exports/20261009_Ballay_Sombra_catalogue_suppleme
 All ten catalogue-source/evidence files were verified byte-for-byte on
 GitHub at `d985d0c036cb0a992a3707f053d7b1fe35ef988f`. See the [publication record](Ballay_Sombra_catalogue_supplement_GitHub_publication_v1_20261009.json).
 This verifies uploaded source bytes, not native compilation or an updated PDF.
+
+## Xue forty-page source checkpoint and Maillot input, 9 October 2026
+
+Xue arXiv:2608.08262v2 is now actually read on **1–40/83 pages**, in
+twenty matching views. A translated P1 boundary metric makes the printed
+auxiliary compression comparisons 54–56 fail: the normalized test-integral
+gap tends to 1/5. This is not a counterexample to the intended main theorem;
+the main proofs remain unverified and unintegrated. Five selected Maillot
+pages contain Theorem 4.6.1 and its full proof, which does not give Kühne's
+printed singular-current domination. Earlier checkpoints remain frozen.
+
+See [source addendum](Xue_semiabelian_partial_source_review_v2_20261009.md)
+and [authored evidence](artifact_exports/20261009_Xue_semiabelian_partial_v2/).
+The active **4,675-page book** and canonical statuses are unchanged.
+The catalogue's supplementary source upload is separately verified;
+native compilation remains unverified and its historical PDF is unchanged.
