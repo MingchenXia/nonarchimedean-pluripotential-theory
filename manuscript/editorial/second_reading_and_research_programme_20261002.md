@@ -7610,3 +7610,8 @@ The earlier bounded checkpoints and evidence are preserved without rewriting.
 All nine complete toric-source evidence files were verified byte-for-byte
 on GitHub at `1a16af3ae42dd796d96f6465b82f0af080134777`. See the [publication record](BGPS_toric_attainment_complete_GitHub_publication_v3_20261009.json).
 The candidate has no independent VERIFIED verdict; upload adds zero reading credit.
+
+The sixteen checked arithmetic-example book/source/progress/audit/artifact
+blobs were downloaded from GitHub and verified byte-for-byte at `f68fe0e60bee52f4356b9cd00d8f0eed1fb5bbfc`.
+See the [publication record](BGPS_Fubini_Study_GitHub_publication_v3_20261009.json).
+Upload adds no reading credit or theorem clearance.

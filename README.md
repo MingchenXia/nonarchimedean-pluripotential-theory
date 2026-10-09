@@ -4,6 +4,15 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest verified arithmetic-example GitHub publication, 9 October 2026:**
+the 4,677-page book and [artifacts](manuscript/editorial/artifact_exports/20261009_BGPS_Fubini_Study_v3/README.md)
+are published on work at `f68fe0e60bee52f4356b9cd00d8f0eed1fb5bbfc`. All sixteen remote blobs were
+downloaded and verified byte-for-byte against local hashes and sizes.
+The [publication record](manuscript/editorial/BGPS_Fubini_Study_GitHub_publication_v3_20261009.json)
+pins the complete published BGPS source checkpoint and thirteen final pages
+read in seven fresh views. The attainment candidate remains unverified;
+general BJ22 Siu/envelopes stay OPEN and the native editor is preserved.
+
 **Latest checked arithmetic worked example, 9 October 2026:**
 the [integration audit](manuscript/editorial/BGPS_Fubini_Study_staged_integration_audit_v3_20261009.md)
 records the 4,677-page edition. Chapter 27 computes the standard Fubini–Study
