@@ -3,6 +3,38 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest supnorm and logarithmic-integrability book checkpoint, 9 October 2026
+
+The [integration audit](BE21_supnorm_integrability_staged_integration_audit_v1_20261009.md)
+adds Chapter 19's qualified global interface and L.98. It retains the exact
+o(m)/model O(1) scalar-extension estimate, the nonfinite relative-closure
+example over a dense Gauss field, and the regular-section/psh-regularizable
+global log-integrability explanation with the corrected smoothing and CLN
+steps. It does not provide arbitrary local weak-psh descent or affine
+lower-growth regularization.
+
+The staged book has 4,659 pages. All 24 selected pages were freshly read
+in 12 individual matching displays with complete text and sequential
+notes. Full validation and post-render checks pass. All 955 underfull
+blocks, 13,378 prior numbered values and 596 citations are preserved.
+The other 423 TeX inputs and both bibliographies are unchanged; 92
+historical blocks, including 25 proofs and six manual tags, are preserved.
+The source basis is partial BE21, a union of 53 of 125 pages across three
+related selections, with 72 unread in these checkpoints. Earlier foundations
+are attributed rather than recursively certified. The source-level failed
+first Python parse preflight and corrected v2 diagnostics remain frozen.
+
+The [activation record](BE21_supnorm_integrability_cloud_activation_v1_20261009.json)
+controls the new cloud edition; publication receives a later separate record.
+Native catalogue/editor, 42 atoms/twelve problems and their statuses stay
+unchanged. General BJ22 critical homogeneous Siu/envelopes remain OPEN;
+LPWZ density UNVERIFIED. No original general theorem, independent-model
+receipt or new complete ordered book pass is claimed; the latter is 4 October.
+
+Continue cloud-only with related primary literature and sequential remaining
+open-problem interfaces. Check incoming author updates and periodically push
+checked evidence. Xean stays suspended.
+
 ## Latest reduced-fibre and logarithmic-integrability source checkpoint, 9 October 2026
 
 The [source audit](BE21_reduced_fibre_integrability_source_review_20261009.md)

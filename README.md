@@ -4,6 +4,19 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest checked supnorm and logarithmic-integrability book integration, 9 October 2026:**
+the [integration audit](manuscript/editorial/BE21_supnorm_integrability_staged_integration_audit_v1_20261009.md)
+adds Chapter 19's global comparison paragraph and L.98. The exact section-norm,
+relative-closure and regular-section integrability scopes remain explicit;
+the printed smoothing and CLN proof steps are clarified using existing inputs.
+All 24 selected pages were freshly read in 12 individual matching displays;
+full validation and post-render gates pass. The
+[activation record](manuscript/editorial/BE21_supnorm_integrability_cloud_activation_v1_20261009.json)
+controls the 4,659-page cloud edition. The native editor, canonical statuses
+and general local/Siu/envelope boundaries remain unchanged. The BE21 source
+basis is a partial union of 53 of 125 pages, not a complete article reading.
+No original general theorem or new whole-book pass is claimed.
+
 **Latest reduced-fibre and logarithmic-integrability primary checkpoint, 9 October 2026:**
 the [source audit](manuscript/editorial/BE21_reduced_fibre_integrability_source_review_20261009.md)
 reads eighteen selected BE21 pages in nine fresh matching displays.
@@ -342,7 +355,7 @@ citation values are preserved. The [cloud activation record](manuscript/editoria
 controls the source/PDF update. No whole-book new reading, original general
 result or canonical status change is claimed. Its verified artifacts are uploaded.
 
-The current cloud research-integration build has **4,657 pages**; its
+The current cloud research-integration build has **4,659 pages**; its
 source and checked book/audit exports are published on `work`. The checked
 [geometric-norm account](manuscript/editorial/Temkin_Zutler_geometric_norms_staged_integration_audit_20261008.md)
 adds Sections 4.6.1--4.6.2: tensor and spectral norm distinctions, exact
