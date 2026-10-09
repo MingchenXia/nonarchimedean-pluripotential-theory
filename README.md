@@ -2894,3 +2894,23 @@ All nine continuation306 scoped audit/evidence files were downloaded from
 GitHub and verified byte-for-byte at `4d55b54066a13a157456bfd720e78f890ccb3ebe`. See the [publication record](manuscript/editorial/P12_3_incoming_continuation306_GitHub_publication_v1_20261009.json).
 The current research head is `6a6bdf513eff650f8971b9cf59ef281de7b6c160`; only the pinned reviewed
 snapshot receives scoped reading credit. Claims remain UNVERIFIED.
+
+## Incoming GitHub continuation309 audit, 9 October 2026
+
+At pinned research commit9556f41667eb56aea7e4ec0ddf1b8665a320698e, read
+the complete314-line429 and897-line430 current cores, all five fields of
+every actual296 record and all five separate formal proofs(787 lines).
+Current actual/assembled296 records are structurally identical; historical
+actual294 differences remain distinct. Conductor localization/compatibility,
+normal characteristic-zero finite-group quotients and NONNORMAL separable/
+wild formal conductor failures remain UNVERIFIED scoped candidates.
+
+Own finite diagnostics pass12 characteristic identities, four actual
+characteristic-2 conjugate truncations,108 orbit weights,4032 signed
+truncation inequalities and20736 all-degree arithmetic cases. See the
+[scoped review](manuscript/editorial/P12_3_incoming_continuation309_scoped_review_v1_20261009.md) and [authored evidence](manuscript/editorial/artifact_exports/20261009_P12_3_incoming_continuation309_v1/README.md). Both companions,
+the current G331 literal body and deeper primary/book/pixel audit remain
+unread; no recursive clearance or independent production receipt is claimed.
+General normal dimension≥3 and arbitrary conductor classification remain
+OPEN. The4,681-page book, same native editor/catalogue and42 canonical
+problem statuses are unchanged. Xean remains suspended in the cloud.
