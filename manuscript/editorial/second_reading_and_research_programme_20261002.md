@@ -7523,3 +7523,19 @@ native compilation remains unverified and its historical PDF is unchanged.
 All nine forty-page source-evidence files were verified byte-for-byte on
 GitHub at `164ca5aeca4ec8d7e456595942f91c005825d36a`. See the [publication record](Xue_semiabelian_partial_GitHub_publication_v2_20261009.json).
 Upload adds no reading credit, main-theorem clearance or native compilation verdict.
+
+## Complete Xue source audit, 9 October 2026
+
+All **83/83 physical pages** of Xue arXiv:2608.08262v2 are now actually
+read in 42 chronological matching text/image displays. Three exact
+known-model calibrations flag literal auxiliary transport, whole-slice
+and monomial-pushforward assertions; the intended main theorems remain
+UNVERIFIED and unintegrated. Finite stabilizers, finite toric intersections,
+defining fields and general-fan restriction inputs remain explicit.
+
+See [complete source audit](Xue_semiabelian_complete_source_review_v3_20261009.md)
+and [99-member authored evidence](artifact_exports/20261009_Xue_semiabelian_complete_v3/).
+Earlier partial checkpoints remain frozen. The **4,675-page book**, its
+canonical statuses and the historical catalogue PDF are unchanged.
+Native catalogue compilation remains unverified. No new whole-book pass,
+main-theorem counterexample or independent verifier receipt is claimed.
