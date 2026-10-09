@@ -7463,3 +7463,7 @@ arXiv reading. Xue remains **20/83**; the active book remains **4,675 pages**.
 
 See [source addendum](Xue_theta_dependency_source_review_v1_20261009.md)
 and [authored evidence](artifact_exports/20261009_Xue_theta_dependency_v1/).
+
+All nine theta-source evidence files were verified byte-for-byte on GitHub
+at `eebd188402cd3b69bfce72676bef9ead461dbd17`. See the [publication record](Xue_theta_dependency_GitHub_publication_v1_20261009.json).
+Upload adds no reading credit or main-theorem clearance.
