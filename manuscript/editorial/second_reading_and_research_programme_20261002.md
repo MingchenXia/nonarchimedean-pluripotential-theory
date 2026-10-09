@@ -3,6 +3,44 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest checked maximal-ray/extension book checkpoint, 9 October 2026
+
+The [integration audit](NA_maximal_extension_staged_integration_audit_v2_20261009.md)
+records the published maximal-ray chain in Chapter 60, Finski's L2
+restriction quotient plus Bernstein–Markov comparison in 65.19, and
+the origin/mean-control explanation in 68.6. Exact original hypotheses
+and imported compactness/regularity inputs remain explicit. The literal
+BBJ21 Lemma A.2 constant defect is recorded without declaring the
+intended existence theorem false or claiming a complete repair.
+
+The final 4,669-page book passes required validation, six existing tests,
+and post-render references/inventory. All 33 selected pages were actually
+read in 17 matching displays, including the full twelve-page index and
+complete Fin22a/Fin22b entries. There are no selected blank versos.
+Last complete ordered whole-book read remains 4 October. Existing
+primary-source scopes remain unchanged: BBJ21 complete; Finski metric
+structure, BoJ18a/BoJ18b and Berman v3 partial.
+
+All 13,382 old numbered values, 599 prior cited keys and 2,765 TOC
+titles/hierarchies are retained. One existing key is newly cited;
+Fin22a/Fin22b is the expected disambiguation, with 598 old citation
+labels unchanged. All 900 index entries and 48,766 internal links pass.
+Zero overfull boxes; all 955 inherited underfull blocks have identical
+normalized content and multiplicity. Other 422 core TeX inputs are
+unchanged; no formal block, manual tag, semantic label or new key is added.
+
+The [artifacts](artifact_exports/20261009_NA_maximal_extension_v2/README.md)
+preserve full PDF, actual review, minimal build source and evidence,
+including the superseded v1 wording and v2 bibliography preflight.
+Activation and remote publication are separately recorded. Preserve the
+native catalogue/editor and 42 atoms/twelve formal problems with tiers
+(0,3,7,15,17). General BJ22 homogeneous Siu/envelopes remain OPEN,
+LPWZ density UNVERIFIED and the Theorem 6.21 warning binding. No new
+general theorem, independent-model receipt or new complete book pass.
+Continue cloud-only with related original extension/Okounkov inputs,
+recent papers and incoming author progress; publish reviewed units
+regularly. Xean remains suspended.
+
 ## Latest original NA/model dependency source checkpoint, 9 October 2026
 
 The [source audit](BJ_original_NA_model_dependencies_source_review_20261009.md)

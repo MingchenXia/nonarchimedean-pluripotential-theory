@@ -4,6 +4,19 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest checked maximal-ray/extension book integration, 9 October 2026:**
+the [integration audit](manuscript/editorial/NA_maximal_extension_staged_integration_audit_v2_20261009.md)
+records the 4,669-page edition: published BBJ21 maximal-ray anchors in
+Chapter 60, the L2-plus-Bernstein–Markov restriction argument in 65.19,
+and normalized mean-sensitive compactness in 68.6. All 33 selected pages
+were read in 17 matching displays; required validation and post-render
+checks pass. All prior numbered values and cited keys are preserved;
+the newly cited existing Finski entry gives the expected Fin22a/Fin22b
+disambiguation. The [artifacts](manuscript/editorial/artifact_exports/20261009_NA_maximal_extension_v2/README.md)
+contain the full book, selected review, minimal source and actual evidence.
+The [activation record](manuscript/editorial/NA_maximal_extension_cloud_activation_v2_20261009.json)
+records activation separately. General BJ22 Siu/envelopes remain OPEN.
+
 **Latest original NA/model dependency source checkpoint, 9 October 2026:**
 the [source audit](manuscript/editorial/BJ_original_NA_model_dependencies_source_review_20261009.md)
 records 68 actually read source/page pairs in 36 matching displays:
