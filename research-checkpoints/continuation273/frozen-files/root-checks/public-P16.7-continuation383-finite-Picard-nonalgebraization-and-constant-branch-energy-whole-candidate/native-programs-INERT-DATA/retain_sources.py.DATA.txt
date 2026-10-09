@@ -1,0 +1,66 @@
+"""Own inert-data retention. Copying/hashing is not fresh mathematical reading."""
+from pathlib import Path
+import hashlib
+import json
+import shutil
+
+ROOT = Path(__file__).resolve().parents[1]
+CAMPAIGN = ROOT.parents[1]
+MATH = CAMPAIGN / "immutable-mathematical-DATA"
+PRIMARY = Path("/workspace/research/campaigns/round-267/P16.7-whole373374-nonalgebraization-and-intrinsic-E1/private-primary-DATA-LOCALONLY")
+BOUND = ROOT / "inputs-LOCALONLY"
+UNITS = ROOT / "sources-LOCALONLY" / "units"
+BOUND.mkdir(exist_ok=True)
+UNITS.mkdir(exist_ok=True)
+records = []
+
+def retain(src, dst):
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(src, dst)
+    raw = dst.read_bytes()
+    assert raw == src.read_bytes()
+    records.append({"source":str(src),"retained":str(dst.relative_to(ROOT)),"bytes":len(raw),
+                    "sha256":hashlib.sha256(raw).hexdigest(),"meaning":"content retention, not reading/correctness"})
+
+for prefix in [34,37,61,64,66,72,*range(79,89),93,94,95,96,97,98]:
+    choices = list(MATH.glob(f"{prefix:03d}-*"))
+    assert len(choices)==1, (prefix, choices)
+    retain(choices[0], BOUND/"packet"/choices[0].name)
+retain(MATH/"094-original-task.json", ROOT/"inputs"/"original-task.json")
+for name in ["mathematical-packet-bindings.json","private-primary-packet-bindings.json","book-context-bindings.json"]:
+    retain(CAMPAIGN/name, BOUND/"manifests"/name)
+
+sources = {
+ "CLD":"004-004-CLD-literal_extract.txt",
+ "Gruson":"023-Gruson-Fibres-vectoriels-polydisque-1968.txt",
+ "Van_der_Put":"051-Van-der-Put-Rigid-analytic-spaces-1975-1976.txt"}
+intervals = {
+ "CLD":[(886,1115),(6733,6833),(7070,7150),(7340,7388),(7916,8098),(9307,9431),
+          (9890,9968),(10249,10586),(16503,16600),(20722,20834),(20953,21030),
+          (21543,21696),(22097,22148),(29090,29294)],
+ "Gruson":[(25,340),(485,861),(1060,1690)],
+ "Van_der_Put":[(575,707),(854,910),(915,1100)]}
+for label, name in sources.items():
+    src=PRIMARY/name
+    retain(src, BOUND/"primary"/name)
+    # Actual LF-only splitting: preserve formfeeds as ordinary characters.
+    lines=src.read_text().split("\n")
+    for first,last in intervals[label]:
+        text="\n".join(lines[first-1:last])+"\n"
+        target=UNITS/f"{label}-{first}-{last}.txt"
+        target.write_text(text)
+        records.append({"source":str(src),"LF":[first,last],"retained":str(target.relative_to(ROOT)),
+          "bytes":len(text.encode()),"sha256":hashlib.sha256(text.encode()).hexdigest(),
+          "meaning":"exact source-unit retention; fresh-reading claim is separately in the ledger"})
+
+for name in ["005-005-CLD-pdf.pdf","022-Gruson-Fibres-vectoriels-polydisque-1968.pdf",
+             "050-Van-der-Put-Rigid-analytic-spaces-1975-1976.pdf",
+             "039-Van-der-Put-ROOT-page-10.png","044-Van-der-Put-ROOT-page-15.png"]:
+    retain(PRIMARY/name, BOUND/"primary"/name)
+PIX=Path("/workspace/research/primary-data-LOCALONLY/P16.7-native267-whole-primary-and-evidence-20261008/native-evidence")
+for name in ["gruson-37.png","gruson-38.png"]:
+    retain(PIX/name, BOUND/"primary"/name)
+
+(ROOT/"evidence"/"retention.json").write_text(json.dumps(records,indent=2)+"\n")
+print(json.dumps({"retained_records":len(records),"primary_literals_LOCALONLY":True,
+                  "supplied_programs_executed":False,"fresh_reading_inferred_from_hashes":False},indent=2))

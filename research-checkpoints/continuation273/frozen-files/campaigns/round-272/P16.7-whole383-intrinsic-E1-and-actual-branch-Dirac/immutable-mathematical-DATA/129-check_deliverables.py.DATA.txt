@@ -1,0 +1,64 @@
+"""Own structural checks only. This does not compile TeX or verify mathematics."""
+from pathlib import Path
+import json
+import hashlib
+import re
+
+ROOT=Path(__file__).resolve().parents[1]
+payload=json.loads((ROOT/"final-notes.json").read_text())
+assert payload["candidate"] is False
+seen=set()
+paper=(ROOT/"P16.7-standalone-paper.md").read_text()
+companion=(ROOT/"proof-companion.md").read_text()
+tex=(ROOT/"P16.7-standalone-paper.tex").read_text()
+def escape(text):
+    mapping={"\\":r"\textbackslash{}","{":r"\{","}":r"\}","$":r"\$","&":r"\&",
+             "#":r"\#","%":r"\%","_":r"\_","~":r"\textasciitilde{}","^":r"\textasciicircum{}"}
+    return "".join(mapping.get(c,c) for c in text)
+for n in payload["notes"]:
+    assert set(n)=={"id","summary","detailedSummary","text","support"}
+    assert n["id"] not in seen
+    assert all(s in seen for s in n["support"])
+    assert all(isinstance(n[k],str) and n[k] for k in ("id","summary","detailedSummary","text"))
+    assert n["text"]==(ROOT/"notes"/(n["id"]+".md")).read_text()
+    assert n["text"] in paper and n["text"] in companion
+    assert escape(n["text"].split("\n",1)[1]) in tex
+    seen.add(n["id"])
+assert len(seen)==5
+assert "candidate=false" in payload["notes"][-1]["text"]
+ledger=(ROOT/"source-application-ledger.md").read_text()
+assert ledger in companion and escape(ledger) in tex
+assert tex.count(r"\begin{document}")==tex.count(r"\end{document}")==1
+assert tex.count(r"\begin{theorem}")==tex.count(r"\end{theorem}")==3
+balance=0
+dollars=0
+i=0
+while i<len(tex):
+    c=tex[i]
+    if c=="\\" and i+1<len(tex) and tex[i+1] in "{}$%&#_~^\\":
+        i+=2
+        continue
+    if c=="{": balance+=1
+    if c=="}":
+        balance-=1
+        assert balance>=0
+    if c=="$": dollars+=1
+    i+=1
+assert balance==0 and dollars%2==0
+retention=json.loads((ROOT/"evidence"/"retention.json").read_text())
+for r in retention:
+    target=ROOT/r["retained"]
+    raw=target.read_bytes()
+    assert len(raw)==r["bytes"]
+    assert hashlib.sha256(raw).hexdigest()==r["sha256"]
+assert hashlib.sha256((ROOT/"inputs"/"original-task.json").read_bytes()).hexdigest()=="8dd54853b9d191f59be5a2e9497b895a774be1eec6b3980823fd27062fddc0ff"
+diag=json.loads((ROOT/"evidence"/"diagnostics.json").read_text())
+assert diag["plucker"]["finite_strong_square_span_rank"]==20
+verdict=json.loads((ROOT/"evidence"/"original-verdict.json").read_text())
+assert verdict["candidate"] is False and verdict["complete_original_solution"] is False
+output={"schema_and_earlier_own_support_order":"pass","all_complete_own_bodies_in_paper_and_companion":"pass",
+        "all_complete_proof_bodies_in_saved_TeX":"pass","lexical_TeX_groups_environments_math":"pass",
+        "retention_bindings_checked":len(retention),"original_input_hash":"unchanged",
+        "compiled":False,"mathematical_correctness_established":False,"original_P16_7_solved":False}
+(ROOT/"evidence"/"checks.json").write_text(json.dumps(output,indent=2)+"\n")
+print(json.dumps(output,indent=2))
