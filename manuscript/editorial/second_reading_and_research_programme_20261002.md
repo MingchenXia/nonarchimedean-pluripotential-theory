@@ -8084,3 +8084,16 @@ All nine Ye concave-transform source/evidence/progress blobs were downloaded
 and verified byte-for-byte on GitHub at `768006bdd23be61d1311d96954606b99d7f683cd`.
 See the [publication record](Ye_adelic_concave_transforms_complete_source_GitHub_publication_v1_20261009.json). Upload adds no reading credit,
 recursive dependency clearance or original-result promotion.
+
+### Yuan Chebyshev/chi-volume full-source checkpoint, 9 October 2026
+
+All 19 physical pages of arXiv:0909.3680v1 were actually read in ten
+ordered matching text/image views. The [source audit](Yuan_Chebyshev_chi_volume_complete_source_review_v1_20261009.md)
+and [32-member authored evidence](artifact_exports/20261009_Yuan_Chebyshev_chi_volume_v1/README.md) retain the Chebyshev/HN
+distinction, signed-volume factorial and [K:Q] normalization, boundary
+terms, full valuation semigroups and smooth/continuous metric scope.
+The intended leading integral argument is reconstructed with explicit
+normalization and regularity qualifications. No original
+book result or canonical problem is promoted. The active 4,685-page
+book and same native catalogue/editor are unchanged by this audit.
+Work continues cloud-only; upload supplies no additional reading credit.
