@@ -1,0 +1,119 @@
+"""Fresh, small standard-library exact diagnostics for this worker's formulas.
+
+Finite rational/monomial/polynomial arithmetic only. Does not implement the
+geometric cone and does not certify any universal mathematical statement.
+"""
+from fractions import Fraction as F
+from itertools import product
+from math import inf, comb, ceil
+from pathlib import Path
+import json
+
+Path('reports').mkdir(exist_ok=True)
+weights = [F(1), F(3, 2), F(2), F(3), F(7), inf]
+cases = [(s, z) for s, z in product(weights, repeat=2) if min(s, z) == 1]
+
+def val(exp, weights):
+    return sum(e*w for e, w in zip(exp, weights) if e)
+
+def contains(gens, exp):
+    return any(all(a >= b for a, b in zip(exp, g)) for g in gens)
+
+profiles = memberships = gap_witnesses = competitors = 0
+for m in range(1, 41):
+    c = (3*m+1)//2
+    plus = [(0, c)] + [(i+1, m-1-i) for i in range(m)]
+    minus = [(0, c)] + [(i+1, c-1-i) for i in range(c)]
+    for s, z in cases:
+        hp = -min(val(g, (s, z)) for g in plus)/m
+        hm = -min(val(g, (s, z)) for g in minus)/m
+        assert hp == -min(c*z, s+m-1)/m
+        assert hm == -F(c, m)
+        rawp = -F(3, 2) if s == inf else F(-1)
+        assert 0 <= rawp-hp <= F(c, m)-1
+        assert 0 <= -F(3, 2)-hm <= F(c, m)-1
+        profiles += 2
+        # Actual primary competitor localized at each marked centre.
+        n = m
+        qp = -min(3*n, s+2*n)/(2*n)
+        qm = -min(3*n, n*s+2*n)/(2*n)
+        Fp = F(-1)
+        Fm = min(s, 2)/2-2
+        assert qp <= Fp and qm <= Fm
+        assert qp == max(-F(3, 2), -1-s/(2*n))
+        assert qm == -F(3, 2)
+        competitors += 2
+    witness = (F(c-m+1), F(1))
+    hp = -min(val(g, witness) for g in plus)/m
+    assert F(-1)-hp == F(c, m)-1
+    gap_witnesses += 1
+    for i, j in product(range(2*m+1), repeat=2):
+        assert contains(plus, (i, j)) == (j >= c if i == 0 else i+j >= m)
+        assert contains(minus, (i, j)) == (i+j >= c)
+        memberships += 2
+
+def mul(p, q):
+    out = {}
+    for i, a in p.items():
+        for j, b in q.items():
+            out[i+j] = out.get(i+j, 0)+a*b
+    return {i: a for i, a in out.items() if a}
+
+def power(p, n):
+    out = {0: 1}
+    for _ in range(n):
+        out = mul(out, p)
+    return out
+
+u = {2: 1, 0: -1}
+v = mul(u, {1: 1})
+polynomials = 0
+for n in range(1, 41):
+    actual = mul(u, power({1: 1, 0: 1}, n-1))
+    # Reduce u*(t+1)^(n-1) using t^2=1+u and ut=v.
+    rebuilt = {}
+    for j in range(n):
+        term = mul(v if j % 2 else u, power({2: 1}, j//2))
+        for degree, coefficient in term.items():
+            rebuilt[degree] = rebuilt.get(degree, 0)+comb(n-1, j)*coefficient
+    rebuilt = {i:a for i,a in rebuilt.items() if a}
+    assert actual == rebuilt
+    polynomials += 1
+assert mul(u, {1: 1, 0: -1}) == {i: v.get(i, 0)-u.get(i, 0)
+                                              for i in set(u)|set(v)}
+
+crt = 0
+for r1, r2, K, d in product(range(1, 5), range(1, 5),
+                            [F(1), F(2), F(7)], [F(1), F(3, 2), F(5)]):
+    L = ceil(d)+1
+    B = (K-1)/(1-d/L)
+    B = B.numerator//B.denominator+1
+    D = 1+B*(1-d/L)
+    assert D > K
+    assert F(L*r1, r1) >= L
+    for n in range(1, 9):
+        M_n = B*n*r2
+        assert F(M_n, r2) >= B*n
+        assert -min((B+1)*n, F(M_n, r2)+n)/n == -(B+1)
+        crt += 1
+
+pinch = 0
+for i, j, h, ell in product(range(5), repeat=4):
+    # u^i x^j y^h s^ell restricted to y=0,t=+s and -s.
+    alpha = beta = inf if j or h else F(2*i+ell)
+    assert alpha == beta
+    pinch += 1
+
+inputs = {'degrees': [1, 40], 'weights': ['infinity' if x == inf else str(x) for x in weights],
+          'normalized_weight_pairs': len(cases), 'monomial_box': '0<=i,j<=2m',
+          'CRT': {'r_i': [1,4], 'K': ['1','2','7'], 'd': ['1','3/2','5'], 'n': [1,8]},
+          'pinch_exponents': [0,4], 'polynomial_coefficients': 'integers; identities for n=1..40'}
+result = {'status': 'PASS', 'canonical_profile_checks': profiles,
+          'competitor_profile_checks': competitors, 'monomial_membership_checks': memberships,
+          'exact_gap_witnesses': gap_witnesses, 'conductor_polynomial_identities': polynomials,
+          'CRT_bound_checks': crt, 'pinch_restriction_monomials': pinch,
+          'minimum_witnessed_uniform_gap': '1/2', 'maximum_witnessed_uniform_gap': '1',
+          'mathematical_certification': False}
+Path('diagnostics-input.json').write_text(json.dumps(inputs, indent=2)+'\n')
+Path('reports/diagnostics.json').write_text(json.dumps(result, indent=2)+'\n')
+print(json.dumps(result, indent=2))

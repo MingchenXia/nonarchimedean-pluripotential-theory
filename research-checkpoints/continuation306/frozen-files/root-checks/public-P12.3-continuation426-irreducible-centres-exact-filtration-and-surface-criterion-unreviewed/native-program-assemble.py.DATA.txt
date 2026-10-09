@@ -1,0 +1,193 @@
+"""Fresh data-only assembly. No supplied program, compiler or network is used."""
+from pathlib import Path
+import hashlib
+import json
+import platform
+import sys
+import datetime
+
+HERE = Path(__file__).resolve().parent
+PACKET = HERE.parent.parent
+math = json.loads((PACKET/'mathematical-packet-bindings.json').read_text())
+primary = json.loads((PACKET/'private-primary-packet-bindings.json').read_text())
+for folder in ['retained', 'reports']:
+    (HERE/folder).mkdir(exist_ok=True)
+
+def data(index):
+    return Path(math[index]['path']).read_bytes()
+
+def sha(body):
+    return hashlib.sha256(body).hexdigest()
+
+def escape(body):
+    mapping = {'\\': r'\textbackslash{}', '{': r'\{', '}': r'\}',
+               '&': r'\&', '%': r'\%', '$': r'\$', '#': r'\#', '_': r'\_',
+               '^': r'\textasciicircum{}', '~': r'\textasciitilde{}',
+               '<': r'\textless{}', '>': r'\textgreater{}'}
+    return ''.join(mapping.get(ch, ch) for ch in body)
+
+spec = [
+ ('n1', 'Independent current proof audit and reusable all-support canonical calculus; normal higher-dimensional CE remains unproved.',
+  'Reconstructs the canonical C/D raw-supremum identity, positivity before limits, all-degree convergence and FG implication. Rejudges the normal-surface, exact BFJ, conductor, cusp, crossing and gluing arguments at their full qualifications. Reads all actual/expanded current proofs and fourteen immediate primary units; historical recursive audit remains qualified.', ['G331']),
+ ('n2', 'Distinct MARKED normalization centres obstruct geometric envelopes, even for DOMAIN normalization.',
+  'Proves the CRT/conductor proposal on every support with actual primary-model obstacles and all-curve-positive competitors. Requires a full fibre joining distinct closed normal centres, not distinct minimal components. Gives a positive canonical uniform gap in every degree and stable perturbation failure. Same-centre fibres are not decided.', ['G331','n1']),
+ ('n3', 'Irreducible self-crossing has no greatest C/D minorant; exact canonical error is ceil(3m/2)/m-1.',
+  'Proves domain normalization, exact conductor/quotients, signed primary obstacle, full raw envelope and every-degree canonical ideals over char!=2 fields in all dimensions>=2 and excellent DVR surfaces with2 invertible. Every primary divisor is actually ample before limits. Failure is nonnormal, not a normal CE counterexample.', ['G331','n1','n2']),
+ ('n4', 'Exact irreducible surface gluing criterion; pinch same-centre fibre and uniform coercivity barrier.',
+  'All continuous obstacles on the irreducible self-crossing surface admit a greatest C/D minorant iff normal-envelope conductor values agree. Pinch surface CE holds over every field; pinch threefold has a precise two-point same-centre fibre in char!=2. Normal coercivity blocks the proposed plateau method and uniformly bounds raw negative envelopes, but same-centre/general normal>=3 CE remains open.', ['G331','n1','n2','n3']),
+ ('n5', 'Complete scoped deliverables and finite evidence retained; unchanged ORIGINAL P12.3 remains open, candidate=false.',
+  'Reports new irreducible marked-centre obstruction, exact filtration, surface criterion and same-centre structural/barrier deductions. Retains complete actual/formal/source qualifications, BOTH actual/assembled versions, entire incoming standalone/companion and byte-unchanged residual. No original closure, compiler success or recursive historical audit is claimed.', ['G331','n1','n2','n3','n4'])
+]
+notes = []
+for ident, summary, detailed, support in spec:
+    notes.append({'id': ident, 'summary': summary, 'detailedSummary': detailed,
+                  'text': (HERE/(ident+'.md')).read_text().strip(), 'support': support})
+(HERE/'notes.json').write_text(json.dumps({'notes': notes, 'candidate': False}, ensure_ascii=False, indent=2)+'\n')
+
+copies = []
+for index, record in enumerate(math):
+    body = data(index)
+    assert len(body) == record['bytes'] and sha(body) == record['sha256']
+    target = HERE/'retained'/Path(record['path']).name
+    target.write_bytes(body)
+    copies.append({'index': index, 'source': record['path'], 'target': str(target.relative_to(HERE)),
+                   'bytes': len(body), 'sha256': sha(body), 'binding_match': True,
+                   'reading_credit_from_hash': False})
+for name in ['mathematical-packet-bindings.json', 'private-primary-packet-bindings.json', 'book-context-bindings.json']:
+    (HERE/'retained'/name).write_bytes((PACKET/name).read_bytes())
+for index, name in [(1,'original-task.json'), (27,'original-completion-criteria.txt'),
+                    (28,'original-residual.md'), (31,'qualified-G331.json'), (32,'qualified-G331.txt')]:
+    (HERE/name).write_bytes(data(index))
+
+equations = [r'''
+\[
+ A_m(f)=\{g:v(g)+mf(v)\ge0\ \forall v\in V_{\mathfrak a}\},\quad
+ h_m=-v(A_m)/m,\quad p(f)=\sup_m h_m.
+\]
+\[
+ H_N-N\|v(A_1)\|_\infty/m\le h_m\le p(f),\qquad
+ p(f)\text{ continuous}\Longleftrightarrow h_m\to p(f)\text{ uniformly}.
+\]
+''', r'''
+\[
+ \ell=c_0k^M\in R,\qquad j_n=c_0h^{M_n}\in R,\qquad
+ T_n=\mathfrak a^{(B+1)n}+(j_n)\mathfrak a^n.
+\]
+\[
+ F=\frac BL v((\ell)+\mathfrak a^L)-(B+1)v(\mathfrak a),\quad
+ g(\rho\beta)\le g(\rho\nu)/K<-1.
+\]
+''', r'''
+\[
+ R=k[u,v,\mathbf z]_0/(v^2-u^2(1+u)),\quad u=t^2-1,\quad v=tu.
+\]
+\[
+ F=\tfrac12v((v-u)+\mathfrak m^2)-2v(\mathfrak m),\qquad
+ c_m=\lceil3m/2\rceil.
+\]
+\[
+ A_m=(\mathbf z)^{c_m}R+u(t-1,\mathbf z)^{m-1}(t+1,\mathbf z)^{c_m-1},
+ \qquad\|p-h_m\|_\infty=c_m/m-1\ge\tfrac12.
+\]
+''', r'''
+\[
+ \text{greatest C/D minorant on the irreducible surface exists}
+ \Longleftrightarrow H_+(o_+)=H_-(o_-).
+\]
+\[
+ k[t^2,ty,y,s]_0\subset k[t,y,s]_0,\qquad
+ \mathfrak c=yS,\quad \alpha:(y,t-s),\quad\beta:(y,t+s).
+\]
+\[
+ g(w)\le g(\nu)/K_\nu\quad(g\in C\cup D),\qquad
+ f\not\ge0\Longrightarrow p(f)(w)\le f(\nu)/K_\nu<0.
+\]
+''', r'''
+\[
+ \text{candidate}=\text{false},\qquad
+ \text{general normal dimension}\ge3\text{ and same-centre CE remain open}.
+\]
+''']
+chapters = []
+for note, formula in zip(notes, equations):
+    body = '\\section{'+escape(note['id']+'. '+note['summary'])+'}\n'
+    body += '\\textit{Supports: '+escape(', '.join(note['support']))+'.}\n\n'
+    body += escape(note['text'])+'\n'+formula+'\n'
+    (HERE/(note['id']+'.tex')).write_text(body)
+    chapters.append(body)
+
+# Keep the complete original source literally, with a new unique verbatim
+# environment; its own nested environments are inert characters in this one.
+old = data(0).decode()
+header = old[:old.index('\\title{')]
+header += '\\DefineVerbatimEnvironment{Full422Data}{Verbatim}{fontsize=\\tiny}\n'
+header += '\\DeclareUnicodeCharacter{00B1}{\\ensuremath{\\pm}}\n'
+header += r'''\title{Irreducible conductor centres and geometric obstacle envelopes\\
+Marked-centre obstruction, exact self-crossing filtration, and same-centre barriers}
+\author{Unverified scoped ORIGINAL P12.3 deductions; candidate=false}
+\date{9 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Relative to the ENTIRE qualified geometric comparison G331, any full
+normalization-boundary fibre joining distinct marked normal centres prevents
+a greatest geometric C or D minorant for a strictly negative signed primary
+model obstacle. Chinese remainder powers and a regular conductor multiplier
+prove this even for domain normalization. An irreducible self-crossing has
+exact canonical error $\lceil3m/2\rceil/m-1\ge1/2$ in every degree. On its
+surface boundary, equality of the two normal-envelope conductor values is
+necessary and sufficient for continuous positive gluing. A pinch family
+exhibits a genuinely same-centre two-point fibre, and a uniform normal-centre
+coercivity theorem blocks the proposed plateau argument there. General
+normal higher-dimensional and same-centre envelope questions remain open.
+All current actual/formal proofs and exact source qualifications are retained.
+Compilation, publication and acceptance are reserved to ROOT.
+\end{abstract}
+\tableofcontents
+'''
+tail = '\n'
+for name in ['source-application-reading-ledger.md','scoped-verdict.md']:
+    tail += '\\section*{'+escape(name)+'}\n'+escape((HERE/name).read_text())+'\n'
+tail += '\\appendix\n'
+for index in [4,5,6,7,8,15,26,2,3,27,28,32,36,37,0]:
+    body = data(index).decode()
+    assert '\\end{Full422Data}' not in body
+    tail += '\\section{ENTIRE retained DATA: '+escape(Path(math[index]['path']).name)+'}\n'
+    tail += '\\begin{Full422Data}\n'+body+'\n\\end{Full422Data}\n'
+tail += '\\end{document}\n'
+(HERE/'P12.3-marked-centres.tex').write_text(header+'\n'.join(chapters)+tail)
+
+parts = ['# Complete proof companion; unverified scoped deductions, candidate=false\n']
+for note in notes:
+    parts += ['\n## New actual fields '+note['id']+'\n\n',
+              json.dumps(note, ensure_ascii=False, indent=2)+'\n',
+              '\n## New expanded TeX '+note['id']+'\n\n', (HERE/(note['id']+'.tex')).read_text()]
+for index, record in enumerate(math):
+    parts += ['\n## ENTIRE retained incoming DATA '+Path(record['path']).name+'\n\n',
+              data(index).decode(), '\n']
+for name in ['source-application-reading-ledger.md','scoped-verdict.md']:
+    parts += ['\n## Current '+name+'\n\n', (HERE/name).read_text()]
+(HERE/'proof-companion.md').write_text(''.join(parts))
+
+selected = [1244,1245,1246,1247,1248,1249,1250,1251,1252,1253,1254,1255,1256,1257,1258,1259]
+checks = copies.copy()
+for index in selected:
+    rec = primary[index]
+    body = Path(rec['path']).read_bytes()
+    assert len(body) == rec['bytes'] and sha(body) == rec['sha256']
+    checks.append({'private_index': index, 'source': rec['path'], 'bytes': len(body),
+                   'sha256': sha(body), 'binding_match': True, 'LOCALONLY': True,
+                   'reading_credit_from_hash': False})
+(HERE/'reports/input-hashes.json').write_text(json.dumps(checks, indent=2)+'\n')
+(HERE/'reports/retention.json').write_text(json.dumps(copies, indent=2)+'\n')
+(HERE/'reports/environment.json').write_text(json.dumps({
+    'recorded_utc': datetime.datetime.now(datetime.timezone.utc).isoformat(),
+    'python': sys.version, 'platform': platform.platform(), 'cwd': str(HERE),
+    'compiler_invoked': False, 'supplied_programs_run_or_imported': False,
+    'agents': 0, 'additional_model_or_native_calls': 0, 'network_used': False,
+    'supervised_heavy_compute_exposed': False, 'heavy_compute_needed': False,
+    'model_sign_in_independently_attested': False, 'mathematical_certification': False}, indent=2)+'\n')
+print(json.dumps({'notes': len(notes), 'candidate': False,
+                  'tex_bytes': (HERE/'P12.3-marked-centres.tex').stat().st_size,
+                  'companion_bytes': (HERE/'proof-companion.md').stat().st_size,
+                  'retained_math_inputs': len(math), 'compiler_invoked': False}, indent=2))
