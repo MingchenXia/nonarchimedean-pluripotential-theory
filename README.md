@@ -2750,3 +2750,7 @@ obstructs a proof strategy and is not a continuous-envelope counterexample.
 No exact-current independent production-verifier receipt is present.
 General higher-dimensional and nonsingleton-conductor questions remain
 OPEN. The book, native catalogue/editor and canonical statuses are unchanged.
+
+All nine scoped incoming P12.3 review/evidence files were downloaded from
+GitHub and verified byte-for-byte at `8c33e9b611b6a992354959dd2c6ffba0cd412980`. See the [publication record](manuscript/editorial/P12_3_incoming_continuation302_GitHub_publication_v1_20261009.json).
+The new claims remain UNVERIFIED; upload adds no proof or reading credit.
