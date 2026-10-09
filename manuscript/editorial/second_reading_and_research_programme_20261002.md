@@ -3,6 +3,43 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest model Green-current and norm book checkpoint, 9 October 2026
+
+The [integration audit](Model_Green_norm_staged_integration_audit_v3_20261009.md)
+adds Chapter 17's regular-model Green-current interface, Chapter 19's
+finite-flat norm hypotheses, and L.97. It retains the operational
+Chow/CLD distinction, regular/cofinal model assumptions, two explicit
+singular blowup examples and the projective/geometrically reduced/ample/
+continuous norm scope. No general higher-rank formula, local weak-psh
+descent, nondiscrete affine regularization or general envelope theorem
+is imported.
+
+The staged book has 4,657 pages. All 34 selected final pages were
+freshly read in 17 individual matching displays with complete text
+and sequential notes. Required validation and post-render gates pass.
+All 955 underfull blocks, prior numbered values and 595 citation labels
+are preserved. The other 422 TeX inputs, ComplexGeometry, 225 historical
+blocks including 75 proofs and six manual tags are unchanged.
+Frozen v1's 7.49791pt overflow and one actual diagnostic page remain;
+two failed view-selection preflights created no images or reading credit.
+V2 wraps the display and corrects citation typography. Partial v2 reading
+found the regular-section/regular-zero-scheme heading ambiguity; fresh v3
+corrects it. All final v3 pages are freshly read, with no reuse. No earlier diagnostic display is reused for final reading credit.
+
+Source scopes remain the complete 27-page Dubocs v1 and previous partial
+29-page published BE21 reading, with remote evidence verification.
+The [activation record](Model_Green_norm_cloud_activation_v3_20261009.json)
+controls the new cloud book edition; remote publication gets a separate
+subsequent record. Native catalogue/editor and 42 atoms/twelve problems
+stay unchanged. General BJ22 critical homogeneous Siu/envelopes OPEN,
+LPWZ density UNVERIFIED; the last complete ordered book pass is 4 October.
+No original general theorem or independent-model receipt is claimed.
+
+Continue related primary literature and sequential open-problem interfaces,
+including exact comparison maps and missing approximation/base-change
+dependencies. Check incoming author updates and periodically push checked
+evidence. Execution remains cloud-only and Xean remains suspended.
+
 ## Latest model Green-current primary checkpoint, 9 October 2026
 
 The [complete primary audit](Dubocs_Green_currents_source_review_20261009.md)

@@ -4,6 +4,19 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest checked model Green-current and norm book integration, 9 October 2026:**
+the [integration audit](manuscript/editorial/Model_Green_norm_staged_integration_audit_v3_20261009.md)
+adds precise interfaces to Chapters 17 and 19 and new L.97. It distinguishes
+model-Chow from CLD currents, gives two explicit blowup regularity examples
+and retains the exact global psh norm hypotheses. All 34 final selected
+pages were freshly read in 17 individual matching displays; full validation
+and post-render gates pass. Frozen v1's overflow is corrected in v2; v3 fixes the regular-section
+heading found during the partial v2 review, with no change to the example. The
+[activation record](manuscript/editorial/Model_Green_norm_cloud_activation_v3_20261009.json)
+controls the 4,657-page cloud edition. General higher-rank and weak-local
+bridges, canonical statuses and the native editor retain their boundaries.
+No original general theorem or fresh whole-book pass is claimed.
+
 **Latest model Green-current primary checkpoint, 9 October 2026:** the
 [Dubocs source audit](manuscript/editorial/Dubocs_Green_currents_source_review_20261009.md)
 reads all 27 pages of arXiv:2606.19160v1 with complete text and fourteen
@@ -292,7 +305,7 @@ citation values are preserved. The [cloud activation record](manuscript/editoria
 controls the source/PDF update. No whole-book new reading, original general
 result or canonical status change is claimed. Its verified artifacts are uploaded.
 
-The current cloud research-integration build has **4,651 pages**; its
+The current cloud research-integration build has **4,657 pages**; its
 source and checked book/audit exports are published on `work`. The checked
 [geometric-norm account](manuscript/editorial/Temkin_Zutler_geometric_norms_staged_integration_audit_20261008.md)
 adds Sections 4.6.1--4.6.2: tensor and spectral norm distinctions, exact
