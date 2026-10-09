@@ -2666,3 +2666,7 @@ and [105-member authored evidence](manuscript/editorial/artifact_exports/2026100
 The **4,675-page book**, canonical 42-atom/twelve-problem inventory, catalogue
 source and historical PDF are unchanged; native compilation remains unverified.
 The earlier bounded checkpoints and evidence are preserved without rewriting.
+
+All nine complete toric-source evidence files were verified byte-for-byte
+on GitHub at `1a16af3ae42dd796d96f6465b82f0af080134777`. See the [publication record](manuscript/editorial/BGPS_toric_attainment_complete_GitHub_publication_v3_20261009.json).
+The candidate has no independent VERIFIED verdict; upload adds zero reading credit.
