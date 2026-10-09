@@ -2730,3 +2730,7 @@ Almost-split/product hypotheses and scoped literal proof qualifications
 remain explicit. No new result or independent VERIFIED receipt is claimed.
 The 4,677-page book, catalogue/editor and canonical statuses are unchanged.
 Incoming continuation302/P12.3 is unreviewed and under a separate audit.
+
+All nine Chambert–Loir published-source audit/evidence files were downloaded
+from GitHub and verified byte-for-byte at `173818ea12531966e5916bcd8dd6a150913be031`. See the [publication record](manuscript/editorial/Chambert_Loir_complete_GitHub_publication_v1_20261009.json).
+Upload adds no reading credit or new-result promotion.
