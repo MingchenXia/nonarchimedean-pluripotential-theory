@@ -1,0 +1,9 @@
+Candidate=false. Unverified scoped mathematical progress only.
+
+The reconstructed normal-surface theorem applies to EVERY excellent normal local domain of dimension TWO, arbitrary residue field and equal/mixed characteristic. The new theorem proves CE equivalence under full boundary-bijective normalization, with explicit primary-conductor and finite radicial reduced conductor quotient criteria. It retains EVERY support, including infinite-conductor quotient strata.
+
+Numerical-semigroup cusp germs k[t^H,z_1,...,z_(d-1)] at the origin have CE for EVERY finite continuous signed obstacle in EVERY dimension over algebraically closed characteristic-zero fields. Dimension two works over arbitrary fields; Z_p[[t^2,t^3]] gives a nonnormal mixed-characteristic example with nonempty infinite-conductor boundary. A specific cancellation-sensitive cusp obstacle has canonical uniform error <=2/m in every dimension and characteristic, and in characteristic zero has no finite-real raw ideal presentation and a non-finitely-generated canonical algebra.
+
+An explicit regular threefold ACTUAL primary model gives degree -1 on a contracted joining line for -(E1+2E2+2E3), the divisorial part of I=(z)+m^2. This is a precise obstruction to the surface generic-section argument, not a CE counterexample.
+
+The unchanged original general excellent higher-dimensional normal and unrestricted nonnormal/conductor envelope problem remains open. No normal continuous-obstacle failure is claimed. The exact BFJ source scope and reduced-curve min(f,0) comparison, literal radial distinction, nilpotent reduction, empty dimension-zero case and all G331 qualifications remain. Products, energy and full finite operators are separate. Historical recursive/whole-book audit remains incomplete. ROOT handles compilation/publication/acceptance; no new compilation success or acceptance is claimed.

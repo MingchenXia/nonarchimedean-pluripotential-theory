@@ -1,0 +1,49 @@
+"""Own static verification only. No compiler or supplied executable imports."""
+from pathlib import Path
+import hashlib,json
+HERE=Path(__file__).resolve().parent
+DATA=Path('/workspace/research/campaigns/round-290/P12.3-whole416-higher-dimensional-and-conductor-envelope-residual/immutable-mathematical-DATA')
+def h(b):return hashlib.sha256(b).hexdigest()
+out=json.loads((HERE/'notes.json').read_text());seen={'G331'}
+assert out['candidate'] is False
+for n in out['notes']:
+    assert set(n)=={'id','summary','detailedSummary','text','support'}
+    assert set(n['support'])<=seen
+    assert n['text']==(HERE/(n['id']+'.md')).read_text().strip()
+    seen.add(n['id'])
+tex=(HERE/'P12.3-conductor-and-threefold.tex').read_text()
+comp=(HERE/'proof-companion.md').read_text()
+g=json.loads((HERE/'qualified-G331.json').read_text())['text']
+assert g in comp and g in tex
+assert (DATA/'000-P12.3-surface-envelopes.tex').read_bytes()==(HERE/'retained/whole416-source.tex.DATA').read_bytes()
+assert (DATA/'021-proof-companion.md').read_bytes()==(HERE/'retained/whole416-companion.md.DATA').read_bytes()
+assert (DATA/'000-P12.3-surface-envelopes.tex').read_text() in tex
+assert (DATA/'021-proof-companion.md').read_text() in comp
+assert (DATA/'019-original-residual.md').read_bytes()==(HERE/'original-residual.md').read_bytes()
+for i in range(1,5):
+    a=json.loads((DATA/f'{i+3:03}-actual-n{i}-all-five-fields.json').read_text())
+    b=json.loads((HERE/'retained/current416'/f'{i+3:03}-actual-n{i}-all-five-fields.json').read_text())
+    assert a==b
+    expanded=(DATA/f'{i+7:03}-n{i}.tex').read_text()
+    assert expanded.rstrip() in comp and expanded.rstrip() in tex
+for n in out['notes']:
+    assert json.dumps(n,ensure_ascii=False,indent=2) in comp
+    assert (HERE/(n['id']+'.tex')).read_text() in comp
+# Literal primary bodies stay in their original LOCALONLY paths.
+bindings=json.loads((DATA.parent/'private-primary-packet-bindings.json').read_text())
+tested=0
+for r in bindings:
+    if any(s in r['path'] for s in ['P12.3-ROOT413-algebraic-field-root-descent-source','P12.3-ROOT416-normal-surface-resolution-and-primary-model-source']) and r['path'].endswith('.txt'):
+        body=Path(r['path']).read_text()
+        assert body not in tex and body not in comp
+        tested+=1
+f=json.loads((HERE/'reports/finite-diagnostics.json').read_text());assert f['status']=='PASS'
+result={'status':'PASS','candidate':False,'local_notes':len(out['notes']),'support_order_valid':True,
+        'whole416_source_retained_bytes':(HERE/'retained/whole416-source.tex.DATA').stat().st_size,
+        'whole416_companion_retained_bytes':(HERE/'retained/whole416-companion.md.DATA').stat().st_size,
+        'original_residual_byte_unchanged':True,'current416_all_four_actual_and_expanded_retained':True,
+        'primary_literal_body_exclusion_checks':tested,'compiler_invoked':False,'mathematical_certification':False}
+(HERE/'reports/verification.json').write_text(json.dumps(result,indent=2)+'\n')
+files={str(p.relative_to(HERE)):h(p.read_bytes()) for p in HERE.rglob('*') if p.is_file() and p.name!='own-hashes.json'}
+(HERE/'reports/own-hashes.json').write_text(json.dumps(files,indent=2)+'\n')
+print(json.dumps(result,indent=2))

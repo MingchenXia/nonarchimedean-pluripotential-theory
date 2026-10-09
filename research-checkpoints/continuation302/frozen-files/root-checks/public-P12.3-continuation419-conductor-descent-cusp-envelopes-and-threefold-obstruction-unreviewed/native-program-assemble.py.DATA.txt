@@ -1,0 +1,216 @@
+"""Own data-only assembly. No supplied executable, native provider or compiler."""
+from pathlib import Path
+import hashlib,json,platform,shutil,sys
+
+ROOT=Path('/workspace/research/campaigns/round-290/P12.3-whole416-higher-dimensional-and-conductor-envelope-residual')
+DATA=ROOT/'immutable-mathematical-DATA'
+HERE=Path(__file__).resolve().parent
+def digest(b): return hashlib.sha256(b).hexdigest()
+def copy(name,target):
+    b=(DATA/name).read_bytes();p=HERE/target;p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(b)
+    return {'source':str(DATA/name),'target':target,'bytes':len(b),'sha256':digest(b)}
+
+reports=HERE/'reports';reports.mkdir(exist_ok=True)
+retained=[]
+for name,target in [
+ ('000-P12.3-surface-envelopes.tex','retained/whole416-source.tex.DATA'),
+ ('021-proof-companion.md','retained/whole416-companion.md.DATA'),
+ ('002-ROOT-whole-proof-source-application-scope-and-residual.json','retained/whole416-qualifications.json'),
+ ('003-ROOT-whole-proof-source-scope-and-binding.json','retained/whole416-binding.json'),
+ ('019-original-residual.md','original-residual.md'),
+ ('018-original-completion-criteria.txt','original-completion-criteria.txt'),
+ ('001-ROOT-unchanged-original-task.json','retained/ROOT-unchanged-original-task.json'),
+ ('025-source-application-reading-ledger.md','retained/whole416-ledger.md'),
+ ('024-scoped-verdict.md','retained/whole416-verdict.md'),
+ ('026-000-P12.3-algebraic-descent-envelopes.tex','retained/whole413-source.tex.DATA'),
+ ('043-017-proof-companion.md','retained/whole413-companion.md.DATA')]:
+    retained.append(copy(name,target))
+for i in range(1,5):
+    for name in [f'{i+3:03}-actual-n{i}-all-five-fields.json',f'{i+7:03}-n{i}.tex']:
+        retained.append(copy(name,'retained/current416/'+name))
+for i,name in enumerate(['build_delivery','check_delivery','read_data','surface_checks'],12):
+    retained.append(copy(f'{i:03}-native-program-{name}.py.DATA.txt','retained/inert-programs/'+name+'.py.DATA.txt'))
+
+inp=json.loads((HERE/'input.json').read_text())
+grant=next(n for n in inp['notes'] if n['id']=='G331')
+(HERE/'qualified-G331.json').write_text(json.dumps(grant,ensure_ascii=False,indent=2)+'\n')
+(HERE/'qualified-G331.txt').write_text(grant['text'])
+(HERE/'original-task.json').write_text(json.dumps(inp['task'],ensure_ascii=False,indent=2)+'\n')
+table=[
+ ('n1','Independent whole416 canonical/surface reconstruction; exact smooth source theorem and source qualifications preserved.',
+  'Proves the raw C/D envelope identity, all-degree uniform criterion, gauge rules and complete normal-surface argument using actual primary refinements, real Cartier positivity and every-support competitor domination. Reconstructs BFJ CE only at published algebraically closed characteristic-zero smooth closed-germ hypotheses. Historical recursive audit remains qualified; G331 alone is granted.', ['G331']),
+ ('n2','Full conductor-envelope equivalence when the entire normalized boundary is bijective; explicit radicial and primary-conductor criteria.',
+  'Proves singleton fibres on both finite and infinite conductor strata, order/isometric C and D descent, raw envelope transport and CE equivalence. Finite radicial reduced conductor quotients and zero-dimensional conductor quotients suffice. Actual downstairs canonical primary profiles give all-curve-positive approximants. Nonsingleton-fibre descent remains open.', ['G331','n1']),
+ ('n3','Nonisolated nonnormal CE in every dimension over algebraically closed characteristic zero; explicit all-characteristic cusp envelope error <=2/m and char-zero non-FG.',
+  'Numerical-semigroup cusps have identical reduced conductor quotients and a full boundary homeomorphism, including infinite-conductor supports. Smooth source CE gives all continuous signed obstacles in every dimension at exact hypotheses; surfaces work over all fields and Z_p cusp gives a mixed-characteristic case. A cancellation-sensitive ideal sequence proves 2/m all-support canonical error in every dimension/field. In char zero its envelope lies outside the entire finite real raw ideal cone and canonical finite generation fails.', ['G331','n1','n2']),
+ ('n4','Explicit actual-primary threefold obstruction: generic sections on exceptional surfaces do not imply all-curve-nef divisorial parts.',
+  'On the blowup of a regular threefold origin and two rational exceptional points, I=(z)+m^2 has divisorial part E1+2E2+2E3. Its negative restricts to H-eP-eQ on Bl_2(P^2), with degree -1 on the joining line. The model is proved an actual primary blowup. Every-support domination survives, but the surface nefness inference fails. This is not a CE counterexample.', ['G331','n1']),
+ ('n5','Complete scoped draft deliverables and finite evidence; original general P12.3 remains open and candidate=false.',
+  'Retains whole416/413 source and companion, all current actual/expanded fields, complete G331 qualifications, byte-unchanged residual and standalone TeX. Distinguishes bounded fresh current/primary readings from retention and unfinished recursive historical audit. Reports finite diagnostics only; no compiler/provider/agents/publication or supplied-program execution. Entire original closure is not claimed.', ['G331','n1','n2','n3','n4'])]
+notes=[]
+for nid,summary,detail,support in table:
+    notes.append({'id':nid,'summary':summary,'detailedSummary':detail,'text':(HERE/(nid+'.md')).read_text().strip(),'support':support})
+(HERE/'notes.json').write_text(json.dumps({'notes':notes,'candidate':False},ensure_ascii=False,indent=2)+'\n')
+
+def esc(s):
+    mp={'\\':r'\textbackslash{}','{':r'\{','}':r'\}','#':r'\#','$':r'\$','%':r'\%','&':r'\&','_':r'\_','^':r'\textasciicircum{}','~':r'\textasciitilde{}','<':r'\textless{}','>':r'\textgreater{}'}
+    return ''.join(mp.get(c,c) for c in s)
+expansions={
+ 'n1':r'''\subsection*{Expanded canonical and surface formulae}
+\[
+A_m(f)=\{g:v(g)+mf(v)\geq0\ \forall v\},\quad
+h_m=-m^{-1}v(A_m),\quad p(f)=\sup_m h_m,
+\]
+\[
+H_N-\frac{NM_1}{m}\leq h_m\leq p(f),\qquad
+p(f)\text{ continuous}\Longleftrightarrow h_m\to p(f)\text{ uniformly}.
+\]
+On a proved regular actual primary surface model,
+\[
+z^*=\max\{z:z\leq\min(d,0),\ Qz\geq0\},\qquad
+p(f_D)=f_{\sum_i z_i^*E_i}.
+\]
+The maximum denotes the greatest vector, proved by compact coordinate
+maximization and closure under coordinatewise maxima, not an assumed
+linear-programming output. The every-support ideal comparison is
+$-v(I)/s\leq f_{-F_I/s}\leq f_{Z^*}$.
+''',
+ 'n2':r'''\subsection*{Expanded conductor theorem}
+With $\mathfrak c=(R:S)$, assume the reduced conductor quotient boundary
+restriction is injective. Then
+\[
+\rho:V_{\mathfrak aS}(S)\xrightarrow{\sim}V_{\mathfrak a}(R),\quad
+\rho^*C_R=C_S,\quad\rho^*D_R=D_S,
+\]
+\[
+\rho^*p_R(f)=p_S(\rho^*f),\qquad
+\operatorname{CE}(R)\Longleftrightarrow\operatorname{CE}(S),\qquad
+A_m^R=A_m^S\cap R.
+\]
+This condition includes the entire infinite-conductor support stratum.
+The last identity is contraction only, not an extension identity.
+''',
+ 'n3':r'''\subsection*{Expanded higher-dimensional cusp construction}
+For a numerical semigroup $H$ of conductor $c$,
+\[
+R_H=k[t^H,z_1,\ldots,z_{d-1}]_0,\quad
+S=k[t,z_1,\ldots,z_{d-1}]_0,\quad\mathfrak c=t^cS,
+\]
+\[
+(R_H/\mathfrak c)_{\rm red}=(S/\mathfrak c)_{\rm red}=k[z_1,\ldots,z_{d-1}]_0.
+\]
+For $H=\langle2,3\rangle$, $b=z_1+t$ and
+$A=w((b,t^2,z_2,\ldots,z_{d-1}))$, put
+\[
+K_m=(b^m(z_1-mt),\ t^2b^m,\ t^{2m+2})+(z_2,\ldots,z_{d-1})^m.
+\]
+The proof covers all supports and establishes
+\[
+0\leq \frac{v(K_m)}m-A\leq\frac2m,\qquad
+0\leq p(-A)-h_m^R(-A)\leq\frac2m.
+\]
+In characteristic zero the two test points give $A(w_\infty)=1$,
+$A(w_*)=2$, whereas every nonzero finite real positive primary combination
+satisfies $u(w_*)<2u(w_\infty)$. Hence $-A\notin Q_R$ and the canonical
+algebra is not finitely generated. Neither conclusion is a CE failure.
+''',
+ 'n4':r'''\subsection*{Expanded threefold degree obstruction}
+For $I=(z)+\mathfrak m^2$ on the explicit regular threefold model,
+\[
+F_I=E_1+2E_2+2E_3,\quad
+(-F_I)|_{E_1}=H-e_P-e_Q,\quad L\sim H-e_P-e_Q,
+\]
+\[
+\deg_L\mathcal O_Y(-F_I)=1-1-1=-1.
+\]
+The ample actual primary presentation uses
+$E=aE_1+(a+1)E_2+(a+1)E_3$ for a sufficiently large integer $a$,
+proved by relative composition ampleness and the finite section/Rees
+argument. The nonzero generic sections on the $E_i$ therefore fail the
+all-contracted-curve test on an actual primary model, not an abstract
+unrealized divisor.
+''',
+ 'n5':r'''\subsection*{Expanded scope decision}
+\[
+\text{new conductor/cusp sector and threefold obstruction}
+\quad\not\Longrightarrow\quad\text{entire ORIGINAL P12.3 closure}.
+\]
+General higher-dimensional normal CE, nonsingleton-fibre conductor
+envelope descent, and the unfinished recursive historical audit remain.
+Products, energy and full finite-map operators are separate targets.
+'''}
+
+sections=[]
+for n in notes:
+    body='\n\n'.join(esc(p) for p in n['text'].split('\n\n'))
+    t='\\section{'+esc(n['id']+'. '+n['summary'])+'}\n\\textit{Supports: '+esc(', '.join(n['support']))+'.}\n\n'+body+'\n\n'+expansions[n['id']]
+    (HERE/(n['id']+'.tex')).write_text(t+'\n');sections.append(t)
+
+preamble=r'''\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyvrb}
+\DefineVerbatimEnvironment{Retained416Source}{Verbatim}{fontsize=\tiny}
+\DefineVerbatimEnvironment{EntireQualifiedG331}{Verbatim}{fontsize=\tiny}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\emergencystretch=4em
+\title{Conductor descent and nonnormal envelopes in higher dimension\\An explicit threefold obstruction to the surface method}
+\author{Unverified scoped ORIGINAL P12.3 progress; candidate=false}
+\date{9 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Relative to the entire qualified geometric cone grant G331, we reconstruct
+the current normal-surface theorem and prove envelope equivalence under
+bijective normalization boundary restriction, including explicit radicial
+conductor quotient criteria. Numerical-semigroup cusp germs have all
+continuous envelopes in every dimension over an algebraically closed
+characteristic-zero field; the surface scope is characteristic free.
+An explicit cancellation-sensitive cusp obstacle has every-degree uniform
+canonical error at most $2/m$ in every characteristic and, in characteristic
+zero, a non-finitely-generated canonical algebra. A regular threefold actual
+primary model supplies a curve of degree $-1$ for an ideal's divisorial part,
+pinpointing the failure of the surface competitor method. The general
+excellent higher-dimensional normal and conductor problem remains open.
+Compilation, publication and acceptance are reserved to ROOT.
+\end{abstract}
+\tableofcontents
+'''
+ledger=(HERE/'source-application-reading-ledger.md').read_text()
+verdict=(HERE/'scoped-verdict.md').read_text()
+residual=(HERE/'original-residual.md').read_text()
+tail='\n\\section*{Current source, reading and execution qualifications}\n'+esc(ledger)+'\n\\section*{Separate scoped verdict}\n'+esc(verdict)+'\n\\section*{Byte-unchanged original residual retained as DATA}\n'+esc(residual)
+tail+='\n\\appendix\n\\section{Entire qualified incoming G331, including all annotations}\n\\begin{EntireQualifiedG331}\n'+grant['text']+'\n\\end{EntireQualifiedG331}\n'
+old=(DATA/'000-P12.3-surface-envelopes.tex').read_text()
+tail+='\n\\section{Entire current416 standalone source, retained literally as DATA}\n\\begin{Retained416Source}\n'+old+'\n\\end{Retained416Source}\n\\end{document}\n'
+(HERE/'P12.3-conductor-and-threefold.tex').write_text(preamble+'\n\n'.join(sections)+tail)
+
+comp=['# ENTIRE scoped proof companion; unverified, candidate=false\n']
+for n in notes:
+    comp.extend(['## Actual local FINAL fields '+n['id']+'\n',json.dumps(n,ensure_ascii=False,indent=2)+'\n',
+                 '## Distinct expanded exposition '+n['id']+'\n',(HERE/(n['id']+'.tex')).read_text()])
+for title,body in [('ENTIRE qualified G331',grant['text']),('ENTIRE incoming task and family dossier',json.dumps(inp['task'],ensure_ascii=False,indent=2)),
+ ('ENTIRE current416 source',old),('ENTIRE current416 companion',(DATA/'021-proof-companion.md').read_text()),
+ ('ENTIRE current416 qualifications',(DATA/'002-ROOT-whole-proof-source-application-scope-and-residual.json').read_text()),
+ ('ENTIRE current416 binding',(DATA/'003-ROOT-whole-proof-source-scope-and-binding.json').read_text()),
+ ('New source-reading-execution ledger',ledger),('Separate scoped verdict',verdict),('Unchanged original residual',residual)]:
+    comp.extend(['\n## '+title+'\n\n',body,'\n'])
+(HERE/'proof-companion.md').write_text(''.join(comp))
+
+mathrows=json.loads((ROOT/'mathematical-packet-bindings.json').read_text())
+hashes=[]
+for r in mathrows:
+    b=Path(r['path']).read_bytes();hashes.append({'path':r['path'],'bytes':len(b),'sha256':digest(b),'binding_matches':len(b)==r['bytes'] and digest(b)==r['sha256']})
+primaryrows=json.loads((ROOT/'private-primary-packet-bindings.json').read_text())
+for r in primaryrows:
+    if any(q in r['path'] for q in ['P12.3-ROOT413-algebraic-field-root-descent-source','P12.3-ROOT416-normal-surface-resolution-and-primary-model-source']):
+        b=Path(r['path']).read_bytes();hashes.append({'path':r['path'],'bytes':len(b),'sha256':digest(b),'binding_matches':len(b)==r['bytes'] and digest(b)==r['sha256'],'LOCALONLY':True})
+(reports/'input-hashes.json').write_text(json.dumps(hashes,indent=2)+'\n')
+(reports/'retention.json').write_text(json.dumps(retained,indent=2)+'\n')
+(reports/'environment.json').write_text(json.dumps({'python':sys.version,'platform':platform.platform(),'cwd':str(HERE),'compiler_invoked':False,'provider_calls':0,'agents':0,'supervised_compute_available':False,'supplied_programs_executed_or_imported':False,'network_used':False},indent=2)+'\n')
+assert all(r['binding_matches'] for r in hashes)
+print(json.dumps({'notes':len(notes),'mathematical_binding_hashes':len(mathrows),'selected_primary_hashes':len(hashes)-len(mathrows),'retained_files':len(retained),'tex_bytes':(HERE/'P12.3-conductor-and-threefold.tex').stat().st_size,'companion_bytes':(HERE/'proof-companion.md').stat().st_size,'candidate':False,'compiler_invoked':False},indent=2))

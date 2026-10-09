@@ -1,0 +1,68 @@
+"""Own tiny finite diagnostics. Supplied/native programs are never imported."""
+from fractions import Fraction as F
+from itertools import product
+from pathlib import Path
+import json
+from math import inf, comb
+
+def scale(x,d):
+    return x if x == inf else x/d
+
+def mult(n,x):
+    return inf if x == inf else n*x
+
+def serial(x):
+    return 'infinity' if x == inf else str(x)
+
+weights=[F(1,2),F(1),F(2),F(3),inf]
+cases=[]
+for s,u,U in product(weights,repeat=3):
+    norm=min(2*s,u,U)
+    if norm == inf: continue
+    s,u,U=(scale(t,norm) for t in (s,u,U))
+    if s != u:
+        Bs=[min(s,u)]
+    elif s == inf:
+        Bs=[inf]
+    else:
+        Bs=[s,2*s,3*s,inf]
+    for B in Bs:
+        # Generic coherent residues, or cancellation z1=-t if B>s.
+        D=min(s,u)
+        cases.append((s,u,U,B,D))
+
+checks=0
+largest=F(0)
+failures=[]
+for m in range(1,33):
+    for s,u,U,B,D in cases:
+        A=min(B,2*s,U)
+        val=min(mult(m,B)+D,2*s+mult(m,B),mult(2*m+2,s),mult(m,U))
+        checks+=1
+        error=val-m*A
+        if error<0 or error>2:
+            failures.append({'m':m,'weights':list(map(serial,(s,u,U,B,D))),'error':serial(error)})
+        largest=max(largest,error)
+
+cancellations=[]
+for m in range(1,65):
+    # coefficient of t*z1**m in (z1+t)**m*(z1-m*t)
+    coeff=comb(m,1)-m*comb(m,0)
+    cancellations.append({'m':m,'coefficient':coeff})
+    assert coeff==0
+
+root=Path('.')
+(root/'reports').mkdir(exist_ok=True)
+inputs={'m_range':[1,32],'weights_before_normalization':list(map(serial,weights)),
+        'cases':[list(map(serial,t)) for t in cases],
+        'limitations':'Finite generic/coherent monomial or cancellation values, not all valuations; characteristic-zero residue interpretation; universal proof is n3.'}
+(root/'diagnostics-input.json').write_text(json.dumps(inputs,indent=2)+'\n')
+out={'status':'PASS' if not failures else 'FAIL','case_count':len(cases),'value_checks':checks,
+     'max_sampled_K_minus_mA':serial(largest),'failures':failures,
+     'exact_t_linear_cancellations':cancellations,
+     'threefold':{'F':[1,2,2],'restriction_on_E1':[1,-1,-1],'line_degree':1-1-1,
+                 'E2_and_E3_hyperplane_degree':-1+2},
+     'mathematical_certification':False}
+(root/'reports'/'finite-diagnostics.json').write_text(json.dumps(out,indent=2)+'\n')
+print(json.dumps({k:v for k,v in out.items() if k not in ['exact_t_linear_cancellations','failures']},indent=2))
+assert not failures
