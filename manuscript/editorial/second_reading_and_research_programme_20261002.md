@@ -3,6 +3,42 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest section-supnorm base-change source checkpoint, 9 October 2026
+
+The [source audit](BE21_supnorm_basechange_source_review_20261009.md)
+freshly reads published BE21 physical pages 20--24 and 55--60: eleven pages
+in six individually displayed matching views with full text and sequential
+notes/receipts. Two pages overlap the preceding selection; nine are new.
+Those two checkpoints have 38 distinct pages, with 87 unread in their
+combined scope. Four exact elementary diagnostic families pass.
+
+Theorem 6.6 retains projectivity, geometric reducedness, continuity and
+arbitrary complete field extension. Its section-norm distance is o(m), and
+O(1) for model metrics or the Archimedean case; ampleness and pshness are
+not assumptions of this norm estimate. Exact equality on original sections
+is separated from comparison on the whole extended section space.
+The printed norm-uniqueness condition needs pairwise weights, its intended
+proof and Lemma 1.26 remain supported in that corrected scope, and the
+factor-two epsilon line does not invalidate the final sublinear conclusion.
+The lattice extension locator is Lemma 1.29(iv). Earlier reduced-fibre,
+coherence and diagonalization foundations are attributed, not recursively
+certified by this partial reading.
+
+The [authored archive](artifact_exports/20261009_BE21_supnorm_basechange_sources/README.md)
+retains actual notes, receipts, diagnostics and helpers; external primary
+PDF/text/images remain in the cloud. Export/upload gives zero reading credit.
+The 4,657-page book, 425 core TeX inputs, bibliographies, native catalogue/editor
+and 42 atoms/twelve problems are unchanged during this source checkpoint.
+General BJ22 critical homogeneous Siu/envelopes remain OPEN; LPWZ density
+UNVERIFIED. No original general theorem or independent-model receipt is claimed.
+
+Continue cloud-only by checking whether the exact asymptotic norm interface
+can sharpen the existing local/global explanation without extending its
+hypotheses. Then read the remaining reduced-fibre and logarithmic-integrability
+inputs where they are load-bearing. Integrate qualified source material only
+through the full build and actual rendered-book gates. Check incoming author
+updates and periodically push checked evidence. Xean stays suspended.
+
 ## Latest model Green-current and norm GitHub publication, 9 October 2026
 
 The [publication record](Model_Green_norm_GitHub_publication_v3_20261009.json)

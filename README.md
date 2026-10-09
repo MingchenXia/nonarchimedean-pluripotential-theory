@@ -4,6 +4,17 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest section-supnorm field-extension primary checkpoint, 9 October 2026:**
+the [source audit](manuscript/editorial/BE21_supnorm_basechange_source_review_20261009.md)
+reads eleven selected published BE21 pages in six individual matching displays.
+It retains the exact projective/geometrically reduced/continuous o(m) estimate,
+the stronger model O(1) estimate, pairwise norm weights and lattice locator.
+Four elementary diagnostic families pass. The
+[authored evidence](manuscript/editorial/artifact_exports/20261009_BE21_supnorm_basechange_sources/README.md)
+distinguishes nine new pages from two overlaps with the preceding checkpoint.
+No arbitrary local weak-psh or affine regularization theorem is imported;
+the active book and native editor are unchanged during this source checkpoint.
+
 **Latest verified model Green-current and norm GitHub publication, 9 October 2026:**
 the 4,657-page book and six owned artifact files are uploaded on work in
 81a1d3ca7584d89cbb9b807fac161f5d6de49704. All eighteen final source/progress/audit/addendum/artifact remote
