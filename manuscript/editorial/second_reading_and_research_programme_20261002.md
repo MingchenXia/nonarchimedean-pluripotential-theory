@@ -7859,3 +7859,8 @@ The sixteen relative-minima book/source/progress/audit/artifact blobs
 were downloaded from GitHub and verified byte-for-byte at `cbeda27b19e816cb903c7a20bfb1f3de0c94b6c9`.
 See the [publication record](Guo_Yuan_relative_minima_GitHub_publication_v2_20261009.json).
 Upload adds no reading credit or theorem clearance.
+
+The sixteen small-points book/source/progress/audit/artifact blobs
+were downloaded from GitHub and verified byte-for-byte at `3100b09d65cfa06fd90f2f5e41d9fca79c20b0a5`.
+See the [publication record](Luo_Yu_small_points_GitHub_publication_v1_20261009.json).
+Upload adds no reading credit or theorem clearance.

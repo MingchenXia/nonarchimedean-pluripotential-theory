@@ -4,6 +4,15 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest verified small-points GitHub publication, 9 October 2026:**
+the 4,681-page book and [artifacts](manuscript/editorial/artifact_exports/20261009_Luo_Yu_small_points_v1/README.md)
+are published on work at `3100b09d65cfa06fd90f2f5e41d9fca79c20b0a5`. All sixteen remote blobs were
+downloaded and verified byte-for-byte against local hashes and sizes.
+The [publication record](manuscript/editorial/Luo_Yu_small_points_GitHub_publication_v1_20261009.json)
+pins the complete 31-page source checkpoint, direct classical model
+reconstruction and thirteen final pages actually read in seven fresh views.
+Canonical statuses remain unchanged; general BJ22 Siu/envelopes stay OPEN.
+
 **Current checked small-points edition: 4,681 pages, 9 October 2026.**
 The [integration audit](manuscript/editorial/Luo_Yu_small_points_staged_integration_audit_v1_20261009.md)
 adds the Luo–Yu example over C(E): non-torsion Picard data excludes
