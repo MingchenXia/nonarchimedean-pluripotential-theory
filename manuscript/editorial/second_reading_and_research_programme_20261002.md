@@ -7499,3 +7499,7 @@ and source are preserved. The 4,675-page book is unchanged.
 
 See [source audit](Ballay_Sombra_catalogue_supplement_source_review_v1_20261009.md)
 and [source evidence](artifact_exports/20261009_Ballay_Sombra_catalogue_supplement_v1/).
+
+All ten catalogue-source/evidence files were verified byte-for-byte on
+GitHub at `d985d0c036cb0a992a3707f053d7b1fe35ef988f`. See the [publication record](Ballay_Sombra_catalogue_supplement_GitHub_publication_v1_20261009.json).
+This verifies uploaded source bytes, not native compilation or an updated PDF.
