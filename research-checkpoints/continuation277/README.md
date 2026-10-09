@@ -1,0 +1,7 @@
+Checkpoint277: local tropical dimension source audit and native274 launch
+
+16/42 original problems solved,26 OPEN,97 accepted scoped papers unchanged. Both native campaigns use Xean native signed-in Codex gpt-6.1-sol xhigh; at most TWO. The P12.3 campaign now runs with whole386 and only the entire qualified G331/B341/E350. P16.7 investigates full bounded tangent and dual formulas and original finite-energy scope. No active native mathematics was read or fed back.
+
+ROOT physically read the complete local dimension theorem and its immediate graded/Zariski-Riemann dependency proofs, plus both entire 2013 erratum texts. Full original PDF pages27-29 and39-41 were viewed. Two printed author-version typographical errors are explicitly recorded, with restricted interpretations and the applied upper-bound proof chain. The erratum repairs a separate section2 valuation-separation argument, which this upper-bound chain does not use. Deep Temkin/ACVF foundations are disclosed background, not newly completed recursive proof trees.
+
+The version correction in the ROOT reading record supersedes any contradictory inference in the earlier retrieval metadata: the actual official and author erratum PDFs print identical received/revised dates, while the web metadata differs. All full primary bodies, literal units, source pixels and book contexts stay LOCALONLY. No draft acceptance, original closure, supplied-program execution or editor change. Publication is NONFORCE with independent Git tree and fresh remote verification.
