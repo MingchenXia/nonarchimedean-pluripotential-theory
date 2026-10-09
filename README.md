@@ -2645,3 +2645,7 @@ See [bounded original-source audit](manuscript/editorial/BGPS_toric_attainment_b
 and [42-member authored evidence](manuscript/editorial/artifact_exports/20261009_BGPS_toric_attainment_bounded_v2/).
 The **4,675-page book**, canonical statuses, catalogue source and historical
 PDF remain unchanged. Native catalogue compilation is still unverified.
+
+All nine bounded toric-source evidence files were verified byte-for-byte
+on GitHub at `f36acaaa0ccd30d8fcb7609653b0f7a0e54f74e0`. See the [publication record](manuscript/editorial/BGPS_toric_attainment_bounded_GitHub_publication_v2_20261009.json).
+The candidate has no independent VERIFIED verdict; upload adds zero reading credit.
