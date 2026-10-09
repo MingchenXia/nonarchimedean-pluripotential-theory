@@ -8097,3 +8097,8 @@ normalization and regularity qualifications. No original
 book result or canonical problem is promoted. The active 4,685-page
 book and same native catalogue/editor are unchanged by this audit.
 Work continues cloud-only; upload supplies no additional reading credit.
+
+All nine Yuan Chebyshev/chi-volume source/evidence/progress blobs were downloaded
+and verified byte-for-byte on GitHub at `d545dd5d9df7ef11852cddd235d05116e34eebd1`.
+See the [publication record](Yuan_Chebyshev_chi_volume_complete_source_GitHub_publication_v1_20261009.json). Upload adds no reading credit,
+recursive dependency clearance or original-result promotion.
