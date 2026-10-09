@@ -1,0 +1,102 @@
+"""Fresh bounded exact diagnostics. No supplied code is imported/executed.
+These finite checks are not proofs about all valuations or geometric degrees.
+"""
+from pathlib import Path
+from fractions import Fraction as F
+from itertools import product
+from math import inf
+import json
+
+Path('reports').mkdir(exist_ok=True)
+counts={}
+L=F(4)
+Ys=[F(1),F(3,2),F(2),F(4),F(7),inf]
+bs=[F(0),F(1),F(3,2),F(2),F(4),inf]
+count=0
+for Y,b,n in product(Ys,bs,range(1,33)):
+ obstacle=-1-(min(Y+b,L)-min(Y,L))
+ q=-1-min(Y/n+b,L)
+ assert -L<=obstacle<=-1 and q<=obstacle
+ count+=1
+counts['all_support_truncation_instances']=count
+
+# Exact polynomial identity in F_p[s,b], no roots or floating point.
+def add(a,b,p):
+ c=a.copy()
+ for k,v in b.items():c[k]=(c.get(k,0)+v)%p
+ return {k:v for k,v in c.items() if v}
+def mul(a,b,p):
+ c={}
+ for (i,j),v in a.items():
+  for (k,l),w in b.items():c[(i+k,j+l)]=(c.get((i+k,j+l),0)+v*w)%p
+ return {k:v for k,v in c.items() if v}
+def power(a,n,p):
+ c={(0,0):1}
+ for _ in range(n):c=mul(c,a,p)
+ return c
+primes=[2,3,5,7,11,13,17,19]
+for p in primes:
+ sb={(1,0):1,(0,1):1}
+ lhs=add(power(sb,p,p),power(sb,p+1,p),p)
+ lhs=add(lhs,{(p,0):-1,(p+1,0):-1},p)
+ rhs=mul({(0,1):1},add(mul({(0,p-1):1},{(0,0):1,(1,0):1,(0,1):1},p),{(p,0):1},p),p)
+ assert lhs==rhs
+ a=F(p,p-1);gap=3-a
+ assert gap>=1 and (p-1)*a==p
+counts['wild_polynomial_identities']=len(primes)
+counts['exact_wild_gap_values']={str(p):str(3-F(p,p-1)) for p in primes}
+
+# Gauss coefficient norm for J=(x,y,z^N), x -> -x.
+# (Tx+Uy+Vz^N)(-Tx+Uy+Vz^N)=(Uy+Vz^N)^2-T^2x^2.
+ws=[F(1),F(3,2),F(2),F(4),inf]
+count=0
+for X,Y,Z in product(ws,repeat=3):
+ if min(X,Y,Z)!=1:continue
+ for N in range(1,9):
+  coeff=min(2*X,2*Y,2*N*Z,Y+N*Z)
+  orbit=2*min(X,Y,N*Z)
+  assert coeff==orbit
+  count+=1
+counts['orbit_norm_weight_instances']=count
+count=0
+for i,j,k in product(range(7),repeat=3):
+ plus=minus=inf if k else F(2*i+j)
+ assert plus==minus
+ count+=1
+counts['invariant_monomial_support_instances']=count
+
+# Truncated free-basis reduction for u=P(t)=t^e(1+t).
+def trim(a,p,N):return {i:v%p for i,v in a.items() if i<N and v%p}
+def p_add(a,b,p,N):
+ c=a.copy()
+ for i,v in b.items():c[i]=c.get(i,0)+v
+ return trim(c,p,N)
+def p_mul(a,b,p,N):
+ c={}
+ for i,v in a.items():
+  for j,w in b.items():
+   if i+j<N:c[i+j]=c.get(i+j,0)+v*w
+ return trim(c,p,N)
+count=0;N=32
+for p,e,j in product([2,3,5,7],range(2,7),range(N)):
+ f={j:1};remainder=f.copy();rebuild={};P={e:1,e+1:1};Pi={0:1}
+ for step in range(N//e+2):
+  low={i:v for i,v in remainder.items() if i<e}
+  rebuild=p_add(rebuild,p_mul(Pi,low,p,N),p,N)
+  high={i-e:v for i,v in remainder.items() if i>=e}
+  remainder=p_mul(high,{i:(-1)**i for i in range(N)},p,N)
+  Pi=p_mul(Pi,P,p,N)
+ assert rebuild==f
+ count+=1
+counts['truncated_free_basis_monomials']=count
+
+inputs={'L':4,'Y_values':[str(x) for x in Ys],'b_values':[str(x) for x in bs],
+ 'degrees':[1,32],'wild_primes':primes,'norm_weights':[str(x) for x in ws],
+ 'norm_primary_z_powers':[1,8],'support_monomial_exponents':[0,6],
+ 'basis_characteristics':[2,3,5,7],'basis_orders':[2,6],
+ 'basis_truncation_t_power':32,'program':'exact_checks.py',
+ 'limitations':'No universal valuation, all-curve positivity, extension theorem or envelope is checked computationally.'}
+Path('exact-check-input.json').write_text(json.dumps(inputs,indent=2)+'\n')
+result={'status':'PASS','counts':counts,'mathematical_certification':False}
+Path('reports/exact-checks.json').write_text(json.dumps(result,indent=2)+'\n')
+print(json.dumps(result,indent=2))

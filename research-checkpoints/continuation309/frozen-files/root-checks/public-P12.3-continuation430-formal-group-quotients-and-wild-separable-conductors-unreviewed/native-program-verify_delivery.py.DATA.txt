@@ -1,0 +1,84 @@
+"""Fresh artifact verification only. No compiler or supplied program import."""
+from pathlib import Path
+import json,hashlib,re
+HERE=Path.cwd()
+BASE=Path('/workspace/research/campaigns/round-296/P12.3-whole425426-same-centre-and-normal-quotient-envelopes')
+math=json.loads((BASE/'mathematical-packet-bindings.json').read_text())
+private=json.loads((BASE/'private-primary-packet-bindings.json').read_text())
+result=json.loads((HERE/'notes.json').read_text())
+assert result['candidate'] is False
+seen={'G331'}
+tex=(HERE/'P12.3-quotients-and-wild-conductors.tex').read_bytes()
+companion=(HERE/'proof-companion.txt').read_bytes()
+for i,n in enumerate(result['notes'],1):
+ assert set(n)=={'id','summary','detailedSummary','text','support'}
+ assert n['id']==f'n{i}' and set(n['support'])<=seen
+ assert n['text']==(HERE/'notes'/f'n{i}.txt').read_text().strip()
+ assert (HERE/'notes'/f'n{i}.tex').read_bytes() in tex
+ seen.add(n['id'])
+for rec in math:
+ b=Path(rec['path']).read_bytes()
+ assert b==(HERE/'retained-data'/Path(rec['path']).name).read_bytes()
+ assert b in companion
+ assert len(b)==rec['bytes'] and hashlib.sha256(b).hexdigest()==rec['sha256']
+for idx,name in [(29,'original-completion-criteria.txt'),(30,'original-residual.md'),(31,'original-task.json')]:
+ assert Path(math[idx]['path']).read_bytes()==(HERE/name).read_bytes()
+actual=json.loads(Path(math[27]['path']).read_text())
+assembled=json.loads(Path(math[28]['path']).read_text())
+assert actual!=assembled
+for idx,n in zip(range(4,9),actual['notes']):
+ assert json.loads(Path(math[idx]['path']).read_text())==n
+# The object/metadata carrier may add flags; all FIVE supplied note fields must match.
+grant=json.loads(Path(math[33]['path']).read_text())
+in_grant=next(x for x in json.loads((HERE/'input.json').read_text())['notes'] if x['id']=='G331')
+assert all(grant[k]==in_grant[k] for k in ['id','summary','detailedSummary','text','support'])
+exact_diffs=json.loads((HERE/'reports/actual-assembled-exact-differences.json').read_text())
+expected=[['summary','detailedSummary','text']]*3+[['detailedSummary','text']]*2
+for a,b,d,e in zip(actual['notes'],assembled['notes'],exact_diffs,expected):
+ assert [k for k,v in d['fields'].items() if not v['equal']]==e
+ for k,v in d['fields'].items():assert v['actual']==a[k] and v['assembled']==b[k]
+# No literal complete source carriers or formula pixels are appended by our builders.
+exclusions=[]
+for idx in range(1244,1260):
+ b=Path(private[idx]['path']).read_bytes()
+ assert b not in tex and b not in companion
+ exclusions.append(idx)
+# TeX static checks only; compiler deliberately reserved to ROOT.
+s=tex.decode()
+assert s.count('\\documentclass')==1
+assert s.count('\\begin{document}')==1 and s.count('\\end{document}')==1
+clean=re.sub(r'\\begin\{ExactScopeAttachment\}[\s\S]*?\\end\{ExactScopeAttachment\}','',s)
+stack=[]
+for token in re.findall(r'\\(begin|end)\{([^}]+)\}',clean):
+ kind,name=token
+ if kind=='begin':stack.append(name)
+ else:assert stack and stack.pop()==name,(kind,name,stack)
+assert not stack
+assert clean.count('\\[')==clean.count('\\]')
+assert clean.count('$')%2==0
+level=0
+for m in re.finditer(r'(?<!\\)[{}]',clean):
+ level+=1 if m.group()=='{' else -1
+ assert level>=0
+assert level==0
+assert tex.isascii()
+assert not re.search(r'python [A-Za-z]+_[A-Za-z]+\.py',clean)
+assert json.loads((HERE/'reports/exact-checks.json').read_text())['status']=='PASS'
+audit=json.loads((HERE/'reports/input-byte-audit.json').read_text())
+assert len(audit)==1307 and all(x['match'] for x in audit)
+report={'status':'PASS','candidate':False,'notes':len(result['notes']),
+ 'whole_incoming_standalone_bytes':math[0]['bytes'],'whole_incoming_companion_bytes':math[32]['bytes'],
+ 'all_44_mathematical_bodies_exactly_contained':True,'all_five_actual_objects_match_aggregate':True,
+ 'all_five_fields_G331_match_input':True,'actual_assembled_differences_exact':expected,
+ 'source_and_pixel_carrier_exclusions':exclusions,'original_residual_sha256':hashlib.sha256((HERE/'original-residual.md').read_bytes()).hexdigest(),
+ 'standalone_tex_bytes':len(tex),'companion_bytes':len(companion),'static_tex_checks_only':True,
+ 'whole_current_physical_reading_complete':False,'compiler_invoked':False,'mathematical_certification':False}
+(HERE/'reports/verification.json').write_text(json.dumps(report,indent=2)+'\n')
+commands_path=HERE/'reports/command-evidence.json'
+commands=json.loads(commands_path.read_text()) if commands_path.exists() else []
+commands=[x for x in commands if x.get('command')!='python verify_delivery.py']
+commands.append({'command':'python verify_delivery.py','exit_code':0,'stdout':report,'observation':'Written after every assertion passed; static and byte checks only.'})
+commands_path.write_text(json.dumps(commands,indent=2)+'\n')
+hashes={str(p.relative_to(HERE)):hashlib.sha256(p.read_bytes()).hexdigest() for p in HERE.rglob('*') if p.is_file() and p.name!='own-hashes.json' and p.relative_to(HERE).parts[0] not in ['.git','.agents','.codex','.aws']}
+(HERE/'reports/own-hashes.json').write_text(json.dumps(hashes,indent=2)+'\n')
+print(json.dumps(report,indent=2))

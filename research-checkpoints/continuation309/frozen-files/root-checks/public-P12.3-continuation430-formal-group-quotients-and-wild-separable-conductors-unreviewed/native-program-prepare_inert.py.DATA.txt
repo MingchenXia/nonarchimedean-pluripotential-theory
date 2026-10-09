@@ -1,0 +1,42 @@
+import json,pathlib,hashlib,difflib,platform,sys
+BASE=pathlib.Path('/workspace/research/campaigns/round-296/P12.3-whole425426-same-centre-and-normal-quotient-envelopes')
+OUT=pathlib.Path.cwd()
+for sub in ['retained-data','review-data','reports','notes']: (OUT/sub).mkdir(exist_ok=True)
+bindings={n:json.loads((BASE/n).read_text()) for n in ['mathematical-packet-bindings.json','private-primary-packet-bindings.json','book-context-bindings.json']}
+audit=[]
+for name,entries in bindings.items():
+ for i,e in enumerate(entries):
+  b=pathlib.Path(e['path']).read_bytes();h=hashlib.sha256(b).hexdigest()
+  audit.append({'binding':name,'index':i,'path':e['path'],'bytes':len(b),'sha256':h,'match':h==e['sha256'] and len(b)==e['bytes'],'body_reading_credit':False})
+  if name=='mathematical-packet-bindings.json':(OUT/'retained-data'/pathlib.Path(e['path']).name).write_bytes(b)
+(OUT/'reports/input-byte-audit.json').write_text(json.dumps(audit,indent=2)+'\n')
+math=bindings['mathematical-packet-bindings.json']
+def obj(i):return json.loads(pathlib.Path(math[i]['path']).read_text())
+actual=obj(27); assembled=obj(28)
+print('actual structure',type(actual).__name__,list(actual) if isinstance(actual,dict) else len(actual))
+print('assembled structure',type(assembled).__name__,list(assembled) if isinstance(assembled,dict) else len(assembled))
+def notes(x):
+ if isinstance(x,list):return x
+ return x['notes']
+actual=notes(actual);assembled=notes(assembled)
+diff=[]
+for j,(a,b) in enumerate(zip(actual,assembled),1):
+ for version,n in [('actual',a),('assembled',b)]:
+  parts=[]
+  for field in ['id','summary','detailedSummary','text','support']:
+   value=n[field]
+   parts.append('FIELD '+field+'\n'+(value if isinstance(value,str) else json.dumps(value,indent=2)))
+  (OUT/'review-data'/f'{version}-n{j}-all-fields.txt').write_text('\n\n'.join(parts)+'\n')
+ fields={}
+ for field in ['id','summary','detailedSummary','text','support']:
+  aa=a[field];bb=b[field]
+  fields[field]={'equal':aa==bb,'actual':aa,'assembled':bb,'unified_diff':list(difflib.unified_diff((aa if isinstance(aa,str) else json.dumps(aa)).splitlines(),(bb if isinstance(bb,str) else json.dumps(bb)).splitlines(),fromfile='actual',tofile='assembled',lineterm=''))}
+ diff.append({'id':a['id'],'fields':fields})
+(OUT/'reports/actual-assembled-exact-differences.json').write_text(json.dumps(diff,ensure_ascii=False,indent=2)+'\n')
+for i in [29,30,31]:
+ name={29:'original-completion-criteria.txt',30:'original-residual.md',31:'original-task.json'}[i]
+ (OUT/name).write_bytes(pathlib.Path(math[i]['path']).read_bytes())
+(OUT/'reports/environment.json').write_text(json.dumps({'python':sys.version,'platform':platform.platform(),'cwd':str(OUT),'supervised_compute':'No suitable service exposed; none required','supplied_programs_executed':False,'model_attestation':'Not independently available'},indent=2)+'\n')
+(OUT/'reports/math-index.json').write_text(json.dumps([{'index':i,**e} for i,e in enumerate(math)],indent=2)+'\n')
+print('verified',sum(x['match'] for x in audit),'of',len(audit),'byte bindings; all copies inert')
+print('field equalities',[(d['id'],{k:v['equal'] for k,v in d['fields'].items()}) for d in diff])

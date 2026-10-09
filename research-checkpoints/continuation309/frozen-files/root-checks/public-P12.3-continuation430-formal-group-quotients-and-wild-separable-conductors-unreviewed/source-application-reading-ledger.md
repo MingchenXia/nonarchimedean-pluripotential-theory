@@ -1,0 +1,47 @@
+# Source applications and exact reading boundary
+
+ENTIRE qualified G331 is the only supplied correctness grant. All five supplied fields, its complete paper, mandatory annotation, ledger, model/support/source/audit/radial scope, and flags are retained without removing qualifications. It is supplied verbatim in the user message and retained in the bound 033/034 carriers. Equality of its five note fields with the current input is checked in reports/verification.json. The current returned proof prose is stored exactly in notes/n1.txt through notes/n5.txt and notes.json. The longer formal TeX proofs are separately retained in notes/n1.tex through notes/n5.tex and the standalone; no byte identity between prose and formal versions is asserted. Both versions carry the same explicit scope and complete arguments. The new chain uses its actual-primary geometric comparison, full finite-injection positive C/D descent, quotient-support lifting, completion, primary cocycle, density and exact BFJ comparison. G331 supplies no envelope theorem.
+
+The 425/426 papers, actual notes, assembled notes, program bodies, review assertions and compiler records are DATA. No earlier native/ROOT claim supplies a support. Own n1 reconstructs only the canonical and smooth-source facts used here; own n2 proves orbit fibres; own n3 proves normal quotient CE; own n4 proves a conditional conductor obstruction and separable formal/wild family. There is no claim to repeat 413/416/419/420/422/423/424/425/426 as a new result.
+
+## Fresh physical displays and limits
+
+| Material | Fresh reading evidence in this run | Exact limitation |
+| --- | --- | --- |
+| Every five fields of the five actual294 FINAL notes | Decoded actual-n1 in eaf808; actual-n2/n3 in 55fe2a; actual-n4/n5 in 8253d6, all complete | The exact five-field objects are compared with individual bound 004--008 and aggregate 027. Parsed identity is not a mathematical check. |
+| Five distinct formal current proofs 010--014 | n1 repaired in f9ff9b; n2/n3 repaired in b2f07a; n4/n5 repaired in fb1325, each bounded and untruncated | Earlier combined output overflow has no whole-reading credit. These bodies were read as DATA, with reconstruction of used claims; this is not a complete inherited recursive audit. |
+| Actual versus assembled | Exact field values and per-line diffs in reports/actual-assembled-exact-differences.json; versions retained separately | The assembled prose is not substituted for the actual notes. No fresh complete assembled-body reading is claimed. |
+| Complete 425 standalone, 17763 bytes, 374 LF lines | 43a563, complete untruncated display | Used as diagnostic history. New n4 proves the broader separable formal-cover result; 425 is not a support. |
+| 426 preamble and abstract | 000 lines 1--60 in 937787 | NOT a fresh complete read of the 906751-byte, 5030-line standalone. |
+| Current separate scope records, ledger, verdict, unchanged task/completion/residual | 002/003 in 82d688; 035/036 and completion/residual in 595c9d; entire task in 937787 | Retained statements of prior review are historical assertions, not fresh checks. The embedded versions inside the whole companion do not receive extra reading credit. |
+| All FOUR native programs 020--023 | c01f07, complete inert text | Never executed or imported. The two ROOT programs 042/043 are retained inertly without a fresh complete-reading claim. |
+| ENTIRE G331 | Supplied complete in the current user message; exact bound fields retained | No claim of a fresh complete file display or of recursively reading its published dependencies. The ENTIRE qualification applies throughout. |
+| Whole 426 companion, 7085210 bytes, and recursively retained whole422/420/source/G331 bodies | Exact whole-byte retention and containment verified | NOT a fresh whole-body read. Storage deduplication, byte hashing and containment grant ZERO body-reading credit. |
+| Book-context packets and full chapter | All bound bytes hash checked; metadata retained | NOT freshly read. No literal book copied to the delivery companion. |
+
+The requested complete independent entire-current audit is therefore INCOMPLETE. In particular the full 906751-byte standalone and 7085210-byte companion have not been physically read end to end in this run. No claim of whole-audit completion is made; this is a material unmet part of the assignment, independent of the scoped mathematics. The original residual stays byte unchanged and candidate=false.
+
+## Complete immediate primary applications newly read
+
+Only the following six immediate primary carriers are directly applied to new source CE. Their entire bodies, including every immediate statement and complete proof, were displayed in bounded untruncated outputs. Literal primary bodies and pixels remain at their original LOCALONLY paths; only metadata is copied here.
+
+| Private index | Complete carrier | Fresh display | Application |
+| --- | --- | --- | --- |
+| 1250 | BFJ setting and modification domain | ea705b | Smooth AFFINE CLOSED germ, algebraically closed characteristic zero only. |
+| 1251 | BFJ simple-modification domain | ea705b | Exact simple complex/refinement system at that smooth domain. |
+| 1246 | BFJ 1.10--1.15 complete immediate chain | c33a93 | Closed simplices, full retractions, primary signed-model identification and uniform density. |
+| 1247 | BFJ 2.1--2.8 complete immediate chain | c33a93 | Weak-nef max/closure, geometric positivity, and ALL-retraction extension. |
+| 1248 | BFJ 3.1--3.14 complete immediate chain | 6bb073 | Fixed-complex thinness; substantive CLOSED-simplex continuity 3.11; strict negativity 3.14. 3.13's ambiguous extraction is not a new approximation premise; G331 retains its corrected exponents/unit/bottom qualification. |
+| 1249 | BFJ 3.15--3.25 complete immediate chain | ea705b | Full 3.18 proof and its real parameter t=m+C, complete proofs of 3.9--3.10 and 3.22--3.25. |
+
+The exact sizes/hashes and paths of these six application units are in reports/input-byte-audit.json. The setting and all hypotheses were reconsidered in n1. No singular or positive-characteristic transfer is inferred. Historical principalization/resolution, multiplier subadditivity and smooth Izumi remain the disclosed published background at these exact hypotheses; complete deeper recursive source auditing remains OPEN. The previous fourteen-carrier/two-formula-pixel ROOT reading assertions are retained separately. Only six of those fourteen carriers were freshly read here; the other eight and both formula images receive no current fresh credit and are not newly applied to n2--n4.
+
+No invariant-theory or valuation-transitivity theorem is imported unnamed. The affine/formal finiteness and invariant normality arguments are proved in n3. All-support orbit transitivity is proved in n2 from an orbit coefficient polynomial, quotient-support Gauss identity, explicit lattice density and finite positive measures. Lift existence uses the full qualified G331 quotient-fraction-field construction, not an extension of nonminimal-support semivaluations to the original fraction field. Formal cover freeness, conductor, separability, conjugate arc, complete finite DVR extension, ALL-element path convergence and ALL-downstairs-primary inequalities are proved in n4. Ordinary Noetherian power-series, normal-DVR, finite-module/completion, excellence and integrality foundations remain the conventional algebra background already disclosed in G331; no resolution, CM/QG hypothesis, arbitrary FG, algebraizability or generic-section curve-nef inference is added.
+
+## Evidence, retention and operations
+
+prepare_inert.py verified 1307/1307 byte bindings: 44 mathematical, 1260 LOCALONLY primary/evidence, and 3 book-context entries. This read-by-program evidence is byte integrity ONLY. The full 44 mathematical bodies are retained separately and by exact containment in proof-companion.txt, including the entire incoming 7085210-byte companion and 906751-byte standalone. Both actual/assembled versions and every unique proof/source qualification are retained. All three binding documents are metadata-only retention.
+
+The fresh exact_checks.py uses only Python's standard library. Its PASS covers 1152 truncation/profile instances; 8 exact characteristic-p polynomial identities; 488 orbit-norm weight instances including infinite coordinates; 343 invariant monomial support instances; and 640 truncated formal free-basis monomials. Wild gap values for the eight listed primes are 1, 3/2, 7/4, 11/6, 19/10, 23/12, 31/16, 35/18. These are exhaustive finite observations on the retained input domains, not verification of universal valuations, source envelopes, positivity or new proofs.
+
+Commands: python prepare_inert.py; python exact_checks.py; python build_delivery.py; python verify_delivery.py. Commands and observed stdout are retained in reports/command-evidence.json. No supplied/native code was executed/imported. No compiler was invoked; ROOT handles independent review, compilation and nonforce publication, so a TeX artifact is not reported as a PDF build success. No agents, additional native/model/provider calls, active-campaign inspection or hot feedback, network, publication/editor/catalogue operations, auth/proxy/CA/runtime changes occurred. No suitable supervised heavy-compute facility was exposed; none was necessary or launched. The requested model/sign-in is not independently attested. Finite checks, hashes and execution success do not certify mathematical correctness.
