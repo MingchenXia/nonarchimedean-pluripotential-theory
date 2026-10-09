@@ -1,0 +1,164 @@
+"""New passive retention/document assembly. Never runs or imports input programs."""
+from pathlib import Path
+import hashlib
+import json
+import platform
+import re
+import shlex
+import sys
+
+HERE = Path.cwd()
+BASE = HERE.parents[1]
+math = json.loads((BASE / 'mathematical-packet-bindings.json').read_text())
+primary = json.loads((BASE / 'private-primary-packet-bindings.json').read_text())
+book = json.loads((BASE / 'book-context-bindings.json').read_text())
+
+def data(index):
+    return Path(math[index]['path']).read_bytes()
+
+def digest(blob):
+    return hashlib.sha256(blob).hexdigest()
+
+local = HERE / 'LOCALONLY-inputs'
+local.mkdir(exist_ok=True)
+checked = []
+for i, entry in enumerate(math):
+    blob = data(i)
+    assert len(blob) == entry['bytes'] and digest(blob) == entry['sha256']
+    (local / Path(entry['path']).name).write_bytes(blob)
+    checked.append({'index': i, 'name': Path(entry['path']).name,
+                    'bytes': len(blob), 'sha256': digest(blob)})
+for name in ['mathematical-packet-bindings.json', 'private-primary-packet-bindings.json',
+             'book-context-bindings.json']:
+    (local / name).write_bytes((BASE / name).read_bytes())
+
+selected = [e for e in primary if
+    'P16.7-ROOT415-bounded-calculus-local-Gauss-and-Shilov-source' in e['path']]
+assert len(selected) == 15
+plocal = HERE / 'LOCALONLY-primary'
+plocal.mkdir(exist_ok=True)
+for entry in selected:
+    blob = Path(entry['path']).read_bytes()
+    assert len(blob) == entry['bytes'] and digest(blob) == entry['sha256']
+    (plocal / Path(entry['path']).name).write_bytes(blob)
+
+actual = [json.loads(data(i)) for i in range(3, 7)]
+assert json.loads(data(21))['notes'] == actual
+assert json.loads(data(8))['notes'] == actual
+for i, note in enumerate(actual, 10):
+    assert data(i).decode() == note['text'] + '\n'
+
+# Provenance observations do not turn any source statement into an accepted result.
+scope = data(29).decode()
+root417 = data(31).decode()
+whole418 = data(24)
+assert len(whole418) == 2407844
+assert data(29) in whole418 and data(22) in whole418
+assert data(21) in whole418 and data(8) in whole418
+
+Path('original-residual.txt').write_bytes(data(23))
+Path('unchanged-original-task.json').write_bytes(data(0))
+
+paper = scope
+title_start = paper.index('\\title{')
+title_end = paper.index('\\author{', title_start)
+paper = paper[:title_start] + (
+    '\\title{Concentration defects of actual variational maximizers\\\\'
+    'and an invariant-variation equation slice}\n') + paper[title_end:]
+abstract_start = paper.index('\\begin{abstract}')
+abstract_end = paper.index('\\end{abstract}', abstract_start) + len('\\end{abstract}')
+paper = paper[:abstract_start] + r'''\begin{abstract}
+We retain and rejudge the entire qualified 418 bounded and generated
+reconstruction and the distinct 417 variational proofs. New deductions
+identify the prescribed-measure loss as a positive Radon concentration
+defect supported on the intersection of closures of exceptional open
+sets. An exact split separates bounded oscillation on the exceptional
+set from deep negative tails. Bounded attainment removes the loss for
+every fast maximizing sequence. Actual two-sided invariant variations
+identify the equation at a smooth strictly convex invariant attained
+weight, and show that zero full dual characterizes the reference
+measure among all eligible arbitrary-support measures. None of these
+results proves general analytic representation or prescribed-measure
+existence. The original P16.7 and the deeper source audit remain open.
+\end{abstract}''' + paper[abstract_end:]
+paper = paper.replace('\\newcommand{\\Q}{\\mathcal Q}',
+    '\\newcommand{\\Q}{\\mathcal Q}\n\\newcommand{\\M}{\\mathfrak M}\n'
+    '\\newcommand{\\V}{\\mathcal V}')
+
+# Keep the whole separate 417 proofs, with their local symbols and qualifications.
+body417 = root417[root417.index('\\section{Actual domain'):root417.index('\\end{document}')]
+body417 = re.sub(r'\\(label|ref|eqref)\{([^}]+)\}',
+                 lambda m: '\\' + m[1] + '{ret417:' + m[2] + '}', body417)
+body417 = body417.replace('\\section{', '\\section{Retained 417 reconstruction: ')
+body417 = '\n\\begingroup\n\\renewcommand{\\B}{\\mathcal B}\n' + body417 + '\n\\endgroup\n'
+marker = '\\section{Separate scoped verdict and unchanged original problem}'
+assert paper.count(marker) == 1
+paper = paper.replace(marker, body417 + '\n' + Path('new-residual-proofs.tex').read_text()
+                      + '\n' + marker)
+# A supplied typesetting typo is changed only in our own assembled document.
+paper = paper.replace('\\ {\nm affinoid', '\\ {\\rm affinoid')
+Path('standalone.tex').write_text(paper)
+
+physical_math = [0, 1, 2, 3, 4, 5, 6, 9, 14, 15, 16, 17, 18, 19, 20,
+                 22, 23, 26, 27, 28, 29, 30, 31, 32, 34, 35]
+display_ranges = {29: [[1,230],[231,460],[461,690],[691,920],[921,1166]],
+                  22: [[1,210],[211,389]]}
+coverage = []
+for i in physical_math:
+    blob = data(i)
+    total = blob.count(b'\n') + int(not blob.endswith(b'\n'))
+    coverage.append({'index': i, 'path': math[i]['path'],
+        'LF_total': total, 'displayed_ranges': display_ranges.get(i, [[1,total]]),
+        'basis': 'actual bounded untruncated tool displays in this turn; declaration, not another read'})
+
+reading = {
+    'no_incoming_correctness_grants': True,
+    'entire_current_actual_fields': True,
+    'entire_1166_LF_56580_byte_proof_read': True,
+    'entire_distinct_389_LF_18264_byte_expansion_read': True,
+    'entire_293_LF_13141_byte_ROOT417_proof_read': True,
+    'current_math_display_coverage': coverage,
+    'duplicate_notes_TXT_identity_checked': True,
+    'entire_seven_native_programs_read_only_as_DATA': True,
+    'primary_units_physically_read_whole_this_turn': selected,
+    'primary_full_LF_ranges': {Path(e['path']).name:
+        ([[1,180],[181,361]] if Path(e['path']).read_bytes().count(b'\n') == 361
+         else [[1, Path(e['path']).read_bytes().count(b'\n')]]) for e in selected},
+    'fresh_historical_audit_credit_from_retention': 0,
+    'entire_deeper_primary_book_geometric_generated_descent_audit_complete': False,
+    'whole_book_context_retained_at_bound_LOCALONLY_paths': book,
+    'compiler_invoked': False,
+    'candidate': False
+}
+Path('source-application-reading-ledger.json').write_text(json.dumps(reading, indent=2)+'\n')
+Path('binding-audit-output.json').write_text(json.dumps({
+    'mathematical_bindings_checked': len(checked), 'selected_primary_checked': len(selected),
+    'failures': [], 'bindings': checked,
+    'actual_notes_RAW_FINAL_and_artifact_identity': True,
+    'whole418_bytes': len(whole418), 'whole418_retention_not_new_audit_credit': True,
+    'mathematical_correctness_grant': False}, indent=2)+'\n')
+Path('environment.json').write_text(json.dumps({
+    'python': sys.version, 'platform': platform.platform(), 'cwd': str(HERE),
+    'agents': 0, 'extra_native_or_model_calls': 0,
+    'input_programs_executed_or_imported': False, 'compiler_invoked': False,
+    'publication': False, 'runtime_auth_proxy_CA_changes': False,
+    'active_campaign_math_inspected': False, 'hot_feedback': False,
+    'operator_supervised_compute_exposed': False,
+    'resource_heavy_local_job': False}, indent=2)+'\n')
+Path('commands.txt').write_text(
+    'python prepare_artifacts.py > prepare-artifacts-run.log\n'
+    'python verify_artifacts.py > verify-artifacts-run.log\n'
+    'python finish_artifacts.py > finish-artifacts-run.log\n')
+read_commands = []
+for record in coverage:
+    for start, stop in record['displayed_ranges']:
+        read_commands.append(f"sed -n '{start},{stop}p' {shlex.quote(record['path'])}")
+for entry in selected:
+    total = Path(entry['path']).read_bytes().count(b'\n')
+    ranges = [[1,180],[181,361]] if total == 361 else [[1,total]]
+    for start, stop in ranges:
+        read_commands.append(f"sed -n '{start},{stop}p' {shlex.quote(entry['path'])}")
+Path('reading-commands.txt').write_text('\n'.join(read_commands)+'\n')
+print(json.dumps({'checked_mathematical_bindings':len(checked),
+    'checked_primary_units':len(selected), 'whole418_bytes':len(whole418),
+    'standalone_bytes':len(paper.encode()), 'compiler_invoked':False}, indent=2))

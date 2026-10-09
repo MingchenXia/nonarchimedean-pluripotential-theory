@@ -1,0 +1,67 @@
+"""New finite consistency checks; no compiler and no input-program imports."""
+from fractions import Fraction
+from itertools import product
+from pathlib import Path
+import json
+import re
+
+count = 0
+for x, y, t in product(range(11), repeat=3):
+    pos = lambda z: max(z, 0)
+    b = pos(min(x,t)-min(y,t))
+    c = pos(min(y,t)-min(x,t))
+    assert b-c == x-y-pos(x-t)+pos(y-t)
+    assert c <= pos(y-x)
+    assert b <= pos(x-y)
+    assert b == pos(min(x,t)-y)
+    count += 1
+
+monotone_count = 0
+for x, y in product(range(21), repeat=2):
+    b = [max(min(x,t)-min(y,t),0) for t in range(21)]
+    assert all(a <= z for a,z in zip(b,b[1:]))
+    monotone_count += 1
+
+midpoint = []
+for degree in range(4):
+    p0 = Fraction(int(degree==0)); p1 = Fraction(1)
+    pm = Fraction(1,2)**degree
+    dp0 = Fraction(int(degree==1)); dp1 = Fraction(degree)
+    assert pm-(p0+p1)/2 == (dp0-dp1)/8
+    midpoint.append(str(pm-(p0+p1)/2))
+
+for n in range(2,22):
+    width = Fraction(1,2**(2*n))
+    height = 2**(2*n+1)
+    assert width*height/2 == 1
+    assert Fraction(1,2**(n+1))+Fraction(1,2**(2*(n+1))) < Fraction(1,2**n)
+
+tex = Path('standalone.tex').read_text()
+stack = []
+for m in re.finditer(r'\\(begin|end)\{([^}]+)\}',tex):
+    kind, env = m.groups()
+    if kind == 'begin': stack.append(env)
+    else: assert stack and stack.pop() == env, (kind,env)
+assert not stack
+labels = re.findall(r'\\label\{([^}]+)\}',tex)
+refs = re.findall(r'\\(?:ref|eqref)\{([^}]+)\}',tex)
+assert len(labels) == len(set(labels))
+assert set(refs) <= set(labels)
+depth = 0
+for m in re.finditer(r'(?<!\\)[{}]',tex):
+    depth += 1 if m[0]=='{' else -1
+    assert depth >= 0
+assert depth == 0
+
+report = {
+    'exhaustive_truncation_identity_cases':count,
+    'exhaustive_monotone_bounded_part_cases':monotone_count,
+    'cubic_basis_gaps':midpoint,
+    'diagnostic_bump_area_and_disjointness_cases':20,
+    'tex_environments_balanced':True,'tex_braces_balanced':True,
+    'unique_labels':len(labels),'undefined_references':[],
+    'compiler_invoked':False,
+    'finite_checks_not_mathematical_certification':True
+}
+Path('finite-check-output.json').write_text(json.dumps(report,indent=2)+'\n')
+print(json.dumps(report,indent=2))
