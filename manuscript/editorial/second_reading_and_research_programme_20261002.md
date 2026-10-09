@@ -7447,3 +7447,7 @@ sources; no canonical problem status changes.
 
 See [partial source audit](Xue_semiabelian_partial_source_review_v1_20261009.md)
 and [authored evidence](artifact_exports/20261009_Xue_semiabelian_partial_v1/).
+
+All nine partial-evidence files were verified byte-for-byte on GitHub at
+commit `437039f5698a6a399e37067aef042f46026b445c`. The draft PR retains the partial-reading and
+unverified-proof scope. See the [publication record](Xue_semiabelian_partial_GitHub_publication_v1_20261009.json).
