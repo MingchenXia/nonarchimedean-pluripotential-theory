@@ -4,6 +4,18 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest global psh approximation primary checkpoint, 9 October 2026:**
+the [source audit](manuscript/editorial/BE21_global_psh_approximation_source_review_20261009.md)
+reads twelve selected BE21 pages in six fresh individual matching displays.
+It distinguishes global FS nets, ample nef-model approximation, smooth
+regularization, exact norm-FS pullback and asymptotic section-norm descent.
+Seven elementary diagnostic families retain the printed proof clarifications.
+The [authored evidence](manuscript/editorial/artifact_exports/20261009_BE21_global_psh_approximation_sources/README.md)
+preserves the zero-credit failed heading preflight and successful fresh v2.
+Only five source pages are newly covered; the four-checkpoint union is
+58 of 125 pages, still partial. The 4,659-page book, native editor and
+canonical statuses are unchanged during this source checkpoint.
+
 **Latest verified supnorm and logarithmic-integrability GitHub publication, 9 October 2026:**
 the 4,659-page book and six owned artifact files are uploaded on work in
 f09e115bcccdf0ff03162459db3e083c749686ac. All fifteen source/progress/audit/artifact remote blobs

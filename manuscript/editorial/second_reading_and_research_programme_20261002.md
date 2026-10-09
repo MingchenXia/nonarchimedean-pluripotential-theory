@@ -3,6 +3,47 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest global psh approximation source checkpoint, 9 October 2026
+
+The [source audit](BE21_global_psh_approximation_source_review_20261009.md)
+freshly reads published BE21 physical 60--71, all of Section 7 and seams:
+twelve pages in six individually displayed matching views with complete
+text and sequential notes/receipts. Seven overlap the three prior related
+selections; five new pages give a four-checkpoint union of 58 of 125,
+with 67 unread. Seven exact elementary diagnostic families pass. The first
+heading/page preflight failed before creating images or text and remains
+frozen with zero reading credit; fresh v2 succeeds.
+
+Global FS-psh is a decreasing-net class. Continuous psh/nef-model equivalence
+requires ample polarization and a nontrivially valued field; the merely
+semiample extension remains an expectation in the source. Uniform closure
+uses a fast subsequence with summable errors rather than a decreasing shift
+of every prescribed sequence. Smooth maximum regularization and all earlier
+CLD/model/norm foundations retain their separate source scopes.
+
+The bounded-obstacle Q limit is not a general envelope-continuity theorem.
+The continuous, semiample, geometrically reduced field-descent criterion
+uses exact norm-FS pullback plus the o(m) metric-section-norm estimate.
+Its pullback obstacle is already continuous psh, so the proof does not assume
+universal envelope continuity. The literal Archimedean real-ball step
+requires typed complexification; the book uses the non-Archimedean proof.
+No intended correctly typed theorem is refuted.
+
+The [authored archive](artifact_exports/20261009_BE21_global_psh_approximation_sources/README.md)
+retains actual notes, receipts, diagnostics, helpers and frozen failure.
+External primary PDF/text/images stay in the cloud; export/upload adds zero
+reading credit. The 4,659-page book, 425 core TeX inputs, bibliographies,
+native catalogue/editor and 42 atoms/twelve problems are unchanged.
+General BJ22 critical homogeneous Siu/envelopes stay OPEN, LPWZ density
+UNVERIFIED, and the BJ22 6.21 proof warning remains binding. No original
+general theorem, independent-model receipt or new whole-book pass is claimed.
+
+Continue cloud-only with recent related primary papers and the remaining
+local/global approximation and open-problem interfaces. Integrate useful
+qualified explanations only through isolated build and actual rendered-book
+gates. Check incoming author updates and periodically push checked evidence.
+Xean stays suspended.
+
 ## Latest supnorm and logarithmic-integrability GitHub publication, 9 October 2026
 
 The [publication record](BE21_supnorm_integrability_GitHub_publication_v1_20261009.json)
