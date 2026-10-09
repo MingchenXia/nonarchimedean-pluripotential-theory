@@ -2776,3 +2776,19 @@ OPEN. The book, native catalogue/editor and canonical statuses are unchanged.
 All nine scoped incoming P12.3 review/evidence files were downloaded from
 GitHub and verified byte-for-byte at `8c33e9b611b6a992354959dd2c6ffba0cd412980`. See the [publication record](manuscript/editorial/P12_3_incoming_continuation302_GitHub_publication_v1_20261009.json).
 The new claims remain UNVERIFIED; upload adds no proof or reading credit.
+
+## Complete GVF gap-principle audit, 9 October 2026
+
+Read all 43 Hultberg arXiv:2601.04972v1 pages in 22 sequential matching
+complete-text/image displays. A fresh primary arXiv check lists only v1.
+The [source review](manuscript/editorial/Hultberg_GVF_gap_complete_source_review_v1_20261009.md)
+separates the intended BCSA/strict gap results from mixed-height, base-mass,
+negative-height, zero-threshold and bounded-ultraproduct diagnostics.
+Read five selected Sedillot2303.03377v2 pages including the full primary
+Proposition5.5 proof: it retains genericity and the correct mixed coefficient.
+The zero-height generic-line extension construction remains UNVERIFIED,
+with no independent production receipt. The main source results are not
+integrated. The [authored evidence](manuscript/editorial/artifact_exports/20261009_Hultberg_GVF_gap_complete_v1/README.md)
+preserves exact checks, notes, receipts, failure record and frozen helpers.
+The 4,679-page book, native catalogue/editor and canonical statuses remain
+unchanged. Continue primary foundations/LY25 checking and cloud book polishing.
