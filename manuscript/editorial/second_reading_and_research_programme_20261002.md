@@ -7634,3 +7634,7 @@ See [version-specific full source audit](Hultberg_toric_bundles_complete_source_
 and [53-member authored evidence](artifact_exports/20261009_Hultberg_toric_bundles_complete_v1/README.md).
 The **4,677-page book**, native catalogue source/PDF/editor and canonical
 problem statuses are unchanged. Upload adds no reading or proof credit.
+
+All nine toric-bundle arXiv source-audit/evidence files were downloaded from
+GitHub and verified byte-for-byte at `2cda4438a07662063c5e2040674dcaa1c01264c8`. See the [publication record](Hultberg_toric_bundles_complete_GitHub_publication_v1_20261009.json).
+The later journal full text is unread; upload grants no proof or reading credit.
