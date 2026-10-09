@@ -3,6 +3,39 @@
 Date: 2 October 2026. User-authorized continuation after completion of the
 editorial second draft in commit `f0d7942`.
 
+## Latest checked adelic-equidistribution book checkpoint, 9 October 2026
+
+The [integration audit](Ballay_Sombra_published_staged_integration_audit_v3_20261009.md)
+records the 4,675-page edition. Chapter 27 imports published Ballaÿ–Sombra
+with exact arithmetic signature, derivative and normalized probability
+conventions. The quadratic roof has essential minimum 1, absolute 3/4,
+Zhang lower bound 11/12 and wide-level inradius ratio tending to zero.
+The source necessity and logarithmic stabilization questions remain
+open in their stated scopes. No homogeneous BJ22 Siu repair follows.
+
+All fifteen final selected pages were actually read in eight fresh views;
+there are no blank versos. Two contents pages, first/last index pages
+and complete BS26Eq entry were read; the middle ten index pages were
+mechanically compared, not reread in this increment. V1's six-page
+reading and its lambda-domain repair remain frozen. The view-locator
+failures and inherited caption metadata issue are separately recorded.
+Required validation, six tests and final checks pass. All 13,382 earlier
+numbered values, 601 cited labels and 900 index entries remain. One key
+gives 602 citations and one unnumbered TOC entry gives 2766 entries.
+All links resolve; 955 inherited underfull blocks remain identical.
+Last complete ordered book pass remains 4 October.
+
+The [artifacts](artifact_exports/20261009_Ballay_Sombra_published_v3/README.md)
+preserve full PDF, actual review, 472-member minimal source and evidence.
+Published source/evidence commit 823ef4886d771c618d6e36b82eb1eeeeeb25a5ee
+has all nine remote blobs verified. Activation/publication are separate.
+Native 86-page catalogue/editor, 42 atoms/twelve problems, tiers(0,3,7,15,17)
+are unchanged. General BJ22 Siu/envelopes stay OPEN, LPWZ UNVERIFIED.
+No independent-model receipt or original result is introduced. Continue
+cloud-only; Xean suspended. Next related candidate: Xue 2608.08262v2,
+metadata-only so far; read before adding claims or updating source-open
+directions in the native catalogue. Export/upload adds no reading credit.
+
 ## Latest published adelic-equidistribution source checkpoint, 9 October 2026
 
 The [source audit](Ballay_Sombra_published_source_review_20261009.md) records

@@ -4,6 +4,19 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Latest checked adelic-equidistribution book integration, 9 October 2026:**
+the [integration audit](manuscript/editorial/Ballay_Sombra_published_staged_integration_audit_v3_20261009.md)
+records the 4,675-page edition: Chapter 27 explains the published
+defect/inradius criterion and a quadratic roof whose Zhang lower bound
+is strict, while Appendix L preserves source hypotheses and limitations.
+All fifteen selected final pages were read in eight fresh matching
+displays. Required validation and final checks pass; all earlier numbered
+values, cited labels, contents hierarchy and index terms remain.
+The [artifacts](manuscript/editorial/artifact_exports/20261009_Ballay_Sombra_published_v3/README.md)
+preserve full PDF, actual review, minimal source and authored evidence.
+The [activation record](manuscript/editorial/Ballay_Sombra_published_cloud_activation_v3_20261009.json)
+separately records the cloud update. General BJ22 Siu/envelopes remain OPEN.
+
 **Latest published adelic-equidistribution source checkpoint, 9 October 2026:**
 the [source audit](manuscript/editorial/Ballay_Sombra_published_source_review_20261009.md)
 records all 99 physical pages of Ballaÿ–Sombra's 5 October Inventiones
