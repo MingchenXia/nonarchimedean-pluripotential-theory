@@ -15,6 +15,14 @@ maximal-ray anchors, holomorphic quotient hypotheses and compactness
 normalization. All 33 selected pages were read in 17 matching displays;
 upload adds no reading credit. General BJ22 Siu/envelopes remain OPEN.
 
+**Latest curvature-rank source checkpoint, 9 October 2026:**
+the [source review](manuscript/editorial/Qin_curvature_rank_source_review_20261009.md)
+records the complete 39-page Qin arXiv v1 read in twenty matching displays.
+Its all-degree estimate retains a fixed positive exponent loss; sharp
+intermediate-degree growth remains open. The [authored evidence](manuscript/editorial/artifact_exports/20261009_Qin_curvature_rank_sources/README.md)
+preserves twelve calibrations and exact scope. The 4,669-page book and
+native catalogue/editor are unchanged in this source checkpoint.
+
 **Latest checked maximal-ray/extension book integration, 9 October 2026:**
 the [integration audit](manuscript/editorial/NA_maximal_extension_staged_integration_audit_v2_20261009.md)
 records the 4,669-page edition: published BBJ21 maximal-ray anchors in

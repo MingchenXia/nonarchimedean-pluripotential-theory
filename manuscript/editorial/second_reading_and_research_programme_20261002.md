@@ -25,6 +25,23 @@ receipt or new general result. Main remains 00957114db21b627e97369563032ceda9cea
 Continue cloud-only with recent related papers, original extension and
 Okounkov inputs, further book polishing and incoming author progress.
 
+## Latest curvature-rank source checkpoint, 9 October 2026
+
+The [source review](Qin_curvature_rank_source_review_20261009.md) records
+39/39 actual Qin v1 pages in twenty matching displays. The fixed-epsilon
+Theorem A estimate is distinct from sharp O(p^r), source Question 11.3,
+and from the MMZ arbitrary-divergent-factor formulation. Endpoints and
+surfaces remain classical in the source's own novelty separation.
+Twelve elementary calibrations check exponents, Chern signs, volume
+directions and changing-rank geometry. External original dependencies
+are not recursively certified; no independent-model receipt is claimed.
+The [authored evidence](artifact_exports/20261009_Qin_curvature_rank_sources/README.md)
+is ready for authorized publication. Integration into Chapter 55 is the
+next separate book gate. The active 4,669-page book, native catalogue,
+42 atoms/twelve problems and tiers (0,3,7,15,17) remain unchanged here.
+General BJ22 Siu/envelopes stay OPEN, LPWZ density UNVERIFIED, and the
+Theorem 6.21 warning remains binding. Continue cloud-only; Xean suspended.
+
 ## Latest checked maximal-ray/extension book checkpoint, 9 October 2026
 
 The [integration audit](NA_maximal_extension_staged_integration_audit_v2_20261009.md)
