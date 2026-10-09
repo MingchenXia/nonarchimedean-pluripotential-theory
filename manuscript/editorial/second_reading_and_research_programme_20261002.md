@@ -1,5 +1,41 @@
 # Second reading and sequential research programme
 
+## Current checked relative-minima edition: 4,681 pages, 9 October 2026
+
+The [integration audit](Guo_Yuan_relative_minima_staged_integration_audit_v2_20261009.md)
+imports the Guo–Yuan model-height example into Chapter 27, with full
+sixteen-page primary reading and explicit theta-polarized base k(J).
+The coefficient identity gives Q^2 theta^(g-1)=-2 g!; the minimizing
+rational ray has integral attaining divisors via a product automorphism.
+For g=2 both minima are 3/2 and the normalized curve height is 1. Only
+the lower average-of-minima comparison fails in this example; the next
+paragraph returns to number fields. Appendix L preserves hypotheses,
+printed-source corrections and the deeper imported dependency boundary.
+
+All fourteen final V2 selected pages were actually read in seven fresh
+views, including intentional blank verso 4430. V1 partial records remain
+frozen and confer no V2 reading credit. Required validation and six existing
+tests pass. All 13,382 prior numbered values, 604 cited labels, 2,766
+contents titles/hierarchy and 900 index terms remain; GY26 gives 605
+citations. All destinations resolve and 955 underfull blocks are unchanged.
+Other 423 core TeX inputs and the complex bibliography are identical.
+See the [artifacts](artifact_exports/20261009_Guo_Yuan_relative_minima_v2/README.md).
+
+The last ordered whole-book reading remains 4 October. Hultberg GVF v1
+has a separate complete 43-page audit; selected Sedillot v2 reading is
+five of 43 pages. Luo–Yu 2505.07193v3 currently has four of 31 pages
+actually read; its main proof remains unread and unintegrated. The latest
+GVF foundations 2409.04570v2 is acquired but zero of 52 pages are read.
+Incoming continuation306 has a separately published scoped audit; its
+same-centre power-cover and distinct-centre candidates remain UNVERIFIED.
+Continuation307 is observed through metadata only, without proof reading.
+Canonical 42-atom/twelve-problem tiers remain (0,3,7,15,17); P12.2/P12.3
+and BJ22 general homogeneous Siu/envelopes remain OPEN, LPWZ density
+UNVERIFIED. No original result or independent verifier receipt is promoted.
+The native catalogue/editor and historical PDF remain preserved with
+native compilation unverified. Continue cloud-only; Xean stays suspended.
+
+
 ## Current checked translated-abelian edition: 4,679 pages, 9 October 2026
 
 The [integration audit](Chambert_Loir_abelian_staged_integration_audit_v2_20261009.md)

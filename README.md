@@ -4,6 +4,22 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Current checked edition: 4,681 pages, 9 October 2026.**
+The [relative-minima integration audit](manuscript/editorial/Guo_Yuan_relative_minima_staged_integration_audit_v2_20261009.md)
+adds Guo–Yuan's curve over the polarized base k(J) to Chapter 27. Both
+minima exceed the normalized curve height, even for a nef model bundle
+with ample generic restriction. The base theta polarization and the exact
+cone hypotheses remain explicit; Appendix L explains two literal source
+slips and the direct coefficient reconstruction. The following discussion
+returns explicitly to number fields. All sixteen source pages and fourteen
+selected final book pages were read with matching text/image displays.
+Required checks pass; previous numbering, citations, contents and index
+are preserved. The [artifacts](manuscript/editorial/artifact_exports/20261009_Guo_Yuan_relative_minima_v2/README.md)
+contain the full book, actual review, minimal source and authored evidence.
+The last whole-book ordered reading remains 4 October. Original research
+candidates and canonical problem statuses remain unchanged. Work continues
+in the cloud; Xean stays suspended and the native catalogue/editor is preserved.
+
 **Latest verified translated-abelian GitHub publication, 9 October 2026:**
 the 4,679-page book and [artifacts](manuscript/editorial/artifact_exports/20261009_Chambert_Loir_abelian_v2/README.md)
 are published on work at `250e50271eaf85b1b6f9bff1af36d1e8b1b38862`. All sixteen remote blobs were
