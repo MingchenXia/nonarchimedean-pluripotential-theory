@@ -1,0 +1,30 @@
+from pathlib import Path
+from datetime import datetime, timezone
+import hashlib, json, re
+R=Path('/workspace/research'); K=R/'root-checks'
+P=K/'P12.3-continuation392-Noether-different-and-completed-Cartier-products-working-paper-20261009.tex'
+B=K/'P12.3-continuation392-ROOT-whole-proof-source-scope-and-binding-20261009.json'
+S=R/'primary-data-LOCALONLY/P12.3-formal-Noether-different-primary-20261009'
+U=S/'ROOT392-applied-full-units-LOCALONLY'; assert not B.exists() and not U.exists(); U.mkdir()
+sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
+load=lambda p:json.loads(Path(p).read_text())
+assert sha(K/'public-P16-round-46-final-reader/P16.4-paper.tex')=='09a83320fbb8fd7f468329307136ccaa146ea4ad07e9a23437ec3dd688ed942a'
+assert sha(S/'Iyengar-Takahashi-jac3.txt')=='bea3b89dcc05238d58e51a3a12e87cb7ec0996eca31fd41ee668d47645d533bf'
+assert sha(S/'Liu-annihilator-published.txt')=='65e2866edfa6e02c9d527067a2c1c1c8b35ca01f4127a9cbc535715b79232333'
+text=P.read_text(); stack=[]
+for m in re.finditer(r'\\(begin|end)\{([^}]+)\}',text):
+    if m[1]=='begin':stack.append(m[2])
+    else:assert stack and stack.pop()==m[2]
+assert not stack and text.count('\\[')==text.count('\\]') and len(re.findall(r'(?<!\\)\$',text))%2==0
+units=[]
+for file,lo,hi,scope in [('Iyengar-Takahashi-jac3.txt',94,116,'Complete Noetherdifferent definition/factorization criterion'),('Iyengar-Takahashi-jac3.txt',292,347,'Complete Kahlerdifferent inclusion/Lemma3.1 and normalizationJacobian definition/Example3.3'),('Liu-annihilator-published.txt',537,572,'Complete4.8context/4.9statement/full immediate proof; exact formal singular-locus claim')]:
+    origin=S/file; lines=origin.read_text().split('\n'); target=U/(origin.stem+f'-LF{lo}-{hi}-LOCALONLY.txt')
+    target.write_text('\n'.join(lines[lo-1:hi])+'\n')
+    units.append(dict(path=str(target),bytes=target.stat().st_size,sha256=sha(target),origin=str(origin),origin_sha256=sha(origin),inclusive_LF=[lo,hi],ROOT_physically_read_entire_untruncated=True,scope=scope,deep_recursive_proofs_not_newly_read=True,actual_primary_pixels_NOT_newly_read=True))
+now=datetime.now(timezone.utc).isoformat()
+rec=dict(recorded_utc=now,status='Whole new ROOT392 direct algebraic draft UNREVIEWED; originalP12.3 OPEN; no acceptance/count change',paper=dict(path=str(P),bytes=P.stat().st_size,sha256=sha(P),ROOT_entire_source_physically_read_untruncated=True,read_LF_chunks=[[1,190],[191,390],[391,530]]),new_direct_proof_scope=['Regular modulefinite subrings of complete normal perfect-residue R are complete regular with perfect residue and finiteFREE roots','Every Noetherdifferent element gives q-independent root containment via separability idempotent and integral trace, noCM','Actual full compatible completed-root-diagonal maps; source multiplier d^q, output d','Direct adjugate proof Kahlerdifferent containedNoetherdifferent','All normalizationJacobian generators have compatible lifts, using finite sums and possibly different normalizations','Completed k-tensor exactness for finite complete-local modules via continuous dual and ArtinRees; full Hom/Cartier paired-map factorization','Formal product ring Noetherian/Ffinite/reduced via explicit root presentation and exact completed tensor'],conditional_corollaries=['PRIMARY uniform multiplier power under EXACT named published normalizationJacobian=formalJacobian and formalJacobian singular-locus identifications','BIG product inclusion only if exact smallest-generically-nonzero-stable-ideal existence/minimality framework holds for the two actual factors and actual completed product pair'],full_applied_primary_units=units,source_boundary='ITjac3 Example3.3 and Liu4.9 exact immediate units physically read. Older Wang/SchejaStorch/formalJacobian proof trees not newly fully audited. OfficialWang1994 scannedPDF retained; OCR/pixel workflow ongoing, no new whole-proof credit. Ua22 and DaoTakahashi retained for context; Dao1.1 CM hypothesis is only a scope diagnostic, not a nonCM premise.',unproved=['Actual BIG test-ideal existence/minimality/application convention for completed product and diagonal algebra beyond the displayed conditional framework','Actual diagonal restricted image generically nonzero, BIG restriction and full-vs-restricted comparison/subadditivity','Whole isolated formal envelope global trace-generation and uniform primary all-support estimates','Generalexcellent/nonisolated/higherdim/mixed/imperfect/generalJensenLHC/originalP12.3'],static_checks='Own environment stack/displaydelimiter/dollar parity only; not compiler or mathematical verification',compilation='UNVERIFIED; built-in request follows without opening a new editor tab',all_full_primary_bodies_literal_units_pixels_and_book_context_LOCALONLY=True,supplied_or_native_programs_executed_or_imported=False,other_ACTIVE_math_read_or_hot_feedback=False,protected_editor_OPEN_UNCHANGED=True,accepted_paper=False,new_correctness_grant=False,original_closed=False,counts=dict(solved=16,open=26,accepted_scoped_papers=97))
+B.write_text(json.dumps(rec,ensure_ascii=False,indent=2)+'\n')
+for name in ['active-work.json','checklist-current.json']:
+    p=R/name; x=load(p); assert len(x['fully_solved_original_atoms'])==16 and x['remaining_open_original_atoms']==26 and x['historical_reviewed_scoped_papers']==97
+    x.update(updated_utc=now,latest_unreviewed_ROOT_formal_Noether_different_paper=dict(continuation=392,paper=str(P),paper_sha256=sha(P),binding=str(B),binding_sha256=sha(B),accepted=False,original_closed=False),next_work='Freeze native276 whole391392 plus full formalprimary for independent actual BIGcompleteddiagonal/subadditivity/formalCE. Publish281 beforelaunch. Native275 generalE1 independent continues, at mostTWO; no originalclosure/countchange; protected editor unchanged.'); p.write_text(json.dumps(x,ensure_ascii=False,indent=2)+'\n')
+print(json.dumps(dict(paper=str(P),bytes=P.stat().st_size,paper_sha256=sha(P),binding=str(B),binding_sha256=sha(B),direct_scope=rec['new_direct_proof_scope'],conditional_scope=rec['conditional_corollaries'],accepted=False,original_closed=False),indent=2))
