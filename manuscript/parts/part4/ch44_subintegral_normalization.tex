@@ -39,12 +39,13 @@ apparatus of \Cref{sec:ch43-analytic} is at our disposal without repetition.
 
 The obstruction is stated in one line.  In characteristic $p$ the set
 $\{b\in B:b^q\in A\}$ is an $A$-subalgebra of $B$, because
-$x\mapsto x^q$ is a ring homomorphism; in characteristic zero it is not
-even closed under addition, and there is no exponent $q$ whatsoever with
+$x\mapsto x^q$ is a ring homomorphism.  In characteristic zero the set
+need not be closed under addition, and the cuspidal extension admits no
+one exponent $q$ with
 $b^q\in A$ for all $b\in B$, already for
 $A=\mathbf Q[t^2,t^3]\subset B=\mathbf Q[t]$
-(\Cref{rem:ch43-charzero-contrast}).  Raising to a power is simply not an
-available operation.  What replaces it is the additive-power theorem of
+(\Cref{rem:ch43-charzero-contrast}).  Powering works for special coefficients but gives no general uniform
+coefficient-descent operation.  What replaces it is the additive-power theorem of
 Roberts and Singh: for a subintegral extension of $\mathbf Q$-algebras,
 the failure of $b^m$ to lie in $A$ can be corrected by lower-order terms
 whose coefficients $c_1,\ldots,c_p\in B$ are \emph{fixed}, independent of
@@ -97,7 +98,8 @@ exactly $L$ &
 $a_jL+\frac{a_j\rho}{n_j+C}H$, converging to $L$; a fixed twist $H$
 divided by a growing integer\\
 closure property used &
-none beyond \Cref{def:bj-psh} &
+GF conversion is an identity; full psh reflection also uses varying-class
+decreasing closure &
 \Cref{thm:bj-basic-closure}\,(5), decreasing nets with \emph{varying}
 classes\\
 what would break it &
@@ -113,11 +115,12 @@ estimate with \emph{additive} loss is exactly as good as an identity for the
 purpose at hand, because the ratio $r_n=n/(n+C)$ tends to $1$.  Had the
 loss been multiplicative --- had the sandwich read
 $nW(\mathfrak a)\le W(\mathfrak K_n\cO_Y)\le \kappa n\,W(\mathfrak a)$
-with $\kappa>1$ --- the limit of the approximants would have been
-$\kappa^{-1}\psi_0$ and not $\psi_0$, and the argument would prove
-nothing.  The whole of \Cref{sec:ch44-sandwich} exists to make the loss
+with $\kappa>1$ --- the limiting barriers would differ wherever
+$\psi_0<0$, so the estimate alone would not force convergence to
+$\psi_0$.  The whole of \Cref{sec:ch44-sandwich} exists to make the loss
 additive, and \Cref{ex:ch44-splitting-fails} exhibits a natural-looking
-variant of the construction in which it is multiplicative instead.
+variant that loses the stronger ideal containment; its valuative
+estimate is considered separately there.
 
 Second, the manufactured monotonicity is cheap but not free.  It costs a
 factor $a_j<1$ on the class, which is why the classes of the approximants
@@ -163,10 +166,11 @@ which is Tags 0CND and 0EUH of the Stacks Project, audited in
 formed, and only on its $\mathbf z$-coefficients, are $u$-homogeneous
 components extracted.  \Cref{ex:ch44-splitting-fails} shows what happens
 otherwise: splitting the correction coefficients $c_i$ by $u$-degree
-destroys membership in $A[u,\mathbf z]$ at once, and applying the identity
-separately to the weight components loses every mixed monomial from the
-leading-power relation, degrading the sandwich exponent from $n+2p$ to
-$s(n+2p)$.
+can destroy membership in $A[u,\mathbf z]$ at once.
+Applying the identity separately to the weight groups need not yield the
+same mixed-monomial ideal containment.  That loss is distinct from
+failure of the valuative estimate: the singleton construction in the
+example still has an additive Gauss-weight bound.
 
 \medskip\noindent\textbf{(C2) All local data are globalized with a single
 twist, independent of $n$.}  Three separate extension problems occur:
@@ -218,7 +222,9 @@ transitively:
 \item any statement of \Cref{chap:bj-envelope-consequences}, and none of
       \Cref{cor:ch42-birational-bijection},
       \Cref{cor:ch42-finite-bijection}, \Cref{cor:ch41-finite-bijection},
-      which are consequences of \Cref{thm:bj-normal-envelope}.
+      as inputs to this coefficient construction.  Their normal-target
+      hypotheses do not supply the nonnormal case here; the finite-map
+      bijection also has its own EP hypothesis.
 \end{enumerate}
 \Cref{thm:bj-char-zero-universal-reflection} is an \emph{input} to
 \Cref{thm:bj-final-envelope}, not a consequence of it, and the same holds
@@ -234,9 +240,8 @@ because the characteristic-zero proof passes closer to both.
 First, surjectivity of $\nu^*$ on psh functions.  For a birational
 morphism of \emph{normal} projective varieties this is
 \Cref{cor:ch42-birational-bijection}; but $X$ is not normal here --- if it
-were, $\nu$ would be an isomorphism --- and in any case that corollary is
-a consequence of \Cref{thm:bj-normal-envelope} and may not be used to
-produce an input to the unibranch theorem.  Surjectivity is obtained below
+were, $\nu$ would be an isomorphism.  The normal-target hypothesis
+does not supply the nontrivial case considered here.  Surjectivity is obtained below
 from scratch, by exhibiting for each upstairs GF stage an explicit
 decreasing sequence of downstairs GF functions converging to it.
 
@@ -256,7 +261,7 @@ $r_n\psi_0\downarrow\psi_0$ and therefore
 \]
 It is tempting to stop here and quote a closure property for infima.  But
 \Cref{thm:bj-basic-closure}\,(5) is a statement about \emph{decreasing
-nets}, and the raw family $(F_n)_n$ is not monotone in either direction:
+nets}, and the raw family $(F_n)_n$ need not be monotone in either direction:
 the sandwich controls each $F_n$ between two moving barriers but says
 nothing about $F_n$ versus $F_{n+1}$.  An infimum of a non-monotone
 family of psh functions need not be psh, and no statement of this book
@@ -394,7 +399,9 @@ $\cH^{\mathrm{gf}}_\Lambda(L)$ and its elementary calculus
 \Cref{lem:gf-fs-operations}); the definition of $\PSH_X(\theta)$
 (\Cref{def:bj-psh}); the existence thresholds
 \Cref{lem:ch34-psh-nonempty}; and the closure package
-\Cref{thm:bj-basic-closure}, of which only items~(1) and~(5) are used.
+\Cref{thm:bj-basic-closure}: constants, positive scaling and varying-class
+decreasing closure are used in reflection; the structural corollary also
+uses maxima and fixed-class decreasing closure.
 
 From \Cref{chap:bj-finite-descent}: nothing.  In particular there is no
 determinant norm, no flattening, and no division by a fibre degree anywhere
@@ -512,7 +519,7 @@ then so is $A[\mathbf w]\subset B[\mathbf w]$.
 By \Cref{thm:appA-square-cube} it suffices to verify the finite-stage
 square--cube condition for $A[\mathbf w]\subset B[\mathbf w]$.  Let
 $F_1,\ldots,F_M\in B[\mathbf w]$ be finitely many polynomials and let
-$b_1,\ldots,b_M'\in B$ be the finitely many coefficients occurring in
+$b_1,\ldots,b_{M'}\in B$ be the finitely many coefficients occurring in
 them.  By \Cref{thm:appA-square-cube} applied to $A\subset B$ there is a
 tower
 \[
@@ -553,11 +560,11 @@ $A[u,\mathbf z]\subset B[u,\mathbf z]$.  It says nothing about how the
 data $p$, $N$, $c_1,\ldots,c_p$ behave, and in particular it does not
 assert that they may be chosen over $A$ and then extended: they are
 produced afresh, over $A[u,\mathbf z]$, by
-\Cref{cor:appA-RS-generic}, and they genuinely involve $u$ and
-$\mathbf z$.  This is recorded because it is exactly the point at which a
+\Cref{cor:appA-RS-generic}, and they may involve $u$ and $\mathbf z$.  This is recorded because it is exactly the point at which a
 reader may be tempted to shortcut the argument by applying the additive-power
-theorem coefficientwise; \Cref{ex:ch44-splitting-fails} shows that this
-does not work.
+theorem coefficientwise.  \Cref{ex:ch44-splitting-fails} separates
+the failure of the stronger mixed ideal containment from a surviving
+additive valuative estimate.
 \end{warning}
 
 \subsection{Why the extension at hand is subintegral}
@@ -694,7 +701,10 @@ $U$.  Seminormality of $X$ means that $\cO_X(U)$ is seminormal in
 $\cO_{X^\nu}(\nu^{-1}U)$ for every affine $U$; by~(1) these two rings
 coincide, so $\nu$ is an isomorphism and $X$ is normal.
 
-(3)  If $\nu$ is not an isomorphism then $X$ is not normal, so by~(2)
+(3)  A finite birational map with normal source identifies $Y$ with
+the normalization of $X$.  Since it is a universal homeomorphism, that
+normalization has singleton fibres, so $X$ is unibranch.
+If $\nu$ is not an isomorphism then $X$ is not normal, so by~(2)
 it is not seminormal.  Nonvanishing of $\mathcal Q$ is the same statement:
 $\mathcal Q=0$ on an affine $U$ says $A_U=B_U$, and if that held for
 all $U$ then $\nu$ would be an isomorphism.
@@ -710,7 +720,8 @@ The proof descends carefully chosen additive-power combinations instead.
 
 Said in another way,
 \Cref{prop:ch44-seminormal-unibranch-normal}\,(3) is the precise reason why
-no argument of this chapter can descend an individual coefficient.  If
+some individual coefficients need not descend.  A coefficient already
+in $A$ does descend.  If
 $b\in B_U\setminus A_U$ --- and by~(3) such $b$ exist --- then $b$ is
 simply not a function on $X$, and no amount of manipulation will make it
 one.  What the additive-power theorem provides is not a way to move $b$
@@ -728,14 +739,16 @@ chart
 \[
  A=k[x,y]/(y^2-x^3-x^2)\cong k[t^2-1,\,t^3-t]\subset B=k[t],
 \]
-the isomorphism being $t\mapsto y/x$.  Here $\Spec B\to\Spec A$ has two
+the embedding sending $x$ to $t^2-1$ and $y$ to $t^3-t$;
+the rational inverse is $t=y/x$.  Here $\Spec B\to\Spec A$ has two
 points over the node, namely $t=\pm1$, so $X$ is \emph{not} unibranch
 and the extension is \emph{not} subintegral.  It is, however, the standard
 example of a seminormal nonnormal ring: if $b\in B$ satisfies
 $b^2,b^3\in A$ then $b\in A$.  Indeed $A=\{f\in B:f(1)=f(-1)\}$, and
 if $f(1)\ne f(-1)$ then $f^2$ and $f^3$ cannot both take equal values
 at $\pm1$, since $f(1)^2=f(-1)^2$ and $f(1)^3=f(-1)^3$ force
-$f(1)=f(-1)$ after dividing.
+$f(1)=f(-1)$: if either value is zero, both are zero; otherwise
+divide the cube equality by the square equality.
 
 Three things behave differently, and it is worth listing them because each
 is a hypothesis of the present chapter shown to be doing work.
@@ -744,16 +757,18 @@ is a hypothesis of the present chapter shown to be doing work.
       $Y=\mathbf P^1$ map to the node, so already the topological input
       \Cref{lem:bj-universal-analytic-homeomorphism} fails, and the phrase
       ``the same function of the same points'' has no meaning.
-\item There is no additive-power identity to be had, and none is needed:
-      $A$ is seminormal in $B$, so by
+\item The Roberts--Singh theorem does not give systems for every element
+      of this extension.  Some elements, including those in $A$, still
+      admit such systems.  Since $A$ is seminormal in $B$, by
       \Cref{prop:ch44-seminormal-unibranch-normal}\,(1) the extension is
       subintegral only if $A=B$, which it is not.  The Roberts--Singh
       theorem simply does not apply, its hypothesis being subintegrality
       and not integrality.
-\item The conclusion itself fails.  For $X$ nodal and $\theta$ ample,
-      choose an upstairs section of a sufficiently positive pullback line
-      bundle that vanishes at $t=1$ but not at $t=-1$.  Its logarithm
-      is a GF, hence psh, function on the normalization; it takes value
+\item Whole-class surjectivity can fail.  Choose an ample line bundle
+      $L$ on the nodal $X$ and put $\theta=c_1(L)$.  For large $m$,
+      choose a section $s$ of $\nu^*(mL)$ vanishing at $t=1$ but
+      not at $t=-1$.  The function $m^{-1}\log|s|$ is GF, hence
+      $\nu^*\theta$-psh, on the normalization; it takes value
       $-\infty$ at one point over the node and a finite value at the
       other, so it cannot be the pullback of any function on $X^{\An}$.
       This is the branch-asymmetric obstruction of
@@ -764,11 +779,9 @@ For contrast, replace the node by the cusp $y^2z=x^3$, i.e.\
 $A=k[t^2,t^3]$.  Now $A$ is unibranch, \emph{not} seminormal
 (\Cref{ex:appA-cusp-seminormalization}), the extension \emph{is}
 subintegral, and everything in this chapter applies; the descent is carried
-out explicitly in \Cref{ex:ch44-cusp-end-to-end}.  The two curves are
-projectively indistinguishable at the level of degree, arithmetic genus, and
-even of the homeomorphism type of the underlying topological space of
-$X$; they are distinguished exactly by whether the normalization is
-injective.
+out explicitly in \Cref{ex:ch44-cusp-end-to-end}.  The two plane cubics have the same degree and arithmetic genus.
+Their normalization maps differ in whether distinct branches remain
+over the singular point; that distinction controls the present input.
 \end{example}
 
 \section{The Roberts--Singh additive-power theorem}
@@ -870,6 +883,8 @@ Let $b=\sum_{k\ge0}\beta_kt^k\in B$.  We claim that
  \qquad
  c_1=-\beta_1t=-\bigl([t^1]b\bigr)\,t.
 \]
+The following coefficient calculations are for $m\ge1$;
+the omitted-summand convention gives $a_0=1$ separately.
 Indeed, write $b=\beta_0+\beta_1t+t^2h$ with $h\in B$.  Expanding,
 \[
  [t^1]\bigl(b^m\bigr)
@@ -898,12 +913,13 @@ correction term suffices, and it is \emph{explicit}: the correction
 coefficient is minus the degree-one part of $b$ itself.
 
 Two sanity checks.  For $b=1+t$ one gets $c_1=-t$ and
-$a_m=(1+t)^m-mt(1+t)^{m-1}=(1+t)^{m-1}\bigl(1-(m-1)t\bigr)$, whose
+$a_m=(1+t)^m-mt(1+t)^{m-1}=(1+t)^{m-1}\bigl(1-(m-1)t\bigr)$
+for $m\ge1$, whose
 degree-one coefficient is $(m-1)-(m-1)=0$; this recovers the computation
 quoted for contrast in \Cref{rem:ch43-charzero-contrast}.  For
 $b=t$ one gets $\beta_0=0$, $\beta_1=1$, $c_1=-t$ and
-$a_m=t^m-mt\cdot t^{m-1}=(1-m)t^m$, which lies in $A$ for $m\ne1$ and
-vanishes for $m=1$; consistent, since $t^m\in A$ for $m\ne1$ anyway.
+$a_m=t^m-mt\cdot t^{m-1}=(1-m)t^m$, for $m\ge1$, which lies in $A$ for $m\ge2$ and vanishes for
+$m=1$; the separate value $a_0=1$ also lies in $A$.
 \end{example}
 
 \begin{example}[Two gaps: $p=2$, and an $A$-valued correction still matters]
@@ -943,7 +959,8 @@ $[t^3](t^2(1+t)^{m-2})=m-2$.  Then
 \]
 Thus $a_m\in A$ for all $m\ge0$.
 
-The length is minimal.  Indeed, if $p=1$, write the part of $c_1$ of
+The length is minimal: $p=0$ would require $(1+t)^m\in A$ for all
+large $m$, contradicted by its degree-one coefficient $m$.  If $p=1$, write the part of $c_1$ of
 degree at most three as
 $\gamma_0+\gamma_1t+\gamma_2t^2+\gamma_3t^3$; higher terms do not affect
 the two gap coefficients.  Vanishing in degree one gives
@@ -1021,19 +1038,21 @@ gradings:
       $g_j$.
 \end{itemize}
 Both gradings are preserved by $A[u,\mathbf z]\subset B[u,\mathbf z]$, and
-both are used; the entire content of point~\textbf{(C1)} of
-\Cref{sec:ch44-care} is the \emph{order} in which their homogeneous
-components are extracted.  The order is:
+both are used; point~\textbf{(C1)} of \Cref{sec:ch44-care} retains the full identity
+before extracting components.  The following is the order used in this
+construction, rather than a noncommutativity of the two projections.  The order is:
 \[
  \boxed{\ \text{form }a_m\ \longrightarrow\
  \text{take }\mathbf z\text{-components}\ \longrightarrow\
  \text{take }u\text{-components}.\ }
 \]
 The first arrow is legitimate because $A[u,\mathbf z]$ is
-$\mathbf z$-graded; the second because $A[u]$ is $u$-graded.  Neither
-arrow may be applied to $b$ or to the $c_i$ before $a_m$ has been
-formed, because $a_m\in A[u,\mathbf z]$ is a statement about the total
-expression and not about its pieces.
+$\mathbf z$-graded; the second because $A[u]$ is $u$-graded.  The membership assertion concerns the complete expression.
+After it has been formed, the grading projections commute; this
+construction takes the $\mathbf z$-component first to normalize the
+correction data uniformly in $m$.  Truncating $c_i$ while keeping the
+leading power unchanged is a different operation and need not preserve
+membership.
 
 \begin{warning}{Do not split the correction coefficients}
 \label{warn:ch44-no-splitting}
@@ -1152,10 +1171,12 @@ available only in the weaker form with $m$-dependent coefficients
 $c_i^{(m)}$, the operator $\Delta_b$ would not act on the family by
 shifting binomial indices, the telescoping above would fail at the first
 step, and no ideal-theoretic conclusion would be available.  This is the
-precise sense in which the \emph{exponent-zero} refinement
-\cite[Proposition~4.2 and Corollary~4.3]{RobertsSingh} --- and not merely
-the elementwise subintegrality of \cite[Theorem~4.17]{RobertsSingh} --- is
-what the chapter consumes.  It is recorded in \Cref{thm:appA-roberts-singh}
+role of fixed coefficients in this calculation.  Roberts--Singh's
+general systems also have fixed coefficients; \emph{exponent zero}
+means that the correction indices are $m-i$, without the additional
+shift $m-s-i$ of a system of exponent $s$.
+\cite[Proposition~4.2 and Corollary~4.3]{RobertsSingh} supplies the
+unshifted form used here.  It is recorded in \Cref{thm:appA-roberts-singh}
 in exactly that form.
 \end{remark}
 
@@ -1240,9 +1261,10 @@ We first form the complete $a_m$, then extract $\mathbf z$-coefficients,
 and only then split those coefficients by $u$-degree.
 
 Explicitly, the order of operations is the boxed one of
-\Cref{sec:ch44-two-gradings}, and the two prohibited shortcuts are those of
-\Cref{warn:ch44-no-splitting} and of
-\Cref{ex:ch44-splitting-fails}\,(2).  Neither is used below.
+\Cref{sec:ch44-two-gradings}, and the prohibited operation is the premature truncation in
+\Cref{warn:ch44-no-splitting}.
+The separate grouping of \Cref{ex:ch44-splitting-fails}\,(2) is
+legitimate but need not yield the strong ideal containment proved below.
 
 \emph{Step 3: isolating the leading power.}
 Define the finite-difference operator
@@ -1374,9 +1396,10 @@ left-hand side of \eqref{eq:bj-char-zero-am} gives
 so $a_m'\in A[u,\mathbf z]$ because $t^{-1}\in A^\times$.  Hence the
 element $a_m\,e^{\otimes m}$, formed from a section-valued datum and a
 frame $e$, is independent of the frame; and the same holds for
-$c_i\,e^{\otimes i}$.  It is this observation, and not any global
-vanishing theorem, that makes the local systems of the next section fit
-together into sections of a line bundle.
+$c_i\,e^{\otimes i}$.  This transports one chosen system when its frame changes.
+Independent choices on different charts need not agree; the next
+section extends and descends each chart's system separately with fixed
+cutoffs before collecting a global family.
 \end{proof}
 
 \begin{remark}[The two grading rule]
@@ -1385,8 +1408,9 @@ The $\mathbf z$-grading counts powers of the ideal and isolates monomial
 coefficients.
 The $u$-grading stores the FS weights.
 The $\mathbf z$-homogeneous component is taken before the $u$-components.
-Interchanging this order is not justified because $b$ is not
-$u$-homogeneous.
+The projections commute once the full identity has been formed.
+What is not justified is truncating the correction coefficients while
+leaving $b^m$ unchanged.
 \end{remark}
 
 \begin{remark}[What the sandwich is, dimensionally]
@@ -1395,22 +1419,24 @@ It is worth pausing on the shape of \eqref{eq:bj-local-additive-sandwich}.
 The ideal $K_n$ lives downstairs and is squeezed between two powers of an
 upstairs ideal whose exponents differ by the \emph{constant} $2p$.  Read
 valuatively --- which is how it will be read in
-\Cref{sec:ch44-global-sandwich} --- this says that
+\Cref{sec:ch44-global-sandwich} --- at points of finite Gauss weight this says that
 $W(K_nB[u])$ agrees with $n\,W(\mathfrak a)$ to within an additive error
-$2p\,W(\mathfrak a)$, and after division by $n+2p$ the error is
-$O(1/n)$.  A statement with $n+2p$ replaced by $\kappa n$ would give
-relative error $1-\kappa^{-1}$, which does not tend to zero and is
-useless.  Thus the entire force of the lemma is in the word ``$2p$'':
+$2p\,W(\mathfrak a)$.  At a point of finite Gauss weight, division
+by $n+2p$ gives error $O(1/n)$ with a point-dependent constant;
+no uniform absolute bound over the whole valuation cone is asserted.  A statement with $n+2p$ replaced by $\kappa n$ would give
+a limiting barrier gap with ratio $1-\kappa^{-1}$, which alone
+does not shrink to the required equality.  Thus the entire force of the lemma is in the word ``$2p$'':
 \emph{additive}, and independent of $n$.  This is the sense in which
 \Cref{lem:bj-local-additive-sandwich} is the exact
 characteristic-zero substitute for the identity $f^q\in A$ of
 \Cref{cor:ch43-frobenius-all-affines}, which has additive error zero.
 \end{remark}
 
-\begin{example}[Splitting the weight components before applying the identity fails]
+\begin{example}[Premature truncation and the limits of grouping]
 \label{ex:ch44-splitting-fails}
-We exhibit both prohibited shortcuts of \Cref{sec:ch44-care}\,\textbf{(C1)}
-on one example, with explicit numbers.
+One example distinguishes the invalid truncation of
+\Cref{sec:ch44-care}\,\textbf{(C1)} from a legitimate grouped
+construction that loses the stronger mixed ideal containment.
 
 Let $A=\mathbf Q[t^2,t^3]\subset B=\mathbf Q[t]$, and let
 $s=2$ with
@@ -1436,8 +1462,9 @@ $R=\mathbf Q[u,z_1,z_2]$ the Roberts--Singh data may be taken to be
  \qquad
  N=0,
  \qquad
- c_1=-\beta_1t=-(z_1+uz_2)\,t,
- \qquad
+ c_1=-\beta_1t=-(z_1+uz_2)\,t.
+\]
+\[
  a_m=b^m-m(z_1+uz_2)t\,b^{m-1}.
 \]
 
@@ -1528,21 +1555,30 @@ the $\mathbf z^{(2,n)}$-coefficient in
 and $\binom{n+2}2$ is a unit in $\mathbf Q$.
 
 \smallskip
-\emph{(3) The size of the damage.}
-The grouped construction is not merely different, it is quantitatively
-worse.  What survives it is only the pigeonhole statement: any monomial of
-degree $s(M-1)+1$ in $s$ generators has some $g_j$ to a power at least
-$M$, so
+\emph{(3) Ideal containment and the valuative estimate.}
+A pigeonhole argument supplies a weaker ideal containment: a monomial
+of degree $s(M-1)+1$ in $s$ generators contains some $g_j^M$, so
 \[
- \mathfrak a^{\,s(n+2p)}\subset K_n^{\mathrm{grp}}B[u]\subset\mathfrak a^n
+ \mathfrak a^{s(n+2p)}\subset K_n^{\mathrm{grp}}B[u]\subset\mathfrak a^n.
 \]
-is available while \eqref{eq:bj-local-additive-sandwich} is not.  Feeding
-this into \Cref{sec:ch44-decreasing} in place of
-\eqref{eq:bj-char-zero-global-weight-sandwich} would give
-$r_n=n/(sn+2sp)\to1/s$, and the construction would converge to
-$s^{-1}\psi_0$ instead of $\psi_0$.  The loss would be
-\emph{multiplicative}, and the theorem would be false as stated; cf.\
-\Cref{rem:ch44-sandwich-shape}.
+The mixed containment $\mathfrak a^{n+2}\subset K_n^{\mathrm{grp}}B[u]$
+fails as shown above.  Using only the weaker containment would give
+limiting barriers with ratio $1/s$, which do not force the desired limit.
+
+There is nevertheless a sharper \emph{valuative} estimate for this
+grouped construction.  The singleton sandwich gives
+$g_1^{n+2},g_2^{n+2}\in K_n^{\mathrm{grp}}B[u]$ and
+$K_n^{\mathrm{grp}}B[u]\subset\mathfrak a^n$.  For every centered
+Gauss semivaluation $W$,
+\[
+ nW(\mathfrak a)\le W(K_n^{\mathrm{grp}}B[u])
+ \le\min_{j=1,2}(n+2)W(g_j)=(n+2)W(\mathfrak a).
+\]
+At a common zero all entries are $+\infty$ for $n\ge1$.
+Thus this example obstructs the stronger mixed ideal containment,
+not the additive Gauss-weight estimate or all reflection arguments.
+The full generic combination is the route used here to obtain that
+stronger algebraic statement.
 \end{example}
 
 \section{Encoding a weighted GF function}
@@ -1594,7 +1630,8 @@ Then:
       $W_v(\mathfrak b)=\min_lW_v(h_l)$ for any finite generating set
       $(h_l)$; for finitely generated ideals $\mathfrak b,\mathfrak b'$,
       $W_v(\mathfrak b\mathfrak b')=W_v(\mathfrak b)+W_v(\mathfrak b')$;
-      in particular $W_v(\mathfrak b^n)=n\,W_v(\mathfrak b)$;
+      in particular $W_v(\mathfrak b^n)=n\,W_v(\mathfrak b)$ for
+      $n\ge1$, while $W_v(\mathfrak b^0)=W_v(B[u])=0$;
 \item\label{itm:ch44-gauss:mono}
       $\mathfrak b\subseteq\mathfrak b'$ implies
       $W_v(\mathfrak b)\ge W_v(\mathfrak b')$.
@@ -1608,7 +1645,9 @@ $+\infty$ when all terms are.
 
 Item~\cref{itm:ch44-gauss:val}: the ultrametric inequality for a sum is clear,
 since the coefficient of $u^d$ in $f+g$ is a sum of the corresponding
-coefficients.  For the product, write $W_v(f)=v(b_{d_0})+d_0$ with $d_0$
+coefficients.  For the product, if either weight is infinite, every coefficient of
+that factor has infinite value, so both sides of multiplicativity are
+$+\infty$.  Otherwise write $W_v(f)=v(b_{d_0})+d_0$ with $d_0$
 minimal among the indices realizing the minimum, and similarly
 $W_v(g)=v(c_{e_0})+e_0$ with $e_0$ minimal.  The coefficient of
 $u^{d_0+e_0}$ in $fg$ is $\sum_{d+e=d_0+e_0}b_dc_e$.  For
@@ -1665,7 +1704,7 @@ Put
                          c=\frac1m\max_j\lambda_j
 \]
 and $\psi_0=\psi-c$.
-Choose $q>0$ such that
+Choose an integer $q\ge1$ such that
 \[
                  d_j:=-q(\lambda_j-\max_\ell\lambda_\ell)
                          \in\mathbf N.
@@ -1737,7 +1776,9 @@ Frame independence: two frames of $\nu^*M$ at $c(v)$ differ by a unit
 $g$ of the local ring, and $v(g)=0$, so each $v(f_{j})$ is unchanged;
 this is \Cref{lem:ch34-frame-independence} in the present notation.
 
-Fix $v$ and a frame, and write $s_j=f_j\cdot e$ locally.  Then
+Fix $v$ and a frame $e_0$ of $\nu^*(mL)$ at its centre, and
+write $s_j=f_j e_0$.  Use $e=e_0^{\otimes q}$ as the frame of
+$\nu^*M$ for the weighted system.  Then
 $\log|s_j|(v)=-v(f_j)$, by the normalization recalled in
 \Cref{sec:ch44-hypotheses}.  The generators of $\mathfrak a$ are
 $u^{d_j}f_j^{\,q}$ in this frame, and by
@@ -1846,7 +1887,7 @@ that trivializes $M$, where all $\tau_\alpha$ are sections of one ample
 line bundle $A_0$ on $X$.
 Let $e_\alpha$ be a frame of $M$ on $U_\alpha$, and write
 \[
-                         s_j^q=f_{\alpha j}e_\alpha.
+                         s_j^q=f_{\alpha j}\nu^*e_\alpha.
 \]
 Apply \Cref{lem:bj-local-additive-sandwich} to
 $g_{\alpha j}=u^{d_j}f_{\alpha j}$.
@@ -1856,8 +1897,10 @@ Each will be globalized separately and then placed into one finite family.
 
 Such a cover exists: $A_0$ ample means that for every closed point
 $x\in X$ some power $rA_0$ has a section not vanishing at $x$ whose
-nonvanishing locus is affine and trivializes $M$; replacing $A_0$ by
-$rA_0$ and using quasi-compactness of $X$ gives a finite such cover.  The
+nonvanishing locus is affine and trivializes $M$; selecting finitely many such loci by quasi-compactness and then
+replacing $A_0$ by a common tensor multiple gives the asserted cover.
+Raise each selected section to the corresponding positive power;
+its nonvanishing locus is unchanged.  The
 extension $A_\alpha:=\cO_X(U_\alpha)\subset B_\alpha:=\cO_Y(\nu^{-1}U_\alpha)$
 is finite subintegral by \Cref{lem:ch44-char-zero-subintegral}, so
 \Cref{lem:bj-local-additive-sandwich} does apply.
@@ -1872,8 +1915,8 @@ $\nu^{-1}U_\alpha$ depending on the frame, the \emph{section}
  =\sum_jz_ju^{d_j}s_j^{\otimes q}
  =:\mathbf s
 \]
-does not depend on $\alpha$ at all.  It is one global section of
-$\nu^*M$ with coefficients in $\mathbf Z[u,\mathbf z]$.  All the
+does not depend on $\alpha$ at all.  It is an element of
+$H^0(Y,\nu^*M)[u,\mathbf z]$.  All the
 chartwise systems are therefore attached to the same global object, and
 differ only in the choice of Roberts--Singh data.  This is exactly the
 covariance recorded in \eqref{eq:bj-char-zero-frame-law}, and it is what
@@ -1927,7 +1970,8 @@ many exponents so obtained, over the finitely many $\alpha$, the finitely
 many $i\le p_\alpha$, and the finitely many coefficients.  Nothing here
 involves $m$ or $n$: the $c_{\alpha i}$ are the \emph{fixed} data of
 \eqref{eq:bj-rs-additive-powers}, and their independence of $m$ is
-precisely the exponent-zero property (\Cref{rem:ch44-exponent-zero}).
+the fixed-coefficient part of the chosen exponent-zero system
+(\Cref{rem:ch44-exponent-zero}).
 
 Item~\cref{itm:ch44-cut:S}.  $\mathcal Q=\nu_*\cO_Y/\cO_X$ is coherent,
 being the cokernel of a map of coherent sheaves, and its subsheaf
@@ -1974,8 +2018,10 @@ $\rho(n+C)^{-1}R(n)\to\rho\lambda$, the classes converge to
 \[
  c_1(L)+\rho\lambda\,c_1(A_0)\ \ne\ c_1(L),
 \]
-because $A_0$ is ample and hence nonzero in $N^1(X)$.  The construction
-would then exhibit $\psi_0$ as a decreasing limit of GF functions whose
+when $\dim X>0$, since an ample class then has positive degree on
+a curve and is nonzero in $N^1(X)$.  The construction
+would, if the same sandwich and monotonization remained available,
+exhibit $\psi_0$ as a decreasing limit of GF functions whose
 classes converge to a \emph{strictly larger} class, proving only
 $\psi_0\in\PSH_X\bigl(c_1(L)+\rho\lambda\,c_1(A_0)\bigr)$ --- a true but
 useless statement, since every $\theta$-psh function is
@@ -2051,10 +2097,12 @@ each summand of $\mathbf a_{\alpha m}$ visibly carries a factor
 $\mathbf s^{\,m-i}$ with $m-i\ge n$ \emph{on all of $Y$}, and the
 $\mathbf z$-coefficients of $\mathbf s^{\,m-i}$ are integer multiples of
 monomials of degree $m-i\ge n$ in the weighted generators
-$u^{d_j}s_j^{\otimes q}$ of $\mathfrak a$.  Had we extended
-$a_{\alpha m}$ as an undifferentiated whole, the extension would agree
-with a member of $\mathfrak a^n$ only over $U_\alpha$, and the upper
-inclusion would be lost off that chart.
+$u^{d_j}s_j^{\otimes q}$ of $\mathfrak a$.  Extending the whole block by an arbitrary existence argument does not
+by itself supply a twist independent of $m$ or a formula displaying
+global containment in $\mathfrak a^n$.  With the same twist and the
+same dense-open restriction, any existing extension is unique on
+integral $Y$ and equals the structured one; no contradictory extension
+with that same data is asserted.
 
 \begin{warning}{Extend the coefficients, not the blocks}
 \label{warn:ch44-extend-coefficients}
@@ -2064,9 +2112,11 @@ The two operations
  \qquad\text{versus}\qquad
  \text{form the block, then extend it}
 \]
-give sections with the same restriction to $\nu^{-1}U_\alpha$ but
-different behaviour elsewhere, and only the first is admissible.  There is
-also an efficiency reason: the $c_{\alpha i}$ are finitely many and fixed,
+have different proof requirements.  Extending the fixed coefficients
+supplies one twist and displays global containment.  Extending each
+whole block without that structure does not supply these uniformities
+automatically; with the same twist and restriction the extensions
+coincide.  There is also a uniformity reason: the $c_{\alpha i}$ are finitely many and fixed,
 so one exponent $R$ suffices for all of them and for all $m$
 simultaneously, whereas the blocks $a_{\alpha m}$ form an infinite family
 indexed by $m$, and the exponents needed to extend them could well grow
@@ -2164,10 +2214,11 @@ $\mathfrak m\mathcal Q\ne0$, while
 $\mathfrak m^2\mathcal Q=0$: every monomial in $\mathfrak m^2$ has degree
 at least $4$, and multiplying either gap representative $t$ or $t^3$
 gives a monomial of degree at least $5$, hence an element of $A$; for
-example, $t^4\cdot t=t^5$ and $t^4\cdot t^3=t^7$.  There $S=2$ is
-needed.  The example shows that
-$S$ measures the depth of the $\tau_\alpha$-power filtration on
-$\mathcal Q$, which is bounded by but not equal to its length.  What
+example, $t^4\cdot t=t^5$ and $t^4\cdot t^3=t^7$.  For the cutoff $\tau_\alpha=t^2$ there $S=2$ is needed; a cutoff
+such as $t^5$ can kill this quotient with $S=1$.
+In these finite-length examples the nilpotence depth is at most the
+module length, but need not equal it.  A higher-dimensional coherent
+quotient need not have finite length.  What
 $S$ genuinely bounds, in general, is the least $l$ with
 $\tau_\alpha^l\Gamma_{V(\tau_\alpha)}\mathcal Q=0$, and it is finite for
 the sole reason that $\mathcal Q$ is coherent on a noetherian scheme.
@@ -2365,8 +2416,8 @@ and $0\cdot(-\infty)$ after the sign change below.
 \begin{remark}[The two halves use different hypotheses]
 \label{rem:ch44-two-halves}
 The lower bound in \Cref{prop:ch44-global-sandwich} is a formal consequence
-of an ideal inclusion valid on all of $Y$, and would survive almost any
-mangling of the construction.  The upper bound is where the work is: it
+of the global ideal inclusion on $Y$.  A modified construction
+preserves this bound only if it preserves that inclusion.  The upper bound is where the work is: it
 requires a chart adapted to the point $v$, and it requires that passing to
 that chart cost nothing valuatively, which is why the cutoff was performed
 with powers of $\tau_\alpha$ --- a section of a bundle on $X$ that is
@@ -2383,9 +2434,10 @@ equality of functions,
 \eqref{eq:bj-positive-gf-identity}, obtained after a \emph{single} step; the
 number $q$ there is an exponent applied once, and there is no family
 indexed by $n$, no twist $H$, and no constant $C$.  The reason the
-present statement is unavoidably weaker is
-\Cref{rem:ch43-charzero-contrast}: there is no $q$ with
-$b^q\in A$ for all $b$.  What
+present proof gives an estimate instead of a powering identity is the
+obstruction of \Cref{rem:ch43-charzero-contrast}: the cusp admits no
+$q$ with $b^q\in A$ for all $b$.  This is a boundary of that
+powering construction, not a counterexample to GF surjectivity.  What
 \Cref{prop:ch44-global-sandwich} shows is that the corrected powers of
 \eqref{eq:bj-rs-additive-powers}, though they do not compute $\psi_0$,
 compute it to within a factor $r_n=n/(n+C)\to1$, and that the error is
@@ -2465,9 +2517,9 @@ as computed downstairs --- which is the content of the analytic
 identification \Cref{lem:bj-universal-analytic-homeomorphism} together with
 \Cref{lem:ch43-identification-dictionary}: the two spaces are the same
 space, and a semivaluation takes the same value on a downstairs section and
-on its pullback.  This is the only place where the topological half of
-\Cref{chap:bj-universal-homeomorphisms} is invoked, and it is invoked
-pointwise.
+on its pullback.  This is the pointwise use of the analytic identification in the
+function sandwich; the later reflection assembly also uses that
+identification.
 
 \emph{The inequalities are consistent at $-\infty$.}  Where
 $\psi_0=-\infty$, all three members of
@@ -2522,10 +2574,10 @@ $n\ge C\lambda/(1-\lambda)$, so
   \bigl\lceil C\,(2^{j+1}-2)\bigr\rceil\Bigr\}
 \]
 does it, since $\lambda/(1-\lambda)=(2^{j+1}-2)$ for
-$\lambda=a_j/a_{j+1}$.  The essential feature of this choice is that
-$n_j$ grows like $2^j$: the monotonization forces the approximants to be
-taken along a \emph{sparse} subsequence, which is harmless here because
-nothing is claimed about the rate.
+$\lambda=a_j/a_{j+1}$.  For $C>0$ this explicit choice grows on the scale of $2^j$.
+That is a property of the schedule $a_j=1-2^{-j}$, not a required
+growth rate for every monotonization.  If $C=0$ the original barriers
+already coincide.  No optimal rate is claimed.
 
 The chain \eqref{eq:bj-char-zero-monotone-chain} deserves one word.  Its
 first inequality is the right half of
@@ -2614,12 +2666,13 @@ $\cH^{\mathrm{gf}}_{\mathbf Q}(X,L)$.  The difference is real and is a
 genuine divergence from the positive-characteristic picture, where
 \Cref{cor:ch43-gf-bijection} gives a bijection at the level of GF functions
 themselves.  Here the descended objects are the $a_jF_{n_j}$, which are
-downstairs GF functions but of classes $a_jL+\frac{a_j\rho}{n_j+C}H$
-strictly larger than $L$; the function $\psi_0$ itself is recovered only
-in the limit and need not be a downstairs GF function at all.  Consequently
-no statement of the form ``$\nu^*$ is a bijection of GF spaces'' is
-available in characteristic zero, and none is claimed;
-\Cref{warn:ch44-no-gf-bijection} records what fails.
+downstairs GF functions of classes $a_jL+\frac{a_j\rho}{n_j+C}H$
+converging to $L$.  Those classes need not be larger than $L$.
+The proof recovers $\psi_0$ only as a limit and establishes no
+conclusion about whether it has a downstairs GF presentation.
+A GF-space bijection is not proved here;
+\Cref{warn:ch44-no-gf-bijection} records the specific failure of
+uniform coefficient powering.
 \end{remark}
 
 \begin{warning}{The characteristic-$p$ mechanism fails at its first step}
@@ -2693,10 +2746,12 @@ Choose a decreasing GF regularization
 \tag{44.31}\label{eq:bj-char-zero-regularization}
 \]
 By \Cref{lem:bj-normalization-class-promotion}, after cofinal refinement
-each $M_i=\nu^*L_i$ exactly and $c_1(L_i)\to\theta$.
+each function $\psi_i$ has an ambient presentation in $\nu^*L_i$
+with $c_1(L_i)\to\theta$.  The original $M_i$ itself need not be
+a pullback.
 \Cref{prop:bj-char-zero-stage-reflection} regards the same pointwise function
 $\psi_i$ as an $L_i$-psh function downstairs.
-The sequence remains decreasing under the analytic identification and
+The net remains decreasing under the analytic identification and
 converges to $\psi$ at every point.
 Generic finiteness of $\psi$, transported through the analytic
 homeomorphism, excludes the identically $-\infty$ alternative.
@@ -2724,8 +2779,8 @@ $X$ is used, and no envelope statement enters
 (\Cref{warn:ch44-firewall}).
 
 \emph{Class promotion.}  \Cref{lem:bj-normalization-class-promotion} replaces
-each $M_i$ by an honest pullback $\nu^*L_i$ without changing the
-functions, at the price of passing to a cofinal subnet and of moving the
+the ambient presentation by one in an honest pullback $\nu^*L_i$
+without changing the functions, at the price of passing to a cofinal subnet and of moving the
 class by $o(1)$; the mechanism is the addition of an ample buffer whose
 complete linear system contributes the zero function
 (\Cref{lem:ch43-zero-fs}).  That lemma is proved in every characteristic and
@@ -2912,10 +2967,12 @@ used in both directions: the positive-characteristic proof rests on
 (\Cref{warn:ch44-no-gf-bijection}); the present proof rests on
 \Cref{thm:appA-roberts-singh}, whose hypothesis is that $A$ be a
 $\mathbf Q$-algebra and which is not available in characteristic $p$
-(\Cref{sec:ch44-failure-charp}).  What the two arguments share is exactly
-the characteristic-free material of
+(\Cref{sec:ch44-failure-charp}).  Both arguments use the characteristic-free analytic and presentation
+material of
 \Cref{chap:bj-universal-homeomorphisms}: the analytic homeomorphism, the
-identification dictionary, and the class-promotion lemma.
+identification dictionary, and the class-promotion lemma, as well as
+elementary psh calculus, GF regularization and varying-class decreasing
+closure from \Cref{chap:bj-fs-pl-psh}.
 \end{proof}
 
 \section{Completion of the unibranch normalization step}
@@ -3001,17 +3058,18 @@ below.
 
 \begin{proposition}
 \label{prop:ch44-ledger}
-The following inputs, and no others, are used in the proof of
+The following packages are used in the proof of
 \Cref{thm:bj-char-zero-universal-reflection}:
 \begin{enumerate}
 \item the definitions and elementary calculus of
       $\cH^{\mathrm{gf}}_\Lambda$ and $\PSH$
       (\Cref{def:gf-fs-functions}, \Cref{def:bj-psh},
       \Cref{prop:ch34-fs-operations});
-\item the closure properties \Cref{thm:bj-basic-closure}\,(1) and~(5), and
+\item the constants, positive scaling and decreasing-closure properties
+      of \Cref{thm:bj-basic-closure}, and
       the existence thresholds \Cref{lem:ch34-psh-nonempty};
-\item GF regularization of psh functions on the \emph{normal} projective
-      variety $Y$ (\Cref{thm:ch34-fs-regularization});
+\item GF regularization of psh functions on projective $Y$, without
+      requiring its normality (\Cref{thm:ch34-fs-regularization});
 \item the analytic homeomorphism and its dictionary
       (\Cref{lem:bj-universal-analytic-homeomorphism},
       \Cref{lem:ch43-identification-dictionary}) and class promotion
@@ -3101,15 +3159,11 @@ $A$, and by \Cref{warn:ch44-no-gf-bijection} no power of either does.
 so $\psi_0=\psi$, and the smallest $q$ with
 $d_j=-q(\lambda_j-\max_\ell\lambda_\ell)\in\mathbf N$ is $q=3$:
 \[
- d_1=0,
- \qquad
- d_2=1,
- \qquad
- M=qmL=3L,
- \qquad
- \rho=\frac1{qm}=\frac13,
- \qquad
+ \begin{gathered}
+ d_1=0,\qquad d_2=1,\qquad M=qmL=3L,\qquad
+ \rho=\frac1{qm}=\frac13,\\
  \mathfrak a=\bigl(s_1^{\otimes3},\ u\,s_2^{\otimes3}\bigr).
+ \end{gathered}
 \]
 This is the situation of \Cref{ex:ch44-encoding-numbers}.  In the chart
 $U=\{z\ne0\}=D(z)$, with $A_0=\cO_X(1)$ and $\tau=z$, the generators
@@ -3158,8 +3212,10 @@ $n$-th power itself.  Therefore
 \]
 The correction $c_1$ has coefficients $3t,12t\in B_1$; multiplying by
 $\tau^1=z$ already extends them to global sections of
-$\nu^*(M+A_0)$, because $t$ is the affine coordinate and $zt$ extends,
-so $R=1$ suffices.  The quotient $\mathcal Q=\nu_*\cO_Y/\cO_X$ is a
+$\nu^*(M+A_0)$, because in the frame $e_1=z^3=b^9$ of $\nu^*M$, coefficients of
+$zc_1e_1$ are multiples of $t b^{12}=ab^{11}$, defining global
+sections of $\nu^*(M+A_0)=\cO_{\mathbf P^1}(12)$.
+Thus $R=1$ is a convenient valid choice; $R=0$ also works here.  The quotient $\mathcal Q=\nu_*\cO_Y/\cO_X$ is a
 skyscraper of length one at the cusp, killed by the maximal ideal, so
 $S=1$ suffices (\Cref{rem:ch44-Q-size}).  Thus
 \[
@@ -3192,8 +3248,9 @@ and $\psi_0\le F_n\le\frac n{n+2}\psi_0$.  For $n=4$, say, the class of
 $F_4$ is $\frac{20}{18}\cO_X(1)=\frac{10}9\cO_X(1)$ and
 $r_4=\frac23$; for $n=100$ the class is $\frac{308}{306}\cO_X(1)$ and
 $r_{100}=\frac{50}{51}$.  Monotonizing with $a_j=1-2^{-j}$ and
-$n_j=\max\{n_{j-1}+1,\lceil2(2^{j+1}-2)\rceil\}=\max\{n_{j-1}+1,2^{j+2}-4\}$
-with $n_1=4$, so that $n_1,n_2,n_3=4,12,28$,
+$n_1=4$ and, for $j\ge1$,
+$n_{j+1}=\max\{n_j+1,2(2^{j+2}-2)\}$ give
+$n_j=2^{j+2}-4$, so that $n_1,n_2,n_3=4,12,28$,
 the classes of the decreasing sequence are
 \[
  a_j\Bigl(1+\tfrac2{3(n_j+2)}\Bigr)\cO_X(1)
@@ -3243,8 +3300,8 @@ estimate collapses.  The mechanism is not that the cusp is easy but that
 this particular $\psi$ does not see it.  A presentation that does see it
 --- for instance one with $f_1=t$, whose $v_0$-value is $1$ --- gives
 $W_{v_0}(\mathfrak a)=\min\{3,1\}=1$ and the genuine bracket
-$n\le W_{v_0}(\nu^{-1}\mathfrak K_n)\le n+2$.  In that case the descended
-family really does involve the corrected powers of
+$n\le W_{v_0}(\nu^{-1}\mathfrak K_n)\le n+2$.  In that case $f_1^3=t^3$ already lies downstairs, while
+$f_2=2+t$ still requires corrected combinations in the chosen family of
 \Cref{lem:bj-local-additive-sandwich}.  The mechanism is the one displayed
 in \Cref{ex:ch44-splitting-fails}, where $g_1=1+t$ and $q=1$: there the
 corrected element $G_{n+1}=(1+t)^n(1-nt)$ lies in $A$ although
@@ -3289,7 +3346,8 @@ is the projective cone over the cuspidal cubic of
 is the projective cone over the rational normal cubic curve.  Both are
 integral projective surfaces; $Y$ is normal, being the $\Proj$ of the
 semigroup ring of the saturated semigroup
-$\{(i,j):3\mid i+j\}$ extended by a free variable, and $\nu:Y\to X$ is
+$\{(i,j)\in\mathbf N^2:3\mid i+j\}$, saturated in the group
+lattice $\{(i,j)\in\mathbf Z^2:3\mid i+j\}$, extended by a free variable, and $\nu:Y\to X$ is
 finite, since $B_\bullet=A_\bullet+A_\bullet\,ab^2$ is a finite
 $A_\bullet$-module, and birational.
 
@@ -3319,7 +3377,7 @@ writing $i=3\mu$, $i=3\mu+1\ (\mu\ge1)$ or $i=3\mu+2$, that
 and $(1,j)$ is never of this form, since $3\mu+2\nu=1$ is insoluble in
 $\mathbf N$.  Therefore
 \[
- A_\bullet[w]\text{-membership of }f\in B_\bullet
+ A_\bullet\text{-membership of }f\in B_\bullet
  \iff f^{(1)}=0 .
 \]
 Since $B^{(0)}\subseteq A_\bullet$, $B^{(\ge2)}\subseteq A_\bullet$, and
@@ -3336,8 +3394,10 @@ hence lies in $A_\bullet$.  So the Roberts--Singh data are
  p=1,\qquad N=0,\qquad c_1=-f^{(1)},
 \]
 exactly as for the cusp (\Cref{ex:ch44-cusp-rs}), with the ``coefficient of
-$t$'' replaced by the ``$a$-degree-one layer''.  On the charts
-$D_+(x)$ and $D_+(y)$ the surface $X$ is smooth --- dividing
+$t$'' replaced by the ``$a$-degree-one layer''.  The preceding grading calculation applies after localization on
+$D_+(w)$ because powers of $w$ have $a$-degree zero.
+On $D_+(z)$ the cuspidal-cylinder computation below applies.
+On the charts $D_+(x)$ and $D_+(y)$ the surface $X$ is smooth --- dividing
 $y^2z=x^3$ by $y^3$ gives $z/y=(x/y)^3$, and by $x^3$ gives
 $(y/x)^2(z/x)=1$ --- so there $p_\alpha=0$.  Therefore
 \[
@@ -3355,8 +3415,12 @@ and take $m=1$, $s=2$, $\lambda_1=0$, $\lambda_2=-\tfrac13$,
 \]
 The section $s_1\in H^0(Y,\cO_Y(1))$ is \emph{not} a pullback: the
 degree-one part of $B_\bullet$ is spanned by $a^3,a^2b,ab^2,b^3,w$ and
-that of $A_\bullet$ by $a^3,a^2b,b^3,w$, so $H^0(Y,\nu^*L)$ exceeds
-$H^0(X,L)$ by exactly the line $k\zeta$, and $s_1$ meets it.  This is
+that of $A_\bullet$ by $a^3,a^2b,b^3,w$.
+These describe the global linear sections: for the hypersurface $X$
+use its degree-three ideal sequence, and for $Y$ use the complete
+linear embedding of the rational-normal-cubic cone.
+Thus $H^0(Y,\nu^*L)$ exceeds $H^0(X,L)$ by the line $k\zeta$, and
+$s_1$ has a nonzero component there.  This is
 the reason there is something to prove.  As in
 \Cref{ex:ch44-encoding-numbers}, $c=0$, $q=3$, $d_1=0$, $d_2=1$,
 \[
@@ -3389,8 +3453,7 @@ with $t:=a/b$ and $W:=w/z$, the frame is $e_z=z^{\otimes3}=b^9$, the
 local rings are $A_z=k[t^2,t^3][W]\subset B_z=k[t][W]$, the generic
 element is $z_1(1+t)^3+z_2uW^3$, and \Cref{ex:ch44-cusp-rs} gives
 $c_{z1}=-3z_1t$, so
-$c_{z1}e_z^{\otimes1}=-3z_1t\,b^9=-3z_1ab^8$: the \emph{same} global
-section, as it must be by the covariance
+$c_{z1}e_z^{\otimes1}=-3z_1t\,b^9=-3z_1ab^8$: the same global section, as also checked by the frame change in
 \eqref{eq:bj-char-zero-frame-law}.  Hence
 \[
  R=0 .
@@ -3409,8 +3472,11 @@ class of $\zeta$, and
 so $\operatorname{Ann}\mathcal Q\supseteq(x,y)$ and $\mathcal Q$ is
 supported on the line $\ell=\{x=y=0\}$, the cone over the cusp.  On
 $D_+(w)\cap\ell$ one finds $\mathcal Q\cong\zeta\cdot k[z]$, free of
-rank one over $\cO_\ell$; so $\mathcal Q$ is an invertible sheaf on
-$\ell\cong\mathbf P^1$, and has no nonzero section supported at a point.
+rank one over $\cO_\ell$.  On $D_+(z)\cap\ell$ it is generated by
+the class of $t=\zeta/z$ over $k[W]$.  On the overlap
+$t=(\zeta/w)/W$, with $W=w/z$ a unit, so the two free rank-one
+descriptions glue.  Hence $\mathcal Q$ is invertible on
+$\ell\cong\mathbf P^1$ and has no nonzero section supported at a point.
 Consequently
 \[
  \Gamma_{V(x)}\mathcal Q=\Gamma_{V(y)}\mathcal Q=\mathcal Q,
@@ -3473,8 +3539,8 @@ $\theta\in N^1(X)_{\mathbf R}$, a bijection
 $\PSH_X(\theta)\cong\PSH_Y(\nu^*\theta)$.  The right-hand side is a psh
 theory on a \emph{normal} projective surface, to which
 \Cref{thm:bj-normal-envelope} applies; the left-hand side is a psh theory on
-a surface that is neither normal nor seminormal and on which no direct
-argument is available.  Transporting the former to the latter is the
+a surface that is neither normal nor seminormal; the present chapter
+uses coefficient descent to identify its psh space.  Transporting the former to the latter is the
 assembly of \Cref{chap:bj-envelope-consequences}, and is not performed here
 (\Cref{rem:ch44-what-remains}).
 \end{example}
@@ -3617,9 +3683,11 @@ the book are therefore genuinely disjoint.
 If $\nu$ is finite and birational but not a universal homeomorphism ---
 for instance the normalization of a nodal curve --- then
 \Cref{def:bj-subintegral-extension} fails, the Roberts--Singh theorem does
-not apply, $\nu^{\An}$ is not injective, and the conclusion itself is
-false for ample classes.  This is \Cref{ex:ch44-node-seminormal}, and the
-necessity of unibranchness is \Cref{thm:ep-implies-unibranch}.  The correct
+not apply, $\nu^{\An}$ is not injective, and whole-class pullback surjectivity can fail
+for an ample integral class, as the explicit branch-separating section
+shows.  This is \Cref{ex:ch44-node-seminormal}, and the
+separate necessity of unibranchness for EP is
+\Cref{thm:ep-implies-unibranch}.  The correct
 statement for a general finite morphism of \emph{normal} varieties is the
 averaging theorem of \Cref{chap:bj-finite-descent}, which divides by a fibre
 degree; here the fibre degree is one and no averaging is possible or needed
@@ -3644,25 +3712,30 @@ Suppose the sandwich were only available with an exponent $\kappa n$,
 $\kappa>1$, in place of $n+C$.  Then $r_n\to\kappa^{-1}<1$ and
 \eqref{eq:bj-char-zero-function-sandwich} would give
 $\psi_0\le F_n\le\kappa^{-1}\psi_0$ in the limit, so the constructed
-decreasing family would converge to something between $\psi_0$ and
-$\kappa^{-1}\psi_0$ and \emph{not} to $\psi_0$.  Nothing else in the
-argument would visibly break.  This is the failure mode of
-\Cref{ex:ch44-splitting-fails}\,(3), and it is why
+family, if made decreasing by a further argument, would have a limit
+constrained only to that interval.  It could still equal $\psi_0$;
+the weaker estimate alone does not prove that it does.  Moreover the monotonization threshold used above tends to $1$,
+so a limiting barrier ratio $1/\kappa$ would not meet it in general.
+The grouped example \Cref{ex:ch44-splitting-fails}\,(3) explains why
+a weaker ideal containment alone is insufficient while a sharper
+valuative estimate can still succeed.  This is why
 \Cref{rem:ch44-sandwich-shape} insists on the word ``additive''.
 
 \subsection{What is not claimed}
 \label{sec:ch44-failure-notclaimed}
 
-The chapter does not claim: that $\nu^*$ is surjective on GF functions
-(\Cref{warn:ch44-no-gf-bijection}, \Cref{rem:ch44-approximants-are-gf});
-that the constants $C$, $H$ can be bounded in terms of discrete
-invariants of $X$ alone, independently of the presentation
-\eqref{eq:bj-char-zero-gf} --- they cannot, since $p$ depends on the
-generic element (\Cref{warn:ch44-p-not-uniform}); that the Roberts--Singh
-data are unique or canonical; that $\mathcal Q$ is annihilated by the
-conductor in any uniform way beyond
-\Cref{lem:ch44-uniform-cutoffs}\,\cref{itm:ch44-cut:S}; or anything at all
-about envelopes (\Cref{warn:ch44-firewall}).
+The reflection proof does not establish GF surjectivity
+(\Cref{warn:ch44-no-gf-bijection}, \Cref{rem:ch44-approximants-are-gf}),
+nor canonical Roberts--Singh data or optimal numerical bounds for the
+constants $C,H$.  Dependence of the chosen data on the generic element
+does not prove that sharper presentation-independent bounds are impossible.
+
+The conductor sheaf does annihilate $\mathcal Q$ by definition:
+locally $aB\subset A$ implies $a(B/A)=0$.
+The cutoff lemma separately controls powers of the chosen
+$\tau_\alpha$ on their supported subsheaves.
+No envelope theorem is used in the construction
+(\Cref{warn:ch44-firewall}).
 
 \section{Chapter dictionary}
 \label{sec:ch44-dictionary}
@@ -3757,9 +3830,10 @@ and are chosen before $n$
 \section{Source and provenance}
 \label{sec:ch44-source-note}
 
-The local sandwich fails as written without the $\mathbf Q$-algebra
-hypothesis, because the multinomial coefficients extracted from
-$b^{n+2p}$ need not be units.
+The coefficient-extraction proof of the local sandwich requires the
+$\mathbf Q$-algebra hypothesis: the multinomial coefficients extracted
+from $b^{n+2p}$ need not otherwise be units.  This does not disprove
+a similar sandwich obtained by another method.
 Positive characteristic is therefore handled by Frobenius, not by reducing
 the Roberts--Singh proof modulo $p$.
 
@@ -3783,69 +3857,18 @@ No envelope property is used in the construction, so
 \subsection{Correspondence with the supplied manuscript}
 \label{sec:ch44-correspondence}
 
-The manuscript is unpublished and has been made available to the author; its
-results are quoted here as coming from a supplied manuscript, and none of
-them is presented as a previously published theorem.  In its numbering, the
-statements of this chapter correspond as follows.  Its subsection on
-subintegral extensions and additive powers is the source of
-\Cref{sec:ch44-subintegral} and \Cref{sec:ch44-roberts-singh}, and its
-displayed additive-power identity is
-\eqref{eq:bj-rs-additive-powers}; its ``additive-power sandwich'' lemma is
-\Cref{lem:bj-local-additive-sandwich}; its characteristic-zero proposition
-on descent of a Fubini--Study function is
-\Cref{prop:bj-char-zero-stage-reflection}; and the characteristic-zero half
-of its theorem on descent through the normalization is
-\Cref{thm:bj-char-zero-universal-reflection}.  The
-characteristic-$p$ half of that theorem, together with the analytic
-homeomorphism and the class-promotion lemma on which both halves rest, is
-\Cref{chap:bj-universal-homeomorphisms} and is not duplicated here; the two
-halves are assembled in
-\Cref{cor:bj-universal-reflection-all-characteristics}.
+The supplied manuscript is unpublished; its availability boundary is
+recorded in \Cref{sec:appL-envelope}.  No fresh reading of its original
+archive, exact numbering, or claim that a formulation is absent from that
+archive is made here.
 
-Several items below are ours rather than the manuscript's, and are flagged
-as such.
-\begin{enumerate}
-\item The finite-difference calculus is isolated as
-      \Cref{lem:ch44-finite-differences}, with hypotheses weaker than those
-      of the surrounding lemma (no subintegrality, no
-      $\mathbf Q$-algebra, no finiteness).  The manuscript performs the
-      same computation inline.  Separating it makes visible that
-      \emph{only} the $m$-independence of the $c_i$ is used, which is
-      \Cref{rem:ch44-exponent-zero}.
-\item The three uniformities of the globalization are collected into a
-      single statement, \Cref{lem:ch44-uniform-cutoffs}, and the
-      consequence of losing them is computed in
-      \Cref{warn:ch44-moving-twist}.  The manuscript asserts the
-      uniformities in the course of its proof.  Since ``one twist,
-      independent of $n$'' is the point on which the class of the limit
-      depends, we have made it a lemma with a proof.
-\item The global two-sided estimate is stated as
-      \Cref{prop:ch44-global-sandwich} rather than displayed inside a
-      proof, so that \Cref{sec:ch44-decreasing} and
-      \Cref{sec:ch44-reflection} can cite it.
-\item \Cref{prop:ch44-seminormal-unibranch-normal} --- that a seminormal
-      unibranch variety in characteristic zero is normal --- and its
-      corollary that $\mathcal Q\ne0$ in the situation of interest, are
-      recorded here to show that the hypotheses are not vacuous.  The
-      manuscript does not state them.
-\item \Cref{prop:ch44-no-birational} records two separate facts not stated
-      in the supplied manuscript: normality of $Y$ is unused, while
-      birationality is automatic for a finite universal homeomorphism of
-      integral varieties in characteristic zero.  The manuscript carries
-      both hypotheses because its application is to a normalization.  The
-      genuinely different positive-characteristic observation is
-      \Cref{prop:ch43-frobenius-no-birational}, where a purely inseparable
-      generic extension need not be trivial.
-\item The worked computations \Cref{ex:ch44-cusp-rs},
-      \Cref{ex:ch44-two-gaps}, \Cref{ex:ch44-splitting-fails},
-      \Cref{ex:ch44-cusp-end-to-end} and
-      \Cref{ex:ch44-surface-end-to-end} are ours.  The second shows that
-      the Roberts--Singh length can exceed one; the third is the
-      counterexample to the prohibited splitting, and its part~(2) --- the
-      explicit monomial $g_1^2g_2^n$ missing from the grouped ideal ---
-      is what turns a warning into a proof that the order of operations is
-      forced.
-\end{enumerate}
+The chapter isolates the finite-difference calculation, three fixed
+cutoffs and global Gauss estimate so their roles can be checked separately.
+Its examples compute correction lengths, distinguish invalid truncation
+from a weaker grouped ideal construction, and track class errors through
+curve and surface presentations.  The two characteristic cases are
+assembled in \Cref{cor:bj-universal-reflection-all-characteristics};
+neither coefficient construction uses an envelope theorem.
 
 \subsection{External attributions}
 \label{sec:ch44-external}
@@ -3879,8 +3902,8 @@ is \Cref{thm:ep-implies-unibranch}, from
 \subsection{Historical note}
 \label{sec:ch44-historical}
 
-The phenomenon exploited here has a long prehistory in commutative algebra
-and almost none in pluripotential theory.  Seminormality was introduced in
+The algebraic input comes from the commutative-algebra study of
+seminormality and subintegral extensions.  Seminormality was introduced in
 the 1960s and 1970s to isolate the maximal intermediate modification of a
 normalization that does not change the topology or the residue fields; the
 complementary notion, subintegrality, names ring extensions that change
@@ -3889,26 +3912,29 @@ striking discovery of the 1990s --- that over a $\mathbf Q$-algebra a
 subintegral extension admits an additive characterization, in which a single
 element is corrected by finitely many terms with coefficients independent of
 the exponent --- was made in the course of computing Picard groups of
-subintegral extensions, and had, so far as we are aware, no analytic
-application before the argument recorded in this chapter.
+subintegral extensions, and supplies the algebraic input for the analytic descent argument
+recorded here.  No exhaustive priority claim is made.
 
 The reason it applies is worth stating plainly, since it is the kind of
 coincidence that is easy to miss.  A Fubini--Study function is a maximum of
 logarithms of sections, so the natural algebraic object attached to it is an
 \emph{ideal}, and the natural numerical object is the value of that ideal at
-a semivaluation.  Values of ideals are insensitive to everything except the
-ideal's integral closure, and are exactly additive in ideal powers.  The
+a semivaluation.  Passing to the integral closure of an ideal preserves its values at
+centered semivaluations, and these values are additive in positive
+ideal powers.  No converse characterization of ideals is needed.  The
 Roberts--Singh identity, read as a statement about ideals rather than
 elements, produces a downstairs ideal squeezed between the $n$-th and the
 $(n+C)$-th power of an upstairs ideal.  Because values are additive in
 powers, the squeeze becomes a numerical estimate with relative error
 $C/(n+C)$, and because $C$ is independent of $n$ the error vanishes.
-Nothing analogous happens for individual functions, which is why no
-statement of this chapter is an identity.
+This construction uses corrected families instead of requiring every
+original coefficient to descend.  The final reflection identifies the
+same pointwise function; the intermediate approximants are controlled
+by estimates.
 
 The contrast with characteristic $p$ is instructive in the opposite
 direction.  There the descent is exact, requires no limit, and produces a
-bijection at the level of Fubini--Study presentations
+bijection at the level of Fubini--Study functions
 (\Cref{cor:ch43-gf-bijection}); but the mechanism --- Frobenius --- is
 available only in characteristic $p$, and its uniformity has to be won by
 a separate localization argument
@@ -3917,8 +3943,8 @@ all characteristic zero at once, and its uniformity is automatic once the
 additive-power identity is applied to the correct element; what has to be
 won instead is the passage from an estimate to a limit, and with it the
 manufactured monotonicity of \Cref{sec:ch44-monotonization} and the single
-twist of \Cref{lem:ch44-uniform-cutoffs}.  Neither proof specializes to the
-other, and we know of no argument covering both.
+twist of \Cref{lem:ch44-uniform-cutoffs}.  The two proofs given here use different algebraic inputs; no claim
+about the nonexistence of a unified proof is needed.
 
 Finally, a word on what the chapter delivers to the rest of the book.  With
 \Cref{cor:bj-universal-reflection-all-characteristics} in hand, the passage

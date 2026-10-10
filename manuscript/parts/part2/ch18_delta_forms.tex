@@ -62,22 +62,27 @@ categories, and the differences are not cosmetic.  We fix the following.
 \item In \crefrange{sec:ch18-defect}{sec:delta-tropical} the ambient object
  is a weighted balanced rational polyhedral complex in a real vector space
  $N_{\mathbf R}=N\otimes_{\mathbf Z}\mathbf R$, or an abstract tropical
- space in the sense of \Cref{def:ch10-tropical-space}.  No field is present.
- Every statement there is elementary polyhedral geometry and is proved in
- full.
+ space in the sense of \Cref{def:ch10-tropical-space}.  The polyhedral
+ calculations require no field; the model-curve illustrations state their
+ field hypotheses where they occur.  The elementary calculations are
+ proved directly; stable intersection and
+ the smooth-weight corner-locus theorem retain the cited polyhedral inputs
+ from \cite{GK17} and \Cref{chap:tropical-spaces}.
 \item In \crefrange{sec:ch18-delta-analytic}{sec:delta-positivity} the base
  field $K$ is algebraically closed, complete and nontrivially valued, and
  $X$ is an algebraic variety over $K$.  This is the scope of
  \cite{GK17,GK19}, and we do not silently extend it: the very affine
  covering, the canonical torus embedding and the curve-lifting theorem all
- use it.
+ retain the hypotheses of those sources.
 \item In \crefrange{sec:harmonic-trop}{sec:ch18-classical} the base field
  $K$ is complete and nontrivially valued but not assumed algebraically
  closed, and $X$ is a good strict $K$-analytic space.  This is the scope of
  \cite{GJR26,GR25PL,GR25Classical}.
 \item In \Cref{sec:ch18-model-comparison} the base field is complete and
  nontrivially valued, and is discretely valued wherever a special fibre with
- integer multiplicities is used; this is stated again at the point of use.
+ integer multiplicities is used.  CLD currents and Chambert--Loir measures
+ are defined over this field; the Gubler--K\"unnemann delta-forms are used
+ after passage to a complete algebraically closed extension.
 \end{itemize}
 
 Signs, calibrations and lattice measures are those of
@@ -98,7 +103,7 @@ governs the source notes at the end of the chapter.
 \begin{center}
 \small
 \begin{tabular}{p{.24\textwidth}|p{.34\textwidth}|p{.34\textwidth}}
-\textbf{Layer}&\textbf{Objects}&\textbf{Where proved in this book}\\ \hline
+\textbf{Layer}&\textbf{Objects}&\textbf{Treatment in this book}\\ \hline
 CLD core
  &smooth forms, currents, Poincar\'e--Lelong, Bedford--Taylor products,
   Chern currents
@@ -124,8 +129,9 @@ Gubler--Rabinoff curve tests
 No theorem of one layer is used inside the proof of a theorem of another
 unless the citation is displayed.  In particular the delta-form
 Poincar\'e--Lelong formula of \Cref{thm:gk-poincare-lelong} is not used to
-prove \Cref{thm:cld-poincare-lelong}; the implication runs the other way,
-and \Cref{cor:ch18-pl-restricts} makes it explicit.
+prove \Cref{thm:cld-poincare-lelong}.  The CLD identity is established
+earlier; \Cref{cor:ch18-pl-restricts} checks that the later delta-current
+identity restricts to that same identity.
 
 \section{The wall-curvature defect}
 \label{sec:ch18-defect}
@@ -343,7 +349,12 @@ vertex,
  c_\rho:=\int_{\mathbf R^2}g(-z)\rho(z)\,\rd z>0 ,
 \end{equation}
 so $u_\varepsilon(0)\downarrow0=u(0)$ linearly in $\varepsilon$.  Fix
-$R>\delta>0$ and let $B_r=\{z\in L:|z|\leq r\}$.  Since $t\mapsto
+$R>\delta>0$ and use the lattice-radius neighbourhood
+\[
+ B_r=\bigcup_{i=1}^3\{tv_i:0\leq t\leq r\}.
+\]
+Its three ray parameters have the same endpoint $r$; it is not a Euclidean
+ball, since $|v_3|=\sqrt2$.  Since $t\mapsto
 G_\varepsilon(tv_i)$ is convex, the measure $\dprimeddprime[u_\varepsilon]$
 is nonnegative, and its mass on the part of the $i$-th ray between the
 parameters $a<b$ is
@@ -395,10 +406,11 @@ category on the curvature side, and the discrepancy is not a matter of
 regularity but of \emph{support}: a whole $3$ units of mass have moved onto
 a set of measure zero.
 
-The remedy adopted in \Cref{chap:cld-currents} was to enlarge the target to
-currents.  That works for the linear theory and fails for the nonlinear one,
-since $\delta_0\wedge\delta_0$ is meaningless.  The remedy adopted in this
-chapter is to enlarge the target to \emph{delta-forms}, in which
+The current theory of \Cref{chap:cld-currents} contains this atom but does
+not supply a wedge product of arbitrary singular currents.  A self-product
+of a top-degree atom on a curve would lie above top degree, so it is not an
+obstruction example.  The two-dimensional wall cycle below exhibits the
+product that needs a construction.  Delta-forms provide that construction:
 $3\delta_0$ is not a mere current but a form of bidegree $(1,1)$ with
 polyhedral coefficient---the weighted cycle $3\{0\}$---which can be wedged
 with other such coefficients by stable tropical intersection.  Both remedies
@@ -408,8 +420,7 @@ are needed; neither subsumes the other.
 \begin{remark}[Provenance]
 \label{rem:ch18-gauge-provenance}
 \Cref{prop:ch18-smooth-zero-atom} and \Cref{ex:ch18-gauge-atom} are
-elementary and are recorded here for orientation only.  Neither is a theorem
-of this book and no priority is claimed for either.  The vanishing of the
+elementary calculations included for orientation.  The vanishing of the
 atom of a smooth function is the content of \Cref{ex:ch10-smooth-at-vertex};
 the gauge computation is standard convex duality
 (\Cref{app:convexity}); the concentration statement is
@@ -500,11 +511,11 @@ measure $\delta_0$, of mass $1$.
 \label{rem:ch18-why-not-currents}
 The linear theory of \Cref{chap:cld-currents} already contains
 $\delta_{C_\varphi}$, so nothing is missing there.  What is missing is a
-product.  Currents form a module over smooth forms and nothing more:
-\Cref{prop:ch14-no-pullback} records that even pullback fails, and the
-one-variable obstruction $\delta_0\cdot\delta_0$ recalled in
-\Cref{sec:ch16-obstruction} shows that no bilinear extension of the wedge
-product to all currents exists.  The Bedford--Taylor recursion of
+product for arbitrary singular factors.  Currents form a module over smooth
+forms; additional products and pullbacks require hypotheses.
+\Cref{prop:ch14-no-pullback} records the pullback obstruction, and
+\Cref{sec:ch16-obstruction} explains the undefined singular-coefficient
+products in a putative wedge product.  The Bedford--Taylor recursion of
 \Cref{chap:cld-bedford-taylor} circumvents the obstruction, but at the price
 of carrying the potentials along: its output is a current attached to a
 tuple of potentials, and \Cref{ex:ch16-cross-fan} shows that the output can
@@ -521,8 +532,10 @@ that presentation.
 
 \begin{example}[A model function]
 \label{ex:ch18-model-function-defect}
-Let $\mathfrak X$ be a semistable formal curve and let $D$ be a vertical
-Cartier divisor.  Its model function is affine on each edge of the skeleton.
+Let $\mathfrak X$ be a strictly semistable formal model of a smooth proper
+curve over a discretely valued field and let $D$ be a vertical Cartier
+divisor.  Its model function is affine on each edge of the skeleton and is
+extended to the analytic curve by retraction.
 The current $\dprimeddprime[\varphi_D]$ is the graph Laplacian, with the outgoing
 slopes determined by degrees of $\mathcal O(D)$ on special-fibre
 components.  Unless all those degrees vanish, $\dprimeddprime[\varphi_D]$ is not an
@@ -534,12 +547,15 @@ against a case in which all the numbers are available.
 
 \begin{example}[The chain of three components]
 \label{ex:ch18-chain-numbers}
-Take the semistable chain model $\widetilde{\mathcal C}$ of
+Normalize $-\log|\pi|=1$ and take the semistable chain model
+$\widetilde{\mathcal C}$ of
 \Cref{ex:metrics-cl-curve-chain}, whose special fibre is a chain
 $C_0,E,C_2$ of projective lines with all multiplicities $1$, and whose
 skeleton is the segment $\Gamma=[0,2]$ with the three divisorial points
-$v_0,v_1,v_2$ at the integers.  Let $D=a_0C_0+a_1E+a_2C_2$ be a vertical
-divisor.  By
+$v_0,v_1,v_2$ at the integers.  Let $D=a_0C_0+a_1E+a_2C_2$ be an integral
+vertical Cartier divisor.  Rational coefficients are obtained by clearing
+denominators, and real coefficients by taking the corresponding real linear
+combination of model functions.  By
 \Cref{prop:metrics-divisor-model-function}\,(2), the model function
 $\varphi_D$ takes the values $a_0,a_1,a_2$ at $v_0,v_1,v_2$ and is affine on
 each of the two edges, all edge weights being $1$.  The three atoms of
@@ -565,12 +581,16 @@ Chambert--Loir measures.  Concretely, for $a=(0,1,0)$ one finds
  \dprimeddprime[\varphi_D]=\delta_{v_0}-2\delta_{v_1}+\delta_{v_2},
 \]
 and for $a=(0,0,1)$ one finds $\delta_{v_1}-\delta_{v_2}$; neither is an
-absolutely continuous measure on $\Gamma$, so neither is represented by a
-smooth $(1,1)$-form.  For $a=(0,c,2c)$ with any $c$ the function
-$\varphi_D$ is affine on $\Gamma$, all three atoms vanish except at the
-endpoints, and one gets $c\,\delta_{v_0}-c\,\delta_{v_2}$: harmonic in the
-interior, but still not smooth, because $\Gamma$ has boundary at $v_0$ and
-$v_2$ and \Cref{prop:ch18-smooth-zero-atom} does not apply there.
+absolutely continuous measure on the analytic curve's skeletal trace.
+A nonzero atom cannot be the current of an ordinary CLD-smooth form.
+For $a=(0,c,2c)$ the restriction of $\varphi_D$ is affine on $\Gamma$ and
+is smooth as a function on that segment.  The curvature of its extension
+to the full analytic curve is
+$c\,\delta_{v_0}-c\,\delta_{v_2}$.  These endpoint atoms come from the
+outgoing slopes on the full curve, where the function is constant off the
+skeleton.  They do not follow from a failure of smoothness on an interval
+with boundary.  When $c$ is integral this is a model function; the formula
+extends to real $c$ by linearity.
 \end{example}
 
 \begin{example}[The blowup of $\mathbf P^1$, revisited]
@@ -582,14 +602,18 @@ Laplacian was found in \eqref{eq:metrics-p1-blowup-laplacian} to be
 \[
  \dprimeddprime[\varphi_E]=\delta_{\zeta_{0,1}}-\delta_{x_E}.
 \]
-Here the tropical space is an interval with unit weights and two boundary
-points, and $\varphi_E$ has slope $+1$ on $[0,1]$ and slope $0$ elsewhere.
+With $-\log|\pi|=1$, use $s=-\log|T|$ on the apartment.  The hat is
+$\min\{1,\max\{0,s\}\}$: it has slope $+1$ on $[0,1]$ and slope $0$
+outside.  Its derivative jumps give the two atoms on the full analytic
+curve.  The compact model skeleton is the segment between their supports.
 The two atoms $+1$ and $-1$ are the smallest possible nonzero integers, and
 they already exhibit the phenomenon of \Cref{sec:ch18-zero-atom}: the
-curvature of the simplest nontrivial model function on the simplest possible
-curve is a pair of point masses.  The delta-form of
-\Cref{sec:ch18-chern-delta} attached to this metric is the weighted
-$0$-cycle $\{\zeta_{0,1}\}-\{x_E\}$, and its total mass $0$ is the
+curvature of this model function is a pair of point masses.  After complete
+algebraic closure, the Chern delta-form of
+\Cref{sec:ch18-chern-delta} has local corner presentations inducing this
+signed measure.  The notation
+$\{\zeta_{0,1}\}-\{x_E\}$ records its atomic coefficients; it is not an
+ambient tropical presentation by itself.  Its total mass $0$ is the
 degree-zero statement \Cref{cor:ch15-degree-zero}.
 \end{example}
 
@@ -602,7 +626,8 @@ degree-zero statement \Cref{cor:ch15-degree-zero}.
 Let $N$ be a lattice, $N_{\mathbf R}=N\otimes\mathbf R$, and let
 $\Omega\subset N_{\mathbf R}$ be open.  A pure $d$-dimensional
 polyhedral complex $C$ has a real weight $m_\sigma$ on every maximal
-face.  Constant weights give the usual tropical cycles.  Gubler--K\"unnemann
+face.  Constant weights satisfying balancing give the usual tropical
+cycles.  Gubler--K\"unnemann
 also allow weights that are smooth up to the faces of every maximal
 polyhedron, with the corresponding weighted balancing condition.
 
@@ -770,10 +795,12 @@ Shrink $B$ to $x$ after normalizing $\omega$ so that the first integral is
 fixed: the terms with $\dim\tau>d_{\min}$ are integrals over sets of
 dimension $>d_{\min}$ and are $O(r^{\dim\tau-d_{\min}})$ relative to the
 first one, where $r$ is the radius of $B$; more precisely, take
-$\omega=\chi_r\eta$ with $\eta$ a fixed form and $\chi_r$ a cutoff equal to
-$1$ on $B_{r/2}$ and supported in $B_r$, and divide by
+$\omega=\chi_r\eta$ with $\eta$ a fixed form and
+$\chi_r(z)=\chi((z-x)/r)$, where $\chi$ is a fixed nonnegative smooth
+cutoff equal to $1$ on $B_{1/2}$ and supported in $B_1$, and divide by
 $\mu_\sigma(\sigma\cap B_r)\asymp r^{d_{\min}}$.  The quotient of the first
-term tends to the value of $A_\sigma\wedge\eta$ at $x$, and the quotients of
+term tends to a fixed positive multiple of the value of
+$A_\sigma\wedge\eta$ at $x$, and the quotients of
 the remaining terms tend to $0$.  Hence $A_\sigma\wedge\eta$ vanishes at
 $x$, for every $\eta$; by the perfect pairing of complementary superform
 degrees on the $d_{\min}$-dimensional space $N_{\sigma,\mathbf R}$
@@ -1105,7 +1132,8 @@ criterion, and the comparison with model functions---is an application of it
 in a particular tropical chart.
 
 \begin{proposition}\label{prop:tropical-delta-pl}
-Let $C$ be a tropical cycle and $\varphi$ a piecewise smooth function on
+Let $C$ be a constant-weight balanced tropical cycle and $\varphi$ a
+continuous piecewise smooth function on
 $|C|$.  Then
 \begin{equation}
  \dprimeddprime[\varphi]
@@ -1121,11 +1149,14 @@ the current on a compactly supported form of complementary bidegree.  Apply
 integration by parts twice on each facet.  The interior term is the
 facewise Hessian
 $[\dprime_P\ddprime_P\varphi]$.  Along an internal codimension-one face
-$\tau$, the two boundary orientations are opposite, while the normal
-derivatives of $\varphi$ need not agree.  Their weighted difference is
+$\tau$, each adjacent facet contributes its outgoing normal derivative.
+Including the tangential correction for the chosen normal lifts, their
+combined contribution is
 \[
        \sum_{\sigma\supset\tau}m_\sigma
-          \partial_{u_{\sigma/\tau}}\varphi.
+          \partial_{u_{\sigma/\tau}}\varphi_\sigma
+       -\partial_{\sum_{\sigma\supset\tau}m_\sigma u_{\sigma/\tau}}
+          (\varphi|_\tau).
 \]
 This is exactly the weight of the corner cycle $\varphi\cdot C$ at $\tau$.
 The tangential terms cancel because $\varphi$ is continuous, and the terms
@@ -1144,7 +1175,8 @@ since it is used as a formula from here on.
 \begin{definition}[Corner cycle]
 \label{def:ch18-corner-cycle}
 \index{corner locus}%
-Let $C$ be a balanced weighted pure $d$-dimensional cycle and let $\varphi$
+Let $C$ be a balanced pure $d$-dimensional cycle, allowing smooth weights,
+and let $\varphi$
 be continuous on $|C|$ and smooth on each maximal cell of some subdivision
 $\mathscr C$ of $C$.  Fix a codimension-one face $\tau$ and a point
 $x\in\RelInt\tau$.  For each maximal $\sigma\supset\tau$ let
@@ -1154,8 +1186,8 @@ $\varphi_\sigma$ be the smooth extension of $\varphi|_\sigma$ near $\tau$.
 Balancing of $C$ gives
 \begin{equation}
 \label{eq:ch18-corner-defect}
- w_\tau:=\sum_{\sigma\in\mathscr C_d,\ \sigma\supset\tau}
-   m_\sigma\,u_{\sigma/\tau}\ \in\ N_\tau .
+ w_\tau(x):=\sum_{\sigma\in\mathscr C_d,\ \sigma\supset\tau}
+   m_\sigma(x)\,u_{\sigma/\tau}\ \in\ N_{\tau,\mathbf R} .
 \end{equation}
 The \emph{corner cycle} $\varphi\cdot C$ is the weighted
 $(d-1)$-dimensional cycle whose support is contained in the codimension-one
@@ -1164,8 +1196,8 @@ skeleton of $\mathscr C$ and whose weight at $\tau$ is
 \label{eq:ch18-corner-weight}
  m_\tau(\varphi\cdot C)(x)
  =\sum_{\sigma\in\mathscr C_d,\ \sigma\supset\tau}
-   m_\sigma\,\partial_{u_{\sigma/\tau}}\varphi_\sigma(x)
-   \ -\ \partial_{w_\tau}\bigl(\varphi|_\tau\bigr)(x) .
+   m_\sigma(x)\,\partial_{u_{\sigma/\tau}}\varphi_\sigma(x)
+   \ -\ \partial_{w_\tau(x)}\bigl(\varphi|_\tau\bigr)(x) .
 \end{equation}
 \end{definition}
 
@@ -1204,7 +1236,8 @@ In the situation of \Cref{def:ch18-corner-cycle}:
 \end{lemma}
 
 \begin{proof}
-\cref{itm:ch18-cc:affine}  \emph{Independence of the lifts.}  Replace
+\cref{itm:ch18-cc:affine}  \emph{Independence of the lifts.}  At the fixed
+point $x$, write $m_\sigma=m_\sigma(x)$ and $w_\tau=w_\tau(x)$.  Replace
 $u_{\sigma/\tau}$ by $u_{\sigma/\tau}+z_\sigma$ with $z_\sigma\in N_\tau$.
 Since $\varphi$ is continuous, the restriction of $\varphi_\sigma$ to $\tau$
 is $\varphi|_\tau$ for every $\sigma$, so
@@ -1212,7 +1245,7 @@ $\partial_{z_\sigma}\varphi_\sigma(x)=\partial_{z_\sigma}(\varphi|_\tau)(x)$.
 Hence the first sum in \eqref{eq:ch18-corner-weight} changes by
 $\sum_\sigma m_\sigma\partial_{z_\sigma}(\varphi|_\tau)(x)
  =\partial_{z}(\varphi|_\tau)(x)$ with
-$z=\sum_\sigma m_\sigma z_\sigma\in N_\tau$, while $w_\tau$ changes to
+$z=\sum_\sigma m_\sigma z_\sigma\in N_{\tau,\mathbf R}$, while $w_\tau$ changes to
 $w_\tau+z$, so the second term changes by exactly the same amount.  The
 difference is unchanged.
 
@@ -1224,7 +1257,8 @@ changes the second term by $\partial_{w_\tau}\ell=\langle \rd\ell,w_\tau
 \rangle$ as well, because $\ell|_\tau$ has the same linear part along
 $N_\tau$.  The two changes cancel.  Balancing
 (\Cref{def:ch10-weighted-balanced}) is used exactly once, to know that
-$w_\tau\in N_\tau$, so that $\partial_{w_\tau}(\varphi|_\tau)$ makes sense.
+$w_\tau\in N_{\tau,\mathbf R}$, so that
+$\partial_{w_\tau}(\varphi|_\tau)$ makes sense.
 
 \cref{itm:ch18-cc:subdiv}  A finer subdivision introduces new
 codimension-one faces $\tau'$ lying in the relative interior of some
@@ -1238,7 +1272,7 @@ maximal cells through $\tau$ are subdivided without changing weights or
 normals, so both terms of \eqref{eq:ch18-corner-weight} are unchanged.
 
 \cref{itm:ch18-cc:balanced}  This is the corner-locus balancing theorem
-\cite[Proposition~1.12]{GK17}, applied to the constant-weight tropical cycle
+\cite[Proposition~1.12]{GK17}, applied to the tropical cycle
 $C$ and the piecewise smooth function $\varphi$.  Its conclusion is a
 tropical cycle with smooth weights.  Notice that the current identity in
 \Cref{prop:tropical-delta-pl} does not by itself give a shortcut to this
@@ -1829,6 +1863,7 @@ agree; sheaf gluing gives $\beta=\beta'$.  This is
 \cite[Proposition~6.8]{GK17}.
 \end{proof}
 
+\noindent\begin{minipage}{\textwidth}
 \begin{warning}{Delta-currents are not currents}
 The test space defining a delta-current is $B_{\mathrm{GK},c}$, whereas a
 CLD current is tested only on $A_c$.  Restriction therefore gives a
@@ -1840,6 +1875,7 @@ their common domain.  The separate question whether two generalized
 delta-forms agree is settled by the all-pullback criterion
 \cref{itm:ch18-dc:criterion}, not by a claim about $E\to D$.
 \end{warning}
+\end{minipage}\par
 
 \subsection{The exact module boundary}
 \label{sec:ch18-delta-current-module}
@@ -2205,8 +2241,10 @@ $0$ by \Cref{lem:ch18-corner-welldefined}\,\cref{itm:ch18-cc:affine}, and its
 facewise Hessian is $0$; so $\dprimeddprime[\log|f|]=0$.  This is correct:
 $\operatorname{cyc}(\chi^u)=0$ on the torus, since a character is
 invertible.  The example is the first sanity check on the sign convention,
-and it fails for any convention in which $\log|f|$ is replaced by
-$|f|$ or by $\log|f|^2$ without a compensating change on the right.
+and detects the failure of replacing a logarithm by the generally
+non-affine function $|f|$.  It cannot detect multiplication of the logarithm
+by $2$, because its divisor and Hessian are both zero.  A nonzero divisor,
+as in the next example, is needed to check that factor.
 \end{example}
 
 \begin{example}[A rational function on $\mathbf P^1$]
@@ -2214,8 +2252,7 @@ $|f|$ or by $\log|f|^2$ without a compensating change on the right.
 Let $X=\mathbf P^1_K$ and $f=(T-a)/(T-b)$ with $|a|,|b|\leq1$ and
 $a\neq b$.  Then $\operatorname{cyc}(f)=[a]-[b]$ and
 \Cref{thm:gk-poincare-lelong} asserts
-$\dprimeddprime[\log|f|]=\delta_a-\delta_b$ as delta-currents.  Restricting
-to the standard apartment and writing $r=|a-b|$, the function $\log|f|$ is
+$\dprimeddprime[\log|f|]=\delta_a-\delta_b$ as delta-currents.  On the geodesic between $a$ and $b$, writing $r=|a-b|$, the function $\log|f|$ is
 $0$ on the part of the tree outside the disc of radius $r$ about $a$, and on
 the two branches from the Gauss point of that disc it has slope $-1$
 towards the zero $a$ and slope $+1$ towards the pole $b$.  Both atoms have absolute value $1$
@@ -2292,15 +2329,14 @@ separate is the delicate point.
 \input{editorial/rethlas_packets_20260826/ch18_delta_metric_degree_statement_exact_20260826.tex}
 \input{editorial/rethlas_packets_20260826/ch18_delta_metric_degree_source_aware_proof_exact_20260826.tex}
 
-\begin{warning}{Not every continuous psh metric is a delta-metric}
-Being a delta-metric is a regularity hypothesis of polyhedral type, not a
-positivity hypothesis, and it is genuinely restrictive.  A uniform limit of
-delta-metrics need not be one, because the corner cycles need not converge
-as cycles even when the curvature currents converge weakly; the
-non-Archimedean Calabi--Yau solutions of \Cref{chap:bfj-ma} are the standard
-source of continuous psh metrics for which no polyhedral presentation is
-known.  Every theorem in this section is stated for delta-metrics and none
-of them is asserted for arbitrary continuous psh metrics.
+\begin{warning}{Delta regularity must be checked separately}
+Being a delta-metric is the piecewise-smooth and ambient-Hessian regularity
+condition of \Cref{lem:ch18-delta-metric-gluing}; positivity of a curvature
+current does not supply that presentation.  Weak convergence of curvature
+currents also does not supply a finite corner-cycle presentation for the
+limit.  A continuous semipositive metric, including a Calabi--Yau solution
+in \Cref{chap:bfj-ma}, therefore enters the delta-form calculus only after
+this additional regularity has been established.
 \end{warning}
 
 For a meromorphic section $s$,
@@ -2340,29 +2376,30 @@ variety, the preceding mixed delta-form measure equals the corresponding
 Chambert--Loir measure.
 \end{theorem}
 \begin{proof}
-Choose one proper formal model carrying all the line bundles that define the
-metrics.  On a formal chart, each metric weight is piecewise affine, so its
-Chern delta-form is its weighted corner cycle by
-\eqref{eq:tropical-delta-pl}.  Take a common subdivision.  The wedge of the
-$n$ Chern delta-forms is the stable intersection of these corner cycles.
+This is \cite[Theorem~10.5]{GK17}.  We describe its reduction, since an
+arbitrary formal chart is not a toric variety and a local corner count alone
+does not prove the comparison.  Choose a common proper formal model.
+Algebraization and a generically finite alteration permit passage to a
+model with reduced special fibre; the projection formulas for both measures
+permit descent afterward.  These are the reductions in the cited proof.
 
-At a point corresponding to a generic component $Y$ of the special fibre,
-the stable-intersection weight is the mixed degree
+On that reduced model, \cite[Lemma~10.8]{GK17} describes a metric near a
+point and the corresponding residual metric using the same integral
+piecewise-linear function on a local tropical cone.  The local dimension
+bound excludes support at points reducing to nongeneric points of the
+special fibre.  Near the unique point $\xi_Y$ reducing to the generic point
+of a component $Y$, the tropical projection formula identifies the atomic
+coefficient with the residual mixed degree
 \[
-       \deg_Y\bigl(c_1(\mathcal L_1|_Y)\cdots
-                         c_1(\mathcal L_n|_Y)\cap[Y]\bigr),
+ \deg_Y\bigl(c_1(\mathcal L_1|_Y)\cdots
+                 c_1(\mathcal L_n|_Y)\cap[Y]\bigr),
 \]
-multiplied by the component length and the residue-field degree.  This is
-the toric intersection formula in the graded reduction of the formal chart.
-No other point contributes to a top-degree stable intersection.  Hence the
-delta-form measure is the sum of these coefficients at the divisorial
-points, which is precisely the Chambert--Loir measure.
-
-The tropical/residual mixed-degree comparison is
-\cite[Theorem~10.5]{GK17}.  It is invariant under a dominating formal model
-by the projection formula, so the calculation is independent of the chosen
-common model.  This also proves directly that the result agrees with
-\Cref{thm:cld-recovers-cl}.
+using the residual total-degree identity
+\cite[Proposition~10.3]{GK17}.  Polarization gives the mixed formula.
+Thus the measure is the sum of these degrees at the $\xi_Y$, exactly
+\cite[Proposition~10.4(c)]{GK17}.  Descent by the projection formula gives
+the comparison on the original model.  The result agrees with the
+independently established CLD comparison \Cref{thm:cld-recovers-cl}.
 \end{proof}
 
 \begin{corollary}
@@ -2382,21 +2419,14 @@ By \Cref{thm:gk-delta-cl-measure} the measure is the Chambert--Loir measure
 \eqref{eq:appJ-cl-total-mass}; that identity is
 \Cref{thm:cl-model-properties}.  Independence of the model is the projection
 formula, quoted in the proof of \Cref{thm:gk-delta-cl-measure}.
-Alternatively, the \emph{model-independence} alone can be had inside the
-delta-calculus, by the argument of \Cref{prop:ch17-mass-independent}.  Note
-first that $c_1^\delta(\overline L_i)$ is \emph{not} $\dprimeddprime[\phi_i]$
-unless $L_i$ is trivial; what is true is that two metrics on the same $L_i$
-differ by $\dprimeddprime[u_i]$ for a global $\mathbf R$-PL function $u_i$.
-Expanding
-$\bigwedge_ic_1^\delta(\overline L_i)-\bigwedge_ic_1^\delta(\overline L_i')$
-multilinearly leaves a sum of terms each carrying at least one factor
-$\dprimeddprime[u_j]$; since the remaining factors are closed, each such
-term is $\dprimeddprime$ of a compactly supported delta-form and integrates
-to zero on the boundaryless $X^{\An}$ by
-\Cref{prop:ch18-delta-integration}\,\cref{itm:ch18-di:stokes}.  This gives
-equality of the masses for all metrics, and nothing about their common
-\emph{value}: identifying it with $(L_1\cdots L_n)_X$ still requires
-evaluating one metric, which is \Cref{thm:ch17-degree}.
+More generally, \cite[Proposition~10.3]{GK17} gives this total-degree
+identity for delta-metrics, without requiring them to be formal.  This is
+a separate imported mass theorem.  A formal metric ratio is generally a
+PL function, whereas $B_{\mathrm{GK}}^{0,0}=A^{0,0}$.  Thus one cannot
+derive the mass identity by treating that ratio as a delta-form multiplier
+and applying the smooth-coefficient Leibniz rule of
+\Cref{prop:p21p3-delta-module}.  The ordinary-current mass argument of
+\Cref{prop:ch17-mass-independent} uses its own justified product calculus.
 \end{proof}
 
 \subsection{The formal case computed}
@@ -2409,8 +2439,11 @@ $L=\cO(1)|_C$ of degree $2$, and let $\overline L$ be the formal metric
 attached to $\mathcal L=\mathcal L_0\otimes\cO(D)$ with
 $D=a_0C_0+a_1E+a_2C_2$.  The skeleton is $\Gamma=[0,2]$ with unit weights.
 By \Cref{lem:ch18-delta-metric-gluing} and \eqref{eq:tropical-delta-pl}, the
-Chern delta-form is the corner cycle of the metric weight, a $0$-cycle on
-$\Gamma$; by \eqref{eq:ch18-corner-weight} its coefficients are the atoms.
+Chern delta-form has local corner presentations whose associated measure
+is atomic on $\Gamma$; \eqref{eq:ch18-corner-weight} computes the curvature
+of the model-function ratio.  Here and in the following model examples the
+delta-form is taken after complete algebraic closure, and braces record
+the points and coefficients of its induced measure.
 Adding the untwisted part $\mu_0=\delta_{v_0}+\delta_{v_2}$ of
 \Cref{ex:metrics-cl-curve-chain} to the atoms
 \eqref{eq:ch18-chain-atoms} gives
@@ -2435,7 +2468,7 @@ delta-form is equivalent to nefness of the residual bundles.
 \begin{example}[A toric surface]
 \label{ex:ch18-toric-delta}
 Let $X$ be the toric surface of \Cref{ex:metrics-cl-toric-surface} with the
-model metric whose weight on the skeleton $\mathbf R^2$ is the piecewise
+model metric whose weight on the torus skeleton $\mathbf R^2$ is the piecewise
 affine function \eqref{eq:metrics-toric-weight}.  The Chern delta-form is
 the corner cycle of that weight, a one-dimensional balanced cycle in
 $\mathbf R^2$ whose weights are the lattice lengths of the edges of the
@@ -2451,7 +2484,8 @@ as the normalized volume rather than as a naive edge count.
 \label{ex:ch18-p1-blowup-delta}
 Continue \Cref{ex:ch18-p1-blowup-defect}.  For
 $\mathcal L'=\rho^*\cO(1)\otimes\cO(-E)$ the weight in the frame $Z_0$ was
-computed in \Cref{ex:metrics-p1-blowup} to be $\max\{-1,\log|T|\}$, whose
+computed, with $-\log|\pi|=1$, in \Cref{ex:metrics-p1-blowup} to be
+$\max\{-1,\log|T|\}$, whose
 corner cycle on the apartment is the single point $x_E$ with weight $1$;
 the degrees of $\mathcal L'$ on the two components are
 $\deg(\mathcal L'|_{\widetilde C})=1-1=0$ and
@@ -2636,16 +2670,19 @@ every case the pairing is in complementary bidegree, where the three cones
 coincide by \cref{itm:ch18-pos:top}, so nonnegativity of the integral is
 exactly what is required.
 
-Conversely, order the cells by increasing dimension.  Near a point of the
-relative interior of a cell of minimal remaining dimension, use nonnegative
-cutoffs supported in a shrinking transverse tube, normalized by the lattice
-volume of that cell.  Contributions from higher-dimensional cells tend to
-zero, exactly as in Step~1 of \Cref{prop:ch18-current-faithful}.  Positivity
-of the current therefore says that $A_\sigma$ pairs nonnegatively with every
-test form in the dual cone.  The finite-dimensional duality of
-\Cref{prop:ch09-positivity-dictionary} puts $A_\sigma$ in the required cone.
-Remove those cells and continue by induction.  This proves the converse for
-each of the three cones in every bidegree; compare
+Conversely, fix a cell $\sigma$ and a point in its relative interior.  A
+sufficiently small ball avoids all lower-dimensional cells and every other
+cell of the same dimension.  Multiply a constant form in the appropriate
+dual cone by a nonnegative shrinking cutoff, and normalize by the lattice
+volume in $\sigma$.  Contributions from higher-dimensional cells tend to
+zero, as in Step~1 of \Cref{prop:ch18-current-faithful}.  The remaining
+limit is a positive constant times the pairing with $A_\sigma$ at that
+point.  Every intrinsic dual-cone test extends to the ambient space by a
+linear projection onto the tangent space of $\sigma$.  Positivity therefore
+puts $A_\sigma$ in the required cone by
+\Cref{prop:ch09-positivity-dictionary}.  Apply this argument separately to
+each cell; subtracting positive currents is unnecessary.  This proves the
+converse for each cone in every bidegree; compare
 \cite[Remark~1.11]{GK19}.
 
 \cref{itm:ch18-pos:global} If $\beta$ is positive, every algebraic pullback
@@ -2727,7 +2764,8 @@ invariant under the lattice automorphism that cycles the three rays of
 $-4\epsilon$ on the third, so
 $\dprimeddprime[\varphi]=3\delta_0-\epsilon(2\,\rd s_1+2\,\rd s_2+4\,\rd s_3)$
 is a signed measure which is neither positive nor negative.  Positivity of the total
- mass on a large ball, namely $3-(4+2\sqrt2)\epsilon R$, is not enough:
+ mass on $B_R$ of \Cref{ex:ch18-gauge-atom}, namely $3-8\epsilon R$
+when $8\epsilon R<3$, is not enough:
  positivity of a delta-form is a cellwise condition, and this example shows
  why it must be.
 \end{enumerate}
@@ -2739,8 +2777,10 @@ On the cross-fan $\Sigma$ of \eqref{eq:ch16-cross-fan} with unit weights,
 the function $h=|x_1|-|x_2|$ of \eqref{eq:ch16-cross-functions} has slopes
 $(1,1,-1,-1)$ and corner weight $1+1-1-1=0$.  Thus $h$ satisfies the second
 condition with equality, and it is affine on each ray, so it satisfies the
-first.  Therefore \cite[Theorem~8.4]{GK19} says that both $h$ and $-h$ are
-psh, and indeed $\dprimeddprime[h]=0$.  The example is not a failure of the
+first.  The current equation $\dprimeddprime[h]=0$ directly makes both
+$h$ and $-h$ psh in the current sense on this fixed fan.  It does not
+invoke the analytic tropical-frame theorem on an abstract fan.  The example
+is not a failure of the
 psh criterion: it is a nonsmooth pluriharmonic function.  It reappears in
 \Cref{sec:harmonic-trop} as the basic example showing that pluriharmonic need
 not mean smooth on a tropical space.
@@ -2786,28 +2826,29 @@ Let $T$ be a positive $(1,1)$-current on an open subset $\Omega$ of a
 tropical space of pure dimension $d$, let $\tau$ be a codimension-one face
 of a polyhedral structure on $\Omega$, and let $x\in\RelInt\tau$.  Suppose
 that on a neighbourhood of $x$ one has $T=[\Theta]+\delta_W$ with $\Theta$ a
-smooth $(1,1)$-form and $W$ a weighted cycle supported on $\tau$ with weight
-$w$.  Then $w\geq0$.
+smooth $(1,1)$-form and $W$ a weighted cycle supported on $\tau$ with smooth weight
+$w$.  Then $w(x)\geq0$.
 \end{lemma}
 
 \begin{proof}
-Choose a chart in which $\tau$ is $\{x_d=0\}$ near $x$ and take a strongly
-positive test form
-$\omega_\epsilon=\chi(x')\psi_\epsilon(x_d)\,\Theta_0$, where $\Theta_0$ is
-a fixed strongly positive $(d-1,d-1)$-form of complementary bidegree,
-$\chi\geq0$ is a fixed bump function on $\tau$ with
-$\int_\tau\chi\,\Theta_0=1$, and $\psi_\epsilon\geq0$ is supported in
-$[-\epsilon,\epsilon]$ with $\psi_\epsilon\leq1$ and
-$\psi_\epsilon(0)=1$.  Then $\langle T,\omega_\epsilon\rangle\geq0$ by
-positivity.  On the other hand
+Work in an ambient tropical chart and choose a nonnegative bump $\chi$
+on the relative interior of $\tau$.  Extend its tangent volume form to a
+constant strongly positive $(d-1,d-1)$-form $\Theta_0$ in the ambient
+space.  Multiply by a nonnegative smooth cutoff $\psi_\epsilon$ supported
+in an $\epsilon$-tube around $\tau$, bounded by $1$ and equal to $1$ on
+the support of $\chi$ in $\tau$.  Extend $\chi$ smoothly in that tube and
+put $\omega_\epsilon=\chi\psi_\epsilon\Theta_0$.
+
+There are only finitely many adjacent facets.  The integral of the bounded
+smooth part over their tubes is $O(\epsilon)$, whereas the wall part is
 \[
- \langle[\Theta],\omega_\epsilon\rangle
- =O\bigl(\|\Theta\|_\infty\,\epsilon\bigr)\to0,
- \qquad
- \langle\delta_W,\omega_\epsilon\rangle=w\int_\tau\chi\,\Theta_0=w ,
+ \langle\delta_W,\omega_\epsilon\rangle
+       =\int_\tau w\chi\Theta_0.
 \]
-the first because the integrand is supported in a slab of thickness
-$2\epsilon$.  Letting $\epsilon\to0$ gives $w\geq0$.
+Positivity and $\epsilon\downarrow0$ make this integral nonnegative for
+every such $\chi$.  Thus $w(x)\geq0$.  This also treats variable smooth
+weights; when $w$ is constant and $\int_\tau\chi\Theta_0=1$, the limit is
+exactly $w$.
 \end{proof}
 
 \begin{corollary}
@@ -2815,9 +2856,12 @@ $2\epsilon$.  Letting $\epsilon\to0$ gives $w\geq0$.
 Let $C$ be a one-dimensional balanced tropical space with positive weights
 and let $\varphi$ be continuous on $|C|$ and $C^2$ on each edge.  Then
 $\dprimeddprime[\varphi]\geq0$ if and only if $\varphi$ is convex on each
-edge and $\operatorname{at}_v(\varphi)\geq0$ at every vertex $v$.  If $C$
-has a boundary, the condition at a boundary vertex is instead that the
-single outgoing slope be nonnegative.
+edge and $\operatorname{at}_v(\varphi)\geq0$ at every vertex $v$.
+Here the current identity is taken on a boundaryless tropical open set.
+If one separately defines a compact graph Laplacian by including endpoint
+outgoing slopes, positivity of that graph measure also requires the
+endpoint slopes to be nonnegative.  This graph convention is not an
+additional boundary condition for analytic harmonicity.
 \end{corollary}
 
 \begin{proof}
@@ -2826,8 +2870,8 @@ This is \Cref{lem:ch15-vertex-atom} together with
 $\dprimeddprime[\varphi]$ is $\varphi''\rd s$ on each edge and its atomic
 part at $v$ is $\operatorname{at}_v(\varphi)\delta_v$.  A measure which is
 a sum of an absolutely continuous part and atoms is nonnegative if and only
-if both parts are.  The boundary statement is the same computation with only
-one term in \eqref{eq:ch18-atom}.
+if both parts are.  Under the stated compact-graph convention an endpoint
+has one term in \eqref{eq:ch18-atom}, giving the final observation.
 \end{proof}
 
 \begin{example}[The criterion on the running examples]
@@ -2927,8 +2971,8 @@ criterion \cite[Proposition~2.13]{GK19} gives (3)$\Leftrightarrow$(4), and
 
 It remains to prove (5)$\Rightarrow$(1).  By the algebraization of PL
 metrics, we may take $(\mathfrak X,\mathfrak L)$ to be an algebraic model.
-Let $Y$ be any closed curve in $\mathfrak X_s$ whose generic point lies in
-the reduction of $W$.  Since $X$ is proper, $Y$ is proper over the residue
+Let $Y$ be any proper closed curve contained in the reduction of $W$
+in $\mathfrak X_s$.  Since $X$ is proper, $Y$ is proper over the residue
 field.  The curve-lifting theorem \cite[Theorem~4.1]{GK19} supplies a closed
 algebraic curve $C\subset X$ such that $Y$ is an irreducible component of the
 special fibre of the closure of $C$.  By (5), the Chern current of the
@@ -2974,8 +3018,7 @@ comparison of \Cref{chap:compare-ma}.
 \begin{corollary}
 \label{cor:ch18-zhang}
 Let $X$ be a proper algebraic variety over $K$ as above and let $L$ carry a
-PL metric.  The metric is semipositive in the sense of Zhang, that is, it is
-induced by a nef model line bundle after passing to a positive tensor power,
+PL metric.  The metric is semipositive in the sense of Zhang, that is, it is a uniform limit of semipositive rational model metrics,
 if and only if $c_1^\delta(L,\|\cdot\|)$ is a positive delta-form on all of
 $X^{\An}$.
 \end{corollary}
@@ -2983,7 +3026,8 @@ $X^{\An}$.
 \begin{proof}
 By \Cref{thm:gm-metric-comparison} a PL metric on a proper variety is a
 model metric after passing to a power, so the two sides of the assertion are
-statements about a model line bundle $\mathcal L$.  Nefness of
+statements about a model line bundle $\mathcal L$.  For this model metric, Zhang semipositivity is equivalent to vertical
+nefness by \cite[Proposition~7.2]{GK19}.  Nefness of
 $\mathcal L$ on the special fibre is condition (1) of
 \Cref{thm:gk-formal-positivity-comparison} with $W=X^{\An}$, and positivity
 of $c_1^\delta$ is condition (4); the theorem gives the equivalence.  The
@@ -3043,14 +3087,14 @@ slopes $\langle \rd F(0),u\rangle$; along $e_1$ and $-e_1$ these are
 negatives of each other, whereas $h$ has slope $1$ along both.  Thus no
 ambient smooth $F$ restricts to $h$.
 
-Two lessons.  First, harmonicity is strictly weaker than smoothness plus
-$\dprimeddprime=0$: the sheaf of harmonic functions is larger than the sheaf
-of \emph{smooth} harmonic functions, which on a fan consists of the affine
-functions.  Second, the deficiency cannot be repaired by enlarging
-coefficients, because $h$ is a function, that is, an object of bidegree
-$(0,0)$, where there are no coefficients to enlarge.  The only remedy is to
-allow $h$ itself to be used as a coordinate; that is the definition of a
-harmonic tropicalization.
+On this fixed fan, smooth functions with zero Hessian are locally affine,
+whereas $h$ is a larger piecewise-affine harmonic function.  In the
+Gubler--K\"unnemann differential algebra, degree-zero delta-forms are still
+ordinary smooth functions, so adjoining positive-codimension coefficients
+does not add this function as a smooth coordinate.  Allowing harmonic
+coordinates makes it smooth in the enlarged chart calculus.  The fan
+calculation alone does not prove that a function on an analytic curve stays
+nonsmooth after every ordinary moment-map refinement.
 \end{example}
 
 \begin{remark}[Consequences for cohomology, and what we use]
@@ -3064,9 +3108,11 @@ sheaf-theoretic input: on the local model the inclusion
  \{\text{harmonic functions}\},
 \]
 is strict, by \Cref{prop:ch18-harmonic-basic}\,\cref{itm:ch18-hb:smooth}
-applied to $h=|x_1|-|x_2|$, which is not the restriction of an affine
-function.  The passage from that strictness to a statement about Dolbeault
-cohomology and Poincar\'e duality is carried out in
+and the preceding slope calculation.  On analytic curves, examples where
+harmonic functions remain nonsmooth under ordinary refinements require
+additional residual geometry; see \cite[Remark~15.10]{GJR26} and
+\Cref{prop:ch19-cld-smooth-harmonic-nonregularization}.  The cohomology and
+Poincar\'e duality results for the enlarged complex are established in
 \cite[\S\S10 and 13]{GJR26}, with the local theory of the smooth complex
 supplied by Jell's Poincar\'e lemma \cite{Jell16}.  Nothing in
 \Crefrange{chap:cld-forms}{chap:cld-metrized-bundles} depends on this;
@@ -3085,10 +3131,17 @@ line bundle $L_h(x)$ on the reduction of the germ.
 
 \begin{definition}[Harmonic PL function]
 \label{def:ch18-harmonic-pl}
-An integral PL function $h$ is \emph{harmonic} if locally it is induced by
-a formal model of the trivial line bundle whose restriction to the special
-fibre is numerically trivial.  An $\mathbf R$-harmonic function is a local
-real linear combination of integral harmonic functions.
+An $\mathbf R$-PL function $h$ is \emph{harmonic at $x$} if its residual
+class $L_h(x)$ is numerically trivial, equivalently if $h$ and $-h$ are
+semipositive at $x$.  It is harmonic if this holds at every point.  An
+integral PL function satisfying this condition is integral harmonic.
+These are \cite[Definition~7.2 and Remark~7.3]{GJR26}.
+
+Equivalently, locally $h$ has a formal presentation with numerically trivial
+residual class, and it is an ordinary-locally finite real linear combination
+of integral harmonic functions by \cite[Proposition~7.5]{GJR26}.  The
+latter is a generation theorem, not a definition imposed on an arbitrary
+current-harmonic continuous function.
 \end{definition}
 
 Equivalently, both $L_h(x)$ and its dual are nef.  On a rig-smooth analytic
@@ -3101,7 +3154,8 @@ the corresponding property of nefness.  We record the ones the book needs.
 
 \begin{proposition}
 \label{prop:ch18-harmonic-basic}
-Let $X$ be a good strict $K$-analytic space.
+Let $X$ be a good strict $K$-analytic space.  The smooth current comparison
+in \cref{itm:ch18-hb:smooth} is made on boundaryless pure-dimensional opens.
 \begin{enumerate}
 \item\label{itm:ch18-hb:sheaf}
  The $\mathbf R$-harmonic functions form a sheaf $\cH_X$ of
@@ -3118,8 +3172,10 @@ Let $X$ be a good strict $K$-analytic space.
  harmonic.
 \item\label{itm:ch18-hb:curve}
  On a rig-smooth $K$-analytic curve, an $\mathbf R$-PL function is harmonic
- if and only if the sum of its outgoing slopes vanishes at every point of
- the skeleton, that is, if and only if $\dprimeddprime[h]=0$.
+ if and only if the weighted outgoing-slope sums vanish at every interior
+ point, using a local skeleton adapted to the function.  On a boundaryless
+ curve this is the equation $\dprimeddprime[h]=0$.  Analytic boundary
+ points impose no extra slope condition.
 \end{enumerate}
 \end{proposition}
 
@@ -3142,8 +3198,12 @@ coordinate, so $\dprimeddprime$ of it vanishes, and the model is trivial.
 \cref{itm:ch18-hb:smooth} If $u=c+\sum_i\lambda_i(-\log|f_i|)$ then
 $\dprimeddprime[u]=0$ by \Cref{lem:ch15-log-smooth} and linearity, and $u$ is
 harmonic by \cref{itm:ch18-hb:sheaf} and \cref{itm:ch18-hb:units}.
-Conversely, let $u=F|_{|C|}$ with $F$ smooth on an ambient open set and
-$\dprimeddprime[u]=0$.  Fix $x\in|C|$ and work on the star of $x$, so that
+Conversely, the injectivity of smooth forms into currents on a
+boundaryless pure-dimensional open set
+(\cite[Corollary~7.3.9]{CLD25}) first gives
+$\dprimeddprime u=0$ as a smooth form.  Write $u=F|_{|C|}$ with $F$
+smooth on an ambient open set.  Fix $x\in|C|$ and work on the star of $x$,
+so that
 every cell of the local polyhedral structure contains $x$.  Testing
 $\dprimeddprime[u]=0$ against forms supported in the relative interior of a
 maximal cell $\sigma$ gives, by
@@ -3164,9 +3224,11 @@ the skeleton is a curve over the residue field, and the residual line bundle
 of $h$ has degree equal to the sum of the outgoing slopes of $h$ at that
 point, with the multiplicities of the residual components; this is
 \cite[Proposition~15.7]{GJR26} and, in the model language,
-\Cref{prop:skeletal-curvature-curve}.  Numerical triviality of a line bundle
-on a curve is vanishing of its degree on every component.  The identification
-of that sum with $\dprimeddprime[h]$ is \eqref{eq:delta-graph-laplacian}.
+\Cref{prop:skeletal-curvature-curve}.  At interior points numerical
+triviality is the vanishing of the residual degrees.  At an analytic
+boundary point the residual curve is not proper, and this degree test is
+vacuous; see \cite[Corollary~5.4 and its proof]{GR25PL}.  The current
+identity on the boundaryless locus is \eqref{eq:delta-graph-laplacian}.
 \end{proof}
 
 The property that makes the theory usable is functoriality.  It is what
@@ -3191,39 +3253,32 @@ let $h$ be an $\mathbf R$-harmonic function on an open $U\subseteq X$.
  $\lambda\in\mathbf R^r$, then $\sum\lambda_ih_i$ is $\mathbf R$-harmonic;
  consequently, if $h=(h_1,\ldots,h_r):U\to\mathbf R^r$ is a harmonic
  tropicalization and $A:\mathbf R^r\to\mathbf R^{r'}$ is an integral affine
- map, then $A\circ h$ is a harmonic tropicalization.
+ map whose translation belongs to
+ $\Gamma^{r'}$, where $\Gamma=-\log|K^\times|$, then $A\circ h$ is a
+ harmonic tropicalization.
 \end{enumerate}
 \end{proposition}
 
 \begin{proof}
-\cref{itm:ch18-hf:pullback} Harmonicity is local, so we may assume that $h$
-is integral and is induced by a formal model $\cL$ of $\cO_U$ whose
-restriction to the special fibre is numerically trivial.  Pulling back the
-formal model along a formal model of $\varphi$---which exists locally after
-an admissible formal blowup, by the flattening and domination results of
-\Cref{chap:models}---produces a formal model of $\cO_{\varphi^{-1}(U)}$
-inducing $\varphi^*h$.  Its restriction to the special fibre is the pullback
-of a numerically trivial class, hence numerically trivial, because degrees on
-residual curves are computed by the projection formula: for a residual curve
-$C'$ mapping to a residual curve $C$ with degree $e$, one has
-$\deg(\varphi^*\cL|_{C'})=e\deg(\cL|_C)=0$, and for a contracted $C'$ the
-degree is $0$.  Real coefficients are handled by linearity.
+The first two assertions are \cite[Proposition~7.6(1),(2)]{GJR26}, applied
+to $h$ and $-h$.  We indicate the residual argument behind that result.
+Residues pull back under morphisms of good strict germs, and the reduction
+map of a scalar extension identifies the appropriate inverse-image
+Riemann--Zariski open.  A numerically trivial residual class remains so:
+on a proper residual curve mapping to a curve its degree is the mapping
+degree times zero, and on a contracted curve the pullback is trivial.
+This uses the residue and nefness functoriality in
+\cite[Lemma~6.12 and \S\S6.13, 6.19]{GJR26}.  It does not identify an
+arbitrary germ reduction with ordinary base change of one special fibre.
 
-\cref{itm:ch18-hf:base} Scalar extension of a formal model is a formal model,
-and numerical triviality is preserved because the reduction of the extension
-is the base change of the reduction along a field extension of the residue
-field, under which degrees of line bundles on curves are multiplied by the
-residue-degree factor of \Cref{cor:trop-finite-field-extension} and in
-particular remain zero.
-
-\cref{itm:ch18-hf:domain} A special case of
-\cref{itm:ch18-hf:pullback} for the inclusion of a domain.
-
-\cref{itm:ch18-hf:compose} The first assertion is
-\Cref{prop:ch18-harmonic-basic}\,\cref{itm:ch18-hb:sheaf}.  For the second,
-the coordinates of $A\circ h$ are integral affine combinations of the $h_i$,
-which are integral harmonic by \cref{itm:ch18-hb:sheaf} applied with integer
-coefficients, the constant term being harmonic as well.
+Restriction to a strict analytic domain is the first assertion applied to
+its inclusion.  Real linear combinations are harmonic by
+\Cref{prop:ch18-harmonic-basic}\,\cref{itm:ch18-hb:sheaf}.  For the final
+assertion, integer linear combinations of integral harmonic functions are
+integral harmonic, and a translation in $\Gamma$ is the logarithm of a
+scalar unit.  Thus the new coordinates are integral harmonic.  Arbitrary
+real translations give real harmonic coordinates, but need not be integral
+PL coordinates.
 \end{proof}
 
 \subsection{Regularity bridges and the zero-current frontier}
@@ -3285,33 +3340,32 @@ integral harmonic.  Smooth tropicalizations by invertible analytic functions
 are special cases, since $-\log|f|$ is harmonic when $f$ is invertible.
 \end{definition}
 
-The image is a finite polyhedral set.  It carries canonical positive weights
-obtained locally from ordinary tropicalizations and then descended through
-the graph of $h$.
+The image is a finite $(\mathbf Z,\Gamma)$-polyhedral set.  Its
+top-dimensional part carries canonical positive weights; if
+$d=\dim W$ exceeds the image dimension, that $d$-dimensional part is empty.
 
-We describe the weights explicitly, since they are what balancing is about.
-Cover $W$ by finitely many affinoid domains $W_j$ on each of which an
-ordinary moment map $g_j$ is defined, and consider the graph map
-$(g_j,h):W_j\to\mathbf R^{m_j}\times\mathbf R^r$.  Its image is a
-polyhedral set with the canonical calibration of
-\Cref{def:trop-canonical-calibration}, by
-\Cref{thm:trop-calibration-canonical}.  Let $p:\mathbf R^{m_j}\times
-\mathbf R^r\to\mathbf R^r$ be the second projection.  For a $d$-dimensional
-face $\tau$ of $h(W_j)$ set
+Locally choose an ordinary tropicalization $g_j$ and a piecewise
+$(\mathbf Z,\Gamma)$-linear map $\ell_j$ with $h=\ell_j\circ g_j$, as in
+\cite[\S8.4]{GJR26}.  Subdivide so that $\ell_j$ is affine on
+each cell.  The graph map $(g_j,h)$ is then the graph of $\ell_j$ over
+$g_j(W_j)$, with weights transported from the ordinary tropicalization.
+It is not asserted to be an ordinary moment map.  Projection $p$ to the
+$h$-coordinates gives, on a $d$-dimensional face $\tau$, the formula
 \begin{equation}
 \label{eq:ch18-harmonic-weight}
  m_\tau\bigl(h(W_j)\bigr)
- =\sum_{\substack{\sigma\ \text{face of }(g_j,h)(W_j)\\ p(\sigma)=\tau,\
- \dim\sigma=d}}
- m_\sigma\,\bigl[\Lambda_\tau:p(\Lambda_\sigma)\bigr] ,
+ =\sum_{\substack{\sigma\ \text{graph face}\\p(\sigma)=\tau,\
+                         \dim\sigma=d}}
+ m_\sigma\,[\Lambda_\tau:p(\Lambda_\sigma)].
 \end{equation}
-the pushforward weight of \Cref{thm:ch11-pushforward-balanced}, where
-$\Lambda$ denotes the tangent lattice.  Faces $\sigma$ of dimension $d$
-collapsing to a face of smaller dimension contribute nothing, by
-\Cref{lem:ch11-cell-change-of-variables}\,\cref{itm:ch11-cov:collapse}.  The
-resulting weights are nonnegative because the canonical calibration is, by
-\Cref{cor:trop-weights-integral}; and they are independent of $j$ and of
-$g_j$ by \Cref{thm:trop-calibration-chart-independent}.
+Collapsed faces contribute zero.  On a finite domain cover, contributions
+from overlaps are accounted for by inclusion--exclusion, rather than by
+adding the same analytic points twice.  Independence of the presentations
+is \cite[Definition~8.10 and Proposition~8.25]{GJR26}, using its canonical
+local multiplicities.  Equivalently, the weighted $d$-skeleton maps
+finite-to-one to the $d$-dimensional image, and its face weights push
+forward by \cite[(8.15.1)]{GJR26}.  These are the analytic inputs behind
+the lattice-index formula.
 
 \begin{theorem}\label{thm:harmonic-balancing}
 Let $W$ be a compact good strict analytic space of pure dimension $d$,
@@ -3323,33 +3377,25 @@ the tropicalization.  In particular, balancing holds at every such face not
 contained in $h(\partial W)$.
 \end{theorem}
 \begin{proof}
-Choose an ordinary moment map $g$ on a finite affinoid cover of $W$ and form
-the graph tropicalization $(g,h)$.  Its top-dimensional part carries the
-calibration induced from $g$, and projecting the graph to the
-$h$-coordinates defines the canonical weights on $h(W)$ through the
-lattice-index pushforward formula.  \Cref{thm:analytic-tropical-balancing}
-may not be applied to the graph as a whole: $(g,h)$ is not an ordinary
-moment map, the coordinates $h_j$ being by hypothesis not of the form
-$-\log|f_j|$ --- that is the whole point of
-\Cref{ex:ch18-harmonic-not-smooth}.  What the cited theorem does supply is
-the vanishing of the $g$-component of the Stokes defect, those coordinates
-being genuinely ordinary; the $h$-component is what harmonicity must kill,
-and it is treated next.
+This is \cite[Theorem~9.7]{GJR26}.  We give its local graph argument.
+At $x\in\operatorname{Int}(W)$ choose a compact strict neighbourhood
+with an ordinary tropicalization $g$ and a piecewise integral-affine map
+$\ell=(\ell_1,\ldots,\ell_r)$ such that $h=\ell\circ g$.
+The weighted local fan of $g$ is balanced.  Harmonicity makes each
+tropical divisor $\ell_j\cdot g(W,x)_d$ vanish by
+\cite[Proposition~9.6]{GJR26}; this is the residual-degree input.
+The graph-balancing criterion \cite[Corollary~9.4]{GJR26} then makes the
+graph fan balanced.  Projecting its weighted cycle to the $h$-coordinates
+preserves balancing and gives $h(W,x)_d$ by the projection formula.
+No ordinary-moment-map balancing theorem is applied directly to $(g,h)$.
 
-Fix a codimension-one face $\tau$ of $h(W)$ outside the set named in the
-statement and refine so that all graph facets over $\tau$ map linearly.
-Apply Stokes to the graph over a small transversal neighborhood of $\tau$.
-The contributions from ordinary moment coordinates cancel by analytic
-balancing.  For a coordinate $h_j$, the remaining coefficient is the degree
-of its residual line bundle on the corresponding residual curve.  That
-degree is zero because $h_j$ is harmonic.  Thus, after pushforward, the sum
-of the weighted primitive normal vectors at $\tau$ is zero.
-
-If a graph face lies over $S_h(W)_d\cap\partial W$, Stokes leaves its outward
-boundary contribution and the preceding cancellation need not hold.  The
-excluded image is exactly the set of faces for which this can occur.  This
-proves the stated qualified balancing and is the graph-and-Stokes proof of
-\cite[Theorem~9.7]{GJR26}.
+At a point of a $(d-1)$-face of $h(W)_d$, the weighted image germ is the
+finite sum of the source germs over the tropical skeleton.  A source point
+outside the $d$-skeleton contributes zero.  If the target face is outside
+$h(S_h(W)_d\cap\partial W)$, each nonzero contributing germ is at an
+interior point and hence balanced by the first part.  Their sum is balanced.
+This is the second part of the cited theorem and gives the exact boundary
+exclusion in the statement.
 \end{proof}
 
 \begin{remark}[Why the boundary exclusion is needed]
@@ -3377,8 +3423,9 @@ $h=(-\log|f_1|,\ldots,-\log|f_r|)$ is a harmonic tropicalization by
 \Cref{prop:ch18-harmonic-basic}\,\cref{itm:ch18-hb:units}, and it is the
 moment map of \Cref{def:trop-moment-invariant}.  The canonical weights
 \eqref{eq:ch18-harmonic-weight} then agree with the tropical multiplicities
-of \eqref{eq:trop-multiplicity-formula}, because the graph of $h$ over an
-ordinary moment map projects isomorphically onto a refinement.  So the
+of \eqref{eq:trop-multiplicity-formula}: choose the ordinary
+presentation $g=h$, whose graph projects isomorphically onto the
+corresponding polyhedral image.  So the
 harmonic theory contains the ordinary one, and
 \Cref{thm:harmonic-balancing} contains
 \Cref{thm:analytic-tropical-balancing}.
@@ -3388,9 +3435,8 @@ harmonic theory contains the ordinary one, and
 \label{ex:ch18-cross-chart}
 Let $C$ be a rig-smooth $K$-analytic curve whose skeleton near a point $x$
 is the cross-fan $\Sigma$ of \Cref{ex:ch18-harmonic-not-smooth}, with four
-branches of multiplicity $1$; concretely, take the analytification of a
-curve with a node-type degeneration whose special fibre at $x$ has four
-residual branches.  The function $h=|x_1|-|x_2|$ on $\Sigma$ pulls back to
+branches of multiplicity $1$; one may use a semistable model with a component meeting four other
+components and work near its divisorial vertex.  The function $h=|x_1|-|x_2|$ on $\Sigma$ pulls back to
 an $\mathbf R$-PL function on a neighbourhood of $x$ in $C$, and it is
 harmonic by
 \Cref{prop:ch18-harmonic-basic}\,\cref{itm:ch18-hb:curve}, since its four
@@ -3405,26 +3451,29 @@ onto the positive half-line and the other two onto the negative half-line;
 so the weight of the positive half is $2$ and of the negative half is $2$.
 The image is therefore the line with the constant weight $2$, which is
 balanced at $0$: $2\cdot(+1)+2\cdot(-1)=0$, as
-\Cref{thm:harmonic-balancing} requires.  By contrast, the same $h$ is not
-an ordinary moment map: it is not of the form $-\log|f|$ near $x$, since
-that would make it smooth, contradicting
-\Cref{ex:ch18-harmonic-not-smooth}.
+\Cref{thm:harmonic-balancing} requires.  This computes the harmonic chart
+weight; it does not show that $h$ is nonsmooth on the analytic curve.
+Although $h$ is not ambient-smooth in the displayed cross-fan chart, a
+refined ordinary moment map may supply a unit-log presentation.  Analytic
+nonsmoothness requires the additional residual obstruction discussed in
+\cite[Remark~15.10]{GJR26}.
 \end{example}
 
 \begin{example}[Failure of balancing on an annulus]
 \label{ex:ch18-harmonic-disc}
-Let $W=\{|\pi|\leq|T|\leq1\}$ be the closed annulus and $h=-\log|T|$.  Here
+Choose $\pi\in K$ with $0<|\pi|<1$, put $a=-\log|\pi|$, and let
+$W=\{|\pi|\leq|T|\leq1\}$ be the closed annulus with $h=-\log|T|$.  Here
 $T\in\cO(W)^\times$, so $h$ is an ordinary --- hence harmonic ---
 tropicalization by
-\Cref{ex:ch18-harmonic-ordinary}.  Its image is the segment $[0,1]$ (recall
-$v_K(\pi)=1$), of dimension one, and the canonical weight
-\eqref{eq:ch18-harmonic-weight} is $1$, each fibre being a single point of
-lattice index one.  The face $\{0\}$ has a single adjacent maximal face,
+\Cref{ex:ch18-harmonic-ordinary}.  Its image is the segment $[0,a]$,
+of dimension one.  The canonical weight is $1$: its skeletal map has
+one point over each parameter and lattice index one.  The whole analytic
+tropical fibre need not be a singleton.  The face $\{0\}$ has a single adjacent maximal face,
 with primitive normal $+1$, so the balancing sum there is $1\neq0$; at
-$\{1\}$ it is $-1\neq0$.  Both endpoints lie in $h(\partial W)$, the image
+$\{a\}$ it is $-1\neq0$.  Both endpoints lie in $h(\partial W)$, the image
 of the Shilov boundary --- the two Gauss points of radii $1$ and $|\pi|$ ---
 so both are excluded by \Cref{thm:harmonic-balancing}.  Every interior point
-of $(0,1)$ has two adjacent faces after subdividing, with opposite normals
+of $(0,a)$ has two adjacent faces after subdividing, with opposite normals
 and weight $1$, and balances.
 
 The closed \emph{disc} $\{|T|\leq1\}$ will not serve here, though it is the
@@ -3440,7 +3489,8 @@ boundary.
 \begin{example}[An abelian variety]
 \label{ex:ch18-harmonic-abelian}
 On a totally degenerate abelian variety $A^{\An}=(\mathbf G_m^{g})^{\An}/\Lambda$
-the retraction to the real torus $\mathbf R^g/\Lambda$ is not given by
+the retraction to the real torus
+$N_{\mathbf R}/\!\operatorname{trop}(\Lambda)$ is not given by
 global units, since the coordinates $-\log|z_i|$ are only defined modulo
 $\Lambda$; but locally they are, and the local harmonic
 functions patch into a harmonic tropicalization of $A^{\An}$ onto the real
@@ -3452,8 +3502,7 @@ not literally an $\mathbf R^r$, and \Cref{thm:harmonic-balancing} is applied
 locally, on the neighbourhoods over which a lift $-\log|z_i|$ does exist.
 The canonical weight is $1$ everywhere and balancing is automatic at every
 face, the quotient torus being compact without boundary, so that no face is
-excluded.  This is the example for which the
-harmonic theory was designed.  There is a canonical injection
+excluded.  This is an application of the harmonic chart formalism.  There is a canonical injection
 $\Lambda^{p,q}M_{\mathbf R}\to H^{p,q}$ of the invariant classes into the
 Dolbeault cohomology of the weakly smooth complex.  The unrestricted
 isomorphism question posed in \cite[\S1.15]{GJR26} has a negative answer by
@@ -3536,12 +3585,11 @@ Lagerberg form on a neighbourhood of $h(W)$.  Two expressions are
 identified after passage to common harmonic refinements.
 \end{definition}
 
-Balancing makes the construction independent of representatives and gives
-a bigraded differential algebra with $\dprime$, $\ddprime$, wedge product, and
-functorial pullback.
-
-We indicate why balancing is the operative hypothesis, since this is the
-only point at which \Cref{thm:harmonic-balancing} is used.
+The construction uses Lagerberg forms on the actual polyhedral image,
+modulo forms whose tangent restrictions vanish.  Affine pullback on those
+quotients gives a bigraded differential algebra and functorial analytic
+pullback.  Balancing is used later for Stokes' formula; it is not required
+to define forms on a polyhedral set with boundary.
 
 \begin{proposition}
 \label{prop:ch18-weakly-smooth-welldefined}
@@ -3559,29 +3607,22 @@ pullback along a morphism of good strict analytic spaces.
 \end{proposition}
 
 \begin{proof}
-Form the product harmonic tropicalization $(h,h'):W\to\mathbf
-R^{r+r'}$, which is harmonic by
-\Cref{prop:ch18-harmonic-functorial}\,\cref{itm:ch18-hf:compose}, and let
-$p,p'$ be the two projections.  Both $h^*\alpha=(h,h')^*p^*\alpha$ and
-$h'^*\alpha'=(h,h')^*p'^*\alpha'$ are pullbacks along the same map, so it
-suffices to know that $(h,h')^*$ is injective on smooth forms defined near
-the image, that is, that the image determines the form.  This is where
-balancing enters: by \Cref{thm:harmonic-balancing} the $d$-dimensional part
-of the image is a balanced weighted polyhedral set away from the excluded
-boundary faces, so by
-\Cref{thm:ch10-forms-presentation-independent} a smooth form on it is
-determined by its restrictions to the cells, which are exactly the values of
-the pullback on tangent vectors.  Without balancing the image could fail to
-be a tropical cycle and the quotient of \eqref{eq:ch10-form-kernel} would not
-be the right one.
+Use the common harmonic tropicalization $(h,h')$, with projections $p,p'$.
+The two presentations become $p^*\alpha$ and $p'^*\alpha'$ on its actual
+polyhedral image.  Their equality means equality of tangent restrictions
+there, exactly \cite[Definition~10.3]{GJR26}.  These image forms are
+quotients of ambient forms; the map from all forms on an ambient
+neighbourhood is not asserted to be injective.  Injectivity from the image
+quotient to the weakly smooth sheaf is \cite[Proposition~10.9]{GJR26}.
 
-Compatibility with wedge and with the two differentials is then formal:
-these operations are computed on a common refinement and commute with
-integral affine pullback by
-\Cref{prop:ch09-pullback-functorial}.  Compatibility with pullback along
-$\varphi:Y\to X$ is
-\Cref{prop:ch18-harmonic-functorial}\,\cref{itm:ch18-hf:pullback} applied to
-each coordinate of $h$.
+Wedge products and differentials commute with the affine projections and
+preserve the ideal of vanishing tangent restrictions.  Hence they descend
+on every common refinement.  Taking restrictions and sheafifying gives the
+algebra of \cite[\S10.6 and Definition~10.7]{GJR26}.  Pullback by an
+analytic morphism replaces each harmonic coordinate by its pullback, which
+is harmonic by \Cref{prop:ch18-harmonic-functorial}; this is
+\cite[\S10.8]{GJR26}.  All these operations remain defined at boundary
+points.  The boundary qualification enters integration and Stokes.
 \end{proof}
 
 The principal comparison is
@@ -3650,6 +3691,7 @@ differentiating $S$ is zero because $\dprime S=0$.  Hence the displayed
 strong current vanishes.
 \end{proof}
 
+\noindent\begin{minipage}{\textwidth}
 \begin{warning}{Strong compatibility is not ordinary Bedford--Taylor independence}
 \label{warn:ch18-strong-not-ordinary-bt}
 The preceding proposition does not settle the ordinary-current question in
@@ -3665,6 +3707,7 @@ psh potentials, whereas the proposition assumes from the outset that $h$ is
 weakly smooth.  Thus it is a useful exactness statement in the strong
 calculus, not a reduction of the unresolved ordinary CLD problem.
 \end{warning}
+\end{minipage}\par
 
 \begin{definition}[Weak-form-induced ordinary current]
 \label{def:ch18-weak-form-induced-current}
@@ -3961,43 +4004,45 @@ by \cref{thm:p09-signed-semipositive-span}; positive generation holds in
 residual dimension at most one by
 \cref{thm:ch18-semipositive-integral-residual-curve}, but fails in residual
 dimension two by
-\cref{cor:p09-good-reduction-positive-cone-counterexample}.  No
-higher-dimensional positive-cone assertion survives without additional
-rational-polyhedral hypotheses on the relevant nef cone.
+\cref{cor:p09-good-reduction-positive-cone-counterexample}.  The
+counterexample rules out an unrestricted higher-dimensional
+positive-generation theorem; any replacement needs additional geometric
+hypotheses on the residual classes being tested.
 
 \begin{theorem}\label{thm:gr-pl-curve-test}
 Let $K$ be complete and nontrivially valued, $X$ a good strict
 $K$-analytic space, $x\in X$, and $h$ an $\mathbf R$-PL function.
 Then $h$ is semipositive at $x$ if and only if on one neighbourhood
-$W$ of $x$, for every sufficiently small strict analytic neighbourhood
-$U\subset W$ of $x$, every complete analytic extension $K'/K$, and
-every Zariski-closed analytic curve $C\subset U_{K'}$, the restriction
-$h_{K'}|_C$ is semipositive.  The quantifier over $K'$ is not decorative:
-the lifting step in the proof below produces its test curve only after a
-scalar extension in general, so a criterion testing $K$-curves alone is
-not what the argument establishes.  It also matches the base-change-stable
-shape of \Cref{def:ch18-classically-psh} below.
+$W$ of $x$, for every strict analytic neighbourhood $U\subset W$ of $x$
+and every Zariski-closed analytic curve $C\subset U$, the restriction
+$h|_C$ is semipositive.  This is the same-field criterion of
+\cite[Theorem~5.3]{GR25PL}; it does not require scalar extension in its
+curve tests.  Requiring the corresponding tests after every complete field
+extension gives an equivalent stronger-looking formulation, by stability
+of semipositivity under base change.
 \end{theorem}
 \begin{proof}
 If $h$ is semipositive at $x$, shrink to a neighborhood on which its residual
 line bundles are nef.  Restriction to a closed analytic curve pulls those
 bundles back to nef residual line bundles, so $h|_C$ is semipositive.
 
-Conversely, suppose the curve test holds but $h$ is not semipositive at
-$x$.  Its residual line bundle on the reduction of the germ then has
-negative degree on a proper residual curve.  The local lifting theorem
-produces, after shrinking a strict neighborhood and if necessary making an
-analytic scalar extension, a Zariski-closed analytic curve whose reduction
-contains that residual curve with positive generic degree.  The projection
-formula identifies the degree of the restricted residual metric with that
-negative degree, multiplied by the positive lifting degree.  Thus $h$ is not
-semipositive on the lifted analytic curve, contradicting the hypothesis.
-This proves the equivalence; the lifting construction and degree comparison
-are \cite[Theorem~5.3]{GR25PL}.
+The converse is the local lifting and degree comparison in
+\cite[Theorem~5.3]{GR25PL}, which is imported here with its exact
+hypotheses.  In that proof a proper residual curve is dominated with
+positive degree by a component of the reduction of a local analytic curve.
+The projection formula transfers nonnegative degree back to the residual
+curve.  Thus all residual curve degrees are nonnegative.  The construction
+uses the same-field lifting theorem \cite[Theorem~4.1]{GR25PL}; no
+scalar-extension requirement should be added to its published conclusion.
+
+For the formulation with all complete field extensions, the forward
+implication follows from \cite[Proposition~7.6]{GJR26}, and the reverse
+implication includes the choice $K'=K$.
 
 The pointwise-closedness theorem
 \cite[Theorem~5.6]{GR25PL} is a separate consequence: a pointwise limit of
-semipositive $\mathbf R$-PL functions that remains $\mathbf R$-PL restricts
+semipositive $\mathbf R$-PL functions in a sequence whose pointwise limit
+remains $\mathbf R$-PL restricts
 to such a limit on every curve, where the one-dimensional slope measures are
 closed; the equivalence just proved then returns semipositivity.  Both
 results are local and extend beyond the proper algebraic scope of
@@ -4071,8 +4116,12 @@ constructions are the same, term by term.  It is the promised return to
 \label{sec:ch18-three-potentials}
 
 Fix a complete nontrivially valued field $K$ and a proper $K$-variety $X$ of
-dimension $n$.  Three classes of function on $X^{\An}$ have appeared, and
-they must not be confused.
+dimension $n$.  For the following model and skeleton dictionary assume
+that $K$ is discretely valued and normalize $-\log|\pi|=1$, so that the
+intrinsic logarithmic weights agree with the normalized valuations of
+\Cref{chap:metrics}.  The earlier delta-form comparison over an
+algebraically closed nontrivially valued field does not require discreteness.
+Three classes of function on $X^{\An}$ have appeared.
 
 \begin{itemize}
 \item \emph{Model functions.}  For a normal model $\cX$ and a vertical
@@ -4093,134 +4142,132 @@ they must not be confused.
 
 \begin{proposition}
 \label{prop:ch18-three-classes}
-Let $K$ be discretely valued with $v_K(\pi)=1$ and let $X$ be a proper
-geometrically connected $K$-variety.
+Let $K$ be discretely valued with $-\log|\pi|=1$ and let $X$ be a proper
+normal geometrically connected $K$-variety.
 \begin{enumerate}
 \item\label{itm:ch18-tc:modelpl}
- Every model function is a $\mathbf Q$-PL function, and conversely every
- $\mathbf Q$-PL function on all of $X^{\An}$ is a model function.
+ Every rational model function is a strict $\mathbf Q$-PL function, and
+ conversely every strict $\mathbf Q$-PL function on all of $X^{\An}$ is a
+ rational model function.
 \item\label{itm:ch18-tc:skeletal}
  If $\cX$ is an SNC model with dual complex $\Delta_\cX$ and retraction
- $\rho_\cX$, then $\varphi_D=\varphi_D\circ\rho_\cX$ for every vertical
- divisor $D$ supported on $\cX_s$, and $\varphi_D|_{\Delta_\cX}$ is affine
- on each face, with the values $a_E/b_E$ at the vertices.
+ $\rho_\cX$, then $\varphi_D=\varphi_D\circ\rho_\cX$ for a vertical
+ $\mathbf Q$-Cartier divisor $D=\sum_Ea_EE$ determined on $\cX$.
+ Its restriction is affine on each face and has values $a_E/b_E$ at the
+ vertices, where $\cX_s=\sum_Eb_EE$.
 \item\label{itm:ch18-tc:notall}
- Not every piecewise affine function on $\Delta_\cX$ is the restriction of a
- model function on $\cX$: the values at vertices must lie in
- $\frac1{b_E}\mathbf Z$, and the function must be affine with respect to the
- integral affine structure of $\Delta_\cX$.
+ A piecewise-affine function on $\Delta_\cX$ need not be the function of a
+ divisor determined on this fixed model: it must be affine on each original
+ face and have rational vertex values.  For an integral divisor the sharper
+ vertex constraint is $\varphi_D(x_E)\in b_E^{-1}\mathbf Z$; it is not
+ the constraint for a rational divisor.  Admissible rational PL functions
+ can be realized after a suitable dominating model, as in
+ \Cref{cor:pl-model-function}.
 \end{enumerate}
 \end{proposition}
 
 \begin{proof}
-\cref{itm:ch18-tc:modelpl} A model function is the weight of a model metric
-on $\cO_X$, and model metrics are formal, hence PL, by
-\Cref{thm:gm-metric-comparison}\,(2); the passage between $\mathbf Z$ and
-$\mathbf Q$ coefficients is the $\mathbf Q$-linearization in the same
-theorem.  Conversely a $\mathbf Q$-PL function on the whole proper
-$X^{\An}$ is the weight of a formal $\mathbf Q$-metric on $\cO_X$, which by
-the same theorem is an algebraic model metric; its model line bundle differs
-from $\cO_\cX$ by a vertical divisor, whose model function is the given one.
+\cref{itm:ch18-tc:modelpl} A model metric is formal, and a strict rational
+PL metric on a compact analytic space is formal after taking a power.
+The algebraization comparison \Cref{thm:gm-metric-comparison} then gives
+an algebraic model metric on $\cO_X$.  On a common normal model its
+extension is $\cO_\cX(D)$ for a vertical rational Cartier divisor.
+Normality ensures that the normal determining models used here are
+available.  This is the rational model/PL identification; allowing arbitrary
+real constants would change the class.
 
-\cref{itm:ch18-tc:skeletal} Invariance under $\rho_\cX$ for a divisor
-determined on $\cX$ is the last assertion of
-\Cref{cor:pl-model-function}; affinity on faces is
+\cref{itm:ch18-tc:skeletal} Retraction invariance for a divisor determined
+on $\cX$ is \Cref{cor:pl-model-function}; affinity is
 \Cref{prop:skeleton-model-pa}, and the vertex values are
-\Cref{prop:metrics-divisor-model-function}\,(2) together with the
-description of $\Delta_\cX$ by monomial valuations in
-\Cref{chap:skeleta}.
+\Cref{prop:metrics-divisor-model-function}\,(2).  The normalization
+$-\log|\pi|=1$ identifies those values with actual logarithmic weights.
+For an unnormalized absolute value they are multiplied by $-\log|\pi|$.
 
-\cref{itm:ch18-tc:notall} The vertex values are $a_E/b_E$ with
-$a_E\in\mathbf Z$ by \cref{itm:ch18-tc:skeletal}, which is the stated
-integrality; and affinity is part of \cref{itm:ch18-tc:skeletal}.  A function
-violating either is not a model function on that model, although by
-\Cref{cor:pl-model-function} every rational PL function on
-$\Delta_\cX$ does arise from a model function after passing to a dominating
-model, and model functions are dense in $C^0(X^{\An})$ by
-\Cref{prop:metrics-model-function-density}.
+\cref{itm:ch18-tc:notall} An irrational vertex value cannot be $a_E/b_E$
+with rational $a_E$, and a bend inside an original face cannot occur for a
+divisor determined on that SNC model.  Integral $a_E$ give the sharper
+lattice of values stated above.  A dominating model can supply additional
+faces for the rational PL realization theorem; this does not make an
+arbitrary real piecewise-affine function a rational model function.
 \end{proof}
 
 \subsection{The curvature of a model function}
 \label{sec:ch18-model-curvature}
 
-The following theorem is the main comparison.  It says that the corner cycle
-of the skeletal restriction, the Chern delta-form, and the vertical
-intersection numbers are the same object written three ways.
+The comparison has two base categories.  The CLD curvature and model
+intersection measure are defined over $K$.  After a complete algebraically
+closed extension, the same pulled-back metric also has a Chern delta-form.
+Local tropical corner presentations describe that form; a general normal
+model is not assumed to provide a skeleton.
 
 \begin{theorem}
 \label{thm:ch18-model-corner}
-Let $K$ be discretely valued with $v_K(\pi)=1$, let $X$ be a proper
-$K$-variety of dimension $n$, let $\cX$ be a normal model, and let
-$L$ be a line bundle with a model metric induced by a model line bundle
-$\cL$ on $\cX$.  Then:
+Let $K$ be discretely valued with $-\log|\pi|=1$, let $X$ be a proper
+geometrically integral $K$-variety of dimension $n$, and let $\cX$ be a
+normal model.  Let $L$ carry the model metric induced by a line bundle
+$\cL$ on $\cX$.  Put $F=\widehat{\overline K}$ and write
+$\overline L_F$ for its pullback to $X_F$.
 \begin{enumerate}
 \item\label{itm:ch18-mc:delta}
- the metric is a delta-metric, and its Chern delta-form
- $c_1^\delta(\overline L)$ is, in every tropical chart, the sum of the
- facewise Hessian and the corner cycle
- \eqref{eq:ch18-corner-weight} of the local metric weight;
+ The metric on $L_F$ is a delta-metric.  Its Chern delta-form has, in every
+ tropical frame over $F$, a facewise Hessian and a corner presentation as
+ in \Cref{lem:ch18-delta-metric-gluing}.
 \item\label{itm:ch18-mc:PL}
- if the weight is piecewise affine---in particular for a model metric---the
- facewise Hessian vanishes and $c_1^\delta(\overline L)$ is the corner
- cycle alone;
+ For this model metric the local weights are piecewise affine.  The
+ facewise Hessian is zero, so only the corner presentations remain.
 \item\label{itm:ch18-mc:numbers}
- in top degree, $c_1^\delta(\overline L)^{\wedge n}$ is the measure
- \eqref{eq:appJ-cl-measure},
+ Over $K$ the top CLD curvature product is the Chambert--Loir measure
  \[
-  \sum_Eb_E\bigl(\cL|_E\bigr)^{n}\,\delta_{x_E},
+  \nu_K=\sum_E b_E\bigl(\cL|_E\bigr)^n\,\delta_{x_E},
  \]
- supported on the divisorial points of $\cX_s$, of total mass $(L^n)_X$;
+ of mass $(L^n)_X$.  Over $F$ the measure of
+ $c_1^\delta(\overline L_F)^{\wedge n}$ is the Chambert--Loir measure of
+ the pulled-back metric, also of mass $(L^n)_X$.  This statement does not
+ define a Gubler--K\"unnemann delta-form over the discrete field $K$.
 \item\label{itm:ch18-mc:curve}
- if $n=1$, the corner cycle is the $0$-cycle
- $\sum_Eb_E\deg(\cL|_E)\{x_E\}$, and the atom \eqref{eq:ch18-atom} of the
- metric weight at $x_E$ equals
- $b_E\bigl(\deg(\cL|_E)-\deg(\cL_0|_E)\bigr)$ for any reference model
- bundle $\cL_0$.
+ If $n=1$, then $\nu_K=\sum_Eb_E\deg(\cL|_E)\delta_{x_E}$.
+ If $\cL_0$ is a reference model bundle for the same $L$ and
+ $\cL=\cL_0\otimes\cO(D)$, the global metric-ratio function
+ $u=\varphi_D$ has curvature coefficient
+ \[
+  b_E\bigl(\deg(\cL|_E)-\deg(\cL_0|_E)\bigr)
+ \]
+ at $x_E$.  On an adapted semistable graph this is its outgoing-slope
+ atom, with the graph lengths and weights appropriate to that model.
 \end{enumerate}
 \end{theorem}
 
 \begin{proof}
-\cref{itm:ch18-mc:delta} By \Cref{thm:gm-metric-comparison} the model metric
-is a formal metric, hence PL, so on each tropical chart the weight is
-piecewise affine and \eqref{eq:tropical-delta-pl} applies; that the local
-preforms are compatible under refinement is
-\Cref{lem:ch18-delta-metric-gluing}\,\cref{itm:ch18-dm:delta}, which for
-formal metrics is \cite[Proposition~8.11]{GK17}.
+\cref{itm:ch18-mc:delta} The pulled-back model metric is formal and PL.
+Over the algebraically closed complete nontrivially valued field $F$,
+\cite[Proposition~8.11 and \S9.13]{GK17} apply.  The gluing and degree
+conventions are \Cref{lem:ch18-delta-metric-gluing}.
 
-\cref{itm:ch18-mc:PL} A piecewise affine function has vanishing second
-derivative on the relative interior of each cell, so
-$\dprime_P\ddprime_P\phi=0$.
+\cref{itm:ch18-mc:PL} Piecewise-affine weights have zero facewise Hessian.
+The local form is therefore represented by its corner locus, before
+restriction to the chart's tropical cycle.  This is a statement about local
+tropical presentations, not an identification of every analytic point with
+a cell in one fixed skeleton.
 
-\cref{itm:ch18-mc:numbers} This is \Cref{thm:gk-delta-cl-measure} applied
-with $\overline L_1=\cdots=\overline L_n=\overline L$, together with the
-normalization \eqref{eq:appJ-cl-measure}; the total mass is
-\Cref{cor:ch18-delta-total-mass}.
+\cref{itm:ch18-mc:numbers} Over $K$ this is the CLD formal comparison
+\Cref{thm:cld-recovers-cl} and the model formula of
+\Cref{thm:cl-model-properties}.  Over $F$ it is
+\Cref{thm:gk-delta-cl-measure}.  The total masses follow from those
+comparisons and invariance of algebraic intersection degree under field
+extension.  Components, residue degrees and special-fibre multiplicities
+are computed on the model in the relevant field; no extra factor is inserted
+by identifying the two calculi.
 
-\cref{itm:ch18-mc:curve} For $n=1$ the corner cycle is a $0$-cycle on the
-skeleton, supported at the vertices, and by \cref{itm:ch18-mc:numbers} its
-weight at $x_E$ is $b_E\deg(\cL|_E)$.  The multiplicity is \emph{not}
-absorbed by the normalization $x_E=b_E^{-1}\ord_E$: that normalization
-fixes where the atom sits on the skeleton, not how much mass it carries.
-Two checks confirm the factor.  First, the total mass is
-$\sum_Eb_E\deg(\cL|_E)=(L)_X=\deg L$, which is
-\cref{itm:ch18-mc:numbers} at $n=1$, whereas $\sum_E\deg(\cL|_E)$ is not
-$\deg L$ in general.  Second, for a vertical divisor the atoms of a
-piecewise affine function on a compact skeleton must sum to zero by
-\Cref{cor:ch15-degree-zero}; the $b_E$-weighted sum does vanish, and the
-unweighted one need not.
-
-For the last clause, write $\cL=\cL_0\otimes\cO(D)$; the weights differ by
-$\varphi_D$, whose corner cycle at $x_E$ is
-$\operatorname{at}_{x_E}(\varphi_D)$ by
-\eqref{eq:ch18-corner-weight}, and the degrees differ by
-$\deg(\cO(D)|_E)=(D\cdot E)$, so the atoms differ by $b_E(D\cdot E)$.
-Equality of these two numbers is
-\Cref{rem:ch19-nonreduced-model-lengths}, which keeps the
-special-fibre multiplicity and the corresponding intersection lengths.
-For a strictly semistable model this is
-\Cref{prop:skeletal-curvature-curve} and
-\eqref{eq:cld-curve-graph-laplacian}.  Both worked examples of this chapter
-have every $b_E$ equal to one, so neither exercises the factor.
+\cref{itm:ch18-mc:curve} Set $n=1$ in the model measure.  The multiplicity
+$b_E$ is not absorbed by normalizing $x_E=b_E^{-1}\ord_E$: this fixes the
+valuation, whereas $b_E$ still occurs in the mass.  For the ratio $u$, local
+frame weights differ by $\varphi_D$, so linearity of Chern currents gives
+the difference of the two model measures.  Its coefficient is exactly the
+displayed degree difference.  For a strictly semistable curve this is
+\Cref{prop:skeletal-curvature-curve}; the nonreduced length convention is
+recorded in \Cref{rem:ch19-nonreduced-model-lengths}.  No graph for an
+arbitrary normal model is assumed.  Both numerical curve models here have
+all $b_E=1$.
 \end{proof}
 
 \begin{corollary}
@@ -4229,25 +4276,28 @@ In the situation of \Cref{thm:ch18-model-corner}, the following are
 equivalent:
 \begin{enumerate}
 \item $\cL$ is nef on $\cX_s$;
-\item $c_1^\delta(\overline L)$ is a positive delta-form;
-\item on every skeleton, the metric weight is convex on each face and its
- corner cycle is effective;
-\item the metric is semipositive in the sense of
+\item $c_1^\delta(\overline L_F)$ is a positive delta-form on $X_F^{\An}$;
+\item after every algebraic pullback over $F$, in every tropical frame for
+ the resulting metric, the weight is facewise convex and its corner cycle
+ is effective;
+\item the original model metric over $K$ is semipositive in the sense of
  \Cref{sec:metrics-semipositive}.
 \end{enumerate}
 \end{corollary}
 
 \begin{proof}
-(1)$\Leftrightarrow$(2) and (2)$\Leftrightarrow$(3) are
-\Cref{thm:gk-formal-positivity-comparison} and
-\Cref{thm:gk-tropical-frame-positivity}, applied after base change to an
-algebraically closed complete extension, which is harmless because both
-nefness and effectivity of the corner cycle are preserved and reflected by
-such a base change: nefness by
-\Cref{prop:semipositive-stability}, and the corner cycle by
-\Cref{prop:trop-calibration-base-change}.  (1)$\Leftrightarrow$(4) is the
-definition of semipositivity of a model metric together with
-\Cref{thm:model-semipositive-closed}.
+Over $F$, \Cref{thm:gk-formal-positivity-comparison} equates residual
+nefness with positivity of the Chern delta-form, and
+\Cref{thm:gk-tropical-frame-positivity}, applied after each algebraic
+pullback, gives the functorial tropical-frame criterion.
+Semipositivity is preserved and reflected by complete field extension,
+using the local residual criterion on frame weights and
+\cite[Proposition~7.6(2')]{GJR26}.  Thus these conditions are equivalent
+to vertical nefness of the original model metric over $K$.  For that model
+metric, Zhang semipositivity is equivalent to nef model representability by
+\Cref{thm:model-semipositive-closed}; nefness can be checked on the given
+normal determining model by the projection formula.  This proves all four
+equivalences without extending the definition of delta-forms to $K$.
 \end{proof}
 
 \subsection{Worked comparisons}
@@ -4312,7 +4362,7 @@ the phenomenon studied in \Cref{chap:bfj-continuity}.
 \begin{example}[Toric potentials]
 \label{ex:ch18-compare-toric}
 Let $X$ be a proper toric variety with dense torus $T$ and let $\phi$ be a
-toric model metric on an ample $L$, with weight $\varphi$ on the skeleton
+semipositive toric model metric on an ample $L$, with weight $\varphi$ on the skeleton
 $N_{\mathbf R}$ as in \eqref{eq:toric-metric-potential}: a piecewise affine
 \emph{convex} function whose \emph{recession function} is the
 \emph{reflected} support function $\check h_{P_L}$ of
@@ -4333,7 +4383,9 @@ $\vol_M(P_L)$, and it is \eqref{eq:appJ-toric-degree} that supplies
 $n!\vol_M(P_L)=(L^n)$.  This recovers \eqref{eq:metrics-toric-measure} and
 \Cref{thm:toric-positivity}, and it is the tropical form of the comparison
 \eqref{eq:cld-toric-ma-comparison}.  In the smallest case, $X=\mathbf P^2$
-and $\psi=-\max\{0,x_1,x_2\}$, the corner cycle is the standard tropical
+and the standard frame weight in logarithmic coordinates
+$t_j=\log|T_j|$ is $-\psi=\max\{0,t_1,t_2\}$, the corner cycle is the
+standard tropical
 line of \Cref{ex:ch18-corner-max} and the top product is $\delta_0$, of mass
 $1=(\cO(1)^2)$, as computed in
 \Cref{ex:ch18-two-dim-product}.
@@ -4350,12 +4402,14 @@ extensions of it are \emph{not} proved here and should not be assumed.
  metrics has a curvature current and a Monge--Amp\`ere measure, by
  \Cref{thm:cl-continuous-extension} and
  \Cref{chap:cld-bedford-taylor}; it need not have a corner cycle, and the
- statement ``its Chern delta-form is positive'' is not defined.  The
+ statement ``its Chern delta-form is positive'' requires a separately
+ established delta-metric presentation.  The
  correct comparison in that generality is
  \Cref{chap:compare-ma}.
-\item \emph{Arbitrary psh metrics.}  For a psh metric of the CLD hierarchy
- of \Cref{def:ch16-psh-filtration} beyond the continuous stage, no
- polyhedral presentation exists and none of this section applies.
+\item \emph{Arbitrary psh metrics.}  Membership in the CLD hierarchy of
+ \Cref{def:ch16-psh-filtration} does not supply a delta-metric presentation.
+ This section applies when the metric satisfies its stated model or delta
+ regularity hypotheses.
 \item \emph{Trivially valued base.}  The whole section assumes a nontrivial
  valuation; the homogeneous theory of \Cref{part:bj} has its own notion of
  PL function, tied to the scaling action, and the two are compared in
@@ -4376,10 +4430,13 @@ continuous-current implication P06.2 remains a separate question.
 \subsection{From the objects of this chapter to their use}
 \label{sec:ch18-dict-forward}
 
-\begin{center}
+\begingroup
 \small
-\begin{tabular}{p{.27\textwidth}|p{.35\textwidth}|p{.30\textwidth}}
+\begin{longtable}{p{.27\textwidth}|p{.35\textwidth}|p{.30\textwidth}}
 \textbf{Object}&\textbf{Established property}&\textbf{First use}\\ \hline
+\endfirsthead
+\textbf{Object}&\textbf{Established property}&\textbf{First use}\\ \hline
+\endhead
 atom $\operatorname{at}_v$
  &vanishes for smooth functions
   (\Cref{prop:ch18-smooth-zero-atom})
@@ -4431,11 +4488,12 @@ weakly smooth form
   (\eqref{eq:cld-weak-inclusion})
  &\Cref{thm:abelian-harmonic-tropicalization}\\
 model function
- &Chern delta-form is its corner cycle
+ &local corner presentations over a complete algebraically closed field;
+  CLD model curvature over the original field
   (\Cref{thm:ch18-model-corner})
  &\Cref{chap:master-dictionary}\\
-\end{tabular}
-\end{center}
+\end{longtable}
+\endgroup
 
 \subsection{The smallest instance of each phenomenon}
 \label{sec:ch18-dict-backward}
@@ -4466,14 +4524,14 @@ positive mass, not semipositive
 Poincar\'e--Lelong on a curve
  &$(T-a)/(T-b)$: $\delta_a-\delta_b$, mass $0$
  &\Cref{ex:ch18-pl-p1}\\
-harmonic but not smooth
+harmonic but not ambient-smooth on a fixed fan
  &$|x_1|-|x_2|$ on the cross-fan, slopes $1,1,-1,-1$
  &\Cref{ex:ch18-harmonic-not-smooth}\\
 harmonic chart weights
  &image line with weight $2$
  &\Cref{ex:ch18-cross-chart}\\
 balancing failure at a boundary
- &closed annulus, $h=-\log|T|$, defect $1$ at each end
+ &closed annulus, $h=-\log|T|$, balancing sums $+1,-1$
  &\Cref{ex:ch18-harmonic-disc}\\
 model $=$ potential $=$ delta-form
  &blowup of $\mathbf P^1$: $0,1$; $c_1^\delta=\{x_E\}$
@@ -4515,8 +4573,9 @@ Within these boundaries, the principal comparison chain is precise.  Formal
 semipositive metrics have positive Chern delta-forms
 (\Cref{thm:gk-formal-positivity-comparison}); harmonic tropicalizations are
 balanced away from analytic boundary faces
-(\Cref{thm:harmonic-balancing}); and model metric curvature agrees with both
-the skeletal corner cycle and the Chambert--Loir measure
+(\Cref{thm:harmonic-balancing}); and model metric curvature has local
+tropical corner presentations and the
+Chambert--Loir intersection measure, in their stated base categories
 (\Cref{thm:ch18-model-corner}).  The finer regularity ranges, transfer
 theorems, counterexamples, and provenance records are collected in
 \Cref{app:ch18-frontiers}.

@@ -8,19 +8,20 @@ on one such polyhedron. Its vertices are divisorial valuations, its faces
 are monomial valuations, and vertical divisors become affine functions. The
 polyhedron sits inside the Berkovich space and admits a canonical retraction.
 
-It is worth saying at the outset what problem this solves. A Berkovich space
-is compact but enormous: already the analytic affine line has four kinds of
-points (\cref{thm:berk-a1-classification}), and in higher dimension no such
-classification is available. Potential theory needs finite-dimensional
-approximations on which functions can be differentiated, integrated, and
-compared, and the complex route through charts and partitions of unity is
-closed here. The non-Archimedean substitute is a directed system of finite
+For the proper variety considered here, the Berkovich space is compact but
+enormous. The analytic affine line already has four kinds of points over an
+algebraically closed nontrivially valued field
+(\cref{thm:berk-a1-classification}); in higher dimension no comparable
+classification is available. Potential theory uses models to make its
+intersection and approximation arguments finite. The resulting directed
+system consists of finite
 polyhedra $\Delta_{\mathcal X}$, one for each SNC model, each embedded in
 $X^{\An}$ as a compact subset $\Sk(\mathcal X)$, each carrying a
-canonical retraction, and with dense union. Every object of the theory ---
-model functions, psh functions, measures, energies --- is studied first on a
-single $\Delta_{\mathcal X}$, where it becomes piecewise affine real
-analysis, and then transported to $X^{\An}$ along the system.
+canonical retraction, and with dense union. Vertical divisors give affine
+functions on a determining skeleton; ideals and higher-model functions
+give piecewise affine restrictions. General psh functions, measures and
+energies require the limiting arguments developed later. They are not all
+piecewise affine objects on one fixed complex.
 
 \paragraph{Roadmap.}
 \Cref{sec:skeleton-snc} constructs the dual complex. \Cref{sec:skeleton-monomial}
@@ -55,7 +56,8 @@ analogue.
 
 \paragraph{Standing hypotheses.}
 Unless a statement says otherwise, $K$ is complete and discretely valued,
-$v(\pi)=1$, $R=K^\circ$, and the residue field has characteristic zero;
+$v(\pi)=1$, so the absolute value is rescaled to $|\pi|=\rme^{-1}$;
+$R=K^\circ$, and the residue field has characteristic zero;
 $X$ is smooth, geometrically connected, and projective over $K$. These are the
 foundational BFJ hypotheses. Two do real work. Discreteness makes
 $\mathcal X_s$ a divisor with integer multiplicities, hence makes the
@@ -163,7 +165,7 @@ $\mathcal X$, and is therefore a unit in
 $\mathcal O_{\mathcal X,\xi_J}$.
 \end{proof}
 
-Thus, near a point of $E_J$, one can choose regular parameters $z_j$,
+Thus, near the generic point of $E_J$, one can choose regular parameters $z_j$,
 $j\in J$, defining the components, and a unit $u$ such that
 \[
                          \pi=u\prod_{j\in J}z_j^{b_j}.
@@ -298,7 +300,7 @@ falsify the integral affine structure of
 
 \begin{example}[A chain and a cycle]
 \label{ex:dual-complex-chain-cycle}
-Two one-dimensional dual complexes recur throughout the book.
+Two dual complexes of semistable curves recur throughout the book.
 
 \emph{Chain.} Let $\mathcal X_s=E_0+\cdots+E_n$ with $E_i\cap
 E_{i+1}$ a single point for $0\le i<n$ and $E_i\cap E_j=\varnothing$
@@ -314,9 +316,11 @@ point and all other pairwise intersections empty. Then
 $\Delta_{\mathcal X}$ is an $n$-gon, homeomorphic to a circle; it is
 computed in full in \Cref{ex:tate-degeneration}.
 
-No local datum distinguishes the two: every chart of either model is the
-same node chart $z_0z_1=\pi$. The distinction is global, and it is exactly
-that between a genus-zero and a genus-one degeneration.
+Their singularities have the same local node form $z_0z_1=\pi$.
+The difference between a chain and a cycle is global. In the two running
+examples all components are rational, so the graph's first Betti number
+accounts for the difference between genus zero and genus one; for general
+semistable curves the component genera also contribute.
 \end{example}
 
 \begin{example}[A triangle in dimension two]
@@ -326,13 +330,13 @@ $\pi=xyz$ with $x,y,z$ part of a regular system of parameters, namely
 $\mathcal U=\Spec R[x,y,z]/(xyz-\pi)$, analysed in
 \Cref{ex:toric-triangle-chart}. There are three
 components $E_x,E_y,E_z$ of multiplicity one, three curve strata, and one
-closed point $E_x\cap E_y\cap E_z$; the dual complex is the full
-two-simplex
+closed point $E_x\cap E_y\cap E_z$ in this chart. Their cells form the
+full two-simplex
 \[
  \sigma=\{(\alpha_x,\alpha_y,\alpha_z)\in\mathbf R_{\geq0}^3:
           \alpha_x+\alpha_y+\alpha_z=1\}.
 \]
-Barycentric coordinates on it are \emph{by definition} the
+Barycentric coordinates on this local subcomplex are \emph{by definition} the
 $\alpha$-coordinates. The barycenter $(\tfrac13,\tfrac13,\tfrac13)$, the
 edge midpoints such as $(\tfrac12,\tfrac12,0)$, and the vertices are the
 named points at which \Cref{ex:monomial-triangle-points} evaluates the
@@ -410,10 +414,10 @@ The minimum is attained: the set
 $\{\langle\alpha,\beta\rangle:\beta\in\mathbf N^J\}$ is a subset of
 $\mathbf R_{\ge0}$ that is discrete near $0$, because
 $\langle\alpha,\beta\rangle\ge(\min_j\alpha_j)\,|\beta|$ and only finitely
-many $\beta$ satisfy $|\beta|\le C$ for a given $C$. This is the only
-point at which positivity of all the $\alpha_j$ is used, and it is the
-reason why boundary points are treated separately below rather than by
-allowing zero weights. We set $v_\alpha(0)=+\infty$.
+many $\beta$ satisfy $|\beta|\le C$ for a given $C$. This finiteness is
+supplied by positivity of all the $\alpha_j$; the same lower
+bound controls truncation errors. Boundary points are treated at their
+actual centers below. We set $v_\alpha(0)=+\infty$.
 
 \begin{lemma}
 \label{lem:monomial-valuation}
@@ -531,13 +535,14 @@ that $\mathcal O_{\mathcal X,\xi_J}$ maps into the valuation ring of
 $w$, so that the value on a rational function is computed from a
 presentation as a ratio of elements of the local ring.
 
-For the independence assertions, note that (1)--(3) mention no coefficient
-field. Changing it replaces a chosen isomorphism
-$\widehat{\mathcal O}_{\mathcal X,\xi_J}\simeq\kappa(\xi_J)[[z_j]]$ by
-another one commuting with reduction modulo the maximal ideal; the
-weight filtration $\mathfrak a_{\ge t}$, and hence $v_\alpha$, is
-defined by that filtration alone and is preserved. Independence of the
-$z_j$ is Step~4 above.
+For independence of the coefficient field, observe that
+$\mathfrak a_{\ge t}$ is the ideal generated by the monomials $z^\beta$
+with $\langle\alpha,\beta\rangle\ge t$. Indeed, in any coefficient-field
+presentation, grouping the terms by the finitely many minimal generators
+of this monomial ideal gives exactly the displayed weight filtration.
+Thus the ideals, and the values they determine, do not depend on the
+coefficient field. Replacing each $z_j$ by a unit multiple preserves the
+same ideals, also recovering the parameter independence of Step~4 above.
 \end{proof}
 
 \subsection{Boundary points and faces}
@@ -550,9 +555,53 @@ The set $J_+$ is nonempty, since $\sum_jb_j\alpha_j=1$, and the point
 belongs to the relative interior of the face
 $\sigma_{J_+}$. We define $v_\alpha$ by the preceding construction in
 the completed local ring at the generic point $\xi_{J_+}$, using only the
-parameters $z_j$, $j\in J_+$. This avoids taking a minimum in an
-infinite power series with zero-weight variables, which would in general not
-be attained. The following lemma shows that the recipe is consistent: the
+parameters $z_j$, $j\in J_+$. The zero-weight variables become units at
+this center, so a series completed at the deeper stratum need not converge
+after this localization. We compare the two descriptions using ideals,
+rather than truncating in variables of value zero. The following lemma
+supplies the required localization step.
+
+\begin{lemma}
+\label{lem:snc-weighted-ideal-localization}
+Let $A$ be an equicharacteristic-zero noetherian regular local ring, let
+$z_1,\ldots,z_q$ be part of a regular system of parameters, and put
+$\mathfrak q=(z_1,\ldots,z_q)$. For positive weights
+$\alpha_1,\ldots,\alpha_q$ and $t>0$, set
+\[
+ \mathfrak a_t=(z^\beta:\beta\in\mathbf N^q,\
+                         \langle\alpha,\beta\rangle\ge t).
+\]
+Then $\mathfrak a_t$ is finitely generated and
+\[
+                  \mathfrak a_tA_{\mathfrak q}\cap A=\mathfrak a_t.
+\]
+\end{lemma}
+
+\begin{proof}
+Dickson's lemma gives finitely many minimal monomial generators. Choose
+an integer $M>t/\min_j\alpha_j$; then $\mathfrak q^M\subset\mathfrak a_t$.
+Complete $A$ at its maximal ideal. By the Cohen presentation used above,
+\[
+ \widehat A\simeq k[[z_1,\ldots,z_q,w_1,\ldots,w_h]],
+ \qquad B=k[[w_1,\ldots,w_h]].
+\]
+The $\mathfrak q$-adic filtration of
+$\widehat A/\mathfrak a_t\widehat A$ is finite. Its associated graded
+module is free over $B$ in each degree, with basis the monomials in the
+$z_j$ of that degree which do not belong to $\mathfrak a_t$. If
+$a\notin\mathfrak q$, its image in
+$\widehat A/\mathfrak q\widehat A=B$ is nonzero: the map
+$A/\mathfrak q\to\widehat A/\mathfrak q\widehat A$ is injective by
+faithful flatness. Multiplication by this nonzero element of the domain
+$B$ is injective on the associated graded module, hence multiplication by
+$a$ is injective on the finitely filtered quotient itself. Faithful
+flatness also embeds $A/\mathfrak a_t$ into
+$\widehat A/\mathfrak a_t\widehat A$, so multiplication by every
+$a\notin\mathfrak q$ is injective on $A/\mathfrak a_t$. Localizing
+therefore preserves this injection, which is the asserted contraction.
+\end{proof}
+
+The next lemma shows that the face recipe is consistent: the
 valuation attached to $\alpha$ does not depend on which cell of
 $\Delta_{\mathcal X}$ we regard $\alpha$ as lying in.
 
@@ -569,33 +618,31 @@ $\Delta_{\mathcal X}$.
 \end{lemma}
 
 \begin{proof}
-Both constructions produce the valuation attached to $J_+$ by definition,
-so it suffices to prove that the construction carried out at $\xi_{J_+}$
-is what one gets by "letting the zero weights go to zero" at
-$\xi_{J''}$; equivalently, that the valuation $w:=v_\alpha$ defined at
-$\xi_{J_+}$ satisfies
-\[
- w\Bigl(\sum_{\beta\in\mathbf N^{J''}}c_\beta z^\beta\Bigr)
- =\min_{c_\beta\neq0}\sum_{j\in J''}\alpha_j\beta_j
- =\min_{c_\beta\neq0}\sum_{j\in J_+}\alpha_j\beta_j
-\]
-whenever the left-hand sum is a \emph{finite} sum, that is, for
-$f\in\mathcal O_{\mathcal X,\xi_{J''}}$ written as a polynomial in the
-$z_j$, $j\in J''\setminus J_+$, with coefficients in the local ring at
-$\xi_{J_+}$. This last statement is exactly multiplicativity plus the
-ultrametric inequality for $w$, together with $w(z_j)=0$ for
-$j\in J''\setminus J_+$; and $w(z_j)=0$ for such $j$ holds because
-$z_j$ is a local equation of a component $E_j$ not passing through
-$\xi_{J_+}$, hence a unit at $\xi_{J_+}$.
+All face constructions use the same generic point $\xi_{J_+}$, the
+same positive weights, and the same component equations up to units.
+They therefore give the same valuation by \cref{lem:monomial-uniqueness}.
+We also justify the boundary-weight formula needed for continuity.
 
-Finally, if $f$ is a general element of
-$\mathcal O_{\mathcal X,\xi_{J''}}$, truncate its expansion in the
-$z_j$, $j\in J''\setminus J_+$, at order $N$; the truncation error
-lies in the $N$-th power of the ideal generated by those $z_j$, on which
-$w$ is nonnegative but which is contained in
-$\mathfrak m_{\xi_{J''}}^N$. Since both sides are unchanged by truncation
-once $N$ exceeds the total degree occurring in the finitely many terms of
-minimal weight, the two agree.
+Put $A=\mathcal O_{\mathcal X,\xi_{J''}}$ and
+$\mathfrak q=(z_j:j\in J_+)$. Then
+$A_{\mathfrak q}=\mathcal O_{\mathcal X,\xi_{J_+}}$. For a nonzero
+$f\in A$, write its coefficient-field expansion in $\widehat A$ as
+$\sum_\beta c_\beta z^\beta$, and put
+\[
+ m=\min_{c_\beta\neq0}\sum_{j\in J_+}\alpha_j\beta_j.
+\]
+This minimum exists: the positive-weight exponent vectors have only
+finitely many possible weights in any bounded interval, even though the
+zero-weight variables may occur to arbitrary order. For each $t>0$, let
+$\mathfrak a_t\subset A$ be generated by the positive-variable monomials
+of weight at least $t$. In $\widehat A$, monomial-ideal membership gives
+$f\in\mathfrak a_t\widehat A$ exactly when $m\ge t$. Faithful flatness
+and \cref{lem:snc-weighted-ideal-localization} identify this condition with
+$f\in\mathfrak a_tA_{\mathfrak q}$. Finally, completing
+$A_{\mathfrak q}$ and applying the positive-weight construction shows
+that this is exactly $v_\alpha(f)\ge t$. Comparing for all $t>0$ gives
+$v_\alpha(f)=m$, including the case $m=0$. No convergence of the
+zero-weight-variable series in $A_{\mathfrak q}$ has been assumed.
 \end{proof}
 
 \begin{lemma}
@@ -739,11 +786,10 @@ $\alpha$ with coefficients in $\mathbf N$, which is concave and
 piecewise affine with integral slopes, and manifestly continuous on all of
 $\sigma_J$. That the extension by this formula agrees with the
 definition of $v_\alpha$ at boundary points is
-\Cref{lem:monomial-face-compatibility}: setting $\alpha_j=0$ for
-$j\notin J_+$ turns the minimum over the vertices of $N(f)$ into the
-minimum over the vertices of the image of $N(f)$ under the coordinate
-projection to $\mathbf R^{J_+}$, which is the Newton polyhedron of $f$
-computed at $\xi_{J_+}$.
+\Cref{lem:monomial-face-compatibility}: the weighted-ideal calculation
+there computes the boundary value from this same expansion of $f$, with
+the zero coordinates omitted from the weight. The minimum over $S(f)$
+is still the minimum over the finitely many vertices of $N(f)$.
 \end{proof}
 
 \begin{remark}
@@ -784,22 +830,29 @@ $X^{\An}$ with center $\xi_{J_+}$ by the description of analytic points
 as semivaluations in \cref{sec:berk-analytification}. Compatibility across
 faces is \Cref{lem:monomial-face-compatibility}.
 
-\emph{Step 2: continuity.} The topology of $X^{\An}$ is the coarsest one
-making $x\mapsto|f(x)|$ continuous for $f$ a regular function on an
-affine open, so it suffices to show that
+\emph{Step 2: continuity.} Every skeletal point has support the generic
+point of $X$, so it belongs to the analytification of every nonempty
+affine open of $X$. On such an open the topology is generated by the
+evaluations of regular functions, so it suffices to show that
 \[
                    \alpha\longmapsto |f(\iota_{\mathcal X}(\alpha))|
                    =\rme^{-v_\alpha(f)}
 \]
 is continuous on $\Delta_{\mathcal X}$ for every such $f$. Since
 $\Delta_{\mathcal X}$ is a finite union of closed cells, it is enough to
-prove continuity on each closed cell $\sigma_J$; and there
-\Cref{lem:monomial-newton} gives the explicit formula
+prove continuity on each closed cell $\sigma_J$. A nonzero regular
+function on the algebraic affine open need not belong to
+$\mathcal O_{\mathcal X,\xi_J}$; write it as $f=g/h$ with nonzero
+$g,h\in\mathcal O_{\mathcal X,\xi_J}$, whose fraction field is $K(X)$.
+Then \Cref{lem:monomial-newton} gives
 \[
- v_\alpha(f)=\min_{1\le\ell\le N}\langle\alpha,\beta^{(\ell)}\rangle,
+ v_\alpha(f)
+ =\min_\ell\langle\alpha,\beta^{(\ell)}\rangle
+  -\min_k\langle\alpha,\gamma^{(k)}\rangle,
 \]
-a minimum of finitely many linear functions, hence continuous on all of
-$\sigma_J$ including its boundary. This settles the delicate point:
+using the Newton vertices of $g$ and $h$. Both minima are finite and
+continuous on all of $\sigma_J$, including its boundary; the zero function
+has constant absolute value zero. This settles the delicate point:
 continuity up to a boundary face is not an extra argument but the statement
 that the Newton-polyhedron formula remains valid when some weights vanish,
 which is the last paragraph of the proof of \Cref{lem:monomial-newton}.
@@ -829,8 +882,9 @@ $v_\alpha$ or $\iota_{\mathcal X}(\alpha)$ for the corresponding
 analytic point, and suppressing $\iota_{\mathcal X}$ whenever no confusion
 can arise.
 
-The proof also supplies a useful principle: on a skeleton, valuations of
-regular functions are minima of affine functions. This is the tropical
+The proof also supplies a useful principle: functions regular near a model
+stratum have valuation restrictions given by minima of affine functions;
+rational functions give differences of such minima. This is the tropical
 source of piecewise affine geometry.
 
 \begin{example}[Monomial valuations at the named points of a triangle]
@@ -1108,7 +1162,7 @@ Let $K$ be complete discretely valued with $v(\pi)=1$ and consider
  \mathcal U=\Spec R[x,y,z]/(xyz-\pi).
 \]
 
-\emph{Regularity and strict semistability.}
+\emph{The regular semistable chart.}
 The ring $A=R[x,y,z]/(xyz-\pi)$ has dimension $3$, being a hypersurface
 in $\Spec R[x,y,z]$. Its special fibre is
 $\Spec\widetilde K[x,y,z]/(xyz)$, the union of the three coordinate
@@ -1208,9 +1262,10 @@ $P_x$ to $(0,1,0)$. In a Euclidean picture these two segments have
 different lengths, so $h$ would appear to have two different slopes. There
 is no notion of "the" gradient of $h$: only the lattice
 $\operatorname{Aff}_{\mathbf Z}(\sigma)$ is intrinsic, and every later
-metric statement about skeleta --- edge lengths, the Laplacian on a metric
-graph, Lebesgue measures on faces --- is normalized by it and by nothing
-else.
+affine statement refers to that lattice. It fixes lattice lengths and
+face-volume conventions. A graph Laplacian additionally requires a
+compatible choice of edge lengths and weights, as
+\cref{rem:lattice-length} explains.
 \end{remark}
 
 \section{The canonical retraction}
@@ -1415,20 +1470,8 @@ $\mathfrak a\widehat{A_{\mathfrak q}}\cap A_{\mathfrak q}
 
 It remains to descend from $A_{\mathfrak q}$ to $A$. The elements
 $(z_j)_{j\in J_+}$ form part of a regular system of parameters of the
-regular local ring $A$, so they are a regular sequence and
-$\operatorname{gr}_{\mathfrak q}(A)\simeq(A/\mathfrak q)[Z_j:j\in J_+]$.
-As $\mathfrak a$ is a monomial ideal in these variables containing
-$\mathfrak q^M$ for $M>s/\min_{j\in J_+}\alpha_j$, the $\mathfrak q$-adic
-filtration of $A/\mathfrak a$ is finite.  Its associated graded module is
-the quotient of $(A/\mathfrak q)[Z_j:j\in J_+]$ by the same monomial ideal;
-in every degree it is therefore free over $A/\mathfrak q$ on the surviving
-monomials.  If $h\notin\mathfrak q$, its initial form has degree zero and is
-a nonzero element of the domain $A/\mathfrak q$, so multiplication by that
-initial form is injective on the associated graded module.  The finite
-filtration then shows that multiplication by $h$ is injective on
-$A/\mathfrak a$.  Thus no element outside $\mathfrak q$ is a zero divisor
-on $A/\mathfrak a$, and localization gives an injection
-$A/\mathfrak a\hookrightarrow(A/\mathfrak a)_{\mathfrak q}$.  Equivalently,
+regular local ring $A$, and it contains $\mathbf Q$ under the standing
+hypotheses. Apply \cref{lem:snc-weighted-ideal-localization} with $t=s$:
 $\mathfrak aA_{\mathfrak q}\cap A=\mathfrak a$, so $f\in\mathfrak a$.
 
 Combining the two steps, $v_x(f)\ge s=w(f)$.
@@ -1465,13 +1508,16 @@ minima.
 \begin{example}[The retraction of the standard annulus]
 \label{ex:retraction-annulus}
 Take the node chart $\mathcal U=\Spec R[x,y]/(xy-\pi)$ of
-\Cref{ex:snc-chain-models} with $n=1$, whose generic fibre is the standard
-annulus $\{|\pi|\le|x|\le1\}$ of \Cref{ex:berk-standard-annulus}, with
+\Cref{ex:snc-chain-models} with $n=1$. The generic fiber of its formal
+completion is the standard annulus $\{|\pi|\le|x|\le1\}$ of
+\Cref{ex:berk-standard-annulus}, with
 $y=\pi/x$. Its dual complex is the segment parametrized by
 $t=\alpha_x\in[0,1]$, and $r_{\mathcal U}(w)$ is the point with
 $t=v_w(x)$.
 
-Comparing with \Cref{thm:berk-a1-classification}: a Gauss point
+For the disc picture of \Cref{thm:berk-a1-classification}, pass to a
+completed algebraic closure; the same retraction formula holds there.
+A Gauss point
 $\zeta_{0,\rme^{-t}}$ with $t\in[0,1]$ is its own retraction; a type-I
 point $a$ with $v(a)=t\in(0,1)$ retracts to $t$, and the whole open
 disc $D^-(a,\rme^{-t})$ attached to the interval there is contracted to
@@ -1539,9 +1585,9 @@ space.}
 the skeleton. In favourable circumstances much more is true: the retraction
 is the endpoint of a homotopy contracting $X^{\An}$ onto
 $\Sk(\mathcal X)$ through maps fixing the skeleton pointwise. This is the
-source of every topological statement about Berkovich spaces --- local
-contractibility, the homotopy type of a degeneration, the identification of
-$H^*(X^{\An})$ with the cohomology of a finite complex.
+geometric input for the homotopy type of a polystable degeneration and the
+identification of its analytic cohomology with that of a finite complex.
+Local contractibility is a separate result of the cited construction.
 
 We state the theorem in Berkovich's generality and record what the rest of
 the book uses. Note the hypothesis: strict polystability, in the simplest
@@ -1840,7 +1886,8 @@ of \Cref{ex:toric-triangle-chart}, summing to $\tfrac12$; by
 \Cref{prop:affine-structure-refinement} the integral affine structure is
 unchanged.
 
-\emph{Nesting can be strict.} Unlike the one-dimensional case, blowing up a
+\emph{Nesting can be strict.} A nontoroidal blowup can enlarge a skeleton.
+Blowing up a
 closed point of $\mathcal U$ that is not a torus fixed point --- say a
 non-monomial point of the curve $\{x=y=0\}$ --- creates a component whose
 divisorial valuation is not monomial for $\mathcal U$. Its vertex lies
@@ -1908,6 +1955,300 @@ $\mathcal X'$ and realizes a further subdivision.  This is the normalized
 blowup construction of \cite[Theorem~3.15]{BFJ16}.
 \end{proof}
 
+\begin{example}[A Sylvester height slice]
+\label{ex:sylvester-height-slice}
+\index{Sylvester simplex}\index{semistable model!toric subdivision}
+\index{triangulation!unimodular}
+The following local calculation combines the normalized cyclic-cover
+description of \cite[Proposition~3.7]{AmbroCyclicV2}, version~2, with the
+known triangulation theorem
+\cite[Theorem~3.5]{CCJP26Sylvester}, version~1. It illustrates why a
+reduced special fibre and a regular total space are separate requirements.
+
+\emph{A three-dimensional generic torus.}
+Fix an integer $k\ge0$, set $q=6(k+1)$, and start with the monomial
+map from affine four-space to the affine $t$-line
+\[
+                  t=z_0z_1^{3(k+1)}z_2^{2(k+1)}z_3.
+\]
+Make the parameter change $t=\tau^q$ and normalize. We may restrict
+the resulting toric family to $R=\mathbf C[[\tau]]$, with fraction
+field $K=\mathbf C((\tau))$ and $v_K(\tau)=1$. Its generic fibre is
+$\mathbf G_{m,K}^3$: all $z_i$ are invertible, and $z_0$ is determined
+by $z_1,z_2,z_3$ and $\tau$. The family is a local affine model,
+rather than a proper model of a compact variety.
+
+\emph{The lattice of the normalized cover.}
+Write $b=(1,3(k+1),2(k+1),1)$. Adjoining the character $\tau=z^{b/q}$
+enlarges the character lattice and replaces its dual by
+\[
+ M'=\mathbf Z^4+\mathbf Z\frac bq,
+ \qquad
+ N'=\{a\in\mathbf Z^4:\langle b,a\rangle\in q\mathbf Z\}.
+\]
+The cone $\sigma\subset N'_{\mathbf R}$ is still the positive orthant.
+The normal affine toric
+ring is $\mathbf C[\sigma^\vee\cap M']$; thus normalization uses
+the saturated monoid, not just the displayed root equation.
+The primitive boundary vectors in $N'$ are
+\[
+                         qe_0,\quad 2e_1,\quad 3e_2,\quad qe_3.
+\]
+The character $\tau$ takes value one on each of them. Hence the
+normalized special fibre is reduced. Their span, however, has index
+\[
+          \frac{q\cdot2\cdot3\cdot q}{[\mathbf Z^4:N']}
+                  =6q=36(k+1)
+\]
+in $N'$, because $[\mathbf Z^4:N']=q$. The cone is not regular.
+This is the remaining obstruction that a unimodular subdivision removes.
+
+\emph{The correct height slice.}
+Let $h(a)=\langle b,a\rangle/q$. Its height-one slice is
+$\{a\ge0:\langle b,a\rangle=q\}$. Projection to $(a_1,a_2,a_3)$
+identifies it with
+\[
+                 P_3^k=\operatorname{conv}
+                  (0,2e_1,3e_2,6(k+1)e_3).
+\]
+Its affine difference lattice is $H=\ker(b:\mathbf Z^4\to\mathbf Z)$.
+Projection identifies $H$ with $\mathbf Z^3$, since
+$a_0=-3(k+1)a_1-2(k+1)a_2-a_3$ determines $a_0$ integrally.
+Thus unimodularity must be measured in the full ambient lattice
+$\mathbf Z^3$, rather than only in the lattice generated by the
+vertices of $P_3^k$.
+
+The cited Sylvester theorem supplies a coherent unimodular
+triangulation of $P_3^k$. Here \emph{coherent} means induced by
+lower faces of a lifting by vertex heights, and \emph{unimodular}
+means that each maximal tetrahedron has normalized lattice volume one.
+Cone over this triangulation. If $a^{(0)},\ldots,a^{(3)}$ are the
+vertices of one tetrahedron, their differences
+$a^{(i)}-a^{(0)}$, $1\le i\le3$, are a basis of $H$.
+Since $h(a^{(0)})=1$ and $N'/H\simeq\mathbf Z$ via $h$, the four
+vertices themselves are a basis of $N'$. Each new cone is regular,
+and each of its primitive generators has height one.
+
+The resulting toric modification is projective: coherence gives a
+rational concave support function on the original cone. Clear its
+denominators and add a sufficiently large multiple of $h$ to make
+its defining character forms nonnegative. The integrally closed
+monomial ideal with that support function contains a power of $\tau$;
+on its normalized blowup the character-ratio inequalities give
+exactly the cones just constructed. This is the same affine
+normalized-blowup calculation as in the preceding proof. In particular,
+the modification is vertical and is an isomorphism on the generic torus.
+On each maximal chart there are boundary coordinates $u_0,\ldots,u_3$
+with
+\[
+                              \tau=u_0u_1u_2u_3.
+\]
+These are regular strictly semistable charts, and their toric boundary
+divisors form an SNC divisor. The standard charts retain this property
+after restriction to $R$.
+
+The normalized volume of $P_3^k$ is $2\cdot3\cdot6(k+1)=36(k+1)$.
+Volume additivity therefore gives exactly $36(k+1)$ maximal tetrahedra
+in every unimodular triangulation, and the same number of maximal
+regular charts in this fan. This counts cells in a triangulation,
+not the number of different triangulations.
+
+\emph{The source family in arbitrary dimension.}
+Let $s_0=1$ and $s_i=1+\prod_{j<i}s_j$, so that the first nontrivial
+terms are $2,3,7$. For $d\ge1$, put $q=(k+1)(s_d-1)$ and use
+\[
+          t=z_0z_d\prod_{i=1}^{d-1}z_i^{q/s_i},
+ \qquad
+ P_d^k=\operatorname{conv}
+   (0,s_1e_1,\ldots,s_{d-1}e_{d-1},qe_d).
+\]
+The coefficients are integral because $s_d-1=\prod_{i<d}s_i$.
+The same projection identifies the slice difference lattice with
+$\mathbf Z^d$. The known theorem supplies a coherent unimodular
+triangulation, giving $(k+1)(s_d-1)^2$ maximal simplices by normalized
+volume. For $d=1$ these are $k+1$ unit intervals. The source constructs
+the triangulation by integral chimneys and a one-point extension
+with one visible facet at primitive lattice distance one.
+
+This example supplies explicit local models and their subdivisions.
+Applying such constructions to a compact degeneration requires compatible
+choices on common charts and preservation of its given polarization;
+those global requirements are not conclusions of this affine calculation.
+\end{example}
+
+\begin{example}[A height-one obstruction]
+\label{ex:height-one-idp-obstruction}
+\index{integer decomposition property}
+\index{semistable model!toric obstruction}
+\index{triangulation!unimodular}
+The existence of a unimodular subdivision in the preceding example is
+a substantive input. Consider instead the lattice simplex
+\[
+                  S=\operatorname{conv}(0,e_1,e_2,(34,31,39))
+                      \subset\mathbf R^3.
+\]
+It has the \emph{integer decomposition property}: every lattice point
+of $kS$ is a sum of $k$ lattice points of $S$, for every integer
+$k\ge1$. Nevertheless, $S$ admits no unimodular triangulation. The
+controlling published result is \cite[Example~10]{FZ99Hilbert}; the
+description in these coordinates is also recorded in
+\cite[Examples~6.4--6.5]{LTTZ26HNF}, version~1.
+
+Here is the identification with the published cone. In
+$N=\mathbf Z\oplus\mathbf Z^3$, form
+\[
+ \sigma=\operatorname{cone}
+   \bigl((1,0),(1,e_1),(1,e_2),(1,34,31,39)\bigr).
+\]
+The integral linear isomorphism
+\[
+ \Phi(h,x_1,x_2,x_3)
+       =(h-x_1-x_2+2x_3,x_2,x_1,x_3)
+\]
+has inverse
+$(y_1,y_2,y_3,y_4)\mapsto
+(y_1+y_2+y_3-2y_4,y_3,y_2,y_4)$. It maps the four displayed
+generators to $e_1,e_2,e_3,(14,31,34,39)$. Firla--Ziegler's
+Example~10 states that the Hilbert basis of this cone lies in
+$y_1+y_2+y_3-2y_4=1$, but has no \emph{Hilbert partition}, meaning
+a face-to-face triangulation into unimodular cones generated by
+that Hilbert basis. Thus every lattice point of $\sigma$ is a sum
+of height-one points, proving the stated decomposition property;
+a unimodular triangulation of $S$ would give the excluded partition.
+The nonexistence result is the published source input, rather than
+a consequence of normality alone.
+
+Let $M=N^\vee$, let $\ell\in M$ be projection to the first
+coordinate, and consider the normal affine toric family
+\[
+ X_\sigma=\operatorname{Spec}\mathbf C[\sigma^\vee\cap M]
+       \longrightarrow\mathbf A^1,\qquad \tau=\chi^\ell.
+\]
+Its ring is a domain and therefore flat over $\mathbf C[\tau]$.
+Since $\ell$ is strictly positive on $\sigma\setminus\{0\}$,
+inverting $\tau$ gives the torus ring $\mathbf C[M]$; the
+primitive character $\ell$ then identifies the generic fibre with
+$\mathbf G_{m,\mathbf C(\tau)}^3$. All four primitive original
+rays have height one, so the central fibre is reduced. Explicitly,
+the principal monomial ideal $(\chi^\ell)$ is the intersection of
+the four ray-prime ideals: an integral exponent belongs to all four
+precisely when its pairing with every ray is at least one, precisely
+when subtracting $\ell$ leaves an exponent in $\sigma^\vee\cap M$.
+The cone is singular, however, since its primitive generators span
+a sublattice of index $39$.
+
+Suppose a toric subdivision over this same parameter gave a smooth
+total space and a reduced central fibre. Smoothness would make the
+primitive generators of each maximal cone a basis of $N$, while
+reducedness would give every ray height one. Intersecting with
+$\ell=1$ would then give an ambient-unimodular triangulation of
+$S$, contrary to the published obstruction. Consequently this
+particular toric improvement requires more than a subdivision at
+the original height. Parameter changes can dilate the height slice;
+the example neither excludes nontoric constructions nor contradicts
+semistable reduction after such changes. Projectivity of a toric
+improvement would additionally require coherence.
+
+For comparison, the constant-coordinate family
+\[
+ S_{N,q}=\operatorname{conv}
+  (0,e_1,\ldots,e_{d-1},(N-q,\ldots,N-q,N)),
+ \qquad d\ge2,\quad 1\le q<N,
+\]
+does admit a coherent unimodular triangulation whenever it has
+the integer decomposition property, by
+\cite[Theorem~1.4]{LTTZ26HNF}, version~1. That theorem specializes
+earlier two-parameter classifications and gives an explicit
+continued-fraction criterion. Its equivalence depends on the
+constant-coordinate hypothesis; the simplex $S$ above shows why
+it cannot be used as a general smooth-model criterion.
+\end{example}
+
+\begin{example}[A cyclic height-one model]
+\label{ex:fujiki-oka-height-one-model}
+\index{semistable model!cyclic quotient}
+\index{toric subdivision!height-one stars}
+The cyclic quotient $\tfrac1{15}(1,2,4,8)$ is the known crepant
+example of \cite[Example~3.10]{SS20FujikiV4}, version~4. Here is an
+explicit local model calculation that makes its effect on the parameter
+visible. Put
+\[
+ N=\mathbf Z^4+\mathbf Z\tfrac1{15}(1,2,4,8),\qquad
+ M=N^\vee,\qquad \sigma=\mathbf R_{\geq0}^4,
+ \qquad h(x)=x_1+x_2+x_3+x_4.
+\]
+Then $h\in M$ is primitive. The normal affine toric family
+\[
+ \mathcal U=\operatorname{Spec}\mathbf C[\sigma^\vee\cap M],
+ \qquad \tau=\chi^h:\mathcal U\longrightarrow\mathbf A^1
+\]
+is flat, and its generic fibre is $\mathbf G_m^3$ over
+$\mathbf C(\tau)$, by the monoid argument in the preceding example.
+Its four original rays are primitive and have height one. Consequently
+the central fibre is reduced, although the original cone has index $15$.
+
+Set $v_i=e_i$ for $1\leq i\leq4$, and
+\[
+ v_5=\tfrac1{15}(1,2,4,8),\quad
+ v_6=\tfrac1{15}(2,4,8,1),\quad
+ v_7=\tfrac1{15}(4,8,1,2),\quad
+ v_8=\tfrac1{15}(8,1,2,4).
+\]
+All eight vectors belong to $N$ and have height one, hence are
+primitive. Perform star subdivisions successively at
+$v_5,v_6,v_7,v_8$. The numbers of maximal cones are $4,7,11,15$.
+Writing $C_{ijkl}=\operatorname{cone}(v_i,v_j,v_k,v_l)$, the final
+maximal cones are
+\[
+\begin{array}{lll}
+ C_{1236},&C_{1247},&C_{1267},\\
+ C_{1348},&C_{1368},&C_{1478},\\
+ C_{1678},&C_{2345},&C_{2356},\\
+ C_{2457},&C_{2567},&C_{3458},\\
+ C_{3568},&C_{4578},&C_{5678}.
+\end{array}
+\]
+Each displayed matrix of four ray columns has ordinary absolute
+determinant $1/15$. Since $[N:\mathbf Z^4]=15$, its columns form a
+basis of $N$; all fifteen cones are therefore regular in the original
+lattice.
+
+Coherence can also be checked with explicit rational heights. On the
+slice $h=1$, prescribe
+\[
+\begin{gathered}
+ g(v_i)=0\ (1\leq i\leq4),\qquad g(v_5)=1,\\
+ g(v_6)=\tfrac18+2^{-10},\quad
+ g(v_7)=\tfrac14+2^{-20},\quad
+ g(v_8)=\tfrac12+2^{-30}.
+\end{gathered}
+\]
+For each displayed cone $C$, let $a_C$ be the affine function on the
+slice agreeing with these heights at its four vertices. Direct
+substitution gives $a_C(v_j)\geq g(v_j)$ for all eight vertices,
+with strict inequality whenever $v_j$ is not a vertex of $C$.
+Thus $\min_C a_C$ is a concave lifting with exactly the displayed
+maximal cells. Its homogeneous extension, multiplied by $2^{30}$,
+has integral slopes in $M$, so the corresponding toric morphism
+$\mathcal U'\to\mathcal U$ is projective.
+
+On every maximal affine chart of $\mathcal U'$, the four ray
+generators are a basis and $h$ has value one on each. In the dual
+coordinates the parameter is therefore
+\[
+                         \tau=z_1z_2z_3z_4.
+\]
+The total space is smooth and the central fibre is a reduced SNC
+divisor. Completion over $\mathbf C[[\tau]]$ gives a strictly
+semistable local model without changing the parameter. This is a
+known cyclic quotient worked out as a local toric family; it supplies
+no compact-family gluing assertion. The general criterion in
+\cite[Theorem~3.1]{SS20FujikiV4} concerns the Fujiki--Oka procedure
+itself. The present conclusion is also checked directly by the
+listed cones and lifting, without identifying this particular star
+order with every implementation of that procedure.
+\end{example}
+
 \subsection{Cofinality of SNC models}
 
 The residue-characteristic-zero hypothesis now enters decisively:
@@ -1947,8 +2288,10 @@ to which (R) is applied are of finite type over this excellent
 $\mathbf Q$-algebra, which is the setting in which the statement is
 standard, but the precise relative source remains part of this explicit
 external input. Second, (R) is used \emph{only} in \Cref{prop:snc-cofinal} and
-in the final step of \Cref{thm:skeleton-subdivision}; every other proof in
-this chapter is characteristic free.
+in the final step of \Cref{thm:skeleton-subdivision}. The fixed-model
+valuation constructions admit characteristic-free graded formulations;
+the displayed power-series proofs use the standing equicharacteristic
+coefficient-field presentation.
 
 \begin{proposition}
 \label{prop:snc-cofinal}
@@ -2006,9 +2349,9 @@ mixed or positive residue characteristic no analogue is available in
 arbitrary dimension; the substitute is de Jong's semistable alteration
 theorem \Cref{thm:appB-de-jong}, which produces a generically finite cover
 rather than a birational modification. The consequences for this chapter are
-severe rather than cosmetic: without cofinality, the union of the skeleta of
-those models that happen to be SNC need not be dense, and
-\Cref{thm:skeleton-inverse-limit} may fail. This is the reason that the
+substantial: without a cofinality theorem, the argument below establishes
+neither density of the available SNC skeleta nor the homeomorphism of
+\Cref{thm:skeleton-inverse-limit}. This is the reason that the
 Boucksom--Favre--Jonsson theory of \cref{part:bfj} carries a
 residue-characteristic hypothesis in its foundational statements, and that
 the trivially valued theory of \cref{part:bj}, which does not, has to be
@@ -2129,10 +2472,13 @@ we separate them.
   conclude it "by density", losing upper semicontinuity or a boundary value;
   the standing conventions on nets and regularized suprema exist to block
   this move.
-\item Not every point of $X^{\An}$ is quasimonomial. Type-IV points on a
-  curve (\Cref{thm:berk-a1-classification}) lie on no skeleton, being limits
-  of decreasing sequences of discs with empty intersection. The theorem says
-  they are limits of quasimonomial points, not that they are quasimonomial.
+\item Not every point of a positive-dimensional $X^{\An}$ is
+  quasimonomial. Classical closed points have semivaluations with nonzero
+  support, whereas every skeletal
+  valuation has support zero. After passing to a completed algebraic
+  closure, type-IV points on a curve provide a further example
+  (\Cref{thm:berk-a1-classification}): they lie on no skeleton despite
+  being limits of disc points.
 \end{enumerate}
 \end{remark}
 
@@ -2338,8 +2684,9 @@ After the blowup of \Cref{ex:refinement-segment}, with the extra component
 $F$ of multiplicity $2$, a divisor $D'=aE_x+cF+bE_y$ gives the
 piecewise affine function with values $a$ at $t=1$, $c/2$ at
 $t=\tfrac12$, and $b$ at $t=0$, interpolated affinely. Every
-continuous function on $[0,1]$ that is affine on $[0,\tfrac12]$ and on
-$[\tfrac12,1]$ arises this way, with $c=2h(\tfrac12)$: the factor $2$
+rational piecewise affine function on $[0,1]$ that is affine on
+$[0,\tfrac12]$ and on $[\tfrac12,1]$ arises from a vertical
+$\mathbf Q$-divisor this way, with $c=2h(\tfrac12)$: the factor $2$
 is the multiplicity, and forgetting it is the commonest computational error
 in this circle of ideas.
 
@@ -2358,9 +2705,9 @@ $\varphi_D$ at the three original vertices and to $c/3$ at the
 barycenter, extended affinely on each of the three subtriangles. Taking
 $D=0$ and $c=-1$, one obtains the function $-\tfrac13$ at the
 barycenter and $0$ at the three vertices: the standard "tent function"
-whose graph is a downward cone, which will reappear in
-\cref{chap:bfj-model-forms} as the model function of a psh but not
-pluriharmonic model metric.
+whose graph is a downward cone. This convex restriction alone does not
+assert global semipositivity: a metric construction must also specify the
+polarization and satisfy the relative-nef tests of \cref{chap:metrics}.
 \end{example}
 
 \subsection{Piecewise affine functions come from vertical divisors}
@@ -2429,10 +2776,11 @@ $\mathcal X_s$. Then:
   $X^{\An}$;
 \item if $\mathfrak a=\mathcal O_{\mathcal X}(-D)$ is invertible with
   $D$ vertical effective, then $\log|\mathfrak a|=-\varphi_D$, which is
-  affine on each cell. Convexity is therefore not a restriction but the
-  precise measure of the failure of $\mathfrak a$ to be invertible.
+  affine on each cell. Invertibility therefore implies an affine
+  restriction; an affine restriction alone does not imply invertibility.
 \end{enumerate}
-The same statements hold for a fractional ideal, with "effective" dropped.
+The same statements hold for a vertical fractional ideal, with "effective"
+dropped.
 \end{lemma}
 
 \begin{proof}
@@ -2476,7 +2824,7 @@ In the node chart $\Spec R[x,y]/(xy-\pi)$, parametrize the cell by
 $t=v(x)\in[0,1]$.
 
 \emph{A monomial ideal.} Let $\mathfrak a=(x^p,y^q)$ with
-$p,q\in\mathbf N$. Then
+$p,q\in\mathbf Z_{>0}$. Then
 \[
  \log|\mathfrak a|(v_t)=-\min\{pt,\ q(1-t)\}
  =\max\{-pt,\ qt-q\},
@@ -2484,8 +2832,9 @@ $p,q\in\mathbf N$. Then
 a convex piecewise affine function with a single break at
 $t=q/(p+q)$, where the two affine pieces cross. Its two slopes are $-p$
 and $q$, both integers, and its total slope variation is $p+q$. This
-last number is the multiplicity that will reappear as a Monge--Amp\`ere mass
-in \cref{chap:metrics}.
+last number is the interior graph-Laplacian atom at the break. A global
+model measure also includes the endpoint and polarization contributions
+specified in \cref{chap:metrics}.
 
 \emph{A non-monomial ideal.} Let $\mathfrak a=(x-y,\ \pi)$. The Newton
 polyhedron of $x-y$ has vertices $(1,0)$ and $(0,1)$, so
@@ -2628,8 +2977,8 @@ Three cautions, each of which will matter later.
   completion of the space of model functions in the uniform norm is
   identified in \cref{chap:metrics}.
 \item Convexity of a PL function on $\Delta_{\mathcal X}$ is \emph{not}
-  the correct notion of semipositivity. Convexity is a cellwise, coordinate
-  dependent condition; semipositivity is defined by relative nefness of a
+  the correct notion of semipositivity. Convexity is a cellwise affine
+  condition; semipositivity is defined by relative nefness of a
   model line bundle, and the two agree only in special situations such as
   the toric one of \cref{sec:toric-convex}. Conflating them is a
   well-known trap, and the book keeps the two words apart from the outset,
@@ -2647,21 +2996,22 @@ definitions and scope needed later.
 The word \emph{skeleton} is used for two kinds of object playing opposite
 roles, and they should be separated at the outset.
 
-A \emph{model skeleton} $\Sk(\mathcal X)$ is a computational device: it
-depends on the model, grows under refinement, is never canonical, and exists
-so that the family of all of them exhausts $X^{\An}$
+A \emph{model skeleton} $\Sk(\mathcal X)$ is a computational device:
+the choice of model is part of its data, it grows under domination, and
+the union of all model skeleta is dense in $X^{\An}$
 (\Cref{thm:skeleton-inverse-limit}). One chooses a model to make a
-computation finite, as one chooses a triangulation to compute simplicial
-cohomology; nothing attached to a single model skeleton is an invariant of
-$X$.
+computation finite. The full analytic space is recovered by the compatible
+retractions in the inverse limit, rather than by asserting that every
+analytic point belongs to some skeleton.
 
 An \emph{essential} or \emph{canonical skeleton} is the opposite: a
 distinguished compact subset of $X^{\An}$ attached to $X$ itself,
 selected by a canonical differential form, birationally invariant, and
 generally much smaller than any model skeleton. It does not grow under
-refinement and exhausts nothing. Its interest is that limits of canonical
-measures and of Ricci-flat metrics concentrate on it --- a theorem about
-degenerations, not a tool for approximating analytic points.
+refinement. In appropriate Calabi--Yau degenerations it carries limiting
+canonical measures; such convergence statements have their own hypotheses,
+as recorded in \cref{chap:hybrid-spaces}. They do not replace the
+model-skeleton approximation of arbitrary analytic points.
 
 The two coincide in the simplest examples, such as the Tate curve of
 \Cref{ex:tate-degeneration}, but not in general: a rational surface has
@@ -2786,7 +3136,7 @@ essential skeleton as "the skeleton of $X$".
 \emph{Maximal essential skeleton.} Let $X$ be an elliptic curve with
 multiplicative reduction as in \Cref{ex:tate-degeneration}. There
 $K_X=\cO_X$, a nonzero global $1$-form $\omega$ exists, and the
-weight function turns out to be constant, so the Kontsevich--Soibelman
+weight function is constant on the minimal model skeleton, so the Kontsevich--Soibelman
 skeleton is the entire dual complex, a circle. The essential skeleton is
 therefore a circle of the same lattice circumference, and it is
 \emph{equal} to the model skeleton of the minimal SNC model. This is the
@@ -2857,13 +3207,15 @@ a convex piecewise affine function. This one-dimensional calculation is the
 local model for every statement in
 \Cref{sec:skeleton-model-functions}.
 
-The retraction is equally explicit. A point $w$ of the generic fibre, the
-standard annulus of \Cref{ex:berk-standard-annulus}, has
-$r_{\mathcal U}(w)=v_t$ with $t=v_w(x)$; the fibre over an interior
-point $t\in(0,1)$ is the set of points of the annulus with $|x|=\rme^{-t}$,
-which is an infinite union of open discs glued along the Gauss point
-$\zeta_{0,\rme^{-t}}$, and the fibre over an endpoint is the corresponding
-residue class of the reduction map. This is \Cref{ex:retraction-annulus}.
+The retraction is equally explicit. On the generic fiber of the formal
+completion, the standard annulus of \Cref{ex:berk-standard-annulus},
+$r_{\mathcal U}(w)=v_t$ with $t=v_w(x)$. Every fiber is the level set
+$\{|x|=\rme^{-t}\}$. After passing to a completed algebraic closure,
+an interior level with $t$ in the value group has open-disc branches at
+its Gauss point; a level with $t$ outside the value group consists of the
+single type-III Gauss point. Endpoint fibers collect the reduction preimages
+of the smooth locus of the corresponding component, rather than one closed
+residue class. This is the picture of \Cref{ex:retraction-annulus}.
 
 \subsection{A semistable degeneration of an elliptic curve}
 \label{sec:worked-tate}
@@ -2888,7 +3240,8 @@ $\lambda^3\neq1$ and $\lambda\neq\infty$. Here
 $\lambda^3=(27\pi^3)^{-1}$.  If $\lambda^3=1$, then $27\pi^3=1$, hence
 $0=v(1)=v(27)+3v(\pi)=3$, since the residue characteristic is zero and
 $v(27)=0$; this is impossible. Therefore $E:=\mathcal E_K$ is a smooth
-plane cubic, an elliptic curve over $K$.
+plane cubic. The point $[1:-1:0]$ is $K$-rational, so choosing it as
+origin makes $E$ an elliptic curve over $K$.
 
 \emph{Step 2: the special fibre is a triangle of lines.} Setting $\pi=0$
 gives $\mathcal E_s=\{XYZ=0\}$, the union of the three coordinate lines
@@ -2911,13 +3264,15 @@ $z=Z/X$. The equation reads
  yz=\pi\,F(y,z),\qquad F(y,z)=1+y^3+z^3 .
 \]
 At the point $y=z=0$ of the special fibre we have $F(0,0)=1$, so $F$
-is a unit on a neighbourhood; setting $z'=z/F(y,z)$, which is a coordinate
-change because $F$ is a unit, the equation becomes
+is a unit on a neighbourhood, and $\pi=F^{-1}yz$. The local ring has
+dimension two and maximal ideal generated by $y,z$, hence is regular with
+these parameters; its special fiber is SNC. In the completed local ring,
+$z'=z/F(y,z)$ is a formal coordinate change, since its Jacobian at the
+node is one, and the equation becomes
 \[
                          yz'=\pi .
 \]
-This is the standard node chart of \Cref{ex:snc-chain-models}, so the local
-ring at that point is regular and the special fibre is SNC there. Away from
+This is the formal node chart of \Cref{ex:snc-chain-models}. Away from
 the three coordinate points at most one of $y,z$ vanishes, so the special
 fibre is smooth there and the total space is regular by flatness. Hence
 $\mathcal E$ is an SNC model of $E$, indeed strictly semistable.
@@ -2942,9 +3297,11 @@ $\lambda^3=(27\pi^3)^{-1}$; substituting and simplifying,
 and the bracket is a unit of $R$ since $v(\pi)>0$. Hence
 $v(j)=-3$. For a curve with multiplicative reduction the Tate parameter
 satisfies $v(q)=-v(j)$, so $v(q)=3$, matching Step~4. The general rule
-is that the dual complex of a semistable degeneration of an elliptic curve
-with multiplicative reduction is a circle of lattice circumference
-$v(q)=-v(j)$, equal to the number of components of the special fibre.
+is that the minimal regular split multiplicative model of type $I_n$ has
+a cycle of circumference $v(q)=-v(j)=n$ in this normalization. In the
+SNC examples with $n\ge3$, its $n$ components give $n$ unit edges.
+Further blowups at smooth special-fiber points add branches without
+changing the cycle circumference.
 Replacing $\pi$ by $\pi^k$ multiplies the circumference by $k$ after
 resolving the resulting $A_{k-1}$-singularities, as in
 \Cref{ex:snc-chain-models}.
@@ -2957,7 +3314,8 @@ smooth locus of a component, say $E_X$, then $J(\xi)=\{X\}$ and
 $r_{\mathcal E}(w)=x_{E_X}$: the whole preimage under reduction of that
 smooth locus, an infinite union of residue classes, collapses to one point.
 If $\xi$ is the node $E_X\cap E_Y$, then $J(\xi)=\{X,Y\}$ and, in the
-node coordinates $u,u'$ with $uu'=\pi$ of Step~3,
+formal node coordinates $u,u'$ with $uu'=\pi$ of Step~3, where $u=0$
+defines $E_X$,
 \[
    r_{\mathcal E}(w)=\theta=1-v_w(u)\in[0,1];
 \]
@@ -2977,9 +3335,11 @@ $D=a_XE_X+a_YE_Y+a_ZE_Z$ correspond bijectively to functions on the circle
 affine on each edge, with $\varphi_D(x_{E_X})=a_X$ and so on, all
 multiplicities being one. Constants correspond to multiples of
 $\mathcal E_s$, consistent with $\varphi_{\mathcal E_s}\equiv1$. And
-there is no nonconstant \emph{convex} function on a circle: for a function
-affine on edges, the outgoing slopes at all vertices telescope to zero, so
-if all are nonnegative all vanish. This is the combinatorial shadow of the
+there is no nonconstant continuous piecewise affine function with
+nonnegative graph Laplacian on this compact circle. The sums of outgoing
+slopes telescope to zero; if every Laplacian atom is nonnegative, every
+atom vanishes. The slope is then constant around the circle, and periodicity
+forces it to be zero. This is the combinatorial shadow of the
 maximum principle, reappearing in \cref{chap:model-calculations} as the
 statement that a harmonic function on a compact metric graph is constant.
 
@@ -3016,10 +3376,11 @@ large.
 \emph{Step 9: refinement.} Blowing up one of the three nodes inserts a
 component of multiplicity $2$ at the midpoint of the corresponding edge
 (\Cref{ex:refinement-segment}); the dual complex becomes a square, still a
-circle of lattice circumference $3$. No blowup changes the homotopy type
-or the circumference: refinement subdivides but does not alter the intrinsic
-metric structure of a one-dimensional skeleton, which is why the metric
-graph of \cref{sec:metric-graphs} is well defined.
+circle of lattice circumference $3$. Further node blowups subdivide this
+same cycle and preserve its length. Blowing up a smooth special-fiber point
+instead attaches a tree: the whole skeleton grows, while its cycle
+circumference and homotopy type remain unchanged. These two operations
+are distinguished in the metric-graph picture of \cref{sec:metric-graphs}.
 \end{example}
 
 \subsection{A two-dimensional toric chart}
@@ -3049,15 +3410,19 @@ the image of the Gauss section. This identification is the bridge between
 this chapter and the toric calculus of \cref{sec:toric-convex}, and it is
 the reason toric examples can be used to test every later normalization.
 
-\emph{The fibres.} The fibre of $\Trop$ over an interior point
-$u\in\Delta_{\mathrm{std}}$ is a two-dimensional analytic torus of
-polyradius $(\rme^{-u_1},\rme^{-u_2})$; over a point of the open edge
-$\{\alpha_z=0\}$, the center of the retracted point moves to the generic
-point of the curve $E_x\cap E_y$ and the fibre is correspondingly larger.
-Over a vertex, say $P_x$, the fibre is the preimage under reduction of
-the smooth locus of $E_x$, a set with no finite-dimensional description at
-all. The retraction is thus very far from being finite-to-one; what it
-preserves is exactly the monomial data.
+\emph{The fibers.} For every $u\in\Delta_{\mathrm{std}}$, put
+$r_i=\rme^{-u_i}$. The fiber is the fixed-polyradius analytic domain
+\[
+ \mathcal M\bigl(K\langle r_1^{-1}x,r_1x^{-1},
+                            r_2^{-1}y,r_2y^{-1}\rangle\bigr),
+\]
+where the notation denotes the generalized Laurent affinoid algebra with
+$|x|=r_1$ and $|y|=r_2$. This same description applies at interior, edge
+and vertex points. What changes is the center of the retracted Gauss
+point: it is the generic point of $E_{J_+}$. At $P_x$, the fiber collects
+the reduction preimages of the smooth locus of $E_x$ in this chart.
+The retraction preserves the monomial data and forgets the remaining
+seminorm data on these fibers.
 
 \emph{Model functions and their breaks.} By
 \Cref{prop:vertical-divisor-affine-iso} and the coordinate computation of
@@ -3081,7 +3446,7 @@ affinity meeting along the medians. By
 function: indeed $h=-\varphi_{D}$ with $D=-F$ on the blowup
 $\mathcal U'$ of the closed point, where $F$ is the exceptional divisor
 of multiplicity $3$; the vertex values are $0$ at $P_x,P_y,P_z$ and
-$\varphi_{-F}(B)=b_F^{-1}\ord_F(-F)=-\tfrac13$, so that
+$\varphi_{-F}(B)=-b_F^{-1}=-\tfrac13$, so that
 $h(B)=-\varphi_{-F}(B)=\tfrac13$, and one checks that the three
 subtriangles of \Cref{ex:refinement-triangle} are exactly the domains of
 affinity of $h$.
@@ -3106,13 +3471,14 @@ mechanism used in \Cref{thm:skeleton-subdivision} and again in
 \emph{An irrational point revisited.} The point $\alpha$ of
 \Cref{ex:monomial-triangle-points} has smallest coordinate
 $\alpha_x=(\sqrt2-1)/2$, so
-$\log|\mathfrak a|(v_\alpha)=-(\sqrt2-1)/2$. The value is irrational, as
-it must be: model functions take values in $\mathbf Q$ at divisorial
-points but not at quasimonomial ones, and it is the continuity of PL
-functions on the whole cell, rather than their values on rational points,
-that makes the theory work.
+$\log|\mathfrak a|(v_\alpha)=-(\sqrt2-1)/2$. This irrational value shows
+that rational model functions can take irrational values at quasimonomial
+points, although their values at divisorial points are rational. The
+continuity of PL functions on the whole cell is what makes the theory work;
+knowing their values only on rational points would not suffice.
 \end{example}
 
+\begin{samepage}
 \section{Dictionary established in this chapter}
 
 \[
@@ -3130,14 +3496,17 @@ D\text{ vertical Cartier}
  &\longleftrightarrow&
  \varphi_D\text{ affine on a determining skeleton},\\[1mm]
 \mathfrak a\text{ vertical ideal}
- &\longleftrightarrow&
+ &\longrightarrow&
  \log|\mathfrak a|\text{ convex PL on each face}.
 \end{array}
 \]
+\end{samepage}
 
 In more detail, and with the precise references, the chapter establishes the
-following correspondences. Each row is an equivalence unless the arrow is
-one-directional.
+following constructions and comparisons. The fixed-model component, stratum,
+monomial-point and vertical-divisor identifications are correspondences.
+Rows involving ideals, functions on a lower skeleton or forms record
+constructions that can lose information.
 
 \begin{center}
 \begin{tabular}{@{}lll@{}}
@@ -3172,7 +3541,7 @@ $f$ regular near $\xi_J$
  & concave PL, $v_\bullet(f)$
  & \Cref{lem:monomial-newton}\\
 vertical blowup $\mathcal X'\ge\mathcal X$
- & subdivision, $\Sk$ grows
+ & nesting; toroidal subdivision
  & \Cref{prop:skeleton-nesting}\\
 rational projective subdivision
  & toroidal blowup realizing it
@@ -3190,20 +3559,20 @@ pluricanonical form $\omega$
 \end{tabular}
 \end{center}
 
-Two of these deserve a warning label. The row "vertical blowup
-$\rightsquigarrow$ subdivision" is one-directional as stated: not every
-subdivision comes from a blowup, only the projective ones, which is exactly
-the content of \Cref{thm:skeleton-subdivision}. And the last row is not an
-equivalence at all: the weight function determines a distinguished
-subcomplex, but the essential skeleton does not determine $\omega$, nor
-does it determine any model.
+General vertical blowups can enlarge a skeleton; toroidal blowups subdivide
+it, and the realization theorem applies to rational projective subdivisions.
+Different ideals can have the same skeletal restriction, as the two ideals
+in \cref{ex:vertical-ideal-segment} already demonstrate. A rational PL
+function on one skeleton has a higher-model realization, with no uniqueness
+asserted off that skeleton. A form supplies a weight function and minimum
+locus; its essential-skeleton data recover neither the form nor a model.
 
 \Cref{chap:metrics} uses the same vertical data to construct metrics on line bundles
 and atomic measures from intersection numbers. \Cref{chap:bfj-model-forms}
 upgrades the last two rows into a theory of closed $(1,1)$-forms as
 direct limits, and \cref{chap:bfj-psh} shows that psh functions restrict to
-\emph{convex} functions on the cells of a skeleton, sharpening the row on
-vertical ideals.
+\emph{convex} functions on the cells of a skeleton on which the reference
+form is determined, sharpening the row on vertical ideals in that scope.
 
 \section*{Source notes}
 
@@ -3236,7 +3605,9 @@ are proved here in full.
 
 The external input in the cofinality step is resolution of singularities in
 characteristic zero, \cite{Hironaka1964I,Hironaka1964II}, used through
-\Cref{thm:appB-resolution} for \Cref{prop:snc-cofinal}. We have isolated it
+the precise relative hypothesis (R) for \Cref{prop:snc-cofinal}; the
+finite-type-over-a-field statement in \Cref{thm:appB-resolution} is recorded
+separately. We have isolated the relative input
 in the displayed hypothesis (R), so that a reader in positive or mixed
 residue characteristic can see what is lost; the substitute there is de
 Jong's alteration theorem \cite{deJong1996}, quoted as
@@ -3265,7 +3636,33 @@ The toric computations follow the conventions of \cref{sec:toric-convex},
 hence \cite{CLS11} for toric geometry and \cite{BGPS14} for the metric
 normalizations; the identification of the skeletal retraction with
 tropicalization in \Cref{ex:worked-triangle} is the elementary case of
-\cref{chap:analytic-tropicalization}. The Hesse pencil computation in
-\Cref{ex:tate-degeneration} is classical, and we prefer it to the Tate
-uniformization because it needs nothing beyond the definition of an SNC
-model.
+\cref{chap:analytic-tropicalization}.
+The recent Sylvester calculation in \Cref{ex:sylvester-height-slice}
+uses exactly \cite[Theorem~3.5]{CCJP26Sylvester}, version~1, and the
+normalized toroidal cover of
+\cite[Proposition~3.7]{AmbroCyclicV2}, version~2; its lattice, index
+and volume computations are explicit above. This local worked application
+does not import the Sylvester paper's later Ehrhart claims or a global
+semistable-reduction theorem.
+The complementary height-one obstruction in
+\Cref{ex:height-one-idp-obstruction} imports exactly
+\cite[Example~10]{FZ99Hilbert}, with the integral coordinate
+identification of \cite[Examples~6.4--6.5]{LTTZ26HNF}, version~1.
+The toric family and the relation between reducedness, regular cones
+and the height-one slice are calculated explicitly. The final special
+family comparison uses that preprint's Theorem~1.4, with its
+constant-coordinate hypothesis retained.
+The positive cyclic model in \Cref{ex:fujiki-oka-height-one-model}
+uses the known quotient of \cite[Example~3.10]{SS20FujikiV4},
+version~4. Its lattice, fifteen regular cones, rational concave lifting
+and squarefree parameter are displayed explicitly. The general
+remainder criterion of that source's Theorem~3.1 concerns the
+Fujiki--Oka resolution; its Proposition~3.9 excludes only toric
+crepant resolutions under the stated iterated-term obstruction.
+Neither distinction is broadened to a general model or nontoric
+resolution theorem here.
+The Hesse pencil computation in
+\Cref{ex:tate-degeneration} proves the regular model, graph and weight
+directly. Its optional comparison with the Tate parameter uses the
+classical split multiplicative uniformization; the SNC computation itself
+does not depend on that comparison.

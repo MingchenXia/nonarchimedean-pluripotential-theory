@@ -1,0 +1,95 @@
+# Small-points book integration, 9 October 2026
+
+The checked 4,681-page edition adds Luo–Yu Example 1.2 to Chapter 27
+and its exact-source provenance to Appendix L. Fix an elliptic curve E/C,
+a non-torsion Q in Pic0(E), K=C(E), the quotient projective bundle
+S=P_E(O plus Q), and M=2xi-f*Q. Heights divide intersections by the
+point degree. The norm argument excludes zero-height points in the open
+torsor over every finite extension. Its two boundary points have height
+zero. Smooth integral divisors in |nM+f*A|, deg A=a>=3, give degree-2n
+points of positive height a/n tending to zero. The compactified curve's
+normalized height and both minima are zero. The open essential minimum
+is zero but unattained: arbitrarily small points must be distinguished
+from exact zero-height points, even in an equality case. Nefness is
+asserted only for this surface model. The following paragraph explicitly
+returns to number fields and the separate Ballay–Sombra open questions.
+
+All 31 physical pages of arXiv:2505.07193v3 were actually read in sixteen
+ordered complete-text/image views. The source checkpoint and its separately
+published 43-member authored evidence are pinned. The direct classical
+rank-two reconstruction uses quotient bundles, finite-map norms, the
+projective-bundle relation, Riemann–Roch, the surface ample criterion,
+Bertini over C and connectedness of ample divisors. These dependencies
+are imported, not newly recursively certified. The worked case does not
+use the general geometric/number-field Bogomolov proofs, whose quasi-split,
+relative-component and model steps still require separate reconstruction.
+Exact normalization and matrix diagnostics do not certify those proofs.
+No original theorem or independent production-verifier receipt is claimed.
+
+Thirteen selected final pages were actually read in seven fresh matching
+views: contents, the previous/new examples and adjoining discussion,
+complete new provenance, Appendix M opening, index boundaries and LY25
+bibliography. Page 4430 is occupied by the provenance continuation; no
+selected page is blank. This is a scoped final-page read. The last ordered
+whole-book reading remains 4 October; export/upload adds no reading credit.
+A failed checkpoint helper used the wrong publication-record directory;
+it wrote no checkpoint, and its fresh corrected helper is preserved.
+
+Required manuscript validation and six existing reference-check tests pass.
+The final PDF has zero errors, missing glyphs, overfull boxes, unresolved
+references/citations, package/pdfTeX warnings or rerun requests. All 955
+inherited underfull blocks retain normalized content and multiplicities.
+All 13,382 prior numbered values, 605 cited keys/labels, 2,766 contents
+titles/hierarchy and 900 index terms remain; LY25 gives 606 citations.
+All internal destinations resolve. Two core TeX files and the NA bibliography
+change; the other 423 core TeX files and complex bibliography are identical.
+No formal environment, semantic label, manual tag or contents title is added.
+
+Canonical 42 atoms/twelve problems and tiers (0,3,7,15,17) remain unchanged.
+BJ22 general homogeneous Siu/envelopes stay OPEN; LPWZ density UNVERIFIED.
+Incoming conductor/power-cover, generic-line GVF and toric-attainment
+original candidates remain unverified outside theorem typography. The
+native catalogue/editor and historical PDF are preserved; native compilation
+is unverified. Work continues cloud-only with Xean suspended. GVF foundations
+arXiv:2409.04570v2 has eight of 52 pages actually read; its later proofs are
+unread. Incoming continuation307 is metadata-only, with no proof credit.
+
+Scoped mathematical checks:
+
+1. Controlling source arXiv:2505.07193v3 has all 31 physical pages actually read in 16 ordered matching displays; only Example 1.2 is integrated.
+
+2. Fix complex constants, an elliptic curve E, a non-torsion Q in Pic0(E), K=C(E), and the quotient convention for S=P_E(O plus Q).
+
+3. M=2 xi-f*Q has generic degree two; point model heights divide by [K(x):K], and curve height divides M squared by twice the generic degree.
+
+4. The source Poincare compactified fibre restricts to this rank-two surface model; its constant abelian base-point height is zero.
+
+5. Normalize each point closure to a finite curve cover g; the quotient line R has nonnegative degree because one degree-zero summand maps nontrivially.
+
+6. For open points both summands map nontrivially; zero degree makes both maps isomorphisms and trivializes g*Q.
+
+7. The norm then trivializes Q to the degree-g tensor power, contradicting non-torsion; the argument covers every finite extension.
+
+8. The two boundary quotient sections have height zero, and the surface nefness argument covers horizontal curves and degree-two vertical fibres.
+
+9. The projective-bundle relation with degree Q zero gives xi squared=xi f*Q=0 and M squared=0.
+
+10. For A of degree a>=3, pushforward of nM+f*A splits as A tensor Q^(j-n); all summands are globally generated by elliptic Riemann--Roch.
+
+11. This class has positive intersection with every curve and square 4na>0, hence is ample by the surface criterion.
+
+12. Bertini over C and connectedness of ample divisors supply smooth integral horizontal members D_n; no unrestricted positive-characteristic assertion is made.
+
+13. The generic closed point has degree 2n and height a/n, so the unbounded degrees give a generic sequence with heights tending to zero.
+
+14. The compactified essential and absolute minima and curve height are zero, but its exact zero-height locus consists only of its two boundary points.
+
+15. The open essential minimum zero is unattained; dense arbitrarily small points and dense exact-zero points are distinct even in this equality case.
+
+16. Norm, projective bundles, Riemann--Roch, Nakai--Moishezon, Bertini and connectedness are disclosed classical dependencies, not recursively reread originals.
+
+17. The following paragraph explicitly returns to number fields; neither the general geometric Bogomolov proof nor the number-field toric attainment converse is invoked.
+
+18. General quasi-split criteria and relative component/model arguments remain pending separate reconstruction; the worked example avoids their literal slips.
+
+19. No original result, independent production-verifier receipt, homogeneous Siu repair, density theorem or canonical problem closure is promoted.

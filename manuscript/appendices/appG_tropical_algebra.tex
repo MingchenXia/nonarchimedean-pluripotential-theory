@@ -18,6 +18,10 @@ The first uses are \Cref{chap:valuations} for graded reduction,
 \Cref{chap:analytic-tropicalization} for analytic multiplicities,
 and \Cref{chap:tropical-spectra-complex} for tropical spectra.
 
+\Cref{sec:appG-multidegree-support} relates projection dimensions
+to algebraic polymatroids. It concerns exact irreducible algebraic
+realizations, alongside the combinatorial fan algebras below.
+
 \section{Idempotent semirings}
 \label{sec:appG-idempotent}
 
@@ -39,8 +43,11 @@ Its natural order is
 \]
 \end{definition}
 
-Associativity and idempotence show that \(\preceq\) is a partial order.
-Addition is supremum for this order, and multiplication is order preserving.
+Reflexivity is idempotence.  If \(a\oplus b=b\) and \(b\oplus a=a\),
+commutativity gives \(a=b\).  If also \(b\oplus c=c\), then
+\(a\oplus c=a\oplus(b\oplus c)=(a\oplus b)\oplus c=c\), proving
+transitivity.  The same identities show that \(a\oplus b\) is the least
+upper bound of \(a,b\); distributivity makes multiplication order preserving.
 
 \begin{example}[Max-plus and min-plus]
 \label{ex:appG-max-min}
@@ -62,6 +69,7 @@ The natural order of \(\mathbf T_{\max}\) is the usual order, while that of
 \end{example}
 
 \begin{warning}{Do not adjoin both infinities}
+\label{warn:appG-two-infinities}
 The expression \(+\infty+(-\infty)\) is undefined.
 Thus \(\mathbf R\cup\{-\infty,+\infty\}\), with tropical multiplication
 given by ordinary addition, is not a semifield without an extra convention.
@@ -115,8 +123,9 @@ Its support
 is prime.
 Indeed, it is an ideal by the ultrametric inequality and nonnegativity, and
 \(fg\in\mathfrak p_v\) forces one of \(v(f),v(g)\) to be infinite.
-The semivaluation descends to a valuation on the fraction field of
-\(A/\mathfrak p_v\) whenever that quotient is a domain.
+Since the support is prime, the quotient \(A/\mathfrak p_v\) is a domain.
+The semivaluation extends to its fraction field by
+\(v(\bar f/\bar g)=v(f)-v(g)\) for \(\bar g\neq0\).
 
 \begin{definition}[Ideal semiring]
 \label{def:appG-ideal-semiring}
@@ -180,11 +189,13 @@ Since \((f+g)\subseteq(f,g)\), the natural semiring order gives
 \]
 The two constructions are inverse because principal ideals generate all
 values in the first formula.
-Finally, every coordinate on either side is one of the evaluation maps in
-\eqref{eq:appG-character-correspondence}, proving the topological claim.
+Finally, the inverse uses principal-ideal evaluations, while each forward
+coordinate is a finite minimum of evaluations.  Finite minimum is
+continuous on the one-sided extended real line, proving the topological claim.
 \end{proof}
 
 \begin{remark}[Noetherian and coherent versions]
+\label{rem:appG-coherent-version}
 If \(A\) is Noetherian, every ideal is finitely generated.
 For a complex space, coherent ideal sheaves replace finitely generated
 ideals.
@@ -215,6 +226,7 @@ all evaluation coordinates.
 ideal semirings on compact complex spaces.
 
 \subsection{Extended tropical affine space}
+\label{sec:appG-extended-affine}
 
 Give \(\mathbf R\cup\{+\infty\}\) the topology transported from
 \([0,+\infty)\) by \(u\mapsto \rme^{-u}\), with \(\rme^{-\infty}=0\).
@@ -267,11 +279,12 @@ If \(|f|,|g|>0\), then
                     \widetilde{fg}=\widetilde f\,\widetilde g.
 \tag{G.14}\label{eq:appG-initial-product}
 \]
-If \(|f|=|g|=r\), then
+If \(|f|=|g|=r\), write \([h]_r\) for the degree-\(r\) class of an
+element \(h\in A_{\leq r}\).  Then
 \[
- \widetilde{f+g}=
+ [f+g]_r=\widetilde f+\widetilde g=
  \begin{cases}
- \widetilde f+\widetilde g,&|f+g|=r,\\
+ \widetilde{f+g},&|f+g|=r,\\
  0\text{ in degree }r,&|f+g|<r.
  \end{cases}
 \tag{G.15}\label{eq:appG-initial-sum}
@@ -285,6 +298,15 @@ For sums, the ultrametric inequality puts \(f+g\) in \(A_{\leq r}\).
 Its degree-\(r\) class is the sum of the two classes, which vanishes exactly
 when cancellation lowers the norm.
 \end{proof}
+
+\begin{example}[Cancellation and the new degree]
+\label{ex:appG-cancelled-degree}
+If the norm drops but \(f+g\neq0\), its initial form in its new degree
+need not vanish.  For example, on \(\mathbf Q((T))\) with
+\(|T|=\rme^{-1}\), take \(f=1\) and \(g=-1+T\).  Their degree-one
+classes cancel, while \(f+g=T\) has a nonzero initial form in degree
+\(\rme^{-1}\).
+\end{example}
 
 In additive notation, for a semivaluation \(v\) with support
 \(\mathfrak p_v\), set
@@ -307,6 +329,7 @@ The changes of variables \(r=\rme^{-\gamma}\) and \(v=-\log|\cdot|\) identify
 \eqref{eq:appG-additive-graded}.
 
 \begin{warning}{Ordinary residue loses radii}
+\label{warn:appG-residue-radii}
 The degree-one part alone records only elements of norm at most one modulo
 elements of norm less than one.
 Different radii, and hence rational ranks used in tropical dimension
@@ -325,12 +348,14 @@ This appendix uses only the elementary filtration calculus above.
 \section{Initial forms and tropical hypersurfaces}
 \label{sec:appG-initial-tropical}
 
-Let \(M\) be a lattice, \(N=M^\vee\), and consider a Laurent polynomial
+Let \(K\) be a valued field, with \(v=-\log|\cdot|\), let \(M\) be a
+lattice and \(N=M^\vee\), and consider a nonzero Laurent polynomial over \(K\)
 \[
                               f=\sum_{m\in S}a_m\chi^m
 \tag{G.17}\label{eq:appG-laurent}
 \]
-whose finite support \(S\subset M\) has been collected by exponent.
+whose finite support \(S\subset M\) has been collected by exponent, with
+\(a_m\neq0\) for every \(m\in S\).
 For \(u\in N_{\mathbf R}\), define
 \[
  \operatorname{trop}(f)(u)
@@ -357,14 +382,19 @@ The point \(u\) lies in the corner locus if and only if
 \end{proposition}
 
 \begin{proof}
-Rescale every term by its weight.
-Terms of strictly larger weight vanish in the leading graded piece, while
-the minimum-weight terms survive.
+Give the coefficient initial form of \(a_m\) its valuation degree
+\(v(a_m)\), and give \(\chi^m\) the additional degree
+\(\langle m,u\rangle\) in the weighted graded Laurent algebra.
+At the minimum total degree, retain precisely those nonzero coefficient
+initial forms whose total degrees attain the minimum.
+This construction does not require an element of \(K\) realizing the
+real weight \(\langle m,u\rangle\).
 Because the polynomial was collected by exponent, one surviving exponent
 gives a monomial and at least two give a nonmonomial initial form.
 \end{proof}
 
 \begin{warning}{Fundamental-theorem boundary}
+\label{warn:appG-fundamental-boundary}
 \Cref{prop:appG-initial-form-test} is algebraic bookkeeping.
 Identifying the corner locus with the closure of valuations of actual zeros
 is the fundamental theorem of tropical geometry and requires hypotheses on
@@ -474,9 +504,13 @@ the calibrated pushforward.
 \item Subdivision preserves a calibrated integral: new top cells inherit the
       old calibration, and new internal codimension-one faces cancel in
       pairs.
-\item Under a generically finite integer-affine map, calibrated pushforward
-      preserves integrals: the source calibration, which already contains
-      its geometric multiplicity, is multiplied once by
+\item Under a generically finite integer-affine map \(F\) with locally
+      finite pushed-forward calibration and properness on the support
+      of the test form, calibrated
+      pushforward satisfies \(\int F^*\alpha=\int\alpha\) for a
+      compactly supported target \((q,q)\)-superform \(\alpha\), with
+      the right integral taken against the pushed-forward calibration.
+      Each source weight is multiplied once by
       \eqref{eq:appG-lattice-index}.
 \item Reversing orientation changes a top real form integral by a sign, but
       does not change the positive measure of a positive \((q,q)\)-form,
@@ -488,14 +522,19 @@ the calibrated pushforward.
 \begin{proof}
 On an internal codimension-one face, the primitive normal vectors of the two
 adjacent new cells are opposite.
-For projection, choose lattice bases; the determinant of the lattice map is
-the index \eqref{eq:appG-lattice-index}, which is exactly the Jacobian of
-lattice-normalized measure.
+For projection, choose lattice bases and let \(D\) be the absolute
+determinant of the full-rank tangent lattice map.  Pullback of a
+\((q,q)\)-superform contributes \(D^2\), one determinant from each
+exterior factor.  Changing variables in the ordinary integral contributes
+\(D^{-1}\), leaving exactly the index \(D\) in
+\eqref{eq:appG-lattice-index}.  Sum this calculation over the locally
+finite source cells.
 The last assertion follows because the two exterior factors contribute the
 same orientation sign, whose square is one.
 \end{proof}
 
 \begin{warning}{Inward versus outward}
+\label{warn:appG-boundary-orientation}
 Our vector \(u_{\sigma/\tau}\) points into \(\sigma\), as in
 \eqref{eq:appG-primitive-normal}.
 An outward-normal-first Stokes convention uses its negative.
@@ -521,12 +560,14 @@ A calculation giving one has discarded the lattice calibration.
 \section{Analytic tropical multiplicities}
 \label{sec:appG-analytic-multiplicity}
 
+Work over a complete non-Archimedean ground field.
 Let \(Z\) be a pure \(q\)-dimensional effective analytic cycle on a good Hausdorff
 boundaryless analytic space, and let
 \(f:U\to\mathbf G_m^r\) be a moment map on a neighborhood of its support.
-Assume that \(f\) has tropical dimension \(q\) along \(Z\); equivalently, on
-each top cell used below a generic integer-affine projection of \(f\) to a
-\(q\)-torus is generically finite on \(Z\).  Denote by \(\Sigma_f(Z)\) the
+Assume that \(f\) has tropical dimension \(q\) along \(Z\).  Work on the
+convenient top cells where an auxiliary projection to a \(q\)-torus
+has the finite flat local degree specified in \cite[\S14.3.2]{CLD25}.
+Denote by \(\Sigma_f(Z)\) the
 \(q\)-dimensional characteristic skeletal locus of the moment map on \(Z\),
 and choose a convenient cellular decomposition of it in the sense of
 \cite[\S14.3.2]{CLD25}.  Let \(C\) be a top cell and put
@@ -536,7 +577,7 @@ tropicalization is injective on the affine span of \(\sigma\), let
 \(s_p:\mathbf R^q\to\langle\sigma\rangle\) be the resulting affine inverse,
 and let \(e_q\) be the lattice volume vector on \(\mathbf R^q\).  On the
 relative interior of \(C\), the analytic local degree
-\(d_C=\deg_x(p\circ f|_Z)\) is constant, with degree extended additively
+\(d_C=\deg_x(p\circ f|_Z)\) is a constant positive integer, with degree extended additively
 over the effective cycle \(Z\).  The canonical calibration is
 \[
 \begin{aligned}
@@ -555,12 +596,19 @@ same target cell, their pushed-forward calibrations are added.  After choosing
 the lattice orientation \(e_\sigma\), write the resulting target calibration
 as \(\mu_\sigma=m(\sigma)e_\sigma\); these are the positive calibration
 weights used below (and need not be integral without additional strictness and
-ground-field hypotheses).
+ground-field hypotheses).  This target construction is used on
+polyhedral subcharts where the map of calibrated skeletal supports is
+topologically compact, so that the sums of source calibrations are locally
+finite.  A global target statement additionally assumes this compactness
+and properness of \(f\) on the support of \(Z\).
 
 \begin{theorem}\label{thm:appG-analytic-calibration}
-In the preceding setting, the \(q\)-dimensional tropicalization
-\(\operatorname{Trop}_f(Z)\) is balanced with the
-multiplicities \eqref{eq:appG-analytic-multiplicity}.
+In the preceding setting, the target calibration is balanced on such
+polyhedral subcharts at faces whose preimages lie in the boundaryless
+interior.  Under the global compactness and properness conditions just
+stated, the locally finite \(q\)-dimensional tropicalization
+\(\operatorname{Trop}_f(Z)\) is balanced with the multiplicities
+\eqref{eq:appG-analytic-multiplicity}.
 These calibrations are compatible with product refinements and with
 generically finite integer-affine projections on polyhedral subcharts for
 which the induced map on the calibrated support is topologically compact; a
@@ -583,9 +631,9 @@ The imported input for balancing is
 \(q\), with the canonical calibration just described, is harmonious.  By the
 definition of harmony, the calibrated discordance vector at every
 codimension-one face \(\tau\) is zero.  Pair that vector with an integer
-covector \(\ell\) vanishing on \(N_\tau\).  Since the outgoing primitive
-normal of a top cell \(\sigma\supset\tau\) is
-\(u_{\sigma/\tau}\), the resulting scalar identity is
+covector \(\ell\) vanishing on \(N_\tau\).  Using the primitive normal
+\(u_{\sigma/\tau}\) pointing into each incident top cell
+\(\sigma\supset\tau\), the resulting scalar identity is
 \[
        \sum_{\sigma\supset\tau}
        m(\sigma)\,\ell(u_{\sigma/\tau})=0.
@@ -600,19 +648,1559 @@ Both calibrations restrict to the canonical calibration on every common
 top-dimensional subcell, by the uniqueness in
 \cite[Lemma~14.3.4]{CLD25}; summing the refined integrals therefore recovers
 the old integral.  For a generically finite integer-affine projection whose
-map on the calibrated support is topologically compact,
-\cite[Proposition~14.4.2]{CLD25} says that canonical calibrations push forward
-by analytic local degree.  Expressing lattice-normalized measure in source
-and target bases contributes exactly
+map on the calibrated support is topologically compact, pushforward sums
+the pushed-forward cell volume vectors.  When the projection is induced
+by a homomorphism of moment tori, choose an auxiliary projection to
+\(\mathbf G_m^q\) on the target and its composite on the source.
+Both calibration computations then use the same finite flat moment map;
+their affine inverses commute with the projection.  The local formula of
+\cite[\S14.3.2]{CLD25} therefore gives compatibility.  An affine translation
+only changes chart coordinates.  The related formula for finite analytic
+morphisms between spaces of level \(q\),
+\cite[Proposition~14.4.2]{CLD25}, uses the calibrated degree; this must not
+be confused with the integer finite flat degree \(d_C\) above.
+Expressing lattice-normalized measure in source and target bases contributes exactly
 \([N_{F(\sigma)}:F(N_\sigma)]\), by
 \Cref{prop:appG-calibration-tests}.  This proves the two asserted
 compatibilities and also explains the properness clause in the statement.
 \end{proof}
 
+\begin{example}[Degree and inverse lattice index]
+\label{ex:appG-degree-index}
+For the identity moment on an analytic one-dimensional torus, use the
+auxiliary projection \(p(t)=t^2\).  Its finite flat degree is two, even
+in residue characteristic two.  The tropical map is \(u\mapsto2u\),
+so its inverse sends the lattice vector to one half of that vector.
+Thus \(d_C(s_p)_*e_1=2\cdot\tfrac12e_1=e_1\), agreeing with the
+identity projection.  The integer local degree and the coefficient of
+the calibration are distinct data.
+\end{example}
+
+\begin{example}[An infinite target fibre]
+\label{ex:appG-infinite-target-fibre}
+Take a countable disjoint union of analytic one-dimensional tori and let
+\(f\) be the identity moment on every component.  The source is good,
+Hausdorff and boundaryless, and each local calibration has weight one.
+Every target skeletal point has infinitely many source preimages, however,
+so summing the target weights gives infinity.  The compactness condition
+in \Cref{thm:appG-analytic-calibration} excludes this example; local
+harmony alone does not make a global pushed-forward calibration finite.
+\end{example}
+
 The goodness and boundarylessness hypotheses are part of the statement.
 For spaces with boundary or without the goodness assumptions, the chapter
 uses the corresponding local or compact-support formulation rather than
 silently applying this global version.
+
+\section{Boundary data of a tropical compactification}
+\label{sec:appG-tropical-compactification}
+\index{tropical compactification}\index{recession fan}
+
+An unbounded calibrated support does not yet specify the boundary on
+which a compact cohomology comparison will be made. The compactification
+also depends on a fan and on the resulting face incidences. The following
+conventions follow \cite{KSW25Compactification}.
+
+\begin{samepage}
+Let $N$ be a lattice, put $N_{\mathbf R}=N\otimes_{\mathbf Z}\mathbf R$, and let
+$\mathcal P$ be a finite rational polyhedral complex in $N_{\mathbf R}$.
+The recession cone of a nonempty polyhedron $P$ is
+\[
+ \operatorname{rec}(P)
+   =\{v\in N_{\mathbf R}:P+tv\subseteq P\text{ for all }t\ge0\}.
+\]
+\end{samepage}
+We assume these cones are pointed. For a finite pointed rational fan $\Delta$,
+the associated tropical toric variety has strata
+\[
+ N_{\mathbf R}(\Delta)
+    =\coprod_{\sigma\in\Delta}
+       N_{\mathbf R}/\operatorname{span}(\sigma),
+ \qquad
+ \pi_\sigma:N_{\mathbf R}\longrightarrow
+       N_{\mathbf R}/\operatorname{span}(\sigma).
+\]
+The topology adds the limits of translations toward the relative
+interiors of the cones \cite[Definition~2.1]{KSW25Compactification}.
+In the convention of \cite[Definition~2.2]{KSW25Compactification},
+$\Delta$ is \emph{compatible} with $\mathcal P$ when, for every
+$P\in\mathcal P$ and $\sigma\in\Delta$, either
+$\sigma\subseteq\operatorname{rec}(P)$ or
+$\operatorname{relint}(\sigma)\cap\operatorname{rec}(P)=\varnothing$.
+It is \emph{compactifying} when each $\operatorname{rec}(P)$ is a
+union of cones of $\Delta$. Thus this condition concerns the ambient
+fan relative to each recession cone, rather than just a subdivision
+of the union of the polyhedra.
+
+Suppose now that the cones $\operatorname{rec}(P)$ themselves form a
+fan, denoted $\operatorname{rec}(\mathcal P)$, and take
+$\Delta=\operatorname{rec}(\mathcal P)$. The closure of
+$|\mathcal P|$ in $N_{\mathbf R}(\Delta)$ has a polyhedral complex
+structure \cite[Theorem~3.32]{KSW25Compactification}. By
+\cite[Lemma~3.31]{KSW25Compactification}, its polyhedra on the stratum
+indexed by $\sigma$ are
+\[
+ \{\pi_\sigma(P):P\in\mathcal P,
+                  \ \sigma\text{ is a face of }\operatorname{rec}(P)\}.
+\]
+A face of the compactification is the closure of a face in one of
+these strata; the unclosed face need not be a closed cell of the whole
+space \cite[Definitions~3.1 and~3.8]{KSW25Compactification}.
+For a single polyhedron compactified in the fan of its recession cone,
+vertices correspond to its faces $F$ with
+$\dim F=\dim\operatorname{rec}(F)$
+\cite[Propositions~3.24 and~3.25]{KSW25Compactification}.
+
+The positive ray already illustrates the extra incidence data. Its
+canonical compactification adds one endpoint at infinity
+\cite[Example~6.1]{KSW25Compactification}. The compact cell is an
+interval with its finite and infinite endpoints, rather than the
+unbounded ray alone. Changing the ambient fan can change the boundary:
+the refinement in \cite[Example~3.27]{KSW25Compactification} increases
+the number of new boundary vertices for a fixed polyhedron. This is
+different from subdividing cells within an already fixed ambient
+compactification.
+
+The face poset can be computed from the original polyhedral data
+\cite[Theorem~4.8]{KSW25Compactification}. To form a cellular chain
+complex, its incidence signs must also satisfy the codimension-two
+cancellation identities \cite[Definitions~5.1 and~5.2, Proposition~5.4]
+{KSW25Compactification}; coefficient maps are part of the complex as
+well. The compactification and its boundary maps are therefore inputs
+to the cohomology comparison below. The recession-fan construction
+supplies its polyhedral boundary; local tropical duality and the
+algebraic conditions in the comparison remain additional hypotheses.
+
+\section{Chow rings of canonical fan compactifications}
+\label{sec:appG-canonical-fan-chow}
+\index{Chow ring!of a fan}\index{canonical compactification}
+
+Once the boundary and coefficient maps are fixed, a compact cellular
+calculation can recover a ring rather than just a face poset. For a fan
+compactified in its own tropical toric variety, the relevant comparison
+is the tropical Feichtner--Yuzvinsky theorem of
+\cite{AP24FanChow}. The fan and the coefficient domain are part of its
+statement.
+
+Let $N$ be a lattice and let $\Sigma$ be a finite rational simplicial fan
+of pointed cones in $N_{\mathbf R}$. Write $u_\rho$ for the primitive
+generator of a ray $\rho$, and let $\overline\Sigma$ be the closure of
+$|\Sigma|$ in the tropical toric variety associated with $\Sigma$ itself.
+The rational Chow ring is
+\[
+ A^\bullet(\Sigma;\mathbf Q)
+   =\mathbf Q[x_\rho:\rho\in\Sigma(1)]/(I_\Sigma+J_\Sigma).
+\]
+Here $I_\Sigma$ is generated by squarefree monomials whose rays do not
+span a cone of $\Sigma$, and $J_\Sigma$ is generated by
+\[
+ \sum_{\rho\in\Sigma(1)}\langle m,u_\rho\rangle x_\rho,
+ \qquad m\in\operatorname{Hom}(N,\mathbf Z).
+\]
+The variables have degree one. By
+\cite[Theorem~1.1]{AP24FanChow}, there are isomorphisms
+\[
+ H^{p,p}_{\mathrm{trop}}(\overline\Sigma;\mathbf Q)
+     \simeq A^p(\Sigma;\mathbf Q),
+\]
+compatible with the products on the diagonal. Sending every
+off-diagonal group to zero gives a ring morphism from the full tropical
+cohomology to $A^\bullet(\Sigma;\mathbf Q)$. The same theorem gives
+$H^{p,q}_{\mathrm{trop}}=0$ for $p<q$ and for $p>q=0$; it does not
+assert diagonal concentration for every simplicial fan.
+
+Suppose in addition that $\Sigma$ is pure, balanced with a fixed
+fundamental class, and is a tropical homology manifold: cap product
+with that class gives local Poincar\'e duality on every open subset of
+$|\Sigma|$. Then \cite[Theorem~1.3]{AP24FanChow} identifies
+\[
+ A^\bullet(\Sigma;\mathbf Q)
+   \simeq H^{\bullet,\bullet}_{\mathrm{trop}}
+                   (\overline\Sigma;\mathbf Q),
+\]
+and every off-diagonal group vanishes. Algebra degree $p$ corresponds
+to bidegree $(p,p)$ and total cohomological degree $2p$. The local
+duality condition, rather than balancing alone, supplies this stronger
+conclusion.
+
+\subsection{Coefficient and local-duality tests}
+
+Integral coefficients require additional lattice conditions. The fan is
+unimodular when each cone's primitive ray generators form part of a
+basis of $N$. It is saturated when, at every cone $\sigma$, the lattice
+generated by the integral points in the support of the star fan
+$\Sigma^\sigma$ is saturated in $N^\sigma=N/N_\sigma$
+\cite[\S2.1]{AP24FanChow}. Unimodularity and this saturation condition
+give the integral diagonal comparison in Theorem~1.1. For the full
+integral ring comparison in Theorem~1.3, the local Poincar\'e duality
+must also hold with integral coefficients.
+
+The source's Example~8.1 makes saturation visible. In $\mathbf R^2$,
+take the three rays generated by $e_1$, $e_2$ and $-e_1-e_2$, with
+weight one, but use the ambient lattice
+\[
+ N=\mathbf Z e_1+\tfrac13\mathbf Z(e_1-e_2).
+\]
+This one-dimensional fan $\Delta$ is unimodular in $N$, while the
+lattice generated by its primitive ray vectors is
+$\mathbf Z e_1+\mathbf Z e_2$, of index three. The integral Chow group
+has a nonzero class $x_{\rho_1}-x_{\rho_2}$ of order three, whereas
+\[
+ H^{1,1}_{\mathrm{trop}}(\overline\Delta;\mathbf Z)
+       \simeq\mathbf Z
+\]
+\cite[Example~8.1]{AP24FanChow}. Thus unimodularity alone does not
+remove the coefficient issue. Over $\mathbf Q$, the diagonal
+comparison still applies.
+
+The local-duality condition has a separate test. Let $\Sigma$ be the
+two-dimensional fan with rays through the vertices $(\pm1,\pm1,\pm1)$
+of the cube and two-dimensional cones over its edges. Use the lattice
+generated by those eight vertices. With this lattice, the fan is
+unimodular, saturated and balanced, but its canonical compactification
+has
+\[
+ H^{2,1}_{\mathrm{trop}}(\overline\Sigma;\mathbf Q)
+      \simeq\mathbf Q^2
+\]
+\cite[Example~8.3 and Table~1]{AP24FanChow}. This is an off-diagonal
+group with $p>q>0$, compatible with Theorem~1.1 and excluded by the
+additional hypothesis of Theorem~1.3. Compactness here comes from
+the extended toric boundary; the support of the original fan remains
+unbounded in $N_{\mathbf R}$.
+
+\subsection{Two matroid algebras}
+
+For a loopless matroid $M$ on a nonempty finite ground set $E$, its
+ordinary Bergman fan in $\mathbf R^E/\mathbf R e_E$ supplies the
+matroid case of the canonical comparison. In its standard lattice,
+\cite[Theorem~1.2]{AP24FanChow} identifies the integral matroid Chow
+ring with the tropical cohomology ring of that fan's canonical
+compactification. This statement concerns that specified fan and
+compactification.
+
+The graded M\"obius algebra is another useful rational algebra. It
+has one basis element $y_F$ for each flat, with $\deg y_F=r(F)$ and
+\[
+ y_Fy_G=
+ \begin{cases}
+  y_{F\vee G},&r(F\vee G)=r(F)+r(G),\\
+  0,&r(F\vee G)<r(F)+r(G).
+ \end{cases}
+\]
+For a finite loopless matroid, the published
+\cite[Definition~2.17 and Proposition~2.18]{BHM22AugmentedChow}
+gives an injection
+\[
+ B^\bullet(M;\mathbf Q)\lhook\joinrel\longrightarrow
+                  A^\bullet_{\mathrm{aug}}(M;\mathbf Q).
+\]
+Its image is the subalgebra generated by the degree-one elements
+$y_i$, with $y_F=\prod_{i\in I}y_i$ for any basis $I$ of $F$.
+The square relations $y_i^2=0$, basis independence of this product,
+and vanishing for dependent products are
+\cite[Lemma~2.11]{BHM22AugmentedChow}.
+The augmented Chow ring is itself the fan Chow ring of the augmented
+Bergman fan \cite[Proposition~2.12]{BHM22AugmentedChow}. Its negative
+ray labels use proper flats, including the empty flat, and its positive
+labels use independent sets \cite[Definitions~2.2 and~2.4]
+{BHM22AugmentedChow}.
+
+The dimensions of $B^p(M;\mathbf Q)$ count the rank-$p$ flats. The
+subalgebra assertion distinguishes this count from the full augmented
+Chow ring. It also keeps a choice of compactification separate from
+the combinatorial algebra. A comparison with singular cohomology of
+an algebraic compactification requires the additional geometric
+hypotheses in \Cref{sec:appG-cohomologically-tropical}.
+
+\subsection{Intersection cohomology as a matroid module}
+\label{sec:appG-matroid-intersection-module}
+\index{matroid!intersection cohomology module}
+\index{Kazhdan--Lusztig polynomial!matroid example}
+
+A third object illustrates the role of a module over the M\"obius
+algebra. We work out the known example $M=U_{3,4}$ in
+\cite[Definitions~2.2, 2.5 and~3.4, Example~3.7]{BHM26SingularHodge},
+using rational coefficients. Its ground set is $\{1,2,3,4\}$; its
+proper flats are the empty set, the four singletons and the six
+two-element subsets. Put $A=A^\bullet_{\mathrm{aug}}(M;\mathbf Q)$.
+After eliminating the $y_i$, its presentation is
+\[
+ y_i=\sum_{\substack{F\text{ proper flat}\\i\notin F}}x_F,
+ \qquad x_Fx_G=0\quad(F,G\text{ incomparable}),
+ \qquad y_ix_F=0\quad(i\notin F).
+\]
+The degree map on $A^3$ is normalized by
+$\deg(x_\varnothing x_{\{i\}}x_{\{i,j\}})=1$ for $i\ne j$.
+We abbreviate $x_{\{i\}}$ and $x_{\{i,j\}}$ to $x_i$ and $x_{ij}$.
+The three graded objects have different dimensions:
+\[
+ \begin{array}{c|rrrr}
+  p&0&1&2&3\\\hline
+  B^p(M;\mathbf Q)&1&4&6&1\\
+  A^p&1&11&11&1\\
+  \mathrm{IH}^p(M)&1&6&6&1.
+ \end{array}
+\]
+Here the last row is realized inside $A$ by the source's orthogonal
+complement construction. In this example set
+\[
+ K_\varnothing=\mathbf Qx_\varnothing\oplus
+                \mathbf Qx_\varnothing^2,
+ \qquad K_i=\mathbf Qx_i\oplus\mathbf Qx_iy_i,
+ \qquad K=K_\varnothing\oplus\bigoplus_{i=1}^4K_i.
+\]
+Then $\mathrm{IH}=K^\perp$ for the ambient degree pairing. The
+pairing between the displayed degree-one and degree-two bases of $K$
+is $\operatorname{diag}(3,-2,-2,-2,-2)$. Thus the complement has
+the stated dimensions. The defining relations give
+\[
+ \deg(x_\varnothing^3)=3,\qquad
+ \deg(x_i^2y_i)=-2.
+\]
+These signs follow from the displayed presentation and normalization;
+the positive self-intersection sign printed in the source's
+Example~3.3 is not used here.
+
+For each two-element subset $\{a,b\}$ put
+\[
+ u_{ab}=x_{ab}+\tfrac12(x_a+x_b)+\tfrac13x_\varnothing.
+\]
+These six elements form a basis of $\mathrm{IH}^1$. Multiplication
+by each $y_i$ preserves $\mathrm{IH}$, so it is a graded $B$-module
+containing $B$. The complement need not inherit the ring product:
+in this realization
+$\deg(x_\varnothing u_{12}^2)=-1/3$, whereas every element of
+$\mathrm{IH}^2$ pairs trivially with $x_\varnothing$.
+Consequently $u_{12}^2\notin\mathrm{IH}^2$. Its pairings and the
+action of $B$ still use multiplication in the ambient ring $A$.
+
+The positive class $\ell=y_1+y_2+y_3+y_4$ gives an explicit finite
+Lefschetz calculation. The degree pairing between
+$\mathrm{IH}^1$ and $\mathrm{IH}^2$ is nondegenerate,
+$\ell:\mathrm{IH}^1\to\mathrm{IH}^2$ has rank six, and
+$\deg(\ell^3)=24$. The primitive subspace
+$\ker(\ell^2:\mathrm{IH}^1\to\mathrm{IH}^3)$ has basis
+\[
+ u_{13}-u_{12},\quad u_{23}-u_{12},\quad u_{14}-u_{12},
+ \quad u_{24}-u_{12},\quad u_{34}-u_{12}.
+\]
+On this basis the signed form $-\deg(\ell uv)$ has matrix
+\[
+ \begin{pmatrix}
+ 3&3/2&3/2&2&1\\
+ 3/2&3&2&3/2&1\\
+ 3/2&2&3&3/2&1\\
+ 2&3/2&3/2&3&1\\
+ 1&1&1&1&2
+ \end{pmatrix}.
+\]
+Its successive leading principal minors are
+$3,27/4,21/2,16,24$, so it is positive definite over $\mathbf R$.
+These are exact calculations for the specified matroid and class.
+
+There is also a small polynomial check. Let
+$\mathfrak m=B^{>0}(M;\mathbf Q)$. The above module has
+\[
+ \operatorname{Hilb}(\mathrm{IH}/\mathfrak m\mathrm{IH};t)=1+2t,
+ \qquad
+ \operatorname{Hilb}(\mathrm{IH};t)=1+6t+6t^2+t^3.
+\]
+These agree with the Kazhdan--Lusztig and $Z$ polynomials in this
+example. Indeed, the rank-flat palindromic characterization in
+\cite[\S1.1]{BHM26SingularHodge} gives
+\[
+ Z_M(t)=\sum_{F\in L(M)}t^{r(F)}P_{M/F}(t)
+       =P_M(t)+4t+6t^2+t^3.
+\]
+The proper nonzero-flat contractions have rank at most two and
+constant polynomial one. Palindromicity of $Z_M$ and
+$\deg P_M<3/2$ force $P_M(t)=1+2t$. This finite computation does
+not require the general identification of those polynomials with
+intersection-cohomology Hilbert series. It supplies a concrete
+module example alongside the Chow-ring comparisons, without a
+cohomology identification for a different compactification.
+
+\subsection{The singular cohomology of the ambient toric variety}
+\label{sec:appG-uniform-singular-cohomology}
+\index{matroid!singular cohomology ring}
+\index{Koszul complex!toric cohomology}
+
+The ordinary Bergman fan also defines a smooth complex toric variety,
+whose singular cohomology is another useful object. For $M=U_{3,4}$,
+let $\Sigma$ be its ordinary Bergman fan in
+$N_{\mathbf R}$, where $N=\mathbf Z^4/\mathbf Z(1,1,1,1)$, and
+put $X=X_\Sigma$. This is a nonproper three-dimensional variety.
+The known example in \cite[Example~3.20]{Binder26UniformCohomology}
+computes its rational singular cohomology, including odd degrees.
+
+Here the Stanley--Reisner ring is
+\[
+ R=\mathbf Q[x_F:F\text{ proper nonempty flat}]/
+                 (x_Fx_G:F,G\text{ incomparable}).
+\]
+It has ten generators. With $V=N^\vee\otimes\mathbf Q$ and
+$m_i=\ell_i-\ell_4$ for $1\le i\le3$, form
+\[
+ K_i(R)_j=R_{j-i}\otimes\bigwedge^iV,
+ \qquad d(x_F)=0,\qquad
+ d(m_i)=\sum_{i\in F}x_F-\sum_{4\in F}x_F.
+\]
+The sums range over the proper nonempty flats. The rational
+cohomology-ring identification uses the canonical Koszul product
+\cite[Theorems~1.1 and~1.2]{FranzFu24Naturality}; its hypothesis
+that two be invertible holds here. The weight grading is
+\[
+ H_i(K(R))_j\simeq
+        \operatorname{Gr}^W_{2j}H^{2j-i}(X,\mathbf Q)
+\]
+\cite[\S\S3.2 and~5]{Weber04ToricWeights}
+\cite[\S2.2]{Binder26UniformCohomology}.
+Thus $i$ is the Koszul homological degree, $j$ is the internal
+degree, $2j-i$ is the cohomological degree and $2j$ is the weight.
+
+The example has the following dimensions, with row index $j-i$:
+\[
+ \begin{array}{c|rr}
+  (j-i)\backslash i&0&1\\\hline
+  0&1&0\\
+  1&7&6\\
+  2&1&3.
+ \end{array}
+\]
+All other entries vanish. The source's finite square-free
+subcomplex \cite[Definition~A.4 and Lemma~A.5]
+{Binder26SingularCohomology} provides a finite calculation of these
+groups. Its nonzero internal degrees are zero through three in
+this example. Exact differentials reproduce the table and check
+the source's displayed cycle classes modulo boundaries. For
+instance, if $\{a,b\}\sqcup\{c,d\}=\{1,2,3,4\}$ with $c<d$, the
+six classes $x_{ab}\otimes(\ell_c-\ell_d)$ give the six-dimensional
+entry with $(i,j)=(1,2)$.
+
+The resulting polynomial in the cohomological degree is
+\[
+ \sum_k\dim H^k(X,\mathbf Q)t^k
+       =1+7t^2+6t^3+t^4+3t^5.
+\]
+Its odd groups have weights four in degree three and six in degree
+five. The zero-homological-degree column is the ordinary matroid
+Chow ring, of dimensions $(1,7,1)$ and cohomological degrees
+$0,2,4$. The positive homological degree retains additional
+singular-cohomology classes of the nonproper ambient toric variety.
+
+A specified class also makes the multiplicative distinction
+concrete. Put
+\[
+ \eta=3\sum_{i=1}^4x_i+4\sum_{1\le i<j\le4}x_{ij}.
+\]
+Multiplication by $\eta^2$ from $H^0$ to $H^4$ has rank one;
+multiplication by $\eta$ from $H^2$ to $H^4$ has rank one and
+from $H^3$ to $H^5$ has rank three. These are exact ranks for
+this class, computed in Koszul homology. The latter map is
+surjective between spaces of dimensions six and three. The
+weight-graded ranks can be compared with the source's uniform
+matroid Lefschetz result \cite[Theorem~5.5]
+{Binder26UniformCohomology}; that general result is not needed
+for the finite rank calculation. Here $H^0$ has dimension one
+and the top nonzero $H^5$ has dimension three, so the singular
+cohomology has no projective Poincar\'e-duality dimension pattern.
+
+This example records how the chosen toric variety and cohomology
+functor affect the answer. The ordinary Chow ring, the preceding
+augmented intersection-cohomology module and the singular
+cohomology of $X_\Sigma$ have the stated different gradings and
+dimensions. The canonical compactification comparison and the
+all-strata comparison below each retain their own geometric setting.
+
+\subsection{Uniform real-rootedness and the role of augmentation}
+\label{sec:appG-uniform-real-rootedness}
+\index{matroid!refined Hodge--Poincare polynomial}
+\index{real-rooted polynomial!uniform matroid}
+
+The weight grading also gives a way to compare families of examples.
+For one of the specified smooth complex toric fans, write
+\[
+ \mathcal H_i(\Sigma;x)=
+    \sum_j\dim_{\mathbf Q}H_i(K(\mathbf Q[\Sigma]))_j\,x^{j-i}.
+\]
+The exponent is the row index of the preceding table, rather than
+the cohomological degree $2j-i$. For the ordinary Bergman fan of
+$U_{r,n}$, denote this polynomial by
+$\mathcal H^{\mathrm{ord}}_{r,n,i}(x)$. The example above has
+\[
+ \mathcal H^{\mathrm{ord}}_{3,4,0}=1+7x+x^2,
+ \qquad \mathcal H^{\mathrm{ord}}_{3,4,1}=6x+3x^2.
+\]
+
+Binder--Vecchi prove that these ordinary refined polynomials have
+only real zeros for every $1\le r\le n$ and $0\le i\le n-r$
+\cite[Theorem~1.4]{BinderVecchi26AugmentedCohomology}.
+This is the September 2026 resolution of the uniform conjecture
+in \cite[Conjecture~5.8]{Binder26UniformCohomology}.
+The case $i=0$ is the ordinary Chow polynomial and uses the
+real-rootedness theorem of Br\"and\'en--Vecchi
+\cite[Theorem~1.1]{BrandenVecchi26UniformChow}.
+The nonnegative coefficient sequences are consequently log-concave
+and unimodal.
+
+The argument for $i\ge1$ explains why positivity of a particular
+expansion matters. Let $d_k(x)=\sum_{\pi\in\mathfrak D_k}
+x^{\operatorname{exc}(\pi)}$, where $\mathfrak D_k$ consists of
+permutations without fixed points and $\operatorname{exc}(\pi)$
+counts the indices $a$ with $\pi(a)>a$. Thus $d_0=1$ and $d_1=0$.
+Let $D$ be the linear operator
+$D(x^k)=d_k(x)$. The source constructs
+\[
+ f_{r,n,i}(x)=\sum_{k=0}^{r-1}\sum_{m=0}^k
+   \binom{n-m-1}{r+i-m-1}\binom{i+k-m-1}{i-1}
+      x^{r-1-k}(1+x)^k
+\]
+and identifies
+\[
+ \mathcal H^{\mathrm{ord}}_{r,n,i}(x)
+       =x^{r-1}D(f_{r,n,i})(x^{-1})
+\]
+\cite[\S7.2]{BinderVecchi26AugmentedCohomology}.
+Binomial coefficients outside their ordinary range are zero.
+All coefficients in the displayed expansion of $f$ are
+nonnegative. The known deranged-map criterion
+\cite[Corollary~3.7]{BrandenSolus21Symmetric} therefore gives
+real-rootedness of $D(f)$, and reversal preserves real zeros.
+This uses positivity in the basis $x^a(1+x)^{r-1-a}$;
+nonnegativity in the monomial basis alone does not supply this hypothesis.
+The same paper's Conjecture~1.5 asks for real-rootedness of
+$\mathcal H_i(\Sigma_M;x)$ for every loopless matroid $M$,
+which is a further question beyond the uniform theorem.
+
+Augmentation changes this conclusion. Work now in the lattice
+$\mathbf Z^n$. The augmented Bergman fan has positive rays $e_i$
+and negative rays $-e_{[n]\setminus F}$ for proper flats $F$,
+including $F=\varnothing$. Its cones combine an independent
+set $I$ with a flag of proper flats containing $I$ in every
+member. An empty flag permits every independent $I$.
+Write $\mathcal H^{\mathrm{aug}}_{r,n,i}$ for its refined
+polynomial. The source's modified fan instead includes every
+positive coordinate cone, including the full positive orthant,
+and retains the compatible cones involving proper-flat rays
+\cite[Definition~4.1]{BinderVecchi26AugmentedCohomology}.
+It is nonpure if $r<n$. Both ambient toric varieties have complex
+dimension $n$; the modification changes the fan and its cohomology.
+Denote the modified polynomial by
+$\mathcal H^{\mathrm{mod}}_{r,n,i}$. Their difference is
+\[
+ \mathcal H^{\mathrm{aug}}_{r,n,i}(x)
+  =\mathcal H^{\mathrm{mod}}_{r,n,i}(x)
+       +\binom{n}{r+i}\binom{r+i-1}{i-1}x^r,
+ \qquad 1\le i\le n-r
+\]
+\cite[Proposition~6.6 and equation~(7)]
+{BinderVecchi26AugmentedCohomology}.
+
+Two known examples make the difference explicit
+\cite[Example~7.5]{BinderVecchi26AugmentedCohomology}:
+\[
+ \mathcal H^{\mathrm{aug}}_{3,8,4}(x)=140x+372x^2+259x^3,
+ \qquad 372^2-4\cdot259\cdot140=-6656,
+\]
+so the nonzero roots include a nonreal conjugate pair. Likewise,
+\[
+ \mathcal H^{\mathrm{aug}}_{4,30,24}(x)
+   =1319500x+9083815x^2+8789785x^3+8811999x^4
+\]
+is not unimodal: its last three coefficients decrease and then
+increase. Removing the independence contribution changes the
+last coefficient to $1177749$.
+
+In contrast, the modified polynomials are real-rooted
+\cite[Theorem~1.6]{BinderVecchi26AugmentedCohomology}.
+For $i\ge1$, the proof uses the Eulerian transformation
+$A^\circ(1)=1$, $A^\circ(x^k)=xA_k(x)$ for $k\ge1$,
+where $A_k(x)=\sum_{\pi\in\mathfrak S_k}x^{\operatorname{exc}(\pi)}$,
+and its positivity criterion
+\cite[Theorem~1.1]{Athanasiadis25Eulerian}.
+For $i=0$, both augmented constructions give the augmented Chow
+polynomial; its uniform real-rootedness is the identified result
+\cite[Theorem~1.10]{FMSV24ChowSeries}.
+The modified fan also has the weight-graded quasi-projective
+Strong Lefschetz property of
+\cite[Theorem~1.3]{BinderVecchi26AugmentedCohomology}:
+for generic $\ell\in\operatorname{Gr}^W_2H^2$, every map
+$\ell^d:\operatorname{Gr}^W_qH^p\to
+\operatorname{Gr}^W_{q+2d}H^{p+2d}$ has maximal rank for
+$p,q\ge0$ and $d\ge1$.
+These results concern the specified toric fans. They do not
+identify their full singular cohomology with the earlier
+intersection-cohomology module or with a tropical compactification.
+
+\subsection{Projective deletions and local polynomial counterexamples}
+\label{sec:appG-projective-deletion-KL}
+\index{Kazhdan--Lusztig polynomial!projective deletion}
+\index{matroid!local and global polynomials}
+
+Real-rootedness depends on the polynomial under consideration.
+The uniform toric cohomology polynomials above differ from the
+Kazhdan--Lusztig polynomial $P_M$. In the $U_{3,4}$ module example,
+$P_M$ records the quotient by $B^{>0}$, whereas $Z_M$ records the
+whole module. A Lefschetz map on that module does not automatically
+give such a map on its quotient. Cheng--Liu's July 2026 preprint
+provides concrete examples of this distinction
+\cite{ChengLiu26MatroidKL}.
+
+Here is its projective-deletion criterion, with its hypotheses
+retained \cite[Theorem~1.1]{ChengLiu26MatroidKL}.
+Let $V=\mathbf F_q^r$, let $D\subset\mathbf P(V)$ be deleted
+projective points, and suppose the surviving set
+$E=\mathbf P(V)\setminus D$ spans $V$. The represented matroid
+$M$ is simple and has rank $r$. A subspace $U\le V$ is a flat
+span when $F_U=E\cap\mathbf P(U)$ spans $U$. Define
+\[
+ C_U(t)=\sum_{\substack{U\le A\le V\\
+              \mathbf P(A)\setminus\mathbf P(U)\subset D}}
+              t^{\dim A-\dim U}.
+\]
+If $\deg C_U<(r-\dim U)/2$ for every proper flat span $U$,
+then the known criterion gives
+\[
+ P_{M/F_U}(t)=C_U(t),\qquad
+ Z_M(t)=\sum_{j=0}^r\genfrac{[}{]}{0pt}{}{r}{j}_q t^j.
+\]
+The Gaussian coefficient counts the $j$-dimensional subspaces
+of $V$ and equals
+$\prod_{a=0}^{j-1}(q^{r-a}-1)/(q^{j-a}-1)$; the empty product
+is one.
+
+The combinatorial proof explains both the degree condition and
+the global polynomial. For each $A\le V$, its surviving span
+$\sigma(A)=\operatorname{span}(E\cap\mathbf P(A))$ is a flat
+span. The equality $\sigma(A)=U$ holds exactly for the subspaces
+counted by $C_U$. Thus
+\[
+ \sum_{F_U\in L(M)}t^{\dim U}C_U(t)
+     =\sum_{A\le V}t^{\dim A}.
+\]
+Contraction by $F_U$ deletes a quotient direction precisely when
+its whole projective fibre was deleted. Successive quotients
+retain this description and the degree hypotheses. Induction on
+rank, followed by the palindromic characterization used in
+\Cref{sec:appG-matroid-intersection-module}, identifies every
+$C_U$ with $P_{M/F_U}$
+\cite[Lemmas~2.1 and~2.3 and Proposition~2.2]{ChengLiu26MatroidKL}.
+
+A small example already disproves general real-rootedness
+\cite[Appendix, Theorem~A.4]{ChengLiu26MatroidKL}.
+Take $V=\mathbf F_2^7$ with basis $e_1,\ldots,e_7$, put
+$W=\langle e_1,e_2,e_3\rangle$, and delete
+\[
+ \begin{split}
+ S={}&\{e_4,e_4+e_5,e_4+e_6,e_4+e_7,\\
+     &\hspace{16mm}e_4+e_5+e_6,e_4+e_5+e_7\},\qquad
+ D=(W\setminus\{0\})\cup S.
+ \end{split}
+\]
+Over $\mathbf F_2$, nonzero vectors are projective points.
+There are $13$ deleted points and $114$ surviving points. The
+latter span $V$, since a hyperplane has only $63$ projective
+points. No subspace of dimension at least two contained in $D$
+meets $S$: sums of two distinct points of $S$, or of a point of
+$S$ with a nonzero point of $W$, lie outside $D$.
+Consequently $C_0=1+13t+7t^2+t^3$.
+For $\dim U=k$ and an $h$-dimensional extension in the quotient,
+the required deleted fibre has $2^k(2^h-1)$ points. At
+$h=\lceil(7-k)/2\rceil$, these numbers, for $k=0,\ldots,6$,
+are $15,14,28,24,48,32,64$, all greater than $13$.
+Every proper flat span therefore satisfies the degree bound.
+The criterion gives
+\[
+ P_M(t)=1+13t+7t^2+t^3.
+\]
+Its cubic discriminant is $-268$, so it has one real root and
+two nonreal conjugate roots. Its coefficient sequence is still
+unimodal; a separate example is needed to disprove unimodality.
+
+For that example, take $V=\mathbf F_2^{17}=W\oplus X$ with
+$\dim W=6$ and $\dim X=11$. Choose a hyperplane $H<X$ and
+any $589$ points $S$ in the $1024$-point affine chart
+$\mathbf P(X)\setminus\mathbf P(H)$. Delete
+$D=\mathbf P(W)\cup S$. Every projective line lying in $D$
+lies in $\mathbf P(W)$: a line through two chart points meets
+$\mathbf P(H)$, and a line joining $W$ to a chart point has a
+point with both components nonzero. The source's line-separated
+criterion applies because $6<17/2$ and $|D|=652<2^{15}$
+\cite[Proposition~2.6 and Corollaries~1.2--1.3]
+{ChengLiu26MatroidKL}. This simple binary matroid has $130419$
+elements and
+\[
+ P_M(t)=1+652t+651t^2+1395t^3+651t^4+63t^5+t^6.
+\]
+The strict valley $652>651<1395$ disproves unimodality, and
+$651^2<652\cdot1395$ disproves log-concavity. Since all
+coefficients are positive, Newton's inequalities also exclude
+real-rootedness.
+
+In both examples, $Z_M$ is the Gaussian rank polynomial above.
+Its coefficients are symmetric and unimodal: the adjacent ratio
+is $(2^{r-j}-1)/(2^{j+1}-1)$. Thus the local counterexamples
+coexist with a well-behaved global polynomial. They concern
+$P_M$, and do not change the uniform toric cohomology results in
+\Cref{sec:appG-uniform-real-rootedness}.
+
+\subsection{Snapper polynomials of line classes}
+\label{sec:appG-matroid-Snapper}
+\index{Snapper polynomial}
+
+There is another polynomial attached to the same Bergman fan:
+it measures powers of a line-bundle class, rather than graded
+cohomology. Li's September 2026 preprint proves positivity for
+classes supported on rank-two flats
+\cite[Theorems~3.6--3.7]{Li26Snapper}. The definition of its Euler
+functional matters because the ordinary Bergman toric variety is
+usually not proper.
+
+Let $M$ be a loopless matroid on a nonempty ground set $E$, of
+rank $r\ge1$. Write $K(M)$ for the vector-bundle K-ring of its
+ordinary Bergman toric variety, and $A(M)$ for its integral Chow
+ring. For each nonempty flat $F$, the simplicial line class
+$\mathcal L_F$ has first Chern class $h_F$. There is a known
+integral ring isomorphism
+\[
+ \zeta_M:K(M)\longrightarrow A(M),\qquad
+ \zeta_M(1-[\mathcal L_F]^{-1})=h_F
+\]
+\cite[Theorem~1.8]{LLPP24KRings}. Put $\alpha=h_E$ and define
+\[
+ \chi_M(\xi)=
+ \deg_M\!\left(\zeta_M(\xi)
+       (1+\alpha+\cdots+\alpha^{r-1})\right).
+\]
+Here $\deg_M$ takes the component of Chow degree $r-1$.
+This is the combinatorial Euler functional of
+\cite[\S1.5]{LLPP24KRings}, not a proper pushforward from the
+nonproper toric variety. If an arrangement $\mathcal A$
+realizes $M$, its smooth projective wonderful model
+$W_{\mathcal A}$ has the same K-ring, and this functional
+agrees with the sheaf Euler characteristic on $W_{\mathcal A}$
+\cite[Proposition~1.6 and \S1.5]{LLPP24KRings}.
+The exceptional map $\zeta_M$ is not the classical Chern
+character; its displayed factor is not a classical Todd class.
+
+Let $L_2(M)$ be the rank-two flats and choose integers
+$\omega_F\ge0$ for $F\in L_2(M)$. Set
+\[
+ \mathcal L_\omega=\bigotimes_{F\in L_2(M)}
+                         \mathcal L_F^{\otimes\omega_F},
+ \qquad f_\omega(q)=\chi_M([\mathcal L_\omega]^q).
+\]
+Li calls this a zonotopal class. Its defining generalized
+permutohedron $\sum_F\omega_F\Delta_F$, where
+$\Delta_F=\operatorname{conv}\{e_a:a\in F\}$, need not itself
+be a zonotope: a rank-two flat can contain three or more elements.
+
+The known formula identifies $f_\omega$ with a weighted
+independence polynomial. Let $T(M)$ be the Dilworth truncation
+along the lines of $M$: a set $I$ of rank-two flats is independent
+when
+\[
+ \operatorname{rk}_M\!\left(\bigcup_{F\in J}F\right)
+       \ge |J|+1
+ \quad\text{for every nonempty }J\subseteq I.
+\]
+Then
+\[
+ f_\omega(q)=\sum_{I\text{ independent in }T(M)}
+                     \left(\prod_{F\in I}\omega_F\right)q^{|I|}.
+\]
+The empty set contributes one. One way to obtain this formula
+is to use the known rising-binomial Snapper formula
+\cite[Corollary~7.5]{LLPP24KRings}. Its dragon Hall--Rado
+tuples satisfy the rank inequalities on nonzero subtuples.
+For a rank-two flat, the singleton inequality forces its
+multiplicity to be at most one, so each rising binomial becomes
+$\omega_Fq$; the remaining inequalities are exactly those above.
+The underlying top-degree intersection formula is
+\cite[Theorem~5.2.4]{BES24Simplicial}.
+
+Delete all zero-weight lines and let $d$ be the rank of the
+resulting restriction of $T(M)$. Thus $d=\deg f_\omega$, which
+can be smaller than $r-1$. In particular, $d=0$ and
+$f_\omega=1$ when all weights vanish or $r=1$. With this actual
+degree, the known magic-positivity statement is
+\[
+ f_\omega(q)=\sum_{i=0}^d m_iq^i(1+q)^{d-i},
+ \qquad m_i\ge0.
+\]
+Its shelling proof explains the integer-weight hypothesis.
+Choose a lexicographic shelling of the bases $B$ of the
+positive-support restriction, and let $R(B)$ be its
+restriction face: the new faces at $B$ form the interval
+$[R(B),B]$. The magic-coefficient polynomial is
+\[
+ \begin{split}
+ m(y)&=(1-y)^d f_\omega\!\left(\frac{y}{1-y}\right)\\
+ &=\sum_B
+       \left(\prod_{F\in R(B)}\omega_F\right)y^{|R(B)|}
+       \prod_{F\in B\setminus R(B)}
+                    \bigl(1+(\omega_F-1)y\bigr).
+ \end{split}
+\]
+Every factor has nonnegative coefficients since the retained
+integer weights are at least one
+\cite[proof of Theorem~3.7]{Li26Snapper}.
+
+Define the numerator $h_\omega^*$ using the same degree $d$:
+\[
+ \sum_{q\ge0}f_\omega(q)t^q
+       =\frac{h_\omega^*(t)}{(1-t)^{d+1}}.
+\]
+Magic positivity implies that this numerator has nonnegative
+coefficients and only real roots. The real-root conclusion
+uses the identified refined-Eulerian transformation
+\cite[Corollary~4.5]{BJM19Zonotopes}; it is a known general
+input, not a consequence of the finite checks below.
+
+For a concrete comparison, give weight one to all six pairs
+in $\{1,2,3,4\}$. The same polytope
+$\Pi_3=\sum_{a<b}\Delta_{\{a,b\}}$ gives different Snapper
+polynomials for the Boolean matroid $B_4$ and $U_{3,4}$
+\cite[Example~3.11 and Table~1]{Li26Snapper}. Their line
+truncations are respectively the graphic matroid of $K_4$
+and $U_{2,6}$, so
+\[
+ \begin{array}{c|l|c}
+ M&f_\omega(q)&(m_0,\ldots,m_d)\\ \hline
+ B_4&1+6q+15q^2+16q^3&(1,3,6,6)\\
+ U_{3,4}&1+6q+15q^2&(1,4,10)
+ \end{array}
+\]
+and the corresponding numerators are
+\[
+ h_{B_4}^*(t)=1+34t+55t^2+6t^3,\qquad
+ h_{U_{3,4}}^*(t)=1+19t+10t^2.
+\]
+The Boolean case is the Ehrhart polynomial of $\Pi_3$.
+The uniform case has degree two, reflecting the dimension of
+its wonderful model.
+
+The second polynomial also has a direct geometric check.
+Four general projective lines over $\mathbf C$ realize
+$U_{3,4}$; their wonderful surface is the blowup of
+$\mathbf P^2$ at the six pairwise intersections. With
+$H$ the pullback of a line and $E_F$ the exceptional curves,
+$h_F=H-E_F$, and
+\[
+ D=6H-\sum_F E_F,\qquad K_W=-3H+\sum_F E_F.
+\]
+The intersection form gives $D^2=30$, $D\cdot K_W=-12$
+and $\chi(\mathcal O_W)=1$. Classical surface
+Riemann--Roch therefore yields
+$\chi(W,\mathcal O_W(qD))=1+6q+15q^2$.
+This agreement compares two computations of Euler
+characteristic; it identifies neither the exceptional
+K-to-Chow map with a Chern character nor the Snapper
+polynomial with any ordinary or intersection-cohomology
+polynomial from the preceding subsections.
+
+\subsection{Projection dimensions and multidegree support}
+\label{sec:appG-multidegree-support}
+\index{polymatroid!multidegree support}
+
+Support has geometric content independent of a choice of Chow-ring
+presentation. Let $k$ be any field and let
+$X\subset\prod_{i=1}^n\mathbf P^{m_i}_k$ be a reduced
+irreducible closed subvariety of dimension $d$. Write $H_i$
+for the restricted hyperplane classes, and put
+\[
+ r_X(A)=\dim\pi_A(X),\qquad
+ a_\alpha=\deg_X(H_1^{\alpha_1}\cdots H_n^{\alpha_n}),
+ \qquad |\alpha|=d.
+\tag{G.25}\label{eq:appG-projection-rank}
+\]
+The empty projection has dimension zero. The following is
+\cite[Theorem~3.12]{CastilloCidRuizLiMontanoZhang20MultidegreesPublished}.
+\begin{theorem}
+\label{thm:appG-multidegree-support}
+With these hypotheses, $a_\alpha>0$ if and only if
+\[
+ \sum_{i\in A}\alpha_i\leq r_X(A)
+                 \quad\hbox{for every }A\subseteq\{1,\ldots,n\}.
+\tag{G.26}\label{eq:appG-multidegree-inequalities}
+\]
+Thus the nonzero multidegrees form the integral base set of the
+algebraic polymatroid with rank function $r_X$.
+\end{theorem}
+
+All subset inequalities are required simultaneously. For a reducible
+closed scheme, Corollary~3.13 instead asks that they hold on
+one top-dimensional irreducible component, using that component's
+projection ranks. A reducible arithmetically Cohen--Macaulay scheme
+need not have polymatroid support. Replacing the component ranks
+by those of the whole scheme loses this condition.
+
+Proposition~5.1 identifies $r_X(A)$ with the transcendence degree
+of the join of the factor function fields in $k(X)$. Conversely,
+\cite[Proposition~5.4]{GrundHuhMichalekSuessWang25VolumeV1}
+constructs a multiprojective graph closure from finite generators
+of any algebraic polymatroid over the same field. Together with
+the positivity theorem this answers the 2020 source's
+Question~5.8 affirmatively, over arbitrary fields. This is an
+attributed later result, not an original support theorem of the book.
+Its arbitrary-field support formulation is kept separate from
+the algebraically closed operator setup in
+\cref{sec:appD-volume-operators}.
+
+Over an algebraically closed field,
+$\sum a_\alpha\mathbf x^{[\alpha]}$ is precisely the
+$1/d!$ divisor-volume polynomial of $X$. Exact realizable
+volume supports are therefore algebraic polymatroids in the
+sense of the cited source. This does not classify supports of
+all coefficientwise limits: vanishing coefficients can change
+support at the boundary. Nor does a realization of a combinatorial
+Chow ring by a fan automatically realize every polynomial in it
+as an algebraic divisor-volume polynomial.
+
+The ordinary skew-Schur permutahedra in
+\cref{sec:appF-Richardson-volume} have a particularly explicit
+rank function and are linearly representable over any infinite
+field, as described in the source's \S6--7. General algebraic
+polymatroids need not be linear. Likewise, the matroid operation
+called intersection in the volume-operator paper is
+$(M_1^*\vee M_2^*)^*$, the dual of the union of duals; it is
+not the common-independent-set system. Loop and coloop cases
+must be included when extracting polynomial minors.
+These support and preservation results do not settle the general
+algebraic-matroid duality question or transfer all algebraic
+realizations to the analytic volume cone.
+
+\subsection{Finite matroid certificates for tropical Chern classes}
+\label{sec:appG-tropical-Chern-certificates}
+\index{tropical toric bundle!Chern classes}
+\index{matroid!inverse Chern certificate}
+
+Combinatorial projective bundles give full moment algebras even
+when no vector bundle realizes the matroid. The construction here
+uses the precise tropical toric bundles of
+\cite{KavehManon24TropicalBundlesV2}, on a smooth complete
+projective fan $\Sigma$ of dimension $d$. Put
+$A=A^\bullet(X_\Sigma)_{\mathbf R}$, with its degree and ample
+cone. This toric Chow algebra is generated in degree one and
+has the combinatorial K\"ahler package. All Chern identities below
+are in this fixed coefficient algebra.
+
+A rank-$r$ bundle in the specified sense has a finite loopless
+matroid $M$ and an integral apartment map on each cone. Use the
+minimum-on-circuits convention. If $B_\sigma$ is an adapted basis
+with characters $u_{\sigma,b}$, its coordinate functions satisfy
+\[
+ v_b(x)=\langle u_{\sigma,b},x\rangle,
+ \qquad
+ v_e(x)=\min_{b\in C_{B_\sigma}(e)\setminus\{e\}}v_b(x)
+       \quad(e\notin B_\sigma, x\in\sigma),
+\tag{G.27}\label{eq:appG-KM-apartment}
+\]
+where $C_B(e)$ is the fundamental circuit. Global generation
+means that a witness basis can be chosen on each maximal cone
+such that $\langle u_{\sigma,b},v_\rho\rangle\leq v_b(v_\rho)$
+for every ray of the fan. This is the finite witness in
+\cite[Definition~6.4 and Theorem~6.5]{KavehManon24TropicalBundlesV2}.
+It is not a claim about an exact category of tropical sheaves.
+
+The sign and dualization in the following construction matter.
+Take one labelled copy $(\sigma,b)$ of each generating witness,
+let $p(\sigma,b)=b$, and define the parallel matroid $P$ by
+$r_P(S)=r_M(p(S))$. Add two zero-weight loops and let $G$ be
+the enlarged ground set. The witness copies $I_\sigma$ are
+maximum-weight bases of $P$. Consequently their complements
+$J_\sigma=G\setminus I_\sigma$ are minimum-weight bases of
+$Q=P^*$, of rank $s=|G|-r\geq2$.
+This gives the cone map required for the positive combinatorial
+projective-bundle relation of
+\cite[Theorem~3.9]{LarsonPartida26ProjectiveBundlesV1}.
+The convention is calibrated against the equivariant tautological
+classes in \cite[\S3]{BergetEurSpinkTseng23TautologicalV4}.
+
+For its coefficient series $K(t)$, the exact equivariant identity is
+\[
+ K_T(t)c_t^T(E)=\prod_{g\in G}(1+u_gt),
+ \qquad K(t)c_t(E)=1\quad\text{in }A[t].
+\tag{G.28}\label{eq:appG-tropical-Chern-inverse}
+\]
+The second identity follows after global characters vanish in
+ordinary Chow. The equivariant right side is not replaced by one
+before that specialization. The dual matroid and the positive
+relative class $+\xi$ are retained. The associated monic ring
+$A[\xi]/(\xi^s+k_1\xi^{s-1}+\cdots+k_s)$ has the package for
+$L+t\xi$, $L$ ample and $t>0$, with $\xi$ in the cone closure
+\cite[Theorem~7.6]{NguyenDangWang26ChernFlowV4}.
+
+The joint construction is Proposition~7.7 of that source.
+\begin{theorem}
+\label{thm:appG-tropical-Chern-moments}
+For globally generated Kaveh--Manon bundles $E_1,\ldots,E_m$
+on the same smooth projective fan, the full moment algebra with
+$C_{i,a}=c_a(E_i)$ has the K\"ahler package in formal dimension
+$d$, for the image of $\{L+\sum_i t_i z_i:L\text{ ample},\ t_i>0\}$.
+For nef classes $H_j$, the polynomial
+\[
+ \sum_{|\alpha|+|\beta|=d}
+ \deg_A\left(\prod_i c_{\alpha_i}(E_i)\prod_jH_j^{\beta_j}\right)
+       \frac{\mathbf x^\alpha\mathbf y^\beta}{\alpha!\beta!}
+\tag{G.29}\label{eq:appG-tropical-Chern-polynomial}
+\]
+is Lorentzian, with zero allowed. If the ample $H_j$ span $A^1$,
+its apolar algebra is the full marked moment algebra. If
+$\theta=\prod_i c_{r_i}(E_i)\ne0$, where $r_i$ is the rank,
+then $A/\operatorname{Ann}_A(\theta)$, with weighted degree
+$\deg_A(\theta\,\cdot)$, has the package in dimension
+$d-\sum_i r_i$ for the image of the ample cone.
+\end{theorem}
+
+For rank $r\leq d$ and ample $H$, it follows that
+$a_i=\deg_A(c_i(E)H^{d-i})$ is nonnegative and
+$a_i^2\geq a_{i-1}a_{i+1}$ for $1\leq i<r$, with an interval
+of nonzero indices. This is the attributed answer in
+\cite[Corollary~7.8]{NguyenDangWang26ChernFlowV4} to
+\cite[Conjecture~1.7]{KavehManon24TropicalBundlesV2}.
+The nef specialization permits zero. Matroid representability
+is not required for the abstract certificate. Accordingly, this
+argument gives combinatorial Hodge algebras rather than geometric
+evaluation bundles or algebraic divisor-volume realizations for
+every nonrepresentable case. It uses neither tropical higher
+sheaf cohomology nor kernels of exact tropical bundle sequences.
+
+The matroid convention can be checked without a flag-order
+shorthand. Minimum on circuits occurs at least twice, and every
+strict upper-level set is a flat. The least majorant of weights
+$w$ in this convention is
+\[
+ (\operatorname{cl}_M w)_e
+   =\max_{\substack{\varnothing\ne S\subseteq E(M)\\
+                    e\in\operatorname{cl}_M(S)}}\min_{g\in S}w_g.
+\tag{G.30}\label{eq:appG-matroid-weight-closure}
+\]
+This is the sign-adjusted subdominant-ultrametric formula of
+\cite{Ardila04UltrametricsV1}, used in
+\cite[Proposition~7.10]{NguyenDangWang26ChernFlowV4}.
+Together with finite character-adaptation inequalities it checks
+local Chern data; it does not classify all bundle isomorphism types.
+The local printed flag-order discrepancy in the controlling KM
+edition is recorded in \cref{sec:appL-Chern-flow-sources}.
+
+\subsection{Chern nonvanishing as a polymatroid}
+\label{sec:appG-Chern-nonvanishing}
+\index{Chern class!nonvanishing polymatroid}
+
+The coefficient support detects class-valued Chern nonvanishing
+in two specified settings. The geometric setting is a smooth
+integral complex projective variety with generated bundles;
+the other is the generated KM setting just described.
+In the former, a Chern product has an effective cycle
+representative and vanishes in rational Chow exactly when its
+intersection with the complementary power of an ample class
+is zero. For these products this also detects the real cycle
+class. A general zero scheme used to construct the representative
+can be reducible. In the toric coefficient algebra the substitute
+is numerical duality and domination by large ample multiples
+\cite[Lemmas~8.1--8.2]{NguyenDangWang26ChernFlowV4}.
+
+The resulting statement is Theorem~8.3 of that source.
+\begin{theorem}
+\label{thm:appG-Chern-nonvanishing}
+In either specified setting, define
+\[
+ \rho_C(S)=\max\left\{j:c_j\left(\bigoplus_{i\in S}E_i\right)
+                                      \ne0\right\},
+ \qquad\rho_C(\varnothing)=0.
+\tag{G.31}\label{eq:appG-Chern-rank}
+\]
+Here nonvanishing is in rational Chow in the geometric case and
+in $A$ in the KM case. Then $\rho_C$ is normalized, monotone,
+integral and submodular, and
+\[
+ \prod_i c_{\alpha_i}(E_i)\ne0
+   \quad\Longleftrightarrow\quad
+ \sum_{i\in S}\alpha_i\leq\rho_C(S)
+           \quad\text{for every }S\subseteq[m]
+\tag{G.32}\label{eq:appG-Chern-feasibility}
+\]
+for $\alpha\in\mathbf Z_{\geq0}^m$. Out-of-rank Chern classes
+are zero.
+\end{theorem}
+
+This rank measures nonvanishing of Chern classes of direct sums;
+it is not the rank of a matroid of generating sections.
+For a feasible $\alpha$ the residual rank is
+$\rho_{C,\alpha}(S)=\min_{T\supseteq S}(\rho_C(T)-\alpha(T))$.
+It describes $\alpha+\beta$ feasibility and iterates by adding
+indices \cite[Proposition~8.5]{NguyenDangWang26ChernFlowV4}.
+In the geometric setting labelled clones give an algebraic matroid
+over $\mathbf C$, including its feasible contractions, by
+Proposition~8.6 and the geometric support inputs in
+\cref{sec:appG-multidegree-support}.
+This support operation shifts to $C_{\alpha+\beta}$;
+fixed moment insertion instead uses $C_\alpha C_\beta$.
+The two need not agree, since $c_{a+b}(E)$ need not equal
+$c_a(E)c_b(E)$. Equality statements in a weighted moment quotient
+do not assert that the bundles split.
+
+\subsection{Positive tropical multidegrees and a common facet}
+\label{sec:appG-tropical-positive-multidegrees}
+\index{multidegree!tropical positivity}
+\index{tropical cycle!translation-admissibility}
+
+The projection criterion in \cref{sec:appG-multidegree-support}
+has a tropical counterpart. Its hypotheses concern the support,
+whereas the sizes of the intersection numbers also depend on
+weights. This distinction is essential when comparing support
+with the Hodge certificates in
+\cref{sec:appG-tropical-Chern-certificates}.
+
+Fix positive integers $m_1,\ldots,m_p$, and let $\Gamma$ be
+a nonempty finite rational balanced polyhedral cycle of pure
+dimension $d$ in $\prod_i\mathbf R^{m_i}$. Every facet has
+positive integer weight. Write $\Pi_I$ for block projection,
+and put $\Pi_i=\Pi_{\{i\}}$ and $n(I)=\sum_{i\in I}n_i$.
+A tropical divisor $\Lambda_i$
+in the $i$th block is called \emph{positive} when its stable
+intersection with every nonempty positive tropical curve has
+positive degree. Positive facet weights alone do not express
+this condition. The standard tropical hyperplane, with equation
+$\min(0,x_1,\ldots,x_{m_i})$, is positive
+\cite[Definition~2.7 and Corollary~2.16]{He24TropicalMultidegreesV2}.
+
+For $n\in\mathbf Z_{\geq0}^p$ with $|n|=d$, put
+\[
+ a_n=\deg\left(\Gamma\mathbin{\cdot_{\rm st}}
+             \prod_i\Pi_i^*(\Lambda_i)^{n_i}\right),\qquad
+ \mathcal V_{\Gamma,\Lambda}(\mathbf t)
+       =\sum_{|n|=d}\frac{d!}{n!}a_n\mathbf t^n.
+\tag{G.33}\label{eq:appG-tropical-multidegree-volume}
+\]
+Here pullback means the product with the other ambient blocks,
+and the product is stable intersection. Empty zero-cycles have
+degree zero. This polynomial uses the raw top-intersection
+convention; dividing by $d!$ gives the normalization used in
+\cref{sec:appD-volume-operators}. In particular, neither the
+ordinary coefficient sum $\sum a_n\mathbf t^n$ nor substitution
+before factorial normalization can replace it.
+
+The following is \cite[Theorem~3.5]{CidRuiz26TropicalMultidegreesV2}.
+\begin{theorem}
+\label{thm:appG-tropical-facet-positivity}
+With the preceding assumptions, $a_n>0$ if and only if there
+is one facet $\sigma$ of $\Gamma$ such that
+\[
+ n(I)\leq\dim\Pi_I(\sigma)\qquad
+                         \text{for every }I\subseteq[p].
+\tag{G.34}\label{eq:appG-tropical-common-facet}
+\]
+\end{theorem}
+
+The facet is common to all subsets. For a fixed $n$, independent
+choices of facets maximizing different projection dimensions
+do not suffice. The source first reduces positivity to
+transverse facet spans. For a rational linear subspace, it
+uses a compatible smooth toric compactification of its subtorus
+and generated line bundles corresponding to the positive
+divisors. Their maps on the dense factor tori are finite onto
+their images, so the algebraic projection criterion detects
+the same ranks
+\cite[Lemmas~3.1 and~3.3, Proposition~3.4]{CidRuiz26TropicalMultidegreesV2}.
+Bounded rational equivalence permits replacing
+the divisors by their recession fans without changing the
+top degree \cite[Proposition~3.2(a),(d),(e), Proposition~3.3
+and Theorem~5.3]{AllermannHampeRau15RationalEquivalenceV2}.
+This argument uses the original facets of $\Gamma$; it does
+not identify them with the facets of $\operatorname{Rec}(\Gamma)$.
+
+Two weaker support hypotheses isolate the global criterion.
+Following \cite[Definition~2.6]{CidRuiz26TropicalMultidegreesV2},
+call $\Gamma$ \emph{projection-pure} if every block image
+$\Pi_I(|\Gamma|)$ supports a pure-dimensional positive balanced
+tropical cycle. Call it \emph{facet-selectable} if every integral
+$n$ with $|n|=d$ satisfying
+$n(I)\leq\dim\Pi_I(\Gamma)$ for all $I$ has a common facet
+as in \eqref{eq:appG-tropical-common-facet}. These are separate
+requirements. Projection-purity makes
+$r_\Gamma(I)=\dim\Pi_I(\Gamma)$ a polymatroid rank function;
+facet selection makes its integral bases positive multidegrees.
+Thus \cite[Proposition~2.12 and Theorem~3.7]{CidRuiz26TropicalMultidegreesV2}
+give
+\[
+ \{n:a_n>0\}
+  =\{n\in\mathbf Z_{\geq0}^p:|n|=d,\ n(I)\leq r_\Gamma(I)
+                                            \text{ for all }I\}
+\tag{G.35}\label{eq:appG-tropical-polymatroid-support}
+\]
+when both hypotheses hold. In the submodularity argument,
+one projects to $I\cup J$, uses purity there, and chooses
+a facet maximizing the $I\cap J$ projection. Rank-nullity
+on that facet gives the inequality; the other two facet
+ranks are bounded by the corresponding global maxima.
+No rule interchanging maxima with sums is needed.
+
+The stronger property \emph{translation-admissibility} asks that
+$|\Gamma|+V$ support a pure-dimensional positive balanced
+tropical cycle for every rational linear subspace $V$.
+It implies both preceding properties
+\cite[Lemmas~2.11 and~3.1]{He24TropicalMultidegreesV2}.
+The tropicalization of an irreducible subvariety of a torus
+has this property in He's nontrivially valued algebraically
+closed field setting: sweeping by a subtorus preserves
+irreducibility, and taking the closure realizes the corresponding
+Minkowski sum \cite[Lemma~2.13]{He24TropicalMultidegreesV2}.
+Conversely, neither admissibility nor the two weaker support
+conditions assert an algebraic realization of the weighted cycle.
+
+\begin{example}
+\label{ex:appG-tropical-support-without-Hodge}
+In $\mathbf R\times\mathbf R\times\mathbf R^2$, let $L_1$
+be spanned by $(1,0,1,0)$ and $(0,1,0,1)$, and let $L_2$
+be spanned by $(2,0,1,0)$ and $(0,2,0,1)$. Give each plane
+weight one and put $\Gamma=L_1+L_2$, as a sum of cycles.
+Each plane has block
+projection ranks $\min(2,\sum_{i\in I}m_i)$, so $\Gamma$
+is projection-pure and facet-selectable. For
+$V=\mathbf R(1,0,1,0)$, however, $L_1+V$ has dimension two
+and $L_2+V$ dimension three, with intersection $V$.
+Their union is not pure; translation-admissibility fails.
+
+Take $\Lambda_1=\Lambda_2=\{0\}$ and let $\Lambda_3$ be
+the sum of the two coordinate lines in $\mathbf R^2$.
+For row pairs $12,13,14,23,24,34$, the absolute minors
+of the two primitive plane lattices are respectively
+$(1,0,1,1,0,1)$ and $(4,0,2,2,0,1)$.
+Stable intersection uses these absolute lattice indices,
+independently of the signs of the oriented minors. The
+multidegrees of types $110,101,011,002$ are $5,3,3,4$;
+the last includes the two ordered cross terms in
+$(D_3+D_4)^2$, where $D_j$ is the pullback of the origin
+along the $j$th coordinate. Hence
+\[
+ \mathcal V_{\Gamma,\Lambda}
+      =10t_1t_2+6t_1t_3+6t_2t_3+4t_3^2.
+\tag{G.36}\label{eq:appG-tropical-three-variable-counterexample}
+\]
+Its Hessian has eigenvalues $-10$ and $9\pm\sqrt{73}$,
+with two positive eigenvalues. It is not Lorentzian.
+These are \cite[Example~2.10 and Proposition~4.2]{CidRuiz26TropicalMultidegreesV2}.
+\end{example}
+
+Even translation-admissibility does not give the missing Hodge
+inequalities. The next example keeps its support fixed.
+\begin{example}
+\label{ex:appG-tropical-reweighting-counterexample}
+Let $L_{ij}$ be the coordinate plane spanned by $e_i,e_j$
+in $\mathbf R^2\times\mathbf R^2$, and set
+\[
+ \Gamma=5L_{12}+L_{13}+L_{14}+L_{23}+L_{24}+5L_{34}.
+\]
+Its support is also the support of $2\sum_{i<j}L_{ij}$,
+the tropicalization of a generic irreducible intersection of
+two hypersurfaces of multidegree $(1,1,1,1)$ in
+$(\mathbf P^1)^4$ over the complex Puiseux field.
+It is translation-admissible and connected in codimension one.
+For the standard tropical hyperplanes in the two blocks,
+the multidegrees $a_{20},a_{11},a_{02}$ are $5,4,5$. Thus
+\[
+ \mathcal V_{\Gamma,\Lambda}(s,t)=5s^2+8st+5t^2,
+ \qquad \operatorname{Hess}\mathcal V_{\Gamma,\Lambda}
+                 =\begin{pmatrix}10&8\\8&10\end{pmatrix}.
+\tag{G.37}\label{eq:appG-tropical-reweighted-volume}
+\]
+The eigenvalues are $18$ and $2$. This positive cycle therefore
+has non-Lorentzian volume polynomial despite those support
+properties \cite[Proposition~4.3]{CidRuiz26TropicalMultidegreesV2}.
+Changing the weights preserved the support, not its equality
+with the irreducible algebraic tropicalization as a cycle.
+\end{example}
+
+\subsection{Augmented polymatroid fans with a Hodge certificate}
+\label{sec:appG-augmented-polymatroid-volume}
+\index{Bergman fan!augmented polymatroid}
+\index{Lefschetz fan}
+
+There is a positive class for which both support and coefficients
+are controlled. Let $P$ be any integral polymatroid on $[p]$
+with rank function $\rho$, rank $r=\rho([p])$, and cage
+$\mathbf m$, meaning $\rho(\{i\})\leq m_i$.
+Let $E=\coprod_i E_i$, $|E_i|=m_i$, and let
+$\pi:E\to[p]$ record the block. The augmented Bergman fan
+$\Sigma_P\subset\mathbf R^E$ is the following fan with
+weight one on every facet
+\cite[Definition~3.7 and Theorem~3.8]{EurLarson23PolymatroidsV2}.
+For a set $S\subseteq E$ and a chain $\mathcal F$ of proper
+flats of $P$, its cones are
+\[
+ \operatorname{cone}(e_s:s\in S)
+       +\operatorname{cone}(-e_{E\setminus\pi^{-1}(F)}:
+                                                    F\in\mathcal F),
+\tag{G.38}\label{eq:appG-augmented-polymatroid-cones}
+\]
+subject to
+\[
+ \begin{aligned}
+ \rho(\pi(T))&\geq |T|&& (T\subseteq S),\\
+ \rho(F\cup\pi(T))&>\rho(F)+|T|
+   && (F\in\mathcal F,\ \varnothing\ne T\subseteq S\setminus\pi^{-1}(F)).
+ \end{aligned}
+\tag{G.39}\label{eq:appG-augmented-polymatroid-compatibility}
+\]
+The second inequality is strict. The fan is a pure balanced
+$r$-dimensional subfan of the smooth projective polystellahedral
+fan for the cage. Its support is that of the augmented
+Bergman fan of the multisymmetric lift, whose matroid rank is
+$\operatorname{rk}(U)=\min_{I\subseteq[p]}(\rho(I)+|U\setminus\pi^{-1}(I)|)$.
+This construction makes no representability assumption.
+
+The following combines \cite[Theorem~5.4 and Corollary~5.6]{CidRuiz26TropicalMultidegreesV2}.
+\begin{theorem}
+\label{thm:appG-augmented-polymatroid-volume}
+For every $P$ and every choice of positive tropical divisors
+$\Lambda_i$ in its blocks, $\Sigma_P$ is projection-pure and
+facet-selectable, and
+\[
+ \begin{gathered}
+ a_n>0\quad\Longleftrightarrow\quad n\in B(P)\cap\mathbf Z^p,\\
+ B(P)=\{x\geq0:|x|=r,\ x(I)\leq\rho(I)\text{ for all }I\}.
+ \end{gathered}
+\]
+The polynomial $\mathcal V_{\Sigma_P,\Lambda}$ is Lorentzian.
+For standard tropical hyperplanes in all blocks,
+\[
+ a_n=\begin{cases}1&n\in B(P)\cap\mathbf Z^p,\\0&\text{otherwise},\end{cases}
+ \qquad
+ \mathcal V_{\Sigma_P,\Lambda}
+      =r!\sum_{n\in B(P)\cap\mathbf Z^p}\frac{\mathbf t^n}{n!}.
+\tag{G.40}\label{eq:appG-augmented-polymatroid-base-polynomial}
+\]
+\end{theorem}
+
+For $r=0$ the fan is the origin of weight one and the
+polynomial is the constant one. Nonnegative constants and
+linear polynomials have the usual low-degree Lorentzian
+convention. The coefficients need not be zero or one for
+other positive divisors.
+
+The source's Lemma~5.5 proves
+$\Pi_I(|\Sigma_P|)=|\Sigma_{P|I}|$, of dimension $\rho(I)$.
+An integral base $n$ chooses $n_i$ copies in each $E_i$;
+their positive coordinate cone, with empty flat flag, is an
+$r$-dimensional facet whose block ranks are $n(I)$.
+This supplies the common facet, independently of the Hodge
+argument. Under block projection, flat chains restrict by
+intersection; in the reverse direction, closure in $P$ lifts
+the restricted flats. The compatibility inequalities control
+both operations.
+
+For the coefficient argument, positive divisors have recession
+fans represented by generated nef toric divisors. On a smooth
+projective common refinement compatible with both the
+polystellahedral fan and the divisor fans, write their pullbacks
+as $D_i$. Stable intersection and the projection formula give
+\[
+ \mathcal V_{\Sigma_P,\Lambda}(\mathbf t)
+     =\int_{X_{\widehat\Sigma}}
+           \left(\sum_i t_iD_i\right)^r[\widehat\Sigma_P].
+\]
+The augmented fan has Poincar\'e duality, hard Lefschetz and
+Hodge--Riemann relations
+\cite[Theorem~3.17]{EurLarson23PolymatroidsV2}.
+Support invariance preserves these on the compatible
+quasi-projective simplicial subdivision
+\cite[Theorem~1.6]{ArdilaDenhamHuh22LagrangianV4}.
+The nef volume conclusion is
+\cite[Theorem~8.3(4)]{EurHuhLarson23StellahedralV3},
+with its stated factorial normalization. Ambient ample
+perturbations restrict to strictly convex classes on the
+subfan; continuity treats the nef boundary.
+This certificate, rather than admissibility alone, gives the
+Lorentzian coefficients. A Lefschetz fan also requires a
+positive fundamental top Minkowski weight generating the
+weight group and the same Hodge properties on every star
+\cite[Definition~1.5]{ArdilaDenhamHuh22LagrangianV4}.
+
+For standard hyperplanes, the corresponding divisor classes
+are dual rank-one augmented Bergman classes. The product rule
+\cite[Theorem~3.14 and Corollary~3.15]{EurLarson23PolymatroidsV2}
+returns either zero or another such class with coefficient one.
+In degree zero, the latter is the origin of weight one; this
+explains the stronger zero-or-one assertion.
+
+\begin{example}
+\label{ex:appG-augmented-rank-two-normalization}
+For cage $(2,2)$ and $\rho(I)=2$ for every nonempty $I$,
+the integral bases are $(2,0),(1,1),(0,2)$.
+The raw base enumerator $s^2+st+t^2$ has Hessian eigenvalues
+$3$ and $1$ and is not Lorentzian. Factorial normalization
+gives $(s+t)^2/2$, and the tropical top-intersection polynomial
+in \eqref{eq:appG-augmented-polymatroid-base-polynomial} is
+$(s+t)^2$. The lift matroid is $U_{2,4}$. In copy coordinates
+the fan has five rays $e_1,\ldots,e_4,-e_E$ and ten
+two-dimensional facets, so its balancing and common coordinate
+facet witnesses can also be checked directly.
+\end{example}
+
+The augmented fan's Chow model connects with the full
+annihilator convention in \cref{sec:appF-Chern-moments}:
+if $X_{\mathbf m}$ is the polystellahedral variety, then
+\[
+ A^\bullet(\Sigma_P)
+   \simeq A^\bullet(X_{\mathbf m})/\operatorname{Ann}([\Sigma_P]).
+\tag{G.41}\label{eq:appG-augmented-polymatroid-annihilator}
+\]
+This is the multiplication annihilator, using Poincar\'e
+duality, not a linear kernel of the degree functional
+\cite[Corollary~3.18]{EurLarson23PolymatroidsV2}.
+The degree-$k$ test class has complementary degree $r-k$.
+If $P$ is represented by a subspace arrangement, its augmented
+wonderful compactification represents the same class
+\cite[Proposition~3.20]{EurLarson23PolymatroidsV2}.
+For an arbitrary polymatroid this last algebraic realization
+is not supplied. Thus an augmented fan may certify a
+Lorentzian polynomial without supplying the irreducible
+geometric volume realization required in
+\cref{sec:appD-volume-operators}.
+
+\section{Cohomology retained by tropicalization}
+\label{sec:appG-cohomologically-tropical}
+\index{tropical cohomology}\index{cohomologically tropical variety}
+
+The calibrated support records multiplicities and lattice directions.
+Recovering the cohomology of an algebraic variety requires information
+about its boundary strata as well. A precise comparison is available for
+complex subvarieties of tori \cite{AAPS25Cohomologically}.
+Here the complex ground field is trivially valued, and every cohomology
+group has rational coefficients.
+
+Let $V\subset T=(\mathbf C^*)^r$ be a closed subvariety and put
+$S=\operatorname{Trop}(V)$. Choose a unimodular fan $\Sigma$ with support
+$S$. Let $P_\Sigma$ be its complex toric variety, let $\overline V$ be
+the closure of $V$ in $P_\Sigma$, and let $\overline S$ be the canonical
+tropical compactification in the corresponding tropical toric variety.
+For a cone $\sigma\in\Sigma$, write $V_\sigma$ for the intersection
+with the torus orbit, and $S_\sigma$ for its tropicalization, the support
+of the star fan. Bars denote their closures in the two compactifications.
+
+The comparison of \cite[Definition~3.1 and \S2.7]{AAPS25Cohomologically}
+is the graded ring homomorphism
+\[
+ \tau_\Sigma^*:H^\bullet_{\mathrm{trop}}(\overline S)
+          \longrightarrow H^\bullet(\overline V;\mathbf Q),
+ \qquad
+ H^m_{\mathrm{trop}}=\bigoplus_{p+q=m}H^{p,q}_{\mathrm{trop}}.
+\]
+On $H^{k,k}_{\mathrm{trop}}(\overline S)$, it uses the identification
+with the rational Chow group $A^k(P_\Sigma)_{\mathbf Q}$, followed by
+the cycle-class map and restriction to $\overline V$. It sends
+off-diagonal classes to zero. The construction also applies to each star
+fan and its algebraic stratum. The variety is \emph{cohomologically
+tropical} with respect to $\Sigma$ when
+\[
+ H^\bullet_{\mathrm{trop}}(\overline{S_\sigma})
+       \xrightarrow{\ \tau_\sigma^*\ }
+ H^\bullet(\overline{V_\sigma};\mathbf Q)
+\]
+is an isomorphism for every $\sigma\in\Sigma$, including the zero cone
+\cite[Definition~1.1]{AAPS25Cohomologically}.
+
+The term \emph{sch\"on} means that all the open algebraic strata are
+nonsingular. The stronger term \emph{wundersch\"on} additionally requires
+that every such stratum is connected and that $H^k(V_\sigma;\mathbf Q)$
+is pure of weight $2k$ for every $k$
+\cite[Definition~1.2 and \S2.2]{AAPS25Cohomologically}.
+A $d$-dimensional tropical space is a \emph{tropical homology manifold}
+when cap product with its fundamental class gives
+\[
+ H^{p,q}_{\mathrm{trop}}(U)
+       \simeq H^{\mathrm{BM}}_{d-p,d-q}(U)
+\]
+for every open subset $U$, using tropical Borel--Moore homology on the
+right \cite[Definition~2.6]{AAPS25Cohomologically}.
+
+For a sch\"on $V$, \cite[Theorem~6.1]{AAPS25Cohomologically} states
+that the comparison holds on all closed strata exactly when $V$ is
+wundersch\"on and $S$ is a tropical homology manifold. Theorems~4.4
+and~4.5 of the same source make these two algebraic properties independent
+of the chosen unimodular fan. Its Theorem~6.2 also gives
+\[
+ H^k_{\mathrm{trop}}(S_\sigma)
+       \simeq H^k(V_\sigma;\mathbf Q)
+\]
+on the open strata. The proof compares the algebraic Deligne weight
+sequences with the tropical Deligne resolutions, using compatibility of
+Gysin maps; the compactified comparison and local duality supply the
+needed injectivity. These are the published comparison results, with the
+sch\"on and all-strata hypotheses retained.
+
+\subsection{Why the hypotheses involve every stratum}
+
+The examples in \cite[\S8.1]{AAPS25Cohomologically} distinguish the
+separate conditions. For generic complex coefficients, the curve
+\[
+                 a+bx+cy+dxy=0\quad\text{in }(\mathbf C^*)^2
+\]
+has compactification $\mathbf P^1$ and four punctures. It is
+wundersch\"on, but its tropicalization is the four-ray coordinate cross.
+The independent balancing relations on the two axes prevent local
+tropical duality. In the canonical compactification, the tropical
+cohomology in total degree two has dimension two, whereas
+$H^2(\mathbf P^1;\mathbf Q)$ has dimension one
+\cite[\S8.1.1]{AAPS25Cohomologically}.
+
+A generic conic in $(\mathbf C^*)^2$ has six punctures and tropicalizes
+to a three-ray tropical line of weight two. Local tropical duality holds,
+and the comparison on the whole compactification is an isomorphism over
+$\mathbf Q$. Each boundary orbit, however, meets the conic in two
+distinct points: its algebraic $H^0$ is $\mathbf Q^2$, while the
+corresponding tropical closed stratum has $H^0=\mathbf Q$. Thus
+connectedness of the open strata, and comparison on every closed stratum,
+are essential \cite[\S8.1.2]{AAPS25Cohomologically}.
+The nodal curve $(x-a)(y-b)=0$, with $ab\ne0$, gives a complementary
+boundary: it is cohomologically tropical but not sch\"on, and its
+coordinate cross is not a tropical homology manifold
+\cite[\S8.1.4]{AAPS25Cohomologically}. The sch\"on assumption is
+therefore essential to the stated equivalence.
+
+Hyperplane-arrangement complements in their arrangement torus embeddings
+provide a positive class: for an essential projective arrangement, the
+tropicalization is the associated Bergman fan, and the algebraic
+strata and local tropical duality satisfy the comparison hypotheses
+\cite[\S8.2]{AAPS25Cohomologically}.
+
+\subsection{Hodge numbers in a semistable degeneration}
+
+There is also a family comparison relevant to
+\Cref{chap:hybrid-spaces}. Work in the setting of
+\cite[\S7]{AAPS25Cohomologically}: a family
+$\pi:\mathcal V\to D^*$ of smooth projective subvarieties, with fibre
+$V_t$, over the punctured complex disk has a semistable extension
+obtained inside a toric degeneration, with regular total space and reduced
+simple-normal-crossing central fibre. The chosen unimodular triangulation
+identifies its open central strata with subvarieties of the associated
+tori. Let $Z$ be the extended tropicalization of the generic fibre over
+$\mathbf C((t))$. Assume that $Z$ is a tropical homology manifold and
+that every open central stratum, in this specified torus embedding, is
+wundersch\"on. Theorem~7.1 of the source then gives
+\[
+ H^{p,q}_{\mathrm{trop}}(Z)
+       \simeq\operatorname{Gr}^{W}_{2p}H^{p+q}_{\lim},
+ \qquad
+ h^{p,q}(V_t)=\dim_{\mathbf Q}H^{p,q}_{\mathrm{trop}}(Z).
+\]
+The odd weight-graded pieces of the limiting mixed Hodge structure
+vanish. Here $H_{\lim}$ is the limiting mixed Hodge structure of this
+family; the statement compares its weight-graded groups and the nearby
+Hodge numbers. Its proof compares the algebraic and tropical Steenbrink
+sequences through the stratum comparisons.
+
+For the polyhedral and hybrid Monge--Amp\`ere questions in
+\Cref{prob:frontier-polyhedral-regularity,prob:frontier-hybrid-ytd}, a
+polarization, an operator domain, admissible lifts and a measure comparison
+must still be supplied. The cohomological results above do not supply
+envelope regularity, orthogonality or metric convergence. The cited
+paper's \S8.4 discusses the tropical Monge--Amp\`ere direction as a
+further research programme; its announced differential-calculus sequel
+is not an input to this appendix.
 
 \section{Global sign and normalization table}
 \label{sec:appG-sign-table}
@@ -638,7 +2226,8 @@ tropical-cycle top-cell weight &
 nonzero integer, positive for an effective tropical subspace &
 orientation is separate from the sign of a cycle weight\\
 analytic calibration weight &
-positive real local degree in the general CLD setting &
+positive real coefficient obtained from integer local degree and inverse
+lattice map &
 integrality requires the additional strictness and ground-field hypotheses
 stated near \eqref{eq:appG-analytic-multiplicity}\\
 stable intersection &
@@ -683,11 +2272,34 @@ identity stated at the beginning of the appendix.  Thus these are checked
 normalizations.
 
 \section*{Source note}
+\label{sec:appG-source-note}
 
 Graded reductions in analytic geometry follow Temkin
 \cite{Temkin2004}.
 Polyhedral spaces, canonical calibrations, and analytic balancing follow
 \cite{CLD25}.
+The recession-fan compactification and its face-incidence conventions
+follow the published \cite{KSW25Compactification}, in
+\Cref{sec:appG-tropical-compactification}.
+The canonical fan Chow comparison follows the specified arXiv version
+of \cite{AP24FanChow}; the M\"obius subalgebra follows the published
+\cite{BHM22AugmentedChow}, in \Cref{sec:appG-canonical-fan-chow}.
+The finite intersection-cohomology module example follows the specified
+version-five \cite{BHM26SingularHodge}, in
+\Cref{sec:appG-matroid-intersection-module}.
+The ordinary Bergman toric-variety example follows
+\cite{Binder26UniformCohomology,Binder26SingularCohomology}, with
+the rational product and weight conventions in
+\cite{FranzFu24Naturality,Weber04ToricWeights}, in
+\Cref{sec:appG-uniform-singular-cohomology}.
+The uniform real-rootedness update uses the frozen September 2026
+version of \cite{BinderVecchi26AugmentedCohomology}, with the
+ordinary, augmented and modified fans distinguished in
+\Cref{sec:appG-uniform-real-rootedness}.
+The complex all-strata cohomology comparison and its semistable
+Hodge-number application follow the published
+\cite{AAPS25Cohomologically}, in the setting of
+\Cref{sec:appG-cohomologically-tropical}.
 The unqualified integer-affine, rational-polyhedral, weighting, and
 balancing terminology follows
 \cite[\S\S1.3, 2.1 and 4.2]{MR18Tropical}.

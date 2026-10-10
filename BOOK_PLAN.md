@@ -815,9 +815,9 @@ rewritten as a self-contained route rather than copied out of context.
 4. Volume under operations.
 5. Trace/restriction of transcendental metrics.
 6. Domain and singularity hypotheses for trace.
-7. Descent of the existing trace to \(\mathcal I\)-classes on its natural
-   domain, the resulting factorization from input \(P\)-classes to output
-   \(\mathcal I\)-classes, and the still-open \(P\)-valued refinement.
+7. Descent of trace from ambient \(\mathcal I\)-classes to target
+   \(P\)-classes on its natural Lelong-zero domain, with normalized
+   envelopes distinguished from raw trace representatives.
 
 ## Chapter 55. Okounkov test curves and Duistermaat--Heckman measures
 

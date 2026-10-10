@@ -16,11 +16,22 @@ duality, \Cref{chap:bj-homogeneity-bdivisors} for test curves, and
 \Cref{chap:transcendental-okounkov-dh} for concave transforms and
 Duistermaat--Heckman measures.
 
+\Cref{sec:appD-Lorentzian-normalization} also fixes the
+factorial normalization for global intersection polynomials
+used by the mixed Segre construction in
+\cref{sec:appC-mixed-Segre-zeta}.
+
+Its operator discussion also explains the Chern and Richardson
+constructions in \cref{sec:appF-total-Chern-volume,sec:appF-Richardson-volume}.
+Those constructions establish geometric realization, which imposes
+more than the Lorentzian signature condition alone.
+
 \section{Closed convex functions}
 \label{sec:appD-closed-convex}
 
 Let \(N\) be a finite-dimensional real vector space, let
 \(M=N^\vee\), and write the pairing as \(\langle m,x\rangle\).
+Write \(n=\dim N\); the volume formulas below assume \(n\geq1\).
 The extended real line is
 \[
  \overline{\mathbf R}=\mathbf R\cup\{-\infty,+\infty\}.
@@ -56,22 +67,23 @@ The maximum of finitely many closed convex functions is closed convex.
 \begin{proof}
 An epigraph of a supremum is the intersection of the epigraphs.
 For the decreasing-net assertion, let \(f=\inf_a f_a\).
-Given \(x,y\), \(s\in[0,1]\), and \(\varepsilon>0\), directedness supplies
+The endpoint cases of the convexity inequality are identities.
+For \(0<s<1\), suppose first that \(f(x)\) and \(f(y)\) are finite.
+Given \(\varepsilon>0\), directedness supplies
 one index \(a\) such that
 \[
  f_a(x)<f(x)+\varepsilon,\qquad
  f_a(y)<f(y)+\varepsilon.
 \]
-Here there is something to prove only when both \(f(x)\) and \(f(y)\) are
-finite; otherwise the convexity inequality has right-hand side
-\(+\infty\).
 Convexity of \(f_a\), followed by \(\varepsilon\downarrow0\), gives convexity
-of \(f\).
+of \(f\).  If either endpoint value is infinite, the right-hand side is
+\(+\infty\) for \(0<s<1\), so the inequality is automatic.
 Finally, the epigraph of a finite maximum is a finite intersection of closed
 convex sets.
 \end{proof}
 
 \begin{warning}{Infima}
+\label{warn:appD-arbitrary-infima}
 An arbitrary infimum of convex functions need not be convex.
 For example, the minimum of
 \(x\mapsto(x-1)^2\) and \(x\mapsto(x+1)^2\) has two wells.
@@ -117,7 +129,12 @@ Equality says
  \leq \langle m,x\rangle-f(x)
 \]
 for every \(y\), which rearranges to \eqref{eq:appD-subgradient}.
-The same equality, read with the variables reversed, gives the last claim.
+For the last claim, retain \(x\) in the supremum defining \(f^*(m')\):
+\[
+ f^*(m')\geq\langle m',x\rangle-f(x)
+ =f^*(m)+\langle m'-m,x\rangle.
+\]
+Thus \(x\in\partial f^*(m)\), without assuming that \(f\) is closed.
 \end{proof}
 
 \begin{theorem}\label{thm:appD-fenchel-moreau}
@@ -132,6 +149,17 @@ In particular, \(f^{**}=f\) exactly when \(f\) is lower semicontinuous.
 
 \begin{proof}
 The function \(f^*\) is a supremum of continuous affine functions.
+We first explain why \(\overline f\) is still proper.  Choose
+\(x_1\) in the relative interior of \(\operatorname{dom}(f)\), and put
+\(H=\operatorname{aff}(\operatorname{dom}(f))\).  Convex continuity on
+the relative interior, \cite[Theorem~10.1]{Roc70}, places
+\((x_1,f(x_1)-1)\) outside the closed epigraph in \(H\times\mathbf R\).
+Strong separation there gives a separator with positive vertical
+coefficient: a zero coefficient could not distinguish this point from
+\((x_1,f(x_1))\).  After normalization and extension of the affine
+functional from \(H\) to \(N\), it gives an affine minorant \(h\leq f\).
+Then \(h\leq\overline f\), while
+\(\overline f(x_1)=f(x_1)<+\infty\); hence \(\overline f\) is proper.
 Fenchel's inequality gives \(f^{**}\leq f\), hence
 \(f^{**}\leq\overline f\).
 Fix \(x_0\) and \(a<\overline f(x_0)\).
@@ -148,10 +176,11 @@ For completeness, this form follows from ordinary strong separation as
 follows.  Upward closedness forces the vertical coefficient, with the
 orientation chosen so that the epigraph lies above the separating
 hyperplane, to be nonnegative.  If it is positive, normalize it to one.  If
-it is zero, combine the horizontal separator with a positive-vertical
-supporting hyperplane at a relative-interior point of the proper epigraph;
-a sufficiently small positive multiple preserves strictness at
-\((x_0,a)\), and normalization again gives the displayed affine minorant.
+it is zero, add a small positive multiple of the valid halfspace
+\(r\geq h(x)\) constructed above.  The epigraph satisfies both
+inequalities, and strict separation at \((x_0,a)\) persists for a
+sufficiently small coefficient.  The combined vertical coefficient is
+positive, so normalization again gives the displayed affine minorant.
 The first inequality says \(f^*(m)\leq c\), so \(f^{**}(x_0)>a\).
 Let \(a\uparrow\overline f(x_0)\).
 This is the finite-dimensional argument behind
@@ -223,8 +252,11 @@ is closed concave and nonincreasing, and \(\mathcal Lg=\ell\).
 
 \begin{proof}
 Apply \Cref{thm:appD-fenchel-moreau} to \(f=-g\).
-Because \(g\) is nonincreasing, all slopes of \(f\) are nonnegative, so
-the effective domain of \(f^*\) lies in \([0,+\infty)\).
+Choose \(\tau_0\) with \(f(\tau_0)<+\infty\).  Since \(f=-g\) is
+nondecreasing, \(f(\tau)\leq f(\tau_0)\) for \(\tau\leq\tau_0\).
+For \(t<0\), the quantity \(t\tau-f(\tau)\) therefore tends to
+\(+\infty\) as \(\tau\to-\infty\).  Thus the effective domain of
+\(f^*\) lies in \([0,+\infty)\).
 Now
 \[
  f^*(t)=\sup_\tau\{t\tau+g(\tau)\}=\mathcal Lg(t),
@@ -271,13 +303,16 @@ The order assertion follows by taking suprema in
 \eqref{eq:appD-test-curve-ray}.
 \end{proof}
 
+\noindent\begin{minipage}{\linewidth}
 \begin{warning}{Analytic regularization}
+\label{warn:appD-analytic-regularization}
 Formula \eqref{eq:appD-pointwise-inversion} is scalar convex analysis.
 If \(\ell_t\) is replaced by an upper-semicontinuous or psh regularization
 in \(x\), exact inversion is an additional maximality theorem.
 \Cref{chap:rays-filtrations} supplies it only on the stated analytic
 domain.
 \end{warning}
+\end{minipage}\par
 
 \begin{example}[Single break]
 \label{ex:appD-single-break}
@@ -291,16 +326,31 @@ Let \(a<b\), \(c>0\), and
  \end{cases}
 \]
 This is closed, concave, and nonincreasing.
-Direct maximization gives a convex piecewise affine \(\mathcal Lg\) whose
-slopes lie in \([a,b]\).
+On \(( -\infty,a]\), the maximum of \(t\tau\), for \(t\geq0\),
+is \(ta\).  On \([a,b]\), the maximized affine expression is
+\(ca+(t-c)\tau\), so
+\[
+ \mathcal Lg(t)=
+ \begin{cases}
+ at,&0\leq t\leq c,\\
+ bt-c(b-a),&t\geq c.
+ \end{cases}
+\]
+The two values agree at \(t=c\).  The slopes are \(a\) and \(b\),
+and taking the infimum in \eqref{eq:appD-concave-inversion} recovers
+each of the three branches of \(g\).
 \end{example}
 
 \section{Convex bodies and mixed volume}
 \label{sec:appD-mixed-volume}
 
-Assume that \(N\) carries a lattice and normalize Lebesgue measure so a
-fundamental parallelepiped has volume one.
-A convex body is a nonempty compact convex subset.
+Assume that \(N\) carries a lattice, equip \(M\) with the dual lattice,
+and normalize \(\operatorname{Leb}_M\) so a fundamental parallelepiped
+has volume one.  In this section a convex body is a nonempty compact
+convex subset of \(M\); its support function lives on \(N\).
+For sphere and facet formulas, choose an auxiliary Euclidean structure on
+\(M\) whose volume measure is \(\operatorname{Leb}_M\), with the dual
+structure on \(N\).  Unit normals and facet areas use these structures.
 For \(s,t\geq0\),
 \[
  sK+tL=\{sx+ty:x\in K,\ y\in L\}.
@@ -308,7 +358,7 @@ For \(s,t\geq0\),
 \]
 
 \begin{lemma}\label{lem:appD-support-calculus}
-For convex bodies \(K,L\), \(s,t\geq0\), and \(a\in N_{\mathbf R}\),
+For convex bodies \(K,L\), \(s,t\geq0\), and \(a\in M\),
 \[
 \begin{aligned}
  h_{sK+tL}&=s h_K+t h_L,\\
@@ -326,7 +376,7 @@ from \(L\) gives \(u\) with \(h_K(u)>h_L(u)\).
 \end{proof}
 
 \begin{theorem}\label{thm:appD-minkowski-polynomial}
-For convex bodies \(K_1,\ldots,K_r\subset N_{\mathbf R}\),
+For convex bodies \(K_1,\ldots,K_r\subset M\),
 \[
  \operatorname{vol}\!\left(\sum_{i=1}^r t_iK_i\right)
  =
@@ -430,9 +480,13 @@ nondegeneracy hypotheses.
 
 \begin{proof}
 We give the complete reduction to one imported finite-dimensional core.
-First suppose that all bodies have smooth strictly convex support
-functions \(h_1,\ldots,h_n\).  Fix \(h_3,\ldots,h_n\) and, on the unit
-sphere, set
+First suppose that the bodies have support functions
+\(h_1,\ldots,h_n\) that are smooth away from the origin and have positive
+definite Hessian on the tangent spaces of the unit sphere.  Homogeneity
+leaves a zero Hessian direction along each radial line.  Translate these
+bodies to contain the origin in their interiors.  Fix
+\(h_3,\ldots,h_n\) and, for smooth functions on the unit sphere,
+use their degree-one homogeneous extensions to set
 \[
  Q(f,g):=\frac1{n!}\int_{S^{n-1}}
        f\,\dprimeddprime g\wedge
@@ -507,6 +561,7 @@ Letting the radius of the added ball tend to zero proves
 
 Let \(\Omega\subset N_{\mathbf R}\) be open and convex and
 \(u:\Omega\to\mathbf R\) convex.
+For conjugation, extend \(u\) by \(+\infty\) off \(\Omega\).
 For \(E\subset\Omega\), put
 \(\partial u(E)=\bigcup_{x\in E}\partial u(x)\).
 
@@ -558,8 +613,9 @@ at \(x\pm\rho e\) bounds \(|\langle m,e\rangle|\) by
 This proves that \(\MA_{\mathbf R}(u)\) is a positive Borel measure.
 
 Assume next that \(u\in C^2\).  Then
-\(\partial u(x)=\{\nabla u(x)\}\).  The area formula
-\cite[Theorem~3.8]{EvansGariepy} gives
+\(\partial u(x)=\{\nabla u(x)\}\).  Apply the area formula
+\cite[Theorem~3.8]{EvansGariepy} locally to the \(C^1\), hence locally
+Lipschitz, map \(\nabla u\), and exhaust \(\Omega\).  It gives
 \[
  \int_E\det D^2u\,\rd x
  =\int_M N(\nabla u,E,m)\,\rd m.
@@ -620,6 +676,15 @@ then at a vertex \(x_0\),
 \tag{D.21}\label{eq:appD-polyhedral-atom}
 \]
 Only full-dimensional subdifferentials contribute.
+For example, consider
+\[
+ u(x_1,x_2)=\max\{0,x_1,x_2\}.
+\]
+Its subdifferential \(\partial u(0)=\operatorname{conv}\{0,e_1,e_2\}\)
+has lattice-normalized area \(1/2\).  Away from the origin the subgradients lie on the boundary
+of this triangle, so \(\MA_{\mathbf R}(u)=\tfrac12\delta_0\).
+Its supercurrent square has mass \(2!\cdot\tfrac12=1\), in accordance
+with \eqref{eq:appD-current-mixed-volume} below.
 \end{example}
 
 \begin{proposition}\label{prop:appD-legendre-pushforward}
@@ -664,6 +729,7 @@ equivalence to Borel sets \(E\) proves the pushforward identity.
 \end{proof}
 
 \begin{warning}{The \(n!\)-test}
+\label{warn:appD-factorial-normalization}
 Our \(\MA_{\mathbf R}\) is exactly
 \eqref{eq:appD-alexandrov-measure}.
 For a toric line bundle,
@@ -722,6 +788,7 @@ Flag independence is a geometric theorem of
 \Cref{chap:transcendental-okounkov-dh}, not a formal pushforward fact.
 
 \begin{warning}{Zero mass and signed moments}
+\label{warn:appD-zero-and-signed-moments}
 If \(\lambda(P)=0\), no probability normalization is defined.
 If \(G=-\infty\) on a set of positive measure, then \(\nu_G\) has an atom at
 \(-\infty\); it is not silently regarded as a Radon measure on
@@ -733,7 +800,8 @@ subtract \(+\infty\) from \(+\infty\).
 \section{Mixed Monge--Amp\`ere and homogeneous supercurrents}
 \label{sec:appD-supercurrents}
 
-Polarization gives a symmetric positive measure
+For finite convex \(u_1,\ldots,u_r\) on a common open convex domain,
+polarization gives a symmetric positive measure
 \(\MA_{\mathbf R}(u_1,\ldots,u_n)\) characterized by
 \[
  \MA_{\mathbf R}\!\left(\sum_i t_i u_i\right)
@@ -745,7 +813,10 @@ Polarization gives a symmetric positive measure
 \]
 for \(t_i\geq0\).
 In the smooth case its density is the mixed discriminant of the Hessians.
-Positivity and weak continuity extend it to finite convex functions.
+Smooth convex regularization, followed by the convex Bedford--Taylor
+input \Cref{thm:ch14-convex-bt-imported}, gives positivity and weak
+continuity for finite convex functions.  Comparing polynomial
+coefficients after this limit gives the displayed polarization identity.
 
 For a convex body \(K\), put
 \[
@@ -753,7 +824,7 @@ For a convex body \(K\), put
 \tag{D.28}\label{eq:appD-support-current}
 \]
 in the Lagerberg convention of \Cref{chap:cld-currents}.
-If \(s_t(x)=tx\) and \(E\) denotes the Euler (radial) vector field
+If \(s_t(x)=tx\), \(t>0\), and \(E\) denotes the Euler (radial) vector field
 \(E(x)=x\) of \Cref{def:ch14-radial-contraction}---not a Borel set, as
 elsewhere in this appendix---then Euler's identity gives
 \[
@@ -765,6 +836,18 @@ elsewhere in this appendix---then Euler's identity gives
 These closed positive currents are strongly homogeneous.
 The phrase does not license products of arbitrary weakly positive currents.
 
+\begin{remark}[Dilation convention]
+\label{rem:appD-dilation-convention}
+The usual Lagerberg pullback by \(s_t\) scales both families of
+covectors.  The Hessian coefficients of a degree-one homogeneous
+support function have degree minus one, so its \((1,1)\)-current has
+the factor \(t^2t^{-1}=t\) in
+\eqref{eq:appD-strong-homogeneity}.  Berndtsson's partial dilation
+scales only the \(x\)-covectors and has degree zero instead
+\cite[Section~7]{Ber26Convex}.  The contraction identities are the
+same in both conventions.
+\end{remark}
+
 \begin{theorem}\label{thm:appD-support-current-mixed-volume}
 With lattice-normalized integration and the book's Lagerberg signs,
 \[
@@ -774,9 +857,11 @@ With lattice-normalized integration and the book's Lagerberg signs,
  V(K_1,\ldots,K_n)\,\delta_0.
 \tag{D.30}\label{eq:appD-current-mixed-volume}
 \]
-The Alexandrov--Fenchel inequality is the reversed Cauchy--Schwarz
-inequality for the Lorentzian form obtained after fixing
-\(T_{K_3},\ldots,T_{K_n}\).
+For \(n\geq2\), the Alexandrov--Fenchel inequality is the reversed
+Cauchy--Schwarz inequality for the mixed-volume form obtained after fixing
+\(T_{K_3},\ldots,T_{K_n}\).  For smooth strictly convex fixed bodies this
+form has Lorentzian signature; the inequality for arbitrary fixed bodies
+follows by Hausdorff limits.
 \end{theorem}
 
 \begin{proof}
@@ -816,12 +901,460 @@ mixed-volume identity are recorded in
 have here been translated to
 \Cref{chap:tropical-spaces,chap:cld-currents}.
 
-After fixing \(K_3,\ldots,K_n\), the bilinear form represented by wedging
+When \(n\geq2\), after fixing \(K_3,\ldots,K_n\), the bilinear form represented by wedging
 with \(T_{K_3}\wedge\cdots\wedge T_{K_n}\) is exactly \(n!\) times the
 mixed-volume form \(Q\) used in the proof of \Cref{thm:appD-af}.
-Its Lorentzian signature therefore turns \eqref{eq:appD-af} into the
-reversed Cauchy--Schwarz inequality claimed in the theorem.
+Its Lorentzian signature for smooth strictly convex fixed bodies turns
+\eqref{eq:appD-af} into the reversed Cauchy--Schwarz inequality.  Mixed-volume
+continuity extends the inequality to arbitrary fixed bodies.  The limiting
+form may have no positive direction: when \(n\geq3\), a point among the
+fixed bodies makes the form identically zero.
 \end{proof}
+
+\section{Lorentzian polynomials and factorial normalization}
+\label{sec:appD-Lorentzian-normalization}
+\index{Lorentzian polynomial}
+\index{covolume polynomial}
+\index{volume polynomial}
+
+The same intersection numbers can appear as coefficients in
+different polynomial conventions. The factorials determine
+which quadratic forms satisfy a signature condition. We use
+the published \cite{BrandenHuh20Lorentzian}; this terminology
+is distinct from the Lorentzian bilinear form in the proof of
+Alexandrov--Fenchel above.
+
+For $\alpha\in\mathbf N^{m+1}$, put
+$\alpha!=\prod_{i=0}^m\alpha_i!$. The normalization operator is
+\[
+ \mathcal N\left(\sum_\alpha c_\alpha\mathbf t^\alpha\right)
+      =\sum_\alpha\frac{c_\alpha}{\alpha!}\mathbf t^\alpha.
+\tag{D.31}\label{eq:appD-Lorentzian-normalization}
+\]
+It divides by each monomial's multi-index factorial, rather
+than by one scalar depending only on total degree.
+
+The following definitions and characterization follow
+Definition~2.6 and Theorem~2.25 of the published source.
+\begin{definition}
+\label{def:appD-Lorentzian-polynomial}
+A set $S\subset\mathbf N^{m+1}$ of vectors of the same total
+degree is $M$-convex if, for every $\alpha,\beta\in S$ and
+every $i$ with $\alpha_i>\beta_i$, some $j$ satisfies
+\[
+ \alpha_j<\beta_j,\qquad
+ \alpha-e_i+e_j\in S,\qquad \beta-e_j+e_i\in S.
+\tag{D.32}\label{eq:appD-M-convex-exchange}
+\]
+The empty set is allowed. A homogeneous polynomial $h$ of
+degree $d\geq2$ is Lorentzian if its coefficients are
+nonnegative, its support is $M$-convex, and every derivative
+$\partial^\gamma h$ with $|\gamma|=d-2$ has a Hessian with
+at most one positive eigenvalue. Nonnegative constant and
+linear polynomials are Lorentzian as well. The zero polynomial
+is allowed in each degree. A homogeneous polynomial $h$ is
+\emph{denormalized Lorentzian} if $\mathcal N(h)$ is Lorentzian.
+\end{definition}
+
+Coordinate derivatives preserve the Lorentzian property;
+so do directional derivatives with nonnegative directions,
+by published Corollary~2.11. Published Corollary~3.7 says
+that $h$ Lorentzian implies $\mathcal N(h)$ Lorentzian.
+The converse fails. For example,
+$h=x^2+xy+y^2$ has Hessian
+$\left(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\right)$,
+with two positive eigenvalues, while
+$\mathcal N(h)=\tfrac12x^2+xy+\tfrac12y^2$ has Hessian
+$\left(\begin{smallmatrix}1&1\\1&1\end{smallmatrix}\right)$
+and is Lorentzian. The full quadratic support is $M$-convex.
+Thus an assertion about a normalization cannot in general be
+restated for the unnormalized polynomial.
+
+The algebraic volume input is published Theorem~4.6 of
+\cite{BrandenHuh20Lorentzian}.
+\begin{theorem}
+\label{thm:appD-nef-volume-Lorentzian}
+Let $Y$ be an irreducible projective variety of dimension $d$
+over an algebraically closed field. If $H_0,\ldots,H_m$ are
+nef $\mathbf Q$-Cartier divisors, then
+\[
+ V(\mathbf t)
+   =\deg_Y\bigl((t_0H_0+\cdots+t_mH_m)^d\bigr)
+   =\sum_{|\alpha|=d}\frac{d!}{\alpha!}
+       \deg_Y(H_0^{\alpha_0}\cdots H_m^{\alpha_m})\mathbf t^\alpha
+\tag{D.33}\label{eq:appD-nef-volume-polynomial}
+\]
+is Lorentzian, including the zero-polynomial case.
+\end{theorem}
+
+This is an attributed import, not a new Hodge-index proof.
+The source passes from nef to ample divisors, cuts the
+degree-two derivatives to an irreducible surface, and uses
+Hodge index on a surface resolution. Irreducibility matters:
+a sum of volume polynomials of unrelated components need not
+have the same signature property. In particular, this theorem
+does not identify every effective Chow-class polynomial with
+a volume polynomial.
+
+\paragraph{The degree of homogenization.}
+For a polynomial $Q(\mathbf t)$ of degree $s$ and $N\geq s$,
+write $h_N(Q)=\sum_\alpha q_\alpha
+t_0^{N-|\alpha|}\mathbf t^\alpha$. Termwise differentiation gives
+\[
+ \partial_{t_0}^{N-s}\mathcal N(h_N(Q))
+     =\mathcal N(h_s(Q)).
+\tag{D.34}\label{eq:appD-homogenization-derivative}
+\]
+Both normalizations include the $t_0$ factorial. This identity,
+together with derivative closure, explains why a denormalized
+Lorentzian degree-$N$ coefficient polynomial in an intersection
+construction yields the usual degree-$s$ homogenization.
+It does not justify arbitrary nonnegative coordinate changes
+for denormalized Lorentzian polynomials: the normalization
+operator need not commute with such changes.
+
+\paragraph{Covolume records different coefficients.}
+For an irreducible subvariety $W\subset\prod_i\mathbf P^{n_i}$,
+write its Chow class as $\sum a_\alpha H^\alpha$ in the
+ambient Chow ring. Aluffi's covolume polynomial records
+$\sum a_\alpha\mathbf t^\alpha$, a \emph{codimension}-degree
+polynomial. Definition~2.1 of \cite{Aluffi23CovolumeV4}
+allows limits of positive real multiples of these polynomials.
+The volume polynomial of $W$ instead records intersections
+on $W$ and has degree $\dim W$.
+
+Even factorial normalization does not in general turn a
+covolume polynomial into a Lorentzian one. Source Example~2.7
+embeds $(\mathbf P^1)^3$ in
+$\mathbf P^7\times\mathbf P^3\times\mathbf P^1$ by the
+Segre maps and projection. Its degree-eight covolume polynomial
+has normalization whose indicated derivative is
+\[
+\begin{aligned}
+ \partial_{t_0}^{5}\partial_{t_1}\mathcal N(P_{[W]})
+    &=t_0^2+2t_0t_1+2t_0t_2+t_1^2+4t_1t_2,\\
+ \operatorname{Hess}
+    &=\begin{pmatrix}2&2&2\\2&2&4\\2&4&0\end{pmatrix}.
+\end{aligned}
+\tag{D.35}\label{eq:appD-covolume-signature-example}
+\]
+The determinant is $-8$ and exact congruence gives two
+positive and one negative eigenvalue. This is the source's
+existing example, not a counterexample to the mixed-zeta
+theorem in \cref{sec:appC-mixed-Segre-zeta}.
+
+Proposition~2.8 of the same exact preprint supplies a different
+operation. Choose integers $n_i$ large enough that
+\[
+ R(\mathbf u)=\left(\prod_i u_i^{n_i}\right)
+                         P(1/u_0,\ldots,1/u_m)
+\tag{D.36}\label{eq:appD-covolume-exponent-reversal}
+\]
+is a polynomial. For a covolume polynomial $P$,
+$\mathcal N(R)$ is Lorentzian. When $P=P_{[W]}$ in its
+actual ambient product, the source identifies this normalized
+exponent reversal with the volume polynomial of $W$ divided
+by $(\dim W)!$. Direct normalization and exponent reversal
+are therefore distinct operations. The source's conjecture
+about the modified numerator for one multihomogeneous ideal
+on a multiprojective space does not follow just from covolume.
+Its source-era status and the scope of the mixed sequence
+result are recorded in \cref{sec:appL-mixed-Segre-source-gates}.
+
+\subsection{Geometric realization and differential operators}
+\label{sec:appD-volume-operators}
+\index{volume polynomial!realization}
+\index{covolume polynomial!differential operator}
+
+For the operator results we fix an algebraically closed field $k$.
+The terminology below follows Definitions~1.1--1.2 of
+\cite{GrundHuhMichalekSuessWang25VolumeV1}. It distinguishes an
+actual intersection construction from a limit of such constructions.
+Write $x^{[\alpha]}=x^\alpha/\alpha!$.
+
+\begin{definition}
+\label{def:appD-realizable-volume}
+A homogeneous polynomial is a \emph{realizable volume polynomial}
+over $k$ if it has the form
+\[
+ f(\mathbf x)=\frac{a}{d!}
+       \deg_X\bigl((x_1D_1+\cdots+x_nD_n)^d\bigr),
+ \qquad a\in\mathbf Q_{\geq0},
+\tag{D.37}\label{eq:appD-realizable-volume}
+\]
+where $X$ is a reduced irreducible projective $d$-fold over $k$
+and the $D_i$ are semiample Cartier divisors. A \emph{volume
+polynomial} is a coefficientwise limit of these polynomials in
+a fixed homogeneous degree and a fixed set of variables.
+For a homogeneous differential polynomial
+$g=\sum_\alpha c_\alpha\partial^\alpha$, choose a vector
+$\mu\in\mathbf N^n$ dominating every exponent in its support.
+It is \emph{realizable covolume} if
+\[
+ g(\partial)\mathbf x^{[\mu]}
+       =\sum_\alpha c_\alpha\mathbf x^{[\mu-\alpha]}
+\tag{D.38}\label{eq:appD-covolume-cutoff}
+\]
+is realizable volume; replacing realizable volume by volume
+defines covolume. These properties are independent of a sufficiently
+large cutoff. Zero is allowed.
+\end{definition}
+
+The divided powers in \eqref{eq:appD-covolume-cutoff} are essential.
+The expression is an exponent reversal followed by normalization,
+and is not $\mathcal N(\sum c_\alpha\mathbf x^\alpha)$.
+The rational scalar in \eqref{eq:appD-realizable-volume} belongs
+to exact realization. Arbitrary nonnegative real scales are available
+in the closed cone by taking limits. Nef rational divisor-volume
+polynomials belong to that closed cone by ample approximation;
+this does not turn every nef class into a semiample class.
+
+Theorem~1.3 and Corollary~1.4 of the same source give the
+following characterization.
+\begin{theorem}
+\label{thm:appD-covolume-preserver}
+A homogeneous constant-coefficient differential polynomial $g$
+is realizable covolume over $k$ if and only if $g(\partial)$
+preserves realizable volume polynomials over $k$.
+It is covolume if and only if $g(\partial)$ preserves volume
+polynomials over $k$.
+\end{theorem}
+
+This is an attributed geometric theorem. In particular, monomial
+differentiation preserves realization. It justifies removing the
+projective-bundle shift in \cref{sec:appF-total-Chern-volume}.
+The proof uses translated intersections on complete homogeneous
+spaces and algebraic equivalence of general-fibre components.
+It does not require those intersections to have a single component.
+The relevant proper-fibre input is
+\cite[Lemma~2.6]{HuangHuhMichalekWangWang25RealizationsV2}.
+
+There is also a useful sufficient symbol test, Theorem~1.12 of
+\cite{GrundHuhMichalekSuessWang25VolumeV1}. Let $T$ be a linear
+map on the space spanned by $\mathbf x^{[\alpha]}$ with
+$0\leq\alpha\leq\mu$, taking values in polynomials in
+independent variables $\mathbf z$. Assume that $T$ is homogeneous
+with a fixed degree shift. Its symbol is
+\[
+ S_T(\mathbf z,\mathbf y)
+    =\sum_{0\leq\alpha\leq\mu}
+            T(\mathbf x^{[\alpha]})(\mathbf z)
+                       \mathbf y^{[\mu-\alpha]}.
+\tag{D.39}\label{eq:appD-volume-symbol}
+\]
+If this symbol is realizable volume, $T$ preserves realizable
+volume polynomials in its domain. The volume version holds as
+well. This is a sufficient condition; no converse is stated here.
+The source's separate dual characterization uses auxiliary variables
+in its converse, and cannot be replaced by an unrestricted
+same-variable test.
+
+The resulting closure operations include products of volume
+polynomials, rational nonnegative substitutions, polarization and
+the stated coefficient truncations. Another exact consequence is
+that $\mathcal N(f_1f_2)$ is realizable volume when both
+$\mathcal N(f_i)$ are. One must normalize the product:
+$\mathcal N$ is not multiplicative in shared variables.
+Proposition~4.4's mixing operation
+$t f(x_1,x_2,\ldots)+(1-t)f(x_2,x_1,\ldots)$ requires
+\emph{multiaffine} inputs and rational $0\leq t\leq1$.
+Without multiaffinity the average of $x_1^2$ and $x_2^2$
+already fails the one-positive-eigenvalue criterion.
+
+\subsection{A necessary inequality beyond Lorentzianity}
+\label{sec:appD-reverse-KT}
+\index{reverse Khovanskii--Teissier inequality}
+
+Geometric volume polynomials satisfy further inequalities.
+The following is Theorem~1.1 of the controlling arXiv version of
+\cite{JiangLi23ReverseKTV3}; its more general mixed form is
+Theorem~3.5.
+\begin{theorem}
+\label{thm:appD-reverse-KT}
+Let $X$ be a reduced irreducible projective $d$-fold over an
+algebraically closed field of arbitrary characteristic, and let
+$A,B,C$ be nef Cartier divisors. For $1\leq q\leq d-1$,
+\[
+ (A^qB^{d-q})(A^{d-q}C^q)
+   \geq\binom dq^{-1}(A^d)(B^{d-q}C^q).
+\tag{D.40}\label{eq:appD-reverse-KT}
+\]
+The inequality is strict for ample $A,B,C$. The nef constant
+is sharp, as products of projective spaces show.
+\end{theorem}
+
+Here every parenthesis denotes an intersection degree on $X$.
+The source's proof uses multipoint Okounkov bodies and ample
+approximation, including a base-field extension to make
+very-general choices. It does not assume a resolution in positive
+characteristic. Coefficient inequalities obtained from
+\eqref{eq:appD-reverse-KT} pass to the volume cone by continuity.
+The binomial factor remains after using divided-power coefficients.
+
+Huh's survey \cite[Section~3, physical pp.~14--15]{Huh26VolumeSurveyV4}
+gives the Lorentzian cubic
+\[
+ f=14x_1^3+6x_1^2x_2+24x_1^2x_3
+                  +12x_1x_2x_3+6x_1x_3^2+3x_2x_3^2.
+\tag{D.41}\label{eq:appD-Lorentzian-nonvolume}
+\]
+Writing $f=\sum c_\alpha\mathbf x^{[\alpha]}$, the choice
+$A=D_1$, $B=D_3$, $C=D_2$, $d=3$, $q=1$ would require
+$3c_{102}c_{210}\geq c_{300}c_{012}$. Instead,
+$3\cdot12\cdot12=432<84\cdot6=504$.
+Thus this source example is outside the volume cone, even though
+its support is $M$-convex and its three first-derivative Hessians
+have at most one positive eigenvalue. A signature argument alone
+cannot replace a realization in the constructions that follow.
+
+\subsection{Homogeneous packets and finite complements}
+\label{sec:appD-Chern-packets}
+\index{Chern flow!homogeneous packet}
+\index{Lascoux polynomial}\index{Grothendieck polynomial}
+
+The volume construction can compare coefficients in different
+homogeneous components of one inhomogeneous polynomial. The extra
+variable must be normalized along with the original variables. We use
+the conventions of \cite[\S1.1 and \S5]{NguyenDangWang26ChernFlowV4}.
+If $Q^+(\mathbf x;\beta)=\sum_{k=0}^r Q_k(\mathbf x)\beta^k$, with
+$Q_k$ homogeneous of degree $d+k$, its packet with cap $L\geq r$ is
+\[
+ Q(\mathbf x,z)=\sum_{k=0}^r Q_k(\mathbf x)z^{L-k}.
+\tag{D.42}\label{eq:appD-homogeneous-packet}
+\]
+Every term has degree $d+L$. Ordinary differentiation gives the
+formal coefficient-extraction identity
+\[
+ \left.\partial_z^{L-k}\mathcal N_{\mathbf x,z}(Q)\right|_{z=0}
+       =\mathcal N_{\mathbf x}(Q_k).
+\tag{D.43}\label{eq:appD-packet-layer-extraction}
+\]
+There is no additional $(L-k)!$. Removing common $z$ padding uses
+the corresponding derivative without setting $z$ to zero.
+
+To specify the families, let $s_i$ interchange $x_i,x_{i+1}$ and
+write $\Delta_i f=(f-s_if)/(x_i-x_{i+1})$. This is a polynomial
+divided difference, distinct from ordinary differentiation. Set
+\[
+\begin{aligned}
+ K_i^z f&=\Delta_i\bigl(x_i(x_{i+1}+z)f\bigr),&
+ \overline K_i^z&=K_i^z-z\,\mathrm{id},\\
+ D_i^z f&=\Delta_i\bigl((x_{i+1}+z)f\bigr).&&
+\end{aligned}
+\tag{D.44}\label{eq:appD-packet-operators}
+\]
+The braid relations make reduced-word products well-defined;
+the rightmost factor acts first. For a partition $\lambda$ padded
+to length $n$, a permutation $w\in S_n$, the longest permutation
+$w_0$, and $\delta=(n-1,n-2,\ldots,0)$, put
+$H_{w,\lambda}=K_w^z\mathbf x^\lambda$,
+$\overline H_{w,\lambda}=\overline K_w^z\mathbf x^\lambda$, and
+$F_w=D_{w^{-1}w_0}^z\mathbf x^\delta$.
+The operator and atom conventions agree with the selected
+\cite[\S2]{BuciumasScrimshawWeber20LascouxV2}.
+
+The following is Theorem~1.1 of the controlling Chern-flow preprint.
+\begin{theorem}
+\label{thm:appD-Chern-packet-volume}
+Over every field $k$, the factorial normalizations in all variables of
+$H_{w,\lambda}$, $\overline H_{w,\lambda}$ and $F_w$ are realizable
+volume polynomials over $k$. Their nonzero minimal packets and all
+homogeneous layers have the same property. Every nonzero polynomial
+so obtained is Lorentzian and has support equal to the integral base
+set of a polymatroid algebraic over $k$. In characteristic zero it has
+a smooth integral projective realization by semiample Cartier divisors.
+\end{theorem}
+
+Here realizable means the actual rationally scaled intersection
+model in \eqref{eq:appD-realizable-volume}, allowing integral
+projective varieties over the stated field. The coefficients are
+rational numbers regardless of its characteristic; the construction
+does not invert factorials in $k$. The theorem includes keys,
+Demazure atoms and Schubert polynomials. For an ordinary
+Grothendieck polynomial $G_w$, its degree-$\ell(w)+k$ component
+is replaced by $A_{w,k}=(-1)^kG_w^{(\ell(w)+k)}$ before forming
+the nonnegative packet. This sign correction is part of the statement.
+
+The proof treats a complete packet through actual generated bundles
+and incidence; see \cref{sec:appF-Chern-flow}. It does not assert
+that each operator in \eqref{eq:appD-packet-operators} preserves
+all volume or saturated-support polynomials. Its reciprocal calculation
+also retains a finite box. If $\mathcal D_{\mathbf m}$ sends
+$\mathbf x^{[\alpha]}$ to $\mathbf x^{[\mathbf m-\alpha]}$ and
+$R_{\mathbf m}P=\mathbf x^{\mathbf m}P(\mathbf x^{-1})$, then
+\[
+ \mathcal D_{\mathbf m}\mathcal N(P)
+       =\mathcal N(R_{\mathbf m}P),\qquad
+            \operatorname{supp}(P)\subseteq[0,\mathbf m].
+\tag{D.45}\label{eq:appD-packet-finite-complement}
+\]
+The $z$ cap changes along an operator word. An unrestricted
+exponent reversal is not substituted for this identity.
+
+The ordinary Grothendieck, Lascoux and Lascoux-atom supports are
+$M^\natural$-convex and fill the lattice points of their integral
+generalized-polymatroid Newton polytopes
+\cite[Corollaries~5.12--5.14]{NguyenDangWang26ChernFlowV4}.
+This addresses the stated ordinary support questions in
+\cite{MonicalTokcanYong17NewtonV2,MeszarosSetiabrataStDizier22SupportV1}.
+The double-Schubert question, stronger explicit Schubitope descriptions,
+and signed-coefficient conjectures require separate arguments.
+The edition-specific comparison is in
+\cref{sec:appL-Chern-flow-sources}.
+
+\subsection{A volume realization with a middle Hodge obstruction}
+\label{sec:appD-Chern-apolar-obstruction}
+\index{apolar algebra!Hodge--Riemann obstruction}
+
+Lorentzianity tests quadratic derivatives. The complete Hodge package
+of an algebra additionally controls primitive classes in every degree.
+The following example is \cite[Example~6.17]{NguyenDangWang26ChernFlowV4}.
+It separates these requirements even for an actual volume polynomial.
+\begin{example}
+\label{ex:appD-volume-apolar-HR}
+Let
+\[
+\begin{aligned}
+ f(x,y)&=\frac{x^4+8x^3y+12x^2y^2+8xy^3+y^4}{24}\\
+       &=\sum_{i=0}^4 c_i x^{[4-i]}y^{[i]},
+       \qquad(c_i)=(1,2,2,2,1).
+\end{aligned}
+\tag{D.46}\label{eq:appD-Chern-quartic}
+\]
+This is realizable volume over every field. Its real apolar algebra is
+\[
+ A_f=\mathbf R[\partial_x,\partial_y]/\operatorname{Ann}(f),
+\]
+with degree $D\mapsto Df$ in degree four. Its Hilbert vector is
+$(1,2,3,2,1)$. For $L=\partial_x+\partial_y$ it satisfies
+Hard Lefschetz, but fails the degree-two Hodge--Riemann sign.
+\end{example}
+
+The source realizes $f$ on the split projective toric variety of
+the normal fan of $P+Q$, where $P=2\Delta$, $\Delta$ is the
+standard four-simplex, and
+$Q=\operatorname{conv}(0,4e_1,2e_2,2e_3,e_4)$.
+The ordered-simplex mixed-volume formula gives
+$(16,32,32,32,16)$, so the scalar in the divisor-volume
+realization is $1/16$. The formula is
+\cite[Lemma~36]{Huh12MilnorV3}, which cites Shephard's result.
+
+In the degree-two basis
+$(\partial_x^2,\partial_x\partial_y,\partial_y^2)$ the pairing is
+$\left(\begin{smallmatrix}1&2&2\\2&2&2\\2&2&1\end{smallmatrix}\right)$,
+of determinant $2$. The nonzero class
+$A=4\partial_x^2-7\partial_x\partial_y+4\partial_y^2$
+is primitive since $(LA)f=0$, but $\deg(A^2)=-30$.
+The required degree-two sign is positive. Meanwhile
+$\deg(L^4)=30$, and the degree-one Lefschetz pairing is
+$\left(\begin{smallmatrix}7&8\\8&7\end{smallmatrix}\right)$,
+of determinant $-15$; together with degree-two duality these
+verify Hard Lefschetz. The quadratic derivative Hessians have
+determinants $-2,0,-2$, consistent with Lorentzianity.
+The full moment algebra and its spanning-direction completion in
+\cref{sec:appF-Chern-moments} supply the additional structure;
+the apolar algebra of a smaller displayed polynomial need not be
+the cohomology algebra of its realizing variety.
 
 \section{Normalization checks}
 \label{sec:appD-unit-tests}
@@ -833,11 +1366,13 @@ reversed Cauchy--Schwarz inequality claimed in the theorem.
 \item For \(f(x)=|x|\),
       \(f^*=\iota_{[-1,1]}\) and
       \(\MA_{\mathbf R}(f)=2\delta_0\).
-\item For \(K=[0,a]\), \(L=[0,b]\),
+\item For \(a,b,s,t\geq0\), \(K=[0,a]\), \(L=[0,b]\),
       \(\operatorname{vol}(sK+tL)=sa+tb\).
-\item Translating \(G\) by \(c\) preserves mass and changes its first moment
-      by \(c\,\lambda(P)\).
-\item If \(P\) has zero volume, both
+\item Translating \(G\) by a finite constant \(c\) preserves mass.  If
+      \(G\in L^1(P,\lambda)\), it changes the first moment by
+      \(c\,\lambda(P)\).
+\item If \(P\) is a convex body of zero volume and
+      \(\lambda=n!\operatorname{Leb}_M|_P\), both
       \(\MA_{\mathbf R}(h_P)\) and the unnormalized moment measure have zero
       mass, and neither can be normalized to a probability.
 \end{enumerate}
@@ -853,6 +1388,7 @@ probability normalization.  Thus every item is a proved consequence of the
 normalizations above.
 
 \section*{Source note}
+\label{sec:appD-source-note}
 
 Closed convex duality and subgradients follow
 \cite[Chapters~7, 12, and~23--25]{Roc70}.

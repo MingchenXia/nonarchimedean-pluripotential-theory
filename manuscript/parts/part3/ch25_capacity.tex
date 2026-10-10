@@ -33,22 +33,24 @@ supplied by two estimates: a Chern--Levine--Nirenberg bound
 
 \Cref{thm:bounded-ma-extension} produced, for every $n$-tuple of bounded
 $\theta$-psh functions, a positive Radon measure of mass $V$, continuous
-along decreasing nets \emph{when tested against continuous functions}.  That
-last clause is the whole difficulty.  Every statement one actually wants
+along decreasing nets when tested against continuous functions, and with
+weighted monotone continuity for bounded psh weights.  Neither statement
+by itself controls the mass of every Borel set.  Every statement one actually wants
 concerns a set defined by an inequality between psh functions:
 $\{\varphi>\psi\}$ in the maximum principle, $\{\varphi<\psi\}$ in the
 comparison principle, $\{\varphi<-t\}$ in every energy estimate.  Such a
-set is neither open nor closed, its indicator is not continuous, and
+set need not be open or closed, and its indicator need not be continuous;
 \Cref{rem:portmanteau-sharp} recorded that weak convergence says nothing
 about the mass of a general Borel set.
 
 There is a second, subtler gap.  A bounded $\theta$-psh function is upper
 semicontinuous and is a decreasing limit of continuous model functions
 (\Cref{thm:bfj-decreasing-regularization}), but it need not be continuous,
-and the regularizing family is a net with no cofinal sequence
-(\Cref{ex:ch22-no-countable-cofinal}).  So one cannot integrate a bounded psh
-function against a Monge--Amp\`ere measure by any naive limiting procedure and
-expect the answer to behave well.
+and the regularization theorem initially supplies a net.
+The absence of a countably cofinal model system
+(\Cref{ex:ch22-no-countable-cofinal}) prevents a simple diagonal model
+argument.  The later capacity estimate supplies a sequence adapted to each
+potential; it does not make the system of all models countably cofinal.
 
 The capacity closes both gaps at once.  Write
 \begin{equation}
@@ -128,8 +130,9 @@ where $C_\theta$ is the explicit constant of
 \Cref{lem:ch25-normalized-bound}.  The converse implication, from negligible
 to polar, is \emph{not} proved in this book.
 
-\emph{(iv) Convergence in capacity is strictly between uniform and pointwise
-convergence.}  \Cref{prop:decreasing-capacity-convergence},
+\emph{(iv) Uniform convergence implies convergence in capacity; pointwise
+convergence and convergence in capacity do not imply each other for the
+whole sequence.}  \Cref{prop:decreasing-capacity-convergence},
 \Cref{ex:ch25-capacity-not-uniform} and
 \Cref{ex:ch25-pointwise-not-capacity}.
 
@@ -269,10 +272,10 @@ transported; the relation between the two is discussed in
 \subsection{Nets, sequences, and where the reduction is legitimate}
 \label{sec:ch25-nets}
 
-The space $X^{\An}$ is compact Hausdorff but not metrizable, and the
-directed set of models has no cofinal sequence
-(\Cref{lem:ch21-no-cofinal-sequence},
-\Cref{ex:ch22-no-countable-cofinal}).  Convergence statements in this chapter
+The space $X^{\An}$ is compact Hausdorff; no metrizability assumption is
+made.  In the model system illustrated in
+\Cref{ex:ch22-no-countable-cofinal}, no countably cofinal family is available
+(\Cref{lem:ch21-no-cofinal-sequence}).  Convergence statements in this chapter
 are therefore formulated for nets, in accordance with
 \Cref{rem:net-vs-sequence-checklist}, with exactly three exceptions, each of
 which is a theorem rather than an abbreviation.
@@ -301,7 +304,7 @@ which is a theorem rather than an abbreviation.
  \Cref{prop:capacity-subsequence}, quoted from
  \Cref{chap:topological-tools}, extracts from a \emph{sequence} converging
  in capacity a subsequence converging outside a negligible set.  It is
- false for nets as stated, and we never apply it to one; see
+ stated for sequences, and no subnet conclusion is inferred from it; see
  \Cref{rem:ch25-nets-in-capacity}.
 \end{enumerate}
 
@@ -373,9 +376,9 @@ occur in the wrong order, and no argument in this book interchanges them.  To
 avoid ambiguity we write $\Capa_\theta^*$ for the outer capacity when the
 distinction matters, and record in \Cref{lem:ch25-inner-outer} the two cases
 in which the distinction does not matter: $E$ open, and $E$ of outer
-capacity zero.  In every application below, the exceptional sets that are
-actually produced are \emph{open}, so the distinction never obstructs an
-argument; the reader should nevertheless not read
+capacity zero.  When an outer-capacity conclusion is needed below, we
+construct open majorants with small capacity; an estimate for the Borel-set
+capacity alone is not substituted for this step.  The reader should not read
 ``$\Capa_\theta(E)=0$'' for a general Borel $E$ as if outer regularity
 had been established.
 
@@ -427,17 +430,17 @@ $[-1,0]$ lies in $\PSH(X,\theta)$ by
 \Cref{lem:ch21-model-skeletal-properties}.  For the second assertion apply
 \Cref{thm:bfj-decreasing-regularization} to $u$, obtaining a decreasing net
 $u_\alpha\searrow u$ of $\theta$-psh model functions; then
-$u_\alpha\geq u\geq-1$.  Put $c_\alpha:=\sup_{X^{\An}}u_\alpha$, a
-nonincreasing net of reals.  Fix an SNC model determining $\theta$ and
+$u_\alpha\geq u\geq-1$.  Put $d_\alpha:=\sup_{X^{\An}}u_\alpha$ and
+$c_\alpha:=\max\{0,d_\alpha\}$, nonincreasing nets of reals.  Fix an SNC model determining $\theta$ and
 write $\Delta$ for its dual complex.  By
 \Cref{prop:ch21-sup-on-skeleton} the supremum of any $\theta$-psh function
 over $X^{\An}$ equals its supremum over $\Delta$, so
-$c_\alpha=\sup_\Delta u_\alpha$ and $\sup u=\sup_\Delta u$.  The
+$d_\alpha=\sup_\Delta u_\alpha$ and $\sup u=\sup_\Delta u$.  The
 restrictions $u_\alpha|_\Delta$ are continuous and decrease pointwise to
 $u|_\Delta$, which is continuous by
 \Cref{thm:bfj-skeletal-equicontinuity}; since $\Delta$ is compact,
 \Cref{prop:dini-nets} gives uniform convergence on $\Delta$ and hence
-$c_\alpha\downarrow\sup u\leq0$.
+$d_\alpha\downarrow\sup u\leq0$ and $c_\alpha\downarrow0$.
 \end{proof}
 
 \begin{lemma}
@@ -648,9 +651,9 @@ axioms have to be checked and not assumed.
 
 \begin{remark}[In dimension one the missing axioms are theorems]
 \label{rem:ch25-curve-choquet-unconditional}
-The three items just declined---strong subadditivity, capacitability, and
-the converse implication ``capacity zero $\Rightarrow$ polar''---are not
-open in dimension one.  For the \emph{relative} capacity of a smooth
+For Thuillier's relative capacity, strong subadditivity, capacitability,
+and the equivalence of capacity zero with polarity are theorems in
+dimension one.  For this \emph{relative} capacity of a smooth
 Berkovich curve, defined not as a supremum of Monge--Amp\`ere masses but as
 the reciprocal of a minimal energy, Thuillier proves all three
 unconditionally \cite[\S3.6]{Thu05}; the statements are collected in
@@ -658,8 +661,8 @@ unconditionally \cite[\S3.6]{Thu05}; the statements are collected in
 \Cref{thm:ch25-thuillier-polar} below, and
 \Cref{rem:ch25-thuillier-vs-bfj} explains exactly why they do not transfer
 to $\Capa_\theta$ as it stands.  The reader should read the present
-warning as a statement about the method used here, not about the truth of
-its conclusions on curves.
+warning as concerning the global capacity $\Capa_\theta$; the relative
+results do not settle its omitted properties.
 \end{remark}
 
 \subsection{Positivity: the capacity sees every open set}
@@ -668,8 +671,9 @@ its conclusions on curves.
 A capacity that vanished on a large set would be useless: the whole point of
 \eqref{eq:capacity-definition} is that ``negligible'' should be a strong
 restriction.  The following lemma is what prevents the theory from being
-vacuous, and it is used again and again---to show that an open set of
-capacity zero is empty (\Cref{prop:bounded-capacity-domination}), and to
+vacuous: a capacity-zero set contains no divisorial point, and an open
+capacity-zero set is empty.  These conclusions are used in domination
+(\Cref{prop:bounded-capacity-domination}) and to
 extract a sequential regularization
 (\Cref{cor:psh-sequential-regularization}).
 
@@ -684,11 +688,11 @@ Let $x$ be divisorial.  By \Cref{rem:quasimonomial-vs-divisorial} there is
 a model $\mathcal X_0$ with a component $E_0$ of its special fibre such
 that $x=x_{E_0}$, and the same is true, with the strict transform of
 $E_0$ and the same multiplicity, on every model dominating
-$\mathcal X_0$.  By \Cref{prop:ch20-positive-representative}, applied on a
-model $\mathcal X$ dominating both $\mathcal X_0$ and a determination of
-$\theta$, and with $\varepsilon=1$ in
-\eqref{eq:ch20-small-positive-representative}, there is a model function
-$\psi$ determined on $\mathcal X$ with
+$\mathcal X_0$.  Choose a model dominating both $\mathcal X_0$ and a
+determination of $\theta$.  By
+\Cref{prop:ch20-positive-representative}, with $\varepsilon=1$ in
+\eqref{eq:ch20-small-positive-representative}, a further dominating
+model $\mathcal X$ carries a model function $\psi$ with
 \[
                        -1\leq\psi\leq0
 \]
@@ -746,11 +750,11 @@ $b_E((\theta+\ddc\psi)|_E)^n$ is an intersection number on the special
 fibre and can be computed.  \Cref{ex:ch25-segment-capacities} carries this
 out on a semistable curve, where the answer is a rational number written in
 terms of the degrees of $\theta$ on the components and the lengths of the
-edges of the dual graph.  The bound is not uniform over divisorial points:
-on a segment of length $\ell$ with $m_0=m_1=1$, the midpoint has capacity
-$4/\ell$ once $\ell\geq2$
-(\Cref{prop:ch25-segment-capacities}), which tends to $0$ as the thickness
-of the node grows.  So \Cref{lem:divisorial-positive-capacity} is a
+edges of the dual graph.  There is no bound depending only on $n$ and $V$ across all polarized
+curves: on a segment of length $\ell$ with $m_0=m_1=1$, the midpoint has
+capacity $4/\ell$ once $\ell\geq2$
+(\Cref{prop:ch25-segment-capacities}), tending to $0$ as the geometry
+varies.  This example does not settle a uniform bound on a fixed curve.  Thus \Cref{lem:divisorial-positive-capacity} is a
 qualitative statement, and every quantitative use of it below is made at one
 fixed point.
 \end{remark}
@@ -931,7 +935,8 @@ convergence for the two fixed positive measures involved
 \eqref{eq:ch25-uniform-integrability} for bounded $u$, which we now assume.
 
 Write $T_k:=(\theta+\ddc\varphi_{k+1})\wedge\cdots\wedge
-(\theta+\ddc\varphi_n)$ for $0\leq k\leq n$, so that $T_n$ is the empty
+(\theta+\ddc\varphi_n)$ as a formal placeholder for $0\leq k\leq n$;
+only the completed $n$-fold products below denote measures.  Thus $T_n$ is the empty
 product and $\theta^{\wedge0}\wedge T_0=\MA_\theta(\varphi_1,\ldots,
 \varphi_n)$.  We prove by induction on $k$ that
 \begin{equation}
@@ -1118,7 +1123,9 @@ product.  We isolate it first.
 \begin{lemma}
 \label{lem:ch25-dirichlet-form}
 Let $w_2,\ldots,w_n$ be bounded $\theta$-psh functions and put
-$T:=(\theta+\ddc w_2)\wedge\cdots\wedge(\theta+\ddc w_n)$.  For bounded
+$T:=(\theta+\ddc w_2)\wedge\cdots\wedge(\theta+\ddc w_n)$ as a formal
+placeholder in the completed bounded pairings of
+\Cref{cor:bounded-ma-multilinearity}.  For bounded
 $\theta$-psh $a,b$ and their differences define
 \[
  \langle a,b\rangle_T:=-\int a\,\ddc b\wedge T .
@@ -1185,8 +1192,8 @@ measure.
 \emph{Step 1: the exchange inequality.}  We claim that for every
 $(n-1)$-fold mixed product
 $T=(\theta+\ddc w_2)\wedge\cdots\wedge(\theta+\ddc w_n)$ of bounded
-$\theta$-psh functions and every bounded $\theta$-psh $w$ with
-$-M\leq w\leq0$,
+$\theta$-psh functions, interpreted as a formal placeholder in completed
+$n$-fold products, and every bounded $\theta$-psh $w$ with $-M\leq w\leq0$,
 \begin{equation}
 \label{eq:ch25-exchange}
  \int f\,(\theta+\ddc w)\wedge T
@@ -1274,10 +1281,12 @@ free entry $u_{k+1}$ satisfies $-M\leq u_{k+1}\leq0$.
 
 Iterating \eqref{eq:ch25-iteration-step} from $k=0$ to $k=n-1$,
 \[
- J_0\leq\prod_{k=0}^{n-1}\bigl(2(MV)^{1/2}\bigr)^{2^{-k}}\cdot
- J_n^{2^{-n}}
- =\bigl(2(MV)^{1/2}\bigr)^{2(1-2^{-n})}J_n^{2^{-n}}
- =2^{2(1-2^{-n})}(MV)^{1-2^{-n}}J_n^{2^{-n}},
+ \begin{aligned}
+ J_0&\leq\prod_{k=0}^{n-1}\bigl(2(MV)^{1/2}\bigr)^{2^{-k}}\cdot
+ J_n^{2^{-n}}\\
+ &=\bigl(2(MV)^{1/2}\bigr)^{2(1-2^{-n})}J_n^{2^{-n}}\\
+ &=2^{2(1-2^{-n})}(MV)^{1-2^{-n}}J_n^{2^{-n}},
+ \end{aligned}
 \]
 using $\sum_{k=0}^{n-1}2^{-k}=2(1-2^{-n})$.  Since $n\geq1$ we have
 $2^{2(1-2^{-n})}\leq4$, and since $M\geq1$ we have
@@ -1330,8 +1339,8 @@ optimal.
 
 \begin{warning}{The estimate is a bounded-regime statement}
 Every entry in \eqref{eq:fundamental-capacity-estimate} is assumed bounded,
-and the bound $M$ appears in the conclusion.  There is no version of this
-lemma for potentials of finite energy in which $M$ is replaced by an energy
+and the bound $M$ appears in the conclusion.  This lemma does not supply
+an estimate for unbounded potentials in which $M$ is replaced by an energy
 quantity: the reader should not read \eqref{eq:ch25-uniform-form} as a
 statement about $\cE^1$.  The finite-energy substitute is a different
 argument, carried out in
@@ -1522,14 +1531,12 @@ polar for the capacity
 \bottomrule
 \end{tabular}
 \end{center}
-The last line is the reconciliation with the warning in
-\Cref{sec:ch21-polar}, which announced that ``the pluripolar sets of
-\Cref{chap:bfj-capacity} are defined by a capacity and form a
-$\sigma$-ideal'': the $\sigma$-ideal in question is the ideal of
-negligible sets, \Cref{prop:ch25-negligible-sigma-ideal}, and the sets that
-were there called merely polar---the sets
-$\{\varphi=-\infty\}$---are contained in it by
-\Cref{thm:ch25-pluripolar-negligible} but are not proved to exhaust it.  The
+The last line uses the abstract capacity terminology of
+\Cref{sec:capacity-preview}.  The distinction announced in
+\Cref{sec:ch21-polar} is retained: subsets of psh pole loci are
+pluripolar, and their countable unions are negligible by
+\Cref{thm:ch25-pluripolar-negligible}; they are not proved to exhaust the
+negligible sets.  The
 classical word \emph{negligible} for a set of the form
 $\{\sup_i u_i<(\sup_iu_i)^*\}$ is not used; that set is called the
 \emph{regularization defect} here, and it is the subject of
@@ -1618,10 +1625,11 @@ the definition used below in the bounded theory.
 \end{definition}
 
 This is \Cref{sec:capacity-preview} specialized to $\Capa_\theta$, and the
-formal calculus proved there---finite sums, maxima, products and uniform
-limits of quasicontinuous functions are quasicontinuous, and countably many
-of them may be made continuous outside a single open set of small
-capacity---is available at once, because $\Capa_\theta$ is countably
+formal calculus proved there for real-valued functions---finite sums,
+maxima, products, uniform limits, and simultaneous continuity outside a
+small-capacity open set for a countable family---is available at once.
+For extended-real functions one must avoid undefined expressions such as
+$+\infty-\infty$.  The real-valued calculus applies here, because $\Capa_\theta$ is countably
 subadditive by \eqref{eq:capacity-subadditivity}.  What is \emph{not}
 available from the abstract theory is the existence of a single
 quasicontinuous function; that is the theorem below.
@@ -1715,7 +1723,8 @@ $\theta$-psh model functions with
 \end{equation}
 No claim is made that $(\alpha_m)$ is cofinal in $A$; indeed
 \Cref{ex:ch22-no-countable-cofinal} shows that no countable subset of the
-model net need be cofinal.  What is used is only
+model system need be cofinal.  This observation does not rule out a
+cofinal sequence for a particular regularizing net.  What is used is only
 \eqref{eq:ch25-qc-theta-bound}.
 
 \emph{Step 4: the exceptional set.}  Put
@@ -1794,17 +1803,22 @@ $\Capa_\theta$ is countably subadditive by
 \begin{remark}[What quasicontinuity does not say]
 \label{rem:ch25-qc-not}
 The exceptional set $G$ depends on $\varepsilon$ and, for a family, on
-the family; there is in general no single set of capacity zero off which a
-given bounded psh function is continuous.  Indeed such a set would have to
-contain the discontinuity locus, which by
-\Cref{prop:ch21-usc-iff-inf} may be large.  Moreover
+the family; a single negligible set need not suffice.  For example, in the branch
+sum of \Cref{ex:ch24-branch-sum}, every selected point $x_k$ and
+the Gauss point $\zeta$ is divisorial, so
+\Cref{lem:divisorial-positive-capacity} prevents any negligible set from
+containing them.  In its complement $x_k\to\zeta$ still holds, while
+$\varphi(x_k)=-1$ and $\varphi(\zeta)=0$, precluding continuity there.
+This argument uses a sequence that remains in the complement, rather than
+a claim that removing a set must remove the original discontinuity locus.
+Moreover
 $\varphi|_{X^{\An}\setminus G}$ is continuous \emph{as a function on the
 subspace}; this is weaker than continuity of $\varphi$ at the points of
 that subspace, as \Cref{sec:capacity-preview} already warned.  Finally,
 \Cref{rem:quasicontinuity-limits} recorded two statements that do not follow
 formally, one of which---that a decreasing limit of quasicontinuous
 functions is quasicontinuous---is proved here only in the special case of
-\Cref{prop:decreasing-capacity-convergence}, where the limit is again
+\Cref{thm:bounded-quasicontinuity}, where the bounded limit is again
 $\theta$-psh.
 \end{remark}
 
@@ -1927,13 +1941,13 @@ argument, and it does so using an ingredient unavailable in
 \Cref{chap:bfj-compactness}: the positivity of the capacity of a single
 divisorial point.  Three caveats attach to the statement.
 
-First, the convergence produced is \emph{pointwise}, not uniform on
-skeleta: uniformity on a fixed dual complex is a separate statement, proved
-for continuous limits in \Cref{cor:ch22-continuous-decreasing-sequence} and
-on a fixed skeleton in \Cref{prop:ch22-fixed-skeleton-decreasing}.  Second,
-the sequence $(\varphi_m)$ is adapted to $\varphi$; there is no
-decreasing sequence of model functions cofinal for the whole class, and
-\Cref{ex:ch22-countable-blind-spot} shows why.  Third, the proof uses the
+First, convergence is pointwise globally and uniform on each fixed dual
+complex: the restrictions decrease to the continuous skeletal restriction
+of $\varphi$, so \Cref{prop:dini-nets} applies.  No global uniform
+convergence is claimed unless $\varphi$ is continuous.  Second, the
+sequence is adapted to $\varphi$ and does not give a countably cofinal
+model system; \Cref{ex:ch22-countable-blind-spot} explains the limitation
+of a fixed countable determining family.  Third, the proof uses the
 bounded Monge--Amp\`ere operator on the truncations
 $\varphi^{(m)}$ and therefore does not survive the removal of
 \Cref{thm:bounded-ma-extension}; it is not a statement of pure topology.
@@ -1966,8 +1980,9 @@ $G_\infty$ null for every such measure.
 
 \begin{lemma}
 \label{lem:quasicontinuous-tests}
-Let $h$ be bounded and quasicontinuous. Suppose $u_\alpha$ are uniformly
-bounded psh functions and
+Let $h$ be bounded and quasicontinuous.  Let $u$ be a bounded
+$\theta$-psh function, and suppose $u_\alpha$ are uniformly bounded
+$\theta$-psh functions and
 $\MA_\theta(u_\alpha)\to\MA_\theta(u)$ weakly. Then
 \[
                     \int h\,\MA_\theta(u_\alpha)
@@ -2121,6 +2136,19 @@ $\varphi_\alpha\searrow\varphi$ and fixed entries $\varphi/2$, gives
 $\Lambda_\alpha\to0$.  The bound is uniform in $u$, so
 $\Capa_\theta(\{|\varphi_\alpha-\varphi|>\delta\})\to0$; note that
 $|\varphi_\alpha-\varphi|=\varphi_\alpha-\varphi$ here.
+This proves a Borel-capacity estimate, which must still be upgraded to
+outer capacity as required by \Cref{def:capacity-convergence}.
+
+Given $\eta>0$, the construction in the proof of
+\Cref{thm:bounded-quasicontinuity} supplies an open $G$ with
+$\Capa_\theta(G)<\eta$ and a continuous model majorant $\chi\geq\varphi$
+such that $0\leq\chi-\varphi<\delta/3$ on $G^c$: choose a sufficiently
+late member of the extracted sequence.  By \Cref{lem:ch24-sandwich},
+eventually $\varphi_\alpha\leq\chi+\delta/3$ on all of $X^{\An}$.
+Then $\varphi_\alpha-\varphi<2\delta/3$ on $G^c$, so
+$\{\varphi_\alpha-\varphi>\delta\}\subseteq G$ and
+$\Capa_\theta^*(\{\varphi_\alpha-\varphi>\delta\})<\eta$.
+Letting $\eta\downarrow0$ proves convergence in outer capacity.
 
 For the uniform assertion, if $\|f_\alpha-f\|_\infty\to0$ then for each
 $\delta>0$ the set $\{|f_\alpha-f|>\delta\}$ is empty for large
@@ -2154,7 +2182,8 @@ bounded by $C$ in absolute value.
 $|\max\{s,t\}-\max\{s',t'\}|\leq\max\{|s-s'|,|t-t'|\}$.  For products,
 $|f_\alpha g_\alpha-fg|\leq C(|f_\alpha-f|+|g_\alpha-g|)$.
 
-\cref{itm:ch25-ccc:lip}  $\{|\chi\circ f_\alpha-\chi\circ f|>\delta\}
+\cref{itm:ch25-ccc:lip}  If $L=0$ the compositions are the same constant.
+For $L>0$, $\{|\chi\circ f_\alpha-\chi\circ f|>\delta\}
 \subseteq\{|f_\alpha-f|>\delta/L\}$.
 
 \cref{itm:ch25-ccc:unique}  For each $\delta>0$,
@@ -2175,9 +2204,11 @@ For nets of uniformly bounded functions on $X^{\An}$:
  if a \emph{sequence} converges in capacity, some subsequence converges
  pointwise outside a negligible set;
 \item\label{itm:ch25-cc:none}
- neither implication is reversible: \Cref{ex:ch25-capacity-not-uniform}
+ convergence in capacity need not be uniform or pointwise for the whole
+ sequence: \Cref{ex:ch25-capacity-not-uniform}
  gives a sequence of $\theta$-psh functions converging in capacity but not
- uniformly, and \Cref{ex:ch25-pointwise-not-capacity} gives a sequence of
+ uniformly or pointwise at its pole.  Conversely,
+ \Cref{ex:ch25-pointwise-not-capacity} gives a sequence of
  $\theta$-psh functions converging pointwise everywhere and not in
  capacity.
 \end{enumerate}
@@ -2196,8 +2227,7 @@ cited.
 \label{rem:ch25-nets-in-capacity}
 \Cref{prop:ch25-convergence-comparison}\,\cref{itm:ch25-cc:seq} is a
 statement about sequences and is used only for sequences.  For a net
-converging in capacity there is in general no subnet converging pointwise
-off a negligible set: the proof of
+converging in capacity, no such subnet theorem is proved here.  The proof of
 \Cref{prop:capacity-subsequence} builds the exceptional set as a countable
 union $\bigcup_{m\geq N}$, and countable subadditivity has nothing to say
 about the uncountable unions that a net would produce.  This is the
@@ -2233,9 +2263,8 @@ a value to an undefined difference at the polar points of $\varphi$.
 \section{Locality and the maximum principle}
 \label{sec:ch25-maximum}
 
-The set $\{\varphi>\psi\}$ is not open: it is the strict superlevel set of
-a difference of two upper semicontinuous functions, and no semicontinuity is
-available for such a difference.  This is why the maximum principle is not a
+The set $\{\varphi>\psi\}$ need not be open: a difference of two upper
+semicontinuous functions need not have either semicontinuity.  This is why the maximum principle is not a
 formal consequence of weak convergence, and why it has to wait for
 quasicontinuity.  The mechanism of the proof is to replace the indicator
 $\one_{\{\varphi>\psi\}}$ by a continuous cutoff of the difference of the
@@ -2277,15 +2306,17 @@ taking the product of the two index sets, and normalized as in Step~1 of the
 proof of \Cref{thm:bounded-quasicontinuity} so that
 $-M\leq\varphi\leq\varphi_\alpha\leq0$ and
 $-M\leq\psi\leq\psi_\alpha\leq0$.  The functions
-$\max\{\varphi_\alpha,\psi_\alpha\}$ are $\theta$-psh model functions
-(\Cref{prop:ch20-model-max}) and decrease to $\max\{\varphi,\psi\}$.
+$\max\{\varphi_\alpha,\psi_\alpha\}$ are continuous $\theta$-psh
+functions by \Cref{thm:ch21-stability} and decrease to
+$\max\{\varphi,\psi\}$.  A maximum of real model functions need not
+be a model function; \Cref{prop:model-maximum-principle} already includes
+this continuous case.
 
 Fix $\varepsilon>0$ and $f\in C^0(X^{\An})$.  The continuous function
 \[
  h_\alpha:=f\cdot\chi_\varepsilon(\varphi_\alpha-\psi_\alpha)
 \]
-vanishes on $\{\varphi_\alpha\leq\psi_\alpha\}$, so it is supported in
-$\{\varphi_\alpha>\psi_\alpha\}$, where
+vanishes off $\{\varphi_\alpha>\psi_\alpha\}$.  On this strict set,
 \Cref{prop:model-maximum-principle} gives
 \eqref{eq:model-maximum-principle}.  Hence
 \begin{equation}
@@ -2388,21 +2419,13 @@ $\theta$-psh with $\varphi_i=\psi_i$ on $U$ for every $i$, then
 
 \begin{proof}
 The first assertion is the last clause of
-\Cref{thm:bounded-maximum-principle}.  For the mixed statement we use the
-polarization identity for a symmetric multilinear form: writing
-$\theta_i:=\theta+\ddc\varphi_i$ and $Q(\eta):=\eta^{\wedge n}$,
-\[
- n!\,\theta_1\wedge\cdots\wedge\theta_n
- =\sum_{\varnothing\neq S\subseteq\{1,\ldots,n\}}(-1)^{\,n-\#S}\,
-   Q\Bigl(\sum_{i\in S}\theta_i\Bigr),
-\]
-an identity of signed measures valid because the mixed product is symmetric
-and multilinear (\Cref{cor:bounded-ma-multilinearity}); the empty set
-contributes $0$.  For a nonempty $S$ put
+\Cref{thm:bounded-maximum-principle}.  For the mixed statement use the
+bounded polarization identity in \Cref{cor:bounded-ma-multilinearity}.
+For a nonempty $S\subseteq\{1,\ldots,n\}$ put
 $\varphi_S:=(\#S)^{-1}\sum_{i\in S}\varphi_i$, a convex combination of
 $\theta$-psh functions, hence $\theta$-psh by
 \Cref{lem:ch25-admissible-calculus}\,\cref{itm:ch25-adm:nonempty} and bounded;
-then $\sum_{i\in S}\theta_i=(\#S)(\theta+\ddc\varphi_S)$ and therefore
+the bounded polarization identity gives
 \[
  n!\,\MA_\theta(\varphi_1,\ldots,\varphi_n)
  =\sum_{\varnothing\neq S}(-1)^{\,n-\#S}(\#S)^n\,
@@ -2415,8 +2438,8 @@ diagonal case applies term by term and the two sides agree on $U$.
 \begin{remark}[Two sets that must not be confused]
 \label{rem:ch25-max-sets}
 Identity \eqref{eq:bounded-maximum-principle} concerns the \emph{strict}
-inequality locus.  On the contact set $\{\varphi=\psi\}$ nothing is
-asserted, and nothing is true in general: the measure of the maximum may
+inequality locus.  No general equality with either operand's measure is
+asserted on the contact set $\{\varphi=\psi\}$: the maximum's measure may
 differ from both $\MA_\theta(\varphi)$ and $\MA_\theta(\psi)$ there,
 because the maximum acquires new curvature along the contact locus.
 \Cref{ex:ch25-comparison-numbers} exhibits this on a metric graph with
@@ -2550,8 +2573,7 @@ For $0<t<1$,
  \leq t^{-n}
  \int_{\{\varphi<(1-t)\psi+t\}}\MA_\theta(\varphi).
 \end{equation}
-If, in addition, $\varphi$ is continuous and
-$\varphi\leq\psi$ almost everywhere for $\MA_\theta(\psi)$, then
+If, in addition, $\varphi\leq\psi$ almost everywhere for $\MA_\theta(\psi)$, then
 $\varphi\leq\psi$ everywhere.
 \end{proposition}
 
@@ -2598,8 +2620,8 @@ which is the content of \eqref{eq:ma-convex-lower-bound}.  Now apply
 Dividing by $t^n$ and taking the supremum over $u$ as in
 \eqref{eq:ch25-dom-sup} gives \eqref{eq:capacity-comparison}.
 
-\emph{The domination principle.}  Assume in addition that $\varphi$ is
-continuous and that $\MA_\theta(\psi)(\{\varphi>\psi\})=0$.  Let $C\geq0$
+\emph{The domination principle.}  Assume in addition that
+$\MA_\theta(\psi)(\{\varphi>\psi\})=0$.  Let $C\geq0$
 be such that $\varphi\geq-C$, and set
 $c:=\max\{0,\sup_{X^{\An}}\varphi\}$, which is finite.  Fix
 $\varepsilon>0$.  We apply \eqref{eq:capacity-comparison} to the pair
@@ -2636,19 +2658,18 @@ $\MA_\theta(\psi)$-null by hypothesis.  Therefore
 \[
  \Capa_\theta\bigl(\{\psi+\varepsilon<\varphi\}\bigr)=0 .
 \]
-The set $\{\psi+\varepsilon<\varphi\}=\{\varphi-\psi>\varepsilon\}$ is
-open, because $\varphi$ is continuous and $-\psi$ is lower
-semicontinuous.  An open set of capacity zero is empty by
-\Cref{lem:divisorial-positive-capacity}.  Hence
-$\varphi\leq\psi+\varepsilon$ everywhere, and letting
-$\varepsilon\downarrow0$ gives $\varphi\leq\psi$.
+By \Cref{lem:divisorial-positive-capacity}, a Borel set of capacity zero
+contains no divisorial point.  Consequently
+$\varphi(x)\leq\psi(x)+\varepsilon$ at every divisorial point $x$.
+Letting $\varepsilon\downarrow0$ gives $\varphi\leq\psi$ there, and
+\Cref{prop:ch21-divisorial-order} gives the inequality on all of $X^{\An}$.
+This final step requires neither openness of the strict set nor an
+identification of Borel capacity with outer capacity.
 \end{proof}
 
-\begin{warning}{Both hypotheses of the domination principle are used}
-Continuity of $\varphi$ is used exactly once, to make
-$\{\varphi-\psi>\varepsilon\}$ open so that
-\Cref{lem:divisorial-positive-capacity} applies; without it one obtains only
-that the set is negligible, and a negligible set need not be empty.  The
+\begin{warning}{Normalization and boundedness in domination}
+No continuity hypothesis on $\varphi$ is needed: divisorial order upgrades
+the capacity-zero conclusion to global order.  The
 hypothesis $\psi\leq0$ in \eqref{eq:capacity-comparison} is used once, to
 guarantee $\psi_t\geq\psi$; in the application it is arranged by
 translating \emph{both} potentials by the same constant, which leaves the
@@ -2663,10 +2684,9 @@ choice of $t$.
 
 \begin{corollary}
 \label{cor:ch25-domination-uniqueness}
-Let $\varphi,\psi$ be bounded $\theta$-psh with $\varphi$ continuous.
+Let $\varphi,\psi$ be bounded $\theta$-psh.
 If $\MA_\theta(\psi)$ gives no mass to $\{\varphi>\psi\}$, then
-$\varphi\leq\psi$ on all of $X^{\An}$.  If both $\varphi$ and
-$\psi$ are continuous and
+$\varphi\leq\psi$ on all of $X^{\An}$.  If
 \[
  \MA_\theta(\psi)\bigl(\{\varphi\neq\psi\}\bigr)
  =\MA_\theta(\varphi)\bigl(\{\varphi\neq\psi\}\bigr)=0 ,
@@ -2676,28 +2696,32 @@ $\varphi=\psi$.
 \end{corollary}
 
 \begin{proof}
-The first assertion is the second half of
-\Cref{prop:bounded-capacity-domination}.  For the second, apply that half
+After a common translation arranging $\psi\leq0$, the first assertion
+is the second half of \Cref{prop:bounded-capacity-domination}.  For the second, apply that half
 twice.  Since $\{\varphi>\psi\}\subseteq\{\varphi\neq\psi\}$, the
 hypothesis on $\MA_\theta(\psi)$ gives $\varphi\leq\psi$; since
 $\{\psi>\varphi\}\subseteq\{\varphi\neq\psi\}$, the hypothesis on
 $\MA_\theta(\varphi)$ gives $\psi\leq\varphi$, the roles of the two
-functions being exchanged and $\psi$ being continuous as required.
+functions being exchanged and normalized by a common translation.
 \end{proof}
 
 \begin{remark}[Why both carriers are assumed]
 \label{rem:ch25-both-carriers}
 The second hypothesis in
 \Cref{cor:ch25-domination-uniqueness} is not a consequence of the first.
-Once $\varphi\leq\psi$ is known, $\{\varphi\neq\psi\}=\{\varphi<\psi\}$,
+For example, on the projective line of
+\Cref{ex:ch25-pluripolar-computed}, take $\psi=0$ and
+$\varphi=\max\{\varphi_0,-1\}$.  The measure
+$\MA_\theta(\psi)=\delta_\zeta$ is carried by the contact set, whereas
+$\MA_\theta(\varphi)=\delta_{x_1}$ is carried by the strict lower set.
+Thus one carrier assumption alone cannot force equality.  More generally, once $\varphi\leq\psi$ is known, $\{\varphi\neq\psi\}=\{\varphi<\psi\}$,
 and the comparison principle \eqref{eq:bounded-comparison-principle} gives
 $\int_{\{\varphi<\psi\}}\MA_\theta(\psi)\leq
 \int_{\{\varphi<\psi\}}\MA_\theta(\varphi)$; the left-hand side vanishes,
 but that says nothing about the right-hand side, which is the quantity one
-would need.  This asymmetry is not an artefact of the proof: it is the same
-asymmetry that makes uniqueness for the Monge--Amp\`ere equation a
-variational rather than a comparison-theoretic statement, as
-\Cref{rem:ch25-no-uniqueness} records.
+would need.  Thus this comparison inequality alone does not give the reversed
+capacity-null conclusion.  Equality of Monge--Amp\`ere measures requires
+a separate uniqueness argument, as \Cref{rem:ch25-no-uniqueness} records.
 \end{remark}
 
 \begin{remark}[What is not deduced: uniqueness for the Monge--Amp\`ere
@@ -2712,13 +2736,12 @@ $\MA_\theta(\psi)$, and the equality
 $\MA_\theta(\varphi)=\MA_\theta(\psi)$ gives no information about
 $\MA_\theta(\psi)(\{\varphi>\psi\})$.  Uniqueness for the
 Monge--Amp\`ere equation is proved in this book by the variational
-method---concavity of the energy along segments,
+method, using concavity of the energy along segments,
 \Cref{cor:ch20-concavity}, differentiability, and the separate
-nondegeneracy input in \Cref{thm:ch29-uniqueness}---and not by the
-comparison principle.  Concavity alone need not be strict for the merely
-nef model classes that occur along a segment.
-This is a real limitation of the bounded theory and not an artefact of the
-exposition.
+nondegeneracy input in \Cref{thm:ch29-uniqueness}.  The direct argument
+above does not supply that uniqueness proof.  Concavity alone need not
+be strict for the merely nef model classes that occur along a segment.
+Strictness and nondegeneracy must therefore be checked separately.
 \end{remark}
 
 \section{Unbounded potentials and finite energy}
@@ -2828,17 +2851,19 @@ $T$.  Extended-real-valued quasicontinuity instead follows by combining
 bounded quasicontinuity of one truncation with the tail estimate
 \eqref{eq:ch25-tail-hypothesis}; the universal bound
 \eqref{eq:ch25-sublevel-capacity} already supplies that estimate, while
-finite energy supplies a sharper one later.  Neither
-\Cref{lem:ma-capacity-bound} nor \Cref{lem:fundamental-capacity-estimate} nor
-\Cref{prop:decreasing-capacity-convergence} is asserted for $\cE^1$
-anywhere in this book.
+finite energy supplies a sharper one later.  The constants in \Cref{lem:ma-capacity-bound} and
+\Cref{lem:fundamental-capacity-estimate} are not applied verbatim with a
+finite $M$ to an unbounded potential.  Finite-energy tail and convergence
+arguments require their own truncation estimates.
 \end{warning}
 
 \section{Capacity on a curve}
 \label{sec:ch25-curves}
 
-On a curve the capacity can be computed exactly, because the whole problem
-descends to a finite metric graph.  The mechanism is a pushforward identity
+On a curve, the capacity of a tube over a fixed skeleton descends to
+optimization on a finite metric graph.  The examples below admit exact
+maximizers; arbitrary Borel subsets need not have a finite-dimensional
+optimization formula.  The mechanism is a pushforward identity
 which has no counterpart in higher dimension and which rests on the curve
 retraction theorem \Cref{prop:ch21-curve-retraction}.
 
@@ -2847,7 +2872,7 @@ $\theta$ is a closed model form determined on a semistable model
 $\mathcal C$, $\Gamma=\Delta_{\mathcal C}$ is the dual graph with its
 canonical metric, $p=p_{\mathcal C}:C^{\An}\to\Gamma$ the retraction, and
 $\mu_0$ the curvature measure of $\theta$ on $\Gamma$ in the sense of
-\eqref{eq:graph-curvature}, a positive measure of total mass $V=\deg L$
+\eqref{eq:graph-curvature}, a positive measure of total mass $V=\deg\{\theta\}$
 supported on the vertices.  Recall from \eqref{eq:ch21-curve-psh-test} that a
 model function $\psi$ determined on a regular SNC model
 $\mathcal C'\geq\mathcal C$, with skeleton
@@ -3129,14 +3154,21 @@ values are rational whenever $a,b,\ell,m_0,m_1$ are, so
 \Cref{cor:ch25-curve-capacity-formula} identifies the supremum with the
 capacity directly in that case.
 
-For arbitrary real data, the displayed interval maximizer, and likewise
-the affine endpoint maximizer, can be approximated uniformly by
-rational-data convex piecewise affine functions in
-$\mathcal Q_\Gamma$: move each breakpoint to a nearby rational point and
-approximate each nonzero slope from inside the four closed constraints in
-\eqref{eq:ch25-segment-class} and $-1\leq f\leq0$.  The corresponding
-retractions are $\theta$-psh model functions by
-\Cref{cor:ch25-curve-capacity-formula}.  Uniform stability
+For real reference masses and real indicated breakpoints we keep
+$\theta$ fixed.  The skeletal length $\ell$ is rational in the standing
+discrete valuation normalization.  Choose rational
+$a_j,b_j\in(0,\ell)$ with $a_j\leq b_j$, converging to $a,b$
+(take $a_j=b_j$ when $a=b$), and rational nonnegative numbers
+$\alpha_j\leq\min\{m_0,1/a_j\}$,
+$\beta_j\leq\min\{m_1,1/(\ell-b_j)\}$ converging to
+$\alpha,\beta$.  The displayed three-piece formula with these parameters
+has rational vertex values, lies in $\mathcal Q_\Gamma$, and converges
+uniformly to the maximizer.  For the endpoint use rational
+$0\leq s_j\leq\min\{m_1,1/\ell\}$ with $s_j\to s$ and
+$f_j(x)=-1+s_jx$.  In both cases
+\Cref{cor:ch25-curve-capacity-formula} makes $f_j\circ p$ a
+$\theta$-psh model function, without changing the reference masses.
+Uniform stability
 \Cref{thm:ch21-stability}\,\cref{itm:ch21-stab:unif} shows that the uniform
 limit $f\circ p$ is bounded $\theta$-psh.  Its measure is
 $\mu_0+\Delta_\Gamma f$, by
@@ -3180,16 +3212,20 @@ normalizations are exactly those of \Cref{sec:ch08-harmonic}, so that no
 conversion is needed on the non-Archimedean side.
 
 Throughout this subsection $C$ is a connected, proper, smooth, strictly
-$K$-analytic curve; $I(C)\subseteq C^{\An}$ denotes the set of
-quasimonomial points, that is, the union of the skeleta of all SNC
-models (\Cref{rem:quasimonomial-vs-divisorial}; semistable models are not
-cofinal, so the union must be taken over SNC ones); $\mathrm{SH}(\Omega)$ denotes the
+$K$-analytic curve; $I(C)\subseteq C^{\An}$ denotes Thuillier's set of points of types
+$\mathrm{II}$ and $\mathrm{III}$, equivalently the points occurring in
+Shilov boundaries of analytic affinoid domains
+\cite[\S3.2]{Thu05}.  In the standing discretely valued algebraic
+setting this is the quasimonomial locus of
+\Cref{rem:quasimonomial-vs-divisorial}; the analytic definition is used
+in the broader source statements below; $\mathrm{SH}(\Omega)$ denotes the
 cone of Thuillier-subharmonic functions on an open $\Omega\subseteq C^{\An}$
 in the sense of \Cref{sec:ch19-wanner} (they are upper semicontinuous with
 values in $[-\infty,\infty)$ and are not identically $-\infty$ on any
 connected component); and $\ddc$ is the operator of
-\Cref{sec:ch08-harmonic}, which on every skeleton is the sum-of-outgoing-slopes
-Laplacian \eqref{eq:graph-laplacian}.  Following \cite{Thu05} we call
+\Cref{sec:ch08-harmonic}, with the base-change-compatible edge weights;
+on residue-rational simply semistable skeleta it is
+\eqref{eq:graph-laplacian}.  Following \cite{Thu05} we call
 $E\subseteq C^{\An}$ \emph{polar} if it admits a countable cover by
 connected open sets $\Omega$ on each of which there is
 $u\in\mathrm{SH}(\Omega)$ with $E\cap\Omega\subseteq\{u=-\infty\}$; the
@@ -3199,19 +3235,21 @@ countability requirement is not cosmetic, and
 \begin{definition}[Relative capacity; {\cite[\S3.5, \S3.6.1]{Thu05}}]
 \label{def:ch25-thuillier-capacity}
 Let $\Omega\subseteq C^{\An}$ be open with $\partial\Omega$ a nonempty
-subset of $I(C)$.  For a positive Radon measure $\mu$ on $\Omega$ let
-$g_\mu$ be its potential, that is, the unique function with
-$\ddc g_\mu=\mu$ on $\Omega$ vanishing on $\partial\Omega$, and set
+subset of $I(C)$.  For a positive Radon measure $\mu$ on $\Omega$ use its Dirichlet
+potential $g_\mu$ in the sense of \cite[\S3.4.3]{Thu05}, and set
 \[
  E_\Omega(\mu):=-\int_\Omega g_\mu\,\rd\mu\in[0,+\infty] ,
 \]
-the \emph{energy} of $\mu$ relative to $\Omega$.  For $K\subseteq\Omega$
+the \emph{energy} of $\mu$ relative to $\Omega$.  Finite-energy
+measures have the subharmonic Dirichlet representatives characterized in
+\cite[Proposition~3.5.10]{Thu05}; no classical finite-valued solution
+for an arbitrary measure is assumed.  For $K\subseteq\Omega$
 compact the \emph{relative capacity} is
 \begin{equation}
 \label{eq:ch25-thuillier-capacity}
  C(K,\Omega):=\Bigl(\inf\bigl\{E_\Omega(\mu):
    \mu\in\operatorname{Prob}(K)\bigr\}\Bigr)^{-1}
- =\Bigl(\sup\bigl\{\mu(K):\mu\ \text{of energy}\ 1\bigr\}\Bigr)^{2},
+ =\Bigl(\sup\bigl\{\mu(K):\mu\geq0,\ E_\Omega(\mu)=1\bigr\}\Bigr)^{2},
 \end{equation}
 with the conventions $(+\infty)^{-1}=0$ and $\sup\varnothing=0$.  It is
 extended to arbitrary $E\subseteq\Omega$ by inner regularity,
@@ -3295,8 +3333,13 @@ $E\subseteq\Omega$ the following are equivalent:
 \end{enumerate}
 Moreover every measure of finite energy gives measure zero to every polar
 set, and a point $x\in C^{\An}$ is polar if and only if it is of type
-$\mathrm{I}$ in the classification \Cref{thm:berk-a1-classification}; in
-particular no quasimonomial point is polar.  The hypothesis that
+$\mathrm{I}$ in Thuillier's classification; in
+particular no quasimonomial point is polar.  Here type
+$\mathrm{I}$ has Thuillier's general-field meaning: the completed residue
+field embeds over $K$ into a completed algebraic closure of $K$
+\cite[\S2.1.3, Proposition~3.4.10]{Thu05}.  Under algebraically closed
+$K$ this agrees with the type-$\mathrm{I}$ classification in
+\Cref{thm:berk-a1-classification}.  The hypothesis that
 $\Omega$ be connected may be weakened to $\pi_0(\Omega)$ countable, and
 cannot be dropped.
 The equivalences and the final assertions are imported from
@@ -3308,7 +3351,7 @@ Th\'eor\`eme~3.6.11]{Thu05}; no proof is claimed here.
 \label{rem:ch25-thuillier-vs-bfj}
 \Cref{thm:ch25-thuillier-capacity} and \Cref{thm:ch25-thuillier-polar} are
 statements about $C(\cdot,\Omega)$, not about $\Capa_\theta$, and the two
-set functions are genuinely different objects even when $n=1$.  Four
+set functions are different objects even when $n=1$.  Four
 differences must be kept in view.
 
 \emph{Relative versus global.}  $C(\cdot,\Omega)$ is attached to an open
@@ -3365,8 +3408,9 @@ model]
 Thuillier's $\ddc$ is characterized by compatibility with base change
 together with the requirement that on the skeleton of a simply semistable
 formal model it be the integral-affine Laplacian; on every skeleton it is
-therefore the sum-of-outgoing-slopes operator \eqref{eq:graph-laplacian},
-and his Poincar\'e--Lelong formula reads
+the weighted outgoing-slope operator in the general-field setting.
+On a residue-rational simply semistable skeleton it reduces to
+\eqref{eq:graph-laplacian}.  His Poincar\'e--Lelong formula reads
 $\ddc\log|f|=\delta_{\operatorname{div}(f)}$
 \cite[Proposition~3.3.15]{Thu05}, with no factor $\tfrac12$.  This is
 exactly the convention of \Cref{sec:ch08-harmonic} and
@@ -3410,15 +3454,15 @@ $\Omega$.
 
 Parametrize the segment $[\zeta_{0,r},\zeta_{0,1}]$ by arclength
 $s\in[0,\log r]$; its total length is $\log r$ by
-\Cref{def:ch08-path-metric}, since $t(\zeta_{0,\rho})=-\log\rho$.  The
-function
+\Cref{def:ch08-path-metric}, since $t(\zeta_{0,\rho})=-\log\rho$.  Let $\tau$ retract $\Omega$ onto the radial segment
+$[\zeta_{0,1},\zeta_{0,r})$, collapsing the closed unit disc to
+$\zeta_{0,1}$ and each attached branch to its point on the segment.
+If $s(\tau(x))=\log(r/\rho)$ for
+$\tau(x)=\zeta_{0,\rho}$, define
 \[
- u(x):=
- \begin{cases}
-  -s/\log r,&x=\zeta_{0,\rho}\ \text{with}\ 1\leq\rho\leq r,\ s=\log(r/\rho),\\
-  -1,&x\in E(0,1),
- \end{cases}
+ u(x):=-\frac{s(\tau(x))}{\log r}.
 \]
+This defines $u$ on every branch as well as the radial segment; it
 is continuous on $\Omega$, takes values in $[-1,0]$, equals $-1$ on
 $E$, tends to $0$ at $\zeta_{0,r}$, and is harmonic on
 $\Omega\setminus E$ because it is affine on the segment with no interior
@@ -3461,13 +3505,13 @@ bounded by $V$.
 
 Two contrasts with \Cref{prop:ch25-segment-capacities} are worth stating
 explicitly.  There the ambient object is a proper curve with a reference
-form $\theta$ and the answer is capped by $V=\deg L$; here there is no
+form $\theta$ and the answer is capped by $V=\deg\{\theta\}$; here there is no
 reference form, the cap is replaced by the distance to $\partial\Omega$,
 and the answer diverges as that distance goes to zero.  And there the
 computation is a convex optimization over the whole graph
 \eqref{eq:ch25-curve-capacity}; here it is the solution of one Dirichlet
-problem.  The two numbers are not comparable, and neither specializes to the
-other.
+problem.  These formulas belong to different normalizations and ambient domains;
+no numerical comparison between them is inferred here.
 \end{example}
 
 \refstepcounter{theorem}\label{thm:ch25-thuillier-classical-points}
@@ -3546,7 +3590,8 @@ the short edge.
 \begin{example}[Capacities on a segment of length four]
 \label{ex:ch25-segment-capacities}
 Let $\mathcal C$ be a regular semistable model whose special fibre has a
-chain $E_0-F_1-F_2-F_3-E_1$ of five components and four ordinary nodes.
+chain $E_0-F_1-F_2-F_3-E_1$ of five components and four residue-rational
+ordinary nodes.
 After suppressing the three valence-two vertices, its metric graph is
 $\Gamma=[0,4]$.  Choose a semipositive reference form whose component
 degrees are $1$ on $E_0,E_1$ and $0$ on $F_1,F_2,F_3$; thus
@@ -3587,7 +3632,8 @@ $\MA_\theta(f\circ p)=\delta_{x_1}+\delta_{x_3}$; both endpoint terms in
 $m_0+f'(0^+)=1-1=0$ and $m_1-f'(4^-)=1-1=0$.
 
 Two consequences are worth recording.  First, the capacity of a divisorial
-point is \emph{not} bounded below uniformly: replacing the four-edge chain
+point has no uniform lower bound depending only on $n$ and $V$ across
+all these polarized curves: replacing the four-edge chain
 by a chain of total length $\ell$ and taking $c=\ell/2$ gives
 $\Capa_\theta(p^{-1}(\{x_{\ell/2}\}))=4/\ell$ as soon as
 $\ell\geq2/m_0$ and $\ell\geq2/m_1$, which tends to $0$ as
@@ -3596,7 +3642,8 @@ divisorial vertex of an intermediate component, and the maximizing kink
 puts the whole displayed tube mass at that vertex; hence its singleton has
 the same capacity $4/\ell$.  Thus
 \Cref{lem:divisorial-positive-capacity} is not
-quantitative in any uniform sense, and the caveat in
+a quantitative bound in those parameters alone; this varying-geometry
+example makes no claim about an infimum on one fixed curve.  The caveat in
 \Cref{rem:ch25-divisorial-explicit} is real.  Second, a proper closed subset
 can already have full capacity: $\Capa_\theta(p^{-1}([1,3]))=V$ while
 $p^{-1}([1,3])\neq C^{\An}$.
@@ -3671,19 +3718,22 @@ where $\zeta_{0,1}$ is the Gauss point of the unit disc.  Let
 \[
  \varphi_0(x):=\log\frac{|T(x)|}{\max\{1,|T(x)|\}} .
 \]
-This is the weight of the section $Z_1$ of $\cO(1)$ in the standard model
+This is the logarithmic norm of the section $Z_1$ of $\cO(1)$ in the standard model
 metric \eqref{eq:p1-standard-weight}; it satisfies $\varphi_0\leq0$,
 $\varphi_0(\zeta_{0,1})=0$, and $\varphi_0=0$ outside the open unit disc.
 On the segment from $\zeta_{0,1}$ to the rational point $T=0$,
 parametrized by $s\geq0$ through $x_s=\zeta_{0,\rme^{-s}}$, one has
-$\varphi_0(x_s)=-s$.  The graph Laplacian therefore gives
+$\varphi_0(x_s)=-s$.  The Poincar\'e--Lelong formula, with the section's
+logarithmic norm relative to the reference metric, gives
 $\ddc\varphi_0=\delta_0-\delta_{\zeta_{0,1}}$, whence
 \[
  \theta+\ddc\varphi_0=\delta_0,
 \]
 which is the Poincar\'e--Lelong formula \eqref{eq:p1-poincare-lelong} in the
-present normalization.  In particular $\varphi_0\in\PSH(\mathbf P^1,\theta)$
-with $\sup\varphi_0=0$, and its polar set is the single rational point
+present normalization.  Membership
+$\varphi_0\in\PSH(\mathbf P^1,\theta)$ also follows directly from the
+decreasing nef model truncations of \Cref{ex:ch23-pole-model-check};
+$\sup\varphi_0=0$, and its polar set is the single rational point
 $\{T=0\}$, which is therefore pluripolar.
 
 \emph{The capacity of the sublevel sets.}  We claim that for every
@@ -3715,8 +3765,9 @@ For the lower bound, let $t\geq1$ and put
 $u_t:=\max\{\varphi_0/t,-1\}$, which lies in $\mathcal U_\theta$ because
 $\varphi_0/t$ is a convex combination of $\varphi_0$ and $0$.  On the
 segment, $u_t(x_s)=\max\{-s/t,-1\}$, affine of slope $-1/t$ for
-$s\leq t$ and constant $-1$ for $s\geq t$, and $u_t=0$ off the
-segment.  The graph Laplacian has a single negative contribution at
+$s\leq t$ and constant $-1$ for $s\geq t$.  On attached branches it
+has the value at the radial attachment point; it is $0$ outside the open
+unit disc.  For rational $t\geq1$ the model graph Laplacian has a single negative contribution at
 $\zeta_{0,1}$, of size $-1/t$, and a single positive kink at $x_t$, of
 size $1/t$, so
 \begin{equation}
@@ -3724,8 +3775,13 @@ size $1/t$, so
  \MA_\theta(u_t)=\Bigl(1-\frac1t\Bigr)\delta_{\zeta_{0,1}}
    +\frac1t\,\delta_{x_t},
 \end{equation}
-a positive measure of mass $1$.  Since
-$\varphi_0(x_t)=-t$, the point $x_t$ lies in
+a positive measure of mass $1$.  For real $t\geq1$, rational
+$t_j\geq1$ tending to $t$ give uniform convergence $u_{t_j}\to u_t$
+(the scalar functions $\max\{-s/t_j,-1\}$ converge uniformly for
+$s\in[0,+\infty]$).  Weak continuity from
+\Cref{prop:ch24-continuous-uniform} and continuity of $t\mapsto x_t$
+give the same displayed measure for real $t$.
+Since $\varphi_0(x_t)=-t$, the point $x_t$ lies in
 $\{\varphi_0\leq-t\}$, whence
 $\Capa_\theta(\{\varphi_0\leq-t\})\geq1/t$.  For $0<t\leq1$ use
 $u_1$, whose measure is $\delta_{x_1}$ and whose atom lies in
@@ -3907,7 +3963,7 @@ a loss of a factor $4/3$.  The factor $t^{-n}$ is what costs the
 estimate its sharpness, and no attempt is made in this book to remove it.
 
 \emph{The domination principle, and an independent check.}  Keep
-$\psi(x)=-x/4$ and let $\chi$ be \emph{any} continuous $\theta$-psh
+$\psi(x)=-x/4$ and let $\chi$ be \emph{any} bounded $\theta$-psh
 function on $C^{\An}$.  Since $\MA_\theta(\psi)$ is carried by the two
 points $x_0,x_4$, the hypothesis of
 \Cref{prop:bounded-capacity-domination} reads
@@ -3918,8 +3974,7 @@ points $x_0,x_4$, the hypothesis of
 \]
 a condition at two points; the conclusion is that $\chi\leq\psi$ on all of
 $C^{\An}$.  On this example the conclusion can be verified by hand, which
-is a useful check on the signs.  Indeed $\chi|_\Gamma$ is convex, by
-\eqref{eq:ch25-segment-class}, and $\psi|_\Gamma$ is affine, so
+is a useful check on the signs.  Indeed $\chi|_\Gamma$ is convex by the curve psh Laplacian criterion, and $\psi|_\Gamma$ is affine, so
 $\chi|_\Gamma-\psi|_\Gamma$ is convex on $[0,4]$ and hence attains its
 maximum at an endpoint, where it is $\leq0$; thus $\chi\leq\psi$ on
 $\Gamma$.  Off $\Gamma$ use the retraction inequality
@@ -3981,14 +4036,14 @@ necessary.
   \Cref{thm:bounded-ma-extension}
  &metrizability of $X^{\An}$; any countable cofinal family\\
 \Cref{thm:bounded-maximum-principle}
- &\Cref{prop:model-maximum-principle} on SNC models;
-  \Cref{lem:ch25-joint-limit}
+ &the continuous maximum identity in
+  \Cref{prop:model-maximum-principle}; \Cref{lem:ch25-joint-limit}
  &continuity of envelopes\\
 \Cref{cor:bounded-comparison-principle},
 \Cref{prop:bounded-capacity-domination}
  &total mass $V$; \eqref{eq:ma-convex-lower-bound};
   \Cref{lem:divisorial-positive-capacity}
- &finite energy; orthogonality\\
+ &finite energy; orthogonality; continuity of potentials\\
 \Cref{prop:ch25-curve-pushforward}
  &\Cref{prop:ch21-curve-retraction}, valid only for curves
  &anything in dimension $\geq2$\\
@@ -3999,43 +4054,38 @@ necessary.
 \subsection{Later extensions}
 \label{sec:ch25-later}
 
-\emph{(E1) Arbitrary complete nontrivially valued fields.}  The definition
-\eqref{eq:capacity-definition} makes sense as soon as a bounded
-Monge--Amp\`ere operator with the properties of
-\Cref{thm:bounded-ma-extension} is available, and
-\Cref{prop:capacity-elementary}, \Cref{lem:ma-capacity-bound},
-\Cref{lem:ch25-uniform-integrability} and
-\Cref{lem:fundamental-capacity-estimate} use nothing else.  What breaks
-without discreteness is the input, not the argument: the construction of the
-operator, and the exact sequence \Cref{thm:ch20-ddc-exact} through which
-\Cref{prop:ch20-positive-representative} is proved, are stated over a
-discretely valued field in \Cref{chap:bfj-model-forms}.  Boucksom and
-Eriksson \cite{BE21} construct the analogous objects in a wider setting; we
-do not transport the present statements to it.
+\emph{(E1) Arbitrary complete nontrivially valued fields.}
+The definition \eqref{eq:capacity-definition} and the elementary
+set-function properties make sense whenever the required positive bounded
+operator of mass $V$ is available.  The integral estimates additionally
+use the stated mixed-product, integration-by-parts, Dirichlet-negativity
+and skeletal inputs.  These are not consequences of positivity and mass
+alone.  The current model construction and positive-representative
+argument belong to the standing discrete valuation framework.
+\cite{BE21} supplies broader continuous-metric intersection and volume
+results, not by itself a transplantation of every singular bounded-psh
+statement in this chapter.
 
-\emph{(E2) Positive residue characteristic.}  Every statement in
-\Cref{sec:ch25-capacity} and \Cref{sec:ch25-estimates} survives, since
-neither multiplier ideals nor resolution enters them.  What fails as proved
-is everything that begins ``choose a decreasing model net'', that is
-\Cref{thm:bounded-quasicontinuity},
-\Cref{cor:psh-sequential-regularization},
-\Cref{prop:decreasing-capacity-convergence},
-\Cref{thm:bounded-maximum-principle} and their consequences; all of these
-quote \Cref{thm:bfj-decreasing-regularization}, whose proof uses
-$\operatorname{char}k=0$ through multiplier ideals.  The test-ideal
-substitute of Gubler, Jell, K\"unnemann and Martin \cite{GJKM19}, quoted in
-\Cref{thm:ch23-gjkm-positive-characteristic}, restores the relevant
-regularization in the cases treated there.  The arguments above then carry
-over only when the remaining inputs---the bounded operator, its weighted
-continuity, and the positive-representative statement---are also available;
-no broader positive-characteristic theorem is asserted here.
+\emph{(E2) Positive residue characteristic.}
+The elementary capacity calculus uses no multiplier ideal once its bounded
+operator is supplied.  The present proofs of the estimates and divisorial
+positivity retain the imported intersection, SNC and positivity framework;
+they are not asserted over every positive-characteristic field merely
+because they do not mention multiplier ideals.  Quasicontinuity,
+sequential regularization and bounded locality also use decreasing model
+regularization.  Later envelope-continuity results cited in
+\Cref{sec:ch23-later} do not alone provide all these inputs.
+An extension requires the appropriate reconstruction and regularization,
+the bounded operator with weighted continuity, positive representatives,
+and the remaining geometric hypotheses.  No unconditional
+positive-characteristic extension is asserted here.
 
 \emph{(E3) Singular $X$.}  Smoothness of $X$ is used here only through
 the availability of SNC models and the equicontinuity estimate
-\Cref{thm:bfj-skeletal-equicontinuity}, that is, only in
-\Cref{lem:ch25-normalized-bound} and in the statements that quote
-\Cref{thm:bfj-decreasing-regularization}.  Nothing in
-\Cref{sec:ch25-capacity} needs it.
+\Cref{thm:bfj-skeletal-equicontinuity}, that is, in the normalized bound and regularization arguments.  The elementary
+set-function calculus uses only the positive bounded operator, but the
+standing construction of that operator and the divisorial positivity
+argument retain their geometric model hypotheses.
 
 \emph{(E4) The finite-energy capacity.}  A different set function, adapted
 to $\cE^1$, is used in \Cref{chap:bfj-finite-energy-measures} and, in the
@@ -4097,7 +4147,7 @@ strict inequality locus $\{\varphi>\psi\}$
  &locality of $\MA_\theta$
  &\eqref{eq:bounded-maximum-principle}\\
 contact locus $\{\varphi=\psi\}$
- &nothing is asserted; extra mass may appear
+ &no general equality with either operand; extra mass may appear
  &\Cref{rem:ch25-max-sets},
   \Cref{ex:ch25-comparison-numbers}\\
 sublevel locus $\{\varphi<\psi\}$
@@ -4105,7 +4155,7 @@ sublevel locus $\{\varphi<\psi\}$
  &\eqref{eq:bounded-comparison-principle},
   \eqref{eq:capacity-comparison}\\
 tube $p^{-1}(A)$ over a metric graph
- &finite-dimensional convex optimization
+ &convex optimization over admissible graph potentials
  &\Cref{cor:ch25-curve-capacity-formula}\\
 regularization defect $\{\varphi<\varphi^*\}$
  &contains no quasimonomial point; negligibility not proved
@@ -4123,8 +4173,8 @@ proved, and the missing ingredient is described after
 \Cref{cor:ch25-polar-countable}.  \emph{From convergence in capacity to
 pointwise convergence} there is an arrow only for sequences and only after
 passing to a subsequence
-(\Cref{prop:ch25-convergence-comparison}\,\cref{itm:ch25-cc:seq}), and none at
-all for nets (\Cref{rem:ch25-nets-in-capacity}).  \emph{From pointwise
+(\Cref{prop:ch25-convergence-comparison}\,\cref{itm:ch25-cc:seq}), and no analogous subnet theorem is proved here
+(\Cref{rem:ch25-nets-in-capacity}).  \emph{From pointwise
 convergence to convergence in capacity} there is no arrow even for uniformly
 bounded $\theta$-psh sequences
 (\Cref{ex:ch25-pointwise-not-capacity}).  \emph{From equality of
@@ -4198,10 +4248,13 @@ estimates of \Cref{sec:ch25-estimates}, quasicontinuity
 \Cref{prop:ch20-positive-representative}, used in
 \Cref{lem:divisorial-positive-capacity}, is \cite[\S5]{BFJ16}.
 The extended-real-valued statement
-\Cref{thm:ch25-psh-quasicontinuity} is the book-local truncation corollary
-of \Cref{prop:ch25-sublevel-capacity} and
-\Cref{thm:bounded-quasicontinuity}; it is not imported from the later
-finite-energy theory.
+\Cref{thm:ch25-psh-quasicontinuity} is also
+\cite[Proposition~4.6]{BFJ15}.  Its truncation proof here uses
+\Cref{prop:ch25-sublevel-capacity} and
+\Cref{thm:bounded-quasicontinuity}, independently of the later
+finite-energy theory.  The bounded domination conclusion is derived here
+from capacity comparison and divisorial order; its broader bounded scope
+is not attributed verbatim to \cite[Lemma~8.4]{BFJ15}.
 
 \paragraph{The complex ancestry.}  The construction is a transposition of
 Bedford and Taylor's capacity for plurisubharmonic functions \cite{BT82},
@@ -4220,7 +4273,8 @@ pluripolar, proved by way of extremal functions and Josefson's theorem; that
 converse is not available here, for the structural reason recorded after
 \Cref{cor:ch25-polar-countable}.  Third, in the complex setting the sets
 $\{\varphi>\psi\}$ are already reasonably tame, whereas here the
-non-metrizability of $X^{\An}$ forces the systematic use of nets, and the
+absence of an assumed countably cofinal model system leads to the
+systematic use of nets, and the
 extraction of a sequence in
 \Cref{thm:bounded-quasicontinuity} is a theorem rather than a convenience;
 this is the point at which the non-Archimedean argument genuinely differs
@@ -4291,7 +4345,7 @@ capacity, in \Cref{chap:bj-strong-topologies}.
 
 \paragraph{What has not been claimed.}  No converse from negligible to
 pluripolar; no strong subadditivity and hence no capacitability; no
-negligibility of regularization defects; no version of any estimate for
-finite-energy potentials; and no uniqueness statement for the
+negligibility of regularization defects; no verbatim use of a bounded
+$M$-estimate on an unbounded potential; and no uniqueness statement for the
 Monge--Amp\`ere equation.  Each of these is flagged at the point where a
 reader might expect it.

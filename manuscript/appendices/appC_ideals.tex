@@ -17,6 +17,23 @@ Only after each theory has been defined do we list the formal properties
 used in \Cref{chap:bj-smooth-characteristic}.  No
 characteristic-free identity between these sheaves is asserted.
 
+The optional discussion in \cref{sec:appC-finite-generation-fans}
+explains a different finiteness input: a finitely generated multigraded
+Rees algebra gives a common fan for asymptotic valuation functions.
+The multiplier-ideal and test-ideal envelope arguments do not assume
+this finite generation.
+
+The separate numerical question in \cref{sec:appC-Segre-dependence}
+asks when intersection data detect integral dependence of nested ideals.
+Its projective criterion uses an ample polarization. The local
+finite-pullback comparison in \cref{sec:appH-finite-pullback-Segre}
+uses different invariants and retains its generic-slicing hypotheses.
+
+The mixed zeta discussion in \cref{sec:appC-mixed-Segre-zeta}
+organizes global intersection coefficients of several ideals.
+Its positivity concerns a modified, normalized numerator;
+\cref{sec:appD-Lorentzian-normalization} explains that normalization.
+
 \section{Complex analytic multiplier ideals}
 \label{sec:appC-analytic-multiplier}
 
@@ -63,19 +80,32 @@ on relatively compact open sets, after adding a constant so that
 \begin{proof}[Elementary deductions and foundational inputs]
 The bounded-invariance, monotonicity, and ideal properties follow directly
 from local integrability.  We import coherence as Nadel's coherence theorem
-in the normalization of \cite[Theorem~10.20]{Bou17}.  We import
-\eqref{eq:appC-strong-openness} exactly from the strong openness theorem
-\cite[Theorem~1.1]{GZ15}.  These analytic theorems are not inputs to the
+as stated in \cite[Theorem~10.20]{Bou17}, applied with \(p=2\) and
+weight \(\varphi/2\) to match \eqref{eq:appC-analytic-integrability}.  We import
+\eqref{eq:appC-strong-openness} from the strong openness theorem
+\cite[Theorem~1.1]{GZ15}.  Locally write \(\varphi=u+h\), where \(u\)
+is psh and \(h\) is smooth.  The locally bounded factors contributed by
+\(h\) do not change integrability, for either the original or the scaled
+weight, so the theorem for \(u\) gives the stated quasi-psh version.
+These analytic theorems are not inputs to the
 algebraic envelope proof.
 \end{proof}
 
-For orientation, on a disc one computes
-\(\mathcal J(c\log|z|^2)=(z^{\lfloor c\rfloor})\): if
-\(f=z^m u\), \(u(0)\ne0\), integrability is exactly \(m>c-1\).
+\begin{example}[One logarithmic pole]
+\label{ex:appC-disc-multiplier}
+For \(c\geq0\) on a disc,
+\(\mathcal J(c\log|z|^2)=(z^{\lfloor c\rfloor})\).
+Indeed, if \(f=z^m u\), \(u(0)\ne0\), its weighted radial integral is
+finite precisely when
+\(\int_0^\varepsilon r^{2m-2c+1}\,dr<+\infty\), or \(m>c-1\).
+For integer \(m\geq0\) this is \(m\geq\lfloor c\rfloor\), including
+integral \(c\), where the previous exponent gives logarithmic divergence.
+\end{example}
 
 \section{Algebraic multiplier ideals}
 \label{sec:appC-algebraic-multiplier}
 
+In the algebraic sections, \(X\) is an integral smooth variety.
 Let \(X\) be smooth over a field of characteristic zero, and let
 \(\mathfrak a\subset\cO_X\) be a nonzero coherent ideal.
 Choose a log resolution
@@ -114,10 +144,17 @@ and local vanishing
   \bigl(K_{Z/Y}-\lfloor\nu^*(cF)\rfloor\bigr)=0
  \quad(i>0).
 \]
-Projection formula then identifies the pushforwards.  Local vanishing is
+The birational transformation rule identifies the degree-zero
+pushforwards; this uses that the fractional part of \(cF\) is an SNC
+divisor with coefficients strictly less than one.  Projection formula
+then gives the displayed multiplier ideal on \(Y\).  The transformation
+rule is the input treated in \cite[Section~9.2]{PAG2}; local vanishing is
 the foundational input, in the form of
 \cite[Theorem~9.4.1]{PAG2}.  Coherence follows from
-properness of \(\mu\).
+properness of \(\mu\).  Along the strict transform of each prime
+divisor of \(X\), the relative canonical coefficient is zero and
+\(\lfloor cF\rfloor\) is effective, so a section has no pole there.
+Normality of \(X\) then places the pushforward inside \(\cO_X\).
 \end{proof}
 
 For a prime divisor \(E\) on a smooth model over \(X\), write
@@ -215,14 +252,20 @@ In particular,
 
 \begin{proof}[Foundational input]
 This is the subadditivity theorem of Demailly, Ein, and Lazarsfeld
-\cite[Theorem~2.3]{DEL00}.  Its proof resolves the product ideal on
+\cite[Theorem~2.3 and Variant~2.5]{DEL00}.  For real exponents, choose
+slightly larger rational exponents that preserve the finitely many floors
+on a simultaneous log resolution.  The characteristic-zero field version
+follows locally by descending the finite-type data to a finitely generated
+subfield, embedding it in \(\mathbf C\), and using field-base-change
+compatibility of the resolution formula.  The proof resolves the product ideal on
 \(X^\ell\), applies the
 restriction theorem to the diagonal, and uses the external-product formula
 for multiplier ideals.  Smoothness of the diagonal is essential.
 \end{proof}
 
 \begin{theorem}\label{thm:appC-skoda-multiplier}
-Let \(X\) be smooth of dimension \(n\).  For every nonzero coherent ideal
+Let \(X\) be smooth in characteristic zero of dimension \(n\geq1\).
+For every nonzero coherent ideal
 \(\mathfrak a\) and every real \(c\geq n\),
 \[
  \mathcal J_X(\mathfrak a^c)
@@ -243,6 +286,7 @@ see \cite[Section~9.6]{PAG2}.
 \end{proof}
 
 \begin{remark}
+\label{rem:appC-skoda-versus-integral-closure}
 Skoda division controls high exponents by finitely many initial multiplier
 ideals.  It is not used to identify multiplier ideals with integral
 closures: the two operations have different discrepancy terms.
@@ -261,7 +305,8 @@ A graded sequence of ideals is a family
 \tag{C.13}\label{eq:appC-graded-sequence}
 \]
 It is nonzero if some, hence all sufficiently divisible, terms are nonzero.
-For a valuation \(v\), subadditivity of the numerical sequence
+For a real valuation \(v\) of \(K(X)\) centered on \(X\),
+put \(v((0))=+\infty\).  Subadditivity of the numerical sequence
 \(v(\mathfrak a_m)\) gives
 \[
  v(\mathfrak a_\bullet)
@@ -274,12 +319,42 @@ where the limit is taken only through the nonzero terms.  Equivalently,
 it is the limit along every cofinal divisibility net of nonzero indices.
 This qualification is necessary because ``nonzero'' for a graded
 sequence means that one term is nonzero; it does not rule out zero terms
-at other indices.
+at other indices.  Full support is also essential here: on a supported
+semivaluation, nonzero terms can have value \(+\infty\), and this limit
+through all nonzero indices is not asserted.
 \end{definition}
+
+To justify the limit through all nonzero terms, fix an index \(q\) with
+\(\mathfrak a_q\ne0\).  The nonzero indices form an additive subsemigroup
+of \(\mathbf N\).  For each residue class modulo \(q\) that occurs,
+choose one nonzero index \(b_r\) in that class.  Every sufficiently large
+nonzero index in that class is \(b_r+kq\), so gradedness gives
+\[
+ v(\mathfrak a_{b_r+kq})
+      \leq v(\mathfrak a_{b_r})+k v(\mathfrak a_q).
+\]
+The finitely many \(v(\mathfrak a_{b_r})\) are finite by full support.
+Dividing by the index bounds the upper limit by
+\(v(\mathfrak a_q)/q\); the infimum in
+\eqref{eq:appC-asymptotic-order} bounds the lower limit.  Take the infimum
+over \(q\).  The divisibility-net statement follows from the same
+inequality at multiples of each fixed \(q\).
+
+\begin{example}[A supported semivaluation does not have the same limit]
+\label{ex:appC-supported-graded-limit}
+On \(\operatorname{Spec}k[x]\), set \(\mathfrak a_{2j}=\cO_X\)
+and \(\mathfrak a_{2j+1}=(x)\).  This is a graded sequence with every
+term nonzero: an odd--odd product is \((x^2)\subset\cO_X\), and the
+other products have the required parity.  A full-support valuation with
+\(v(x)=1\) has normalized values \(0\) or \(1/m\), tending to zero.
+The semivaluation supported at \(x=0\), however, gives \(0\) at even
+indices and \(+\infty\) at odd indices.  It has no limit through all
+nonzero terms, although its cofinal even divisibility net has limit zero.
+\end{example}
 
 \begin{definition}[Asymptotic multiplier ideal]
 \label{def:appC-asymptotic-multiplier}
-For \(t\geq0\), the ideals
+For a nonzero graded sequence \(\mathfrak a_\bullet\) and \(t\geq0\), the ideals
 \[
  \mathcal J_X\left(\mathfrak a_q^{\,t/q}\right),
 \qquad q\geq1,\quad \mathfrak a_q\ne0,
@@ -330,7 +405,8 @@ For a nonzero graded sequence on a smooth characteristic-zero variety:
 
 \begin{proof}
 Choose \(q\) divisible by \(m\) and sufficiently divisible for
-\eqref{eq:appC-asymptotic-stabilization}.  Gradedness gives
+\eqref{eq:appC-asymptotic-stabilization} at both exponents \(m\) and
+\(m\ell\), taking \(q\) with \(\mathfrak a_q\ne0\).  Gradedness gives
 \(\mathfrak a_m^{q/m}\subset\mathfrak a_q\).  Thus, for
 \(f\in\mathfrak a_m\) and every divisorial \(v\),
 \[
@@ -362,6 +438,122 @@ replace stabilization by an unproved pointwise criterion over arbitrary
 semivaluations.
 \end{remark}
 
+\subsection{Finite generation and common valuation fans}
+\label{sec:appC-finite-generation-fans}
+\index{Rees algebra!finite generation}
+\index{asymptotic valuation!common fan}
+\index{integral closure!multigraded ideals}
+
+The limit in \eqref{eq:appC-asymptotic-order} does not by itself provide
+a finite collection of linear formulas. Finite generation of the Rees
+algebra supplies such a collection. We explain the corrected argument
+of \cite[Proposition~1.1 and Lemma~2.1]{ELMNP23BaseLocusErratumV1},
+which replaces the induction in
+\cite[Proposition~4.7]{ELMNP06BaseLociPublished}.
+
+For this subsection let $X$ be an integral reduced variety of finite type
+over an algebraically closed field, in arbitrary characteristic.
+Let $N$ be a finite-rank free abelian group, $S\subset N$ a finitely
+generated saturated subsemigroup, and $C\subset N_{\mathbf R}$ its cone,
+so that $S=C\cap N$. Consider coherent ideals satisfying
+\[\tag{C.18a}\label{eq:appC-multigraded-rees}
+ \mathfrak a_0=\cO_X,\qquad
+ \mathfrak a_m\mathfrak a_{m'}\subset\mathfrak a_{m+m'},\qquad
+ \mathcal R(\mathfrak a_\bullet)=\bigoplus_{m\in S}\mathfrak a_m.
+\]
+Assume that this sheaf of algebras is finitely generated over $\cO_X$.
+No smoothness or multiplier-ideal construction is used in this input.
+
+\paragraph{A fan independent of the valuation.}
+Choose finitely many nonzero generating degrees $m_1,\ldots,m_r$ on a
+finite affine cover. First restrict to the saturated semigroup generated
+by the degrees with nonzero ideals; its cone will be denoted $C_+$.
+For a discrete valuation $\nu$ of $K(X)$ centered on $X$, put
+$\alpha_i=\nu(\mathfrak a_{m_i})$. These are finite nonnegative numbers.
+Taking the infimum through nonzero multiples gives
+\[\tag{C.18b}\label{eq:appC-fan-cost}
+ \nu_{\mathfrak a_\bullet}(m)
+ =\inf_{\ell:\,\mathfrak a_{\ell m}\ne0}
+       \frac{\nu(\mathfrak a_{\ell m})}{\ell}
+ =\min_{\substack{\lambda_i\in\mathbf Q_{\geq0}\\
+                         \sum_i\lambda_i m_i=m}}
+                         \sum_i\lambda_i\alpha_i.
+\]
+The last equality follows by writing each graded piece as a sum of
+products of the generating ideals, and clearing denominators in the
+opposite direction. The feasible polyhedron is rational. Its linear
+cost is nonnegative, so a minimum exists and can be attained at a
+rational point even when the $\alpha_i$ are irrational.
+
+Allowing real coefficients extends this minimum to $C_+$. It is
+homogeneous and subadditive, hence convex. The dual description is
+\[\tag{C.18c}\label{eq:appC-fan-dual}
+ \varphi_\alpha(m)=\max_{\gamma\in Q(\alpha)}\langle m,\gamma\rangle,
+ \qquad
+ Q(\alpha)=\{\gamma\in N_{\mathbf R}^{\vee}:
+                       \langle m_i,\gamma\rangle\leq\alpha_i\}.
+\]
+For strictly positive costs, $Q(\alpha)$ has the origin in its interior.
+Its normal fan has support $C_+$ and rays among the fixed generating
+directions $m_i$. Only finitely many such fans occur. Their common
+refinement therefore makes every $\varphi_\alpha$ linear on every cone,
+simultaneously for all positive cost vectors. Continuity in $\alpha$
+extends this to nonnegative costs. This is the normal-fan proof of
+the cited Lemma~2.1; the fan is chosen before choosing $\nu$.
+
+\paragraph{From ray powers to integral closure.}
+The corrected Proposition~1.1 states that there is a smooth fan $\Delta$
+with support $C$ such that, for every smooth refinement $\Delta'$, there
+is a positive integer $d$ with
+\[\tag{C.18d}\label{eq:appC-fan-integral-closure}
+ \overline{\mathfrak a_{d\sum_i p_i e_i}}
+    =\overline{\prod_i\mathfrak a_{d e_i}^{\,p_i}},
+ \qquad p_i\in\mathbf Z_{\geq0},
+\]
+on every cone of $\Delta'$ with primitive ray generators
+$e_1,\ldots,e_s$. Smoothness means that these generators extend to a
+lattice basis, so lattice points in the cone have integral nonnegative
+coordinates. The integer $d$ may depend on the selected refinement.
+
+Here is the valuation calculation behind this statement on the nonzero
+support. The Rees algebra on each ray is finitely generated. A suitable
+Veronese gives an integer $d_e$ such that
+$\mathfrak a_{\ell d_e e}=\mathfrak a_{d_e e}^{\ell}$ for every
+$\ell\geq1$. Choose $d$ divisible by the finitely many ray integers
+of the selected smooth fan. Then
+$\nu(\mathfrak a_{de})=\nu_{\mathfrak a_\bullet}(de)$ for all its rays.
+For $m=\sum_i p_i e_i$, gradedness and common-fan linearity give
+\[\tag{C.18e}\label{eq:appC-fan-valuation-chain}
+ \nu(\mathfrak a_{dm})
+ \leq\sum_i p_i\nu(\mathfrak a_{de_i})
+ =\sum_i p_i\nu_{\mathfrak a_\bullet}(de_i)
+ =\nu_{\mathfrak a_\bullet}(dm)
+ \leq\nu(\mathfrak a_{dm}).
+\]
+The product is contained in the degree $dm$ ideal. Equality for every
+centered discrete valuation yields
+\eqref{eq:appC-fan-integral-closure} by the Noetherian-domain valuative
+criterion \cite[Proposition~6.8.2]{SwansonHuneke2006}.
+The source handles degrees outside the saturated nonzero support with
+zero ideals; the asymptotic formula above is used only on $C_+\cap N$.
+
+Both closure bars matter. For the finitely generated sequence in
+\Cref{ex:appC-supported-graded-limit}, the Rees algebra is
+$k[x][xt,t^2]$, and every full-support centered valuation has
+asymptotic order zero. Nevertheless
+$\mathfrak a_2=\cO_X$ differs from $\mathfrak a_1^2=(x^2)$.
+Choosing $d=2$ gives exact powers on its one ray. Thus the choice of
+Veronese cannot be omitted, even in this elementary example.
+
+This result concerns integral closures of finitely generated systems,
+whereas asymptotic multiplier ideals above use a stabilized maximum.
+The two constructions retain their separate hypotheses. In particular,
+the graded systems in the envelope argument have not been shown to
+satisfy this finite-generation assumption. The result supplies no
+general non-Archimedean Siu decomposition or closure repair.
+\Cref{sec:provenance-ELMNP-fans} records the corrected source and its
+literal formula qualifications.
+
 \section{Uniform global generation}
 \label{sec:appC-global-generation}
 
@@ -370,7 +562,7 @@ but psh regularization also requires globally generated approximants.
 
 \begin{theorem}\label{thm:appC-uniform-generation-multiplier}
 Let \(X\) be smooth projective of characteristic zero, let \(L\) be a line
-bundle, and let \(\mathfrak a_\bullet\) be a graded sequence such that
+bundle, and let \(\mathfrak a_\bullet\) be a nonzero graded sequence such that
 \(\mathfrak a_q(qL)\) is globally generated for all sufficiently divisible
 \(q\).  Then there exists a line bundle \(A\), independent of \(m\), such
 that
@@ -393,6 +585,7 @@ for all \(m\).  This is the uniform generation input used in the proof of
 \end{proof}
 
 \begin{remark}[Checkpoint]
+\label{rem:appC-fixed-twist}
 The fixed twist in \eqref{eq:appC-uniform-generation-multiplier} is
 essential.  If the auxiliary line bundle were allowed to grow linearly
 with \(m\), the normalized numerical classes would not converge to
@@ -410,8 +603,9 @@ coherent.
 \begin{definition}[Generalized test ideal]
 \label{def:appC-test-ideal}
 For an ideal \(J\subset\cO_S\), write \(J^{[1/p^e]}\) for the smallest
-ideal \(K\) such that \(J\subset K^{[p^e]}\).  For a nonzero ideal
-\(I\subset\cO_S\) and \(t\geq0\), the generalized test ideal is the stable
+ideal \(K\) such that \(J\subset K^{[p^e]}\).  For a coherent ideal
+\(I\subset\cO_S\) that is nonzero on every
+integral component and \(t\geq0\), the generalized test ideal is the stable
 value, computed locally, of the increasing sequence
 \[
  \left(I^{\lceil tp^e\rceil}\right)^{[1/p^e]}.
@@ -430,7 +624,14 @@ definition is equivalently characterized, after tensoring by
 \]
 \end{definition}
 
+The existence and localization of Frobenius roots, and the stabilized
+real-exponent definition, are exactly
+\cite[Definition~2.2, Proposition~2.5, Lemma~2.7 and Definition~2.9]
+{BMS08}.  Their standing hypothesis is a regular \(F\)-finite ring;
+no perfect-field hypothesis is needed for these constructions.
+
 \begin{remark}[Conventions]
+\label{rem:appC-test-rounding-conventions}
 The Frobenius-root ideals, and equivalently the trace images when
 \(\omega_S\) is available, form an increasing sequence and stabilize by
 noetherianity.  The schemes \(S=X\times\mathbf A^1\) used below possess
@@ -444,7 +645,8 @@ silently discarded.
 
 \begin{definition}[Asymptotic test ideal]
 \label{def:appC-asymptotic-test}
-For a nonzero graded sequence \(\mathfrak a_\bullet\), define
+For a nonzero graded sequence \(\mathfrak a_\bullet\) on an integral
+noetherian regular \(F\)-finite scheme \(S\), define
 \[
  \tau_S(\mathfrak a_\bullet^t)
  :=\max_{\mathfrak a_q\ne0}\tau_S(\mathfrak a_q^{t/q}).
@@ -460,6 +662,8 @@ indices \(q\),
 \end{definition}
 
 \begin{theorem}\label{thm:appC-test-properties}
+Let \(S\) be integral, noetherian, regular and \(F\)-finite, and let
+\(\mathfrak a_\bullet\) be a nonzero graded sequence on \(S\).
 For integers \(m,\ell\geq1\),
 \[
  \mathfrak a_m\subset\tau_S(\mathfrak a_\bullet^m),
@@ -468,7 +672,11 @@ For integers \(m,\ell\geq1\),
  \subset\tau_S(\mathfrak a_\bullet^m)^\ell.
 \tag{C.23}\label{eq:appC-test-subadditivity}
 \]
-If \(w\) is divisorial and centered on \(S\), then
+For the discrepancy assertion, suppose further that \(S\) is a smooth
+variety over an algebraically closed field of characteristic \(p>0\).
+If \(w\) is divisorial and centered on \(S\), with ordinary geometric
+log discrepancy \(A_S(w)\), then for every nonzero coherent ideal
+\(I\) and real \(t\geq0\),
 \[
  w(\tau_S(I^t))
  \geq t\,w(I)-A_S(w).
@@ -477,7 +685,11 @@ If \(w\) is divisorial and centered on \(S\), then
 \end{theorem}
 
 \begin{proof}[Foundational inputs and deduction]
-The containment and asymptotic subadditivity are
+On a regular \(F\)-finite affine ring, containment follows from
+\(I\subset\tau(I)\), which can be read directly from Frobenius roots.
+Subadditivity is \cite[Proposition~2.11(4)]{BMS08}.  Applying these at a
+common sufficiently divisible stabilization index proves the two
+asymptotic assertions; compare
 \cite[Section~3 and Proposition~3.1]{MustataTest}.  For
 \eqref{eq:appC-test-discrepancy}, trivialize \(\omega_S\) near the center
 of \(w\).  The trace becomes a \(p^{-e}\)-linear map
@@ -488,11 +700,16 @@ Cartier-algebra discrepancy gives
 \]
 Taking \(f\in I^{\lceil tp^e\rceil}\), minimizing over trace generators,
 and stabilizing proves \eqref{eq:appC-test-discrepancy}; see
-\cite[Definition~3.2 and Proposition~4.1]{Canton}.
+\cite[Definition~3.3 and Proposition~4.1 in arXiv v3]{Canton}.
+The cited v3 definition numbers the trace quotient as (3.3.1); earlier
+book/source locators call the definition 3.2.  The geometric identification
+is used here only in the displayed smooth, algebraically closed scope,
+which includes the envelope setup \(S=X\times\mathbf A^1\).
 \end{proof}
 
 \begin{theorem}\label{thm:appC-skoda-test}
-If \(I\) is locally generated by at most \(r\) elements, then
+For a nonzero ideal \(I\) locally generated by at most \(r\geq1\)
+elements on the regular \(F\)-finite scheme \(S\), one has
 \[
  \tau_S(I^t)=I\,\tau_S(I^{t-1})
  \qquad(t\geq r).
@@ -500,14 +717,29 @@ If \(I\) is locally generated by at most \(r\) elements, then
 \]
 \end{theorem}
 
-\begin{proof}[Foundational input]
-This is the Brian\c con--Skoda property for generalized test ideals; see
-\cite[Theorem~6.9(iii)]{ST12}; see also
-\cite[Theorem~2.1]{HY03}.  These sources state the rational-exponent form.
-The real-exponent form follows by choosing a decreasing rational sequence
-on which the test ideal is constant, using right-continuity
-\cite[Theorem~6.6]{ST12}.  The proof expands sufficiently high powers of an
-\(r\)-generated ideal and passes the identity through Frobenius roots.
+\begin{proof}[Frobenius-root computation]
+Work locally with generators \(f_1,\ldots,f_r\) of \(I\), put
+\(q=p^e\) and \(a=\lceil tq\rceil\).  Since \(t\geq r\),
+\(a\geq rq>r(q-1)\).  Every degree-\(a\) generator monomial has
+an exponent at least \(q\), so
+\[
+                    I^a=I^{[q]}I^{a-q}.
+\]
+The local Frobenius-basis description of roots in
+\cite[Proposition~2.5]{BMS08} gives
+\((I^{[q]}J)^{[1/q]}=I J^{[1/q]}\) for every ideal \(J\):
+multiplication by \(f_i^q\) multiplies each root coefficient by \(f_i\).
+Thus, since \(a-q=\lceil(t-1)q\rceil\),
+\[
+ (I^{\lceil tq\rceil})^{[1/q]}
+       =I(I^{\lceil(t-1)q\rceil})^{[1/q]}.
+\]
+Choose \(e\) large enough to stabilize both sides.  This proves
+\eqref{eq:appC-skoda-test} directly for real \(t\).
+The exact identity is also \cite[Proposition~2.25]{BMS08}.
+Related Brian\c con--Skoda properties appear in
+\cite[Theorem~6.9(iii)]{ST12}; \cite[Theorem~2.1]{HY03} states
+the corresponding containment.
 \end{proof}
 
 \begin{proposition}\label{prop:appC-test-fixed-twist}
@@ -526,7 +758,7 @@ Then
  \tau_S(J_\bullet^m)(mL+A)
 \tag{C.26}\label{eq:appC-test-fixed-twist}
 \]
-is generated relative to \(\mathbf A^1\) for every \(m>0\).
+is generated relative to \(\mathbf A^1\) for every integer \(m>0\).
 \end{proposition}
 
 \begin{proof}
@@ -546,8 +778,9 @@ This is the exact reason a twist independent of \(m\) is available.
 \label{sec:appC-comparison-characteristic}
 
 \begin{theorem}\label{thm:appC-hara-yoshida}
-Let \(X,\mathfrak a,c\) be defined in characteristic zero, with
-\(\mathfrak a\) an algebraic ideal and \(c\in\mathbf Q_{\geq0}\).
+Let \(X\) be a smooth characteristic-zero variety, let
+\(\mathfrak a\ne0\) be a coherent algebraic ideal, and let
+\(c\in\mathbf Q_{\geq0}\).
 After spreading the data over a finitely generated
 \(\mathbf Z\)-algebra, for closed fibres in a suitable dense open set one
 has
@@ -588,7 +821,7 @@ sequence \(J_\bullet\) on \(S\) satisfying
  J_mJ_r\subset J_{m+r}.
 \tag{C.28}\label{eq:appC-envelope-graded-sequence}
 \]
-For \(m>0\), define
+For integers \(m>0\), define
 \[
  B_m=
  \begin{cases}
@@ -645,6 +878,7 @@ whole analytification.  It never subtracts two infinite values.
 \end{remark}
 
 \begin{remark}[What is not imported]
+\label{rem:appC-excluded-imports}
 No step requires resolution in characteristic \(p\), continuity of every
 ideal function, or a valuative criterion over supported semivaluations.
 Skoda division is structural background; it does not replace fixed-twist
@@ -652,6 +886,309 @@ generation or the discrepancy estimate.  Finally, subadditivity becomes
 monotonicity only after applying the sign-reversing operation \(I\mapsto
 -v(I)\), and all divisibility limits are nets.
 \end{remark}
+
+\section{Segre degrees and integral dependence}
+\label{sec:appC-Segre-dependence}
+\index{integral closure!Segre degree criterion}
+\index{Segre class!integral dependence}
+
+An ideal can be enlarged without changing its integral closure.
+For an ideal $I$ in a Noetherian ring, an element $a$ is integral
+over $I$ if it satisfies an equation
+\[
+ a^m+b_1a^{m-1}+\cdots+b_m=0,
+ \qquad b_j\in I^j.
+\tag{C.31}\label{eq:appC-integral-ideal-equation}
+\]
+The elements with this property form $\overline I$. For nested
+ideals $I\subset J$, saying that $J$ is integral over $I$ is
+equivalent to $\overline I=\overline J$. The same language applies
+stalkwise to coherent ideal sheaves. It compares ideal singularities;
+it does not assert equality of the original sheaves or of their
+multiplier ideals at one fixed exponent.
+
+Let $X$ be an equidimensional projective scheme over a field,
+$d=\dim X$, and $j_Z:Z\hookrightarrow X$ a closed subscheme.
+Write $s(Z,X)$ for its total Segre class, defined using the
+projective completion of the normal cone, as in
+\cite[\S2]{CidRuiz26SegrePublished}. Its component
+$s^i(Z,X)$ has dimension $d-i$; the superscript is a
+\emph{codimension} index. For a line bundle $L$, put
+\[
+ \deg_L s^i(Z,X)
+ =\deg\bigl(c_1(L)^{d-i}\cap j_{Z*}s^i(Z,X)\bigr),
+ \qquad 0\leq i\leq d.
+\tag{C.32}\label{eq:appC-Segre-degrees}
+\]
+The components need not be effective, so these are signed
+intersection numbers. They are not the local generic Segre numbers
+of \cref{sec:appH-finite-pullback-Segre}.
+
+The following result is imported from
+\cite[Theorem~A, Theorem~4.3]{CidRuiz26SegrePublished}.
+\begin{theorem}
+\label{thm:appC-ample-Segre-dependence}
+Let $X$ be an equidimensional projective scheme over a field,
+let $L$ be ample, and let $W\subset Z$ be closed subschemes.
+Then the following statements are equivalent:
+\begin{enumerate}
+\item $\mathcal I_W$ is integral over $\mathcal I_Z$;
+\item $s(Z,X)=j_*s(W,X)$ in $A_*(Z)$, where
+      $j:W\hookrightarrow Z$;
+\item $j_{Z*}s(Z,X)=j_{W*}s(W,X)$ in $A_*(X)$;
+\item $\deg_L s^i(Z,X)=\deg_L s^i(W,X)$ for every
+      $0\leq i\leq\dim X$.
+\end{enumerate}
+\end{theorem}
+
+\paragraph{The proof mechanism in the source.}
+Integral dependence gives a finite comparison of the Rees blowups;
+birational invariance supplies the Segre-class equalities. The
+numerical converse is the substantial direction. Choose one power
+$L^p$ that is very ample and globally generates both
+$\mathcal I_Z\otimes L^p$ and $\mathcal I_W\otimes L^p$.
+Generic divisors split each proper intersection into a cycle retained
+on the base scheme and a residual cycle. The source uses van
+Gastel's triangular relation to exchange Segre degrees with the
+degrees of these Vogel and residual cycles. The generic cycles
+are constructed over a purely transcendental field extension;
+their descended Chow classes do not assert that the cycles
+themselves are defined over the original field.
+
+The residual degrees control the leading coefficients of the
+Snapper polynomial on the twisted blowup. Equal degrees force
+the normalized growth of sections of
+$\mathcal I_W^m/\mathcal I_Z^m$, with the indicated ample twists,
+to vanish. Proposition~4.4 of the cited source obtains strictly
+positive growth if the Rees extension is not finite: it chooses
+a closed point on the dependence obstruction and uses a local
+Hilbert--Samuel polynomial and multigraded cohomology vanishing
+on a further blowup. This is a roadmap of the published proof.
+Its Kleiman--Thorup, vanishing and intersection-theoretic inputs
+remain imported; no independent proof of those inputs is claimed.
+
+Both nesting and ampleness are part of the theorem. Equality of
+degrees of arbitrary Chow classes is not generally equality of
+classes, and unrelated ideals are not covered.
+\Cref{sec:appF-Segre-ample-boundary} gives the published example
+where a big and nef line bundle loses the required information.
+Thus a nef model polarization in the envelope argument cannot
+be substituted here without an additional theorem.
+
+\subsection{The homogeneous vertex and stabilization}
+\label{sec:appC-Segre-zeta}
+
+For a homogeneous ideal $I\subset k[x_0,\ldots,x_n]$, extend it
+to $k[x_0,\ldots,x_N]$ for every $N\geq n$ and let
+$Z_N\subset\mathbf P^N$ be the resulting subscheme. Aluffi's
+Segre zeta function is the power series $\zeta_I(t)=\sum a_i t^i$
+characterized by
+\[
+ j_{N*}s(Z_N,\mathbf P^N)
+ =\left(\sum_{i=0}^N a_iH^i\right)\cap[\mathbf P^N],
+ \qquad H=c_1(\mathcal O_{\mathbf P^N}(1)).
+\tag{C.33}\label{eq:appC-Segre-zeta-stabilization}
+\]
+For nested homogeneous ideals $I\subset J$,
+\cite[Corollary~5.2]{CidRuiz26SegrePublished} gives
+\[
+ \zeta_I=\zeta_J
+ \quad\Longleftrightarrow\quad
+ \overline I=\overline J.
+\tag{C.34}\label{eq:appC-Segre-zeta-dependence}
+\]
+The converse first applies the ample theorem in a projective
+dimension larger than both generator counts. It gives equality
+of saturated \emph{integral closures}. The source's associated-prime
+height bound then removes saturation, and faithful flatness
+contracts the closures to the original polynomial ring.
+A single Segre class in $\mathbf P^n$ can miss information at
+the homogeneous vertex. The stabilized datum in
+\eqref{eq:appC-Segre-zeta-stabilization} is therefore essential
+to this stated criterion.
+
+\subsection{Mixed zeta functions and the modified numerator}
+\label{sec:appC-mixed-Segre-zeta}
+\index{Segre zeta function}
+
+Several ideal singularities can be recorded together. This is a
+global intersection construction, rather than a tuple of local
+Jacobian multiplicities. We follow the exact revised preprint
+\cite{CidRuiz26MixedSegreV2}. Let $k$ be a field and let
+$I_1,\ldots,I_m$ be nonzero proper homogeneous ideals in
+$R=k[x_0,\ldots,x_n]$, with $m\geq1$. Choose nonzero homogeneous
+generators $f_{i,0},\ldots,f_{i,r_i}$ of positive degrees $d_{i,j}$.
+The ideals are fixed; changing these generating lists can change
+the numerator and denominator presentation below.
+
+For $N\geq n$, extend the ideals to $k[x_0,\ldots,x_N]$.
+Let $b_N:B_N\to\mathbf P^N$ be the blowup of their product.
+Write $E_{i,N}$ for the Cartier divisor satisfying
+$I_i\mathcal O_{B_N}=\mathcal O_{B_N}(-E_{i,N})$ and
+$H=c_1(\mathcal O_{\mathbf P^N}(1))$. For a multi-index
+$\alpha\in\mathbf N^m$, put $|\alpha|=\sum_i\alpha_i$ and
+$\mathbf t^\alpha=\prod_i t_i^{\alpha_i}$.
+The blowup formula of the source, Theorem~3.7, gives
+\[
+\begin{split}
+ [\mathbf P^N]-b_{N*}\left(
+     \prod_{i=1}^m(1+E_{i,N}t_i)^{-1}\cap[B_N]\right)
+  =\sum_{|\alpha|\leq N}
+      a_\alpha\mathbf t^\alpha H^{|\alpha|}\cap[\mathbf P^N].
+\end{split}
+\tag{C.35}\label{eq:appC-mixed-zeta-blowup}
+\]
+Every inverse is expanded formally in Cartier intersections;
+terms of total degree greater than $N$ vanish in the Chow group.
+The source's Definition~5.2 and Lemma~5.4 show that the integers
+$a_\alpha$ agree as $N$ increases, once $N\geq|\alpha|$.
+The resulting series is
+\[
+ \zeta_{I_1,\ldots,I_m}(\mathbf t)
+   =\sum_{\alpha\in\mathbf N^m}a_\alpha\mathbf t^\alpha,
+ \qquad a_0=0.
+\tag{C.36}\label{eq:appC-mixed-zeta-series}
+\]
+This defines the pushed global invariant used here. The source's
+supported mixed class uses a joint deformation construction;
+its transform is not in general a Cartier divisor.
+Equation~\eqref{eq:appC-mixed-zeta-blowup} uses the ordinary
+joint blowup and its Cartier divisors, so does not impose that
+extra Cartier assertion on the deformation transform.
+
+For one ideal the construction recovers
+\eqref{eq:appC-Segre-zeta-stabilization}. For several ideals,
+the ordinary zeta function of their product instead satisfies
+\[
+ \zeta_{I_1\cdots I_m}(t)
+  =\sum_{q\geq0}\left(
+       \sum_{|\alpha|=q}\frac{q!}{\alpha_1!\cdots\alpha_m!}
+                    a_\alpha\right)t^q.
+\tag{C.37}\label{eq:appC-mixed-zeta-multinomial}
+\]
+This is Corollary~3.9 and Proposition~5.7 of the source.
+The multinomial weights are essential: substituting
+$t_1=\cdots=t_m=t$ in the raw mixed series omits them.
+
+The following three statements are attributed respectively to
+Theorem~5.3, Proposition~5.8 and Theorem~6.3 of
+\cite{CidRuiz26MixedSegreV2}. The last uses the definition of
+denormalized Lorentzian in \cref{def:appD-Lorentzian-polynomial}.
+\begin{theorem}
+\label{thm:appC-mixed-zeta-import}
+Under the homogeneous-ideal assumptions above, put
+$D(\mathbf t)=\prod_{i=1}^m\prod_{j=0}^{r_i}(1+d_{i,j}t_i)$.
+Then:
+\begin{enumerate}
+\item There is a polynomial $P\in\mathbf Z_{\geq0}[\mathbf t]$
+      such that
+      \[
+       \zeta_{I_1,\ldots,I_m}=\frac{P}{D}.
+       \tag{C.38}\label{eq:appC-mixed-zeta-rationality}
+      \]
+\item Replacing every ideal by its integral closure leaves the
+      series unchanged:
+      \[
+       \zeta_{I_1,\ldots,I_m}
+        =\zeta_{\overline I_1,\ldots,\overline I_m}.
+       \tag{C.39}\label{eq:appC-mixed-zeta-integral-closure}
+      \]
+\item If $k$ is algebraically closed, set $Q=D-P$ and $s=\deg Q$.
+      Then the degree-$s$ homogenization
+      \[
+       h_s(Q)(t_0,\mathbf t)
+          =\sum_\alpha [\mathbf t^\alpha]Q\,
+                         t_0^{s-|\alpha|}\mathbf t^\alpha
+       \tag{C.40}\label{eq:appC-mixed-zeta-modified-numerator}
+      \]
+      is denormalized Lorentzian.
+\end{enumerate}
+\end{theorem}
+
+Here $Q(0)=1$, so its degree is defined, including $s=0$.
+Only the numerator $P$ of the chosen rational presentation is
+nonnegative in the first assertion; the expansion of $P/D$
+can have negative coefficients. Factors of $D$ can cancel and
+are only candidate poles. The second assertion is invariance,
+not a converse for arbitrary mixed sequences. The nested-ideal
+criterion \eqref{eq:appC-Segre-zeta-dependence} uses its separate
+published numerical theorem.
+
+\paragraph{Why the modified numerator has positivity.}
+The source's Lemma~5.5 computes the stabilized rational function
+in a projective dimension at least the total number
+$g=\sum_i(r_i+1)$ of chosen generators. On this joint blowup,
+the tautological line subbundle is
+$\mathcal O_{B_N}(-e_i)=\mathcal O_{B_N}(E_{i,N})$,
+where $e_i$ denotes the $i$th multigrading basis vector.
+It embeds in
+$b_N^*\mathcal E_i$, with
+$\mathcal E_i=\bigoplus_{j=0}^{r_i}\mathcal O(d_{i,j})$.
+The quotient $\mathcal Q_i$ has rank $r_i$ and is globally
+generated. The Whitney formula identifies the coefficients of
+$Q$ with pushed products of the Chern classes of these quotients.
+The construction in \cref{sec:appF-Chern-volume-bridge} then
+turns their factorial normalization into derivatives of a nef
+volume polynomial. Irreducibility of the blowup is used here.
+The degree-$N$ homogenization arising in that construction
+passes to \eqref{eq:appC-mixed-zeta-modified-numerator} through
+\eqref{eq:appD-homogenization-derivative}. This describes the
+attributed proof mechanism and its normalization; it is not an
+independent proof of the source's intersection-theoretic inputs.
+
+\paragraph{A diagonal check.}
+For $I_1=(x_0)$ and $I_2=(x_1)$, the disjoint-variable
+complete-intersection formula in source Example~7.1 gives
+\[
+\begin{aligned}
+ \zeta_{I_1,I_2}(t_1,t_2)
+   &=\frac{t_1+t_2+t_1t_2}{(1+t_1)(1+t_2)},\\
+ \zeta_{I_1,I_2}(t,t)&=2t-3t^2+O(t^3),\\
+ \zeta_{I_1I_2}(t)&=\frac{2t}{1+2t}
+                          =2t-4t^2+O(t^3).
+\end{aligned}
+\tag{C.41}\label{eq:appC-mixed-zeta-diagonal-check}
+\]
+The cross coefficient is $a_{(1,1)}=-1$ and receives the
+factor two in \eqref{eq:appC-mixed-zeta-multinomial}.
+The different quadratic terms illustrate the weighting directly.
+This worked specialization uses two complete intersections in
+disjoint variables; it is not a formula for arbitrary pairs.
+
+Source Example~7.6 takes
+$I_1=(x_0^2,x_1^2)$ and $I_2=(x_2^2,x_3^3)$ in disjoint
+variables. For its chosen generator lists,
+\[
+\begin{aligned}
+ D&=(1+2t_1)^2(1+2t_2)(1+3t_2),\\
+ P&=4t_1^2+6t_2^2+20t_1^2t_2
+                          +24t_1t_2^2+24t_1^2t_2^2,\\
+ Q&=1+4t_1+5t_2+20t_1t_2,\\
+ \mathcal N(h_2(Q))
+   &=\tfrac12t_0^2+4t_0t_1+5t_0t_2+20t_1t_2.
+\end{aligned}
+\tag{C.42}\label{eq:appC-mixed-zeta-example}
+\]
+The last quadratic has Hessian
+$\left(\begin{smallmatrix}1&4&5\\4&0&20\\5&20&0\end{smallmatrix}\right)$.
+Exact congruence gives diagonal pivots $1,-16,-25$, hence one
+positive and two negative eigenvalues. Its support satisfies
+the exchange condition in \cref{def:appD-Lorentzian-polynomial}.
+This is a check of the displayed source example, not a
+Macaulay2 computation or a new theorem.
+
+Aluffi's multivariable zeta function in
+\cite{Aluffi23CovolumeV4} concerns one multihomogeneous ideal
+on a product of projective spaces. Its factors are
+$1+\sum_j e_{j,k}t_j$, unlike $D$ above. The conjecture about
+the normalized modified numerator in that setting is not
+formally solved by \Cref{thm:appC-mixed-zeta-import}.
+\Cref{sec:appD-Lorentzian-normalization} separates its covolume
+construction from a volume polynomial, and
+\cref{sec:appL-mixed-Segre-source-gates} records the version
+and proof boundaries. None of these global statements yields
+the local componentwise finite-pullback comparisons in
+\cref{sec:appH-finite-pullback-Segre}.
 
 \section{Dependency map}
 \label{sec:appC-dependency-map}
@@ -681,6 +1218,7 @@ Reduction modulo \(p\)
 \end{center}
 
 \section{Source note}
+\label{sec:appC-source-note}
 Multiplier ideals, local vanishing, Skoda division, and asymptotic ideals
 are treated in \cite{PAG2}; subadditivity is \cite{DEL00}, and valuation
 asymptotics are developed in \cite{JM12}.  Generalized test ideals and

@@ -700,10 +700,15 @@ unrestricted unbounded continuation are disproved.
   balanced rational polyhedral space has regularity, and envelopes factor
   exactly for separable bounded obstacles on finite products.  In particular,
   products of finite balanced graphs and complete affine spaces have real-PA
-  envelopes throughout the separable obstacle class.  Arbitrary nonseparable
-  obstacles, the higher-dimensional real-PA characterization, the compact
-  higher-dimensional literal case, and the source convention repair remain
-  open.
+  envelopes throughout the separable obstacle class. The named BMPS
+  Proposition 3.11 and Lemma 3.25 supply a positive one-cycle on a finite
+  simplicial refinement. A finite vertex-balancing sum excludes compact
+  support in positive dimension, so the compact higher-dimensional literal
+  branch is empty in the globally embedded source category. Combined with
+  the existing noncompact obstruction, literal regularity fails for every
+  nonempty positive-dimensional finite balanced pair there. Arbitrary
+  nonseparable obstacles, the higher-dimensional real-PA characterization
+  and the source convention repair remain open.
 - **P05.2** `[T3; open]` Characterize the pairs for which their
   orthogonality property holds.
 - **P05.5** `[T4; open after the calibrated recursive model cases]`
@@ -719,7 +724,7 @@ counterexample are verified.  The positive-at-infinity Bergman-fan
 obstruction \(\texttt{prop:frontier-polyhedral-bergman-positive-infinity-obstruction}\)
 now strengthens the source's \(U_{3,4}\) example: for a polyhedrally convex
 reference with the required growth, the constructed envelope agrees with
-the source reference near its mass-four origin.  The bounded PA reference
+the source reference near its mass-four origin.  The bounded real-PA reference
 shift identifies its envelope problem and regularization class with those
 for a conical reference, but it does not prove that this particular envelope
 is regularizable.  The rigorous conclusion is the following dichotomy:
@@ -733,7 +738,15 @@ P05.4 are retired by
 `cor:p053-algebraic-chart-repaired-candidate`: the proof constructs the
 intermediate source currents, retains contractions and saturated lattice
 indices, identifies the CLD and delta-form products, and passes to
-regularizable weights.  P05.5 remains open precisely at the proper
+regularizable weights, under the displayed generated-psh pullback
+hypothesis.  The 2 October 2026 direct source review makes the algebraic
+corollary's sufficient value-group condition explicit:
+\(\mathbf Q\subseteq-\log|K^\times|\).  Rational polyhedral constants
+alone do not provide real-PL pullback over every valued field; the
+general-field generated-psh bridge is therefore an additional
+operator-domain input in the realization problem, not a consequence of
+ordinary current positivity.  This repair does not extend the historical
+production receipt to the new live proof.  P05.5 remains open precisely at the proper
 polarized realization, global lift, mass, calibration, and operator-domain
 gates stated above.  The production-verified
 `prop:p055-boundary-mass-completion` proves that a local pushforward equality
@@ -825,11 +838,14 @@ principle proves literal regularity in degree zero.  The further theorem
 `thm:frontier-polyhedral-noncompact-literal-nonregularity` replaces edgewise
 roofs by minima of ambient integral lattice cones.  It proves literal
 nonregularity on every noncompact finite rational polyhedral space in every
-dimension, even without balancing, and leaves only the compact
-higher-dimensional literal case.  P05.1 and P05.2 stay active T3 atoms
-because the real-PA higher-dimensional classification, the compact literal
-case, and higher-dimensional orthogonality remain open; all inventory counts
-are unchanged.
+dimension, even without balancing. The 5 October source-category correction
+excludes compact positive-dimensional support by the named BMPS
+quasi-projective refinement and positive one-cycle inputs, followed by
+finite vertex balancing. Thus the compact literal branch is not a
+remaining case in the embedded source category. P05.1 and P05.2 stay active
+T3 atoms because the real-PA higher-dimensional classification, source
+coefficient repair and higher-dimensional orthogonality remain open; all
+inventory counts are unchanged.
 
 ### `prob:frontier-pluriharmonic` --- 1 active atom
 

@@ -22,14 +22,12 @@ $\theta$ has the envelope property of
  \Bigl(\sup_\alpha\phi_\alpha\Bigr)^*\in\PSH_X(\theta).
  \end{gathered}
 \]
-This is \Cref{thm:bj-smooth-envelope}.  It is the only step of
-\Crefrange{chap:bj-cartier-realization}{chap:bj-envelope-consequences} at
-which a genuinely new psh function has to be \emph{manufactured}: every
-other chapter of the proof transports psh functions along a morphism, and
-transport can only move a function that already exists.  Here there is no
-morphism and nothing to transport.  The function has to be built out of
-sections of line bundles, and the mechanism that builds it is
-ideal-theoretic.
+This is \Cref{thm:bj-smooth-envelope}.  The chapter constructs the
+smooth-case obstacle envelope from sections and ideal sheaves.
+\Cref{chap:bj-cartier-realization,chap:bj-reflection} also construct psh
+functions, but their purpose is Cartier realization and birational
+reflection.  Here the construction supplies the envelope input that the
+later descent arguments transport.
 
 The mechanism is easy to state and its shape should be held in view
 throughout.  One is given an obstacle $h$, a continuous function on
@@ -52,15 +50,15 @@ model $\mu:\cY\to X\times\mathbf A^1$ of the trivial test configuration,
 one forms the relative base ideals $\mathfrak a_m$ of $m(\mu^*L+D)$ and
 pushes them to $X\times\mathbf A^1$.  The resulting ideals $J_m$ satisfy
 $J_mJ_r\subseteq J_{m+r}$, and the associated normalized ideal functions
-$m^{-1}\phi_{J_m}$ increase to the largest Fubini--Study function below
+$m^{-1}\phi_{J_m}$ increase along divisibility to the Fubini--Study envelope below
 the obstacle.  Increasing: this is still the wrong direction.
 
 \emph{Second}, each $J_m$ is replaced by a larger ideal
 $B_m\supseteq J_m$ chosen so that the assignment $m\mapsto B_m$ is
 \emph{sub}additive:
-$B_{m\ell}\subseteq B_m^{\,\ell}$.  Under the order-reversing dictionary
-$I\mapsto\log|I|=-v(I)$ of \eqref{eq:ch34-log-ideal}, subadditivity of
-ideals becomes monotonicity of functions, and the normalized functions
+$B_{m\ell}\subseteq B_m^{\,\ell}$.  Under the ideal-function dictionary
+$I\mapsto\log|I|=-v(I)$ of \eqref{eq:ch34-log-ideal}, which preserves
+ideal inclusion, subadditivity of ideals becomes monotonicity of functions, and the normalized functions
 $u_m:=m^{-1}\phi_{B_m}$ \emph{decrease} along the divisibility order.  In
 characteristic zero, $B_m$ is the asymptotic multiplier ideal
 $\mathcal J_S(J_\bullet^m)$; in characteristic $p>0$ it is the
@@ -85,8 +83,9 @@ The point of the chapter, and the reason it is written at this length, is
 that the three moves above run \emph{verbatim} in every characteristic once
 the ideal engine has been fixed.  What changes is the engine, and the honest
 description of the change is not ``multiplier ideals become test ideals'' but
-the following table, whose four rows are the only ideal-theoretic inputs the
-argument consumes.
+the following table of four main outputs.  Equivariance and nonzero
+starting ideals are checked alongside them to obtain the section
+presentations and a nontrivial limit.
 
 \begin{center}
 \begin{tabular}{p{0.20\textwidth}p{0.34\textwidth}p{0.34\textwidth}}
@@ -100,8 +99,8 @@ containment
 subadditivity
  & Demailly--Ein--Lazarsfeld: restriction to the diagonal of
    $S\times S$
- & Musta\c t\u a: a direct Frobenius computation; no diagonal, no
-   restriction theorem\\
+ & asymptotic test-ideal subadditivity,
+   \cite[Proposition~3.1(ii)]{MustataTest}\\
 fixed twist
  & relative Kawamata--Viehweg vanishing on a log resolution
  & Frobenius trace, the projection formula, and Serre vanishing; no
@@ -119,14 +118,12 @@ Three observations about this table are the mathematical content of
 \Cref{sec:ch40-comparison}, and they are worth stating at the outset so that
 the reader knows what to watch for.
 
-\emph{The two subadditivity theorems are genuinely different theorems.}  In
-characteristic zero, subadditivity is proved by realizing
-$\mathcal J(\mathfrak a\mathfrak b)$ as the restriction to the diagonal of
-an external product on $S\times S$, and the proof uses a restriction
-theorem for multiplier ideals which is a corollary of Nadel vanishing.  In
-characteristic $p$ there is no such route, and the proof is a direct
-manipulation of Frobenius roots.  The two statements coincide; the two
-proofs share no step.
+\emph{The subadditivity inputs have different proofs.}  In characteristic
+zero, the external-product formula and restriction to the smooth diagonal
+give the multiplier-ideal inclusion.  In characteristic $p$, we use
+ordinary test-ideal subadditivity and its stabilized asymptotic version.
+\Cref{rem:ch40-subadditivity-two-proofs} records the exact source boundary
+for each input.
 
 \emph{The Frobenius input has no characteristic-zero counterpart.}  The
 surjection \eqref{eq:bj-smooth-trace-quotient} from a Frobenius pushforward
@@ -137,8 +134,7 @@ the positive coefficient $p^e(d-i)$ of the ample bundle grows without
 bound, and this asymmetry is the whole reason a single $A$ works.  In
 characteristic zero nothing plays this role: the same conclusion is reached
 through a vanishing theorem on a log resolution, and log resolutions are not
-available in characteristic $p$ in any dimension for which the argument
-would need them.
+known in arbitrary dimension in characteristic $p$.
 
 \emph{No comparison between the two engines is used.}  The theorem of
 Hara--Yoshida identifying multiplier ideals with test ideals after reduction
@@ -388,7 +384,7 @@ bounded above, and put $\phi:=(\sup_\alpha\phi_\alpha)^*$.
 
 Fix $j$.  Since $\theta_j-\theta$ is nef,
 \Cref{lem:ch34-psh-nonempty} gives $0\in\PSH_X(\theta_j-\theta)$, and
-\Cref{thm:bj-basic-closure}\,(3) applied with $s=t=1$ to the pair
+\Cref{thm:bj-basic-closure}\,(3), its addition assertion, applied to the pair
 $(\phi_\alpha,0)$ gives
 \[
  \phi_\alpha=\phi_\alpha+0
@@ -599,8 +595,8 @@ Finally, choose $r\in\mathbf Z_{>0}$ so that $rL$ is an honest line
 bundle and $rD_0$ is an integral Cartier divisor, and put
 $L':=rL$, $D:=rD_0$, $h':=rh=\phi_D$.  Scaling by $r$ is a bijection
 $\PSH_X(c_1(L))\to\PSH_X(c_1(L'))$, $\psi\mapsto r\psi$, by
-\Cref{thm:bj-basic-closure}\,(3) applied with $s=r,t=0$ and its inverse
-with $s=r^{-1}$; it carries competitors for $h$ to competitors for
+\Cref{thm:bj-basic-closure}\,(3), its positive-scaling assertion, and
+the inverse scaling by $r^{-1}$; it carries competitors for $h$ to competitors for
 $h'$ and therefore satisfies $P_{L'}(h')=rP_L(h)$, regularization
 commuting with multiplication by the positive constant $r$.  Hence
 $P_L(h)$ is $c_1(L)$-psh if and only if $P_{L'}(\phi_D)$ is
@@ -623,15 +619,12 @@ must follow Step~3, because the normalization $D\le0$ refers to a
 particular obstacle and there is no ``uniformly normalized'' family of
 obstacles to work with.
 
-\emph{Bigness, not ampleness.}  The reduction produces a \emph{big} class
-and no more.  This matters: $\PSH_X(c_1(L))$ then contains functions
-identically $-\infty$ on the augmented base locus, the base ideals
-$\mathfrak a_m$ of \Cref{sec:ch40-base-ideals} have nonempty zero locus,
-and the final comparison in
-\Cref{thm:bj-smooth-envelope} has to be made at divisorial points precisely
-in order to avoid that locus.  A reader who imagines $L$ ample will find
-several of the extended-real precautions below unmotivated;
-\Cref{ex:bj-common-base-locus} is the example to keep in view.
+\emph{Bigness, not ampleness.}  The reduction only guarantees that the
+class is big; it also includes ample special cases.  In a big class the
+section systems may have a common zero locus, so the extended-real
+precautions cannot be removed.  Comparison at full-support divisorial
+points avoids such poles.  \Cref{ex:bj-common-base-locus} records the
+relevant common-base-locus boundary.
 
 \emph{Nothing here is characteristic-dependent.}  Steps~1--4 use only
 \Cref{thm:bj-basic-closure}, the cone geometry of $N^1(X)_{\mathbf R}$,
@@ -755,9 +748,12 @@ is big there is $m_1$ with $H^0(X,m_1L)\ne0$, and then
 $H^0(X,mL)\ne0$, hence $J_m\ne0$, for every positive multiple $m$ of
 $m_1$.  We replace $L$ and $D$ by $m_1L$ and $m_1D$ once and for
 all, so that $J_m\ne0$ for every $m\ge1$; this is the Veronese referred
-to in \eqref{eq:bj-smooth-ambient-ideal}, and it changes neither the
-obstacle problem, by the scaling bijection used in Step~4 of the proof of
-\Cref{prop:bj-smooth-obstacle-interface}, nor any of the functions below.
+to in \eqref{eq:bj-smooth-ambient-ideal}.  It replaces the obstacle and
+target class by their $m_1$ multiples, and the normalized functions below
+are scaled accordingly.  The positive-scaling bijection in Step~4 of
+\Cref{prop:bj-smooth-obstacle-interface} makes the new obstacle problem
+equivalent to the old one; dividing the final function by $m_1$ returns
+to the original data.
 
 \cref{itm:ch40-J:graded}  If $s\in M_m$ and $s'\in M_r$, then
 $ss'\in M_{m+r}$, and under \eqref{eq:bj-smooth-ambient-ideal} the germ of
@@ -806,7 +802,10 @@ $w=(\xi,|\cdot|)$ as in \Cref{lem:ch41-point-pair}, choose a point
 $\eta\in\cY$ with $\mu(\eta)=\xi$, which exists because $\mu$ is
 surjective, and extend $|\cdot|$ from $\kappa(\xi)$ to the field
 extension $\kappa(\eta)$; an absolute value extends to an arbitrary field
-extension by \cite[Chapter~VI, \S4]{ZariskiSamuelII}.  For an ideal
+extension by \cite[Chapter~VI, \S4]{ZariskiSamuelII}.  Applying the
+valuative criterion of properness to its valuation ring then gives a centre
+on $\cY$ mapping to the centre of $w$ on $S$, and hence the required
+centred semivaluation $\tilde w$.  For an ideal
 $I\subseteq\cO_S$ one then has
 $\tilde w(I\cO_{\cY})=w(I)$, because a finite set of local generators of
 $I$ generates $I\cO_{\cY}$ and the value of an ideal is the minimum of
@@ -844,7 +843,7 @@ $\phi_{\cY_0}=1$ for the central fibre.
 $I\subseteq\cO_S$, $\phi_I=-\sigma(\cdot)(I)\le0$, with equality exactly
 where $I$ is locally the unit ideal at the centre.  Thus larger ideals give
 larger functions:
-$I\subseteq I'\Rightarrow\phi_I\le\phi_{I'}$.  This order reversal is the
+$I\subseteq I'\Rightarrow\phi_I\le\phi_{I'}$.  This order preservation is the
 mechanism that turns the subadditivity $B_{m\ell}\subseteq B_m^{\,\ell}$
 into the monotonicity $u_{m\ell}\le u_m$, and it is the single most
 important sign in the chapter.
@@ -863,8 +862,8 @@ The bridge between the ideal-theoretic constructions and the psh formalism
 is the following lemma.  It is the exact analogue of
 \Cref{prop:ch34-fs-flag-ideal} for equivariant ideals that are \emph{not}
 trivial over $\mathbf G_m$; the difference matters, because $L$ is only
-big, so the base ideal of $|mL|$ has nonempty zero locus and the ideals
-$J_m$ and $B_m$ below are not flag ideals in the sense of
+big, so the base ideal of $|mL|$ may have a nonempty zero locus.
+The ideals $J_m$ and $B_m$ below therefore need not be flag ideals in the sense of
 \Cref{def:bj-flag-ideal}.
 
 \begin{lemma}
@@ -891,11 +890,11 @@ coherent $\mathbf G_m$-equivariant ideal.
 \item\label{itm:ch40-eqfs:fs}
  If $I(mN)$ is generated relative to $\mathbf A^1$, then
  \[
-   \frac1m\phi_I\in\cH^{\mathrm{gf}}_{m^{-1}\mathbf Z}(N)
+   \frac1m\phi_I\in\cH^{\mathrm{gf}}_{\mathbf Z}(N)
    \subseteq\cH^{\mathrm{gf}}_{\mathbf Q}(N),
  \]
- with a presentation of degree $m$ whose weights are the rational
- numbers $-k/m$, for the integers $k$ occurring in
+ with a presentation of degree $m$ whose additive weights are the integers
+ $-k$, and whose normalized weights are $-k/m$, for the integers occurring in
  \cref{itm:ch40-eqfs:decomp}.
 \end{enumerate}
 \end{lemma}
@@ -927,11 +926,15 @@ formula for $\phi_I$.
 \cref{itm:ch40-eqfs:gg}  Both $\rho^*\rho_*(I(mN))$ and $I(mN)$ are
 $\mathbf Z$-graded for the $\varpi$-grading, and the evaluation map is
 homogeneous of degree $0$; a map of graded sheaves is surjective if and
-only if it is surjective in each degree.  In degree $k$ the source is
-$H^0(X,\mathfrak b_k(mN))\otimes_k\cO_X$ and the target is
-$\mathfrak b_k(mN)$, because $\rho_*(I(mN))
-=\bigoplus_kH^0(X,\mathfrak b_k(mN))\varpi^k$ as a $k[\varpi]$-module.
-The assertion follows.
+only if it is surjective in each degree.  Since $\cO_S=\cO_X\otimes_k k[\varpi]$, the pullback
+$\rho^*\rho_*(I(mN))$ is
+$\bigoplus_k\bigl(H^0(X,\mathfrak b_k(mN))\otimes_k\cO_X\bigr)\varpi^k$.
+Thus in degree $k$ the map is exactly the global-section evaluation
+onto $\mathfrak b_k(mN)$.  Lower-degree sections multiplied by
+$\varpi^{k-l}$ are already included via the $k[\varpi]$-module
+transition maps; they do not contribute a separate independent summand
+after tensoring over $k[\varpi]$.  Surjectivity is therefore equivalent
+to global generation of every $\mathfrak b_k(mN)$.
 
 \cref{itm:ch40-eqfs:fs}  By \cref{itm:ch40-eqfs:gg} choose, for each
 $k\le k_0$, sections $s_{k,1},\ldots,s_{k,r_k}\in H^0(X,mN)$ generating
@@ -951,11 +954,11 @@ common zero locus of the whole system is a proper closed subset; now apply
 \Cref{prop:ch34-generic-finiteness}\,\cref{itm:ch34-gf:equiv}.
 \end{proof}
 
-\begin{remark}[Why relative generation, and not global generation]
+\begin{remark}[Relative generation over the affine base]
 \label{rem:ch40-relative-generation}
 \Cref{lem:ch40-equivariant-ideal-fs} asks for generation relative to
 $\mathbf A^1$, which for the affine base $\mathbf A^1$ is the same as
-global generation of the $k[\varpi]$-module $\rho_*(I(mN))$ and, by
+global generation of the sheaf $I(mN)$ on $S$ and, by
 part~\cref{itm:ch40-eqfs:gg}, the same as global generation of the finitely
 many ideals $\mathfrak b_k(mN)$ on $X$.  The relative formulation is the
 one that survives the vanishing arguments of \Cref{sec:ch40-stages}, where
@@ -987,15 +990,16 @@ decomposition of \Cref{lem:ch40-equivariant-ideal-fs}\,\cref{itm:ch40-eqfs:decom
 \item\label{itm:ch40-grad:weight}
  The index $k$ is the $\mathbf G_m$-\emph{weight}: it is the exponent of
  $\varpi$, the filtration index of \Cref{sec:ch33-norms}, and it enters
- the Fubini--Study presentation as the additive weight $-k/m$.  Under
+ the degree-$m$ Fubini--Study presentation as additive weight $-k$,
+ whose normalized contribution is $-k/m$.  Under
  $m\mapsto rm$ the relevant weights are multiplied by $r$ as well, so the
  \emph{ratio} $k/m$ is the invariant quantity.
 \item\label{itm:ch40-grad:errors}
- An error of size $O(m^{-1})$ in the first index is a perturbation of the
- numerical class by $O(m^{-1})$; an error of size $O(1)$ in the second
- index is a perturbation of the function by the additive constant
- $O(m^{-1})$.  The two are corrected by different devices and never cancel
- each other.
+ A fixed line-bundle twist $A$ in degree $m$ changes the presented
+ class by $m^{-1}c_1(A)$; increasing the degree alone does not do this.
+ Bounded errors in individual weights change finite function values by
+ at most $O(m^{-1})$, and a common shift gives an exact additive constant.
+ These errors are measured in different spaces and do not cancel.
 \item\label{itm:ch40-grad:homogeneous}
  The function $q_m$ is homogeneous, in the sense of
  \Cref{def:homogeneous-function}, if and only if
@@ -1017,7 +1021,7 @@ remaining assertions are the definitions.
 
 \cref{itm:ch40-grad:weight}  The identification of $k$ with the filtration
 index is \Cref{lem:ch33-flag-weight-decomposition} and
-\Cref{rem:ch33-two-indexings}; the appearance of $-k/m$ as a weight is
+\Cref{rem:ch33-two-indexings}; the normalized contribution $-k/m$ is
 \Cref{lem:ch40-equivariant-ideal-fs}\,\cref{itm:ch40-eqfs:fs}.  If
 $m$ is replaced by $rm$ then, by \cref{itm:ch40-grad:degree}, the weight
 that carries the same information is $rk$, and
@@ -1044,7 +1048,7 @@ homogeneous by \Cref{prop:hom-fs-ideal}.
 Conversely, suppose $q_m$ is homogeneous.  If $\mathfrak b_{m,0}=0$ then
 the presentation of
 \Cref{lem:ch40-equivariant-ideal-fs}\,\cref{itm:ch40-eqfs:fs} has all its
-weights $-k/m$ strictly negative, so its largest weight is nonzero,
+additive weights $-k$ strictly negative, so its largest weight is nonzero,
 contradicting
 \Cref{prop:ch38-two-gradings}\,\cref{itm:ch38-grad:weight}; hence
 $\mathfrak b_{m,0}\ne0$.  Let $k_0$ be the index at which the increasing
@@ -1074,18 +1078,18 @@ particular $\mathfrak b_{m,k}\subseteq\overline{\mathfrak b_{m,0}}$.
 
 \begin{warning}{The obstacle is not homogeneous}
 \label{warn:ch40-two-gradings}
-\Cref{chap:bj-reflection} could afford to work with homogeneous functions
-throughout, and in that category the second grading is identically zero, by
-\Cref{prop:ch38-two-gradings}\,\cref{itm:ch38-grad:weight}.  Here it cannot
-be arranged.  The obstacle $\phi_D$ is a PL function attached to a
-vertical divisor; it is homogeneous only if $D$ is supported on the
-central fibre with the trivial multiplicity structure, which excludes every
-interesting case, and \Cref{ex:ch40-p2-obstacle} exhibits a $J_m$ whose
-weight decomposition has $m+1$ distinct terms.  A reader who imports the
-homogeneous simplifications of \Cref{chap:bj-reflection} into this chapter
-will find that the ideals $J_m$ collapse to their weight-zero pieces and
-that the resulting ``proof'' computes the envelope of the wrong obstacle,
-namely of $\max\{\phi_D,\ \text{a constant}\}$.
+The homogeneous reflection argument in
+\Cref{sec:ch39-homogeneous} uses the zero-weight presentation
+of homogeneous Fubini--Study functions.  Carrier reflection later in that
+chapter already treats inhomogeneous functions.  Here the obstacle
+$\phi_D$ is a finite continuous PL function on the compact space $X^{\An}$,
+hence bounded.  If it were homogeneous, scaling any point by $t>0$
+would give the bounded family $t\phi_D(v)$; thus $\phi_D(v)=0$ at every
+point.  In particular a nonzero constant arising from a central-fibre
+divisor is not homogeneous.  General obstacles require their weight data;
+\Cref{ex:ch40-p2-obstacle} exhibits $m+1$ distinct nonzero coefficient
+ideals in one degree.  Deleting that data changes the function whose
+envelope is being computed.
 \end{warning}
 
 \subsection{The complete base-ideal limit}
@@ -1131,7 +1135,7 @@ $\phi_{\mathfrak a_m}\le0$ by the second sign test of
 
 \cref{itm:ch40-Q:increasing}  By
 \Cref{lem:ch40-J-basic}\,\cref{itm:ch40-J:graded},
-$J_m^{\,r}\subseteq J_{rm}$; by the order reversal of
+$J_m^{\,r}\subseteq J_{rm}$; by the order preservation of
 \Cref{warn:ch40-signs} and the identity
 $\phi_{I^r}=r\phi_I$ of \eqref{eq:ch34-log-ideal-semiring} this gives
 $r\phi_{J_m}\le\phi_{J_{rm}}$, that is, $q_m\le q_{rm}$.
@@ -1164,10 +1168,9 @@ $\mathbf G_m$, where $\varpi$ is invertible and $\cL$ is the pullback
 of $L$.  We claim $t_j\in H^0(\cY,m\cL)=M_m$.  Since $\cY$ is normal,
 it suffices to show that the divisor of $t_j$ as a section of $m\cL$ is
 effective, and for that it suffices to check nonnegativity of
-$\ord_P(t_j)$ for every prime divisor $P$ of $\cY$.  If $P$ is
-horizontal, that is, dominates $\mathbf A^1$, then $\ord_P(t_j)$ is the
-order of vanishing of $s_j$ along the corresponding divisor of $X$,
-which is $\ge0$.  If $P=E$ is a component of the central fibre, note first that $\cY$
+$\ord_P(t_j)$ for every prime divisor $P$ of $\cY$.  If $P$ is not contained in the central fibre, its generic point lies
+over $\mathbf G_m$, where $t_j$ is regular, so $\ord_P(t_j)\ge0$.
+This covers both horizontal primes and primes over nonzero base points.  If $P=E$ is a component of the central fibre, note first that $\cY$
 is normal, hence integrally closed in the sense of
 \Cref{def:integrally-closed-tc} by
 \Cref{thm:ch33-integrally-closed-criterion}, so that
@@ -1274,19 +1277,23 @@ $\log|s_E|\le0$ and $\tau_i\le h+\varepsilon$ give
 \]
 because $h\ge C$.
 
-\emph{Step 4: correcting the class.}  Let
-$\gamma_{i,\delta}:=c_1(L)-(1-\delta)c_1(L_i)-\delta c_1(E)
-=(1-\delta)\bigl(c_1(L)-c_1(L_i)\bigr)+\delta\alpha$.  Since $\alpha$ is
-ample and $c_1(L_i)\to c_1(L)$, the class $\gamma_{i,\delta}$ is an
-ample $\mathbf Q$-class for $i$ large.  Choose $N\ge1$ with
-$N\gamma_{i,\delta}$ the class of a very ample line bundle and sections
-$\sigma_1,\ldots,\sigma_r$ of it without common zero.  For every
-$y\in X^{\An}$ some $\sigma_l$ is a unit in $\cO_{X,c(y)}$, so
-$\log|\sigma_l|(y)=0$; hence $N^{-1}\max_l\log|\sigma_l|\equiv0$ and it
-belongs to $\cH_{\mathbf Q}(\gamma_{i,\delta})$.  Adding it to
-$\chi_{i,\delta}$ changes nothing and moves the class:
-$\chi_{i,\delta}\in\cH^{\mathrm{gf}}_{\mathbf R}(L)$.  Therefore
-$\chi_{i,\delta}\le Q_L(h)$.
+\emph{Step 4: correcting the actual line bundle.}  In $\operatorname{Pic}(X)_{\mathbf Q}$ put
+$N_{i,\delta}:=L-(1-\delta)L_i-\delta\cO_X(E)$.  Its numerical class is
+\[
+ c_1(N_{i,\delta})
+ =(1-\delta)\bigl(c_1(L)-c_1(L_i)\bigr)+\delta\alpha .
+\]
+For fixed $\delta>0$ this is ample for $i$ large, so the actual
+$\mathbf Q$-line bundle $N_{i,\delta}$ is ample.  Choose an integer
+$a>0$ with $aN_{i,\delta}$ an honest globally generated line bundle.
+Sections generating it give $a^{-1}\max_l\log|\sigma_l|\equiv0$,
+since some section is a unit at every centre.  Thus
+$0\in\cH_{\mathbf Q}(N_{i,\delta})$.  Adding this presentation to
+$\chi_{i,\delta}$ places the unchanged function in
+$\cH^{\mathrm{gf}}_{\mathbf R}(L)$, by the exact identity
+$(1-\delta)L_i+\delta\cO_X(E)+N_{i,\delta}=L$ in $\operatorname{Pic}(X)_{\mathbf Q}$.
+Correcting only a numerical class would not establish membership for
+the specified line bundle $L$.  Consequently $\chi_{i,\delta}\le Q_L(h)$.
 
 \emph{Step 5: passing to the limit.}  Evaluating at $x$ and using
 $\tau_i\ge\tau$,
@@ -1308,11 +1315,10 @@ The addendum proves
                        P_L(\phi_D)=Q_L(\phi_D)
 \tag{40.8}\label{eq:bj-smooth-off-base}
 \]
-off the augmented base locus $\mathbf B_+(L)$; this is
-\cite[Lemma~1.5]{BJ22b}.  The statement is genuinely stronger than
-\Cref{prop:ch40-envelope-comparison}\,\cref{itm:ch40-cmp:divisorial}, because
-it applies at all points of $X^{\An}$ whose centre avoids
-$\mathbf B_+(L)$, and its proof uses the description of
+on $(X\setminus\mathbf B_+(L))^{\An}$; this is
+\cite[Lemma~1.5]{BJ22b}.  This is a condition on the support of the
+analytic point, not its centre.  It includes all full-support points and
+also proper-support points whose support is outside $\mathbf B_+(L)$, and its proof uses the description of
 $\mathbf B_+(L)$ as the intersection of the supports of the effective
 parts of all Kodaira decompositions, \cite{ELMNP05}.  We do not
 need it.  Every use made below is at a divisorial point, and every
@@ -1321,7 +1327,7 @@ $X$ and outside the analytification of any proper closed subset; so
 \cref{itm:ch40-cmp:divisorial}, whose proof above is self-contained, is
 exactly the required statement.  Recording this is not pedantry: the
 augmented base locus is the one geometric object in this circle of ideas
-whose behaviour is characteristic-sensitive in the literature, and the proof
+whose geometric description would require additional bookkeeping here, and the proof
 below is free of it.
 \end{remark}
 
@@ -1432,19 +1438,23 @@ equality.
  \cO_X,&k\ge2m,
  \end{cases}
 \]
-so the weight decomposition of $J_m$ has exactly $m+1$ distinct nonzero
-terms: the second grading is not trivial, and it is not bounded
+so the weight decomposition of $J_m$ has $m+1$ distinct nonzero
+coefficient ideals, followed by infinitely many stationary nonzero pieces: the second grading is not trivial, and it is not bounded
 independently of the degree $m$.  Each $\mathfrak b_{m,k}(mL)
 =I_p^{\,2m-k}(m)$ with $2m-k\le m$ is globally generated, confirming
 \Cref{lem:ch40-J-basic}\,\cref{itm:ch40-J:coherent} by inspection.  The
 resulting Fubini--Study presentation is
 \[
- q_m=\frac1m\max_{0\le l\le m}
-     \bigl\{l\log|I_p|-(2m-l)\bigr\}
-    =-2+\frac1m\max_{0\le l\le m}l\,(1-s),
+ \begin{aligned}
+ q_m&=\frac1m\max\left\{-2m,\
+     \max_{1\le l\le m}\bigl\{l\log|I_p|-(2m-l)\bigr\}\right\}\\
+    &=-2+\frac1m\max_{0\le l\le m}l\,(1-s)\qquad(s<+\infty).
+ \end{aligned}
 \]
 a weighted section system of degree $m$ with the $m+1$ integer weights
-$-(2m-l)$.
+$-(2m-l)$.  At $s=+\infty$ the $l=0$ summand means the unit
+ideal and equals $-2$; every $l>0$ summand is $-\infty$, so $q_m=-2$.
+No product $0\cdot(-\infty)$ is formed.
 
 \emph{(v) The base-ideal limit.}  Evaluating the maximum: for $s\le1$ it
 is attained at $l=m$ and for $s\ge1$ at $l=0$.  Hence
@@ -1494,20 +1504,20 @@ and the relative base ideal $\mathfrak a_m$ is a nontrivial divisorial
 ideal supported on the central fibre.  These are the three phenomena the
 machinery exists to handle.
 
-Also typical: the second grading is genuinely present, with $m+1$ distinct
-weight pieces in degree $m$.  Any argument that treats $J_m$ as if it
+Also typical: the second grading is genuinely present, with $m+1$ distinct nonzero
+coefficient ideals in degree $m$.  Any argument that treats $J_m$ as if it
 were extended from $X$, that is, as if
 \Cref{prop:ch40-two-gradings-here}\,\cref{itm:ch40-grad:homogeneous} applied,
 computes with $\mathfrak b_{m,m}=I_p^{\,m}$ alone and obtains
 $-2+(1-s)$ rather than the correct $-1-\min\{s,1\}$; the two agree only
 for $s\le1$.
 
-Not typical: the graded sequence is the sequence of powers of a single
-ideal, so the increasing net $(q_m)$ is constant.  This happens because
-the obstacle is attached to a divisor $D$ that is $\mu$-semiample after
-subtracting the base locus; for a general PL obstacle the net is strictly
-increasing and the limit $Q$ is not attained at any finite stage.
-\Cref{ex:ch40-drift-real} exhibits the general behaviour.
+A special feature is that the graded sequence consists of powers of one
+ideal, so $(q_m)$ is constant.  The general construction guarantees
+increase along divisibility and convergence to $Q$; it does not guarantee
+strict increase at every stage or failure of finite attainment.
+\Cref{ex:ch40-drift-real} concerns the separate class and engine-value
+errors, not a counterexample to finite base-ideal attainment.
 \end{remark}
 
 \section{The two ideal engines}
@@ -1614,7 +1624,7 @@ closed --- gives $f_k\varpi^k\in B_m$ for every $k$.  Thus $B_m$ is a
 graded ideal, that is, $\mathbf G_m$-equivariant.
 
 \cref{itm:ch40-eng:sandwich}  From \cref{itm:ch40-eng:subadd} and the order
-reversal of \Cref{warn:ch40-signs},
+preservation of \Cref{warn:ch40-signs},
 \[
  \phi_{B_{m\ell}}\le\phi_{B_m^{\,\ell}}=\ell\,\phi_{B_m},
 \]
@@ -1639,7 +1649,7 @@ the last step because $q^{-1}w(J_q)\ge w(J_\bullet)$ by definition of the
 infimum.
 \end{proof}
 
-\begin{remark}[Two theorems with the same statement and no common step]
+\begin{remark}[Two subadditivity inputs]
 \label{rem:ch40-subadditivity-two-proofs}
 Item \cref{itm:ch40-eng:subadd} is the place where the two arguments diverge
 most sharply, and the divergence is invisible in the statement.
@@ -1648,30 +1658,24 @@ In characteristic zero, \Cref{thm:appC-multiplier-subadditivity} is proved by
 forming the external product of $\mathfrak a$ and $\mathfrak b$ on
 $S\times S$, where the multiplier ideal of a product of pullbacks is the
 product of the pullbacks of the multiplier ideals, and then restricting to
-the diagonal.  The restriction theorem for multiplier ideals is a corollary
-of Nadel vanishing, hence of Kodaira vanishing, hence unavailable in
-characteristic $p$; and the smoothness of the diagonal of $S\times S$
---- that is, the smoothness of $S$ --- is used, which is why the statement
-fails on singular varieties in any characteristic.  See \cite{DEL00}.
+the diagonal.  The restriction theorem supplies the required inclusion,
+and the smoothness of the diagonal is part of the smooth multiplier-ideal
+package.  That package does not apply verbatim on a singular ambient
+scheme or in positive characteristic.  See \cite{DEL00}.
 
-In characteristic $p$ there is no product-and-restrict argument.  The
-inclusion $\tau(\mathfrak a_\bullet^{m\ell})\subseteq
-\tau(\mathfrak a_\bullet^{m})^{\ell}$ is proved directly from the trace
-description \eqref{eq:appC-test-trace}: a Frobenius root of an element of
-$\mathfrak a_q^{\lceil m\ell p^e/q\rceil}$ is manipulated into a product of
-$\ell$ Frobenius roots of elements of
-$\mathfrak a_q^{\lceil mp^e/q\rceil}$, the rounding being absorbed because
-$\lceil m\ell t\rceil\ge\ell\lceil mt\rceil-(\ell-1)$ and the resulting
-finite discrepancy is killed by the asymptotic stabilization.  See
-\cite{MustataTest} and, for the underlying finite-characteristic
-formalism, \cite{ST12}.
+In characteristic $p$ the input used here is
+$\tau(\mathfrak a_\bullet^{m\ell})\subseteq
+\tau(\mathfrak a_\bullet^m)^\ell$, precisely
+\cite[Proposition~3.1(ii)]{MustataTest}.  Its short printed proof passes
+from ordinary test-ideal subadditivity to the stabilized asymptotic
+construction.  Ordinary subadditivity is itself a cited Frobenius-root
+theorem in that source.  These are named algebraic inputs here; a
+factorization of individual Frobenius roots, or an assertion that
+stabilization removes arbitrary rounding errors, would not prove them.
 
-The two proofs share the conclusion and nothing else.  A reader who
-remembers only ``subadditivity holds'' will not be misled about this
-chapter; a reader who remembers ``subadditivity holds by restriction to the
-diagonal'' will be misled about \Cref{chap:bj-alterations}, where the
-absence of a diagonal argument on singular sources is one of the reasons the
-smooth case has to be settled first.
+The characteristic-zero diagonal proof therefore cannot substitute for
+the positive-characteristic input.  Once the respective theorem is
+supplied, the later ideal-function argument is the same.
 \end{remark}
 
 \subsection{Characteristic zero}
@@ -1682,8 +1686,9 @@ log resolutions of the pairs $(S,J_q)$, which is
 \Cref{thm:appB-resolution}, and on local vanishing.  Both are recorded in
 \Cref{sec:appC-algebraic-multiplier} together with the valuative description
 \Cref{thm:appC-valuative-multiplier}, from which the containment
-$J_m\subseteq B_m$ is immediate: for $f\in J_m$ and $v$ divisorial,
-$v(f)\ge v(J_m)\ge(m/q)v(J_q)$ by gradedness, and
+$J_m\subseteq B_m$ follows by choosing a stabilizing $q$ divisible by $m$:
+$J_m^{q/m}\subseteq J_q$, hence for $f\in J_m$ and $v$ divisorial,
+$v(f)\ge v(J_m)\ge(m/q)v(J_q)$, and
 $A_S(v)>0$ because $S$ is regular, so the strict inequality
 $v(f)+A_S(v)>(m/q)v(J_q)$ required by
 \eqref{eq:appC-valuative-multiplier} holds.  It is worth pausing on this
@@ -1712,7 +1717,7 @@ Define
  u_m:=\frac1m\phi_{B_m}.
 \tag{40.10}\label{eq:bj-smooth-test-stages}
 \]
-Ideal inclusion reverses valuation order after negation.  Hence $u_m$
+Ideal inclusion reverses ideal-value order, and negation reverses it again.  Hence $u_m$
 decreases under divisibility.  For every multiple $m\ell$,
 \[
  \frac1{m\ell}\phi_{J_{m\ell}}
@@ -1805,7 +1810,7 @@ parameters and
 \[
  J_m=\varpi^m(x,y,\varpi)^m
 \]
-is a monomial ideal.  Its Newton polyhedron is
+is a monomial ideal.  The Newton polyhedron of $J_1$ is
 \[
  P=\bigl\{(u_1,u_2,u_3)\in\mathbf R^3_{\ge0}\ :\
  u_3\ge1,\ u_1+u_2+u_3\ge2\bigr\},
@@ -1845,8 +1850,8 @@ $s=v(I_p)$ as before, $\sigma(v)(B_m)=m+(m-2)\min\{s,1\}$, so
 The net $(u_m)$ decreases to $Q$, as
 \Cref{prop:ch40-engine-package}\,\cref{itm:ch40-eng:sandwich} predicts, and
 the gap is exactly $2/m$ at every point with $s\ge1$.  It is strictly
-positive for every finite $m$: no stage of the construction computes the
-envelope, and the limit is genuinely needed.
+positive where $s>0$ for every finite $m$: no stage equals the envelope
+as a function, although it already agrees where $s=0$.
 
 \emph{Relative generation without a twist.}  The weight pieces of $B_m$
 are $I_p^{\,2m-2-k}$ for $m\le k\le2m-2$, and
@@ -2126,9 +2131,8 @@ $u_m=m^{-1}\phi_{B_m}\in\cH^{\mathrm{gf}}_{\mathbf Q}(L+A/m)$.
 \begin{remark}[What Step~3 needs, and why the log resolution is harmless
 here]
 \label{rem:ch40-char-zero-resolution}
-The log resolution $\nu$ is not assumed equivariant, and it is not: the
-resolution algorithm need not respect the $\mathbf G_m$-action, and even
-if it did, the argument would not use it.  Equivariance of $B_m$ is proved
+The log resolution $\nu$ need not be chosen equivariant; the
+argument does not use an action on it.  Equivariance of $B_m$ is proved
 independently in
 \Cref{prop:ch40-engine-package}\,\cref{itm:ch40-eng:equivariant} by a
 Vandermonde argument, precisely so that the geometric input and the
@@ -2141,7 +2145,7 @@ is no resolution at all, and the equivariance argument is unchanged.
 \label{sec:ch40-generation-char-p}
 
 \begin{proposition}\label{prop:bj-smooth-uniform-generation}
-For every $m>0$, the equivariant ideal $B_m$ satisfies
+Assume $\operatorname{char}k=p>0$.  For every $m>0$, the equivariant ideal $B_m$ satisfies
 \[
                          B_m(mL+A)
 \]
@@ -2334,25 +2338,19 @@ The class carried by $u_m$ is \emph{exactly} $\theta_m=c_1(L)+m^{-1}c_1(A)$,
 not merely a class within an unspecified $O(m^{-1})$ neighbourhood of
 $c_1(L)$.  This matters twice.
 
-It matters for the limit.  \Cref{warn:ch38-drift-not-absorbed} records that
-``the error tends to zero, so it may be ignored'' is not an argument, and
-that the correct hypotheses are order hypotheses in the nef cone.  Here the
-error is oriented, by \Cref{lem:ch40-drift-nef-monotone}, and in the
-same nef-cone direction as in \Cref{sec:ch40-real-to-rational}: the stage
-classes \emph{dominate} the target and decrease to it.  Unlike the rational
-approximation there, they also form a monotone chain.  This is exactly the
-configuration that clause~(5) of \Cref{thm:bj-basic-closure} was stated for,
-and \Cref{lem:ch40-drift-nef-monotone}\,\cref{itm:ch40-drift:tail} converts it
-into the configuration of clause~(4) inside each fixed class
-$\theta_{m_0}$, so that either clause may be used.  Both routes are
-written out in \Cref{sec:ch40-psh-limit}.
+It matters for the limit because the stage classes must actually
+converge to $c_1(L)$, and the decreasing function limit must be nontrivial.
+The nef orientation gives the useful fixed-class route of
+\Cref{lem:ch40-drift-nef-monotone}: each tail lies in
+$\PSH_X(\theta_{m_0})$, so fixed-class closure followed by closedness in
+the class applies.  Moving-class closure, or \Cref{def:bj-psh} directly,
+also applies once class convergence and nontriviality have been checked;
+neither requires this orientation as a general hypothesis.
 
-It matters for bookkeeping.  If one only knew
-$\lVert\theta_m-c_1(L)\rVert=O(m^{-1})$, one could not conclude that the
-tail lies in a fixed class, and the two-step argument of
-\Cref{lem:ch40-drift-nef-monotone} would be unavailable; one would be forced
-to use clause~(5) with no fallback.  Knowing the class exactly costs
-nothing here and is worth the notation.
+It matters for bookkeeping because a bound
+$\lVert\theta_m-c_1(L)\rVert=O(m^{-1})$ alone does not put the tails
+in one fixed class.  The exact nef identity supplies that additional
+route.  \Cref{sec:ch40-psh-limit} writes out both arguments.
 \end{warning}
 
 \begin{example}[The two $O(m^{-1})$ errors are real, and independent]
@@ -2378,7 +2376,7 @@ $m$.  Thus no finite stage computes the envelope, even when the classes are
 exactly right.
 
 \emph{(b) The class error is nonzero for every admissible choice of the
-auxiliary data, on most varieties.}  Let $X$ be a smooth projective curve
+auxiliary data, on a positive-genus curve.}  Let $X$ be a smooth projective curve
 of genus $g\ge1$, so $n=1$.  For any very ample globally generated
 $H$ and any $d\ge2$,
 \[
@@ -2388,14 +2386,17 @@ so $c_1(A)\ne0$ and $\theta_m\ne c_1(L)$ for \emph{every} $m$ and
 \emph{every} admissible choice of $H$ and $d$.  Concretely, for $E$
 elliptic, $P\in E$, $H:=\cO_E(3P)$ and $d=2$ one gets
 $A=K_E+2H=\cO_E(6P)$ of degree $6$, so that
-$\deg\theta_m=\deg L+6/m$.  On such an $X$ the construction never
-certifies the class $c_1(L)$ at a finite stage: what
-\Cref{prop:ch40-multiplier-uniform-generation} and
-\Cref{prop:bj-smooth-uniform-generation} produce are sections of
-$mL+A$, and the class $c_1(L)$ is reached only in the limit.  The same
-computation on $X=\mathbf P^1$, where $K_X+2H=\cO$ for
-$H=\cO(1)$ and $d=2$, gives $\deg A=0$; genus zero is the exceptional
-case, exactly as in (a).
+$\deg\theta_m=\deg L+6/m$.  These section presentations carry the class $c_1(L)+c_1(A)/m$,
+which differs from $c_1(L)$.  This does not show that the same function
+fails to be psh in the target class.  Indeed, choose $L$ very ample and take the zero obstacle on the trivial test configuration.
+Then $J_m=\cO_S$ for all $m$, both engines give $B_m=\cO_S$, and
+$u_m=Q=0$.  The value error vanishes, while the displayed class error
+$c_1(A)/m$ is nonzero on this curve.  Since $c_1(L)$ is nef, the
+function $0$ already belongs to $\PSH_X(c_1(L))$.  Together with (a),
+this gives concrete examples of either error vanishing separately.
+
+On $X=\mathbf P^1$ with $H=\cO(1)$ and $d=2$ one instead has
+$A=K_X+2H=\cO_X$, consistent with (a).
 
 \emph{(c) Conclusion.}  The two errors live in different spaces, vanish
 under different circumstances, and are removed by different devices: the
@@ -2441,9 +2442,9 @@ limit.
 \label{sec:ch40-canton}
 
 \begin{lemma}\label{lem:bj-smooth-canton}
-Let $I$ be a nonzero coherent ideal on a regular $F$-finite scheme
-$S$, let $t\ge0$, and let $w$ be a divisorial valuation centered on
-$S$.  Then
+Let $S$ be smooth over an algebraically closed field of characteristic
+$p>0$, let $I$ be a nonzero coherent ideal on $S$, let $t\ge0$,
+and let $w$ be a divisorial valuation centred on $S$.  Then
 \[
                        w\bigl(\tau(I^t)\bigr)
                           \ge t\,w(I)-A_S(w).
@@ -2464,11 +2465,11 @@ $F^e_*\cO_S$-module, by Kunz's criterion and Grothendieck duality for the
 finite flat morphism $F^e$.  Consequently the trace description
 \eqref{eq:appC-test-trace} reads, after the trivialization,
 \[
- \tau(I^t)=\sum_{e\ge0}\Phi_e\bigl(F^e_*I^{\lceil tp^e\rceil}\bigr),
+ \tau(I^t)=\sum_{e\ge1}\Phi_e\bigl(F^e_*I^{\lceil tp^e\rceil}\bigr),
 \]
 a sum which is increasing in $e$ and stabilizes.
 
-If $g=\Phi_e(f)\ne0$, Canton's definition and the identification of the
+For $e\ge1$, if $g=\Phi_e(f)\ne0$, Canton's definition and the identification of the
 Cartier-algebra discrepancy with the ordinary discrepancy of the regular
 pair $(S,0)$ give
 \[
@@ -2496,7 +2497,7 @@ An arbitrary local section of $\tau(I^t)$ is an $\cO_S$-linear
 combination of such $g$, and $w$ of a sum is at least the minimum of the
 values, so the bound passes from the generators to the ideal.  This proves
 \eqref{eq:bj-smooth-canton-test}; see
-\cite[Definition~3.2 and Proposition~4.1]{Canton}.
+\cite[Definition~3.3 and Proposition~4.1]{Canton}.
 \end{proof}
 
 \begin{remark}[The exact shape of the characteristic-$p$ input]
@@ -2586,32 +2587,39 @@ If $v=v_{\triv}$, then $\sigma(v)(\sum_if_i\varpi^i)=\min\{i:f_i\ne0\}
 =\ord_{X\times\{0\}}$, a divisorial valuation with
 $A_S=1$, and $A_X(v_{\triv})=0$; so the formula holds.
 
-Otherwise $v=t\ord_F$ with $t\in\mathbf Q_{>0}$ and $F$ a prime
-divisor on a smooth projective model $\pi:Y\to X$.  On
-$Y\times\mathbf A^1$ the two divisors $F\times\mathbf A^1$ and
-$Y\times\{0\}$ are smooth and meet transversally, so
-$(Y\times\mathbf A^1,\ F\times\mathbf A^1+Y\times\{0\})$ is a simple
-normal crossings pair in the sense of \Cref{def:ch32-snc-pair}.  Directly
-from \eqref{eq:ch40-gauss}, the semivaluation $\sigma(t\ord_F)$ is the
-quasi-monomial valuation of that pair with weights $(t,1)$.  Since the
-weights are rational, $\sigma(v)$ is divisorial by
-\Cref{thm:ch32-quasimonomial-invariants}\,\cref{itm:ch32-qi:divisorial}, and
-by \Cref{prop:ch32-log-discrepancy-affine} its log discrepancy relative to
-the snc pair is $t+1$.
+Otherwise write $v=t\ord_F$ with $t\in\mathbf Q_{>0}$ and $F$ a
+prime divisor on a normal projective birational model $\pi:Y\to X$.
+Normality makes $Y$ regular at the generic point of $F$; since $k$ is
+perfect, we may choose a smooth open neighbourhood $V$ of that point
+and shrink it so that $F\cap V$ is smooth and no other component of
+$K_{Y/X}$ meets it.  A globally smooth model is not required.
 
-It remains to convert this into a log discrepancy over $S$.  Let
-$\Pi:=\pi\times\operatorname{id}:Y\times\mathbf A^1\to S$.  Then
-$K_{(Y\times\mathbf A^1)/S}=\operatorname{pr}_Y^*K_{Y/X}$, so
+On $V\times\mathbf A^1$, the divisors $(F\cap V)\times\mathbf A^1$
+and $V\times\{0\}$ form a local simple normal crossings pair.
+Formula \eqref{eq:ch40-gauss} identifies $\sigma(t\ord_F)$ with its
+monomial valuation of weights $(t,1)$.  The rational-weight toroidal
+construction used in \Cref{thm:ch32-quasimonomial-invariants} is local:
+writing $t=a/b$, the primitive integral ray proportional to $(a,b)$
+is obtained by a subdivision of the two-dimensional cone.  This gives
+a divisor with valuation a positive rational multiple of $\sigma(v)$.
+The local blowup centres can be closed in $Y\times\mathbf A^1$ and the
+result normalized to obtain a projective normal model carrying the same
+divisor.  Thus $\sigma(v)$ is divisorial over $S$ in every characteristic.
+
+The local monomial discrepancy is $t+1$, by the coordinate calculation
+of \Cref{prop:ch32-log-discrepancy-affine}.  On this smooth neighbourhood
+the relative canonical divisor is the pullback of $K_{Y/X}$; its value
+is $t\,\ord_F(K_{Y/X})$.  Therefore
 \[
  \begin{aligned}
  A_S(\sigma(v))
- &=A_{Y\times\mathbf A^1}(\sigma(v))
-   +\sigma(v)\bigl(K_{(Y\times\mathbf A^1)/S}\bigr)\\
- &=(t+1)+t\,\ord_F(K_{Y/X})
- =t\bigl(1+\ord_F(K_{Y/X})\bigr)+1,
+ &=(t+1)+t\,\ord_F(K_{Y/X})\\
+ &=t\bigl(1+\ord_F(K_{Y/X})\bigr)+1
+ =A_X(v)+1 .
  \end{aligned}
 \]
-which is $A_X(v)+1$ by \eqref{eq:appC-log-discrepancy} and homogeneity.
+This computation uses only the neighbourhood of the relevant generic
+point, not resolution of singularities in positive characteristic.
 \end{proof}
 
 \begin{example}[The valuation inequality checked by hand on a monomial
@@ -2646,13 +2654,14 @@ that is,
 which is true, and strictly so for positive weights: the deficit is
 $a+b+c-2\min\{a,b,c\}>0$.  Thus the estimate holds, is independent of
 $m$, and is \emph{not} sharp; the true error $2\min\{a,b,c\}$ is smaller
-than the guaranteed error $A_S(w)=a+b+c$.  Both are constants, and both
+than the guaranteed error $A_S(w)=a+b+c$.  Both are constants for a fixed valuation, and both
 disappear after division by $m$, which is all the argument needs.
 
-Specializing to a Gauss extension: for $v=t\ord_p\in X^{\divis}$ with
+Specializing to a Gauss extension: for $v=t\ord_E\in X^{\divis}$, where $E$ is the exceptional curve
+of $\operatorname{Bl}_pX$, with
 $t\in\mathbf Q_{>0}$, one has $\sigma(v)=w_{t,t,1}$, and
 \Cref{lem:ch40-gauss-log-discrepancy} gives
-$A_S(\sigma(v))=A_X(t\ord_p)+1=2t+1$, in agreement with
+$A_S(\sigma(v))=A_X(t\ord_E)+1=2t+1$, in agreement with
 $a+b+c=t+t+1$.  The inequality becomes
 $2\min\{t,1\}\le2t+1$, true for every $t>0$.  Dividing by $m$ and
 negating, the resulting bound on functions is
@@ -2703,9 +2712,9 @@ inequality of \eqref{eq:bj-smooth-gf-lower-bound} is
 \Cref{prop:ch40-Q-limit}\,\cref{itm:ch40-Q:sup}, and the second is
 \Cref{prop:ch40-engine-package}\,\cref{itm:ch40-eng:sandwich}.  Therefore
 $u\ge q_{m_0}>-\infty$ on $X^{\val}$, and in particular
-$u(v_{\triv})>-\infty$; by
-\Cref{prop:ch34-generic-finiteness}\,\cref{itm:ch34-gf:equiv} again, $u$ is
-generically finite.  This is the step that fails if one tries to run the
+$u(v_{\triv})>-\infty$.  This directly supplies the nontriviality
+condition in \Cref{def:bj-psh}, without applying a Fubini--Study
+criterion to the not-yet-certified limit.  This is the step that fails if one tries to run the
 construction with $J_\bullet=0$, and it is the reason the Veronese of
 \Cref{lem:ch40-J-basic}\,\cref{itm:ch40-J:nonzero} was performed.
 
@@ -2755,7 +2764,9 @@ and the bounding function $q_{m_0}$ is itself generically finite, so that
 the bound is nonvacuous at $v_{\triv}$.  \Cref{ex:ch34-decreasing-to-pole}
 exhibits the subtler phenomenon, in which the limit is finite somewhere and
 $-\infty$ on a nonempty proper analytic subset; that behaviour is
-permitted, and indeed occurs here whenever $L$ has base points.
+permitted.  Base points in one degree do not establish poles of the
+limit: only a zero locus shared by all the relevant section systems can
+force that conclusion.
 \end{warning}
 
 \subsection{Identification of the divisorial values}
@@ -2831,21 +2842,21 @@ as required.
 
 \begin{remark}[Why a pointwise identification suffices]
 \label{rem:ch40-no-uniform-discrepancy}
-The error term in \eqref{eq:bj-smooth-canton-squeeze} is $A_S(w)/m$, and
-$A_S(w)$ is not bounded as $w$ ranges over the Gauss extensions of
+The error term in \eqref{eq:bj-smooth-canton-squeeze} is $A_S(w)/m$.
+In positive dimension, $A_S(w)$ is not bounded as $w$ ranges over the Gauss extensions of
 divisorial points: by \Cref{lem:ch40-gauss-log-discrepancy} it equals
 $A_X(v)+1$, which tends to infinity along $v=t\ord_F$ as $t\to\infty$
-and also along sequences of divisors $F$ of increasing log discrepancy.
-Consequently the convergence $u_m\to Q$ on $X^{\divis}$ is
-\emph{pointwise and not uniform}, and no argument below may use uniformity.
-This is why the passage from \eqref{eq:bj-smooth-divisorial-identification}
-to a statement on all of $X^{\An}$ is made by the psh comparison
-\Cref{prop:ch39-determination-package}\,\cref{itm:ch39-det:compare}, whose
-hypotheses are a psh function below an upper-semicontinuous one, rather than
-by a limit interchange.  \Cref{ex:ch35-evaluation-discontinuous} shows that
-evaluation is not continuous at proper-support points, so a uniformity
-argument would in any case not extend the identification off
-$X^{\divis}$.
+because $A_X(\ord_F)>0$ on the smooth $X$.
+This bound proves pointwise convergence, without a uniform estimate.
+An unbounded upper bound does not prove that the actual convergence is
+nonuniform: in \Cref{ex:ch40-p2-engines}, the computed gap is at most
+$2/m$ on all of $X^{\An}$, despite unbounded Gauss discrepancies.
+The argument needs no uniform convergence.  It passes to all analytic
+points by the psh comparison of
+\Cref{prop:ch39-determination-package}\,\cref{itm:ch39-det:compare}.
+The discontinuity of proper-support evaluation in the psh topology
+(\Cref{ex:ch35-evaluation-discontinuous}) concerns a different topology;
+it does not rule out uniform convergence in particular examples.
 \end{remark}
 
 \section{Identification with the obstacle envelope}
@@ -2867,9 +2878,9 @@ $J_\bullet$, the stage ideals $B_m$ of \Cref{def:ch40-stage-ideals}, the
 stage functions $u_m=m^{-1}\phi_{B_m}$, and their decreasing limit $u$ of
 \eqref{eq:bj-smooth-limit}.  The construction is the same in every
 characteristic; only the definition of $B_m$ changes, and every property of
-$B_m$ used below is one of the four listed in
-\Cref{prop:ch40-engine-package}, each of which has been established in both
-characteristics.
+$B_m$ used below is supplied by
+\Cref{prop:ch40-engine-package} together with the fixed-twist generation
+statements of \Cref{sec:ch40-stages}.
 
 \emph{Step 1: $u$ is psh.}  This is \eqref{eq:bj-smooth-limit-psh}, proved
 in \Cref{sec:ch40-psh-limit} by either of the two routes given there.
@@ -2931,28 +2942,26 @@ functions on the whole of $X^{\An}$, not merely on the full-support locus.
 
 \begin{remark}[Where each hypothesis is used]
 \label{rem:ch40-hypothesis-map}
-Smoothness of $X$ is used exactly twice, and both times through
-$S=X\times\mathbf A^1$ rather than through $X$ itself.  It is used to
-make $S$ regular, so that multiplier ideals have the valuative description
-\Cref{thm:appC-valuative-multiplier} with $A_S>0$ --- whence
-$J_m\subseteq B_m$ --- and so that $S$ is $F$-finite regular, whence
-Kunz's criterion and the trace description
-\eqref{eq:appC-test-trace}.  And it is used in the subadditivity theorem, in
-characteristic zero through the smoothness of the diagonal of $S\times S$
-and in characteristic $p$ through the flatness of Frobenius.  It is
-\emph{not} used to resolve $\cY$: the model $\cY$ is only normal, and no
-statement about $\cY$ beyond $\mu_*\cO_{\cY}=\cO_S$ is needed.
+Smoothness of $X$ makes $S=X\times\mathbf A^1$ smooth and gives
+an invertible canonical sheaf.  The multiplier-ideal package in
+characteristic zero uses positivity of divisorial discrepancies,
+subadditivity, local vanishing and the relative generation argument.
+In characteristic $p$, regularity and $F$-finiteness supply the
+Frobenius-root/trace package, while Canton's divisorial identification
+supplies the valuation estimate.  No resolution of the normal test
+configuration $\cY$ is used in that characteristic.  Its normality is
+nevertheless needed for the codimension-one membership test and
+component-valuation dictionary, as well as for
+$\mu_*\cO_{\cY}=\cO_S$.
 
-Projectivity of $X$ is used for the compactness of $X^{\An}$, in the
-Dini argument of \Cref{prop:ch40-envelope-comparison}, and for the coherence
-of $\rho_*$ and the vanishing theorems.  Integrality is used throughout,
-in particular for generic finiteness.  The characteristic is used only in
-\Cref{sec:ch40-engines} and \Cref{sec:ch40-stages}, and \emph{only} to
-choose which of the two engines is installed.  Algebraic closedness of
-$k$ is used for the Vandermonde argument of
-\Cref{prop:ch40-engine-package}\,\cref{itm:ch40-eng:equivariant}, where an
-infinite field would suffice, and through the standing conventions of
-\Cref{part:bj}.
+Projectivity supplies compact analytification, coherent direct images and
+the vanishing arguments; integrality ensures the nonzero section systems
+are generically finite.  The ideal engines, their generation proofs and
+the discrepancy estimate record the characteristic-dependent inputs.
+Algebraic closedness implies both perfectness, used for $F$-finiteness
+and smooth generic neighbourhoods, and infinitude, used in the
+Vandermonde argument.  This records the hypotheses without claiming an
+exhaustive count of their occurrences.
 \end{remark}
 
 \begin{example}[The envelope of the double point obstacle]
@@ -3022,8 +3031,8 @@ two errors separate is what makes the limiting argument transparent.
 \label{sec:ch40-comparison-table}
 
 The following table records, row by row, every step of the argument and what
-implements it in each characteristic.  Rows marked $\ast$ are the four
-places where the implementations have no proof step in common.
+implements it in each characteristic.  The five rows marked $\ast$ identify
+the characteristic-dependent ideal-theoretic constructions and estimates.
 
 \begin{center}
 \begin{tabular}{p{0.23\textwidth}p{0.34\textwidth}p{0.34\textwidth}}
@@ -3044,7 +3053,7 @@ ambient scheme &
 \multicolumn{2}{p{0.70\textwidth}}{identical: $S=X\times\mathbf A^1$,
 smooth over $k$; in characteristic $p$ also $F$-finite}\\
 \addlinespace
-stage ideal $B_m$$^\ast$ &
+stage ideal $B_m^{\ast}$ &
 $\mathcal J_S(J_\bullet^m)$, defined by a log resolution and a floor
 function &
 $\tau_S(J_\bullet^m)$, defined by stabilized Frobenius traces\\
@@ -3057,7 +3066,7 @@ trace description \eqref{eq:appC-test-trace}\\
 subadditivity$^\ast$ &
 \cite{DEL00}: external product on $S\times S$, restriction to the
 diagonal, Nadel vanishing &
-\cite{MustataTest}: direct manipulation of Frobenius roots and rounding\\
+\cite[Proposition~3.1(ii)]{MustataTest}: asymptotic test-ideal subadditivity\\
 \addlinespace
 fixed twist$^\ast$ &
 relative Kawamata--Viehweg vanishing on a log resolution
@@ -3144,11 +3153,14 @@ It is tempting to regard the two-engine presentation as an expository
 device: one proof, written twice.  It is more than that, for two reasons
 that matter downstream.
 
-First, the parallel isolates the interface.  Everything outside
-\Cref{sec:ch40-engines,sec:ch40-stages} is characteristic-free, and the
-interface consists of exactly four statements, listed in
-\Cref{prop:ch40-engine-package}.  Any future construction supplying those
-four statements --- for a scheme that is neither smooth in characteristic
+First, the parallel isolates the interface.  After the ideal, generation and discrepancy inputs have been supplied,
+the limiting and comparison arguments are characteristic-free, and the
+main interface consists of containment, subadditivity, fixed-twist
+generation and a divisorial error estimate.  The first, second and fourth
+are in \Cref{prop:ch40-engine-package}; generation is proved in
+\Cref{sec:ch40-stages}.  Equivariance and a nonzero starting sequence
+are also needed for the section presentations and nontrivial limit.
+A future construction supplying this full interface --- for a scheme that is neither smooth in characteristic
 zero nor $F$-finite regular in characteristic $p$, say --- would extend
 \Cref{thm:bj-smooth-envelope} verbatim.  Recording the interface is how a
 proof becomes reusable.
@@ -3271,9 +3283,10 @@ say $A_m=K_X+d_mH$ with $d_m\to\infty$, which is what a naive
 application of Serre vanishing produces.  Then the stage classes are
 $c_1(L)+m^{-1}c_1(A_m)$, and $m^{-1}c_1(A_m)$ need not tend to $0$;
 if $d_m\sim m$ it tends to $c_1(H)$, and the limit $u$ would at best
-be $(c_1(L)+c_1(H))$-psh.  The conclusion of
-\Cref{thm:bj-smooth-envelope} would then be false as stated, since the
-envelope property is a statement about a specific class.  The whole point of
+be $(c_1(L)+c_1(H))$-psh.  This would not prove the conclusion of
+\Cref{thm:bj-smooth-envelope}, which concerns the specified class.
+It does not disprove that conclusion: a function can belong to several
+psh classes, but the presented class alone would no longer certify it.  The whole point of
 \Cref{prop:ch40-multiplier-uniform-generation} and
 \Cref{prop:bj-smooth-uniform-generation} is that the Serre threshold is
 allowed to depend on $m$ while the \emph{twist} is not.
@@ -3296,15 +3309,16 @@ the envelope.  \Cref{ex:ch40-p2-envelope} is a case in point: there
 $u=Q=\phi_{-\Xi}-1$, while the function $0$ is also
 $c_1(\cO(1))$-psh and exceeds the obstacle at every point with $s>0$.
 
-\emph{Drop the restriction to divisorial points in Step~3.}  The inequality
-$\tau\le Q$ is proved on $X^{\divis}$ and is false in general on
-$X^{\An}$ before the identification is complete: at a point $x$ of
-proper support the function $Q$ may be $-\infty$ while $\tau$ is
-finite, since $Q$ is a supremum of Fubini--Study functions all of which may
-vanish on the same subvariety.  \Cref{ex:bj-common-base-locus} exhibits the
-configuration.  What repairs the argument is not a better estimate at $x$
-but \Cref{prop:ch39-determination-package}, which transfers the inequality
-from $X^{\divis}$ using plurisubharmonicity.
+\emph{Drop the restriction to divisorial points in Step~3.}  The proof has established
+$\tau\le Q$ only on $X^{\divis}$ at this stage.  Its argument uses
+finite section values there, and cannot simply be repeated at common
+base points, where all competing section functions may be $-\infty$.
+Moreover $Q$, as an increasing supremum, is not yet known to be upper
+semicontinuous, so it is not a valid larger function for the comparison
+principle.  The constructed psh limit $u$ is upper semicontinuous and
+agrees with $Q$ on divisorial points; comparison with $u$ is the step
+that controls all analytic points.  A base-locus example alone would not
+prove the existence of a finite psh competitor at that locus.
 
 \emph{Drop smoothness of $X$.}  Then $S$ is not regular.  Multiplier
 ideals and test ideals do exist in broader singular settings, after one
@@ -3345,7 +3359,7 @@ smooth case has to be settled first and in all characteristics.
 \item The two gradings are kept apart: the degree $m$ is the exponent of
       $\cL$ and the denominator of the normalization, while the
       $\mathbf G_m$-weight $k$ is the exponent of $\varpi$ and enters
-      as the Fubini--Study weight $-k/m$.
+      as additive weight $-k$, with normalized contribution $-k/m$.
 \item The stage classes are exactly $c_1(L)+m^{-1}c_1(A)$, they decrease
       in the nef order, and the limit is taken by a clause of
       \Cref{thm:bj-basic-closure} that permits the class to move.
@@ -3411,15 +3425,17 @@ and the stage net $(u_m)$ decreases; they have the same limit on
 $X^{\divis}$ and are compared through
 \Cref{prop:ch40-engine-package}\,\cref{itm:ch40-eng:sandwich}.  Only the
 decreasing net is admissible in \Cref{def:bj-psh}.  The whole function of
-the ideal engine is to convert one into the other, and it does so by an
-order-reversing operation on ideals, not by any manipulation of functions.
+the ideal engine is to convert one into the other, and it does so by a
+passage from a graded sequence to a subadditive one, followed by the
+ideal-function order calculation.
 
 \emph{Degree versus $\mathbf G_m$-weight.}  In $J_m=\bigoplus_k\mathfrak
 b_{m,k}\varpi^k$, the index $m$ is a degree and the index $k$ a weight;
 they scale differently, they produce different kinds of error, and only the
-first appears as a denominator.  \Cref{prop:ch40-two-gradings-here} records
-the rules, \Cref{ex:ch40-p2-obstacle}\,(iv) exhibits $m+1$ distinct weight
-pieces in degree $m$, and \Cref{warn:ch40-two-gradings} records what goes
+degree appears as the normalization denominator.
+\Cref{prop:ch40-two-gradings-here} records the rules;
+\Cref{ex:ch40-p2-obstacle}\,(iv) exhibits $m+1$ distinct nonzero coefficient
+ideals in degree $m$, and \Cref{warn:ch40-two-gradings} records what goes
 wrong if the weight is suppressed.
 
 \emph{Class error versus value error.}  Both are $O(m^{-1})$; the first
@@ -3450,7 +3466,8 @@ circular (\Cref{warn:ch40-firewall}).
 \label{sec:ch40-source-note}
 
 The proof follows the smooth-case argument in the supplied envelope
-manuscript, which is the source here for the arbitrary-dimensional
+manuscript, which is unpublished and has the provenance boundary
+recorded in \Cref{sec:appL-envelope}.  It is the source here for the arbitrary-dimensional
 positive-characteristic theorem.  The published addendum \cite{BJ22b}
 supplies the characteristic-zero obstacle reduction but proves its smooth
 theorem only under the alternative
@@ -3498,8 +3515,7 @@ $5/6-1/(6p)$ for $p\equiv2\bmod3$, $p\ge5$ --- is computed in
 $\operatorname{fpt}_5(x^2+y^3)=4/5$; right continuity is separately
 attributed above to \cite[Theorem~6.6]{ST12}.
 
-Seven things in this chapter are not in the sources in this form and are
-supplied here.  \Cref{lem:ch40-ep-nef-limit} and
+Seven aspects of the argument are isolated here.  \Cref{lem:ch40-ep-nef-limit} and
 \Cref{lem:ch40-rational-approximation} make the reduction from real classes
 to big rational ones explicit, including an elementary proof that a
 pseudoeffective class plus an ample class is big; the corresponding step in
@@ -3517,15 +3533,16 @@ valid at every divisorial point, using a Kodaira decomposition and a Dini
 step; this removes the augmented base locus from the proof entirely.
 \Cref{prop:ch40-multiplier-uniform-generation} writes out the
 characteristic-zero relative generation statement in the same relative form
-as its positive-characteristic counterpart, so that the two can be compared
-line by line; the source states the absolute version.
+as its positive-characteristic counterpart.  Musta\c t\u a's
+\cite[Theorem~4.1]{MustataTest} is an absolute global-generation template;
+the relative computation required here is written out above.
 \Cref{lem:ch40-gauss-log-discrepancy} computes
 $A_S(\sigma(v))=A_X(v)+1$, which is what makes
 \Cref{rem:ch40-no-uniform-discrepancy} a checkable statement about the
-failure of uniformity.  Finally the worked computations
+scope of the pointwise estimate.  Finally the worked computations
 \Cref{ex:ch40-p2-obstacle}, \Cref{ex:ch40-p2-engines},
 \Cref{ex:ch40-cusp}, \Cref{ex:ch40-monomial-valuation},
-\Cref{ex:ch40-drift-real} and \Cref{ex:ch40-p2-envelope} are new.  They are
+\Cref{ex:ch40-drift-real} and \Cref{ex:ch40-p2-envelope} are
 included because the two claims this chapter exists to establish --- that
 the same architecture runs in every characteristic, and that the two
 $O(m^{-1})$ errors are separately controlled --- are exactly the claims

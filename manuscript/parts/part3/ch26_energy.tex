@@ -2,7 +2,8 @@
 \index{Monge--Ampere energy!BFJ}\index{finite-energy potential!BFJ}
 \label{chap:bfj-energy}
 
-The Monge--Amp\`ere operator is nonlinear, but it has a primitive.  This
+The Monge--Amp\`ere operator has a primitive, including in the nonlinear
+higher-dimensional setting.  This
 simple fact reorganizes the theory: comparison becomes concavity, weak
 compactness can be refined by one scalar functional, and the finite-energy
 class admits unbounded potentials whose energy remains above $-\infty$.
@@ -20,19 +21,24 @@ resulting map
  \varphi\longmapsto\MA_\omega(\varphi)
  =(\omega+\ddc\varphi)^n
 \]
-is nonlinear of degree $n$, and by itself it does not organize the space of
-potentials at all.  What organizes it is the following observation, which is
+is polynomial of degree at most $n$ along affine segments; in dimension
+one it is affine.  The following observation organizes the space of
+potentials through a scalar functional.  It is
 purely formal at model level and becomes a theorem as soon as the potentials
 are allowed to be singular.
 
-Fix a segment $\varphi_t=\varphi+t(\psi-\varphi)$ of psh functions.  Then
+At model level, fix a segment
+$\varphi_t=\varphi+t u$, where $u=\psi-\varphi$.  Differentiation gives
 \begin{equation}
 \label{eq:ch26-motivating-variation}
+\begin{aligned}
  \frac{\rd}{\rd t}\int\varphi_t\,\MA_\omega(\varphi_t)
- \neq\int(\psi-\varphi)\,\MA_\omega(\varphi_t),
+ ={}&\int u\,\MA_\omega(\varphi_t)\\
+ &+n\int\varphi_t\,\ddc u\wedge\omega_{\varphi_t}^{n-1}.
+\end{aligned}
 \end{equation}
-because differentiating the integrand and the measure both contribute; but
-the \emph{averaged} functional
+The second term generally does not vanish, although it does for a constant
+direction.  The \emph{averaged} functional
 \[
  E_\omega(\varphi)
  =\frac1{n+1}\sum_{j=0}^n\int\varphi\,
@@ -58,9 +64,10 @@ global theory, the local comparison principles of \Cref{chap:bfj-capacity}.
 \emph{Weak compactness acquires a scale.}  The space
 $\PSH(X,\omega)/\mathbf R$ is compact
 (\Cref{thm:bfj-psh-compactness}), but the compactness is soft: nothing in it
-distinguishes a potential with a mild singularity from one whose
-Monge--Amp\`ere mass has escaped entirely into a polar set.  Energy is the
-single real-valued functional that makes that distinction, and its normalized
+quantifies the integrability of the potentials or the mass discarded by
+nonpluripolar truncation.  Energy takes values in $[-\infty,+\infty)$;
+its finite locus has the integrability and full-mass properties proved below.
+Its normalized
 superlevel sets \eqref{eq:normalized-energy-superlevel} are the compact sets
 on which the variational method of
 \Cref{chap:bfj-differentiability,chap:bfj-finite-energy-measures} operates.
@@ -68,8 +75,9 @@ on which the variational method of
 \emph{Unbounded potentials become admissible.}  The bounded theory of
 \Cref{chap:bfj-ma} cannot see a potential with a pole.  Truncation
 $\varphi\mapsto\max\{\varphi,-t\}$ always produces bounded approximants, but
-their Monge--Amp\`ere measures need not converge to anything useful: mass may
-run off to the pole set and be lost.  Finiteness of energy prevents this loss
+their measures need not converge weakly to the nonpluripolar measure:
+a weak limit can retain an atom on the pole set that the restricted
+truncation construction discards.  Finiteness of energy prevents this loss
 and gives the quantitative integrability needed below; it is stronger than
 the full-mass condition, as
 \Cref{ex:ch26-full-mass-infinite-energy} shows.  The extension of the mixed
@@ -103,9 +111,10 @@ wish to see them before the constructions.
  which the first holds strictly and the second does not apply.
 \item\label{itm:ch26-payoff:full-mass}
  \emph{A potential of finite energy has full Monge--Amp\`ere mass, with a
- quantitative tail bound} (\Cref{prop:e1-integrability-tail}).  The tail bound
- \eqref{eq:e1-mass-tail} is what makes every later truncation argument
- uniform.
+ quantitative tail bound} (\Cref{prop:e1-integrability-tail}).  The bound
+ \eqref{eq:ch26-quantitative-tail} controls truncation uniformly over
+ normalized families with a common lower energy bound; the sharper
+ \eqref{eq:e1-mass-tail} is a statement for each fixed potential.
 \item\label{itm:ch26-payoff:mixed}
  \emph{Mixed Monge--Amp\`ere products extend from bounded potentials to
  $\cE^1$, keeping total mass $V$}
@@ -151,11 +160,10 @@ is ample, and we write
 \begin{remark}[The reference form is called $\theta$ in
 \Cref{chap:bfj-model-forms,chap:bfj-ma}]
 \label{rem:ch26-omega-theta}
-\Crefrange{chap:bfj-model-forms}{chap:bfj-ma} write $\theta$ for the
-reference closed model form, whereas \Cref{chap:bfj-capacity} and the present
-chapter write $\omega$.  The two letters denote the same kind of object;
-the change is made where the form ceases to be a variable of the discussion
-and becomes a fixed background.  Every statement quoted from
+\Crefrange{chap:bfj-model-forms}{chap:bfj-capacity} write $\theta$ for the
+reference closed model form; the present chapter writes $\omega$ to match
+BFJ's energy notation.  The two letters denote the same kind of fixed
+background.  Every statement quoted from
 \Cref{chap:bfj-model-forms,chap:bfj-ma} is applied with $\theta=\omega$, and
 the reader who is checking a normalization should perform that substitution
 before comparing signs.  By \Cref{prop:ch20-positive-representative} one may
@@ -163,12 +171,15 @@ in addition assume, after replacing $\omega$ by $\omega+\ddc\psi$ and
 every potential $\varphi$ by $\varphi-\psi$, that $\omega$ is
 $\mathcal X$-positive on some model; this normalization is used only where
 it is explicitly invoked, and by
-\Cref{cor:ch21-reference-independence} it changes no energy difference.
+\Cref{cor:ch21-reference-independence} it preserves the psh class after this
+change of coordinates.  Preservation of energy differences uses the
+reference cocycle in \Cref{sec:ch24-energy-pairing}, or equivalently
+\Cref{prop:ch26-reference-change} below.
 \end{remark}
 
 Energy is normalized by $E_\omega(0)=0$, that is, relative to the reference
-form itself.  Since all Monge--Amp\`ere measures in sight have total mass
-$V$, translation by a constant satisfies
+form itself.  At model and bounded level all mixed measures have mass $V$, so
+translation by a constant satisfies
 \begin{equation}
 \label{eq:bfj-energy-translation}
                     E_\omega(\varphi+c)=E_\omega(\varphi)+cV .
@@ -214,7 +225,7 @@ model
 continuous
  &continuous semipositive metrics
  &uniform limit of model products
- &\Cref{thm:bfj-cld-ma-common-locus}\\
+ &\Cref{prop:ch24-continuous-uniform}\\
 bounded
  &bounded $\omega$-psh functions
  &unique monotone extension
@@ -229,8 +240,9 @@ finite energy
 
 Each row is a genuinely different construction, and each arrow between rows is
 a theorem.  The passage from the model row to the continuous row is uniform
-approximation; from the continuous row to the bounded row is the monotone
-extension of \Cref{thm:bounded-ma-extension}; and from the bounded row to the
+approximation; the bounded row is constructed by monotone extension from model functions,
+with agreement on the continuous locus proved in
+\Cref{prop:ch24-continuous-uniform}; and from the bounded row to the
 finite-energy row is \Cref{thm:e1-mixed-products} of this chapter, whose proof
 occupies \Cref{sec:ch26-mixed-products}.  Every numbered statement below says
 which of the four products it concerns, and \Cref{sec:ch26-scope} records
@@ -242,12 +254,13 @@ Bedford--Taylor products of the Chambert--Loir--Ducros calculus is delimited,
 feature by feature and with a table, in
 \Cref{sec:ch16-local-vs-global,sec:ch16-delimitation-table}.  We do not redraw
 that boundary here.  Two points from it are used repeatedly and are worth
-recalling: the CLD product is local and its total mass is not an intersection
-number, whereas the products of this chapter are global and have total mass
-$V$ by construction; and the CLD product may carry mass on a polar set
-(\Cref{ex:ch16-polar-failure}), whereas the finite-energy product of
-\Cref{def:nonpluripolar-ma} discards that mass by definition.  Conflating the
-two would produce a wrong total mass in \Cref{chap:compare-ma}.
+recalling.  A local CLD product has no prescribed global mass, while the
+model and bounded global products have mass $V$; full mass for finite-energy
+entries is proved in this chapter.  Local extensions at singularities can
+carry polar mass, as in \Cref{ex:ch16-polar-failure}, whereas the
+nonpluripolar construction discards it.  That example lies outside the common
+continuous comparison locus and does not contradict equality there.
+An arbitrary singular nonpluripolar product can itself have mass below $V$.
 \end{warning}
 
 \subsection{Extended-real protocol}
@@ -348,7 +361,7 @@ the finite-energy tail estimates.  \Cref{sec:ch26-mixed-products} proves the
 extension of the mixed products to $\cE^1$.  \Cref{sec:ch26-e1-gauge}
 studies the order and gauge structure of $\cE^1$, including the failure of
 the triangle inequality, and \Cref{sec:ch26-strong} treats strong convergence
-and compactness of normalized sublevels.  \Cref{sec:ch26-examples} carries the
+and compactness of normalized energy superlevels.  \Cref{sec:ch26-examples} carries the
 principal computations to explicit numbers, \Cref{sec:ch26-scope} is the scope table, and
 \Cref{sec:ch26-dictionary} is the chapter dictionary.
 
@@ -476,7 +489,8 @@ model forms over a DVR.  Only their vertical-factor mixed difference is.
 \begin{example}[Normalization audit on a two-vertex graph]
 \label{ex:ch26-normalization-audit}
 Return to \Cref{ex:two-vertex-ma}: $n=1$, $\Gamma=[x_0,x_1]$ of length
-one, $\omega=m_0\delta_{x_0}+m_1\delta_{x_1}$, $V=m_0+m_1$.  A model
+one with a residue-rational node, $\omega=m_0\delta_{x_0}+m_1\delta_{x_1}$,
+$V=m_0+m_1$.  A model
 function with vertex values $a,b$ has
 $\ddc\varphi=(b-a)\delta_{x_0}+(a-b)\delta_{x_1}$, whence
 \[
@@ -537,7 +551,7 @@ Then:
  the model Dirichlet pairing \eqref{eq:ch20-dirichlet-pairing};
 \item\label{itm:ch26-dir:pos}
  $\langle f,f\rangle_{\mathrm D}\geq0$, with equality exactly when $D$
- is numerically proportional to $\cX_s$;
+ equals $c\cX_s$ for some $c\in\mathbf R$, equivalently $f$ is constant;
 \item\label{itm:ch26-dir:curve}
  if $n=1$ no auxiliary class is needed and
  $\langle f,g\rangle_{\mathrm D}=-(D\cdot F)_{\cX}$ is minus the
@@ -612,18 +626,20 @@ content as \eqref{eq:ch26-graph-energy}, where the quadratic form appears as
 the graph Dirichlet integral $\int_\Gamma|u'|^2\rd s$, and as
 \Cref{cor:ch08-dirichlet-energy}, where it appears as
 $-\int g\,\rd\Delta_\Gamma g$.  For $n\geq2$ the corresponding statement
-fails: \eqref{eq:ch26-energy-intersection} is a polynomial of degree
-$n+1$, and no bilinear form controls it.  This is the structural reason
-why the underlying Dirichlet theory is Hilbertian in dimension one
-(\Cref{sec:ch26-thuillier}) while in general the present chapter has only
-the gauge of
-\Cref{def:ch26-gauge}, for which the triangle inequality fails
+generally fails: along a segment the energy has degree at most $n+1$,
+and need not be quadratic.  Particular segments can have smaller degree.
+The second variation is still a Dirichlet pairing, but its other factors
+depend on the background potential.  The curve Hilbert space is discussed
+in \Cref{sec:ch26-thuillier}.  The maximum-based gauge is a separate
+construction: it already fails the triangle inequality on a curve
 (\Cref{ex:ch26-triangle-fails}).
 
-\emph{Normalization.}  Thuillier's $\ddc$ is the sum-of-outgoing-slopes
-Laplacian on every skeleton and satisfies
-$\ddc\log|f|=\delta_{\operatorname{div}(f)}$; this is the convention of
-\eqref{eq:graph-laplacian} and \Cref{thm:ch08-slope-formula}, so
+\emph{Normalization.}  Thuillier's $\ddc$ is the weighted outgoing-slope
+Laplacian compatible with base change.  It is the unweighted sum on a
+simply semistable skeleton with residue-rational nodes, and satisfies
+$\ddc\log|f|=\delta_{\operatorname{div}(f)}$ with the divisor weights of
+\Cref{thm:ch08-slope-formula}.  This is the convention of
+\Cref{sec:ch08-harmonic}, so
 \eqref{eq:ch26-dirichlet-form} is his form verbatim, with no rescaling.  He
 presents it as the analogue of
 $\frac{\rmi}{\pi}\int_M\partial\varphi\wedge\bar\partial\psi$ on a compact
@@ -670,7 +686,7 @@ all products being taken on a common determining model, which exists by
 \Cref{cor:ch20-limit-structure}.  The sign is
 \eqref{eq:model-dirichlet-negativity}, that is, the relative Hodge index
 inequality \eqref{eq:ch20-mixed-hodge} applied to the vertical divisor
-representing $\ddc u$ and to the $n-1$ relatively nef classes
+$D_u$ representing the function $u$ and to the $n-1$ relatively nef classes
 $\omega_\psi^{\,j-1}\wedge\omega_\varphi^{\,n-j}$.  Relative nefness of
 those classes is \Cref{prop:ch20-semipositive-well-defined}.
 \end{proof}
@@ -901,7 +917,10 @@ derivatives.
 
 \emph{Step 4: decreasing bounded nets.}  If $\varphi_\gamma\searrow\varphi$
 is a decreasing net of \emph{bounded} $\omega$-psh functions with bounded
-limit, apply the weighted decreasing-net continuity
+limit, first restrict to an eventually uniformly bounded tail.  The common
+lower bound is the limit; the compactness argument of Step~1 gives a common
+upper bound, since upper semicontinuity suffices for the closed sets used
+there.  Apply the weighted decreasing-net continuity
 \eqref{eq:weighted-monotone-ma} directly to each summand of
 \eqref{eq:model-energy}, with weight $\varphi_\gamma$ and entries chosen
 from $\{\varphi_\gamma,0\}$.  Each summand converges to the corresponding
@@ -1121,7 +1140,7 @@ for $0\leq k\leq n-1$,
 
 \begin{proof}
 At model level this is \eqref{eq:ch20-mixed-cauchy-schwarz} applied to the
-vertical divisors representing $\ddc u$ and $\ddc h$ and to the $n-1$
+actual vertical divisors $D_u,D_h$ representing $u,h$ and to the $n-1$
 relatively nef classes.  Both sides are limits of the corresponding model
 expressions along simultaneous decreasing regularizations, by
 \Cref{prop:bounded-energy-identities} and
@@ -1187,9 +1206,10 @@ once with $n-j$.
 \label{rem:ch26-cocycle-caution}
 For unbounded potentials, \eqref{eq:ch26-cocycle-chain} is a statement about
 extended reals and may fail to have content: if
-$E_\omega(\psi)=-\infty$, then $\mathcal E(\varphi,\psi)$ and
-$\mathcal E(\psi,\chi)$ are $+\infty$ and $-\infty$, and their sum is
-undefined by the ledger.  This is the first place where finiteness of energy
+$E_\omega(\psi)=-\infty$ while $E_\omega(\varphi)$ and
+$E_\omega(\chi)$ are finite, then the two differences are $+\infty$ and
+$-\infty$, and their sum is undefined.  If an endpoint also has energy
+$-\infty$, its difference may already be undefined.  This is the first place where finiteness of energy
 is used as a hypothesis rather than as a conclusion, and it is the reason
 \Cref{chap:bfj-differentiability} normalizes before subtracting.  The
 explicit form \eqref{eq:ch26-cocycle-explicit} remains meaningful on
@@ -1209,8 +1229,11 @@ $\omega'$-psh functions, and
  E_{\omega'}(\varphi-\psi_0)
  =E_\omega(\varphi)-E_\omega(\psi_0).
 \end{equation}
-In particular energy differences do not depend on the choice of reference
-form within a fixed generic numerical class.
+In particular energy differences are preserved by this model-potential
+change of reference.  By \Cref{thm:ch20-ddc-exact}, two closed model
+forms with the same generic numerical class do differ by $\ddc$ of a
+model function.  Here the chosen potential $\psi_0$ is also $\omega$-psh,
+so that both reference forms are semipositive.
 \end{proposition}
 
 \begin{proof}
@@ -1274,13 +1297,14 @@ integration by parts is performed at an unbounded potential.
 
 \begin{warning}{Integration by parts is not available at arbitrary
 singularity}
-The classical failure is not subtle.  If $f=g$ is an unbounded psh
-function, then $\int f\,\ddc f\wedge T$ may be $-\infty$ while every
-truncated version is finite, and no cancellation between two infinite
-quantities is permitted
-(\Cref{rem:forbidden-cancellations}).  \Cref{ex:ch26-infinite-energy}
-exhibits a potential on $\mathbf P^1$ for which this happens, with the
-divergence rate computed.  This is why finiteness of energy, and not merely
+For an arbitrary unbounded psh function the expression
+$\int f\,\ddc f\wedge T$ is not supplied by the bounded theory.
+The legitimate bounded self-pairings can diverge: for the logarithmic pole
+in \Cref{ex:ch26-infinite-energy},
+$\int f^{\langle m\rangle}\ddc f^{\langle m\rangle}=-m$.
+This limit does not license subtraction of infinite integrals or define
+an unrestricted signed product at the singular potential
+(\Cref{rem:forbidden-cancellations}).  This is why finiteness of energy, and not merely
 membership in $\PSH(X,\omega)$, is the hypothesis of every statement in
 \Cref{sec:ch26-mixed-products}.
 \end{warning}
@@ -1600,8 +1624,10 @@ $\omega$ there, and the slope jumps from $-1$ to $0$ at $t=1$; so, by
 \]
 The open discs $D_N:=\{|z-a_N|<1\}$ are pairwise disjoint, and
 $\tau_N$ vanishes outside $D_N$.  A dual complex $\Delta$ is a finite
-graph containing $\eta$, so it has finite valence at $\eta$ and
-therefore meets only finitely many of the $D_N$; consequently
+connected subtree.  If it contains $\eta$, it has finite valence there;
+if it does not, it lies in one component of
+$X^{\An}\setminus\{\eta\}$.  It therefore meets only finitely many of
+the $D_N$; consequently
 $\tau_N|_\Delta\equiv0$ for $N$ large.  Hence $\tau_N\to0$ uniformly on
 every dual complex, that is, in the BFJ topology
 (\Cref{thm:bfj-skeletal-equicontinuity},
@@ -1653,8 +1679,8 @@ The class $\cE^1(X,\omega)$ has the following properties.
  It is stable under truncation: $\varphi^{\langle t\rangle}\in\cE^1$ for
  every $\varphi\in\cE^1$ bounded above and every $t>0$.
 \item\label{itm:ch26-e1:not-closed}
- It is \emph{not} closed in the BFJ topology, and it is not a lattice for the
- pointwise minimum.
+ In general it need not be closed in the BFJ topology, and pointwise
+ minima of its members need not be psh.
 \end{enumerate}
 \end{theorem}
 
@@ -1835,11 +1861,12 @@ corresponding layers; pass to the limit.
 \end{proof}
 
 For arbitrary psh $\varphi$, this measure has mass at most $V$, is
-supported on $\{\varphi>-\infty\}$, and does not charge pluripolar sets.
-It may lose mass at the pole set;
+carried by $\{\varphi>-\infty\}$, and does not charge pluripolar sets.
+Its topological support may nevertheless meet the pole set.  Its restricted
+truncations may have total mass below $V$;
 \Cref{ex:ch26-infinite-energy} exhibits a potential on $\mathbf P^1$ whose
-nonpluripolar measure is \emph{zero}, all the mass having escaped to a single
-rational point.
+nonpluripolar measure is \emph{zero}, whereas the weak limit of its full
+truncation measures is an atom at a rational pole.
 
 \begin{definition}
 \label{def:ch26-full-ma-mass}
@@ -1852,11 +1879,13 @@ From here to the end of the chapter, $\MA_\omega(\varphi)$ denotes the
 nonpluripolar measure \eqref{eq:nonpluripolar-ma} whenever $\varphi$ is
 unbounded, and the bounded product of \Cref{thm:bounded-ma-extension}
 otherwise; the two agree on the overlap by
-\Cref{prop:ch26-npp-basic}\,\cref{itm:ch26-npp:bounded}, which is what makes
-the single symbol admissible.  Neither of them is the local
-Bedford--Taylor product of \Cref{chap:cld-bedford-taylor}, and neither is
-the Chambert--Loir measure of a metric that is merely continuous unless the
-comparison \Cref{thm:bfj-cld-ma-common-locus} applies.
+\Cref{prop:ch26-npp-basic}\,\cref{itm:ch26-npp:bounded}.
+On the continuous semipositive locus this bounded product is the
+Chambert--Loir measure by \Cref{prop:ch24-continuous-uniform}.
+Agreement with a local CLD Bedford--Taylor product has the additional
+admissibility and field hypotheses of
+\Cref{thm:bfj-cld-ma-common-locus}; no identification is asserted for
+arbitrary singular local products.
 \end{warning}
 
 \begin{proposition}\label{prop:e1-integrability-tail}
@@ -2166,9 +2195,9 @@ homogeneous polynomials of degree $n$ in $s$,
   \MA_\omega(v^{(\alpha)})(B),
 \]
 agree on $\Sigma$.  A homogeneous polynomial of degree $n$ on
-$\mathbf R^n$ vanishing on $\Sigma$ vanishes identically, because
-$\Sigma$ spans $\mathbf R^n$ affinely and the polynomial is determined by
-its restriction to the ray through each point of $\Sigma$.  Hence the
+$\mathbf R^n$ vanishing on $\Sigma$ vanishes identically, because homogeneity extends its zero values from $\Sigma$ to the whole
+positive orthant, an open subset of $\mathbf R^n$.  A polynomial vanishing
+on an open set is identically zero.  Hence the
 coefficients agree, and taking $\alpha=(1,\ldots,1)$ gives
 $\MA_\omega(u_1,\ldots,u_n)(B)=\MA_\omega(v_1,\ldots,v_n)(B)$ for every
 Borel $B\subseteq U$.
@@ -2226,7 +2255,25 @@ Then, for every $t>0$,
 \end{equation}
 In particular the left-hand side tends to $0$ as $t\to\infty$, uniformly
 over any family of $n$-tuples for which $-E_\omega(\bar\varphi)$ is
-bounded above.
+bounded above.  For each fixed tuple the stronger estimate $o(t^{-1})$
+holds.  More generally, let $m\geq n$ and let
+$\varphi_1,\ldots,\varphi_m\in\cE^1$ be nonpositive.  Put
+\[
+ A_t:=\frac1m\sum_{i=1}^m\varphi_i^{\langle t\rangle},
+ \qquad B_t^{[m]}:=\bigcup_{i=1}^m\{\varphi_i\leq-t\}.
+\]
+Then
+\[
+\begin{aligned}
+ &\MA_\omega(\varphi_1^{\langle t\rangle},\ldots,
+              \varphi_n^{\langle t\rangle})(B_t^{[m]})\\
+ &\quad\leq\frac{2m^{n+1}(n+1)}{n!\,t}
+       \bigl(E_\omega(A_{t/2})-E_\omega(A_t)\bigr)
+       =o(t^{-1}).
+\end{aligned}
+\]
+The additional $m-n$ potentials allow the bad set to include the poles of
+weights as well as those of measure entries.
 \end{lemma}
 
 \begin{proof}
@@ -2276,6 +2323,33 @@ $E_\omega(\bar\varphi_t)\geq E_\omega(\bar\varphi)$ by
 \Cref{thm:extended-energy-basic}, whence
 $-E_\omega(\bar\varphi_t)\leq-E_\omega(\bar\varphi)$.  Combining the three
 steps gives \eqref{eq:ch26-mixed-tail}.
+
+\emph{Step 4: the sharper bound, including additional weights.}
+Expand $\MA_\omega(A_t)$ as the sum of all $m^n$ ordered mixed terms,
+each with coefficient $m^{-n}$.  The $n!$ permutations of the first $n$
+indices give
+\[
+ \MA_\omega(\varphi_1^{\langle t\rangle},\ldots,
+              \varphi_n^{\langle t\rangle})
+ \leq\frac{m^n}{n!}\MA_\omega(A_t).
+\]
+This remains valid when some indexed potentials are equal.
+On $B_t^{[m]}$, at least one truncation changes by $t/2$ between
+levels $t$ and $t/2$, and the others change by nonnegative amounts.  Thus
+$A_{t/2}-A_t\geq t/(2m)$ there.  The bounded cocycle and positivity give
+\[
+ \begin{aligned}
+ E_\omega(A_{t/2})-E_\omega(A_t)
+ &\geq\frac1{n+1}\int(A_{t/2}-A_t)\MA_\omega(A_t)\\
+ &\geq\frac{t}{2m(n+1)}\MA_\omega(A_t)(B_t^{[m]}).
+ \end{aligned}
+\]
+Combining the two estimates proves the displayed sharper bound.
+Both $A_t$ and $A_{t/2}$ decrease to
+$A:=m^{-1}\sum_i\varphi_i\in\cE^1$.  Their energies therefore converge
+to the same finite number by \Cref{thm:extended-energy-basic}, so the
+energy difference tends to zero.  Taking $m=n$ proves the fixed-tuple
+$o(t^{-1})$ assertion.
 \end{proof}
 
 \begin{remark}[Why the average, and not each factor separately]
@@ -2286,8 +2360,9 @@ available positivity argument gives no such estimate: it controls
 $\MA_\omega(\varphi_i^{\langle t\rangle})$ and not the mixed measure.
 \Cref{lem:ch26-average-domination} is the
 substitute: it replaces the $n$ potentials by a single one, at the cost of
-the explicit constant $n^n/n!$, which is harmless because only the rate
-$O(t^{-1})$ matters.  The device also explains why $\cE^1$ has to be
+the explicit constant $n^n/n!$.  The uniform $O(t^{-1})$ bound suffices
+for weak continuity of measures; the fixed-tuple $o(t^{-1})$ estimate is
+needed below for integrals with a truncating weight.  The device also explains why $\cE^1$ has to be
 convex before mixed products can be constructed, and hence why
 \Cref{thm:ch26-e1-structure}\,\cref{itm:ch26-e1:convex} precedes this section.
 \end{remark}
@@ -2383,8 +2458,12 @@ measure is the restriction of a bounded mixed product, to which
 from \Cref{lem:ch26-mixed-locality} layer by layer.
 
 \emph{Step 5: monotone continuity.}  Let $\varphi_i^\alpha\searrow\varphi_i$
-be decreasing nets in $\cE^1$, all $\leq0$, with
-$\varphi_i\in\cE^1$.  Put
+be decreasing nets in $\cE^1$ with limits $\varphi_i\in\cE^1$.
+We may restrict to a common cofinal tail and translate all entries so that
+they are $\leq0$: for $c>\max_i\sup\varphi_i$, the closed sets
+$\{\varphi_i^\alpha\geq c\}$ decrease with empty intersection, so
+compactness supplies a uniform upper bound on a tail.  Use the same
+translation for the limits.  Put
 $\bar\varphi^\alpha=\frac1n\sum_i\varphi_i^\alpha\geq\bar\varphi$, so that
 $-E_\omega(\bar\varphi^\alpha)\leq-E_\omega(\bar\varphi)=:C_0<\infty$ and
 the bound \eqref{eq:ch26-mixed-tail} is uniform in $\alpha$.  Let
@@ -2568,161 +2647,118 @@ on both sides, both measures being finite, gives
 
 \begin{proposition}
 \label{prop:ch26-e1-cocycle}
-Let $\varphi,\psi\in\cE^1(X,\omega)$ with $\varphi\leq\psi$, and for
-$0\leq j\leq n$ put
+Let $\varphi,\psi\in\cE^1(X,\omega)$, and for $0\leq j\leq n$ put
 \[
  I_j:=\int(\psi-\varphi)\,
-   \omega_\varphi^{\,j}\wedge\omega_\psi^{\,n-j}\in[0,+\infty],
+   \omega_\varphi^{\,j}\wedge\omega_\psi^{\,n-j}.
 \]
-the products being the finite-energy products of
-\Cref{thm:e1-mixed-products}.  Then every $I_j$ is well defined, the
-sandwich
+The finite-energy products make both parts of each integrand integrable
+away from the common pole set, which is null.  Thus each $I_j$ is a finite
+real number.  The sandwich
 \begin{equation}
 \label{eq:ch26-e1-sandwich}
  I_0=\int(\psi-\varphi)\MA_\omega(\psi)
  \ \leq\ E_\omega(\psi)-E_\omega(\varphi)\ \leq\
  \int(\psi-\varphi)\MA_\omega(\varphi)=I_n
 \end{equation}
-holds, and
+holds for every pair, and
 \begin{equation}
 \label{eq:ch26-e1-cocycle}
- \frac1{n+1}\sum_{j=0}^nI_j
- \ \leq\ E_\omega(\psi)-E_\omega(\varphi).
+ E_\omega(\psi)-E_\omega(\varphi)
+ =\frac1{n+1}\sum_{j=0}^nI_j.
 \end{equation}
-In particular every $I_j$ is finite, and
-$\int(-\varphi)\MA_\omega(\psi)<+\infty$.
+When $\varphi\leq\psi$, every $I_j$ is nonnegative.
+In particular $\int(-\varphi)\MA_\omega(\psi)<+\infty$ after a
+normalization $\varphi,\psi\leq0$.
 \end{proposition}
 
 \begin{proof}
-Normalize $\psi\leq0$, so $\varphi\leq\psi\leq0$.  The difference
-$\psi-\varphi$ is defined and nonnegative on
-$\{\varphi>-\infty\}$, which carries all the measures in question by
-\Cref{prop:ch26-npp-basic}\,\cref{itm:ch26-npp:polar}; on the complement it is
-of the forbidden form $(-\infty)-(-\infty)$ and is left undefined, which is
-harmless by \Cref{lem:integration-ledger}\,(3).  Each $I_j$ is therefore
-defined in $[0,+\infty]$.  Throughout, $U_t:=\{\varphi>-t\}$; since
-$\varphi\leq\psi$, this is exactly the layer
-$\{\varphi>-t\}\cap\{\psi>-t\}$ associated with any $n$-tuple whose
-entries lie in $\{\varphi,\psi\}$, so
-\eqref{eq:ch26-mixed-layer-consistency} identifies the restriction of the
-truncated bounded mixed measure to $U_t$ with that of the finite-energy
-mixed measure.
+Translate both potentials so that $\varphi,\psi\leq0$; their difference
+and all measures are unchanged, while their energies change by the same
+constant times $V$.
 
-\emph{Step 1: the upper bound in \eqref{eq:ch26-e1-sandwich}.}  Apply the
-supergradient inequality \eqref{eq:ch26-supergradient} with the bounded
-potential $\varphi^{\langle t\rangle}$ and the arbitrary potential
-$\psi$:
+\emph{Step 1: absolute integrability.}  Put
+$\chi=(\varphi+\psi)/2\in\cE^1$.  Affineness of the finite-energy
+product, proved in Step~6 of \Cref{thm:e1-mixed-products}, gives
 \[
- E_\omega(\psi)
- \leq E_\omega(\varphi^{\langle t\rangle})
-   +\int\bigl(\psi-\varphi^{\langle t\rangle}\bigr)
-     \MA_\omega(\varphi^{\langle t\rangle}).
+ \MA_\omega(\chi)
+ =2^{-n}\sum_{k=0}^n\binom nk
+       \omega_\varphi^{\,k}\wedge\omega_\psi^{\,n-k}.
 \]
-Write $\mu_t=\MA_\omega(\varphi^{\langle t\rangle})$ and split the integral
-over $U_t$ and its complement.  On $U_t$ the integrand is
-$\psi-\varphi\geq0$ and $\mu_t$ restricts to $\MA_\omega(\varphi)$, so
-that part increases to $I_n$ by monotone convergence.  On the complement
-$\{\varphi\leq-t\}$ the integrand is $\psi+t\leq t$, so that part is at
-most $t\,\mu_t(\{\varphi\leq-t\})$, which tends to $0$ by
-\eqref{eq:e1-mass-tail}.  Letting $t\to\infty$ and using
-$E_\omega(\varphi^{\langle t\rangle})\to E_\omega(\varphi)$
-(\Cref{prop:ch26-truncation-limit}) gives
-$E_\omega(\psi)-E_\omega(\varphi)\leq I_n$.
+All terms are positive, so each mixed measure $\mu_j$ in the statement
+satisfies $\mu_j\leq2^n\MA_\omega(\chi)$.
+On the common finite locus,
+$|\psi-\varphi|\leq-\varphi-\psi=2(-\chi)$.  By
+\Cref{prop:e1-integrability-tail},
+\[
+ \int|\psi-\varphi|\,\rd\mu_j
+ \leq2^{n+1}\int(-\chi)\MA_\omega(\chi)<\infty.
+\]
+The pole sets are pluripolar and null for all these products, so values of
+the difference there are neither formed nor needed.  The same estimate
+with $-\varphi\leq2(-\chi)$ proves the last assertion.
 
-\emph{Step 2: the lower bound in \eqref{eq:ch26-e1-sandwich}.}  Apply
-\eqref{eq:ch26-supergradient} with the bounded potential
-$\psi^{\langle t\rangle}$ and the arbitrary potential $\varphi$:
-\[
- E_\omega(\varphi)
- \leq E_\omega(\psi^{\langle t\rangle})
-   +\int\bigl(\varphi-\psi^{\langle t\rangle}\bigr)
-     \MA_\omega(\psi^{\langle t\rangle}).
-\]
-Write $\nu_t=\MA_\omega(\psi^{\langle t\rangle})$ and split over
-$W_t:=\{\psi>-t\}$ and its complement.  On $W_t$ the integrand is
-$\varphi-\psi\leq0$ and $\nu_t$ restricts to $\MA_\omega(\psi)$, so that
-part decreases to $-I_0$ by monotone convergence.  On the complement
-$\{\psi\leq-t\}$ one has $\varphi\leq\psi\leq-t$, so the integrand
-$\varphi+t$ is $\leq0$ and that part is nonpositive.  Hence
-\[
- E_\omega(\varphi)\leq E_\omega(\psi^{\langle t\rangle})
-   +\int_{W_t}(\varphi-\psi)\MA_\omega(\psi),
-\]
-and letting $t\to\infty$ gives
-$E_\omega(\varphi)\leq E_\omega(\psi)-I_0$, which is the lower bound.  In
-particular $I_0<+\infty$, and since
-$\int(-\psi)\MA_\omega(\psi)<+\infty$ by
-\eqref{eq:e1-integrability}, also
-$\int(-\varphi)\MA_\omega(\psi)=I_0+\int(-\psi)\MA_\omega(\psi)<+\infty$.
-
-\emph{Step 3: the cocycle inequality.}  Apply \eqref{eq:energy-cocycle} in
-the bounded form of \Cref{prop:bounded-energy-identities} to the pair
-$\varphi^{\langle t\rangle}\leq\psi^{\langle t\rangle}$:
+\emph{Step 2: the exact cocycle.}  Write
+$U_t:=\{\varphi>-t\}\cap\{\psi>-t\}$ and let $\mu_{j,t}$ be the
+bounded mixed measure with $j$ entries $\varphi^{\langle t\rangle}$
+and $n-j$ entries $\psi^{\langle t\rangle}$.  The set $U_t$ is
+contained in each corresponding truncation layer, including when $j=0$
+or $j=n$.  Layer consistency therefore gives
+$\one_{U_t}\mu_{j,t}=\one_{U_t}\mu_j$.
+The bounded cocycle says
 \begin{equation}
 \label{eq:ch26-truncated-cocycle}
  E_\omega(\psi^{\langle t\rangle})-E_\omega(\varphi^{\langle t\rangle})
  =\frac1{n+1}\sum_{j=0}^n
-   \int\bigl(\psi^{\langle t\rangle}-\varphi^{\langle t\rangle}\bigr)\,
-   \omega_{\varphi^{\langle t\rangle}}^{\,j}\wedge
-   \omega_{\psi^{\langle t\rangle}}^{\,n-j}.
+   \int\bigl(\psi^{\langle t\rangle}-\varphi^{\langle t\rangle}\bigr)
+        \,\rd\mu_{j,t}.
 \end{equation}
-The left-hand side converges to $E_\omega(\psi)-E_\omega(\varphi)$, a
-difference of two finite numbers.  Every summand on the right is nonnegative,
-and restricting the $j$-th one to $U_t$ --- where the integrand equals
-$\psi-\varphi$ and the measure equals the finite-energy mixed measure ---
-gives the lower bound
-\[
- \int\bigl(\psi^{\langle t\rangle}-\varphi^{\langle t\rangle}\bigr)
-  \omega_{\varphi^{\langle t\rangle}}^{\,j}\wedge
-  \omega_{\psi^{\langle t\rangle}}^{\,n-j}
- \ \geq\
- \int_{U_t}(\psi-\varphi)\,
-  \omega_\varphi^{\,j}\wedge\omega_\psi^{\,n-j},
-\]
-whose right-hand side increases to $I_j$.  Taking the lower limit as
-$t\to\infty$ in \eqref{eq:ch26-truncated-cocycle} and using that a finite
-sum of lower limits is at most the lower limit of the sum yields
-\eqref{eq:ch26-e1-cocycle}.  Finiteness of each $I_j$ follows.
+On $U_t$ each summand is
+$\int_{U_t}(\psi-\varphi)\,\rd\mu_j$, which tends to $I_j$ by Step~1
+and dominated convergence.  On $X^{\An}\setminus U_t$ its absolute
+value is at most $t\,\mu_{j,t}(X^{\An}\setminus U_t)$.
+Apply the sharper part of \Cref{lem:ch26-mixed-tail} to the list of
+$n+2$ potentials consisting of the $n$ measure entries, followed by
+$\varphi$ and $\psi$.  Its bad set is exactly
+$X^{\An}\setminus U_t$, and its bound is $o(t^{-1})$.
+The remaining integral therefore tends to zero.  Each summand converges
+to $I_j$, and the left-hand side converges to the difference of the two
+finite energies by \Cref{prop:ch26-truncation-limit}.  This proves
+\eqref{eq:ch26-e1-cocycle}.
+
+\emph{Step 3: the sandwich.}  Apply the unconditional bounded sandwich
+\eqref{eq:energy-sandwich} to the two truncations.  Step~2 identifies the
+limits of its endpoint integrals as $I_0$ and $I_n$, and energy continuity
+identifies its middle term.  Passing to the limit proves
+\eqref{eq:ch26-e1-sandwich}.  Nonnegativity under $\varphi\leq\psi$
+follows from the sign of the integrand on the common finite locus.
 \end{proof}
 
-\begin{remark}[Why only an inequality]
+\begin{remark}[Why the sharper mixed tail is needed]
 \label{rem:ch26-cocycle-inequality}
-At bounded level \eqref{eq:ch26-truncated-cocycle} is an identity, and one
-would like to pass to the limit in each summand separately.  The obstruction
-is the contribution of the complement $\{\varphi\leq-t\}$ to the $j$-th
-mixed integral: the integrand there is at most $t$, and
-\eqref{eq:ch26-mixed-tail} bounds the mixed mass of that set only by
-$O(t^{-1})$, so the product is only $O(1)$ and the estimate does not force
-it to tend to zero.  For the
-extreme summands $j=0$ and $j=n$ the difficulty disappears --- in Step~1
-the tail is controlled by the sharper diagonal estimate
-\eqref{eq:e1-mass-tail}, which is $o(t^{-1})$, and in Step~2 the tail
-contribution has a favourable sign --- and this is why the sandwich
-\eqref{eq:ch26-e1-sandwich} is an equality-free two-sided bound rather than a
-consequence of a term-by-term limit.  Everything used later in this book
-follows from \eqref{eq:ch26-e1-sandwich} and
-\eqref{eq:ch26-e1-cocycle}, so we do not pursue the sharper mixed tail
-estimate that would upgrade \eqref{eq:ch26-e1-cocycle} to an identity.
+The uniform estimate \eqref{eq:ch26-mixed-tail} alone would bound the
+complementary integral in Step~2 only by $O(1)$, since its weight can be
+as large as $t$.  The energy-gap refinement in the same lemma gives
+$o(t^{-1})$ for each fixed augmented tuple, hence a vanishing weighted
+error.  This proves an identity, rather than only a one-sided cocycle
+inequality.  No uniform $o(t^{-1})$ rate over an arbitrary energy-bounded
+family is asserted.
 \end{remark}
 
-\begin{warning}{The cocycle statements for unordered pairs}
-\Cref{prop:ch26-e1-cocycle} is stated for $\varphi\leq\psi$, and the
-hypothesis is not decorative: for an unordered pair the pointwise difference
-$\psi-\varphi$ is of the forbidden shape $(-\infty)-(-\infty)$ on the
-common pole set, and the integrals $I_j$ need not be defined.  The
-permitted reduction is to interpose $\chi:=\max\{\varphi,\psi\}\in\cE^1$
-and apply the ordered case to the two pairs $\varphi\leq\chi$ and
-$\psi\leq\chi$, combining them by the chain rule
-\eqref{eq:ch26-cocycle-chain}:
+\begin{warning}{Differences at common poles}
+For an unordered finite-energy pair the pointwise expression
+$\psi-\varphi$ is still undefined at common poles.  The preceding
+proposition proves absolute integrability on their null complement, so the
+integral is nevertheless well defined.  It does not subtract two infinite
+integrals.  One may also interpose $\chi:=\max\{\varphi,\psi\}\in\cE^1$
+and write
 \[
  E_\omega(\psi)-E_\omega(\varphi)
  =\bigl(E_\omega(\chi)-E_\omega(\varphi)\bigr)
-  -\bigl(E_\omega(\chi)-E_\omega(\psi)\bigr),
+  -\bigl(E_\omega(\chi)-E_\omega(\psi)\bigr).
 \]
-which is legitimate because all three energies are finite real numbers.  This
-is the reduction used in \Cref{sec:ch26-e1-gauge} and in
-\Cref{thm:e1-energy-differentiability}; it is not an additional theorem, but
-it is the only reading permitted outside the ordered case.
+Here all energies and both ordered differences are finite; this is a
+permitted reduction, not a restriction on the full cocycle formula.
 \end{warning}
 
 \section{The class \texorpdfstring{$\cE^1$}{E1} and its gauges}
@@ -2815,7 +2851,8 @@ $E_\omega(\varphi)=E_\omega(\psi)$.  Then:
  measures coincide, and in particular
  $\MA_\omega(\varphi)=\MA_\omega(\psi)$;
 \item\label{itm:ch26-strict:cont}
- if in addition $\psi$ is continuous, then $\varphi=\psi$.
+ if $\psi$ is bounded, then $\varphi=\psi$, even when no boundedness
+ of $\varphi$ was assumed.
 \end{enumerate}
 \end{proposition}
 
@@ -2827,42 +2864,16 @@ vanishes.  Since the integrand $\psi-\varphi$ is nonnegative, this says
 exactly that $\psi=\varphi$ almost everywhere for each of the $n+1$
 measures.
 
-\cref{itm:ch26-strict:bounded}.  Assume $\varphi,\psi$ bounded and put
-$u=\varphi-\psi$.  By \Cref{thm:ch26-mixed-energy-identities}\,%
-\cref{itm:ch26-ij:J} and \eqref{eq:ch26-ak-telescope}, vanishing of all the
-integrals forces $J_\psi(\varphi)=0$, hence $a_k(\varphi,\psi)=0$ for
-every $k$ by \Cref{thm:ch26-mixed-energy-identities}\,%
-\cref{itm:ch26-ij:positive}.  Let $h$ be any model function.  By
-\Cref{rem:ch26-omega-theta} we may assume that $\omega$ is
-$\mathcal X$-positive on a model determining $h$; then
-$\omega+C^{-1}\ddc h$ is relatively ample for $C$ large, so $C^{-1}h$
-is an $\omega$-psh model function and $h=C\cdot(C^{-1}h-0)$ is a positive
-multiple of a difference of two bounded $\omega$-psh functions.  The
-Cauchy--Schwarz inequality \eqref{eq:ch26-cauchy-schwarz} with $k=n-1$,
-applied to $C^{-1}h$ and rescaled, gives
-\[
- \Bigl|\int h\,\ddc u\wedge\omega_\varphi^{\,n-1}\Bigr|^2
- \leq C^2\,a_{n-1}(\varphi,\psi)\cdot
-  \Bigl(-\int C^{-1}h\,\ddc(C^{-1}h)\wedge\omega_\varphi^{\,n-1}\Bigr)=0 .
-\]
-Now $\ddc u\wedge\omega_\varphi^{\,n-1}
-=\MA_\omega(\varphi)-\MA_\omega(\varphi^{(n-1)},\psi)$ is a signed Radon
-measure integrating to zero against every model function, and model functions
-are uniformly dense in $C^0(X^{\An})$; hence
-$\MA_\omega(\varphi)=\MA_\omega(\varphi^{(n-1)},\psi)$.  Repeating with
-$k=n-2,\ldots,0$ identifies all $n+1$ mixed measures with one another.
+\cref{itm:ch26-strict:bounded}.  Assume $\varphi,\psi$ bounded.
+The first assertion with $j=n$ gives $\psi\leq\varphi$ almost everywhere
+for $\MA_\omega(\varphi)$.  The bounded domination principle
+\Cref{prop:bounded-capacity-domination}, after a common translation
+arranging $\varphi\leq0$, gives $\psi\leq\varphi$ everywhere.
+Thus $\varphi=\psi$, and all $n+1$ mixed measures coincide.
 
-\cref{itm:ch26-strict:cont}.  Suppose $\psi$ is continuous, hence bounded.
-Assume first that $\varphi$ is bounded as well.  By
-\cref{itm:ch26-strict:ae} with $j=n$ we have $\psi=\varphi$ almost
-everywhere for $\MA_\omega(\varphi)$; in particular
-$\psi\leq\varphi$ almost everywhere for $\MA_\omega(\varphi)$.  After
-subtracting a constant we may assume $\varphi\leq0$.  Then
-\Cref{prop:bounded-capacity-domination}, applied with the pair
-$(\psi,\varphi)$ in place of the pair $(\varphi,\psi)$ occurring there,
-gives $\psi\leq\varphi$ everywhere, hence $\varphi=\psi$.
-
-For unbounded $\varphi$, choose $t\geq-\inf_{X^{\An}}\psi$.  Then
+\cref{itm:ch26-strict:cont}.  Suppose $\psi$ is bounded.
+The case of bounded $\varphi$ was just proved.
+For unbounded $\varphi$, choose $t\geq\max\{1,-\inf_{X^{\An}}\psi\}$.  Then
 \[
  \varphi^{\langle t\rangle}=\max\{\varphi,-t\}
  \leq\max\{\psi,-t\}=\psi .
@@ -2890,10 +2901,9 @@ $d_\omega(\varphi,\psi)=0$, and put $\chi:=\max\{\varphi,\psi\}$.  Then:
  $\psi\leq\varphi$ almost everywhere for $\MA_\omega(\varphi)$ and
  $\varphi\leq\psi$ almost everywhere for $\MA_\omega(\psi)$;
 \item\label{itm:ch26-nondeg:one}
- if $\varphi$ and $\psi$ are bounded and $\psi$ is continuous, then
- $\psi\leq\varphi$ everywhere;
+ if $\varphi$ and $\psi$ are bounded, then $\varphi=\psi$;
 \item\label{itm:ch26-nondeg:both}
- if $\varphi$ and $\psi$ are both continuous, then $\varphi=\psi$.
+ if at least one of $\varphi,\psi$ is bounded, then $\varphi=\psi$.
 \end{enumerate}
 \end{corollary}
 
@@ -2911,30 +2921,26 @@ almost everywhere for $\MA_\omega(\varphi)$; since $\chi\geq\psi$, this
 gives $\psi\leq\varphi$ almost everywhere for that measure.  Exchange
 $\varphi$ and $\psi$.
 
-\cref{itm:ch26-nondeg:one}.  By \cref{itm:ch26-nondeg:ae},
-$\psi\leq\varphi$ almost everywhere for $\MA_\omega(\varphi)$.  After
-subtracting a constant, $\varphi\leq0$; $\psi$ is continuous, so
-\Cref{prop:bounded-capacity-domination}, applied with the pair
-$(\psi,\varphi)$ in place of $(\varphi,\psi)$ there, gives
-$\psi\leq\varphi$ everywhere.
+\cref{itm:ch26-nondeg:one}.  Apply bounded domination to the two
+almost-everywhere inequalities in \cref{itm:ch26-nondeg:ae}, normalizing
+by a common constant as needed.  This gives both pointwise inequalities.
 
-\cref{itm:ch26-nondeg:both}.  Apply \cref{itm:ch26-nondeg:one} twice.
+\cref{itm:ch26-nondeg:both}.  Suppose for example that $\psi$ is bounded.
+Then $\chi=\max\{\varphi,\psi\}$ is bounded below by $\psi$ and bounded
+above because both potentials are.  Apply
+\Cref{prop:ch26-strict-monotone}\,\cref{itm:ch26-strict:cont} to
+$\varphi\leq\chi$ and $\psi\leq\chi$, whose energies agree.
+Both potentials equal $\chi$.  The other case is symmetric.
 \end{proof}
 
-\begin{warning}{What has and has not been proved about nondegeneracy}
-\Cref{cor:ch26-gauge-nondegenerate} proves $d_\omega(\varphi,\psi)=0
-\Rightarrow\varphi=\psi$ only when both potentials are continuous, and the
-one-sided conclusion \cref{itm:ch26-nondeg:one} only when they are bounded.
-For a single continuous competitor the argument stops after one inequality,
-because the domination principle proved in this book,
-\Cref{prop:bounded-capacity-domination}, requires the \emph{smaller}
-function to be continuous, and continuity of $\psi$ is available on only
-one side.  What would close the gap is uniqueness of solutions of the
-Monge--Amp\`ere equation modulo constants; that is the subject of
-\Cref{chap:bfj-continuity}, and it is not available at this point of the
-development.  The trivially valued analogue, where the envelope property is
-available in full and a genuine metric exists, is
-\Cref{chap:bj-strong-topologies}; see also \cite[\S12]{BJ22}.
+\begin{warning}{Scope of the nondegeneracy argument}
+The bounded domination principle requires no continuity of either bounded
+potential.  It proves gauge nondegeneracy for bounded pairs, and truncation
+extends this to pairs with at least one bounded member.  The argument above
+does not establish nondegeneracy when both potentials are unbounded.
+Further uniqueness and strong-topology results require their own proofs;
+see \Cref{chap:bfj-continuity,chap:bj-strong-topologies} and
+\cite[\S12]{BJ22} for the stated later settings.
 \end{warning}
 
 \subsection{The triangle inequality fails}
@@ -2947,7 +2953,8 @@ computation, carried out entirely on the two-vertex metric graph of
 \begin{example}[The energy gauge is not a metric]
 \label{ex:ch26-triangle-fails}
 Let $X$ be a smooth projective curve with a regular semistable model whose
-dual complex is the segment $\Gamma=[x_0,x_1]$ of length one, and let
+dual complex is the segment $\Gamma=[x_0,x_1]$ of length one with a
+residue-rational node, and let
 $\omega=\delta_{x_0}+\delta_{x_1}$, so $n=1$ and $V=2$.  Parametrize
 $\Gamma$ by $t\in[0,1]$.  By the weighted finite test
 \eqref{eq:ch21-curve-vertex-inequalities}, which has unit edge weight in
@@ -3064,7 +3071,7 @@ the envelope property is available in full, in
 \Cref{chap:bj-strong-topologies}.
 \end{warning}
 
-\section{Strong convergence and compactness of normalized sublevels}
+\section{Strong convergence and compactness of normalized energy superlevels}
 \label{sec:ch26-strong}
 
 \begin{definition}[Strong convergence]
@@ -3249,8 +3256,8 @@ subnet was chosen to realize its limsup.  The tail bound
 \eqref{eq:ch26-quantitative-tail} applied to each normalized member, the
 normalizing constant being absorbed into $C'$.
 
-We stress that no sequence is extracted.  The space $\PSH_0(X,\omega)$ is
-compact but is not known to be metrizable, and
+We stress that no sequence is extracted.  No metrizability hypothesis on the compact space $\PSH_0(X,\omega)$ is
+made here, and
 \Cref{lem:ch21-no-cofinal-sequence} shows that the underlying system of
 models admits no cofinal sequence; the sequential reductions available in
 this theory are those of
@@ -3261,16 +3268,16 @@ $\mathcal K_C$.
 
 \begin{remark}
 \label{rem:ch26-energy-superlevel-terminology}
-The set in \eqref{eq:normalized-energy-superlevel} is a \emph{superlevel} of
-the negative energy, although it is often informally called a bounded-energy
-sublevel. Its compactness is weak compactness. No claim of strong compactness
+The set in \eqref{eq:normalized-energy-superlevel} is a \emph{superlevel}
+of $E_\omega$, equivalently a sublevel of $-E_\omega$. Its compactness is weak compactness. No claim of strong compactness
 is hidden in the terminology.
 \end{remark}
 
 \begin{proposition}
 \label{prop:ch26-no-strong-compactness}
-The set $\mathcal K_C$ of \eqref{eq:normalized-energy-superlevel} is not
-compact for the strong topology when $C>0$.
+Weak compactness of $\mathcal K_C$ does not in general imply strong
+compactness.  For $K=\mathbf C((\pi))$, $X=\mathbf P^1$ and the standard
+reference form, $\mathcal K_C$ is not strongly compact for any $C>0$.
 \end{proposition}
 
 \begin{proof}
@@ -3312,16 +3319,20 @@ Hilbertian while the general theory is not
 (\Cref{ex:ch26-triangle-fails}).
 
 Throughout this section $C$ is a connected, proper, smooth, strictly
-$K$-analytic curve; $\mathrm A^0(C)$ is the space of smooth functions in
-the sense of \cite[\S3.2]{Thu05}, that is, the functions that factor as
-$\Phi\circ\tau_{\mathcal Y}$ through a piecewise affine $\Phi$ on the
-skeleton of some SNC formal model, and $\mathrm A^0_c(\Omega)$ is
-the subspace of those compactly supported in an open $\Omega$;
-$\mathrm D^0(C)$ is the space of currents of degree $0$, canonically the
-space of all real functions on the set $I(C)$ of quasimonomial points with
-the topology of pointwise convergence; and $\ddc$ is the operator of
-\Cref{sec:ch08-harmonic}, which on model functions is the one used
-throughout this chapter (\Cref{rem:ch26-thuillier-dirichlet}).
+$K$-analytic curve.  Thuillier's $\mathrm A^0(C)$ consists of continuous
+functions harmonic on the affinoid pieces of a suitable locally finite
+cover \cite[Definition~3.2.1]{Thu05}.  Their skeletal piecewise-affine
+description may require a finite separable extension of $K$
+\cite[Proposition~3.2.4]{Thu05}; it is not a description by an SNC model
+over every original field.  Let $\mathrm A^0_c(\Omega)$ denote the
+compactly supported subspace on an open $\Omega$.
+The space $\mathrm D^0(C)$ of degree-zero currents is the space of real
+functions on $I(C)$ with pointwise convergence.  Here $I(C)$ is Thuillier's
+locus of types II and III, the union of Shilov boundaries of
+affinoid domains; in the standing discretely valued algebraic setting it
+is the quasimonomial locus.  The operator $\ddc$ has the weighted
+normalization of \Cref{sec:ch08-harmonic} and
+\Cref{rem:ch26-thuillier-dirichlet}.
 
 \refstepcounter{theorem}\label{thm:ch26-thuillier-w1}
 \begin{quote}
@@ -3343,11 +3354,12 @@ $\varphi,\psi\in\mathrm A^0(C)$.
  $\mathrm W^1(C)\subseteq\mathrm D^0(C)$ independent of $x$, and the
  topologies induced by the various $x$ coincide.
 \item\label{itm:ch26-thu:criterion}
- A family $(u_\lambda)$ in $\mathrm W^1(C)$ converging to $u$ in
- $\mathrm D^0(C)$ has bounded
- $\langle u_\lambda,u_\lambda\rangle_{\mathrm D}$ if and only if
- $u\in\mathrm W^1(C)$ and $u_\lambda$ converges weakly to $u$ in
- $\mathrm W^1(C)$.
+ If a net $(u_\lambda)$ in $\mathrm W^1(C)$ converges to $u$ in
+ $\mathrm D^0(C)$ and its Dirichlet energies
+ $\langle u_\lambda,u_\lambda\rangle_{\mathrm D}$ are uniformly bounded
+ on a tail, then $u\in\mathrm W^1(C)$ and the net converges weakly to
+ $u$ in $\mathrm W^1(C)$.  For sequences the converse holds as well.
+ Weak convergence of an arbitrary net is not asserted to bound its norms.
 \item\label{itm:ch26-thu:energy}
  Let $\Omega\subseteq C^{\An}$ be open with $\partial\Omega$ a nonempty
  subset of $I(C)$, and let $\mathrm W^1(\Omega)$ be the closure of
@@ -3362,10 +3374,11 @@ $\varphi,\psi\in\mathrm A^0(C)$.
    =\langle g_\mu,g_\mu\rangle_{\mathrm D}
  \]
  is the squared $\mathrm W^1$-norm of its potential.  The measures of
- finite energy form a convex cone; consequently, for every closed
- $F\subseteq\Omega$ carrying at least one probability measure of finite
- energy there is a unique energy-minimizing probability measure on $F$, by
- the projection theorem in $\mathrm W^1(\Omega)$.
+ finite energy form a convex cone.  For every closed $F\subseteq\Omega$
+ carrying at least one finite-energy probability measure, the corresponding
+ set of normalized potentials is closed and convex in the Hilbert space
+ $\mathrm W^1(\Omega)$.  Projection therefore gives a unique
+ energy-minimizing probability measure on $F$.
 \item\label{itm:ch26-thu:dirichlet-principle}
  \emph{(Dirichlet principle.)}  For a signed measure $\nu$ of total mass
  zero on $C^{\An}$,
@@ -3383,10 +3396,15 @@ $\varphi,\psi\in\mathrm A^0(C)$.
 \item\label{itm:ch26-thu:polar}
  Every measure of finite energy gives measure zero to every polar set.
 \end{enumerate}
-Items \cref{itm:ch26-thu:hilbert}--\cref{itm:ch26-thu:polar} are imported in
-full from \cite[Proposition~3.5.2, Lemma~3.5.3, Propositions~3.5.7,
+The source inputs for
+\cref{itm:ch26-thu:hilbert}--\cref{itm:ch26-thu:polar} are
+\cite[Proposition~3.5.2, Lemma~3.5.3, Propositions~3.5.7,
 3.5.9, 3.5.10 and
-Th\'eor\`eme~3.5.11]{Thu05}; no proof is claimed here.
+Th\'eor\`eme~3.5.11]{Thu05}, with the bounded-net form of
+\cref{itm:ch26-thu:criterion} used as stated above.  Its converse for
+sequences uses the usual uniform-boundedness theorem for weakly convergent
+sequences in a Hilbert space.  The printed family criterion is not used to
+infer a norm bound from weak convergence of an arbitrary net.
 \end{quote}
 
 \begin{remark}[How this matches the general theory]
@@ -3423,9 +3441,10 @@ inequality is not upgraded to an equality here: the supremum in
 whereas that in \eqref{eq:ch26-thuillier-dirichlet-principle} is over all
 smooth functions.  What is true, and worth noticing, is that the maximizer
 supplied by \cref{itm:ch26-thu:dirichlet-principle} is the potential $g$
-with $\ddc g=\mu-\mu_0$, which is $\omega$-psh precisely because
-$\mu\geq0$; so the two problems have the same solution whenever that
-solution is a model function.  \Cref{sec:ch28-curves} carries out the
+with $\ddc g=\mu-\mu_0$.  If $g$ is a model function, the curve
+positivity criterion makes it $\omega$-psh because $\mu\geq0$, and it is
+then admissible in both suprema.  An arbitrary $\mathrm W^1$ current has
+not been identified here with a BFJ psh representative on the whole curve.  \Cref{sec:ch28-curves} carries out the
 corresponding computation with numbers.
 
 \emph{Polar sets.}  Item \cref{itm:ch26-thu:polar} is the curve analogue of
@@ -3446,8 +3465,9 @@ exactly the generality \Cref{chap:bfj-finite-energy-measures} needs.
 Dirichlet form is bilinear, which by
 \Cref{prop:ch26-dirichlet-vertical}\,\cref{itm:ch26-dir:energy} is the same
 as saying that $E_\omega$ is affine-plus-quadratic.  For $n\geq2$ the
-energy is a polynomial of degree $n+1$
-(\eqref{eq:ch26-energy-intersection}), the gauge
+energy along a segment has degree at most $n+1$ and is generally not
+quadratic (\eqref{eq:ch26-energy-intersection}).  Independently of dimension,
+the maximum-based gauge
 \eqref{eq:ch26-gauge} is not induced by any inner product, and
 \Cref{ex:ch26-triangle-fails} shows it is not even a metric.  No completion
 theorem of the kind stated in \cref{itm:ch26-thu:hilbert} is available or
@@ -3469,44 +3489,59 @@ factor $n!$ in the toric formula, the tail rate
 
 \begin{proposition}
 \label{prop:ch26-graph-energy}
-Let $X$ be a smooth projective curve, let $\mathcal X$ be a regular
-semistable model with skeleton $\Gamma$ equipped with its modulus lengths,
-and let $\omega$ be a closed model form determined on $\mathcal X$ with
-curvature measure $\mu_0=\MA_\omega(0)$ of mass $V=\deg L$.  Then, for
-every piecewise affine $\omega$-psh function $u$ on $\Gamma$,
+Let $X$ be a smooth projective curve and let $\mathcal X$ be a regular
+semistable model with skeleton $\Gamma$ and its modulus lengths.
+Write $w_e=[k(q_e):k]$ for the residue degree of the node giving an edge
+$e$, and let $\omega$ be a semipositive closed model form determined on
+$\mathcal X$, with $\mu_0=\MA_\omega(0)$ and $V=\deg\{\omega\}$.
+For a continuous piecewise-affine function on $\Gamma$ whose pullback
+$u\circ p_{\mathcal X}$ is $\omega$-psh, abbreviate that pullback by $u$.
+Then
 \begin{equation}
 \label{eq:ch26-graph-energy}
  E_\omega(u)=\int_\Gamma u\,\rd\mu_0
-             -\frac12\int_\Gamma|u'|^2\,\rd s .
+             -\frac12\sum_e w_e\int_e|u'|^2\,\rd s.
 \end{equation}
-More generally, for two such functions $u,v$,
+For two such functions,
 \begin{equation}
 \label{eq:ch26-graph-energy-difference}
  E_\omega(v)-E_\omega(u)
  =\int_\Gamma(v-u)\,\rd\mu_0
-  -\frac12\int_\Gamma\bigl(|v'|^2-|u'|^2\bigr)\,\rd s .
+  -\frac12\sum_e w_e\int_e\bigl(|v'|^2-|u'|^2\bigr)\,\rd s.
 \end{equation}
+When all nodes are residue-rational the weights equal one, giving the
+unweighted graph integrals used in the numerical examples.
 \end{proposition}
 
 \begin{proof}
-Here $n=1$, so \eqref{eq:model-energy} reads
+The bounded energy identity with $n=1$ gives
 \[
- E_\omega(u)=\tfrac12\Bigl(\int u\,\omega+\int u\,\omega_u\Bigr)
- =\int u\,\rd\mu_0+\tfrac12\int u\,\ddc u ,
+ E_\omega(u)=\tfrac12\Bigl(\int u\,\omega+\int u\,\omega_u\Bigr).
 \]
-using $\omega_u=\omega+\ddc u$ and $\int u\,\omega=\int u\,\rd\mu_0$,
-which is \eqref{eq:curve-ma-laplacian} at $u=0$.  The graph Dirichlet
-identity \eqref{eq:graph-dirichlet-sign} gives
-$\int_\Gamma u\,\Delta_\Gamma u=-\int_\Gamma|u'|^2\rd s$, and
-$\ddc u=\Delta_\Gamma u$ by \eqref{eq:ch31-graph-laplacian}.  This is
-\eqref{eq:ch26-graph-energy}, and
-\eqref{eq:ch26-graph-energy-difference} follows by subtraction, both
-quantities being finite.
+By \Cref{prop:ch25-curve-pushforward}, or the model curve identity
+\eqref{eq:ch25-curve-ma}, the retraction pushes $\omega_u$ to
+$\mu_0+\Delta_\Gamma^{\mathrm{wt}}u$.  The integrand factors through
+the same retraction, so
+\[
+ E_\omega(u)=\int_\Gamma u\,\rd\mu_0
+             +\tfrac12\int_\Gamma u\,\rd\Delta_\Gamma^{\mathrm{wt}}u.
+\]
+Integration by parts edge by edge, with the outgoing-slope convention of
+\Cref{sec:ch08-harmonic}, yields
+\[
+ \int_\Gamma u\,\rd\Delta_\Gamma^{\mathrm{wt}}u
+ =-\sum_e w_e\int_e|u'|^2\,\rd s.
+\]
+At every vertex the boundary terms match its Laplacian atom.  This proves
+\eqref{eq:ch26-graph-energy}, also for real breakpoints because the
+bounded product and curve pushforward already apply to continuous psh
+pullbacks.  Subtraction of the two finite identities gives
+\eqref{eq:ch26-graph-energy-difference}.
 \end{proof}
 
 \begin{example}[Energy on the two-vertex graph]
 \label{ex:ch26-two-vertex-energy}
-Use \Cref{ex:two-vertex-ma}, with edge length one and reference
+Use \Cref{ex:two-vertex-ma}, with edge length one, a residue-rational node and reference
 $\omega=m_0\delta_{x_0}+m_1\delta_{x_1}$. If
 $\varphi(x_0)=a$, $\varphi(x_1)=b$, then
 \[
@@ -3547,7 +3582,8 @@ equality clause of \Cref{prop:ch20-relative-hodge}.
 \begin{example}[A chain of four components, with numbers]
 \label{ex:ch26-chain-energy}
 Continue \Cref{ex:ch20-chain-three}: $\Gamma=[0,3]$ subdivided at the
-integers, all edges of length one, $\mu_0=\delta_0+\delta_3$ and $V=2$.
+integers, all edges of length one with residue-rational nodes,
+$\mu_0=\delta_0+\delta_3$ and $V=2$.
 Model functions are the piecewise affine $u$ with vertex values
 $(u_0,u_1,u_2,u_3)$, and $\omega$-psh means
 \eqref{eq:ch20-chain-constraints}.  By \eqref{eq:ch26-graph-energy},
@@ -3697,8 +3733,8 @@ unbounded.
 the last equality by Abel summation:
 $\sum_{k=1}^NH_k(\tfrac1k-\tfrac1{k+1})
 =1-\tfrac{H_{N+1}}{N+1}+\sum_{j=2}^{N+1}j^{-2}\to1+(\tfrac{\pi^2}{6}-1)$.
-Since $n=1$ and $\int\varphi\,\rd\mu_0=\varphi(\eta)=0$, the general
-identity \eqref{eq:model-energy} gives
+Since $n=1$ and $\int\varphi\,\rd\mu_0=\varphi(\eta)=0$, the finite-energy
+cocycle \eqref{eq:ch26-e1-cocycle} with the upper potential $0$ gives
 $\int(-\varphi)\MA_\omega(\varphi)=(n+1)(-E_\omega(\varphi))$ exactly; and
 indeed $2\cdot\tfrac{\pi^2}{12}=\tfrac{\pi^2}{6}$.  Thus
 \eqref{eq:e1-integrability} holds with equality on the right, which is the
@@ -3879,8 +3915,9 @@ mass $n!\vol_M(P)=(L^n)=V$.
 
 \begin{definition}[Roof function]
 \label{def:ch26-roof}
-For a convex $F:N_{\mathbf R}\to\mathbf R$ with subgradient image contained
-in $-P$, the \emph{roof function} of $F$ is
+Let $F:N_{\mathbf R}\to\mathbf R$ be convex and differ by a bounded
+function from the support function of $-P$, as for a bounded invariant
+semipositive metric.  The \emph{roof function} of $F$ is
 \begin{equation}
 \label{eq:ch26-roof}
  g_F(y):=\inf_{x\in N_{\mathbf R}}
@@ -3891,15 +3928,18 @@ It is concave on $P$, and $g_{F+c}=g_F+c$.
 \end{definition}
 
 Comparing with \eqref{eq:appD-conjugate}, $g_F(y)=-F^*(-y)$, where $F^*$
-is the Legendre transform of $F$; concavity and finiteness on $P$ are
-\Cref{prop:appD-legendre-tests}.
+is the Legendre transform of $F$; concavity follows because this is an infimum of affine functions of $y$.
+The bounded difference from the support function makes $g_F$ finite on all
+of $P$, by comparison with its zero roof; subgradient containment alone
+would not guarantee this finiteness.
 
 \begin{theorem}
 \label{thm:ch26-toric-energy}
 \index{toric variety!Monge--Ampere energy}
 Let $F,F_0$ be convex functions on $N_{\mathbf R}$ with subgradient
 images contained in $-P$, defining invariant semipositive metrics on
-$(X_\Sigma,L_P)$, and suppose $F-F_0$ is bounded.  Then
+$(X_\Sigma,L_P)$.  Assume $F_0$ is a semipositive toric model metric and
+$F-F_0$ is bounded.  Then
 \begin{equation}
 \label{eq:ch26-toric-energy}
  E(F)-E(F_0)=n!\int_P(g_F-g_{F_0})\,\rd\lambda,
@@ -3925,7 +3965,9 @@ being invariant and hence a function of $\trop$.
 
 By \Cref{prop:appD-legendre-pushforward}, \eqref{eq:appD-legendre-pushforward},
 the Alexandrov measure of $F_t$ is the pushforward of Lebesgue measure on
-its subgradient image $-P$ under $\nabla F_t^*$.  Substituting
+the interior of the effective domain $-P$ of $F_t^*$ under
+$\nabla F_t^*$.  The boundary of $P$ has Lebesgue measure zero; one need
+not assert that every boundary subgradient is attained.  Substituting
 $m=-y$, which preserves $\lambda$, and using
 $g_{F_t}(y)=-F_t^*(-y)$, whence
 $\nabla g_{F_t}(y)=(\nabla F_t^*)(-y)$, this reads
@@ -3949,23 +3991,24 @@ For each fixed $x$ the expression in brackets is affine in $t$, so
 $h_y$ is concave; and since the two infimands differ by at most
 $\lVert F-F_0\rVert_\infty$, the function $h_y$ is Lipschitz with
 constant $\lVert F-F_0\rVert_\infty$.  Being concave and Lipschitz, it is
-absolutely continuous, so $h_y(1)-h_y(0)=\int_0^1h_y'(t)\,\rd t$.  At a
-value of $t$ at which the infimum defining $h_y(t)$ is attained at a
-unique point $x_t(y)$ --- equivalently at which $g_{F_t}$ is
-differentiable at $y$, in which case $x_t(y)=\nabla g_{F_t}(y)$ by the
-subgradient description \eqref{eq:appD-subgradient} --- the concave function
-$h_y$ has derivative
+absolutely continuous, so $h_y(1)-h_y(0)=\int_0^1h_y'(t)\,\rd t$.  For each fixed $t$, $g_{F_t}$ is differentiable at almost every interior
+point $y$, and for each fixed $y$, $h_y$ is differentiable for almost every
+$t$.  By Fubini both conditions hold for almost every $(t,y)$.
+At such a pair the conjugate subgradient description gives a unique
+minimizer $x_t(y)=\nabla g_{F_t}(y)$, and
 \[
  h_y'(t)=(F-F_0)\bigl(\nabla g_{F_t}(y)\bigr),
 \]
 because the affine function $t\mapsto\langle y,x_t(y)\rangle+F_t(x_t(y))$
 touches $h_y$ at $t$ from above and has slope
-$(F-F_0)(x_t(y))$, so that slope is both a supergradient and, by the same
-argument applied on the other side, the derivative.
+$(F-F_0)(x_t(y))$, so its slope equals the derivative at a point where $h_y$ is
+differentiable.  Spatial differentiability alone is not being used to
+assert differentiability in time.
 
 Integrating in $y$ and applying Fubini --- legitimate because the
 integrand is bounded by $\lVert F-F_0\rVert_\infty$ on the finite measure
-space $[0,1]\times P$ --- gives
+space $[0,1]\times P$, and the joint gradient is measurable on its
+almost-everywhere domain as a limit of spatial difference quotients --- gives
 \[
 \begin{split}
  n!\int_P(g_F-g_{F_0})\,\rd\lambda
@@ -4106,7 +4149,8 @@ $\lambda\in[0,1]$ and $m\in\mathbf N$ define
 \]
 where $\varphi_0$ is the potential of \Cref{ex:ch26-infinite-energy}.  On
 the ray $R_0$ one has $\sigma_{\lambda,m}(t)=-\lambda\min\{t,m\}$, and
-$\sigma_{\lambda,m}\equiv0$ elsewhere; so
+it is constant on each attached branch and vanishes outside the open unit
+disc; so
 $\sup\sigma_{\lambda,m}=0$.  By \eqref{eq:ch26-graph-energy},
 \[
  E_\omega(\sigma_{\lambda,m})=-\tfrac12\lambda^2m .
@@ -4150,8 +4194,8 @@ The bound \eqref{eq:ch26-uniform-tail-family} with $n=1$ asserts that this
 is at most $2C/t$; for $t<\lambda m$ that reads
 $\lambda\leq2C/t$, which holds because
 $t<\lambda m$ and $\lambda^2m\leq2C$ give
-$\lambda t<\lambda^2m\leq2C$.  The estimate is therefore sharp along this
-family, in the sense that equality is approached as $t\uparrow\lambda m$.
+$\lambda t<\lambda^2m\leq2C$.  When $\lambda^2m=2C$, equality in this bound is approached as
+$t\uparrow\lambda m$.  Without that equality the bound can have slack.
 \end{example}
 
 \section{Scope: hypotheses and later extensions}
@@ -4203,8 +4247,8 @@ family, in the sense that equality is approached as $t\uparrow\lambda m$.
   $\operatorname{char}k=0$ beyond the inputs listed above.\\
 \Cref{prop:ch26-strict-monotone}\,\cref{itm:ch26-strict:cont}
  &\Cref{prop:bounded-capacity-domination}
- &Continuity of one competitor is genuinely used; see the warning after
-  \Cref{cor:ch26-gauge-nondegenerate}.\\
+ &A bounded upper competitor suffices, by truncation and bounded
+  domination; no continuity is required.\\
 \Cref{prop:e1-compact-superlevels},
 \Cref{cor:ch26-net-superlevel}
  &\Cref{thm:bfj-psh-compactness}
@@ -4312,7 +4356,7 @@ mass escaping to the polar set
  &\Cref{prop:e1-integrability-tail},
   \Cref{ex:ch26-infinite-energy,ex:ch26-full-mass-infinite-energy}\\
 uniform tail bound over a family
- &weak compactness of $\mathcal K_C$
+ &uniform control of truncation errors on $\mathcal K_C$
  &\eqref{eq:ch26-quantitative-tail},
   \Cref{prop:e1-compact-superlevels}\\
 \bottomrule
@@ -4324,11 +4368,11 @@ uniform tail bound over a family
 
 Four entries are one-way, and it is worth saying which.
 
-\emph{From energy to the potential} there is no arrow: two distinct
-potentials may have the same energy, and $E_\omega$ is not injective even
-modulo constants --- \Cref{ex:ch26-two-vertex-energy} shows that the level
-sets of \eqref{eq:ch26-two-vertex-energy} are ellipses in the
-$(a,b)$-plane.  What is true is the rigidity statement
+\emph{From energy to the potential} there is no arrow: the energy value
+does not determine a potential up to an additive constant.
+\Cref{ex:ch26-two-vertex-energy} shows that the level
+sets of \eqref{eq:ch26-two-vertex-energy} are parabolas in the
+$(a,b)$-plane, restricted to the psh slope window.  What is true is the rigidity statement
 \Cref{prop:ch26-strict-monotone}, and only along an ordered pair.
 
 \emph{From full Monge--Amp\`ere mass to finite energy} there is no arrow
@@ -4428,8 +4472,10 @@ explicitly.
 \Cref{lem:ch26-mixed-locality} is the polarization step that turns the
 diagonal maximum principle \eqref{eq:bounded-maximum-principle} into a mixed
 one; the argument is elementary but is often left implicit.
-\Cref{lem:ch26-mixed-tail} and its constant $n^{n+1}(n+1)/n!$ are the
-quantitative form of the full-mass statement; the complex prototype is
+\Cref{lem:ch26-mixed-tail} gives the uniform full-mass estimate with
+constant $n^{n+1}(n+1)/n!$ and a fixed-tuple energy-gap refinement.
+The latter controls weights and proves the exact unordered finite-energy
+cocycle in \Cref{prop:ch26-e1-cocycle}; the complex prototype is
 \cite[Proposition~1.6]{BEGZ10}, whose proof is organized differently.
 \Cref{thm:e1-mixed-products} is \cite[\S6]{BFJ15}; the proof given here is
 self-contained and isolates the three ingredients so that each can be

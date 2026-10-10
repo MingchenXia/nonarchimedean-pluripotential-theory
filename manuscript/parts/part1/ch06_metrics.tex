@@ -8,16 +8,18 @@ bundle on the generic fiber. Relative nefness then becomes semipositivity,
 and intersection numbers on the special fiber become a measure on the
 Berkovich space.
 
-This chapter constructs that model core. It is the common domain on which the
-global BFJ theory, the differential CLD theory, and later variants must agree.
+This chapter constructs that model core. On their common model domain, the
+global BFJ and differential CLD constructions recover the same measures;
+the comparison theorems retain their own field and geometric hypotheses.
 We begin with continuous metrics, pass to algebraic and formal models,
 introduce Fubini--Study metrics, and then define semipositivity. The final
 sections construct Chambert--Loir measures and prove their elementary
 intersection-theoretic properties.
 
 It is worth saying at the outset what is being replaced. On a complex
-manifold, a smooth Hermitian metric on a line bundle has a curvature form,
-and one may differentiate a metric weight twice to obtain a measure. Nothing
+manifold, differentiating a smooth Hermitian metric weight twice gives a
+curvature $(1,1)$-form. On a curve this is a measure; in dimension $n$,
+the top-degree measure is an $n$-fold product of curvature forms. Nothing
 of the kind is available yet on a Berkovich space: no differential calculus
 has been constructed at this point of the book, and the reader should resist
 the temptation to imagine one. What is available instead is the inverse
@@ -27,8 +29,8 @@ algebro-geometric datum, its positivity will be tested by intersection
 numbers against curves in a special fiber, and its ``curvature'' will be an
 atomic measure whose masses are intersection numbers. Only in
 \cref{part:cld} does a genuine differential calculus appear, and one of the
-main comparison theorems of the book, in \cref{chap:compare-ma}, states that
-it recovers exactly the measures constructed here.
+main comparison theorems of the book, in \cref{chap:compare-ma}, identifies
+its measure with the construction here on the stated common domain.
 
 Four classes of metrics will occur, and it is useful to fix their names and
 their precise relations before constructing them:
@@ -99,7 +101,8 @@ never to obtain them. Readers following the complex/Kähler route may read
 Unless explicitly stated otherwise, $K$ is a complete nontrivially valued
 field and $X$ is a proper $K$-scheme. In the sections involving
 intersection numbers on a special fiber, $K$ is discretely valued,
-$R=K^\circ$, a uniformizer $\pi$ is normalized by $v(\pi)=1$, and
+$R=K^\circ$, and we rescale the absolute value so that a uniformizer
+$\pi$ has $v(\pi)=1$, equivalently $|\pi|=\rme^{-1}$. Here
 $\widetilde K$ is the residue field. The trivially valued Fubini--Study
 theory is developed separately in \cref{part:bj}.
 
@@ -321,9 +324,12 @@ The reader should notice what \cref{prop:metrics-torsor} does \emph{not}
 say. It does not say that there is a canonical continuous metric on $L$;
 there is none, and the choice of a reference is a genuine choice, usually
 made by choosing a model. It does not say that a distinguished function is
-attached to a metric; only differences of metrics are functions. Every later
-notion---model function, psh function, energy---is defined relative to a
-reference and transforms by the rule in (2).
+attached to a metric on an arbitrary line bundle; relative weights require
+a reference and transform by the rule in (2). On $\mathcal O_X$, the
+section $1$ supplies the distinguished reference $\|1\|\equiv1$ used for
+model functions. Positivity also involves the reference curvature, and
+energies have their own reference-dependent normalization; neither is
+determined by the transformation of a weight alone.
 
 \begin{definition}[Uniform distance]
 \label{def:metrics-uniform-distance}
@@ -476,15 +482,17 @@ a model function will turn out to be a model metric on the trivial bundle.
 The sign test to remember is that a large $\phi$ makes the constant
 section $1$ short.
 
-For a concrete instance, let $f\in K(X)^\times$ be a nonzero rational
-function, regarded as a rational section of $\mathcal O_X$. Then
+For a local sign test, assume $X$ integral and take
+$f\in K(X)^\times$. Restrict to an analytic open set on which $f$ is
+invertible, so both $\log|f|$ and $v(f)$ are finite and continuous. There
 $\|f\|=|f|\rme^{-\phi}$, so the metric with weight
 $\phi=\log|f|=-v(f)$ makes $\|f\|\equiv1$; the weight $-\log|f|=v(f)$
-is the one that makes $\|f^{-1}\|\equiv1$, as
-\Cref{prop:metric-difference-model} records.  This is the germ of the model
-construction of
-\cref{sec:metrics-model}: a divisor is a way of prescribing which section
-has norm one.
+is the one that makes $\|f^{-1}\|\equiv1$. These are local continuous
+metrics; a zero or pole of $f$ prevents either displayed weight from
+defining a global continuous metric on the trivial bundle. In the model
+construction of \cref{sec:metrics-model}, local equations of a vertical
+Cartier divisor are invertible on the generic fiber, and their norm-one
+frames glue as in \Cref{prop:metric-difference-model}.
 \end{example}
 
 \begin{example}[The standard metric on $\mathcal O(1)$, in two frames]
@@ -614,8 +622,10 @@ and by \Cref{prop:berk-reduction-anticontinuous} the set
    |f(x)|\le1\text{ for all }f\in B\}
 \end{split}
 \]
-is a compact analytic domain of $X^{\mathrm{an}}$, open in the special
-fiber's Zariski topology in the anticontinuous sense. Since finitely many
+is a compact analytic domain of $X^{\mathrm{an}}$, namely the generic
+fiber of the formal completion of $\mathcal U$. It is closed in the
+ordinary analytic topology by anticontinuity of reduction, since
+$\mathcal U_s$ is Zariski open. Since finitely many
 affine opens cover $\mathcal X$, finitely many such domains cover
 $X^{\mathrm{an}}$. It is on $X^{\mathrm{an}}_{\mathcal U}$, and not on
 the analytification of $\mathcal U_K$, that $e$ is declared to have norm
@@ -673,7 +683,8 @@ $u\in\mathcal O_{\mathcal X}(\mathcal U\cap\mathcal U')^\times$; in
 particular $u$ and $u^{-1}$ both lie in the local ring
 $\mathcal O_{\mathcal X,\xi}$. The center of $x$ is by definition the
 closed point of the image of $\operatorname{Spec}R_x\to\mathcal X$, where
-$R_x=\{g:|g(x)|\le1\}\subset\mathcal H(x)$ is the valuation ring of $x$;
+$R_x=\{g\in\kappa(\rho_X(x)):|g(x)|\le1\}$ is its valuation ring in
+the support residue field, as in \cref{sec:berk-reduction};
 hence $\mathcal O_{\mathcal X,\xi}$ maps into $R_x$, and therefore
 $|u(x)|\le1$ and $|u^{-1}(x)|\le1$. Multiplicativity gives
 $|u(x)|=1$. Writing $s^{\otimes m}=fe=f'e'$ we get $f=uf'$ and thus
@@ -686,12 +697,16 @@ $gs$ replaces $f$ by $g^mf$ and $|g^m|^{1/m}=|g|$.
 $\{X^{\mathrm{an}}_{\mathcal U}\}$ recalled above, $\mathcal U$ running
 over a finite affine cover of $\mathcal X$ trivializing $\mathcal L$. A
 function on a topological space whose restrictions to the members of a
-finite closed cover are continuous is continuous. On
-$X^{\mathrm{an}}_{\mathcal U}$ the frame $e$ has constant norm one, and
-for a local section $s$ of $L$ the function $x\mapsto|f(x)|^{1/m}$ is
-continuous because $f$ is an analytic function there and $t\mapsto
-t^{1/m}$ is continuous. Hence $\|\cdot\|_{\mathcal L}$ is continuous in
-the frame $e$, and therefore in every frame.
+finite closed cover are continuous is continuous. Choose any analytic frame
+$\tau$ of $L$ on an ordinary open set $V$. On
+$V\cap X^{\mathrm{an}}_{\mathcal U}$, write
+$\tau^{\otimes m}=fe$; here $f$ is analytic and invertible, and
+$\|\tau(x)\|_{\mathcal L}=|f(x)|^{1/m}$ is positive and continuous.
+The intersections form a finite closed cover of $V$, and the formulas
+agree by (1), so $\|\tau\|_{\mathcal L}$ is continuous on $V$.
+This proves continuity in every frame of $L$; the model frame $e$ itself
+is a frame of $L^{\otimes m}$, and no $m$-th root frame on the model is
+needed.
 
 (3) Let $x\in X^{\mathrm{an}}$ and let $\xi'=c_{\mathcal X'}(x)$; then
 $\rho(\xi')=c_{\mathcal X}(x)=\xi$ because the center is the image of the
@@ -715,7 +730,7 @@ that limit is the Cartier b-divisor formalism of
 \cref{app:intersection-bdivisors}.
 
 \begin{proposition}\label{prop:metric-difference-model}
-Let two model metrics on $L$ be determined on one normal model
+Let two model metrics on $L$ be determined on one proper flat model
 $\mathcal X$. Choose a common tensor power $M$ and let $D_M$ be the
 vertical Cartier divisor representing the quotient of the two resulting
 extensions of $L^{\otimes M}$.  Set $D=M^{-1}D_M$.  Then
@@ -731,8 +746,13 @@ Here, if $D_M=\operatorname{div}(f)$ locally,
 \begin{proof}
 After taking the common tensor power $M$, let $\mathcal L_1$ and
 $\mathcal L_2$ be extensions of $L^{\otimes M}$. The
-line bundle $\mathcal L_2\otimes\mathcal L_1^{-1}$ is generically trivial.
-A rational trivializing section has a vertical Cartier divisor $D_M$, so
+line bundle $\mathcal L_2\otimes\mathcal L_1^{-1}$ is trivial on the
+generic fiber, with the trivialization fixed by the identifications with
+$L^{\otimes M}$. Flatness makes that fiber schematically dense. Locally
+its trivializing section is a unit after inverting $\pi$, hence an
+invertible meromorphic section: its numerator is a nonzerodivisor since
+it divides a power of the nonzerodivisor $\pi$. Its Cartier divisor
+$D_M$ is vertical, so
 the line bundle is $\mathcal O_{\mathcal X}(D_M)$.
 
 If $D_M=\operatorname{div}(f)$, then $f^{-1}$ is a model frame of
@@ -746,7 +766,7 @@ $M^{-1}v_x(f)=\varphi_D$, as claimed.
 The proof deserves one comment, since the direction of the twist is the
 commonest source of sign errors in the subject. At the integral level, the
 line bundle $\mathcal O_{\mathcal X}(D_M)$ is, by definition, the subsheaf
-of the constant sheaf $K(\mathcal X)$ generated locally by $f^{-1}$ when
+of the sheaf of total quotient rings generated locally by $f^{-1}$ when
 $D_M=\operatorname{div}(f)$. Its distinguished frame is therefore
 $f^{-1}$, not $f$; declaring $\|f^{-1}\|=1$ forces
 $\|1\|=|f|$, that is, the weight $-\log|f|=v_x(f)$ on the common tensor
@@ -784,7 +804,11 @@ functions}, respectively \emph{rational model functions}, of $X$.
 \begin{proposition}
 \label{prop:metrics-divisor-model-function}
 Let $K$ be discretely valued with $v_K(\pi)=1$, and let $X$ be a
-proper, geometrically connected $K$-scheme.
+proper integral $K$-scheme. The coefficient and effectivity tests in
+(2) and (4), and the sharper bounds in (6), concern a normal determining
+model; such models are available when $X$ is normal. Parts (1), (3),
+the constant-function assertion in (5), and boundedness in (6) do not
+require normality.
 \begin{enumerate}
 \item $\mathcal D(X)$ is a subgroup and $\mathcal D(X)_{\mathbf Q}$ a
 $\mathbf Q$-vector subspace of $C^0(X^{\mathrm{an}})$, and
@@ -803,9 +827,10 @@ determining $D$.
 \item If $h\in K^\times$ and
 $D=\operatorname{div}_{\mathcal X}(h)$, then $D$ is vertical and
 $\varphi_D\equiv v_K(h)$.  For a general $h\in K(X)^\times$, the full
-divisor $\operatorname{div}_{\mathcal X}(h)$ has a horizontal part and
-does not define a vertical model function in this proposition.
-\item Every $\varphi\in\mathcal D(X)_{\mathbf Q}$ is bounded, and
+divisor $\operatorname{div}_{\mathcal X}(h)$ may have a horizontal part;
+when it does, it does not define a vertical model function in this proposition.
+\item Every $\varphi\in\mathcal D(X)_{\mathbf Q}$ is bounded. If it is
+determined on a normal model, then
 \[
  \min_E\varphi(x_E)\le\varphi\le\max_E\varphi(x_E)
 \]
@@ -847,21 +872,22 @@ $\varphi_D(x)=v_x(h)=v_K(h)$.  The warning about a general rational
 function follows because its zeros and poles on the generic fibre close up
 to horizontal components of its divisor.
 
-(6) Let $\mathcal X$ be a normal model determining $D$ and set
+(6) Boundedness follows from continuity on the compact space
+$X^{\mathrm{an}}$. For the sharper bound, let $\mathcal X$ be a normal
+model determining $D$ and set
 $c^+=\max_E\varphi_D(x_E)$. By (3) the divisor
 $c^+\mathcal X_s-D$ has model function $c^+-\varphi_D$, whose values at
 the $x_E$ are $c^+-a_E/b_E\ge0$; by (4) it is effective and its model
 function is nonnegative, that is, $\varphi_D\le c^+$. The lower bound is
-symmetric. Boundedness also follows from continuity on the compact space
-$X^{\mathrm{an}}$, but the displayed bound is sharper and is the form used
-in later compactness arguments.
+symmetric. This bound is the form used in later compactness arguments
+on normal varieties.
 \end{proof}
 
-Assertion (6) is the reason model functions can be truncated and rescaled
-freely: a model function is squeezed between the extreme values it takes at
-the finitely many divisorial points of a determining model. Assertion (4)
-is the valuative criterion for effectivity, and it will reappear as the
-statement that a psh model function is detected on divisorial points.
+On a normal determining model, (6) bounds a model function by its extreme
+divisorial values. Assertion (4) is the valuative criterion for effectivity,
+equivalently for pointwise nonnegativity of the model function.
+Semipositivity of a metric is a separate degree condition; nonnegative
+values alone do not establish it.
 
 \begin{example}[The standard model of the projective line]
 \label{ex:metrics-p1-standard-model}
@@ -881,8 +907,10 @@ a frame of $\mathcal L$, and its norm is one. Thus
 \[
  -\log\|Z_0\|=\log\max\{1,|T|\},
 \]
-which is \eqref{eq:p1-standard-weight}; along the skeleton parametrized by
-$t=v(T)$ it is the function $F(t)=\max\{0,-t\}$. The associated measure,
+which is \eqref{eq:p1-standard-weight}. On the standard Gauss apartment
+parametrized by $t=v(T)\in\mathbf R$, it is
+$F(t)=\max\{0,-t\}$; the skeleton of this particular model consists
+only of the Gauss point at $t=0$. The associated measure,
 computed in \cref{sec:metrics-cl-measure}, is
 $\delta_{\zeta_{0,1}}$, of total mass $1=\deg\mathcal O(1)$; this is
 \eqref{eq:p1-standard-measure}.
@@ -916,17 +944,24 @@ $\log|\mathfrak a|=-\varphi_E$ is computed by
 $\log|\mathfrak a|(x)=\max\{\log|\pi(x)|,\log|T(x)|\}$ at every point
 whose center lies in the chart $\operatorname{Spec}R[T]$, and
 $\log|\mathfrak a|=0$ elsewhere, because $\mathfrak a$ is the unit ideal
-away from $p$. Hence
+away from $p$. Put
+$V=\{x\in(\mathbf A^1_K)^{\mathrm{an}}:|T(x)|\le1\}$. Then
 \begin{equation}
 \label{eq:metrics-p1-blowup-hat}
- \varphi_E(x)=\min\{1,v_x(T)\}\ \text{ if }v_x(T)\ge0,
- \qquad
- \varphi_E(x)=0\ \text{ otherwise.}
+ \varphi_E(x)=
+ \begin{cases}
+ \min\{1,v_x(T)\},&x\in V,\\
+ 0,&x\notin V.
+ \end{cases}
 \end{equation}
-On the standard apartment, parametrized by $t=v(T)\in[-\infty,+\infty]$,
-this is the ``hat'' function $\min\{1,t^+\}$: it vanishes for $t\le0$,
+The first clause is evaluated on the affine $T$-chart; at the projective
+point $\infty$ the complementary clause gives $0$. On the standard
+apartment with finite parameter $t=v(T)\in\mathbf R$, this is the
+``hat'' function $\min\{1,t^+\}$: it vanishes for $t\le0$,
 rises with slope $1$ on $[0,1]$, and is constantly $1$ on the subtree
-$\{v_x(T)\ge1\}$, which is the closed disc of radius $|\pi|$. The sign
+$\{v_x(T)\ge1\}$ in the affine chart, which is the closed disc of radius
+$|\pi|$. Its endpoint values at $0$ and $\infty$ follow by continuity;
+no value of the rational function $T$ at its pole is used. The sign
 tests hold: $E$ is effective and $\varphi_E\ge0$, with
 $\varphi_E(x_E)=1=a_E/b_E$ and $\varphi_E(\zeta_{0,1})=0$, as
 \Cref{prop:metrics-divisor-model-function}\,(2) requires.
@@ -949,7 +984,8 @@ of total mass $0$, in accordance with \eqref{eq:lap-mass-zero}.
 $\mathcal L'=\rho^*\mathcal O(1)\otimes\mathcal O_{\mathcal X'}(-E)$, whose
 generic fiber is again $\mathcal O(1)$. By
 \Cref{prop:metric-difference-model} its metric is the standard one twisted
-by $\varphi_{-E}=-\varphi_E$, so its weight in the frame $Z_0$ is
+by $\varphi_{-E}=-\varphi_E$, so on the affine chart where $Z_0$ is a
+frame its weight is
 \[
  \phi'=\log\max\{1,|T|\}-\min\{1,v(T)^+\}
  =\max\{-1,\log|T|\},
@@ -988,11 +1024,14 @@ gained. Three things. First, admissibility---flatness together with
 topological finite presentation---is the correct finiteness condition over a
 possibly nondiscrete rank-one valuation ring, and it is stable under the formal blowups
 that generate the whole theory \cite{BoschLutkebohmert1993}. Second, the
-generic fiber of a formal model is the compact analytic space itself, so no
-separate properness argument is needed to know that centers exist. Third,
-Raynaud's theorem makes admissible formal models and their blowups into a
-cofiltered system with the same combinatorics as the algebraic one, so all
-the domination arguments of \cref{chap:models} transpose. What is lost is
+quasicompact formal models of our proper $X^{\mathrm{an}}$ have that
+space as generic fiber, and their formal charts carry a reduction map.
+Compactness here comes from quasicompactness; a general formal generic
+fiber need not be compact. Third, Raynaud's theorem gives common admissible
+formal refinements in the quasicompact, quasiseparated setting
+\cite{BoschLutkebohmert1993}, providing the domination needed for formal
+metrics. It does not identify their polyhedral combinatorics with that of
+SNC algebraic models. What is lost is
 the noetherian intersection-theoretic framework: over a nondiscrete
 valuation ring there is no Chow-theoretic degree in the form used in
 \cref{sec:metrics-cl-measure}, and
@@ -1013,13 +1052,16 @@ It is \emph{piecewise $\mathbf Q$-linear} if locally a positive tensor
 power is piecewise linear.
 \end{definition}
 
-The name refers to the tropical expression of the transition functions. On
-a skeleton, a piecewise $\mathbf Q$-linear metric has rational piecewise
-affine weights. Concretely: if $s_i$ and $s_j$ are two frames of norm
-one on overlapping domains, then $|s_i/s_j|\equiv1$ on the overlap, so
-after passing to a skeleton the weight of the metric changes between charts
-by an integral affine function---the valuation of a monomial. The picture to
-keep in mind is \cref{ex:metrics-p1-blowup}, where the weight
+The name refers to its model and tropical descriptions. On a fixed SNC
+skeleton, the relative weight of a rational model metric with respect to
+another model metric is rational piecewise affine, by
+\Cref{prop:metric-difference-model,prop:skeleton-model-pa}; the
+comparison theorem below identifies the corresponding algebraic and
+piecewise $\mathbf Q$-linear classes on a proper scheme. A norm-one
+frame has weight zero, and two such frames have ratio of absolute value
+one on their overlap. This alone does not give nonzero monomial transition
+weights or assert piecewise affinity in an arbitrary analytic frame.
+The picture to keep in mind is \cref{ex:metrics-p1-blowup}, where the weight
 $\max\{-1,\log|T|\}$ is affine on each of the two pieces
 $\{v(T)\le1\}$ and $\{v(T)\ge1\}$ of the apartment, with a corner at the
 divisorial point of the exceptional divisor.
@@ -1197,9 +1239,8 @@ generated model line bundle; the resulting Fubini--Study metric is a model
 metric. Arbitrary real weights are uniform limits of such weights and give
 continuous semipositive metrics when the valuation is nontrivial. We prove
 both assertions, since they are the bridge between the section-theoretic and
-the model-theoretic descriptions and since the second is the only place in
-this chapter where the nontriviality of the valuation is used in an
-essential way.
+the model-theoretic descriptions. The real-weight approximation uses
+nontriviality to make the divisible value group dense in $\mathbf R$.
 
 \begin{proposition}
 \label{prop:metrics-fs-model}
@@ -1316,9 +1357,16 @@ metric by the definition in \cref{sec:metrics-semipositive}.
 
 Two remarks on the hypotheses. Discreteness of the valuation was used only
 through the availability of algebraic models with the intersection-theoretic
-vocabulary of \cref{chap:models}; over an arbitrary complete nontrivially
-valued field the same statements hold with formal models, by
-\Cref{thm:gm-metric-comparison}. Nontriviality was used, and cannot be
+vocabulary of \cref{chap:models}. Over an arbitrary complete nontrivially
+valued field, absorbing value-group weights still expresses the metric
+as the pullback of the standard formal metric on projective space.
+After a common admissible formal refinement, the corresponding formal
+line bundle is a pullback of $\mathcal O(1)$ and is globally generated,
+hence nef. The metric comparison in
+\Cref{thm:gm-metric-comparison}, including the positivity comparison of
+\cite[Theorem~1.1]{GM19}, then gives a semipositive model metric on a
+proper $X$. The same weight approximation gives the real-weight conclusion.
+Nontriviality was used in this approximation, and cannot be
 removed: over a trivially valued field $v(K^\times)=0$, the argument of
 \Cref{prop:metrics-fs-real-weights} breaks down completely, and
 Fubini--Study functions with arbitrary real weights become primitive objects
@@ -1527,9 +1575,9 @@ Finally $\max\{\varphi_1,\varphi_2\}
 $\mathcal D(X)_{\mathbf Q}$ is stable under negation.
 \end{proof}
 
-In multiplicative language, \Cref{lem:metrics-model-lattice} says that the
-pointwise maximum of two model \emph{metrics}, that is, the pointwise
-minimum of the corresponding norms, is again a model metric; the
+In multiplicative language, taking a maximum of two relative model
+weights means taking a pointwise minimum of their norms, and the lattice
+lemma shows that this is again a model metric. The
 corresponding statement about semipositivity is genuinely harder and is
 treated in \cref{sec:metrics-semipositive}. Notice which ideal was blown up:
 the sum of the two ideal sheaves, not their product or intersection. The
@@ -1554,9 +1602,12 @@ restriction to $X$ of a model function on $\mathbf P^N_K$ is a model
 function on $X$: if $\varphi=\varphi_D$ for a vertical divisor $D$ on
 a model $\mathcal Y$ of $\mathbf P^N_K$, let $\mathcal X$ be the flat
 closure of $X$ in $\mathcal Y$ (\Cref{lem:flat-closure-generic-fibre});
-it is a model of $X$, the pullback of $D$ to $\mathcal X$ is a
-vertical Cartier divisor provided $\mathcal X\not\subset\operatorname{Supp}
-D$, which holds because $\mathcal X$ is flat and $D$ is vertical, and
+it is a model of $X$. A local equation of $D$ is invertible after
+inverting $\pi$. Its pullback is therefore a unit in the generic-fiber
+ring; flatness, which makes $\pi$ a nonzerodivisor, shows that it is
+an invertible meromorphic function on $\mathcal X$, as in
+\Cref{prop:metric-difference-model}. Thus the pullback of $D$ is a
+vertical Cartier divisor, including when $X$ is nonreduced, and
 its model function is $\varphi\circ\iota^{\mathrm{an}}$ by functoriality of
 evaluation. It therefore suffices to treat $X=\mathbf P^N_K$.
 
@@ -1718,10 +1769,12 @@ metric and $\phi$ its relative weight, a continuous function by
 \Cref{prop:metrics-model-function-density} there are
 $\varphi_j\in\mathcal D(X)_{\mathbf Q}$ with
 $\|\varphi_j-\phi\|_\infty\to0$. Each $\|\cdot\|_0\rme^{-\varphi_j}$ is
-a model metric, by \Cref{prop:metric-difference-model} read in the reverse
-direction: twisting a model metric by the model function of a vertical
-$\mathbf Q$-Cartier divisor amounts to replacing $\mathcal L$ by
-$\mathcal L\otimes\mathcal O(mD)$ on a model determining $D$. By
+a model metric by the twisting construction of
+\Cref{prop:metric-difference-model}: on a common proper model carrying
+the pullback of $\mathcal L$ and a determining divisor $D$, choose a
+multiple $M$ of $m$ with $MD$ Cartier. The bundle
+$\mathcal L^{\otimes M/m}\otimes\mathcal O(MD)$ represents the twisted
+metric after taking its $M$-th root. By
 \eqref{eq:metrics-dinfty-sup} these model metrics converge to
 $\|\cdot\|$.
 \end{proof}
@@ -1742,8 +1795,8 @@ are the subject of \cref{part:bfj}; the same warning is repeated after
 
 We now come to the positivity notion on which the whole book turns. In
 complex geometry, a smooth metric is semipositive when its curvature form is
-a positive $(1,1)$-form, a pointwise condition. Here no forms are
-available, and the substitute is a global one: a model metric is
+a positive $(1,1)$-form, a pointwise condition. At this stage we use the
+global algebraic substitute: a model metric is
 semipositive when the model line bundle representing it has nonnegative
 degree on every curve in the special fiber. The reader should think of this
 as the exact analogue of the characterization of nef line bundles by degrees
@@ -1782,7 +1835,7 @@ Let $K$ be discretely valued and let $X$ be an integral proper
 $K$-scheme.
 \begin{enumerate}
 \item Let $\rho:\mathcal X'\to\mathcal X$ be a proper surjective morphism
-of normal proper models inducing the identity on $X$, and let
+of proper models inducing the identity on $X$, and let
 $\mathcal L$ be a line bundle on $\mathcal X$. Then $\mathcal L$ is
 relatively nef if and only if $\rho^*\mathcal L$ is.
 \item If two pairs $(\mathcal X_1,m_1^{-1}\mathcal L_1)$ and
@@ -1790,8 +1843,11 @@ $(\mathcal X_2,m_2^{-1}\mathcal L_2)$, with normal models
 $\mathcal X_i$, induce the same metric on $L^{\mathrm{an}}$, then
 $\mathcal L_1$ is relatively nef if and only if $\mathcal L_2$ is.
 \end{enumerate}
-Consequently the semipositivity of a model metric depends only on the
-metric.
+Consequently, when $X$ is normal, the semipositivity of a model metric
+depends only on the metric. For a general proper scheme the same
+independence is part of the algebraic/formal positivity comparison in
+\cite[Theorem~1.1]{GM19}; normalization is not a model modification
+preserving a nonnormal generic fiber.
 \end{lemma}
 
 \begin{proof}
@@ -1861,9 +1917,9 @@ formula. The last assertion is built into the definition by a diagonal
 approximation.
 
 In detail, for (1) let $(\mathcal X_i,m_i^{-1}\mathcal L_i)$, $i=1,2$,
-be semipositive model metrics on $L_1,L_2$. Choose a normal model
-$\mathcal X$ dominating both and pull the bundles back; by
-\Cref{lem:metrics-nef-independence}\,(1) they remain relatively nef, and by
+be semipositive model metrics on $L_1,L_2$. Choose a proper model
+$\mathcal X$ dominating both and pull the bundles back; the degree
+calculation in \Cref{prop:nef-pullback} preserves relative nefness, and by
 \Cref{prop:metrics-model-continuous}\,(3) they induce the same metrics. The
 bundle $\mathcal L_1^{\otimes m_2}\otimes\mathcal L_2^{\otimes m_1}$
 represents the tensor product metric on $m_1m_2(L_1+L_2)$, and for every
@@ -1898,11 +1954,11 @@ $(F^*\mathcal L\cdot C)=\deg(C/F(C))\,(\mathcal L\cdot F(C))\ge0$. Hence
 $F^*\mathcal L$ is relatively nef.
 
 For the maximum, note first that in multiplicative language it is the
-pointwise minimum of the two norms. For model metrics, the minimum is again
-a model metric after blowing up the sum of the two corresponding fractional
-ideals; this is \Cref{lem:metrics-model-lattice}, applied to the relative
-weights with respect to a common model metric. The preservation of
-semipositivity is exactly \cite[Proposition~3.12]{GM19}; on a proper scheme,
+pointwise minimum of the two norms. On an integral $X$, the lattice
+construction of \Cref{lem:metrics-model-lattice} realizes the maximum of
+relative model weights on a common refinement, hence this minimum of
+norms. For the full proper-scheme scope, the model property and preservation of
+semipositivity are given by \cite[Proposition~3.12]{GM19}; on a proper scheme,
 the equivalence between its local piecewise-linear condition and relative
 nefness is \cite[Theorem~1.1]{GM19}. Taking a common positive tensor power
 handles rational model metrics. Since the maximum map is nonexpanding for
@@ -2111,7 +2167,7 @@ language & datum tested & shape of the condition\\
 \midrule
 model positivity
  & a model line bundle $\mathcal L$
- & finitely many degree inequalities on curves in $\mathcal X_s$\\
+ & degree inequalities on all integral curves in $\mathcal X_s$\\
 delta-current positivity
  & a formal metric and its first Chern delta-current
  & positivity of a current on tropical charts\\
@@ -2153,7 +2209,7 @@ it is exactly what makes the total mass come out right, as the proof of
 \Cref{thm:cl-model-properties} shows.
 
 Assume for this section that $K$ is discretely valued. Let $X$ be
-projective of pure dimension $n$, and let $\mathcal X$ be a normal
+normal integral projective of dimension $n$, and let $\mathcal X$ be a normal
 projective $R$-model. Write
 \[
                         \mathcal X_s=\sum_Y b_YY,
@@ -2267,7 +2323,7 @@ manipulating this one identity.
 
 \begin{proposition}
 \label{prop:metrics-cl-model-function-integral}
-Let $K$ be discretely valued, let $X$ be projective of pure dimension
+Let $K$ be discretely valued, let $X$ be normal integral projective of dimension
 $n$, and let $\mathcal X$ be a normal projective model carrying line
 bundles $\mathcal L_1,\ldots,\mathcal L_n$ with
 $\mathcal L_i|_X\simeq L_i^{\otimes m_i}$. Let $D$ be a vertical
@@ -2538,7 +2594,7 @@ skeleton.
 
 \emph{Cross-check by convex geometry.} The function
 \eqref{eq:metrics-toric-weight} is the maximum of the three affine functions
-with slopes $0,-e_1^*,-e_2^*$; their common domain of coincidence is the
+with slopes $0,-e_1,-e_2\in M$; their common domain of coincidence is the
 single point $u=(1,1)$, and there
 \[
  \partial F(1,1)=\operatorname{conv}\{0,-e_1,-e_2\}=-P,
@@ -2574,8 +2630,10 @@ at the Gauss point $u=(0,0)$, whereas this one puts it at $u=(1,1)$.
 \section{Continuous semipositive measures}
 \label{sec:metrics-continuous-cl}
 
-Continue to assume that $K$ is discretely valued and that $X$ is an
-integral projective scheme of pure dimension $n$. The strategy of the
+Continue to assume that $K$ is discretely valued and that $X$ is a
+normal integral projective scheme of dimension $n$. This is the scope
+in which the preceding normal-model formula supplies our measures.
+The strategy of the
 following proof is to extend a multilinear operation from a dense
 subspace. The nontrivial input is the local-height continuity estimate
 \eqref{eq:cl-model-cauchy-bound}, imported from Chambert--Loir. This is why
@@ -2678,15 +2736,16 @@ as $\|\cdot\|_0\rme^{-\phi}$. Then:
 \]
 Changing the reference metric from $\|\cdot\|_0$ to
 $\|\cdot\|_0\rme^{-\psi}$ replaces the relative weight $\phi$ by
-$\phi-\psi$; the underlying metric does not change. Every later use of the
-terms potential, maximum, or model function is relative to this convention.
+$\phi-\psi$; the underlying metric does not change. Relative potentials
+and their maxima use this convention. Model functions on $\mathcal O_X$
+retain the distinguished reference $\|1\|\equiv1$.
 
 Because this bookkeeping is invisible in the notation and fatal when done
 wrongly, we state it once as a proposition and use it silently afterwards.
 
 \begin{proposition}
 \label{prop:metrics-change-of-reference}
-Let $X$ be projective of pure dimension $n$ over a discretely valued
+Let $X$ be normal integral projective of dimension $n$ over a discretely valued
 $K$, let $L_1,\ldots,L_n$ be line bundles with continuous semipositive
 metrics, and let $\|\cdot\|_{0,i}$ be reference metrics on $L_i$, with
 relative weights $\phi_i$. Replace $\|\cdot\|_{0,i}$ by
@@ -2756,7 +2815,8 @@ $\sup\phi=0$ or $E(\phi)=0$, depends on the reference and must never be
 quoted without it; this is why energies are normalized to vanish at a named
 reference metric, as recorded in \cref{sec:appJ-energy}.
 
-For a generically finite morphism $f:Y\to X$ of degree $d$, the model
+For a dominant generically finite morphism $f:Y\to X$ of normal integral
+projective varieties, of degree $d$, the model
 projection formula gives
 \[
  \begin{aligned}
@@ -2792,8 +2852,9 @@ uniform approximation.
 
 In more detail, and with the place where each entry is proved, the chapter
 has established the following correspondences. As in
-\cref{sec:models-dictionary}, the table asserts an equality of constructions,
-not an analogy.
+\cref{sec:models-dictionary}, the table records precise constructions
+and their compatibilities. A metric can have many model or section
+representations, and a measure need not recover its model line bundles.
 
 \medskip
 \noindent
@@ -2831,7 +2892,7 @@ $\mathcal L$ relatively nef
 pullback, tensor, maximum
  & the same operations on metrics
  & \Cref{prop:semipositive-stability}\\
-degrees $b_Y(\mathcal L_1\cdots\mathcal L_n|_Y)$
+component degrees, weighted by $b_Y/(m_1\cdots m_n)$
  & atoms of the measure at $x_Y$
  & \Cref{thm:cl-model-properties}\\
 vertical intersection number

@@ -115,8 +115,9 @@ principle \Cref{cor:ch26-e1-comparison}.  From
 \Cref{chap:bfj-finite-energy-measures}, the variational solution
 \Cref{prop:variational-maximizer-solves} and the supported existence
 theorem \Cref{thm:bfj-supported-cy}.  From
-\Cref{chap:topological-tools} we need Dini's theorem for upper
-semicontinuous nets, \Cref{prop:dini-usc}, in both of its clauses.
+\Cref{chap:topological-tools} we need the continuous-limit clause of
+Dini's theorem for upper semicontinuous nets,
+\Cref{prop:dini-usc}\,(1).
 
 \section{Orientation}
 \label{sec:ch29-orientation}
@@ -132,16 +133,19 @@ $\MA_\omega(\varphi_\mu)=\mu$ when one exists.  The three statements are:
 \item[(C1) Continuity of envelopes.]
 $P_\omega f\in C^0(X^{\An})$ for every $f\in C^0(X^{\An})$.  This is
 \Cref{thm:bfj-envelope-regularity}, proved by multiplier ideals on models,
-and it is \emph{equivalent} to decreasing model regularization
+and it implies decreasing model regularization
 \Cref{thm:bfj-decreasing-regularization}
-(\Cref{cor:ch23-decreasing-regularization-pointer}).
+by \Cref{cor:ch23-decreasing-regularization-pointer}.
 \item[(C2) Continuity of solutions.]
 $\varphi_\mu\in C^0(X^{\An})$.  This is the subject of the present
 chapter.
 \item[(C3) Continuity of the solution map.]
 $\mu_i\to\mu$ implies $\varphi_{\mu_i}\to\varphi_\mu$ in a specified
-topology.  This is \Cref{prop:fixed-skeleton-stability} and
-\Cref{thm:finite-energy-measure-stability}.
+topology.  On a fixed dual complex this is
+\Cref{prop:fixed-skeleton-stability}: weak measure convergence gives
+BFJ convergence of normalized solutions, uniform convergence on that
+complex, and convergence of energies.  The maximizing-sequence statement
+\Cref{thm:ch28-finite-energy-existence} has a different input.
 \end{description}
 
 There is no bare implication among the three.  Under the additional
@@ -156,8 +160,10 @@ obstacle under the standing hypotheses, while
 \Cref{ex:ch29-unbounded-not-supported} exhibits, in the same setting, a
 measure of finite energy whose unique finite-energy solution is unbounded,
 hence not continuous.  Conversely (C2) for one measure says nothing about
-(C1).  And (C3), in the only form proved here, presupposes (C2) for every
-member of the family and adds a compactness argument.
+(C1).  The fixed-support form of (C3) uses a family of continuous solutions
+and adds a compactness argument.  The general finite-energy
+maximizing-sequence theorem of \Cref{thm:ch28-finite-energy-existence}
+does not require its limiting solution to be continuous.
 
 The mechanism of (C2) is worth stating before any of the estimates, because
 it is short.  Suppose $\MA_\omega(\varphi)=\mu$ and let
@@ -191,7 +197,8 @@ chapter, because the entire scope discussion below is an audit of this list:
 \begin{aligned}
  \textup{(S1)}\quad&\text{$K$ complete, discretely valued;}\\
  \textup{(S2)}\quad&\text{residue characteristic $0$;}\\
- \textup{(S3)}\quad&\text{$X$ smooth projective, $\{\omega\}$ ample;}\\
+ \textup{(S3)}\quad&\text{$X$ smooth connected projective, $\omega$ a closed}\\
+ &\text{semipositive model form, $\{\omega\}$ ample;}\\
  \textup{(S4)}\quad&\text{$X$ of geometric origin from a
    \emph{one}-dimensional family: there are a curve $B$}\\
  &\text{over the residue field, a point $b\in B$, and a variety
@@ -212,18 +219,23 @@ model out over the curve $B$ and applying an absolute volume computation
 there.  It was removed---by a different proof of orthogonality, not by
 weakening the analytic arguments---in \cite{BGGJKM20}; this is
 \Cref{thm:bggjkm-remove-algebraizability} below, and its provenance ledger
-is \Cref{thm:orthogonality-provenance}.  Hypothesis \textup{(S5)} was
-\emph{not} removed by that work and has not been removed since.
+is \Cref{thm:orthogonality-provenance}.  Hypothesis \textup{(S5)} is retained in that work's continuous-solution
+theorem.  General finite-energy existence in the standing BFJ setting is
+\Cref{thm:ch28-finite-energy-existence}; continuity requires a separate
+argument.  Skeletal support is sufficient rather than necessary, as the
+bounded continuous example in \Cref{ex:ch28-unbounded-dual-energy} shows.
 \Cref{sec:ch29-original} is devoted to \textup{(S4)} and \textup{(S5)}.
 
+\newpage
 \begin{warning}{Two hypotheses that look alike and are not}
-\textup{(S4)} and \textup{(S5)} are both ``geometric'' hypotheses, and both
-are stated in terms of a one-dimensional object; they have nothing to do
-with each other.  \textup{(S4)} concerns a curve $B$ over the
+\textup{(S4)} and \textup{(S5)} are both ``geometric'' hypotheses, but concern different objects; the dual complex in \textup{(S5)}
+can have dimension greater than one.  \textup{(S4)} concerns a curve $B$ over the
 \emph{residue} field, downstairs, and constrains $X$ itself;
 \textup{(S5)} concerns a dual complex inside $X^{\An}$, upstairs, and
-constrains $\mu$.  Removing \textup{(S4)} is a theorem of 2020; removing
-\textup{(S5)} is open.  We never write ``the geometric hypothesis'' without
+constrains $\mu$.  The cited 2020 theorem removes \textup{(S4)} while retaining
+\textup{(S5)}.  Replacing \textup{(S5)} by finite dual energy alone cannot
+give continuity: \Cref{ex:ch29-unbounded-not-supported} is a counterexample.
+We never write ``the geometric hypothesis'' without
 saying which.
 \end{warning}
 
@@ -261,13 +273,15 @@ reference.
  \Cref{prop:variational-maximizer-solves}.
 \item\label{itm:ch29-import:uniq}
  Uniqueness modulo constants of the finite-energy solution,
- \Cref{thm:ch29-uniqueness}, which is quoted from
- \cite[\S8]{BFJ15} and is ultimately the non-Archimedean Calabi--Yau
- uniqueness theorem of Yuan and Zhang.  A complete proof in the model
+ \Cref{thm:ch29-uniqueness}, quoted from
+ \cite[Proposition~8.2]{BFJ15}.  Its proof uses iterated
+ Cauchy--Schwarz and the ample Hodge equality, following Yuan--Zhang.  A complete proof in the model
  regime is given in \Cref{prop:ch29-model-uniqueness}.
 \end{enumerate}
 
-Nothing else is imported.  In particular, no result of
+These are the analytic inputs to the standing regularity argument.
+The later theorems identify their additional imported algebraic and
+potential-theoretic inputs separately.  In particular, no result of
 \Cref{chap:cld-bedford-taylor} and no local Bedford--Taylor theory is used,
 and the Chambert--Loir measure of a merely continuous metric appears only
 through the comparison \Cref{thm:bfj-cld-ma-common-locus}.
@@ -285,15 +299,15 @@ variable, and deduces the non-Archimedean Ko\l odziej theorem
 \Cref{thm:ch29-kolodziej-linfty} with an explicit constant.
 \Cref{sec:ch29-supported} studies measures carried by a dual complex: they
 charge no pluripolar set, they pair continuously with normalized psh
-functions, and---on a curve---they satisfy the capacity-domination
-hypothesis with computable constants.  \Cref{sec:ch29-regularity} applies
+functions.  For the segment model studied below, and for finite
+divisorial supports, the capacity-domination hypothesis has computable
+constants.  \Cref{sec:ch29-regularity} applies
 the domination lemma to prove the regularity theorem, and records the uniqueness
 statement with its exact provenance.  \Cref{sec:ch29-original} is the
 hypothesis audit of \eqref{eq:ch29-signature}.  \Cref{sec:ch29-later}
 presents the remaining three later continuity theorems separately, each
 with its date, source and extra hypotheses.  \Cref{sec:ch29-worked} carries
-three examples
-to explicit numbers, and \Cref{sec:ch29-scope,sec:ch29-dictionary} close the
+the curve, finite-divisorial and boundary examples to explicit numbers, and \Cref{sec:ch29-scope,sec:ch29-dictionary} close the
 chapter.
 
 \section{The capacity estimates behind regularity}
@@ -306,8 +320,8 @@ We retain $V=(\{\omega\}^n)$.  The following estimate is the
 non-Archimedean analogue of the elementary Ko\l odziej capacity inequality.
 Its bounded case is \Cref{prop:bounded-capacity-domination} of
 \Cref{chap:bfj-capacity}, proved there with the same interpolation device;
-what is new here is that both potentials are allowed to be unbounded, which
-is what a variational solution delivers.
+here both potentials are allowed to be unbounded, as a finite-energy
+variational solution may be.
 
 \begin{lemma}\label{lem:bfj-kolodziej-sublevel}
 Let $\varphi,\psi\in\mathcal E^1(X,\omega)$, with $\psi\leq0$.  For
@@ -323,8 +337,9 @@ $0<t<1$,
 
 \begin{proof}
 All the measures occurring below are positive of total mass $V$, by
-\Cref{thm:e1-mixed-products}, so every integral written is a finite real
-number and no extended-real convention is invoked.
+\Cref{thm:e1-mixed-products}, so every measure of a Borel set written
+below is finite.  Comparisons of the potentials retain extended-real
+order on their polar sets.
 
 \emph{Step 1: the family of competitors.}  By
 \eqref{eq:ch25-dom-sup} the capacity of a Borel set $E$ may be computed
@@ -347,8 +362,9 @@ Since $\psi\in\cE^1$ and $u$ is bounded, hence in $\cE^1$ by
 class (\Cref{thm:ch26-e1-structure}\,\cref{itm:ch26-e1:convex}) gives
 $\psi_t\in\cE^1(X,\omega)$.
 
-\emph{Step 2: two inclusions.}  First, $u\geq0\geq\psi$ gives
-$\psi_t-\psi=t(u-\psi)\geq0$, so
+\emph{Step 2: two inclusions.}  First, $\psi\leq0$ gives $(1-t)\psi\geq\psi$ in extended-real
+order, and $tu\geq0$, so $\psi_t\geq\psi$.  This comparison also holds
+on $\{\psi=-\infty\}$ and never subtracts two infinite values.  Thus
 \begin{equation}
 \label{eq:ch29-two-inclusions}
  \{\varphi<\psi\}\ \subseteq\ \{\varphi<\psi_t\}
@@ -356,8 +372,9 @@ $\psi_t-\psi=t(u-\psi)\geq0$, so
 \end{equation}
 the second inclusion because $u\leq1$.  This is the only place where the
 hypothesis $\psi\leq0$ is used, and it is used to obtain the \emph{first}
-inclusion; the reader should note that translating $\psi$ alone would
-destroy it.
+inclusion.  Translating $\psi$ alone changes the strict sets being
+estimated, so a common translation is required when preserving an
+almost-everywhere comparison between the original potentials.
 
 \emph{Step 3: a lower bound for $\MA_\omega(\psi_t)$.}  Writing
 $\omega+\ddc\psi_t=(1-t)(\omega+\ddc\psi)+t(\omega+\ddc u)$ and expanding
@@ -413,7 +430,7 @@ has been established, whatever the residue characteristic.  What is
 \begin{remark}[The shape of the right-hand side]
 \label{rem:ch29-shape-of-rhs}
 The estimate is useless as stated unless one can say something about the set
-$\{\varphi<(1-t)\psi+t\}$, which is strictly larger than
+$\{\varphi<(1-t)\psi+t\}$, which contains
 $\{\varphi<\psi\}$; the whole art consists in choosing $t$ so small that
 the enlargement is harmless, while paying only the factor $t^{-n}$.  Two
 choices are made in this chapter.  In the domination lemma
@@ -494,8 +511,8 @@ $(1-t)\psi+tu$, a convex combination of $\psi$ and $u$; the competitor
 in \Cref{prop:ch29-constant-obstacle} is $tu$ shifted by a constant, that
 is, a convex combination of $0$ and $u$ shifted.  When $\psi$ is a
 constant the two competitors are genuinely different: the first is
-$-(1-t)s+tu$, which sits at height $-(1-t)s$ above the constant $-s$,
-while the second sits at height at most $0$ below it.  The gain is exactly
+$-(1-t)s+tu$, whose difference from $-s$ is $ts+tu\in[ts,ts+t]$,
+while the second is $tu-s-t$, whose difference from $-s$ lies in $[-t,0]$.  The gain is exactly
 that the enlargement of the sublevel set in
 \eqref{eq:ch29-constant-obstacle} is by the \emph{additive} amount $t$,
 independent of $s$.  Both estimates are elementary consequences of the
@@ -506,8 +523,8 @@ same comparison principle; only the second iterates.
 \label{sec:ch29-profile}
 
 The iteration in \Cref{sec:ch29-kolodziej} is applied to the function
-$s\mapsto\Capa_\omega(\{\varphi<-s\})$, and it needs three soft properties
-of that function.  We record them once.
+$s\mapsto\Capa_\omega(\{\varphi<-s\})$, and it uses its monotonicity and decay.  We also record its
+right-continuity, although the iteration does not require that property.
 
 \begin{lemma}
 \label{lem:ch29-capacity-profile}
@@ -554,14 +571,13 @@ capacity zero, hence is empty by
 \Cref{lem:divisorial-positive-capacity}.
 \end{proof}
 
-\begin{remark}[Right-continuity is not decoration]
+\begin{remark}[The profile and the iteration endpoint]
 \label{rem:ch29-right-continuity}
-Both the monotonicity and the right-continuity of $F_\varphi$ are used in
-\Cref{lem:ch29-iteration}: monotonicity to pass from a sequence of levels to
-all levels beyond, right-continuity to close the endpoint.  Left-continuity
-is false in general---take $\varphi$ with an atom of Monge--Amp\`ere mass,
-as in \Cref{ex:ch25-two-vertex-full-capacity}, where $F_\varphi$ jumps at
-the value of $\varphi$ at the relevant vertex---and is never used.
+Right-continuity follows from continuity of capacity along increasing
+unions of open sets.  The endpoint in \Cref{lem:ch29-iteration}, however,
+is handled by monotonicity alone: if $s_j\uparrow s_\infty$ and
+$f(s_j)\to0$, then $0\leq f(s_\infty)\leq f(s_j)$ for every $j$.
+No left-continuity assertion is needed.
 \end{remark}
 
 The estimate alone does not bound the oscillation of an arbitrary solution.
@@ -659,9 +675,9 @@ $\leq0$, and the temptation is to arrange this by translating $h$ alone,
 so as to write $0\geq h\geq-\operatorname{osc}(h)$.  That is not
 legitimate.  The hypothesis of \Cref{lem:bfj-supported-domination} is an
 inequality \emph{between} $h$ and $\psi$, and replacing $h$ by
-$h-M$ while leaving $\psi$ fixed replaces that hypothesis by the
-strictly weaker statement $h-M\leq\psi$ $\nu$-almost everywhere, from
-which the desired conclusion $h\leq\psi$ certainly does not follow.  The
+$h-M$ while leaving $\psi$ fixed changes the comparison to
+$h-M\leq\psi$ $\nu$-almost everywhere.  When $M>0$, even the resulting
+global inequality $h-M\leq\psi$ does not give the desired $h\leq\psi$.  The
 proof above therefore translates \emph{both} potentials by $-M$, which
 leaves the sets $\{h>\psi\}$ and $\{\psi+\varepsilon<h\}$, the measure
 $\nu$, and the hypothesis all unchanged, and buys the normalization
@@ -674,18 +690,14 @@ following \Cref{prop:bounded-capacity-domination}.
 
 \begin{remark}[Comparison with the bounded domination principle]
 \label{rem:ch29-bounded-vs-e1-domination}
-\Cref{prop:bounded-capacity-domination} contains a domination principle for
-\emph{bounded} $\psi$; \Cref{lem:bfj-supported-domination} is its
-finite-energy counterpart, and the two differ in exactly one place.  In the
-bounded statement the roles are symmetric enough that one may normalize
-$\varphi\leq0$ by a translation and estimate the error by a lower bound
-$-C$ for the continuous potential.  In the finite-energy statement
-$\psi$ has no lower bound at all, so the normalization must be taken from
-$h$; this is why the oscillation of $h$, and not a bound for $\psi$,
-appears in \eqref{eq:ch29-t-choice}.  Nothing else changes, and in
-particular the proof still consists of one application of a capacity
-estimate followed by
-\Cref{lem:divisorial-positive-capacity}.
+The bounded principle \Cref{prop:bounded-capacity-domination} allows
+both bounded potentials to be discontinuous and ends with divisorial
+order.  Its proof translates both potentials by the same constant.
+Here the measured potential $\psi$ may be unbounded; the continuous
+minorant $h$ still has finite oscillation, which controls the enlargement
+in \eqref{eq:ch29-t-choice}.  The displayed proof concludes by openness
+of its strict sublevel set.  These are the exact scopes of the two
+arguments; normalization of only one potential is invalid in either.
 \end{remark}
 
 \begin{corollary}
@@ -706,20 +718,18 @@ the translate $\psi+\delta$ lies in $\cE^1$ by
 Monge--Amp\`ere measure $\nu$.
 \end{proof}
 
-\begin{remark}[Continuity of $h$ cannot be dropped]
+\begin{remark}[Where continuity of $h$ is used]
 \label{rem:ch29-continuity-of-h}
-The hypothesis that $h$ be continuous is used exactly once, to make
-$\{h-\psi>\varepsilon\}$ open.  Without it the argument still shows that
-this set is negligible in the sense of \Cref{def:ch25-set-classes}, and a
-negligible set need not be empty: by
-\Cref{thm:ch25-pluripolar-negligible} every pluripolar set is negligible,
-and pluripolar sets are certainly nonempty.  In the application below,
-$h$ is a model function minus a constant, hence continuous by
-construction, so the hypothesis is free; but it is the reason why the
-conclusion of \Cref{lem:bfj-supported-domination} cannot be bootstrapped to
-a statement about two arbitrary finite-energy potentials.  The rigidity
-statement that \emph{does} hold for two potentials, one of them continuous,
-is \Cref{cor:ch25-domination-uniqueness}.
+Continuity on the compact space supplies the finite bounds for $h$ in
+\eqref{eq:ch29-h-bounds}, and it makes
+$\{h-\psi>\varepsilon\}$ open in the last step.  In the application $h$
+is a model function minus a constant, so both properties hold.
+This proof does not establish a domination statement for two arbitrary
+unbounded finite-energy potentials.  Nor does it prove that continuity
+of a bounded minorant is necessary: the bounded result
+\Cref{prop:bounded-capacity-domination} uses divisorial order instead
+of openness.  The exact continuous contact-set consequence is
+\Cref{cor:ch25-domination-uniqueness}.
 \end{remark}
 
 The proof itself uses no skeletal support hypothesis.  That hypothesis
@@ -742,19 +752,20 @@ The reader should be warned at once about its role.  The theorem proved here
 is not the step by which \Cref{thm:bfj-supported-regularity} produces a
 continuous solution; that step is the domination lemma together with Dini's
 theorem, and it produces continuity directly.  What the iteration produces
-is boundedness, with an explicit modulus, under a hypothesis on $\mu$
-which is genuinely stronger than support on a dual complex is known to be in
-dimension $\geq2$.  We prove it because it is the true non-Archimedean
-analogue of the classical argument, because it is sharp
-(\Cref{ex:ch29-borderline}), and because on curves and for measures carried
-by finitely many divisorial points it applies with computable numbers.
+is boundedness, with an explicit oscillation bound, under capacity
+domination.  We do not establish a general implication between this
+condition and skeletal support in dimension $\geq2$.  The positive
+power in the capacity estimate cannot simply be omitted
+(\Cref{ex:ch29-borderline}); this does not make our numerical constant
+sharp.  The segment calculation and finite divisorial supports give
+concrete applications.
 
 \subsection{The iteration lemma}
 \label{sec:ch29-iteration-lemma}
 
 \begin{lemma}
 \label{lem:ch29-iteration}
-Let $f:[0,+\infty)\to[0,+\infty)$ be nonincreasing and right-continuous.
+Let $f:[0,+\infty)\to[0,+\infty)$ be nonincreasing.
 Suppose there are constants $B>0$ and
 $\alpha>0$ such that
 \begin{equation}
@@ -798,11 +809,10 @@ bracket equals $1$; and $B\delta^\alpha=q$ by
 \eqref{eq:ch29-iteration-delta}.  Hence
 $f(s_{j+1})\leq\delta q^{\,j+1}$, which is the claim for $j+1$.
 
-\emph{Conclusion.}  Since $0<q<1$, the claim gives $f(s_j)\to0$.  Let
-$s>s_0+2$.  For every $j$ we have $s>s_j$, so monotonicity gives
-$f(s)\leq f(s_j)$, whence $f(s)=0$.  Thus $f$ vanishes on
-$(s_0+2,+\infty)$, and right-continuity at $s_0+2$ gives
-$f(s_0+2)=\lim_{s\downarrow s_0+2}f(s)=0$.
+\emph{Conclusion.}  For every $s\geq s_\infty=s_0+2$ and every
+$j$ we have $s\geq s_j$.  Monotonicity gives
+$0\leq f(s)\leq f(s_j)\leq\delta q^j\to0$, hence $f(s)=0$,
+including at the endpoint.  No continuity assumption on $f$ is needed.
 \end{proof}
 
 \begin{remark}[The three constants]
@@ -817,20 +827,17 @@ $\lambda=\tfrac12$ is convenient, not optimal.  The exponent
 $\alpha$ enters twice, once through $q=2^{-1/\alpha}$ and once through
 $\delta^\alpha$, which is why $\kappa(B,\alpha)$ contains
 $2^{-1/\alpha^2}$: as $\alpha\downarrow0$ the entry threshold collapses
-superexponentially, and this is not an artefact.
-\Cref{ex:ch29-borderline} shows that at $\alpha=0$ the conclusion is
-false.
+superexponentially for this particular choice of constants.  No
+optimality of that rate is proved.  \Cref{ex:ch29-borderline} shows only
+that at $\alpha=0$ the boundedness conclusion is false.
 \end{remark}
 
-\begin{remark}[Why right-continuity, and how the entry point is found]
+\begin{remark}[How the entry point is found]
 \label{rem:ch29-iteration-hypotheses}
-Right-continuity is used once, to include the endpoint $s_0+2$; a
-nonincreasing function satisfying \eqref{eq:ch29-iteration-hypothesis}
-without it vanishes on $(s_0+2,\infty)$ but may be positive at
-$s_0+2$.  No limit hypothesis at infinity is needed once an entry point
-$s_0$ satisfying \eqref{eq:ch29-iteration-entry} is supplied.  In the
-application, \eqref{eq:ch29-profile-decay} both guarantees such an entry
-point and tells us \emph{where} it may be taken.
+No continuity hypothesis or limit hypothesis at infinity is needed once
+an entry point $s_0$ satisfying \eqref{eq:ch29-iteration-entry} is
+supplied.  In the application, \eqref{eq:ch29-profile-decay} both
+guarantees such an entry point and gives a sufficient value for it.
 \end{remark}
 
 \subsection{The capacity-domination hypothesis}
@@ -849,8 +856,8 @@ by capacity} if
 \end{definition}
 
 Three remarks fix the meaning of this condition.  First, it depends on
-$\omega$ only through the capacity, hence only through the class
-$\{\omega\}$ in the sense of
+the fixed reference form $\omega$ through $\Capa_\omega$.
+No invariance under a change of reference form is asserted; see
 \Cref{rem:ch25-independence-of-theta}.  Second, it forces $\mu$ to give no
 mass to any set of capacity zero, in particular to any pluripolar set, by
 \Cref{cor:ch25-polar-negligible}; so it is at least as strong as the
@@ -898,10 +905,9 @@ as asserted.
 Condition \eqref{eq:ch29-capacity-floor} holds automatically when
 $\Supp\mu$ is a \emph{finite} set of divisorial points, by
 \Cref{lem:divisorial-positive-capacity}: take $c$ to be the minimum of the
-finitely many positive numbers $\Capa_\omega(\{x\})$.  It holds, with an
-explicit $c$, for every measure supported on the skeleton of a semistable
-model of a \emph{curve}: this is \Cref{prop:ch29-curve-point-capacity}
-below.  In dimension $\geq2$ we do \emph{not} assert it for an arbitrary
+finitely many positive numbers $\Capa_\omega(\{x\})$.  For the segment with positive endpoint reference masses in
+\Cref{prop:ch29-curve-point-capacity}, it holds with an explicit $c$.
+That proposition is not a computation for every curve skeleton.  In dimension $\geq2$ we do \emph{not} assert it for an arbitrary
 measure supported on a dual complex; see
 \Cref{rem:ch29-floor-open}.  This is the precise sense in which the
 Ko\l odziej route and the Dini route to regularity are different arguments
@@ -913,8 +919,9 @@ with different hypotheses.
 
 \begin{theorem}
 \label{thm:ch29-kolodziej-linfty}
-Let $\varphi\in\cE^1(X,\omega)$ with $\sup_{X^{\An}}\varphi=0$, and
-suppose that $\mu:=\MA_\omega(\varphi)$ is $(A,\alpha)$-dominated by
+Assume $n\geq1$.  Let $\varphi\in\cE^1(X,\omega)$ with
+$\sup_{X^{\An}}\varphi=0$, and suppose that
+$\mu:=\MA_\omega(\varphi)$ is $(A,\alpha)$-dominated by
 capacity in the sense of \eqref{eq:ch29-capacity-domination}.  Then
 $\varphi$ is bounded, and
 \begin{equation}
@@ -931,9 +938,9 @@ Let $F_\varphi$ be the capacity profile \eqref{eq:ch29-profile} and put
 \[
  f(s):=F_\varphi(s)^{1/n}=\Capa_\omega\bigl(\{\varphi<-s\}\bigr)^{1/n}.
 \]
-By \Cref{lem:ch29-capacity-profile} the function $f$ is nonincreasing,
-right-continuous, and tends to $0$; the $n$-th root, being a continuous
-increasing bijection of $[0,\infty)$, preserves all three properties.
+By \Cref{lem:ch29-capacity-profile} the function $f$ is nonincreasing
+and tends to $0$.  It is also right-continuous, although that
+property is not used in the iteration.
 
 \emph{Step 1: the iteration hypothesis.}  Let $s\geq0$ and
 $0<t\leq1$.  \Cref{prop:ch29-constant-obstacle} gives
@@ -987,25 +994,27 @@ $X^{\An}$.  As $\sup\varphi=0$, this is
 \label{cor:ch29-kolodziej-floor}
 Let $\varphi\in\cE^1(X,\omega)$ with $\sup\varphi=0$ and
 $\MA_\omega(\varphi)=\mu\in\mathcal M_V(X)$.  Suppose
-\eqref{eq:ch29-capacity-floor} holds with a constant $c\geq1$.  Then
+\eqref{eq:ch29-capacity-floor} holds with a constant $c>0$ and
+$n\geq1$.  Then
 \begin{equation}
 \label{eq:ch29-kolodziej-floor-bound}
  \operatorname{osc}_{X^{\An}}\varphi
- \ \leq\ \bigl(C_\omega+nV\bigr)\ +\ 2 .
+ \ \leq\ \frac{C_\omega+nV}{c}\ +\ 2 .
 \end{equation}
 \end{corollary}
 
 \begin{proof}
-By \Cref{lem:ch29-capacity-floor} the measure $\mu$ is
-$(A_\alpha,\alpha)$-dominated with
-$A_\alpha=Vc^{-(1+\alpha)}\leq V$ for every $\alpha>0$, because
-$c\geq1$; since the condition \eqref{eq:ch29-capacity-domination} is
-monotone in the constant, we may replace $A_\alpha$ by the single value
-$A=V$, valid for every $\alpha>0$.  Insert $A=V$ into
-\eqref{eq:ch29-kolodziej-bound} and let $\alpha\to+\infty$: both
-$V^{1/\alpha}\to1$ and $2^{n/\alpha^2}\to1$, while the left-hand side
-does not depend on $\alpha$.  Hence
-$\operatorname{osc}\varphi\leq(C_\omega+nV)+2$.
+For every $\alpha>0$, \Cref{lem:ch29-capacity-floor} supplies
+$A_\alpha=Vc^{-(1+\alpha)}$.  Substitution into
+\eqref{eq:ch29-kolodziej-bound} gives
+\[
+ \operatorname{osc}\varphi
+ \leq \frac{C_\omega+nV}{c}
+          \left(\frac Vc\right)^{1/\alpha}2^{n/\alpha^2}+2 .
+\]
+Let $\alpha\to+\infty$.  The left side is independent of $\alpha$,
+and both remaining factors tend to one, proving the claim.  If $c\geq1$
+this also gives the weaker bound $C_\omega+nV+2$ used in the examples.
 \end{proof}
 
 \begin{remark}[What the estimate does and does not give]
@@ -1111,8 +1120,8 @@ $v\geq\sup_{X^{\An}}v-C>-\infty$ there.
 \begin{proposition}
 \label{prop:ch29-supported-no-polar-mass}
 Let $\mu\in\mathcal M_V(\Delta)$ and let
-$P\subseteq X^{\An}$ be pluripolar, that is, contained in a countable
-union of polar sets $\{v_j=-\infty\}$ with
+$P\subseteq X^{\An}$ be $\sigma$-pluripolar in the sense of
+\Cref{def:ch25-set-classes}, that is, contained in a countable union of polar sets $\{v_j=-\infty\}$ with
 $v_j\in\PSH(X,\omega)\setminus\{-\infty\}$.  Then $\mu(P)=0$; indeed
 $P\cap\Delta=\varnothing$, so $P$ is contained in a $\mu$-null Borel
 set.
@@ -1140,8 +1149,8 @@ $\omega$-psh function against $\mu$; by
 \Cref{thm:bfj-skeletal-equicontinuity} the integrand is bounded on
 $\Delta$.  This is the mechanism behind
 \Cref{lem:skeletal-measure-finite-energy}, and it is worth isolating,
-because it is the only place in the whole theory where an unbounded
-potential is integrated without an approximation argument.
+because boundedness of the restriction supplies the integral directly,
+even when the potential is unbounded elsewhere.
 \end{remark}
 
 \begin{proposition}
@@ -1204,11 +1213,13 @@ $\lVert\varphi|_\Delta-g_k\rVert_\infty\leq\varepsilon/(3V)$, estimate
 \subsection{The capacity floor on a curve}
 \label{sec:ch29-curve-floor}
 
-On a curve the hypothesis \eqref{eq:ch29-capacity-floor} can be verified,
-with an explicit constant, for every measure carried by a skeleton.  We use
-the notation of \Cref{sec:ch25-curves}: $C$ is a smooth projective
-connected $K$-curve, $\theta=\omega$ is determined on a semistable model
-$\mathcal C$, $\Gamma=\Delta_{\mathcal C}$ is the dual graph and
+We verify \eqref{eq:ch29-capacity-floor} for the segment with positive
+endpoint reference masses below.  Use the notation of
+\Cref{sec:ch25-curves}: $C$ is a smooth projective geometrically connected
+$K$-curve, $\theta=\omega$ is determined on a split regular semistable
+model $\mathcal C$, and all node residue degrees are one.
+The graph $\Gamma=\Delta_{\mathcal C}$ carries the modulus lengths,
+possibly with intermediate vertices, and
 $p:C^{\An}\to\Gamma$ the retraction, and
 $\mu_0=\MA_\omega(0)$ is the curvature measure of $\omega$, a positive
 measure of mass $V=\deg L$ supported on the vertices.
@@ -1325,8 +1336,8 @@ This is the same phenomenon recorded in
 bounded below uniformly over all models, and any estimate built on
 \eqref{eq:ch29-capacity-floor} carries the metric of the skeleton in its
 constant.  A general dual complex has finitely many faces of finite
-diameter, so a floor, if it exists, is again a metric quantity; what is
-missing in dimension $\geq2$ is not a bound but a construction.
+diameter, so a floor, if it exists, is again a metric quantity; the present argument provides no such general higher-dimensional
+construction or uniform floor.
 \end{remark}
 
 \begin{remark}[The floor in higher dimension is not established here]
@@ -1340,9 +1351,10 @@ the first has no explicit constant, and in the second the constant depends
 on the subdivision, hence on the denominator of $x$.  On a curve the
 uniformity is recovered by the explicit computation
 \eqref{eq:ch29-curve-point-capacity}, whose mechanism---restriction to a
-one-dimensional convex programme---has no counterpart in higher dimension,
-by the Burgos Gil--Sombra example quoted in
-\Cref{rem:ch23-curve-specialness}.  We therefore state
+one-dimensional convex programme---does not give a higher-dimensional proof.  The Burgos Gil--Sombra
+example in \Cref{rem:ch23-curve-specialness} obstructs the analogous
+retraction-positivity argument; it does not prove failure of every
+possible capacity-floor construction.  We therefore state
 \eqref{eq:ch29-capacity-floor} as a \emph{hypothesis} for $n\geq2$, verify
 it in the two cases named in \Cref{rem:ch29-floor-availability}, and do not
 assert it in general.  Nothing in the proof of
@@ -1365,29 +1377,32 @@ occasionally assumed in informal accounts.
  $p_{\mathcal X}$.  See \Cref{warn:ch29-support-not-skeletal} below.
 \item\label{itm:ch29-notsupp:model}
  It does not say that the solution is a model function.  Already for a
- Dirac mass at a divisorial point the solution is an envelope which need
- not be piecewise $\mathbf Q$-linear; this is
- \cite[Theorem~A]{BJGreen24}, recorded in
- \Cref{chap:bfj-finite-energy-measures} at
- \eqref{eq:green-envelope-divisorial}.
+ curve measure, \Cref{ex:ch29-curve-solution} gives a non-PL solution.
+ For rational classes over $\mathbf C(\!(\pi)\!)$,
+ \cite[Theorem~A(ii)]{BJGreen24} gives divisorial Green functions that
+ are not $\mathbf Q$-PL but remain $\mathbf R$-PL.  Theorem~B of that
+ source gives a finite atomic example on $\mathbf P^3$ that is not
+ invariant under any SNC retraction and is not a real model function;
+ see \Cref{ex:ch28-divisorial-green}.
 \item\label{itm:ch29-notsupp:floor}
  It does not, for $n\geq2$, give the capacity floor
  \eqref{eq:ch29-capacity-floor}; see \Cref{rem:ch29-floor-open}.
 \item\label{itm:ch29-notsupp:cofinal}
- It is not stable under enlarging the model in any useful direction: if
+ It is preserved under model domination: if
  $\mathcal X'$ dominates $\mathcal X$, then
  $\Delta_{\mathcal X}\subseteq\Delta_{\mathcal X'}$ as sets, so the
  hypothesis is preserved when passing to a \emph{larger} complex, but a
  measure carried by $\bigcup_{\mathcal X}\Delta_{\mathcal X}$, the union
- over all SNC models, need not be carried by any single one.  The union is
- dense in $X^{\An}$ (\Cref{prop:snc-cofinal} and the density statements of
- \Cref{chap:bfj-psh}), so ``supported on the quasimonomial locus'' is a
- vacuous hypothesis, while ``supported on one dual complex'' is a strong
- one.
+ over all SNC models, need not be carried by any single one.  The union is dense in $X^{\An}$
+ (\Cref{prop:snc-cofinal}), but a dense carrying locus need not carry
+ every measure.  The condition is therefore not vacuous.  It is weaker
+ than carrying by one complex; the ray example
+ \Cref{ex:ch29-unbounded-not-supported} separates them.
 \end{enumerate}
 
 Item \cref{itm:ch29-notsupp:cofinal} deserves emphasis because it is the
-precise reason why the hypothesis cannot be relaxed by a limiting argument.
+limitation of applying this particular Dini--domination proof on
+successively larger compact sets.
 The following observation, which costs nothing, makes it quantitative.
 
 \begin{proposition}
@@ -1404,8 +1419,10 @@ Consequently, for every $\varphi\in\PSH(X,\omega)$, every decreasing net
 $(\varphi_j)$ of model functions with $\varphi_j\searrow\varphi$, every
 $\varepsilon>0$ and every $m$, Dini's theorem supplies an index
 $j$ with $\varphi_j-\varepsilon\leq\varphi$ on $\Delta_m$, and the
-resulting inequality is known to hold only off a set of $\mu$-measure
-$\eta_m>0$; no choice of $m$ makes that exceptional measure vanish.
+argument only bounds the possible failure set by
+$X^{\An}\setminus\Delta_m$, of measure $\eta_m>0$.
+No $m$ makes this support bound zero; the actual inequality may hold
+on a larger set, or everywhere.
 \end{proposition}
 
 \begin{proof}
@@ -1432,10 +1449,10 @@ $\Delta_m$, and $\mu(X^{\An}\setminus\Delta_m)=\eta_m>0$.
 Given $\varepsilon>0$, \Cref{prop:ch29-one-complex} allows one to choose
 $m$ with $\eta_m<\varepsilon$ and then $j=j(m)$ with
 $\varphi_j-\varepsilon\leq\varphi$ on $\Delta_m$.  The resulting
-inequality holds off a set of $\mu$-measure $\eta_m<\varepsilon$, not
-off a $\mu$-null set, and the domination lemma
-\Cref{lem:bfj-supported-domination} has no version tolerating an
-$\varepsilon$ of measure: its proof concludes that a certain open set has
+support argument bounds the failure measure by
+$\eta_m<\varepsilon$, but does not establish a null failure set.
+The stated domination lemma \Cref{lem:bfj-supported-domination}
+requires exactly such a null set: its proof concludes that a certain open set has
 capacity zero, and ``capacity at most $\varepsilon$'' does not make an
 open set empty.  One could hope to run the argument with
 \Cref{cor:ch29-domination-quantitative} instead, but the hypothesis there is
@@ -1473,7 +1490,7 @@ $\varphi|_\Delta$.  Dini's theorem in the form
 \Cref{prop:dini-nets}, the functions here being continuous---applies to the
 net $(\varphi_j|_\Delta)$ on the compact space $\Delta$ and gives
 uniform convergence.  Thus, for every $\varepsilon>0$ there is
-$j_1=j_1(\varepsilon)\geq j_0$ such that
+$j_1=j_1(\varepsilon)\in J$ such that
 \begin{equation}
 \label{eq:dini-on-support}
                     \varphi_j-\varepsilon\leq\varphi
@@ -1516,8 +1533,10 @@ space is continuous, so $\varphi\in C^0(X^{\An})$.
 \label{cor:ch29-uniform-model-limit}
 In the situation of \Cref{thm:bfj-supported-regularity}, the solution
 $\varphi$ is a uniform limit of $\omega$-psh model functions.
-Equivalently, the metric $\rme^{-\varphi}\lVert\cdot\rVert_0$ is a
-continuous semipositive metric in the sense of Zhang
+If $\omega=c_1(L,\lVert\cdot\rVert_0)$ for a semipositive model
+metric on a line bundle $L$, the metric
+$\rme^{-\varphi}\lVert\cdot\rVert_0$ is continuous semipositive in the
+sense of Zhang
 \cite{Zhang1995}, and its Chambert--Loir measure in the sense of
 \cite{CL06} equals $\mu$.
 \end{corollary}
@@ -1529,8 +1548,9 @@ $\varphi$ uniformly.  Inductively choose $j_k$ dominating both $j_{k-1}$
 and an index valid for $\varepsilon=1/k$.  Then
 $(\varphi_{j_k})_{k\geq1}$ is a \emph{sequence} of $\omega$-psh model
 functions converging uniformly to $\varphi$.  Uniform convergence of model
-potentials is by definition uniform convergence of the associated model
-metrics, so the limit is a continuous semipositive metric.  Its
+potentials gives uniform convergence of their associated model
+metrics when the displayed line-bundle reference metric exists, so its
+limit is continuous semipositive.  Its
 Chambert--Loir measure is the weak limit of the model measures
 $\MA_\omega(\varphi_{j_k})$ by
 \Cref{prop:ch24-continuous-uniform}\,\cref{itm:ch24-cu:unif}, and that limit
@@ -1552,16 +1572,14 @@ $X^{\An}$.
 
 \begin{remark}[The theorem is about one measure at a time]
 \label{rem:ch29-one-measure}
-\Cref{thm:bfj-supported-regularity} contains no uniformity in $\mu$: the
-index $j_1(\varepsilon)$ depends on $\mu$ through $\varphi$, and the
-proof gives no modulus of continuity for $\varphi$.  A modulus would
-require either the Ko\l odziej route of \Cref{sec:ch29-kolodziej}, which
-gives only an oscillation bound, or a stability theorem.  The available
-uniform statements are
-\Cref{prop:fixed-skeleton-stability}---uniform convergence \emph{on
-$\Delta$} for a weakly convergent family of measures on a fixed
-complex---and nothing more.  In particular this book nowhere asserts an
-equicontinuity statement for the family of solutions on $X^{\An}$.
+The Dini index $j_1(\varepsilon)$ depends on the potential and its chosen
+approximation.  This proof gives uniform approximation of that solution,
+rather than a common modulus on all of $X^{\An}$ for a family of solutions.
+On any fixed dual complex a common Lipschitz modulus is already provided
+by \Cref{cor:ch22-explicit-modulus}.  Fixed-skeleton solution convergence
+and energy convergence are \Cref{prop:fixed-skeleton-stability}.
+The oscillation estimate \Cref{thm:ch29-kolodziej-linfty} is a different
+kind of bound.
 \end{remark}
 
 \begin{center}
@@ -1625,7 +1643,7 @@ with its exact provenance.
 \begin{proposition}
 \label{prop:ch29-model-uniqueness}
 Let $\mathcal X$ be a regular projective model of $X$ on which
-$\omega$ is determined, and let $f,g$ be model functions determined on
+$\omega$ is determined, assume $n\geq1$, and let $f,g$ be model functions determined on
 $\mathcal X$ such that both $\omega+\ddc f$ and $\omega+\ddc g$ are
 $\mathcal X$-positive, that is, represented on $\mathcal X$ by
 relatively \emph{ample} classes.  If
@@ -1638,8 +1656,9 @@ then $f-g$ is constant.
 \begin{proof}
 Write $u:=f-g$, a model function determined on $\mathcal X$, and let
 $D\in\Div_0(\mathcal X)_{\mathbf R}$ be the vertical divisor with
-$\varphi_D=u$, which exists and is unique modulo
-$\mathbf R\,\mathcal X_s$ by \Cref{thm:ch20-ddc-exact}.  Put
+$\varphi_D=u$, which exists and is unique as a representative of the actual function
+$u$.  By \Cref{thm:ch20-ddc-exact}, only the divisor representing
+$\ddc u$ is determined modulo $\mathbf R\,\mathcal X_s$.  Put
 $\alpha:=\{\omega+\ddc f\}_{\mathcal X}$ and
 $\beta:=\{\omega+\ddc g\}_{\mathcal X}$ in $N^1(\mathcal X/R)$; both are
 relatively ample by hypothesis, in particular relatively nef.
@@ -1657,10 +1676,12 @@ Integrating $u$ against it and using
 $\MA_\omega(f)=\MA_\omega(g)$,
 \begin{equation}
 \label{eq:ch29-uniqueness-telescope}
- 0=\int u\,\bigl[\MA_\omega(f)-\MA_\omega(g)\bigr]
-  =\sum_{k=0}^{n-1}
+ \begin{aligned}
+ 0&=\int u\,\bigl[\MA_\omega(f)-\MA_\omega(g)\bigr]\\
+  &=\sum_{k=0}^{n-1}
     \int u\,\ddc u\wedge(\omega+\ddc f)^{\wedge k}
       \wedge(\omega+\ddc g)^{\wedge(n-1-k)} .
+ \end{aligned}
 \end{equation}
 
 \emph{Step 2: each summand vanishes.}  By
@@ -1704,50 +1725,45 @@ different means.
 \label{thm:ch29-uniqueness}
 Assume the standing hypotheses.  If
 $\varphi,\psi\in\cE^1(X,\omega)$ satisfy
-$\MA_\omega(\varphi)=\MA_\omega(\psi)$, then $\varphi-\psi$ is
-constant.  In particular a solution of $\MA_\omega(\varphi)=\mu$ in
+$\MA_\omega(\varphi)=\MA_\omega(\psi)$, then
+$\varphi=\psi+c$ for a constant $c\in\mathbf R$, including on their
+common polar set.  In particular a solution of $\MA_\omega(\varphi)=\mu$ in
 $\cE^1(X,\omega)$ is unique modulo constants, and a continuous
 semipositive metric solving $c_1(L,\lVert\cdot\rVert)^n=\mu$ is unique up
 to a positive scalar.
 \end{theorem}
 
 \begin{proof}[Imported input and its architecture]
-This is the uniqueness half of \cite[Theorem~A]{BFJ15}; the argument is in
-\cite[\S8]{BFJ15} and rests on the non-Archimedean Calabi--Yau uniqueness
-theorem of Yuan and Zhang for continuous semipositive metrics, which is
-quoted there.  Its shape is the one displayed in
-\Cref{prop:ch29-model-uniqueness}: the difference of the two
-Monge--Amp\`ere measures is a telescoping sum of Dirichlet forms, each
-nonpositive by the relative Hodge index inequality
-\eqref{eq:ch20-mixed-hodge}; vanishing of the sum forces vanishing of each
-term; and a nondegeneracy statement for the Dirichlet form then makes the
-difference of the potentials constant.  The two steps that go beyond
-\Cref{prop:ch29-model-uniqueness} are the extension of the telescoping
-identity to unbounded potentials, for which the mixed finite-energy
-products of \Cref{thm:e1-mixed-products} and the Cauchy--Schwarz inequality
-\eqref{eq:ch26-cauchy-schwarz} are used, and the nondegeneracy statement in
-the merely nef case, which is where the algebraic input of Yuan and Zhang
-enters.  Uniqueness uses neither orthogonality nor the support hypothesis
-\textup{(S5)}; this is recorded again in
-\Cref{sec:ch29-hypothesis-use}.
+This is \cite[Proposition~8.2]{BFJ15}, not merely the continuous
+uniqueness clause of its Theorem~A.  Equal measures first give
+$I_\omega(\varphi,\psi)=0$ and vanishing of all relevant finite-energy
+Dirichlet terms.  The proof in that source iterates Cauchy--Schwarz to
+transfer this vanishing to the reference form, including for unbounded
+finite-energy potentials.  It then chooses a sufficiently positive ample
+model representative on higher models and applies the ample Hodge
+equality, following Yuan--Zhang, to obtain equality at all divisorial
+points up to a constant.  Divisorial determination gives the global
+conclusion.  The transfer and ample replacement are essential:
+nondegeneracy is not inferred for the original merely nef mixed classes.
+These are quoted inputs, also described in
+\Cref{rem:ch28-uniqueness-gap}; the elementary relatively ample
+model case is proved above.  Neither orthogonality nor \textup{(S5)}
+is used.
 \end{proof}
 
-\begin{remark}[Three uniqueness statements of decreasing strength]
+\begin{remark}[Three rigidity statements and their inputs]
 \label{rem:ch29-uniqueness-ladder}
-It is worth recording what is proved where.  \emph{Strongest:}
-\Cref{thm:ch29-uniqueness}, for arbitrary finite-energy potentials, quoted.
-\emph{Intermediate:} \Cref{cor:ch26-gauge-nondegenerate}\,\cref{itm:ch26-nondeg:both},
-proved in \Cref{chap:bfj-energy}, which gives $\varphi=\psi$ for two
-\emph{continuous} potentials at gauge distance zero---a hypothesis strictly
-stronger than equality of Monge--Amp\`ere measures.  \emph{Weakest and
-cheapest:} \Cref{cor:ch25-domination-uniqueness}, proved in
-\Cref{chap:bfj-capacity} from the domination principle alone, which gives
-$\varphi=\psi$ when both potentials are continuous and each of the two
-measures is carried by the contact set.  On a curve, uniqueness is
-elementary and is proved from scratch inside
-\Cref{thm:curves-arbitrary-field-continuity}: the logarithm of the ratio of
-two solutions is a continuous harmonic function on a compact connected
-Berkovich curve, hence constant.
+\Cref{thm:ch29-uniqueness} treats equality of measures for arbitrary
+finite-energy potentials and concludes equality modulo constants.
+\Cref{cor:ch26-gauge-nondegenerate}\,\cref{itm:ch26-nondeg:both}
+treats zero gauge for continuous potentials and concludes equality of the
+actual functions.  \Cref{cor:ch25-domination-uniqueness} treats two
+continuous potentials whose measures are each carried by their contact
+set and uses bounded domination alone.  These statements have different
+normalizations and hypotheses; no strict hierarchy among their
+hypotheses is asserted.  On a curve, continuous uniqueness also follows
+from the maximum principle for a harmonic difference, as explained in
+\Cref{thm:curves-arbitrary-field-continuity}.
 \end{remark}
 
 \begin{warning}{Support is not skeletal invariance}
@@ -1763,7 +1779,8 @@ rewritten as a skeletal-factorization argument.
 
 \begin{corollary}\label{cor:bfj-original-continuous-solution}
 Assume $K$ is complete discretely valued with residue characteristic zero,
-$X$ is smooth projective, $\omega$ is semipositive with ample class and
+$X$ is smooth connected projective, $\omega$ is a closed semipositive
+model form with ample class and
 has the orthogonality property, and $\mu$ is a positive measure of mass
 $V$ supported on one SNC dual complex.  Then there is a continuous
 $\omega$-psh solution of $\MA_\omega(\varphi)=\mu$, unique modulo
@@ -1855,7 +1872,7 @@ projective $k$-variety of dimension $n+1$, which is what
 \cite[Appendix~A]{BFJ15} needs.
 \end{remark}
 
-\begin{example}[The standard instance, and the failure of the converse]
+\begin{example}[The standard instance and descent to a specified field]
 \label{ex:ch29-algebraizability-instance}
 Let $k$ be a field of characteristic zero, $B=\mathbf A^1_k$ with
 coordinate $t$, and $b=\{t=0\}$.  Then
@@ -1865,15 +1882,16 @@ $k$.  Every $X$ obtained by base change from a smooth projective
 $k(t)$-variety is algebraizable in the sense of
 \Cref{def:ch29-algebraizable}.
 
-The converse fails, and this is exactly why \textup{(S4)} is a restriction.
-A smooth projective variety over $k(\!(t)\!)$ need not descend to
-$k(t)$: the field extension $k(t)\subset k(\!(t)\!)$ has infinite
-transcendence degree, and moduli of varieties over $k(\!(t)\!)$ with
-$k=\mathbf C$ form spaces whose $\mathbf C(t)$-points are a proper,
-generally thin subset.  Already for a smooth plane curve of degree
-$d\geq4$ over $\mathbf C(\!(t)\!)$, whose coefficients are chosen to be
-algebraically independent over $\mathbf C(t)$, no descent to
-$\mathbf C(t)$ is available.  Under the standing hypotheses this costs
+Descent to this specified field $k(t)$ is an additional requirement,
+not a consequence of completeness.  For example, a smooth plane quartic
+over $\mathbf C(\!(t)\!)$ with coefficients algebraically independent
+over $\mathbf C(t)$ has a generic moduli point: the space of plane
+quartics modulo projective coordinates has dimension six, so its moduli
+coordinates have positive transcendence degree over $\mathbf C(t)$.
+It therefore cannot descend to that specified field.  This example
+concerns descent to $\mathbf C(t)$; failure over one specified field is
+not by itself a proof of failure of \Cref{def:ch29-algebraizable}, which
+allows other curve function fields.  Under the standing hypotheses this costs
 nothing today, because \Cref{thm:bggjkm-remove-algebraizability} removes
 \textup{(S4)}; in equal characteristic $p$, where the analogous
 hypothesis \Cref{def:ch23-geometric-origin} is still needed, it is a real
@@ -1889,7 +1907,8 @@ not enter the construction of the Monge--Amp\`ere operator
 (\Cref{chap:bfj-ma}), the capacity theory (\Cref{chap:bfj-capacity}), the
 energy calculus (\Cref{chap:bfj-energy}), the compactness or regularization
 theorems (\Cref{chap:bfj-compactness}), the continuity of envelopes
-(\Cref{chap:bfj-envelopes}), or any argument in the present chapter.  A
+(\Cref{chap:bfj-envelopes}), or the capacity and regularity arguments in the present chapter.
+It enters only through the historical proof of orthogonality.  A
 reader who wishes to check this may follow the ledger
 \Cref{thm:orthogonality-provenance} and the table of
 \Cref{sec:ch29-hypothesis-use}.
@@ -1900,7 +1919,8 @@ reader who wishes to check this may follow the ledger
 
 \begin{theorem}\label{thm:bggjkm-remove-algebraizability}
 Let $K$ be complete discretely valued with residue characteristic zero,
-and let $X$ be smooth projective over $K$.  Every closed $(1,1)$-form
+and let $X$ be smooth connected projective over $K$.  Every closed
+model $(1,1)$-form
 with ample de Rham class satisfies orthogonality.  Consequently
 \Cref{cor:bfj-original-continuous-solution} holds without assuming
 that $X$ is algebraizable over a global function field.
@@ -1927,8 +1947,8 @@ complex from the cited continuous-solution theorem.
 \begin{corollary}
 \label{cor:ch29-bggjkm-cy}
 Let $K$ be complete discretely valued with residue characteristic zero,
-let $X$ be a smooth projective $K$-variety of dimension $n$, let
-$\omega$ be a closed $(1,1)$-form with ample de Rham class, and let
+let $X$ be a smooth connected projective $K$-variety of dimension $n$,
+let $\omega$ be a closed model $(1,1)$-form with ample de Rham class, and let
 $\mu$ be a positive Radon measure of mass $V=(\{\omega\}^n)$ supported
 on the dual complex of a projective SNC model.  Then there is an
 $\omega$-psh function $\varphi\in C^0(X^{\An})$, unique modulo
@@ -1937,74 +1957,75 @@ hypothesis is made.
 \end{corollary}
 
 \begin{proof}
-Combine \Cref{thm:bggjkm-remove-algebraizability}, which supplies the
-orthogonality property required by
-\Cref{cor:bfj-original-continuous-solution}, with that corollary.  Every
-other hypothesis of \Cref{cor:bfj-original-continuous-solution} is among
-\textup{(S1)}, \textup{(S2)}, \textup{(S3)}, \textup{(S5)},
-\textup{(S6)}.
+If $\omega$ is semipositive, combine
+\Cref{thm:bggjkm-remove-algebraizability} with
+\Cref{cor:bfj-original-continuous-solution}.  For a general closed
+model form, choose a positive representative $\omega'$ of its ample
+generic class on a higher model.  The exact sequence
+\Cref{thm:ch20-ddc-exact} gives a real model function $g$ with
+$\omega'=\omega+\ddc g$.  The equation transports by
+\[
+ \varphi=u+g,\qquad
+ \omega+\ddc\varphi=\omega'+\ddc u .
+\]
+Apply the semipositive case to $\omega'$ and the same measure, enlarging
+the SNC model if needed.  Both $g$ and $u$ are continuous, and uniqueness
+transports by the same equality.  This reference change supplies the
+semipositivity missing from a direct application of the preceding
+corollary.
 \end{proof}
 
 \begin{remark}[The exact shape of the 2020 improvement]
 \label{rem:ch29-2020-improvement}
-It is worth being precise about what changed in 2020 and what did not.  The
-2015 chain of implications is
+In the 2015 proof the global-origin hypothesis \textup{(S4)} supplies
+orthogonality, then differentiability of $E_\omega\circ P_\omega$
+and variational existence.  The 2020 proof uses two separate inputs:
 \[
  \begin{gathered}
- \textup{(S4)}\ \Longrightarrow\ \text{orthogonality}\\[-1mm]
- \Longrightarrow\ \text{differentiability of }E_\omega\circ P_\omega\\[-1mm]
- \Longrightarrow\ \text{a variational solution},
+ \text{continuous semipositive metric}
+   \ \Longrightarrow\ \text{relative-volume derivative},\\
+ \text{continuous envelope and preservation of small sections}\\
+ \qquad+\ \text{that derivative}
+   \ \Longrightarrow\ \text{orthogonality}.
  \end{gathered}
 \]
-with \Cref{thm:bfj-supported-regularity} appended at the end.  The 2020
-chain replaces the first arrow by
-\[
-\begin{aligned}
- \textup{(S2)}\ &\Longrightarrow\ \text{continuity of }P_\omega\\
- &\Longrightarrow\ \text{differentiability of non-Archimedean volume}
- \ \Longrightarrow\ \text{orthogonality},
-\end{aligned}
-\]
-where the middle implication is
-\cite[Theorem~6.3.2]{BGGJKM20} and the last is
-\cite[Theorem~6.3.3]{BGGJKM20}.  Both chains end at the same place; neither
-touches \textup{(S5)}, and neither touches the residue-characteristic
-hypothesis \textup{(S2)}, which the second chain in fact uses more visibly,
-since it consumes continuity of envelopes as an input.  In equal
-characteristic $p$ the second chain becomes available only after the
-test-ideal continuity theorem
-\Cref{thm:ch23-gjkm-positive-characteristic}; this is why
-\Cref{thm:gjkm-positive-characteristic-cy} still carries the geometric-origin
-hypothesis, in its $d$-dimensional form, and cannot simply quote
-\Cref{thm:bggjkm-remove-algebraizability}.
+The derivative is \cite[Theorem~5.4.3]{BGGJKM20} and does not follow
+from continuity of all envelopes.  Preservation of small sections is
+Proposition~6.2.1; applying the derivative at the continuous envelope
+gives Theorem~6.3.2.  Rational approximation and homogeneity give the
+real-class statement in Theorem~6.3.3.  Under \textup{(S1)}--\textup{(S3)},
+BFJ supplies the required envelope continuity.
+The continuous supported-solution theorem retains \textup{(S5)}.
+In equal characteristic $p$, the cited test-ideal theorem supplies
+envelope continuity under geometric-origin and resolution hypotheses;
+its orthogonality theorem applies the same Theorem~6.3.2.
 \end{remark}
 
 \subsection{The support hypothesis \textup{(S5)}: what is known}
 \label{sec:ch29-support-status}
 
-Hypothesis \textup{(S5)} has not been removed from any of the theorems in
-this chapter, and it is worth recording exactly what is and is not known
-about weakening it.
+The cited supported continuous-solution theorems retain
+\textup{(S5)}.  It is a sufficient regularity condition, not a necessary
+one: the bounded contrast in \Cref{ex:ch28-unbounded-dual-energy} is
+continuous with a measure carried by no dual complex.
+The following distinctions describe what is established here.
 
 \emph{It cannot be dropped outright.}  Under the full standing hypotheses,
 \Cref{ex:ch29-unbounded-not-supported} exhibits on $\mathbf P^1_K$ a
 measure $\mu$ of mass $V$ whose unique finite-energy solution is
-unbounded.  That $\mu$ has finite dual energy in the sense of
-\Cref{def:dual-energy-measure} follows from
-\Cref{cor:finite-energy-variational-characterization} together with the
-integrability bound \eqref{eq:e1-integrability}, which makes
-$\int\varphi\,\rd\mu$ finite.  So ``$\mu$ has finite energy'' is
+unbounded.  Its finite dual energy follows directly from the computation at its
+finite-energy potential in \Cref{prop:ch28-dual-energy-of-ma}.  So ``$\mu$ has finite energy'' is
 strictly weaker than ``$\mu$ has a continuous solution'', and no theorem
 of the form ``finite energy $\Rightarrow$ continuity'' is available.
 
-\emph{It can be replaced by a capacity condition, at a price.}
+\emph{A capacity condition gives a separate boundedness result.}
 \Cref{thm:ch29-kolodziej-linfty} shows that
 $(A,\alpha)$-domination by capacity bounds the oscillation of the
 solution.  That hypothesis is not implied by \textup{(S5)} in dimension
 $\geq2$ as far as this book proves
 (\Cref{rem:ch29-floor-open}), and it does not by itself yield continuity
-(\Cref{rem:ch29-linfty-scope}).  The two routes are therefore genuinely
-different, and neither subsumes the other.
+(\Cref{rem:ch29-linfty-scope}).  The two displayed arguments prove different conclusions; no
+general implication between their hypotheses is established here.
 
 \emph{It is not a statement about retractions.}  See
 \Cref{warn:ch29-support-not-skeletal} and
@@ -2164,75 +2185,46 @@ of a projective SNC model.  Then
 has a continuous semipositive solution, unique up to scaling.
 \end{theorem}
 \begin{proof}
-We spell out how the test-ideal input enters the BFJ argument.  Resolution
-in dimension $d+n$ first gives the regular projective models needed to
-represent model metrics and numerical classes.  For a model obstacle,
-absorb its vertical divisor into $\theta$ and let $\mathfrak a_m$ be the
-$m$-th base ideal of the resulting model line bundle.  The functions
+We record the source's deduction and its exact inputs.  Resolution
+provides regular projective models for spread-out data.  For a model
+line bundle $\mathcal L$ of the ample generic polarization, the base
+ideals $\mathfrak a_m$ and asymptotic test ideals
+$\mathfrak b_m=\tau(\mathfrak a_\bullet^m)$ satisfy containment,
+subadditivity and uniform global generation.  These are the algebraic
+inputs of \cite[Theorem~1.3 and Theorem~4.6]{GJKM19}.  Under the precise
+spread-out hypotheses of its Assumption~7.1, the complete estimates in
+Theorem~7.3 give
 \[
-                  \phi_m=m^{-1}\log|\mathfrak a_m|
+       m^{-1}\log|\mathfrak a_m|\longrightarrow P_\theta(0)
+       \quad\text{uniformly}.
 \]
-are $\theta$-psh model functions.  On a geometric spread-out model, put
-$\mathfrak b_m=\tau(\mathfrak a_\bullet^m)$.  Test-ideal containment,
-subadditivity, and uniform global generation give
-\[
- \mathfrak a_m\subset\mathfrak b_m,
- \qquad
- \mathfrak b_{m\ell}\subset\mathfrak b_m^{\,\ell},
- \qquad
- \mathcal A^{m_0}\otimes\mathcal L^m\otimes\mathfrak b_m
- \text{ globally generated},
-\]
-with $m_0$ independent of $m$; the last assertion is
-\cite[Theorem~1.3]{GJKM19}.  Evaluating these three inclusions at every
-analytic point gives the two uniform bounds used in the BFJ base-ideal
-argument, and hence
-\[
-                   \phi_m\longrightarrow P_\theta(0)
-                   \quad\text{uniformly}.
-\]
-This is \cite[Theorem~7.3]{GJKM19}.  Uniform approximation of a continuous
-obstacle by model functions and the contraction
-\eqref{eq:ch23-envelope-contraction} give the same conclusion for every
-continuous obstacle.  This is the test-ideal proof of
-\cite[Theorems~1.4 and 8.2]{GJKM19}.
+The normalized functions are monotone along divisibility, not asserted
+monotone at all consecutive levels.  Model-reference changes,
+homogeneity and rational approximation give continuous-obstacle envelopes
+for real ample classes in \cite[Theorem~8.2]{GJKM19}.
 
-Embedded resolution now makes projective SNC models cofinal.  Thus the
-skeletal definition, compactness, mixed Monge--Amp\`ere products, energy,
-and capacity from the BFJ theory apply.  Continuity of envelopes gives
-decreasing model regularization: for a psh function $u$, apply the preceding
-envelope approximation to decreasing continuous obstacles converging to
-$u$.  The resulting diagonal net is decreasing and converges pointwise;
-this is \cite[Corollary~9.1]{GJKM19}.
+Under \textup{(A1)}--\textup{(A3)}, projective SNC models are cofinal.
+The source identifies its model-envelope convention with the BFJ
+envelope; its Corollary~9.1 then supplies a decreasing net of psh model
+regularizations.  A decreasing family of continuous obstacles and
+independently chosen model approximants does not automatically supply
+a decreasing diagonal net; the cited regularization theorem provides
+that step.
 
-For a continuous obstacle $f$, continuity of $P_\theta(f)$ permits the
-intersection-theoretic orthogonality formula
+Theorem~9.2 of the source first reduces to rational classes, then applies
+\cite[Theorem~6.3.2]{BGGJKM20} at the continuous envelope.  This is the
+orthogonality theorem; relative-volume differentiability is the separate
+Theorem~5.4.3 of the latter source.  Orthogonality yields the projected
+energy derivative needed to maximize
 \[
- \int\bigl(f-P_\theta(f)\bigr)
-        \MA_\theta(P_\theta(f))=0.
+                 E_\theta(u)-\int u\,\rd\mu
 \]
-For rational model classes this is the vertical-volume identity; rational
-approximation and continuity of mixed products give the real-class case.
-This is \cite[Theorem~9.2]{GJKM19}, using the volume theorem
-\cite[Theorem~6.3.2]{BGGJKM20}.  Orthogonality yields differentiability of
-$E_\theta\circ P_\theta$.
-
-Normalize psh functions by supremum zero and maximize
-\[
-                  u\longmapsto E_\theta(u)-\int u\,\rd\mu.
-\]
-Skeletal equicontinuity bounds the integral because $\mu$ is supported on
-one SNC skeleton; compactness and upper semicontinuity of energy yield a
-maximizer.  Differentiating along
-$P_\theta(u+tf)$ for each model function $f$ shows that its Monge--Amp\`ere
-measure equals $\mu$.  Finally, the capacity estimate
-\Cref{lem:bfj-kolodziej-sublevel}, applied to decreasing model
-regularizations, and the domination argument
-\Cref{lem:bfj-supported-domination} promote continuity on the supporting
-skeleton to continuity on all of $X^{\An}$.  This is exactly the last step
-of \cite[Theorem~9.3]{GJKM19}.  The comparison principle gives uniqueness
-up to an additive constant in the weight, equivalently up to scaling of the
-metric.
+on the normalized compact psh space.  The fixed skeletal support gives
+continuous pairing; upper semicontinuity of energy gives a maximizer;
+Euler--Lagrange identifies its measure.  The capacity and Dini argument
+then proves continuity.  Uniqueness imports the BFJ15
+Proposition~8.2/Yuan--Zhang Hodge argument, not the comparison principle.
+This is \cite[Theorem~9.3 and its proof]{GJKM19}.
 \end{proof}
 
 Here ``of geometric origin'' includes the descent of the valued field and
@@ -2273,7 +2265,7 @@ Test ideals are defined by Frobenius on $K$-schemes, and there is no
 Frobenius in mixed characteristic; this is why $\mathbf Q_p$ is outside
 the scope of the theorem, and why the mixed-characteristic case
 \Cref{thm:fgk-mixed-characteristic-cy} required a different circle of
-ideas five years later.  The same point is made for envelopes in
+ideas in the 2025 theorem.  The same point is made for envelopes in
 \Cref{rem:ch23-gjkm-hypotheses} and instantiated in
 \Cref{ex:ch23-outside-scope}.
 \end{warning}
@@ -2299,63 +2291,55 @@ unique modulo constants, satisfying
 \]
 \end{theorem}
 \begin{proof}
-We first reconstruct the envelope step.  Suppose a model line bundle
-$\mathcal L$ on a regular model $\mathcal X$ induces $\theta$, and choose
-an ample model $\mathcal A$ of the generic polarization on the same model.
-Let $\mathfrak a_m$ be the base ideal of $\mathcal L^m$.  With
-$D$ representing $\mathcal L$, define the asymptotic perturbation-friendly
-test ideal
+The algebraic envelope input is
+\cite[Theorem~5.1]{FGK25}.  It assumes a regular projective model on
+which the ample generic polarization has an ample extension
+$\mathcal A$.  For another extension $\mathcal L=\mathcal O(D)$
+of that polarization, let $\mathfrak a_m$ be its base ideal and put
 \[
-             \mathfrak b_m:=\tau(\mathcal O_{\mathcal X},m\|D\|)
+ \mathfrak b_m=\tau(\mathcal O_{\mathcal X},m\|D\|),\qquad
+ \mathfrak a'_m=\mathfrak a_m\,\tau(\mathcal O_{\mathcal X},0).
 \]
-and put
-$\mathfrak a'_m:=\mathfrak a_m\tau(\mathcal O_{\mathcal X},0)$.
-The mixed-characteristic test-ideal theorems give, for sufficiently
-divisible indices,
-\begin{align*}
- \mathfrak a'_m&\subset\mathfrak b_m,\\
- \mathfrak b_{m\ell}&\subset\mathfrak b_\ell^{\,m},\\
+The fixed correction factor $\tau(\mathcal O_{\mathcal X},0)$ cannot
+be omitted.  The source proves, at sufficiently large divisible levels,
+\[
+ \mathfrak a'_m\subseteq\mathfrak b_m,\qquad
+ \mathfrak b_{m\ell}\subseteq\mathfrak b_m^\ell,\qquad
  \mathfrak b_m\otimes\mathcal A^{m_0}\otimes\mathcal L^m
-      &\quad\text{is globally generated},
-\end{align*}
-where $m_0$ is independent of $m$.  The first line is the comparison with
-base ideals, the second is perturbation-friendly subadditivity, and the
-third follows from mixed-characteristic global generation after twisting
-by one fixed ample bundle.
-
-Set $\phi_m=m^{-1}\log|\mathfrak a_m|$.  The graded property of the base
-ideals makes $(\phi_m)$ superadditive along divisibility, and the definition
-of the envelope gives
-\[
-                   \sup_m\phi_m=P_\theta(0).
+       \text{ globally generated},
 \]
-The first two ideal inclusions bound $P_\theta(0)$ by
-$m^{-1}\log|\mathfrak b_m|$ from one side.  Global generation bounds the
-latter from the other side by the envelope plus $m^{-1}$ times the fixed
-model function of $\mathcal A^{m_0}$.  Hence $\phi_m$ converges uniformly
-to $P_\theta(0)$.  This is the complete ideal-theoretic estimate of
-\cite[Theorem~5.1]{FGK25}.
+with $m_0$ independent of $m$.  The correction changes the normalized
+model function by the fixed bounded model function
+$m^{-1}\log|\tau(\mathcal O_{\mathcal X},0)|$.  The full estimates in
+the cited proof therefore still give uniform convergence of
+$m^{-1}\log|\mathfrak a_m|$ to $P_\theta(0)$.
+The graded base-ideal relation gives superadditivity before division
+by the index and monotonicity of the normalized functions along
+divisibility; consecutive normalized terms need not be monotone.
+This paragraph records the algebraic inputs and their correction,
+rather than reproving the entire ideal-theoretic estimate.
 
-For a general continuous obstacle $u$, uniform approximation reduces to a
-model function.  Absorb its vertical divisor into $\theta$.  Resolution of
-projective models and the semi-factorial modification lemma produce a
-regular dominating model on which a positive tensor power of the generic
-ample bundle has an ample extension.  The preceding zero-obstacle argument
-applies there, and homogeneity removes the tensor power.  Thus
-$P_\theta(u)$ is a uniform limit of psh model functions; this is
-\cite[Theorem~7.1]{FGK25}.
+For a continuous obstacle, uniform model approximation reduces to a
+rational model obstacle.  Homogeneity clears its denominators.
+The resolution and ample-extension lemma
+\cite[Lemma~6.4]{FGK25} supplies the required regular projective model,
+after a positive tensor power; the model-reference identity
+$P_\theta(u)=P_{\theta+\ddc u}(0)+u$ then applies Theorem~5.1.
+This is precisely \cite[Theorem~7.1 and its proof]{FGK25}.
+With embedded resolution, SNC models are cofinal.  The source's
+Section~8 explains the transfer of the BFJ psh, regularization and
+Monge--Amp\`ere calculus and the real ample-class passage.
+Continuous envelopes and
+\cite[Theorems~6.3.2--6.3.3]{BGGJKM20} give orthogonality, with the
+relative-volume derivative supplied separately by Theorem~5.4.3.
 
-Embedded resolution makes projective SNC models cofinal, so the BFJ
-compactness, energy, capacity, and mixed Monge--Amp\`ere theory is
-available.  Envelope continuity gives monotone model regularization, and
-the volume theorem
-\cite[Theorems~6.3.2--6.3.3]{BGGJKM20} gives orthogonality.  Maximizing
-$E_\theta(u)-\int u\,\rd\mu$ on the normalized compact psh space and
-differentiating $E_\theta\circ P_\theta$ yields a solution.  Since $\mu$ is
-supported on one SNC skeleton, the capacity and domination proof in the
-first section of this chapter makes that solution continuous.  The
-comparison principle gives uniqueness modulo constants.  This is precisely
-the deduction in \cite[Theorem~8.1]{FGK25}.
+The variational functional attains a maximum because skeletal pairing
+is continuous on normalized psh functions.  The projected derivative
+gives the prescribed measure, and the supported capacity--Dini proof
+gives continuity.  Uniqueness imports the BFJ15
+Proposition~8.2/Yuan--Zhang Hodge argument.  This is
+\cite[Theorem~8.1 and its full proof]{FGK25}; comparison alone is not
+its uniqueness input.
 \end{proof}
 
 The proof uses perturbation-friendly test ideals in mixed characteristic to
@@ -2437,13 +2421,14 @@ dual-complex support.
 \item[Toric or invariant setting]
 \emph{Input.} Real Alexandrov theory.
 \par\emph{Remaining hypotheses.} The invariant category and the precise
-tropical finite-energy hypotheses of \Cref{chap:cld-examples}.
+tropical hypotheses of \Cref{chap:cld-examples}.
 \end{description}
 
 The ledger separates continuity of envelopes from continuity of solutions.
 An envelope theorem makes the variational calculus available.  Continuity of
 the resulting solution still uses the location of the prescribed measure,
-unless a different regularity theorem supplies an oscillation estimate.
+unless another criterion proves continuity.  An oscillation estimate
+alone establishes boundedness, a weaker conclusion.
 
 \section{What finite energy does not imply}
 
@@ -2451,11 +2436,12 @@ unless a different regularity theorem supplies an oscillation estimate.
 Under the corresponding orthogonality hypotheses, finite energy implies
 that $\mu$ is a strong limit of model Monge--Amp\`ere measures.  If,
 more specifically, $\mu$ is supported on one SNC dual complex, then it
-has a finite-energy solution and that solution is continuous.  A separate
-potential-completion theorem can identify the limit in the first line with
-an $\mathcal E^1$-potential; the measure-completion theorem alone does not.
-The reverse implication in the supported statement is neither stated nor
-needed.
+has a finite-energy solution and that solution is continuous.  \Cref{thm:ch28-finite-energy-existence} supplies an
+$\mathcal E^1$-potential for every finite-energy measure in the standing
+BFJ framework under orthogonality, by quantitative estimates and
+compact energy-level pairing.  Completion alone is not that argument.
+Skeletal support remains sufficient for continuity and is not necessary,
+as the bounded contrast in \Cref{ex:ch28-unbounded-dual-energy} shows.
 
 Three tempting extrapolations are therefore invalid:
 \begin{enumerate}
@@ -2483,53 +2469,84 @@ $\Phi_m\to\varphi$ only pointwise, the convergence being uniform on no
 neighbourhood of the point $T=0$.  The corresponding positive statement,
 uniform convergence \emph{on a fixed dual complex} for a weakly convergent
 family carried by that complex, is
-\Cref{prop:fixed-skeleton-stability}, and it is the strongest available.
+\Cref{prop:fixed-skeleton-stability}.  No assertion of an exhaustive
+list of stability results is made.
 
-A fourth extrapolation, less often made but equally invalid, is that a
-measure with a \emph{continuous} potential should have a potential of any
-better regularity.  Nothing in this chapter, and nothing known to the
-author, produces a Lipschitz or piecewise linear solution from a continuous
-one; \Cref{ex:ch29-curve-solution} already exhibits a
-skeleton-supported measure on a curve whose solution is a genuine quadratic
-on the skeleton and hence not a model function, while
-\Cref{ex:ch29-curve-dirac} exhibits one whose solution is a model function.
-The dividing line is not detected by any hypothesis appearing in
-\eqref{eq:ch29-signature}.
+A fourth extrapolation, less often made but equally invalid, is
+that continuity implies a model solution.  The quadratic solution in
+\Cref{ex:ch29-curve-solution} is Lipschitz on its skeleton but not
+piecewise affine; the atomic solution in \Cref{ex:ch29-curve-dirac}
+is a model function.  Thus these examples separate model regularity,
+without excluding Lipschitz regularity.
+
+Assertion \cref{itm:ch29-invalid:polar} has a different elementary
+example.  On $\mathbf P^1$ with the standard reference and mass one,
+let $y_k$ be the divisorial point at depth $2^k$ on $R_0$ and put
+\[
+              \nu=\sum_{k\geq1}\frac1{k(k+1)}\delta_{y_k}.
+\]
+Every atom is divisorial, so $\nu$ charges no $\sigma$-pluripolar set.
+For $N\geq1$, truncate the ray at $T_N=2^N$, moving all farther
+atoms to $y_N$, and let $\nu_N$ be this pushforward.  Its graph
+potential $v_N$, with $v_N(\eta)=0$, has slope minus the tail mass:
+it is $-1$ on $[0,2]$, $-1/k$ on
+$[2^{k-1},2^k]$ for $2\leq k\leq N$, and zero beyond $T_N$.
+Extend constantly on attached branches.  These rational piecewise
+affine slopes and breakpoints give an $\omega$-psh model function
+with $\MA_\omega(v_N)=\nu_N$.  Since $v_N$ is constant beyond $T_N$,
+its pairings with $\nu$ and $\nu_N$ agree.  The curve energy formula
+and integration by parts give
+\[
+ \begin{aligned}
+ D_N&:=\int_0^{T_N}|v_N'|^2\,\rd t
+       =2+\sum_{k=2}^N\frac{2^{k-1}}{k^2}\longrightarrow+\infty,\\
+ E_\omega(v_N)&=-\tfrac12D_N,\qquad
+ \int v_N\,\rd\nu=\int v_N\,\rd\nu_N=-D_N .
+ \end{aligned}
+\]
+Consequently the model-test definition gives
+$E_\omega^\vee(\nu)\geq F_\nu(v_N)=D_N/2$ for every $N$,
+hence $E_\omega^\vee(\nu)=+\infty$.  Avoiding polar mass alone
+therefore does not imply finite dual energy.  This calculation is an
+application of the established curve formulas, not a new research claim.
 
 \begin{example}[Why Dini is localized]
 \label{ex:ch29-dini-localized}
 Let $\varphi_j\searrow\varphi$ be the BFJ regularization of a solution.
 On every fixed dual complex the convergence is uniform because the limit is
-continuous there.  Without a fixed complex carrying $\mu$, there is no
-single compact set on which this uniform convergence controls the
-$\mu$-almost-everywhere inequality required by
+continuous there.  Without a fixed complex carrying $\mu$, this skeletal argument
+does not supply a single compact set on which uniform convergence gives
+the almost-everywhere inequality required by
 \Cref{lem:bfj-supported-domination}.  Choosing a different skeleton for
-each $j$ does not repair the argument.
+each index supplies only the bounds in \Cref{prop:ch29-one-complex}.
+For some nonskeletal measures the solution is continuous by other means;
+no impossibility of uniform approximation is asserted for every such measure.
 \end{example}
 
 \section{Worked examples}
 \label{sec:ch29-worked}
 
-The three computations below are carried to explicit numbers.  The first
-solves a skeleton-supported equation on a curve and verifies every
-assertion of \Cref{thm:bfj-supported-regularity} and
-\Cref{thm:ch29-kolodziej-linfty} on it; the second does the same for an
-atomic measure, and exhibits a solution which is a model function; the third
-is the negative example that fixes the boundary of the theory.
+The examples are organized in three groups.  On a curve segment we
+compute a continuous quadratic solution and an atomic model solution,
+including energies and capacity bounds.  In arbitrary dimension we apply
+the capacity floor to a finite divisorial support.  Finally, the unbounded
+ray example separates finite energy from boundedness and shows failure at
+the borderline capacity exponent.
 
 \subsection{A continuous solution on a curve skeleton}
 \label{sec:ch29-ex-curve}
 
 \begin{example}[The uniform measure on a segment of length four]
 \label{ex:ch29-curve-solution}
-Let $\mathcal C$ be a regular semistable model of a smooth projective
-$K$-curve $C$ whose special fibre is $E_0+E_1$ with a single node of
-thickness $4$, so that the skeleton is a segment
-$\Gamma=[0,4]$ with $x=0$ at $x_{E_0}$ and $x=4$ at $x_{E_1}$;
-this is the running example of
-\Cref{ex:ch25-segment-capacities}.  Let $L$ have degree $1$ on each
-component, and let $\omega$ be a model form determined on $\mathcal C$
-with
+Use the split curve setting above.  Start with a semistable model
+with two components meeting at a split node $xy=\pi^4$; that model is
+not regular.  Its regular resolution is a chain of four unit edges,
+with three intermediate components, and retains the modulus segment
+$\Gamma=[0,4]$ with endpoints $x_{E_0}$ and $x_{E_1}$.
+This is the setup of \Cref{ex:ch25-segment-capacities}.
+Let the generic line bundle $L$ have degree two, and let $\omega$
+be the pullback of a model reference with endpoint degrees one and
+degree zero on the intermediate components, so that
 \[
  \mu_0=\MA_\omega(0)=\delta_{x_0}+\delta_{x_4},
  \qquad m_0=m_1=1,\qquad V=\deg L=2,\qquad n=1 .
@@ -2688,8 +2705,8 @@ $\sup u=0$,
 This time $u$ is piecewise affine with integral slopes and integral
 breakpoint, so $\varphi'$ \emph{is} an $\omega$-psh model function, by
 \Cref{lem:model-function-affine} and the criterion recalled in the proof of
-\Cref{cor:ch25-curve-capacity-formula}: it is determined on the vertical
-blowup of $\mathcal C$ subdividing $\Gamma$ at $x_2$.  Its energy is
+\Cref{cor:ch25-curve-capacity-formula}: the midpoint $x_2$ is already a vertex of the regular resolution,
+and this function is determined on that model.  Its energy is
 \[
  E_\omega(\varphi')
  =\bigl(u(0)+u(4)\bigr)-\frac12\int_0^4|u'|^2\rd s
@@ -2721,15 +2738,19 @@ component of its special fibre.  Then
 \Cref{cor:bfj-original-continuous-solution} produces a continuous
 $\omega$-psh $\varphi_x$ with
 $\MA_\omega(\varphi_x)=V\delta_x$, normalized by $\sup\varphi_x=0$; it
-is the Green's function of $x$, identified in
-\Cref{chap:bfj-finite-energy-measures} as the regularized envelope
-\eqref{eq:green-envelope-divisorial}.
+differs by a constant from the Green function in
+\eqref{eq:green-envelope-divisorial}.  That pointwise supremum is
+proved continuous in \cite[Lemma~8.5 and equation~(8.7)]{BFJ15}
+and is normalized to have value zero at $x$, whereas the solution
+here is normalized by supremum zero.
 
 The Ko\l odziej estimate applies with explicit data.  Put
 $c:=\Capa_\omega(\{x\})$, which is positive by
-\Cref{lem:divisorial-positive-capacity}, and let
-$\lambda:=\bigl((\omega+\ddc\psi)|_E\bigr)^n>0$ be the intersection number
-appearing in \eqref{eq:ch25-divisorial-atom}, so that
+\Cref{lem:divisorial-positive-capacity}.  Choose on a dominating model the
+admissible potential $\psi$ in that lemma's proof, whose curvature has a
+relatively ample representative.  The intersection number
+$\lambda:=\bigl((\omega+\ddc\psi)|_E\bigr)^n>0$ in
+\eqref{eq:ch25-divisorial-atom} satisfies
 $c\geq b_E\lambda$ with $b_E$ the multiplicity of $E$ in the special
 fibre.  Since $\Supp\mu=\{x\}$, \Cref{lem:ch29-capacity-floor} gives
 $(A,\alpha)$-domination with $A=Vc^{-(1+\alpha)}$ for every
@@ -2740,20 +2761,24 @@ $\alpha>0$, and \eqref{eq:ch29-kolodziej-bound} reads
  \ \leq\ (C_\omega+nV)\,
    \bigl(Vc^{-(1+\alpha)}\bigr)^{1/\alpha}2^{\,n/\alpha^2}+2 .
 \end{equation}
-If $c\geq1$ one may let $\alpha\to\infty$ and obtain the clean bound
-$\operatorname{osc}\varphi_x\leq C_\omega+nV+2$ of
-\eqref{eq:ch29-kolodziej-floor-bound}.  If $c<1$ the right-hand side of
-\eqref{eq:ch29-dirac-bound} is minimized at a finite $\alpha$ and grows
-like a power of $1/c$; by \Cref{ex:ch25-segment-capacities} the quantity
-$c$ genuinely tends to $0$ along a sequence of models, so the growth is
-not an artefact.
+For every $c>0$, letting $\alpha\to\infty$ gives
+$\operatorname{osc}\varphi_x\leq(C_\omega+nV)/c+2$, by
+\eqref{eq:ch29-kolodziej-floor-bound}.  In fact $c\leq V$ because
+every admissible measure has mass $V$, and the variable factor is
+\[
+ c^{-1}\exp\left(\frac{\log(V/c)}{\alpha}
+                 +\frac{n\log2}{\alpha^2}\right).
+\]
+For $n\geq1$ it decreases toward $1/c$ as $\alpha$ increases;
+there is no finite minimizing exponent when $c<1$.
+The bound records a dependence on the capacity floor, not a proof that
+its numerical growth is sharp.
 
 The same applies verbatim to any measure
 $\mu=\sum_{i=1}^Nc_i\delta_{x_i}$ with $x_i$ divisorial,
 $c_i\geq0$ and $\sum_ic_i=V$: take
-$c=\min_i\Capa_\omega(\{x_i\})>0$.  This is the one class of measures,
-in arbitrary dimension, for which the Ko\l odziej route of
-\Cref{sec:ch29-kolodziej} is unconditionally available.
+$c=\min_i\Capa_\omega(\{x_i\})>0$.  This supplies a capacity-floor application in every dimension of
+the standing framework, without a separate uniform-floor assumption.
 \end{example}
 
 \subsection{What the support hypothesis buys: a measure outside its scope}
@@ -2763,8 +2788,9 @@ The next example is the boundary marker of the chapter.  It shows that under
 the \emph{full} standing hypotheses---complete discretely valued field,
 residue characteristic zero, smooth projective $X$, ample class, and a
 measure of the correct total mass which moreover has finite energy---the
-solution can fail to be bounded, hence fail to be continuous.  What is
-missing is exactly \textup{(S5)}.
+solution can fail to be bounded, hence fail to be continuous.  The measure violates \textup{(S5)} and the positive-power capacity
+condition.  Neither finite energy nor the mass constraint supplies
+continuous regularity.
 
 \begin{example}[A finite-energy measure with an unbounded solution]
 \label{ex:ch29-unbounded-not-supported}
@@ -2783,7 +2809,8 @@ $[k-1,k]$.  Recall from there that
  =\sum_{k\geq1}\frac1{k(k+1)}\,\delta_{\mathbf t=k},
  \qquad \mu(X^{\An})=1=V,
 \end{equation}
-that $\varphi\in\cE^1(X,\omega)$, and that
+where each atom denotes the canonical ray point at depth $k$.
+Also $\varphi\in\cE^1(X,\omega)$ and
 $\varphi(\mathbf t=k)=-H_k\to-\infty$, so $\varphi$ is unbounded and in
 particular not continuous.  By \Cref{thm:ch29-uniqueness} it is the unique
 solution modulo constants; there is therefore no continuous solution of
@@ -2802,7 +2829,7 @@ complex $\Delta_{\mathcal X}$ is compact and contained in the
 quasimonomial locus, so
 $\Delta_{\mathcal X}\cap R_0$ is a compact subset of
 $R_0\setminus\{T=0\}$, which the parameter $\mathbf t$ identifies with
-$[0,+\infty)$; hence there is $m=m(\mathcal X)$ with
+$[0,+\infty)$; hence there is an integer $m=m(\mathcal X)\geq1$ with
 \[
  \Delta_{\mathcal X}\cap R_0\subseteq\{\mathbf t\leq m\} .
 \]
@@ -2846,8 +2873,8 @@ The computation \eqref{eq:ch29-borderline-ratio} shows more: in
 \[
  \mu(E_m)=\Capa_\omega(E_m)\qquad\text{for every }m\geq1 ,
 \]
-and in fact the same domination holds for every Borel set.  Write
-$x_k:=\{\mathbf t=k\}$.  If $\mu(E)>0$, let
+and in fact the same domination holds for every Borel set.  Write $x_k$ for the canonical point at depth $k$ on the ray
+$R_0$, rather than for the full level set $\{\mathbf t=k\}$.  If $\mu(E)>0$, let
 $m=\min\{k\geq1:x_k\in E\}$.  Then
 \[
  \mu(E)\leq\sum_{k\geq m}\frac1{k(k+1)}=\frac1m.
@@ -2867,10 +2894,9 @@ borderline domination
 $\mu(E)\leq A\,\Capa_\omega(E)^{1+\alpha}$ globally, with $A=1$ and
 $\alpha=0$, while its potential is unbounded.
 Therefore no version of \Cref{thm:ch29-kolodziej-linfty} with
-$\alpha=0$ can hold, and the superexponential collapse of the entry
-threshold $\kappa(B,\alpha)=B^{-1/\alpha}2^{-1/\alpha^2}$ as
-$\alpha\downarrow0$, noted in
-\Cref{rem:ch29-iteration-constants}, is forced rather than accidental.
+$\alpha=0$ can hold.  This establishes the need for a stronger
+hypothesis than this borderline one, not optimality of the threshold
+or its rate in \Cref{rem:ch29-iteration-constants}.
 
 The same example calibrates the iteration lemma.  With
 $f(s)=\Capa_\omega(\{\varphi<-s\})$, the identity
@@ -2964,7 +2990,8 @@ $\eta_m=1/(m+1)$.
   \Cref{thm:ch20-mixed-hodge}
  &capacity; energy; \textup{(S5)}\\
 \Cref{thm:ch29-uniqueness}
- &imported input of \cite[\S8]{BFJ15}
+ &\cite[Proposition~8.2]{BFJ15}; iterated Cauchy--Schwarz and ample
+  Hodge equality
  &orthogonality; \textup{(S4)}; \textup{(S5)}\\
 \bottomrule
 \end{tabular}
@@ -2973,9 +3000,10 @@ $\eta_m=1/(m+1)$.
 Two rows deserve comment.  The row for
 \Cref{lem:bfj-kolodziej-sublevel} says that the capacity estimates
 themselves are characteristic-free: they hold as soon as the finite-energy
-calculus of \Cref{chap:bfj-energy} is available, and that calculus in turn
-depends on residue characteristic zero only through
-\Cref{thm:bfj-decreasing-regularization}.  The row for
+calculus of \Cref{chap:bfj-energy} is available, with its psh, operator and model-theoretic inputs.  Their availability
+includes regularization and the relevant resolution/cofinality hypotheses;
+it is not asserted to depend on residue characteristic through only
+one theorem.  The row for
 \Cref{thm:bfj-supported-regularity} says that \textup{(S5)} is used
 \emph{twice}, once as a compactness statement in Step~1 and once as a
 null-set statement in Step~2; the two uses are logically independent, and a
@@ -2986,7 +3014,8 @@ hypothesis supplying only one of them would not suffice.
 
 \emph{(E1) Positive residue characteristic.}  Every statement in
 \Cref{sec:ch29-capacity} and \Cref{sec:ch29-kolodziej} survives, since
-neither multiplier ideals nor resolution enters them.  What fails as proved
+the displayed analytic deductions do not invoke multiplier ideals or
+resolution anew once their psh and operator inputs are supplied.  What fails as proved
 is \Cref{thm:bfj-supported-regularity}, whose first step quotes
 \Cref{thm:bfj-decreasing-regularization}.  In equal characteristic $p$,
 under \eqref{eq:ch29-gjkm-assumptions}, the regularization is restored by
@@ -3011,17 +3040,18 @@ itself the whole finite-energy package.
 SNC models and through
 \Cref{thm:bfj-skeletal-equicontinuity}, hence in
 \Cref{prop:ch29-skeleton-not-polar} and in Step~1 of
-\Cref{thm:bfj-supported-regularity}.  Nothing in
-\Cref{sec:ch29-capacity} needs it.
+\Cref{thm:bfj-supported-regularity}.  The formal estimates in \Cref{sec:ch29-capacity} transport
+conditionally if the corresponding capacity and operator calculus exists.
 
-\emph{(E4) Beyond \textup{(S5)}.}  The two known substitutes are the
-capacity-domination hypothesis
-\Cref{def:ch29-capacity-domination}, which gives boundedness but not
-continuity, and, in dimension one, Thuillier's theory, which gives a
-possibly singular solution for every measure and lets the skeleton
-hypothesis do its work afterwards.  No statement of this book asserts
-continuity of the solution for a measure that is not carried by a dual
-complex.
+\emph{(E4) Beyond \textup{(S5)}.} Finite-energy existence under
+orthogonality is \Cref{thm:ch28-finite-energy-existence}.
+The capacity-domination hypothesis gives a bounded solution once an E1
+solution is available, without proving continuity.  Thuillier's curve
+theory supplies another source of solutions and skeletal regularity.
+The bounded nonskeletal example in
+\Cref{ex:ch28-unbounded-dual-energy} demonstrates that skeletal support
+is not necessary for continuity.  These statements do not constitute an
+exhaustive list of regularity criteria.
 
 \section{Dictionary}
 \label{sec:ch29-dictionary}
@@ -3084,8 +3114,8 @@ algebraizability over a function field
 \label{sec:ch29-dict-backward}
 
 Five entries are one-way.  \emph{From continuity of envelopes to continuity
-of solutions} there is no arrow: the former is a standing hypothesis
-throughout, and \Cref{ex:ch29-unbounded-not-supported} produces an
+of solutions} there is no arrow: the former holds under the standing
+hypotheses, and \Cref{ex:ch29-unbounded-not-supported} produces an
 unbounded solution in its presence.  \emph{From finite energy of $\mu$ to
 continuity of the solution} there is no arrow, by the same example.
 \emph{From boundedness to continuity} there is no arrow proved here; see
@@ -3093,9 +3123,9 @@ continuity of the solution} there is no arrow, by the same example.
 invariance under the retraction} there is no arrow, by
 \cite[Theorem~B]{BJGreen24} and \Cref{warn:ch29-support-not-skeletal}.
 \emph{From support on a dual complex to the capacity floor
-\eqref{eq:ch29-capacity-floor}} there is an arrow on curves
-(\Cref{cor:ch29-curve-floor}) and for finite divisorial supports
-(\Cref{rem:ch29-floor-availability}), and none is proved in general
+\eqref{eq:ch29-capacity-floor}} there is a proof for the displayed
+segment (\Cref{cor:ch29-curve-floor}) and for finite divisorial supports
+(\Cref{rem:ch29-floor-availability}), but none is given in general
 (\Cref{rem:ch29-floor-open}).
 
 \subsection{Numbers to remember}
@@ -3156,15 +3186,17 @@ The capacity estimate, domination lemma, and continuity proof are
 because they are part of the theorem, not technical decorations.
 
 \paragraph{The original theorem, 2015.}
-Everything in \Cref{sec:ch29-capacity,sec:ch29-regularity} follows
-\cite[\S8]{BFJ15}.  The hypothesis list \eqref{eq:ch29-signature} is the one
+The sublevel estimate, domination mechanism and supported regularity
+argument follow \cite[\S8]{BFJ15}.  The abstract iteration and explicit
+capacity-floor deductions are worked out separately above.  The hypothesis list \eqref{eq:ch29-signature} is the one
 under which Theorem~A of that paper is stated; the algebraizability
 condition \textup{(S4)} is used only in
 \cite[Appendix~A]{BFJ15}, and the reader may check this against the
 provenance ledger \Cref{thm:orthogonality-provenance}.  The uniqueness half,
-\Cref{thm:ch29-uniqueness}, is \cite[\S8]{BFJ15}, resting on the
-non-Archimedean Calabi--Yau uniqueness theorem of Yuan and Zhang for
-continuous semipositive metrics.  The underlying global pluripotential
+\Cref{thm:ch29-uniqueness}, is
+\cite[Proposition~8.2]{BFJ15}.  Its finite-energy proof transfers
+Dirichlet vanishing by iterated Cauchy--Schwarz and then uses the ample
+Hodge equality, following Yuan--Zhang.  The underlying global pluripotential
 theory---psh functions, compactness, envelopes, regularization---is
 \cite{BFJ16}; the semipositive metrics themselves go back to
 \cite{Zhang1995} and the measures to \cite{CL06}.  A short survey of the
@@ -3172,8 +3204,10 @@ whole circle by the same authors is \cite{BFJ16b}.
 
 \paragraph{The proofs given here.}
 \Cref{lem:bfj-kolodziej-sublevel} and
-\Cref{lem:bfj-supported-domination} are \cite[Lemmas~8.3--8.4]{BFJ15}; the
-proofs above are written out in the notation of this book and, in the case
+\Cref{lem:bfj-supported-domination} follow
+\cite[Lemmas~8.3--8.4]{BFJ15}.  That source states skeletal support
+in Lemma~8.4, but the capacity proof does not use it; the displayed
+version consequently omits that unused hypothesis.  The proofs are written out in the notation of this book and, in the case
 of the domination lemma, with the translation performed on \emph{both}
 potentials, for the reason given in
 \Cref{warn:ch29-same-translation}.  \Cref{prop:ch29-constant-obstacle},
@@ -3184,11 +3218,10 @@ non-Archimedean transcriptions of the classical Ko\l odziej argument
 pluripotential theory; the iteration lemma with the constant
 $\kappa(B,\alpha)=B^{-1/\alpha}2^{-1/\alpha^2}$ and the additive
 displacement $2$ is elementary and is proved here in full so that
-\Cref{ex:ch29-curve-solution} can be evaluated numerically.  We are not
-aware of a place in the non-Archimedean literature where the resulting
-oscillation bound \eqref{eq:ch29-kolodziej-bound} is stated with explicit
-constants; it is not needed for
-\Cref{thm:bfj-supported-regularity}, and this book uses it only for the
+\Cref{ex:ch29-curve-solution} can be evaluated numerically.
+No literature-priority claim is made for these explicit constants.
+The bound is not needed for \Cref{thm:bfj-supported-regularity};
+here it is used for the
 scope discussion of \Cref{sec:ch29-support-status} and for the worked
 examples.  \Cref{prop:ch29-model-uniqueness} is the equality clause of the
 relative Hodge index theorem \Cref{thm:ch20-mixed-hodge} combined with
@@ -3216,7 +3249,7 @@ the appendix to \cite{GJKM19}.  The envelope half is recorded separately as
 \eqref{eq:ch29-gjkm-assumptions}; the envelope input is
 \cite[Theorem~1.4 and Theorem~8.2]{GJKM19}, recorded as
 \Cref{thm:ch23-gjkm-positive-characteristic}, the orthogonality input is
-\cite[Theorem~9.2]{GJKM19} together with the volume theorem
+\cite[Theorem~9.2]{GJKM19} together with the continuous-envelope orthogonality theorem
 \cite[Theorem~6.3.2]{BGGJKM20}, the monotone regularization is
 \cite[Corollary~9.1]{GJKM19}, and the uniform generation theorem for
 asymptotic test ideals is
@@ -3233,8 +3266,8 @@ as \cite[Theorem~6.3]{GJKM19}.
 continuous-solution statement without \textup{(S4)} is
 \cite[Theorem~D]{BGGJKM20}, recorded here as
 \Cref{cor:ch29-bggjkm-cy}.  The differentiability of non-Archimedean volumes
-behind it is \cite[Theorem~6.3.2]{BGGJKM20}, with an appendix by Lazarsfeld;
-the volume functional itself is studied in \cite{BGM21}.  As
+behind it is \cite[Theorem~5.4.3]{BGGJKM20}; the source also has
+an appendix by Lazarsfeld.  The volume functional itself is studied in \cite{BGM21}.  As
 \Cref{rem:ch29-2020-improvement} records, this work replaces one link in
 the chain and leaves \textup{(S5)} untouched.
 

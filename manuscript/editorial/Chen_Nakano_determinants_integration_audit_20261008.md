@@ -1,0 +1,39 @@
+# Positive curvature determinants and Lefschetz boundaries: book integration
+
+Final build and scoped rendered reading completed 8 October 2026 UTC.
+
+Pointwise positivity of a curvature tensor does not automatically give every Lefschetz isomorphism for its determinant. H.20 and L.82 integrate Zhangchi Chen's eighteen-page arXiv:2609.07964v2, keeping individual and simultaneous Nakano conditions, degree-one and higher-degree maps, and pointwise and global categories separate. Three edition-specific references and five index entries are added.
+
+## Mathematical changes
+
+- H.20 fixes constant Hermitian form matrices on the full exterior spaces of C^n, the i/2 convention, the coefficient tensor and its partial fibre transpose, and the path formulation of the pointwise Hodge--Riemann cone. The appendix preface now expressly includes this local setting.
+- The attributed Theorem A covers n at least four and 2 <= k <= n-2. Its explicit scalar root gives a kernel for the (1,n-k-1) map. The partial-transpose eigenvalue 1-t is negative there; transposition gives a separate dual-positive example with the same determinant, not simultaneous positivity.
+- The attributed Theorem B retains Chen's stated n/k range and any positive reference form. Coordinate diagonalization permits noncommuting positive definite fibre matrices. Disjoint-subset blocks, k! mixed-discriminant coefficients, a common strictly positive finite frame, and the RSW published strict equality case give full degree-one signature, not merely at most one positive eigenvalue. A Lorentzian fixture with a zero eigenvalue exhibits the distinction.
+- Theorem C is included in the same attributed theorem environment as A: n at least six and 2 <= k <= n-4 admit simultaneous Nakano and dual Nakano positivity with a singular (2,n-k-2) map. The six-dimensional rank-two seed has its exact fifteen-by-fifteen determinant and nonzero (2,2) kernel. Rank extension retains factorial normalization, the auxiliary signature, determinant-one congruence, opposite endpoint signs, and the essential strictly positive epsilon perturbation before the continuity argument.
+- The shared Ross--Toma degeneration is attributed to Example 9.2 of arXiv:1905.13636v3, physical page 37. It uses an ample real-twisted rank-three bundle on (P^2)^3, not an ordinary holomorphic bundle at every irrational twist or a global realization of Chen's rank-two tensor.
+- Chen's September Question 6.1 is compared with Du's 5 October theorem: ranks at least nine have negative Griffiths-positive top Chern jets, including the two boundary dimensions by positive tangent extension. Ranks four through eight are candidates within the compared sources, not an exhaustively certified current-open list. Question 6.2 retains both positivity conditions, dimension four, rank two and the (1,1) map; neither example solves it, and Theorem B excludes coordinate-diagonal candidates.
+- L.82 records exact editions, selected proof scopes, factorial/stability locators, minor notation qualifications in RSW, and imported classical foundations. It does not copy the adjacent global integral statement with unqualified hypotheses or claim recursive verification of every external input.
+
+The five new formal blocks are one definition, two attributed theorems and two worked examples. No new proof environment, original theorem promotion or independent-model verification receipt is introduced. No non-Archimedean characteristic product, general Siu division or envelope closure is deduced.
+
+## Source evidence
+
+The [source review](Chen_Nakano_determinants_source_review_20261008.md), [sequential source notes](Chen_Nakano_determinants_source_reading_notes_20261008.md) and [scholarly source manifest](Chen_Nakano_determinants_source_manifest_20261008.json) record four exact editions: **38 distinct source/page pairs and twenty individually displayed matching images**, one whole PDF and three partial readings. Older Du/Finski/Wan evidence is reused with zero fresh reading credit.
+
+The arXiv source archive contains the TeX source and metadata, but not the two advertised Python programs. Both were separately acquired from the author's linked homepage, pinned, fully read and executed using installed SymPy; both pass. Seven independent exact diagnostic groups pass, including unrestricted ranks two through five, both tensor spectra, the full symbolic SD characteristic polynomial and kernel, the auxiliary quotient and the degenerate Lorentzian fixture. These bounded checks supplement the read general proof. A first helper failed on characteristic-polynomial generator assumptions; its failure remains separate, and the new repaired helper does not change the mathematical formulas.
+
+## Required build and final rendered reading
+
+`TEXMFHOME=/workspace/.texlive TEXMFCONFIG=/workspace/.texlive/texmf-config TEXMFVAR=/workspace/.texlive/texmf-var bash scripts/validate-manuscript.sh` passes, including references, canonical inventory, existing checker unit tests and the full build. The final PDF has **4,560 pages**, 21,186,445 bytes, SHA256 `8b34a4cd6408dc9bff80d2f6e55a9ceaa703aa9935f40dd1e0247b82296b35f2`.
+
+The log has zero TeX errors, package/pdf warnings, missing characters, overfull boxes, unresolved references/citations or rerun requests. The 954 existing underfull-box notices remain. BibTeX uses 544 entries with zero warnings. MakeIndex accepts 843 entries, rejects zero and emits zero warnings. All 48,185 internal links and 22,718 named destinations resolve. There are 171 URL links and 2,689 outline entries. H.87--H.96 have ten unique resolved AMS destinations; all 92 preceding manual tags in H/L are intact.
+
+The initial actual diagnostic reading covers **45 selected pages in 23 individually displayed matching images**: both new sections, neighbouring contexts, appendix openers, relevant contents, the complete index and all three new references. It found the absent local constant-form exception in the H preface and wide H.93/H.96 layouts. After repairs and validation v3, **eight pages/four images** were freshly read. The remaining **37 pages/nineteen images** reuse that actual reading only after exact complete-text and image byte identity. All identified repairs are resolved. The [final reading notes](Chen_Nakano_determinants_integration_reading_notes_20261008.md) describe this composite scoped review, not another whole-book reread.
+
+Validation v1 stopped at font preflight; its snapshot contains the old baseline PDF and has no new-build reading credit. Validation v2 and the initial diagnostic reading remain superseded records. An early truncated view and a later incorrect path lookup receive zero reading credit; complete successful displays supply the recorded reading. Frozen earlier records are not rewritten as successes.
+
+## Preservation and publication scope
+
+All 34 preceding formal blocks, fifteen proof blocks, 92 manual tags and historical source lines in H/L remain intact. The other 423 active inputs, 108 protected inputs, 131 preceding frozen records, 211 preceding exports, the new frozen source evidence and both native catalogue files are byte-preserved. The canonical **42 atoms in twelve problem environments** retain their statuses. The general BJ22 critical homogeneous Siu-division/envelope input remains open; the LPWZ elliptic-density candidate remains **UNVERIFIED**.
+
+Publication contains this increment's changed mathematical sources, readable source/book notes, scholarly edition metadata, aggregate build/preservation checks and artifact descriptions. Full historical input maps and internal verification inventories remain cloud-only. The minimal book archive includes the active source closure, two bibliographies, styles and this increment's curated evidence, with every member byte checked; no fresh isolated archive compilation is claimed. The existing native catalogue editor remains open and unchanged.

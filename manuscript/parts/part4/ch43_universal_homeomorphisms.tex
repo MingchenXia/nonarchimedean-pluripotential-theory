@@ -73,8 +73,9 @@ characteristic-$p$ argument actually asserts, because the summary
 
 The Stacks Project criterion for an affine universal homeomorphism in
 characteristic $p$ is \emph{elementwise}: given $b\in B$, some power
-$b^{p^{e(b)}}$ lies in $A$.  Taken literally this is useless for
-descending a Fubini--Study function.  A GF function is
+$b^{p^{e(b)}}$ lies in $A$.  This does not yet provide the common exponent used to descend a
+Fubini--Study presentation; a finite collection of coefficients can,
+however, be handled by taking the maximum of their exponents.  A GF function is
 \[
  \psi=\frac1m\max_j\{\log|s_j|+\lambda_j\},
  \qquad
@@ -104,8 +105,8 @@ $b^{qp}=(b^q)^p\in A$.  Item~\cref{itm:ch43-unif:charts} is the same
 bookkeeping applied to a finite cover, and uses that
 $\{b\in B:b^q\in A\}$ is an $A$-subalgebra of $B$ --- which is true
 because $x\mapsto x^q$ is a ring homomorphism in characteristic $p$, and
-is false in characteristic zero, where the set is not even closed under
-addition.
+need not hold in characteristic zero, where the set can fail to be
+closed under addition.
 
 Item~\cref{itm:ch43-unif:covers} is stronger than the bare existence proof
 requires.  One could choose a fresh common exponent for the finitely many
@@ -132,8 +133,8 @@ $p^n$, which is unbounded in $n$
 fixed $\nu$}, and its existence uses that $X$ is quasi-compact and
 $\nu$ finite.
 
-\emph{The exponent is not a bound on the degree of anything.}  It is an
-exponent of an inseparability, not a degree; the map $\nu$ may be
+\emph{Exponent and generic degree are different invariants.}  It measures the power needed to descend structure-sheaf sections,
+rather than the generic field degree; the map $\nu$ may be
 birational, so that all its residue extensions at generic points are
 trivial, while the exponent is arbitrarily large.
 
@@ -150,8 +151,8 @@ requires the common exponent to exist
 The contrast with \Cref{chap:bj-subintegral-normalization} is the cleanest
 illustration in \cref{part:bj} of how much characteristic $p$ can
 simplify.  There, in characteristic zero, the extension
-$\cO_X\subset\nu_*\cO_Y$ is subintegral, and the substitute for ``raise to
-the power $q$'' is the Roberts--Singh identity: there are an integer
+$\cO_X\subset\nu_*\cO_Y$ is subintegral, and the substitute for raising to a common power is the Roberts--Singh
+identity: for each fixed $b\in B$ there are an integer
 $c\ge0$, a threshold $N$, and \emph{fixed} elements
 $c_1,\ldots,c_c\in B$ such that
 \[
@@ -186,12 +187,13 @@ transitively:
       \Cref{cor:bj-historical-conjecture};
 \item the envelope property $\operatorname{EP}$ of
       \Cref{def:bj-envelope-property} as a \emph{theorem} for any class on
-      any variety --- in this chapter $\operatorname{EP}$ never occurs at
-      all except in the single conditional statement
-      \Cref{cor:ch43-ep-transport}, where it is displayed as a hypothesis on
-      the source $Y$;
-\item closure of any class $\PSH_X(\theta)$ under suprema, regularized or
-      not;
+      any variety.  The only proof using EP is
+      \Cref{cor:ch43-ep-transport}, which assumes it on $Y$ and
+      transports that assumption; the other mentions are comparisons
+      and dependency remarks;
+\item closure of a class $\PSH_X(\theta)$ under suprema, regularized
+      or not, as an unconditional assertion.  The conditional transport
+      proof may use the EP hypothesis explicitly assumed on its source;
 \item any statement of \Cref{chap:bj-subintegral-normalization} or of
       \Cref{chap:bj-envelope-consequences}.  Forward cross-references to
       those chapters occur in remarks, to say where a companion result or an
@@ -205,17 +207,18 @@ of every numbered statement below.
 
 \begin{remark}[Why the firewall is not vacuous here]
 \label{rem:ch43-firewall-not-vacuous}
-Two places are tempting, and both would be circular.
+Two shortcuts need care: the first misses a hypothesis, while the
+second would invoke an envelope property not available as a theorem here.
 
 First, \Cref{thm:bj-positive-universal-reflection} asserts that
 $\nu^*$ is a \emph{bijection}.  Surjectivity of pullback along a
 birational morphism of normal projective varieties is available in this book
-as \Cref{cor:ch42-birational-bijection}, and along a finite morphism as
-\Cref{cor:ch41-finite-bijection}.  Neither applies: $X$ is not normal ---
+as \Cref{cor:ch42-birational-bijection};
+\Cref{cor:ch41-finite-bijection} gives a bijection onto the fibrewise-
+constant subclass for a finite morphism under its EP hypothesis.  Neither applies: $X$ is not normal ---
 if it were, $\nu$ would be an isomorphism and there would be nothing to
-prove --- and both of those corollaries are themselves consequences of the
-normal envelope theorem, hence unavailable for producing an input to the
-unibranch one.  The bijection proved here is obtained from scratch, by
+prove.  The proofs below instead use coefficient conversion, so neither
+corollary is needed to produce this input to the unibranch theorem.  The bijection proved here is obtained from scratch, by
 converting presentations.
 
 Second, at the last step of the proof of
@@ -329,8 +332,8 @@ From \Cref{chap:bj-fs-pl-psh}: the definition of
 $\cH^{\mathrm{gf}}_\Lambda(L)$ and its elementary calculus
 (\Cref{def:gf-fs-functions}, \Cref{prop:ch34-fs-operations}); the definition
 of $\PSH_X(\theta)$ (\Cref{def:bj-psh}) with varying classes; and the
-closure package \Cref{thm:bj-basic-closure}, of which only items~(1),~(2)
-and~(5) are used.
+closure package \Cref{thm:bj-basic-closure}, used for elementary psh operations and varying-class decreasing
+closure; item~(3) also supplies the sum in the surface example.
 
 From \Cref{chap:bj-finite-descent}: the analytic calculus of finite
 morphisms, namely \Cref{lem:ch41-finite-surjective},
@@ -426,8 +429,9 @@ Item~\cref{itm:ch43-crit:charp} is
 {stacks-project}; that tag is stated for a ring map inducing an isomorphism
 $A[1/p]\to B[1/p]$ and requires that both $qb$ and $b^q$ lie in the
 image.  When $A$ and $B$ are $\mathbf F_p$-algebras one has
-$A[1/p]=0=B[1/p]$ and $qb=0$, so the hypothesis is vacuous and the first
-condition drops out.  This is the reading recorded in
+$A[1/p]=0=B[1/p]$.  After enlarging $q$ to a positive power of
+$p$ one also has $qb=0$, so the localization hypothesis is automatic
+and the extra condition on $qb$ imposes no restriction.  This is the reading recorded in
 \Cref{sec:stacks-universal-homeomorphisms}.
 \end{proof}
 
@@ -548,8 +552,8 @@ is
  [u:w]\longmapsto[u^2w:u^3:w^3],
 \]
 which satisfies $ZY^2=w^3u^6=(u^2w)^3=X^3$; it is a bijection --- the
-point $P$ has the unique preimage $[0:1]$ --- and induces an isomorphism
-on all residue fields, all of which are $k$.  On the affine chart
+point $P$ has the unique preimage $[0:1]$ --- and induces isomorphisms on residue fields: the closed-point fields
+are $k$, while the generic fields agree by birationality.  On the affine chart
 $w\ne0$, writing $t=u/w$ and $x=X/Z=t^2$, $y=Y/Z=t^3$, it is the
 inclusion
 \[
@@ -568,12 +572,14 @@ deal: $B/A$ is a one-dimensional $k$-vector space, spanned by the class
 of $t$, and it is exactly that missing $t$ which prevents a Fubini--Study
 function written with the coefficient $t$ from being visibly a
 Fubini--Study function downstairs.  Raising to the power $p$ repairs the
-defect, because $t^p\in A$ for every prime $p$; raising to no power
-repairs it in characteristic zero, which is the entire difficulty of
+defect, because $t^p\in A$ for every prime $p$.
+In characteristic zero $t^n$ also lies in $A$ for $n\ge2$, but the
+powers of $1+t$ never do: there is no one power that works for all
+coefficients.  This is the obstruction treated in
 \Cref{chap:bj-subintegral-normalization}.
 \end{example}
 
-\begin{example}[A universal homeomorphism with nonreduced source]
+\begin{example}[Nilpotent thickenings and universal homeomorphisms]
 \label{ex:ch43-nilpotent-uh}
 Let $Z$ be any scheme and $W\subset Z$ the closed subscheme defined by a
 nilpotent ideal sheaf.  Then $W\to Z$ is a universal homeomorphism by
@@ -620,7 +626,7 @@ namely by
  |b|:=|b^{p^r}|^{1/p^r}
  \qquad\text{whenever }b^{p^r}\in F.
 \]
-If $\operatorname{char}k=0$, or more generally if $F\subset E$ is purely
+If $\operatorname{char}F=0$, or more generally if $F\subset E$ is purely
 inseparable and separable, then $E=F$ and there is nothing to extend.
 \end{lemma}
 
@@ -740,8 +746,8 @@ in characteristic zero.
 $F=\kappa(\mathfrak p)\subset E=\kappa(\mathfrak q)$.  Existence and
 uniqueness are both needed: existence says $\nu^{\An}$ is surjective,
 uniqueness says it is injective.  Neither is automatic for a general finite
-morphism; a separable quadratic extension already carries two extensions of
-a given absolute value in general, which is why
+morphism; a separable quadratic extension can carry two extensions of
+an absolute value, which is why
 \Cref{chap:bj-finite-descent} had to average.
 
 \emph{Step three: bijectivity of $\nu^{\An}$.}  By
@@ -792,7 +798,8 @@ $w\in Y^{\An}$ with image $v=\nu^{\An}(w)$:
       proper support if and only if $v$ does, and $w$ lies in
       $Y^{\val}$ if and only if $v$ lies in $X^{\val}$;
 \item\label{itm:ch43-id:centre}
-      $c(v)=\nu(c(w))$ and $c(w)=\nu^{-1}(c(v))$;
+      $c(v)=\nu(c(w))$, and $c(w)$ is the unique scheme point
+      over $c(v)$;
 \item\label{itm:ch43-id:open}
       for every open $U\subseteq X$, the identification restricts to a
       homeomorphism $(\nu^{-1}U)^{\An}\to U^{\An}$;
@@ -826,8 +833,8 @@ with injectivity of $\nu$ on points.
 \cref{itm:ch43-id:open} A point lies over $U$ if and only if its scheme
 point does (\Cref{lem:ch41-point-pair}), and
 $\nu^{-1}(U)^{\An}$ consists exactly of the points of $Y^{\An}$ whose
-scheme point lies in $\nu^{-1}U$.  Restriction of a homeomorphism to
-corresponding opens is a homeomorphism.
+scheme point lies in $\nu^{-1}U$.  Restriction of a homeomorphism to the corresponding subspaces is a
+homeomorphism.
 
 \cref{itm:ch43-id:scaling} The scaling action multiplies a semivaluation by a
 positive real without changing its support, and the identification is by
@@ -866,7 +873,7 @@ injectivity of $\nu^*$.  Surjectivity is the whole content.
 \end{warning}
 
 \begin{corollary}\label{cor:bj-universal-usc}
-For every function $a:X^{\An}\to\mathbf R\cup\{-\infty\}$,
+For every function $a:X^{\An}\to[-\infty,+\infty]$,
 \[
                          \nu^*(a^*)=(\nu^*a)^*.
 \tag{43.4}\label{eq:bj-universal-usc}
@@ -892,7 +899,7 @@ $\sup_{x'\in V}a(x')=\sup_{y'\in h^{-1}V}a(h(y'))$.  Taking the infimum
 over $V$ gives
 $a^*(h(y))=(a\circ h)^*(y)$, which is
 \eqref{eq:bj-universal-usc}.  Both suprema and the infimum are taken in
-$\Rbar$; no subtraction occurs, so the identity is valid without any
+$[-\infty,+\infty]$; no subtraction occurs, so the identity is valid without any
 finiteness assumption on $a$, and in particular at points where
 $a^*=-\infty$.
 \end{proof}
@@ -900,7 +907,7 @@ $a^*=-\infty$.
 \begin{corollary}
 \label{cor:ch43-sup-star}
 Let $(a_\alpha)_{\alpha\in A}$ be a nonempty family of functions
-$X^{\An}\to\mathbf R\cup\{-\infty\}$.  Then
+$X^{\An}\to[-\infty,+\infty]$.  Then
 \[
  \nu^*\Bigl(\bigl(\sup_\alpha a_\alpha\bigr)^*\Bigr)
  =\Bigl(\sup_\alpha\nu^*a_\alpha\Bigr)^*,
@@ -922,14 +929,15 @@ semicontinuity.
 
 \begin{remark}[Where this corollary is spent]
 \label{rem:ch43-sup-star-use}
-\Cref{cor:ch43-sup-star} is not used in the present chapter at all: no
-supremum of psh functions is formed anywhere below, in accordance with
-\Cref{warn:ch43-firewall}.  It is recorded here because it is the step at
-which \Cref{chap:bj-envelope-consequences} converts the envelope property
+\Cref{cor:ch43-sup-star} is used in the conditional
+\Cref{cor:ch43-ep-transport}, where EP is assumed on the source.
+The coefficient and reflection proofs do not form a psh envelope.
+The same identity is the step at which
+\Cref{chap:bj-envelope-consequences} converts the envelope property
 upstairs into the envelope property downstairs, in the form
-$\nu^*(\sup^*_i\varphi_i)=\sup^*_i\nu^*\varphi_i$; and because it is the
-cleanest illustration of the principle that everything \emph{topological}
-about $\nu$ is free, while everything \emph{sheaf-theoretic} is not.
+$\nu^*(\sup^*_i\varphi_i)=\sup^*_i\nu^*\varphi_i$.
+The identity illustrates why the topological transport is immediate,
+while sheaf-theoretic descent requires the separate coefficient argument.
 \end{remark}
 
 \begin{proposition}
@@ -1036,7 +1044,7 @@ twice more below.
 \begin{lemma}
 \label{lem:ch43-zero-fs}
 Let $Z$ be a projective $k$-variety, let $N$ be a globally generated
-line bundle on $Z$, and let $t_1,\ldots,t_N\in H^0(Z,N)$ generate $N$
+line bundle on $Z$, and let $t_1,\ldots,t_r\in H^0(Z,N)$ generate $N$
 at every point.  Then
 \[
  \max_a\log|t_a|=0
@@ -1076,10 +1084,14 @@ cone.
 \end{lemma}
 
 \begin{proof}
-For an integral class this is the standard fact that the pullback of an
-ample line bundle along a finite morphism is ample, which follows from the
-Nakai--Moishezon criterion or, more directly, from the fact that a finite
-morphism is affine and $f^*\cO(1)$ is relatively ample.  For a real class
+For an integral ample class choose an ample line bundle $L$ on $Z$
+representing it.  Its pullback along the finite morphism is ample.
+Indeed, for any coherent sheaf $\mathcal F$ on $W$, the sheaf
+$f_*\mathcal F\otimes L^m$ is globally generated for all large $m$.
+Pulling back and using the surjection $f^*f_*\mathcal F\to\mathcal F$
+for a finite map gives global generation of
+$\mathcal F\otimes f^*L^m$.  The coherent-sheaf criterion for ampleness
+therefore applies to $f^*L$.  For a real class
 write $\gamma=\sum_\ell c_\ell\gamma_\ell$ with $c_\ell>0$ and
 $\gamma_\ell$ ample integral classes, which is possible because the ample
 cone is open and generated by integral ample classes; then
@@ -1215,8 +1227,10 @@ maximum over a product index set of a sum of two independent families splits,
 which by \eqref{eq:bj-zero-fs-presentation} equals $\psi_i+0=\psi_i$.  All
 the manipulations are performed in $\Rbar$ with no subtraction: the
 splitting of the maximum is valid even when some $\log|s_j|$ equals
-$-\infty$, because the second family is everywhere finite and the
-convention $-\infty+c=-\infty$ applies.  The weights $r_i\lambda_j$ are
+$-\infty$, because the second maximum is the finite value zero.  Individual second-family
+terms may be $-\infty$, but there is no $+\infty$ term, and at least
+one term is zero, so the identity also holds when the first maximum
+is $-\infty$.  The weights $r_i\lambda_j$ are
 rational, and the sections $\widetilde s_{j,a}$ do not all vanish
 identically on $Y$ because the $s_j$ do not and the $t_{ia}$ have no
 common zero; so
@@ -1247,8 +1261,12 @@ $d_i:=\lVert c_1(M_i)-\nu^*\theta\rVert$ and let
 \[
  J:=\{(i,n)\in I\times\mathbf Z_{\ge1}:d_i<n^{-2}\},
 \]
-ordered componentwise.  Convergence of $d_i$ to zero makes $J$ directed,
-and the projection $\pi:J\to I$ is order preserving and cofinal.  Reindex
+ordered componentwise.  For two indices choose $n$ at least as large
+as both second coordinates and then an $i$ above both first coordinates
+with $d_i<n^{-2}$; convergence makes this possible.  Thus $J$ is directed.
+Given $i_0\in I$, choose $i\ge i_0$ with $d_i<1$ to obtain
+$(i,1)\in J$.  The projection $\pi:J\to I$ is therefore order
+preserving and cofinal.  Reindex
 by $\psi_{(i,n)}:=\psi_{\pi(i,n)}$ and take
 $\epsilon_{(i,n)}:=1/n$.  Then $\epsilon_{(i,n)}\to0$ and
 $d_{\pi(i,n)}=o(\epsilon_{(i,n)})$, which is
@@ -1262,9 +1280,8 @@ being assumed.
 
 \begin{remark}[What is \emph{not} claimed]
 \label{rem:ch43-promotion-not-claimed}
-\Cref{lem:bj-normalization-class-promotion} does not claim that $M_i$ is a
-pullback, nor that $M_i$ is close to a pullback, nor that $\psi_i$ has a
-presentation by pulled-back sections.  It claims only that $\psi_i$, as a
+\Cref{lem:bj-normalization-class-promotion} does not claim that $M_i$ itself is a pullback or that $\psi_i$ has
+a presentation by pulled-back sections.  It claims only that $\psi_i$, as a
 function, admits a presentation whose ambient bundle is $\nu^*L_i$.  The
 sections $\widetilde s_{j,a}$ still live upstairs and need not be pullbacks
 of anything; making \emph{them} descend is the job of
@@ -1442,8 +1459,8 @@ $(1)^2\in A$, while $(t+1)^2=t^2+2t+1\notin A$.  There is therefore no
 subalgebra to invoke, no finite system of generators to reduce to, and no
 uniform exponent to extract; the substitute must be a genuinely different
 identity, and it is the Roberts--Singh additive-power identity of
-\Cref{chap:bj-subintegral-normalization}.  This single line is the reason
-the present chapter is a few pages and the next one is a chapter.
+\Cref{chap:bj-subintegral-normalization}.  This failure of additivity explains why the next chapter needs a
+separate coefficient construction.
 \end{warning}
 
 \begin{lemma}\label{lem:bj-uniform-frobenius}
@@ -1461,8 +1478,8 @@ For an affine universal homeomorphism in characteristic $p$, the criterion
 \cite[\href{https://stacks.math.columbia.edu/tag/0CNF}{Tag 0CNF}]
 {stacks-project} says that for every $b\in B_\alpha$ some $p$-power
 belongs to $A_\alpha$.
-The additional condition $p^e b\in A_\alpha$ in that general criterion is
-automatic here because $p=0$.
+After increasing $e$ to at least one, the additional condition
+$p^e b\in A_\alpha$ is automatic because $p=0$.
 
 Choose finitely many $A_\alpha$-algebra generators of each finite algebra
 $B_\alpha$.
@@ -1680,8 +1697,11 @@ $B=A[t]$, so by \Cref{lem:ch43-frobenius-subalgebra}
  \iff t^{p^e}\in A
  \iff p^e\in S:=\langle a,b\rangle,
 \]
-whereas the colength of the conductor is the number of gaps of $S$,
-namely $\tfrac12(a-1)(b-1)$.  For $(a,b)=(2,3)$ the colength is $1$
+The conductor is $\mathfrak c=t^{(a-1)(b-1)}k[t]$ for $a,b>1$.
+Its colength in $A$, namely $\dim_k(A/\mathfrak c)$, equals the
+number of semigroup gaps $\tfrac12(a-1)(b-1)$, since this two-generator
+semigroup is symmetric.  Its colength in $B$ is instead
+$(a-1)(b-1)$.  For $(a,b)=(2,3)$ the colength is $1$
 and $e_{\min}=1$, for every $p$, since $p\ge2$ lies in
 $S=\{0,2,3,4,\ldots\}$.  For $(a,b)=(p^2,p^2+1)$ the colength is
 $\tfrac12p^2(p^2-1)$, which is large, while $e_{\min}=2$: the elements
@@ -1772,11 +1792,18 @@ Define $X$ by gluing
 \]
 along the common open $\Spec k[t^{\pm1}]$, on which both rings become
 $k[t^{\pm1}]$ --- for $U_1$ because $t=t^3t^{-2}$, and for $U_2$
-because $t'=t'^{\,p^2+1}t'^{-p^2}$.  The result is a projective curve
-$X$ with normalization $\nu:\mathbf P^1\to X$, which is finite,
-birational and bijective, hence a universal homeomorphism by
-\Cref{prop:ch43-criteria}\,\cref{itm:ch43-crit:uh}.  It is unibranch, with
-two singular points $P_1=\nu(0)$ and $P_2=\nu(\infty)$.
+because $t'=t'^{\,p^2+1}t'^{-p^2}$.  The result is a separated curve: the intersection ring $k[t^{\pm1}]$
+is generated by the images of the two chart rings, since
+$t=t^{p^2+1}t^{-p^2}$ and $t^{-1}=t^{p^2}t^{-(p^2+1)}$.
+The chart normalizations glue to a finite birational map
+$\nu:\mathbf P^1\to X$.  Each chart map has singleton fibres and
+identical residue fields, so $\nu$ is a universal homeomorphism by
+\Cref{prop:ch43-criteria}\,\cref{itm:ch43-crit:uh}.  The finite surjection from $\mathbf P^1$ makes $X$ proper:
+after every base change a closed subset has closed image on the base,
+by taking its inverse image in the proper source.
+A proper integral curve over a field is projective, so the construction
+has the claimed projectivity.  It is unibranch, with
+singular points $P_1=\nu(0)$ and $P_2=\nu(\infty)$.
 
 By the computation of \Cref{rem:ch43-emin-meaning}, the least exponents on
 the two charts are
@@ -1791,10 +1818,12 @@ so $q_1=p$ and $q_2=p^2$, and the uniform exponent supplied by
 \Cref{lem:bj-uniform-frobenius} is $q=p^2=\max\{q_1,q_2\}$.
 
 Now suppose one tried to descend a GF function chart by chart, using
-$q_1$ on $U_1$ and $q_2$ on $U_2$.  Take $L:=\cO_X(D)$ for a
-Cartier divisor $D$ supported in the smooth locus, with $m=1$, and a
-single section $s\in H^0(\mathbf P^1,\nu^*L)$, so
-$\psi=\log|s|$.  Read $s$ in frames $e_1,e_2$ of $L$ over $U_1,U_2$
+$q_1$ on $U_1$ and $q_2$ on $U_2$.
+Choose $L$ by gluing trivial bundles on $U_1,U_2$ with frames
+$e_2=t^d e_1$ on their overlap, where $d>0$.
+Then $\nu^*L\simeq\cO_{\mathbf P^1}(d)$.
+Take $m=1$ and a nonzero section $s\in H^0(\mathbf P^1,\nu^*L)$,
+so $\psi=\log|s|$.  Read $s$ in those frames $e_1,e_2$
 pulled back from $X$, obtaining coefficients $f_1\in B_{U_1}$,
 $f_2\in B_{U_2}$ with
 \[
@@ -1810,11 +1839,12 @@ overlap
  f_2^{q_2}=g^{-q_2}f_1^{q_2}
  =g^{-q_2}\bigl(f_1^{q_1}\bigr)^{q_2/q_1},
 \]
-which is \emph{not} $g^{-q_1}f_1^{q_1}$ unless $q_1=q_2$.  In sheaf
+which need not equal $g^{-q_1}f_1^{q_1}$ when $q_1\ne q_2$.  In sheaf
 language, $f_1^{q_1}$ is a local section of $q_1L$ and $f_2^{q_2}$ is a
 local section of $q_2L$: they are sections of different line bundles, they
-satisfy different cocycle conditions, and there is no object on $X$ of
-which they are the local expressions.  A ``function'' assembled from them by
+satisfy different cocycle conditions, and this recipe alone supplies
+no presentation in one common bundle.  Special sections can give
+accidental compatible data; the general construction needs a common power.  A ``function'' assembled from them by
 writing $\frac1{q_1}\log|f_1^{q_1}|$ on $U_1$ and
 $\frac1{q_2}\log|f_2^{q_2}|$ on $U_2$ is of course still equal to
 $\log|s|$ pointwise --- powering never changes the function --- but it is
@@ -1826,7 +1856,7 @@ The repair is to raise both to the common exponent $q=p^2$, which is
 legitimate because $f_1^{q_1}\in A_{U_1}$ implies
 $f_1^{q}=(f_1^{q_1})^{q/q_1}\in A_{U_1}$.  This is the content of
 step three of the proof of \Cref{lem:bj-uniform-frobenius}, and the example
-shows that the step is not a convenience but a necessity.  The reader may
+shows why a common Veronese multiple is required by this construction.  The reader may
 also note that on this curve the exponent $q=p^2$ is minimal: no smaller
 $p$-power works on $U_2$.
 \end{example}
@@ -1851,8 +1881,8 @@ Consequently:
       \emph{fixed} $\nu$, not a universal constant;
 \item the disjoint union
       $\nu_\infty:\bigsqcup_{n\ge1}\Spec B_n\to\bigsqcup_{n\ge1}\Spec A_n$
-      is an affine, integral, radicial, surjective morphism --- a universal
-      homeomorphism --- for which the conclusion of
+      is a finite, hence affine and integral, radicial surjective
+      morphism --- a universal homeomorphism --- for which the conclusion of
       \Cref{cor:ch43-frobenius-all-affines} \emph{fails}: every affine open
       meets only finitely many components and hence admits an exponent, but
       no single exponent works uniformly for all affine opens.  The failure
@@ -1895,8 +1925,9 @@ exponent to be had.
 
 The correct characteristic-zero replacement, due to Roberts and Singh, is to
 allow the power to be corrected by lower-order terms with \emph{fixed}
-coefficients: with $A\subseteq B$ subintegral there are
-$c_1,\ldots,c_c\in B$ and $N$ such that
+coefficients: for a subintegral extension of $\mathbf Q$-algebras
+and each chosen $b\in B$, there are $c_1,\ldots,c_c\in B$ and $N$
+(depending on $b$) such that
 $b^n+\sum_{i}\binom nic_ib^{n-i}\in A$ for all $n\ge N$.  For
 $A=\mathbf Q[t^2,t^3]$ and $b=1+t$, one may take $c=1$ and
 $c_1=-t$, since
@@ -2080,16 +2111,17 @@ stage.
 The equality $\log|s_j^q|=q\log|s_j|$ accounts for the section term.
 Multiplying $\lambda_j$ by the same $q$ makes the whole maximum scale by
 $q$, which is then cancelled by the denominator $mq$.
-Leaving the weights unchanged would alter the function.
+Leaving the weights unchanged can alter the function.
 
-Concretely, with unchanged weights one would obtain
-$\frac1{qm}\max_j\{q\log|s_j|+\lambda_j\}$, which differs from $\psi$
-unless all the $\lambda_j$ are equal; and when they are not, the
-difference is not even a constant, since the maximum is attained by
-different indices at different points.  The rescaling
-$\lambda_j\mapsto q\lambda_j$ is the unique one making the presentation
-homogeneous of degree $q$ in the pair (section, weight), which is what the
-denominator $qm$ then undoes.
+With unchanged weights the expression would be
+$\frac1{qm}\max_j\{q\log|s_j|+\lambda_j\}$.
+If every $\lambda_j$ equals $c$, this shifts the function by
+$c(1/q-1)/m$; unequal weights can change it by a nonconstant amount.
+For example, on $\mathbf P^1$ with sections $u,w$, weights $0,-1$
+and $m=1$, the original values at $u=0$ and $w=0$ are $-1,0$.
+For $q>1$, leaving the weights unchanged gives $-1/q,0$.
+Multiplying each weight by $q$ preserves the identity term by term;
+no uniqueness of presentations is asserted.
 \end{remark}
 
 \begin{remark}[No averaging]
@@ -2102,8 +2134,9 @@ function.
 
 The contrast with \Cref{chap:bj-finite-descent} is instructive.  There, a
 finite morphism $h:T\to X$ of degree $d$ descends a GF function by
-forming the norm of a universal linear form and dividing by $md$; the
-resulting function is the \emph{fibre average}
+first passing to its finite flatification, then forming the norm of
+a universal linear form and dividing by $md$.  For the finite flat
+map the resulting function is the \emph{fibre average}
 $\frac1d\sum_{w\mid z}e(w/z)\varphi(w)$, which in general is not equal to
 $\varphi$ at any lift.  Here every topological fibre is a singleton, but
 its scheme-theoretic length need not be one: the cuspidal normalization has
@@ -2356,9 +2389,10 @@ $B_U$ is generated over $A_U$ by $\tau$, and $\tau^p=t\in A_U$, so
 $q=p$ works and $e_{\min}(\mu)=1$.  The same on the other chart.
 
 \emph{Downstairs to upstairs.}  Take
-$\varphi:=\max\{\log|t|,\,\lambda\}$, a GF function for $L$ in the
-presentation with sections $u,w$ of $\cO_X(1)$ and weights $0,\lambda$
---- writing $t=u/w$.  Then
+$\varphi:=\max\{\log|u|,\log|w|+\lambda\}$, a GF function for $L$
+with weights $0,\lambda$.  At centres in the chart $w\ne0$, its
+expression in the frame $w$ is $\max\{\log|t|,\lambda\}$.
+On the corresponding upstairs chart one has
 \[
  \mu^*\varphi=\max\{\log|\tau^p|,\lambda\}
              =\max\{p\log|\tau|,\lambda\},
@@ -2384,14 +2418,23 @@ by \Cref{thm:bj-positive-universal-reflection} together with
 \Cref{prop:ch43-frobenius-no-birational}.  If the two copies of
 $\mathbf P^1{}^{\An}$ are identified by renaming the coordinate $\tau$
 as $t$ --- rather than by using $\mu^{\An}$ itself --- then
-$\mu^{\An}$ is the scaling of \Cref{prop:ch32-scaling-action} by the
-factor $p$: a semivaluation $w$ on $k(\tau)$ restricts to the
-semivaluation $t\mapsto p\,w(\tau)$ on $k(t)$.  If domain and target are
+$\mu^{\An}$ also twists coefficients.  For a polynomial
+$f(t)=\sum_i a_it^i$, perfectness of $k$ gives
+\[
+ (\mu^{\An}w)(f)
+ =w\Bigl(\sum_i a_i\tau^{pi}\Bigr)
+ =p\,w\Bigl(\sum_i a_i^{1/p}\tau^i\Bigr).
+\]
+The formula extends to rational functions at full support and applies
+as a semivaluation formula on the affine chart at proper support.
+In particular, the trivial point $\tau=a$ maps to $t=a^p$.
+Pure valuation scaling preserves supports, so direct coordinate renaming
+does not turn this map into scaling on the whole analytic space.
+It acts as scaling by $p$ on monomial rays at $0$ and $\infty$.  If domain and target are
 instead identified through the homeomorphism $\mu^{\An}$ of
 \Cref{lem:bj-universal-analytic-homeomorphism}, that map of course becomes
-the identity.  In the fixed-coordinate picture, reflection therefore
-combines a reparametrization of the cone by a factor $p$ with the class
-identity
+the identity.  In the fixed-coordinate picture, reflection combines that coefficient
+twist and valuation scaling with the class identity
 $\mu^*c_1\bigl(\cO_X(1)\bigr)=p\,c_1\bigl(\cO_Y(1)\bigr)$.
 \end{example}
 
@@ -2467,8 +2510,8 @@ Their classes converge to $\theta$.
 Apply the decreasing-limit axiom PSH2.
 Its exceptional alternative is an identically $-\infty$ limit.
 That alternative cannot occur because $\psi$ is psh and hence has a finite
-value at the trivial valuation; equivalently, each homogeneous normalization
-used in the regularization has the prescribed finite trivial value.
+value at the trivial valuation.  This finite limit value is sufficient;
+no homogeneous normalization of the GF stages is required.
 Thus the pointwise limit belongs to $\PSH_X(\theta)$.
 Its pullback is $\psi$, proving surjectivity.
 
@@ -2537,9 +2580,9 @@ ample, and through the finite generation of $B_U$ over $A_U$ in
 \Cref{lem:bj-uniform-frobenius}.  \emph{Universal homeomorphy} enters twice:
 through \Cref{lem:bj-universal-analytic-homeomorphism}, and through the
 elementwise criterion \Cref{lem:ch43-elementwise-frobenius}.
-\emph{Characteristic $p$} enters exactly once, in
-\Cref{lem:ch43-frobenius-subalgebra}, and everything downstream of it is
-formal.  \emph{Projectivity} enters in the compactness argument of
+\emph{Characteristic $p$} enters through the elementwise criterion,
+the Frobenius subalgebra property, and coefficient powering compatible
+with the line-bundle cocycles.  \emph{Projectivity} enters in the compactness argument of
 \Cref{lem:bj-universal-analytic-homeomorphism}, in the existence of centers
 used by \Cref{lem:ch43-zero-fs}, and in the availability of
 \Cref{def:bj-psh}.  \emph{Integrality} of $X$ and $Y$ enters in the
@@ -2644,9 +2687,9 @@ $u=u'\in\PSH_X(\theta)$.
 
 \begin{remark}[This corollary is conditional, and deliberately so]
 \label{rem:ch43-ep-conditional}
-\Cref{cor:ch43-ep-transport} is the only place in this chapter where the
-envelope property is mentioned, and it appears as a hypothesis on $Y$, in
-accordance with \Cref{warn:ch43-firewall}.  It is not combined here with the
+\Cref{cor:ch43-ep-transport} is the only proof in this chapter that
+uses EP.  It assumes EP on $Y$ and proves the corresponding statement
+on $X$, in accordance with \Cref{warn:ch43-firewall}.  It is not combined here with the
 normal case \Cref{thm:bj-normal-envelope}, although the combination is
 immediate when $Y=X^\nu$ is the normalization of a unibranch $X$; that
 assembly, together with its characteristic-zero half from
@@ -2698,13 +2741,22 @@ inclusion $k[\tau^{p^2}]\subset k[\tau]$, for which $\tau^{p^e}$ lies in
 $k[\tau^{p^2}]$ if and only if $p^2\mid p^e$, that is, $e\ge2$.  Hence
 $e_{\min}(\nu_1\nu_2)=2=e_1+e_2$.
 
-Equality is not the general rule.  Take $\nu_2=\mathrm{id}$ and
-$\nu_1$ the normalization of the cuspidal cubic: then
-$e_{\min}(\nu_1\nu_2)=1=1+0$, trivially.  A less trivial phenomenon is
-that the two inseparabilities may overlap, in which case the composite needs
-fewer than $e_1+e_2$ steps; only the inequality is proved above, and only
-the inequality is used --- in fact it is used nowhere, and is recorded
-because it makes the invariant $e_{\min}$ behave like a length.
+Strict inequality can also occur.  In characteristic two take the
+inclusions
+\[
+ A=k[t^4,t^5]\subset B=k[t^2,t^3]\subset D=k[t].
+\]
+Glue each spectrum to the common smooth chart $k[t^{-1}]$ at infinity,
+as in \Cref{ex:ch43-two-cusps}, to obtain finite universal
+homeomorphisms of integral projective curves.
+For $B\subset D$ the least exponent is one.
+For $A\subset B$ it is two: $t^3$ has square $t^6\notin A$, whereas
+the fourth powers of both generators $t^2,t^3$ lie in $A$.
+For $A\subset D$ it is two, since $t^2\notin A$ but $t^4\in A$.
+The smooth chart adds no obstruction.  Thus the composite has exponent
+two, strictly smaller than the sum $2+1$.
+These examples illustrate the proved inequality; no additional
+bound is needed for reflection.
 \end{remark}
 
 \begin{corollary}\label{cor:bj-positive-normalization-reflection}
@@ -2765,6 +2817,7 @@ integral and has two branches at its node
 
 \begin{example}[The node is not unibranch]
 \label{ex:ch43-node-not-unibranch}
+Assume $\operatorname{char}k\ne2$ for this plane equation.
 Let $N\subset\mathbf P^2$ be the nodal cubic $\{ZY^2=X^2(X+Z)\}$, with
 node at $P=[0:0:1]$.  On the chart $Z\ne0$, with $x=X/Z$,
 $y=Y/Z$, the local ring at $P$ is the localization of
@@ -2773,11 +2826,12 @@ $x=t^2-1$, $y=t(t^2-1)$; the two points $t=\pm1$ both map to $P$.
 Hence $\nu$ is not injective, $N$ is not unibranch, and
 $\nu^{\An}$ is not injective either: the trivial valuations of the two
 preimages are distinct points of $(\mathbf P^1)^{\An}$ with the same
-image.  Everything in this chapter fails for $N$, starting with
-\Cref{lem:bj-universal-analytic-homeomorphism}; and indeed the envelope
-property itself fails for an ample class on $N$, which is why the
-unibranch hypothesis is not removable.  See
-\Cref{sec:ch43-failure} and \Cref{ex:bj-node-cusp}.
+image.  Thus the analytic-homeomorphism and whole-class reflection conclusions
+cannot be applied to this normalization.  The separate conditional
+necessity theorem \Cref{thm:ep-implies-unibranch} implies failure of EP
+for an ample class on $N$.  This latter conclusion comes from that
+theorem, not from the branch-asymmetric example alone; compare
+\Cref{ex:bj-node-cusp}.
 \end{example}
 
 \begin{lemma}\label{lem:bj-unibranch-normalization-universal}
@@ -2894,10 +2948,12 @@ entirely independent of the present chapter.  The present chapter and
 of a known implication, and there is no room between the two.  The failure
 on a non-unibranch variety can be seen directly on the nodal cubic
 (\Cref{ex:ch43-node-not-unibranch}, \Cref{ex:bj-node-cusp}) and is
-structural: with two branches, the analytic space upstairs is strictly
-bigger than the one downstairs, and a psh function downstairs is
-constrained by an equality between its values on the two branches which is
-not preserved under taking suprema.
+structural.  Two branches give distinct analytic points with the same
+image, and upstairs section functions can separate them.
+Pointwise suprema of fibrewise-constant functions remain fibrewise
+constant; equality of branch values does not itself fail under suprema.
+The converse EP implication uses the separate argument of
+\Cref{thm:ep-implies-unibranch}.
 \end{remark}
 
 \section{A nonnormal unibranch surface, end to end}
@@ -2971,8 +3027,9 @@ the first because $C$ has degree three and $\nu_C$ is birational.  Put
  \qquad
  \nu^*\theta=(3,\sqrt2).
 \]
-The class is irrational, so no single rational line bundle carries it and
-every regularization must have varying classes.
+The class is irrational, so a regularization by rational ambient
+line-bundle classes must have classes approaching it rather than
+remaining equal to it.
 
 \emph{(d) A psh function upstairs.}  Set
 \[
@@ -2982,10 +3039,15 @@ Each summand is a GF function --- $uw^2\in H^0(Y,\cO(3,0))$ and
 $z_0\in H^0(Y,\cO(0,1))$ --- so
 $\log|uw^2|\in\PSH_Y(3,0)$ and $\log|z_0|\in\PSH_Y(0,1)$, and
 $\psi\in\PSH_Y(\nu^*\theta)$ by
-\Cref{thm:bj-basic-closure}\,(3).  It is not a GF function, its class being
-irrational.
+\Cref{thm:bj-basic-closure}\,(3).
+It has no rational GF presentation: on the monomial ray with
+$t$ of value zero and $z$ of value $\beta>0$ its value is
+$-\sqrt2\,\beta$, while a rational GF presentation restricts to a
+finite maximum of affine functions with rational slopes.
+The irrational class alone would not prove this, since a function can
+have more than one ambient presentation.
 
-\emph{(e) The regularization.}  Choose rationals $r_n\uparrow\sqrt2$ and
+\emph{(e) The regularization.}  Choose positive rationals $r_n\uparrow\sqrt2$ and
 write $r_n=a_n/b_n$ in lowest terms.  Put
 \[
  \psi_n:=\log|uw^2|+r_n\log|z_0|
@@ -3037,9 +3099,10 @@ and the descended stage is
 \]
 
 \emph{(h) Values, computed.}  For $\alpha,\beta\ge0$ let $w_{\alpha\beta}$
-be the monomial semivaluation on $Y$ with
-$w_{\alpha\beta}(t)=\alpha$, $w_{\alpha\beta}(z)=\beta$, centered at the
-point $t=z=0$.  Then
+be the monomial semivaluation on the chosen affine chart of $Y$ with
+$w_{\alpha\beta}(t)=\alpha$, $w_{\alpha\beta}(z)=\beta$.
+Its centre is $t=z=0$ when both weights are positive; with a zero
+weight the centre is the appropriate generic point.  Then
 \[
  \psi_n(w_{\alpha\beta})=-\alpha-r_n\beta,
  \qquad
@@ -3068,7 +3131,7 @@ instance with $p=5$, $r_n=7/5$, $\alpha=1$, $\beta=2$:
 while $\psi=-1-2\sqrt2=-3.828\ldots$ and $-19/5=-3.8$, consistent with
 $r_n\uparrow\sqrt2$ and $\psi_n\downarrow\psi$.
 
-\emph{(i) Proper support.}  Let $v$ be the semivaluation of $X$ whose
+\emph{(i) Proper support.}  Let $v$ be any semivaluation of $X$ whose
 support is the singular curve $\{P\}\times\mathbf P^1$; upstairs the unique
 preimage is the semivaluation $w$ with support $\{t=0\}$.  Then
 $w(t)=+\infty$, so $\psi_n(w)=-\infty$ and $\psi(w)=-\infty$;
@@ -3108,8 +3171,9 @@ $e=1$, illustrating that the
 maximum of \Cref{lem:bj-uniform-frobenius} is usually attained on a small
 part of the cover, while \Cref{cor:ch43-frobenius-all-affines} is what allows
 the cover to be chosen afterwards to trivialize $b_nL_n$ --- and in
-item~(g) the trivializing cover does depend on $n$, through $a_n$ and
-$b_n$.
+this example the same four charts trivialize every $b_nL_n$.
+Only the tensor powers of their frames depend on $a_n,b_n$;
+the all-affines statement is useful for general bundles beyond this example.
 \end{remark}
 
 \section{Extended-real and circularity audit}
@@ -3146,7 +3210,7 @@ the operation performed on it.
       value is manipulated.
 \item\label{itm:ch43-er:usc}
       In \Cref{cor:bj-universal-usc} and \Cref{cor:ch43-sup-star}, suprema
-      and infima are taken in $\Rbar$.  These are order operations and are
+      and infima are taken in $[-\infty,+\infty]$.  These are order operations and are
       total; no subtraction occurs.
 \item\label{itm:ch43-er:zero}
       In \Cref{lem:ch43-zero-fs} the conclusion is that a maximum equals
@@ -3158,7 +3222,8 @@ the operation performed on it.
 \item\label{itm:ch43-er:split}
       In the proof of \Cref{lem:bj-normalization-class-promotion} the
       identity $\max_{j,a}(A_j+B_a)=\max_jA_j+\max_aB_a$ is used with
-      $A_j\in[-\infty,\infty)$ and $B_a\in\mathbf R$.  This is valid in
+      $A_j\in[-\infty,\infty)$ and $B_a\in[-\infty,0]$ with
+      $\max_aB_a=0$.  This is valid in
       $\Rbar$: if some $A_j=-\infty$ the corresponding terms are
       $-\infty$ and are discarded by the maximum on both sides, and if all
       $A_j=-\infty$ both sides are $-\infty$.
@@ -3180,8 +3245,9 @@ the operation performed on it.
 expression of the shape $\varphi-\nu^*\psi$ occurs; the reflection is
 proved by exhibiting a presentation, not by estimating a difference.
 
-\emph{No supremum of psh functions is formed}, regularized or not, except in
-the hypothesis of \Cref{cor:ch43-ep-transport}, which is displayed as such.
+\emph{The reflection proof forms no supremum of psh functions.}
+The conditional proof of \Cref{cor:ch43-ep-transport} does form one,
+using the displayed source-EP hypothesis.
 
 \emph{No division by a fibre degree is performed.}  The only divisions are by
 the integers $m$, $q$ and $r_i$ and by the real number
@@ -3218,7 +3284,7 @@ see the explicit computation at the end of the proof of
 analytic point, verified at common zeros in the fifth paragraph of the
 expanded proof.
 
-\emph{Checkpoint 5.}  The only closure property of $\PSH$ invoked is
+\emph{Checkpoint 5.}  The limit-closure property used in the reflection proof is
 \Cref{thm:bj-basic-closure}\,(5), for \emph{decreasing} nets with varying
 classes.  See the last paragraph of the proof of
 \Cref{thm:bj-positive-universal-reflection} and
@@ -3235,7 +3301,8 @@ elsewhere.
 \begin{proposition}\label{prop:bj-positive-normalization-ledger}
 For the reflection theorem:
 \begin{enumerate}
-\item finiteness supplies finite affine algebras and a finite affine cover;
+\item finiteness supplies finite affine algebras; quasi-compactness of
+      the projective target supplies a finite affine cover;
 \item surjectivity between integral schemes makes the affine ring maps
       injective; birationality is not needed;
 \item universal homeomorphy gives unique analytic lifts and the elementwise
@@ -3284,10 +3351,11 @@ The topological half survives:
 \Cref{prop:ch43-free-half} and
 \Cref{lem:bj-normalization-class-promotion} are proved in every
 characteristic, and \Cref{lem:bj-unibranch-normalization-universal} likewise.
-Everything from \Cref{sec:ch43-frobenius} onwards fails as stated: there is
-no ring homomorphism $x\mapsto x^q$, the set $\{b:b^q\in A\}$ is not
-closed under addition (\Cref{warn:ch43-subalgebra-charp}), and no uniform
-exponent exists (\Cref{rem:ch43-charzero-contrast}).  The conclusion,
+The Frobenius construction does not apply: nontrivial power maps
+need not be additive, and the set $\{b:b^q\in A\}$ need not be
+closed under addition (\Cref{warn:ch43-subalgebra-charp}).
+The cuspidal extension admits no uniform exponent
+(\Cref{rem:ch43-charzero-contrast}).  The conclusion,
 however, is still true, and is proved by a different mechanism in
 \Cref{chap:bj-subintegral-normalization}: in characteristic zero a finite
 universal homeomorphism is subintegral
@@ -3306,8 +3374,8 @@ upstairs with the same image.  For the nodal cubic of
 \Cref{ex:ch43-node-not-unibranch} the two preimages of the node give two
 trivial semivaluations of $(\mathbf P^1)^{\An}$ mapping to the same point
 of $N^{\An}$, so $\nu^{\An}$ is two-to-one there and $\nu^*$ on
-functions is no longer surjective onto anything: a function upstairs taking
-different values at the two preimages is not a pullback.  This is not a
+functions is not surjective onto all upstairs functions: a function
+taking different values at the two preimages is not a pullback.  This is not a
 technical obstruction but the true one:
 \Cref{thm:ep-implies-unibranch} shows that the envelope property for an
 ample class \emph{forces} unibranchness, so no argument can remove the
@@ -3319,26 +3387,33 @@ any research queue.
 
 A finite surjective morphism that is not radicial is the subject of
 \Cref{chap:bj-finite-descent}, and the mechanism there is completely
-different: one averages over the fibre using a determinant norm, and the
-descended function is the fibre average
-$\frac1d\sum_{w\mid z}e(w/z)\varphi(w)$, not $\varphi$ itself.  In
-particular pullback is then \emph{not} surjective onto the psh class
-upstairs: its image consists of fibrewise constant functions, which is a
-proper subset as soon as $d>1$ and the map is not radicial
-(\Cref{cor:ch41-finite-bijection}, \Cref{ex:ch42-not-a-pullback}).  What the
-present chapter proves is a strictly stronger conclusion under a strictly
-stronger hypothesis, and the two are not comparable as techniques.
+different.  With normal source and target, Chapter~41 uses a finite
+flatification and its determinant norm, giving the weighted average
+$\frac1d\sum_{w\mid z}e(w/z)\varphi(w)$ for that finite flat map.
+For the original finite map, \Cref{cor:ch41-finite-bijection}
+identifies pullback with the fibrewise-constant psh subclass under its
+EP assumption.  An arbitrary class may be empty; a proper-subclass
+obstruction requires an upstairs psh function separating two lifts,
+as explicitly supplied by \Cref{ex:ch42-not-a-pullback}.
+The present theorem identifies the whole upstairs class, while the
+finite-map corollary identifies the fibrewise-constant subclass.
+Their target hypotheses differ: the present target may be nonnormal,
+so the two theorems are not ordered by a simple implication of hypotheses.
 
 \subsection{Dropping quasi-compactness or finite type}
 \label{sec:ch43-failure-compact}
 
-\Cref{ex:ch43-no-uniform-exponent} gives an affine universal homeomorphism
-of $\mathbf F_p$-schemes admitting no uniform exponent.  It is not of
-finite type, and by
-\Cref{prop:ch43-criteria}\,\cref{itm:ch43-crit:finite} that is exactly the
-loophole: a universal homeomorphism of finite type is finite, and then
-\Cref{lem:bj-uniform-frobenius} applies.  Within the standing hypotheses of
-this chapter --- $X$ a projective variety --- the loophole is closed.  The
+The disjoint-union map of \Cref{ex:ch43-no-uniform-exponent} is finite
+and therefore of finite type as a morphism, but its base is not
+quasi-compact; it has no uniform exponent over all charts.
+Conversely, the infinite-generator affine extension of
+\Cref{rem:ch43-elementwise-not-enough} has a quasi-compact affine base
+but is not of finite type as a morphism and also has no uniform exponent.
+A finite-type universal homeomorphism is finite by
+\Cref{prop:ch43-criteria}\,\cref{itm:ch43-crit:finite}; a finite
+morphism over a quasi-compact base has the finite-generator and finite-cover
+inputs needed by \Cref{lem:bj-uniform-frobenius}.
+Both inputs hold for the projective varieties used here.  The
 example is nonetheless worth keeping in mind when the theory is transported
 to a nonprojective or nonnoetherian setting.
 
@@ -3359,8 +3434,10 @@ bounds involving finer numerical data, and no such assertion is made.
 
 The correspondences established or used in this chapter are the following.
 Rows one to three concern the morphism and its analytification, rows four
-and five the algebra of the Frobenius exponent, and rows six to eight the
-transport of Fubini--Study and psh functions.
+and five the Frobenius exponent, and rows six to eight the transport of
+Fubini--Study and psh functions.  The last column highlights particular
+inputs in addition to the standing hypotheses of
+\Cref{sec:ch43-hypotheses}.
 
 \begin{center}
 \begin{tabular}{p{.29\textwidth}p{.31\textwidth}p{.29\textwidth}}
@@ -3391,7 +3468,8 @@ $\operatorname{char}k=p>0$, $\nu$ finite
 \Cref{lem:bj-uniform-frobenius})\\
 one exponent for every affine open &
 $b^q\in A$ localizes at downstairs elements and glues &
-$X$ quasi-compact, $\cO_X\hookrightarrow\nu_*\cO_Y$
+$\operatorname{char}k=p>0$, $\nu$ finite universal homeomorphism,
+$X$ quasi-compact, $X,Y$ integral
 (\Cref{cor:ch43-frobenius-all-affines},
 \Cref{rem:ch43-fixed-cover-not-enough})\\
 class promotion &
@@ -3418,16 +3496,17 @@ $\operatorname{char}k=p>0$; birationality not needed
 Four separations should be carried forward.
 
 \emph{Homeomorphism versus isomorphism.}  $\nu^{\An}$ is a homeomorphism
-in every characteristic, and $\nu$ is almost never an isomorphism.  The
+in every characteristic, while $\nu$ need not be an isomorphism.  The
 first is a statement about points, the second about sheaves, and the whole
 chapter lives in the gap between them
 (\Cref{warn:ch43-homeo-not-iso}).
 
 \emph{Exponent versus degree.}  The number $q=p^e$ is an exponent
 measuring an inseparability of structure sheaves; it is not the degree of
-$\nu$, which is one in the birational case, and it is never divided by.
-The contrast with the number $d$ of \Cref{chap:bj-finite-descent}, which
-is a degree and \emph{is} divided by, is exact
+$\nu$, which is one in the birational case.
+The GF presentation is normalized by the real factor $1/(mq)$,
+while finite-flat averaging uses the generic degree $d$ through $1/d$.
+Both are real divisions, with different algebraic meanings
 (\Cref{rem:ch43-no-averaging}).
 
 \emph{Elementwise versus uniform.}  The Stacks Project criterion is
@@ -3436,7 +3515,8 @@ many charts; the stronger morphism-level statement supplies one exponent
 valid on every affine open of $X$.  The passage to that stronger statement consumes
 characteristic $p$ (for the subalgebra step), finiteness (for the
 generators), quasi-compactness (for the maximum over charts) and the sheaf
-axiom (for the localization).  Dropping any of the four breaks it
+axiom (for gluing after localization).  The examples mark the
+boundaries of these proof inputs
 (\Cref{sec:ch43-uniformity}, \Cref{ex:ch43-no-uniform-exponent}).
 
 \emph{Class versus bundle.}  A regularizing net delivers classes converging
@@ -3465,45 +3545,15 @@ not inferred formally:
 its coefficient descent requires the separate additive-power argument of the
 next chapter.
 
-The manuscript is unpublished and has been made available to the author; its
-results are quoted here as coming from a supplied manuscript, and none of
-them is presented as a previously published theorem.  In its numbering, the
-statements of this chapter correspond as follows.  Its Lemma on the
-analytification of a universal homeomorphism is
-\Cref{lem:bj-universal-analytic-homeomorphism}; its lemma promoting the
-class of a regularizing net is
-\Cref{lem:bj-normalization-class-promotion}; its lemma producing a single
-Frobenius power valid for every open affine is the pair
-\Cref{lem:bj-uniform-frobenius} and
-\Cref{cor:ch43-frobenius-all-affines}; its proposition descending a GF
-function in characteristic $p$ is
-\Cref{prop:bj-frobenius-gf-descent}; the characteristic-$p$ half of its
-theorem on descent through the normalization is
-\Cref{thm:bj-positive-universal-reflection}; and its lemma identifying the
-normalization of a unibranch variety is
-\Cref{lem:bj-unibranch-normalization-universal}.  The characteristic-zero
-half of the descent theorem, together with the additive-power sandwich on
-which it rests, is the subject of
-\Cref{chap:bj-subintegral-normalization} and is not duplicated here.
-
-Three points of the exposition below are ours rather than the manuscript's,
-and are flagged as such.  First, the manuscript states the uniform-exponent
-lemma directly for every open affine $U\subseteq X$, and gives the
-localization argument in one sentence.  We have separated the finite-cover
-construction from its sheaf-level strengthening and given the gluing in
-full; this makes clear both what the stronger conclusion buys and why the
-reflection theorem could alternatively use stage-dependent exponents
-(\Cref{cor:ch43-frobenius-all-affines},
-\Cref{rem:ch43-fixed-cover-not-enough}).  Second, the observation that
-birationality is nowhere used in the characteristic-$p$ argument
-(\Cref{prop:ch43-frobenius-no-birational}) is an inspection of the proofs and
-is not asserted in the manuscript, which carries birationality as a standing
-hypothesis because its application is to a normalization; the observation is
-harmless and is recorded because it clarifies which hypothesis does what.
-Third, \Cref{rem:ch43-picard-frobenius} extracts the rational Picard-group
-isomorphism from the same uniform exponent and records the resulting
-alternative to class promotion; this is a consequence of the proved
-sheaf-level power statement, not an additional input.
+The supplied manuscript is unpublished; its provenance and availability
+boundary is recorded in \Cref{sec:appL-envelope}.  No fresh full reading
+of its original archive, exact manuscript numbering, or publication claim
+is made here.  The chapter separates the finite-cover exponent construction
+from the all-affines gluing argument, checks that birationality and source
+normality are unnecessary for positive-characteristic reflection, and
+extracts rational Picard descent from the same sheaf-level power statement.
+These are the roles of the proved statements, without an unsupported
+claim that their formulations are absent from the original source.
 
 The external attributions are as follows.  The psh formalism, the definition
 of $\cH^{\mathrm{gf}}_{\mathbf Q}$, the closure property under decreasing
@@ -3525,8 +3575,8 @@ subintegrality goes back to Swan's work on seminormality, which we cite in
 prose rather than by key.
 
 Historically, the observation that a purely inseparable extension admits a
-unique extension of an absolute value is classical.  The contribution used
-here from the supplied manuscript is the morphism-level uniform exponent:
+unique extension of an absolute value is classical.  The feature used here from the supplied argument is the
+morphism-level uniform exponent:
 one Frobenius power serves \emph{every} chart of \emph{every} cover, so the
 descent of a Fubini--Study function becomes a change of Veronese multiple
 rather than an approximation procedure.  The reader who

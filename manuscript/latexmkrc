@@ -1,6 +1,8 @@
 $pdf_mode = 1;
+# Resolve the bundled class by its declared name while retaining TeX's
+# standard search path and any caller-supplied additions.
+$ENV{'TEXINPUTS'} = 'style//:' . ($ENV{'TEXINPUTS'} // '');
 $pdflatex = 'pdflatex -interaction=nonstopmode -halt-on-error %O %S';
 $bibtex = 'bibtex %O %B';
-$makeindex = 'makeindex -s style/svind.ist %O -o %D %S';
+$makeindex = 'python3 editorial/tools/make_book_index.py -s style/svind.ist %O -o %D %S';
 $max_repeat = 8;
-

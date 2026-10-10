@@ -2,12 +2,37 @@
 
 Date: 26 September 2026
 
+Current continuation, 2 October 2026: the user has requested a new complete
+reading pass and a standalone catalogue of all active open problems. Latest
+steering requires cloud-only execution and suspends Xean setup. The controlling
+new work is recorded in
+[the second reading and research programme](second_reading_and_research_programme_20261002.md).
+The completed pass below is retained as history.
+
+Completion update: 2 October 2026. All 72 chapters, Appendices A--N, the nine
+front-matter files, and final whole-book consistency, reference, build, and
+rendered-page gates are complete. This is the controlling current status;
+the unit entries below retain their historical next-unit milestones.
+Exact final scope and evidence are in
+[the completion audit](book_completion_quality_audit_20261002.md) and
+[manifest](book_completion_manifest_20261002.json). The editorial second
+draft is complete locally. Remote publication awaits explicit approval.
+
 ## Priority
 
 The active editorial priority is the quality of every chapter of the book.
 Independent research on the open problems in Chapter 72 is paused. An open
 problem may still be edited when a chapter needs an exact boundary statement,
 but it is not the driver of the present pass.
+
+Completion goal set on 1 October 2026: finish the whole manuscript under this
+programme, continuing through Chapters 46--72 in reading order, then the
+appendices and front matter, followed by the final whole-book consistency,
+reference, build, and rendered-page review. Commit and push verified units
+and keep the progress records current. Individual chapter checkpoints are
+milestones toward that goal, rather than the end of the continuation. This
+goal does not change the paused independent-research scope: unresolved
+frontiers remain explicitly identified rather than asserted as solved.
 
 ## Chapter gate
 
@@ -41,11 +66,49 @@ than mechanically rewritten.
   semantic, mathematical, structural, mechanical, and rendered-page gates.
 - **Part III, Chapters 20--31:** complete. All twelve chapters have passed the
   semantic, mathematical, structural, mechanical, and rendered-page gates.
-- **Part IV, Chapters 32--50:** active. Chapters 32--45 are complete;
-  Chapter 46 is next.
-- **Parts V--VI, Chapters 51--72:** queued in reading order after Part IV.
-- **Appendices and front matter:** final consistency pass after the chapters,
-  with earlier intervention when a chapter depends on them.
+- **Part IV, Chapters 32--50:** complete. All nineteen chapters have passed
+  the sequential quality gates.
+- **Part V, Chapters 51--62:** complete. All twelve chapters have passed
+  the sequential quality gates.
+- **Part VI, Chapters 63--72:** complete. All ten chapters have passed the
+  sequential quality gates.
+- **Appendices and front matter:** complete. Appendices A--N and all nine
+  front-matter files have passed their scoped quality gates.
+- **Final whole-book checks:** complete. The 4,164-page final build,
+  425-input/12,561-label reference closure, PDF navigation, exact research
+  inventory, and 380-page scoped visual gate pass.
+
+### Front matter and final whole-book gate
+
+Completed on 2 October 2026. All nine front-matter files were read and revised.
+The preface and part introductions now describe the completed second draft,
+its exact comparison hypotheses, and the 42 remaining research atoms.
+Conventions distinguish supports and semivaluation values, finite reference
+weights, raw/probability mass, full mass and finite energy. Historical
+independent receipts retain their original scopes.
+
+Seventeen inherited layout sites in fourteen chapter roots were repaired;
+the final build has zero overfull boxes, unresolved references/citations,
+LaTeX/package warnings, errors, or rerun requests. Nonfatal underfull
+diagnostics remain recorded. Contents spacing, appendix-reference types,
+class lookup, index and bibliography pass their checks. All 380 selected
+physical pages in 95 contact sheets were reviewed, including the full
+contents, index, and bibliography. After the final punctuation rebuild,
+six changed sheets were reviewed again and the other 89 were verified by
+bitmap identity.
+
+The post-render reference checker, all six checker tests, the exact
+open-problem inventory, closure/range/citation checks, and whitespace gate
+pass. All 401 active inputs outside this unit, including 108 frozen M--N
+fragments, remain unchanged. Earlier completed chapter/appendix proof and
+source gates are reused; this unit supplies no new independent verifier
+verdict. Evidence is in
+[book_completion_quality_audit_20261002.md](book_completion_quality_audit_20261002.md),
+[book_completion_manifest_20261002.json](book_completion_manifest_20261002.json),
+and [the source ledger](book_completion_source_closure_20261002.sha256).
+The whole-book editorial goal is complete locally. GitHub publication
+remains pending explicit approval after automatic review rejected the
+default-branch update.
 
 ### Chapter 1
 
@@ -1331,3 +1394,711 @@ destinations in Chapter 70; these are recorded rather than described as a
 globally clean layout. Exact scope, source locators, and checksums are in
 [`ch45_quality_audit_20261001.md`](ch45_quality_audit_20261001.md) and
 `chapter_status.md`. Chapter 46 is next.
+
+### Chapter 46 — complete
+
+The pairing and mixed-measure chapter now distinguishes relative nefness from
+global nefness, proves the fixed-model measure formula by projection, and
+uses the finite divisorial maximum formula in the monotone extension.
+Locality uses the exact weighted-convergence input, with Borel comparison
+sets and almost-everywhere integrability. Irrational scaling, homogeneous
+truncation limits, proper-support masses, and the b-class and Legendre
+dictionaries now retain their actual domains. Curve and toric computations
+carry the probability normalization explicitly. The redundant task list and
+legacy inline delimiters were removed, and the tables and two long displays
+were repaired for the rendered page.
+
+All 28 formal assertions and 68 reusable environments pass the proof and
+label review. Direct source interfaces, 20,184 exact arithmetic comparisons,
+the scoped manual and mechanical reviews, project references, six checker
+tests, inventory, full build, all 56 rendered pages, adjoining seams, and
+automatic second pass pass. Chapter 46 has no overfull boxes or LaTeX/package
+warnings; 23 whole-book overfull boxes outside the chapter and 13 duplicate
+destinations in Chapter 70 remain recorded. The unavailable legacy audit
+executable's warning counts are not claimed. Exact evidence is in
+[`ch46_quality_audit_20261001.md`](ch46_quality_audit_20261001.md) and
+`chapter_status.md`. Chapter 47 is next; the whole-book goal continues.
+
+### Chapter 47 — complete
+
+The finite-energy and variational chapter now keeps its probability
+normalization and extended-real domains explicit. The Bernstein/Dirichlet
+argument supplies the concavity constant, the projective-space example
+verifies the sharp I/J factors, and the curve proof uses a fixed slope
+inner product. Differentiability, domination, fixed-measure pairing
+continuity, general strong completeness, and lower-semicontinuous contact
+have exact published interfaces. The logarithmic, toric-product,
+infinite-energy, restriction, and normalization examples were repaired;
+trivially valued non-Q-PL Green examples have the correct source locators.
+
+All 40 formal assertions have proofs and all 73 reusable environments have
+labels. The 17,317 exact-rational checks, reference checker, six regression
+tests, unchanged research inventory, full build, all-page scan, and automatic
+second pass pass. Chapter 47 has no overfull boxes or LaTeX/package warnings.
+The full book retains 23 overfull boxes elsewhere and 13 duplicate PDF
+destinations in Chapter 70. Evidence and hashes are in
+[`ch47_quality_audit_20261001.md`](ch47_quality_audit_20261001.md).
+Chapter 48 is next; the whole-book goal continues. Commits remain local
+while explicit remote-push approval is pending.
+
+
+### Chapter 48 — complete
+
+The strong-topology and capacity chapter now proves completeness with the
+correct fixed-measure continuity input and supplies the measure-completeness
+argument. The gauge/d1 distinction, fixed-range capacity, quasicontinuity,
+outer-capacity convergence, negligible sets, and arbitrary obstacle limits
+retain their actual domains and exact source interfaces. Curve examples
+separate open and closed tails, graph measures and finite-energy MA, and
+inner and outer capacity. Scope and historical claims were narrowed to the
+proved or published statements.
+
+All 31 formal assertions have proofs; all 64 reusable environments have
+labels. The 33,815 exact-rational comparisons, scoped and reference checks,
+six checker tests, inventory, full build, all 58 rendered pages, adjoining
+seams, and automatic second pass pass. Chapter 48 has no overfull boxes or
+LaTeX/package warnings. The book retains 20 overfull boxes elsewhere and 13
+duplicate PDF destinations in Chapter 70. Evidence and hashes are in
+[`ch48_quality_audit_20261001.md`](ch48_quality_audit_20261001.md).
+Chapter 49 is next; the whole-book goal continues. Verified commits remain
+local while explicit remote-push approval is pending.
+
+
+### Chapter 49 — complete
+
+The linear-growth and toric chapter now supplies the exact section/potential
+exhaustion identity, conductor descent in the divisorial threshold proof,
+the general Green height and sup-norm isometry, and the all-characteristic
+pointwise topology argument. SNC scope, approximation from below and closed-
+face equicontinuity have precise source interfaces. Toric invariant
+approximation, real MA limits, energy variation and arbitrary-net strong/L1
+convergence retain their correct domains and proofs or explicit imports.
+The blowup, transcendental-branch and conic examples were repaired. A small
+Chapter 34 dependency correction separates smooth SNC cofinality from the
+resolution-free flag-ideal restriction proof.
+
+All 40 formal assertions have proofs; all 77 reusable environments have
+labels. The 39,110 exact-rational comparisons, scoped and reference checks,
+six checker tests, unchanged inventory, full build, all 64 rendered pages,
+adjoining seams, dependency pages and automatic second pass pass. Chapter 49
+has no overfull boxes or LaTeX/package warnings. The book retains 20 overfull
+boxes elsewhere and 13 duplicate destinations in Chapter 70. Evidence and
+hashes are in [`ch49_quality_audit_20261001.md`](ch49_quality_audit_20261001.md).
+Chapter 50 is next; the whole-book goal continues. Verified commits remain
+local while explicit remote-push approval is pending.
+
+### Chapter 50 — complete
+
+The norms and stability chapter now separates raw and regularized FS,
+homogenization, finite-type and rational model domains, and compatible
+metrics and quasi-metrics. Discrepancy extension, entropy recovery and
+strong derivative continuity retain their exact scopes. The sharp J/L1
+argument, threshold deduction, exact Fano divisorial threshold, DNC,
+toric and harmonic examples have been repaired and checked. An explicit
+normal model with central fibre of multiplicity two verifies the DF/Mabuchi
+correction. The source ledger distinguishes the foundational and later
+literature without asserting numerical equality of ordinary and divisorial
+K thresholds.
+
+All 40 formal assertions have proofs or explicit source interfaces, and
+all 99 reusable environments have labels. Seven primary PDFs and twenty
+rendered source pages were checked. The 321,388 calculation checks, scoped
+and project reference checks, six checker tests, unchanged inventory,
+full build, all 72 rendered pages, adjoining seams and automatic second
+pass pass. Chapter 50 has no overfull boxes or LaTeX/package warnings.
+Nineteen overfull boxes elsewhere and thirteen duplicate PDF destinations
+in Chapter 70 remain recorded. Evidence and hashes are in
+[`ch50_quality_audit_20261001.md`](ch50_quality_audit_20261001.md).
+Part IV is complete; Chapter 51 is next and the whole-book goal continues.
+Verified commits remain local pending explicit remote-push approval.
+
+
+### Chapter 51 — complete
+
+The complex prerequisites now give locally finite nonpluripolar products,
+precise Lelong and multiplier-ideal conventions, correctly ordered
+quasi-equisingular recovery, and a noncircular projection argument. The
+big-class zero-mass extension is distinguished from positive-mass
+domination. The half-pole and Cantor examples have full calculations and
+proofs; background changes, convergence and import boundaries are explicit.
+
+All 31 formal assertions and two separately numbered foundational inputs
+have proofs or exact source boundaries. All 84 reusable environments have
+labels. Eight primary PDFs and 32 rendered source pages were checked.
+The 119,417 calculation checks, scoped and project reference checks, six
+checker tests, unchanged inventory, full build, all 70 rendered chapter
+pages, 32 distinct chapter detail pages, adjoining seams and automatic
+second pass pass. Chapter 51 has no overfull boxes or LaTeX/package warnings.
+Nineteen overfull boxes elsewhere and thirteen duplicate PDF destinations
+in Chapter 70 remain recorded. Evidence and hashes are in
+[`ch51_quality_audit_20261001.md`](ch51_quality_audit_20261001.md).
+Chapter 52 is next; the whole-book goal continues. Verified commits remain
+local pending explicit remote-push approval.
+
+
+### Chapter 52 — complete
+
+The rays and test-curves chapter now supplies exact relative Perron and
+linear-supremum inputs, an explicit relative-energy definition, and precise
+normalization and parameter translations. Ideal-envelope monotonicity,
+concavity and increasing-net continuity have proofs or exact interfaces.
+The big-line-bundle filtration construction identifies its ideal-goodness
+and ideal-volume inputs. The hyperplane example controls arbitrary sections
+by monomials, handles endpoints and interface mass, and directly computes
+the product and truncated-ray energies.
+
+All eleven formal assertions have proofs or exact imports; all 25 reusable
+environments have labels. Three primary PDFs and 42 rendered source pages
+were checked. The 199,941 symbolic, rational and numerical checks, scoped
+and reference checks, six checker tests, unchanged inventory, full build,
+all twenty chapter pages at detail size, both seams and automatic second
+pass pass. Chapter 52 has no overfull boxes or LaTeX/package warnings.
+Nineteen overfull boxes elsewhere and thirteen duplicate PDF destinations
+in Chapter 70 remain recorded. Evidence and hashes are in
+[`ch52_quality_audit_20261001.md`](ch52_quality_audit_20261001.md).
+Chapter 53 is next; the whole-book goal continues. Verified commits remain
+local pending explicit remote-push approval.
+
+
+### Chapter 53
+
+The inverse system now has an explicit componentwise order and a proof that
+one component detects order. Positive-volume recovery identifies the actual
+limiting masses, verifies model normalization, and uses positive-mass
+divisorial continuity to recover every original component. The homogeneous
+volume proof handles zero mass separately. Birational invariance imports
+the exact semipositive-component extension and proves the pullback/descent
+composites and volume comparison without a false cofinality argument.
+
+All thirteen assertions and three examples were reviewed against the exact
+source interfaces. Three primary PDFs and 21 rendered source pages were
+checked; 2,172 symbolic/exact-rational checks pass. The full build, all
+fourteen chapter pages and both seams, post-render scoped checks, reference
+checker and six regression tests pass. Evidence is recorded in
+`ch53_quality_audit_20261001.md` and `chapter_status.md`. Chapter 54 is next;
+the whole-book completion goal continues.
+
+
+### Chapter 54
+
+The pass checks component compatibility for addition, maximum, translation,
+suprema and positive scaling, and uses one-component uniqueness for Choquet
+reduction. The decreasing mass floor and volume-drop example retain their
+correct limiting domains. Analytic trace keeps its smooth-ambient
+approximation, normal target, positive mass floor, P-valued output and
+exact decreasing-net hypotheses. Ideal saturation treats all codimensions.
+The metric trace proof now identifies the target base class before forming
+its inverse system, and ambient and point traces give two explicit examples.
+Exact source interfaces, the full build and rendered-page evidence are in
+`ch54_quality_audit_20261001.md` and `chapter_status.md`.
+
+
+### Chapter 55
+
+The partial-body construction now gives its counting-completion interface,
+valuation lattice, source boundary and pole example. Transcendental
+approximation keeps its strict margin and scaled comparisons. Convex duality
+and extended energy have full proofs; intrinsic tails prove flag independence
+and the weak-limit argument retains its mass and tightness hypotheses. The
+DH mass conversion is explicit and checked on a product square and an
+infinite-energy example. Validated mixed-volume and toric proofs retain their
+scope and frozen receipts. Six primary PDFs and 81 source pages were checked.
+All 23 assertions, eight examples, 93,604 calculation checks, full build,
+32 rendered chapter pages and both seams, post-render scoped and reference
+checks pass. Evidence is in `ch55_quality_audit_20261001.md` and
+`chapter_status.md`. Chapter 56 is next; the whole-book goal continues.
+
+
+### Chapter 56
+
+Valuative analytification now gives the extended-real asymptotic proof,
+exact divisorial bounds and ideal-equivalence domain. The published relative
+curve convention is distinguished from maximal curves. Concavification has
+its correct initial maximum and a full two-pole calculation. Affine
+compatibility proves the PL formula on proper supports; fixed-potential and
+family generation retain exact source versions. Zero-mass metrics use
+positive rational components and explicit common-background comparison.
+Six primary PDFs and 33 source pages were checked. All fourteen assertions,
+four examples, 9,228 calculation checks, full build, fourteen rendered
+chapter pages and both seams, post-render scoped and reference checks pass.
+Evidence is in `ch56_quality_audit_20261002.md` and `chapter_status.md`.
+Chapter 57 is next; the whole-book goal continues.
+
+
+### Chapter 57
+
+The projective comparison now states operation classes, the fixed-family
+supremum domain and the exact envelope theorem. The weighted-section example
+computes its full curve, multiplier ideals and mass floor. Increasing volume
+continuity gives the uniform-error squeeze. The perturbed-family criterion
+starts without a compatibility assumption and proves its divisorial converse
+in any real background before taking the common rational-base extension.
+Trace notation retains rational prime rays and its separate trivial cutoff.
+Existing detailed order, decreasing-net and trace proofs retain their domains.
+Four primary PDFs and 32 source pages were checked. All eleven assertions,
+five examples, 4,242 calculation checks, full build, sixteen rendered chapter
+pages and both seams, post-render scoped and reference checks pass. Evidence
+is in `ch57_quality_audit_20261002.md` and `chapter_status.md`. Chapter 58 is
+next; the whole-book goal continues.
+
+
+### Chapter 58
+
+The tropical-spectrum foundations now prove compact reduction by nilpotent
+ideals and give the dual-number calculation. PL density supplies the ideal
+product identity, rational difference lattice and uniform-closure argument.
+Support, local truncation and full-support modification proofs retain their
+extended-real domains. Proper algebraic recovery names exact proper GAGA and
+all three Stacks interfaces; its ideal-function bridge keeps the later
+positivity theorem separate. Two primary PDFs, thirteen source pages and
+three fresh Stacks interfaces were checked. All fourteen assertions, five
+examples, 1,504 calculation checks, full build, eighteen chapter pages and
+both seams, post-render scoped and reference checks pass. Evidence is in
+`ch58_quality_audit_20261002.md` and `chapter_status.md`. Chapter 59 is next;
+the whole-book goal continues.
+
+
+### Chapter 59
+
+The model section now exposes the order of flag evaluation, Cartier data,
+density, retraction and inverse limit. Rational PL density cites the proved
+lattice identities and checks its uniform closure. The Stein blowup is a
+labelled example with the invertible-ideal endpoint. Entropy now records the
+actual finite measure mass and has a curve calculation, including infinite
+entropy and zero mass. Existing full-support, integral-closure, monomial,
+Stein, divisor, retraction and discrepancy proofs retain their exact domains.
+Eight primary PDFs, 47 source pages and four fresh Stacks interfaces were
+checked. All seventeen assertions, twelve examples, 15,136 calculation checks,
+full build, thirty chapter pages and both seams, post-render scoped and
+reference checks pass. Evidence is in `ch59_quality_audit_20261002.md` and
+`chapter_status.md`. Chapter 60 is next; the whole-book goal continues.
+
+
+### Chapter 60
+
+The probability convention now has an explicit conversion to the book's
+unnormalized measures, energies and distances. A new arbitrary-volume
+curve example checks both conventions, the nef interval, endpoint atoms
+and the entropy mass shift. The rational scaling calculation has its
+correct ideal exponent. Thirteen labelled subsections expose the model,
+completion, ray, mixed-slope, entropy and stability dependencies; all
+63 reusable environments are labelled. Exact author-version citations
+replace two imprecise source keys.
+
+The complete proof review retains the precise imported analytic inputs,
+net arguments, finite-energy differences, terminal test-curve convention,
+reduced entropy and normalized-model boundary. Ten primary PDFs and
+64 rendered source pages, plus the Stacks fiber-ampleness statement and
+proof, were checked. Exact calculations pass 42,871 checks. All 54
+chapter pages and both seams were inspected at detail size, including
+the final repairs that keep compact statements and warnings together.
+Build, scoped structure and post-render reference checks pass; evidence
+is in `ch60_quality_audit_20261002.md` and `chapter_status.md`.
+Chapter 61 is next, and the whole-book goal continues.
+
+
+### Chapter 61
+
+The chapter now exposes the compactness, duality, envelope, strong-topology,
+variational and approximation dependencies in eleven labelled subsections.
+Rational envelope translations stay in the model class. The weak/strong curve
+counterexample derives its model potentials explicitly, and the interval
+example computes a continuous non-PL solution, exact dyadic errors, energies
+and entropy. General locality retains its full imported scope and explains
+the stronger weighted limit needed by the algebraic proof. The verified
+whole-complex boundary argument remains byte-identical.
+
+All twenty formal assertions and 32 reusable environments were reviewed.
+Four primary PDFs and 46 rendered source pages, 6,374 calculation checks,
+the full build, all 26 chapter pages and both seams, post-render scoped and
+reference checks pass. Evidence is in `ch61_quality_audit_20261002.md` and
+`chapter_status.md`. Chapter 62 is next; the whole-book goal continues.
+
+
+### Chapter 62
+
+The chapter has passed the full sequential quality gate. Its eight numbered
+sections and twelve subsections separate raw big-model invariants,
+normalized envelopes, completion, fixed-measure beta, mass and threshold
+derivatives, volume and radial slopes. The continuous-measure example now
+computes the rational-test ratios and exact entropy; the toric P2 example
+computes positive dual energy and zero beta. The prior coefficient correction
+is byte-identical. All fourteen formal assertions and 28 labelled reusable
+environments were reviewed against the full chapter and seven prior audits.
+
+Six primary PDFs and forty rendered source pages were inspected; six recent
+announcement pages have their limited claim/hypothesis scope recorded.
+The exact supplement passes 11,194 checks in 41 families. The full build,
+all 26 chapter pages and both seams, scoped review, post-render references,
+six checker tests, inventory and diff check pass. Exact evidence is in
+[ch62_quality_audit_20261002.md](ch62_quality_audit_20261002.md) and
+chapter_status.md. Part V is complete; Chapter 63 is next and the whole-book
+goal continues. Verified commits remain local pending remote-push approval.
+
+
+### Chapter 63
+
+The master dictionary now fixes the exact domains, generic reference
+metrics, valuation units and typed function maps. Rational PL and positive
+FS correspondences are separated. BFJ skeletal recovery includes both
+membership clauses; common continuous measures use an explicit rapidly
+decreasing sequence. Local and Reeb interfaces retain their additional
+boundary data. Raw contact duality keeps the class and potential fixed,
+and the ray comparison fixes its initial weight. The curve and O(d)
+product-action examples compute the unit, mass and energy conversions.
+
+All seven formal assertions, eighteen reusable environments and 66 labels
+passed review. Eight primary PDFs and 39 selected source pages were checked;
+the exact supplement passes 17,279 checks in 24 families. The full build
+has 4,138 pages and 19,302,055 bytes. All 22 chapter pages and both seams
+were visually verified, with zero chapter overflow or warning. Post-render
+references pass for 425 inputs and 12,262 labels; six checker tests and the
+unchanged 42-atom inventory pass. The precise source and preservation record
+is [ch63_quality_audit_20261002.md](ch63_quality_audit_20261002.md).
+Chapter 64 is next, and the whole-book goal continues. Work remains local
+pending explicit remote-push approval.
+
+
+### Chapter 64
+
+The comparison now fixes valuation units and rational presentations in the
+model product, states the exact connected BFJ signature, and separates BJ
+compactified energy from the divisorial coefficient dictionary. A false
+homogeneous intersection assertion is replaced by the exact scaling theorem
+and a conditional full-limit statement. A new curve example computes full
+limiting mass with infinite energy. First variation has its precise model
+segment scope. DH tail, moment and algebraic comparison proofs retain their
+initial mass and terminal atom. The mixed truncation estimate includes the
+Borel maximum rule, independent cutoffs and the raw energy constant.
+
+All twelve formal assertions, 21 reusable environments and 77 labels passed
+review. Six primary PDFs and 35 selected pages were checked. The exact
+supplement passes 10,835 checks in 25 families. The full build has 4,140 pages
+and 19,307,224 bytes. All twenty chapter pages and both seams were inspected;
+all final changed pages were reinspected. There is no chapter overflow or
+warning. Post-render references pass for 425 inputs and 12,275 labels; six
+checker tests and the unchanged 42-atom inventory pass. The precise evidence
+is [ch64_quality_audit_20261002.md](ch64_quality_audit_20261002.md).
+Chapter 65 is next; the whole-book goal continues. Work remains local pending
+explicit remote-push approval.
+
+
+### Chapter 65
+
+The filtration/ray comparison now tracks the differential operator alongside
+weights and time. The logarithmic slope proof uses raw boundary Deligne
+pairings when restricted volume vanishes, with a complete big-nef blowup
+example. The norm-error example is a reusable labelled calculation, and the
+terminal-atom example explicitly tests a moving threshold. The inverse
+Legendre formula and all section interfaces have semantic labels. The
+algebraic square, birational mass proof, spectral tails, radial energy and
+BHJ erratum ledger retain their exact hypotheses and normalization.
+
+All seventeen formal assertions, thirty reusable environments and 108
+labels passed review. Nine primary PDFs and 63 selected pages were checked;
+Hisamoto's current proof check is explicitly the v3 preprint rather than a
+fresh publisher PDF. The supplement passes 81,126 exact and 312 numerical
+checks in 33 families. The full build has 4,142 pages and 19,313,995 bytes.
+All 34 chapter pages and both adjoining seams were inspected; every final
+changed image was reinspected. Chapter overflow and warning counts are zero.
+Post-render references pass for 425 inputs and 12,295 labels; six checker
+tests and the unchanged 42-atom inventory pass. The precise evidence is
+[ch65_quality_audit_20261002.md](ch65_quality_audit_20261002.md). Chapter 66 is
+next; the whole-book goal continues. Work remains local pending explicit
+remote-push approval.
+
+
+### Chapter 66
+
+The hybrid base, metric unpowering and valuation units are explicit.
+Coordinate-rate convergence is separated from analytic convergence; psh
+extension uses the synchronized corrected decreasing approximation. Model
+Monge--Ampere convergence fixes its approximants before the fibre limit.
+Volume-form convergence includes its residual boundary, simplex-preserving
+Jacobian and all-model passage to the full hybrid space. Canonical metric
+regularity precedes its measure limit; stable-curve weights count self-nodes.
+Energy and weak-ray E/J slopes retain their exact reference and filtration
+interfaces. Entropy lower semicontinuity assumes weak convergence of both
+measures, and a worked concentration example disproves entropy equality.
+The historical counterexample and all eleven Banach proof fragments are
+byte-identical.
+
+All 26 formal assertions, 47 reusable environments and 240 closure labels
+passed review. Five primary PDFs and 79 selected pages were checked; the
+Favre proof check explicitly uses its dated v2 preprint. The supplement
+passes 22,509 exact and 768 numerical checks in 25 families. The full build
+has 4,146 pages and 19,333,673 bytes. All 64 chapter pages and both seams
+were inspected; all three final changed pages were reinspected. Chapter
+overflow and warning counts are zero. Post-render references pass for 425
+inputs and 12,316 labels; six checker tests and the unchanged 42-atom
+inventory pass. Exact evidence and preservation exceptions are recorded in
+[ch66_quality_audit_20261002.md](ch66_quality_audit_20261002.md). Chapter 67
+is next; the whole-book goal continues. Work remains local pending explicit
+remote-push approval.
+
+
+### Chapter 67
+
+Birational multiplier transformation now covers arbitrary quasi-psh weights
+by a Jacobian integrability proof. Pulled-back positive currents descend;
+nonpluripolar mass is preserved under modification. Determinant norms include
+residue degree and prove continuity through coalescing fibres. The base-change
+operator scales the valuation argument as well as the value. Analytic trace
+uses the exact rational interface, while product and retraction limits keep
+positive mass and the I-to-P uniqueness theorem. Worked blowup, branched-cover,
+radicial, coalescing and logarithmic-product examples make the distinctions
+explicit. Unibranch trace and general Dirichlet scope remain open.
+
+All eleven formal assertions, thirty reusable environments and 86 labels
+passed review. Four primary PDFs and forty selected pages were checked;
+the source versions and rationality restriction are recorded explicitly.
+The supplement passes 6,021 exact and 1,518 numerical checks in 24 families.
+The full build has 4,148 pages and 19,351,391 bytes. All sixteen chapter pages
+and both seams were inspected; every final changed image was reviewed or
+matched to an inspected image. Chapter overflow and warning counts are zero.
+Post-render references pass for 425 inputs and 12,333 labels; six checker
+tests and the unchanged 42-atom inventory pass. Exact evidence is recorded in
+[ch67_quality_audit_20261002.md](ch67_quality_audit_20261002.md). Chapter 68
+is next; the whole-book goal continues. Work remains local pending explicit
+remote-push approval.
+
+
+### Chapter 68
+
+Chapter 68 now uses the half-entropy normalization required by its Mabuchi
+variation and BHJ slope source, with explicit Ricci energy and translation
+formulas. The base-change correction distinguishes homogeneous M from DF;
+the Fano converse follows BBJ's model approximation argument. Smooth and
+weak-ray interfaces, normalized versus all-big-model stability, finite
+automorphisms and the frozen 2026 claim cutoff retain their exact domains.
+Three worked examples compute the Fano cutoff, P1 entropy/Ricci cancellation
+and a normal quotient with nonreduced central fibre.
+
+All twelve formal assertions, thirty reusable environments and 75 labels
+were reviewed. Nine PDFs and 65 selected source pages were checked. The
+example supplement passes 11,733 exact arithmetic and 58 numerical checks.
+Two full builds pass; the final PDF has 4,150 pages and 19,363,795 bytes.
+All sixteen chapter pages and both seams were inspected, including all
+fifteen changed final images. Chapter overflow/warnings, unresolved
+references, missing glyphs and rerun requests are zero. Eighteen inherited
+overfull boxes and thirteen Chapter 70 duplicate destinations remain.
+Post-render scope and references, all six checker tests, the unchanged
+42-atom inventory and whitespace gates pass. Exact evidence is recorded in
+[ch68_quality_audit_20261002.md](ch68_quality_audit_20261002.md).
+Chapter 69 is next; the whole-book goal continues. Work remains local
+pending explicit remote-push approval.
+
+
+### Chapter 69
+
+Chapter 69 now distinguishes all ten outcomes and analytic equality upstairs
+from equality after tropical pushforward. The five receipt-linked live
+baseline proof blocks remain byte-identical. Fixed-complex weak limits are
+shown to remain in the compact image. The trace quotient uses its exact
+I-input/P-output interface, and the split proof supplies uniform positivity,
+Fubini pullback and the canonical P_I approximation limit. The no-go proof
+constructs its potential with a normalized Green kernel. The segment and
+nonsmooth PL examples now expose the volume and Dirac-curvature calculations.
+Exact regularization source locators and all boundary restrictions remain
+explicit.
+
+Seventeen formal assertions, 33 labelled reusable environments and 108
+labels pass. Eight PDFs and 61 selected pages pass the text/interface and
+visual checks, with documented reuse of recent Xia/BEGZ text checks. The
+supplement passes 11,863 exact and 90 numerical checks. Two full builds pass;
+all 26 final chapter pages and two seams were visually inspected. The scoped
+post-render audit, 425-input/12,354-label reference check, six tests,
+open-problem inventory and whitespace gates pass. Exact evidence is in
+[ch69_quality_audit_20261002.md](ch69_quality_audit_20261002.md).
+Chapter 70 is next; the whole-book goal continues. Work remains local
+pending explicit remote-push approval.
+
+
+### Chapter 70
+
+Chapter 70 now distinguishes the full affine-cone link from its invariant
+retract. A complete density proof on the invariant carrier and a full-link
+counterexample correct the source's broader density wording. Finite-energy
+measures keep invariant support, and the rational projective comparison
+uses invariant metrics. The excellent-ring and curve calculus retains its
+conductor, tower and radial scopes; the Gauss core remains a subset of the
+shell. The finite-mass positivity bound and exact strong-openness interface
+are explicit. Two receipt-linked live blocks and six frozen inputs remain
+byte-identical. Tagged display repairs remove all thirteen duplicate PDF
+destinations.
+
+The nine-file review covers 31 formal assertions/proofs and one separately
+typeset foundational import, 54 reusable environments and 192 labels. Seven
+PDFs, 85 selected pages and nineteen Stacks tag interfaces were checked.
+The supplement passes 20,915 exact and 240 numerical checks. Two full builds
+pass; all 68 chapter pages and two seams were inspected, with the sole final
+changed page separately reviewed. Chapter warning/overflow counts are zero.
+Post-render references pass for 425 inputs and 12,371 labels; all six tests,
+the unchanged 42-atom inventory and scoped/whitespace gates pass. Eighteen
+inherited overfull boxes remain for the whole-book pass. Exact evidence is
+in [ch70_quality_audit_20261002.md](ch70_quality_audit_20261002.md).
+Chapter 71 is next; the whole-book goal continues. Work remains local
+pending explicit remote-push approval.
+
+
+### Chapter 71
+
+Chapter 71's opening, comparison ladder and ledger now state the full
+compact-Kähler DXZ--MP order isomorphism already proved in the chapter.
+Finite-energy comparison uses the source class volume. The relative
+radial/DH functional uses initial mass and is explicitly distinguished
+from source DXZ energy: at smaller initial mass, source energy is minus
+infinity even when relative energy is finite. Proper-support and finite-grid
+worked calculations expose the extended-real values and ordered limits.
+The finite ideal limit holds on every semivaluation by the monotone-parameter
+lemma. General non-nef and zero-volume boundaries remain explicit.
+
+The review covers 23 assertions/proofs, 37 reusable environments and 136
+labels. Twenty-eight receipt-linked chunks, 60,397 bytes, remain identical
+to the entry baseline. Eleven PDFs, 87 selected pages and four Stacks tags
+were checked. Sixteen exact-calculation families pass 35,379 checks. Four
+full builds pass; the final 36 chapter pages and two seams were inspected.
+Chapter warnings/overflows and duplicate PDF destinations are zero.
+Post-render references pass for 425 inputs and 12,388 labels; six checker
+tests, the unchanged 42-atom inventory and scoped/whitespace gates pass.
+Eighteen inherited overfull boxes remain for the whole-book pass. Evidence
+is in [ch71_quality_audit_20261002.md](ch71_quality_audit_20261002.md).
+Chapter 72 is next; the whole-book goal continues. Work remains local
+pending explicit remote-push approval.
+
+
+### Chapter 72
+
+Chapter 72 now matches the live twelve-group, 42-atom inventory and dates its
+historical checkpoints. Singular PL regularity and the supplied P07.1/P08.1
+negative answers retire their former targets. The P05.3 live proof now uses
+a genuine real-PL/generated-psh bridge under an explicit logarithmic
+value-group hypothesis; general fields retain the abstract operator-domain
+assumption. Mixed boundary nullity uses an integral sum of references,
+avoiding the invalid average in the literal integral-slope class. Toric
+extended continuity, invariant affine-cone support, full compact-Kahler
+comparison and residual current compatibility keep their precise domains.
+
+The full forty-file closure contains 51 assertions/proofs, 69 labelled
+reusable environments and 207 labels. All 36 frozen inputs and 32 protected
+main-source objects remain unchanged. Five PDFs, 73 selected source pages
+and twenty source contact sheets were reviewed. Twenty calculation families
+pass 1,872 exact checks. The full build passes with 4,156 pages; all 144
+chapter pages and two seams were inspected in 37 contact sheets. Chapter
+warning/overflow counts and duplicate PDF destinations are zero. Post-render
+references pass for 425 inputs and 12,411 labels; six checker tests, the
+42-atom inventory and scoped/whitespace gates pass. Eighteen inherited
+overfull boxes remain for the whole-book pass. The P05.3 scope correction
+does not claim a new independent-verifier receipt. Evidence is in
+[ch72_quality_audit_20261002.md](ch72_quality_audit_20261002.md).
+All 72 chapters are complete under this programme; Appendix A is next.
+Work remains local pending explicit remote-push approval.
+
+
+### Appendices A--C
+
+The complete quality pass repairs valuation and normalized-Rees hypotheses,
+line-bundle norms and projective alteration scope. Multiplier/test-ideal
+inputs now distinguish real-exponent Skoda, subadditivity, geometric
+discrepancy and characteristic comparison at their exact scopes. The
+full-support graded limit has a complete proof and a supported-point
+counterexample. The analytic one-pole example displays the floor and
+integral-exponent boundary. All sources, examples, labels, references and
+rendered pages pass the documented gates. Evidence is recorded in
+`appendices_ABC_quality_audit_20261002.md` and `chapter_status.md`.
+Appendix D is the active next unit.
+
+
+### Appendices D--F
+
+The complete pass repairs affine-minorant separation, dual-lattice volume
+conventions and homogeneous-current dilation, and adds an explicit
+triangle factorial check. Net topology distinguishes pointwise sequential
+closure from closed-set sequentiality; the countable-spikes example shows
+why Choquet regularizations need not agree pointwise. The intersection
+appendix now uses line-bundle Chern operators when divisor equations vanish
+on the image, proves its non-Cartier example on infinitely many point
+blowups, and limits numerical transitions to smooth models.
+
+All 40 assertions/proofs, 74 reusable environments, 35 headings and 169
+labels were reviewed. Two PDFs and 35 source pages were read and visually
+reviewed; two precise Stacks lemmas were read. Eight finite calculation
+families pass 18,225 exact checks. The 4,160-page build passes; all 34
+appendix pages and two seams were visually reviewed in nine sheets.
+Post-render references pass for 425 inputs and 12,445 labels; six checker
+tests, the unchanged research inventory and scoped/whitespace gates pass.
+No scoped overflow remains. The other 119 appendix files are preserved.
+Evidence is in [appendices_DEF_quality_audit_20261002.md](appendices_DEF_quality_audit_20261002.md).
+G--I are the next active unit. Work remains local pending explicit
+remote-push approval; the whole-book completion goal continues.
+
+
+### Appendices G--I
+
+The complete pass repairs initial-degree cancellation and calibrated
+analytic pushforward, including local finiteness, integer local degree and
+the determinant for top-degree superforms. The complex reference sheet now
+uses exact relative-energy, metric, domination, multiplier-ideal and ray
+inputs, with a local uniform valuative margin and separate continuity
+hypotheses. The Stacks supplement records 57 additional dependency tags;
+a rejected Picard citation and two decimal false matches are excluded.
+
+All 13 assertion/proof pairs, 51 reusable environments, 61 headings and
+138 labels were reviewed. Seven PDFs and 41 source pages were read and
+viewed in fourteen sheets. All 78 catalogued tag statements were checked
+at their actual imported scope; a complete proof review of every external
+source is not claimed. Twelve finite calculation families pass 118,721
+example checks. The 4,164-page build passes; all 46 appendix pages and
+two seams were viewed in twelve sheets. Post-render references pass for
+425 inputs and 12,488 labels; six checker tests, the unchanged research
+inventory, scope preservation and whitespace checks pass. No scoped
+overflow remains. Evidence is in
+[appendices_GHI_quality_audit_20261002.md](appendices_GHI_quality_audit_20261002.md).
+J--N and front matter are next; the whole-book completion goal continues.
+Work remains local pending explicit remote-push approval.
+
+
+### Appendices J--L
+
+The complete pass repairs calibrated orientation, model mass and energy
+normalizations, and the order-preserving ray transforms. It adds the worked
+two-length edge calculation. The provenance ledger distinguishes historical
+receipts from current statements, reconciles appendix source locators and
+records the current 42-atom inventory without extending a verifier verdict.
+
+All 4,614 source lines, 122 labels, 64 headings and seven reusable
+environments were reviewed. Six finite example families pass 3,298 checks.
+The other 119 appendix files, including 108 frozen input fragments, and
+archival receipt hashes are preserved. The 4,166-page full build passes;
+all 78 appendix pages and two seams were viewed in twenty sheets.
+Post-render references pass for 425 inputs and 12,508 labels; six checker
+tests, unchanged inventory, scope and whitespace gates pass. No scoped
+overflow remains. Evidence is in
+[appendices_JKL_quality_audit_20261002.md](appendices_JKL_quality_audit_20261002.md).
+M--N and front matter are next; the whole-book completion goal continues.
+Work remains local pending explicit remote-push approval.
+
+
+### Appendices M--N
+
+The complete pass reconciles the full supplied pluriharmonic theorem with
+M's earlier specialized proofs and both hypothesis ledgers. The arbitrary
+continuous zero-current residual remains explicit. Source notes distinguish
+the CLD core, later extensions and further descent dependencies. N adds a
+reader route and a precise boundary for its four archived comparison proofs.
+
+Both complete roots were read: 4,557 lines, 82 labels, twelve labelled
+headings, 46 labelled reusable environments and 40 assertion/proof pairs.
+N's four unchanged proof files, 1,291 lines and nine proofs, were freshly
+read in full. M's 104 unchanged fragments reuse the completed Chapter 18
+source/proof gates; no fresh complete reading of those fragments is claimed.
+All 108 included fragments, 120 other appendix files and archival hashes
+remain unchanged. The 4,166-page build passes; all 208 appendix pages and
+two seams were viewed in 53 sheets. Post-render references pass for 425
+inputs and 12,514 labels; six checker tests, unchanged inventory, scope,
+semantic-label, delimiter and whitespace gates pass. No scoped overflow
+remains. Evidence is in
+[appendices_MN_quality_audit_20261002.md](appendices_MN_quality_audit_20261002.md).
+All Chapters 1--72 and Appendices A--N are complete under the programme.
+Front matter and final whole-book checks are next. Work remains local
+pending explicit remote-push approval; the completion goal continues.

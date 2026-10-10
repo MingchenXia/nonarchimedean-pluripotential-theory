@@ -5,9 +5,10 @@
 The Zariski topology remembers specialization very well, but it is too coarse
 for potential theory. The topology on the set of points of a non-Archimedean
 field has the opposite defect: it has many clopen subsets and generally has
-too few paths. Berkovich's construction adds seminorms, not merely points
-over field extensions. The resulting spaces are Hausdorff, proper varieties
-become compact, and degenerations acquire genuine polyhedral subsets.
+too few paths. Berkovich's construction uses multiplicative seminorms as
+points and gives them the topology of pointwise convergence. Banach spectra
+are Hausdorff, proper varieties become compact, and degenerations acquire
+genuine polyhedral subsets.
 
 This chapter develops the part of the construction needed in the rest of the
 book. The reader only needs the valuation theory of \cref{chap:valuations}
@@ -16,8 +17,8 @@ spectrum of a Banach algebra and prove its compactness in full,
 then analytify schemes by gluing, establish the universal property of
 analytification at the level we use it, explain centers on models, and
 prove the complete classification of the points of the analytic affine
-line over an algebraically closed field. Reduction maps are computed
-explicitly on the projective line over $\mathbf Q_p$ and over
+line over an algebraically closed, nontrivially valued field. Reduction maps
+are computed explicitly on the projective line over $\mathbf Q_p$ and over
 $\mathbf C(\!(t)\!)$. The final section emphasizes that the same
 definition works over a trivially valued field, where we illustrate the
 affine line and its rescaling rays. We construct the underlying
@@ -168,13 +169,11 @@ $I\ni|f|_x$ and $J\ni|f|_y$ in $\mathbf R$.  The sets
 $\{z:|f|_z\in I\}$ and $\{z:|f|_z\in J\}$ are disjoint open
 neighborhoods.
 
-Nonemptiness holds in much greater generality: the spectrum of every
-nonzero commutative Banach ring is nonempty.  This is the non-Archimedean
-spectral existence theorem, \cite[Theorem~1.2.1]{Berk12}; its proof
-produces a bounded multiplicative seminorm through a maximal ideal of
-$A$ and an extension of the ground field, and we do not reproduce it.
-A nonzero $K$-affinoid algebra is in particular a nonzero Banach ring,
-which gives the stated case.
+For nonemptiness we use the spectral existence theorem
+\cite[Theorem~1.2.1]{Berk12}: every nonzero commutative Banach $K$-algebra
+has a bounded multiplicative seminorm extending the absolute value of $K$.
+We do not reproduce this existence argument. A nonzero $K$-affinoid
+algebra is such a Banach algebra, which gives the stated case.
 \end{proof}
 
 Each point has both an algebraic residue field and an analytic residue field.
@@ -265,11 +264,11 @@ $A\langle T_1,\ldots,T_m\rangle$ is the relative Tate
 algebra\index{Tate algebra} of series $\sum_\nu a_\nu T^\nu$ with
 $a_\nu\in A$ and $\|a_\nu\|\to0$, normed by
 $\|\sum_\nu a_\nu T^\nu\|=\max_\nu\|a_\nu\|$.  The representation means
-that bounded maps out of $A$ for which the displayed inequalities hold
-factor uniquely through this algebra. Rational domains form a basis for the
-admissible topology, and Tate acyclicity makes their rings of functions
-glue; for these sheaf-theoretic assertions we use
-\cite[\S2.2]{Berk12}.  At the level of
+that bounded maps from $A$ to complete valued extension fields of $K$
+for which the displayed inequalities hold factor uniquely through this
+algebra. Tate acyclicity gives compatible rings of functions on these
+domains; for the sheaf-theoretic construction we use
+\cite[\S2.2]{Berk12}. At the level of
 points, however, the meaning of ``represented'' admits a complete
 elementary proof, which we now give because the same computation recurs
 for polydisc exhaustions and for fibres of base change.
@@ -299,8 +298,8 @@ $\|T_i\|\leq1$ in the Tate algebra, hence also in the quotient norm; by
 \[
  |f_i(x)|=|g(x)|\,|T_i(x)|\leq|g(x)|,
 \]
-so $\pi(x)\in U$, provided we also know $U$-membership makes sense,
-i.e.\ nothing further vanishes.  Note in passing that $|g(x)|\neq0$:
+so $\pi(x)\in U$. The unit-ideal hypothesis also gives $|g(x)|\neq0$,
+which will allow division by $g$ in the surjectivity argument:
 choose $a,b_1,\ldots,b_m\in A$ with $ag+\sum_ib_if_i=1$; if
 $|g(x)|=0$, then every $|f_i(x)|\leq|g(x)|=0$, and the ultrametric
 inequality would give $1=|1(x)|\leq\max\{|ag(x)|,|b_if_i(x)|\}=0$, a
@@ -388,9 +387,10 @@ for the structure sheaf, but most of pluripotential theory uses the ordinary
 Hausdorff topology for upper semicontinuity, compactness, and measures.
 \end{remark}
 
-An affinoid $K$-analytic space is, by definition, a space locally modeled
-on spectra $\mathcal M(A)$, with the above sheaves. General Berkovich
-analytic spaces are obtained by gluing affinoids along analytic domains. We
+An affinoid $K$-analytic space is a spectrum $\mathcal M(A)$ equipped with
+its analytic structure. General Berkovich analytic spaces are built from
+affinoid atlases by gluing along analytic domains. Having an affinoid
+neighborhood at every point is the additional property called goodness. We
 will use this construction, but no later proof depends on the full list of
 sheaf axioms.
 
@@ -533,7 +533,7 @@ the negative of this real valuation gives the required absolute value on
 $\kappa(\xi)$.
 \end{proof}
 
-The next lemma explains how the noncompact space $X^{\mathrm{an}}$ is
+The next lemma explains how the affine analytification $X^{\mathrm{an}}$ is
 exhausted by the compact spectra of \Cref{sec:berk-spectrum}.  It also
 completes the identification promised in \Cref{ex:berk-tate-disc}.
 
@@ -612,9 +612,10 @@ exist, and Hausdorffness is inherited from the seminorm description as in
 \Cref{prop:berk-compact-spectrum}.
 \end{proof}
 
-We can now state the universal property of analytification.  The affine
-case is a complete triviality once the definitions are in place, and we
-prove it; the general case involves the structure sheaves and is cited.
+We can now state the universal property of analytification. The point-level
+affine assertion follows directly from the seminorm definition, and we
+prove it. The general universal property involves the structure sheaves
+and is cited below.
 
 \begin{proposition}
 \label{prop:berk-universal-affine}
@@ -737,8 +738,9 @@ is the \emph{reduction map}.
 \end{definition}
 
 On an affine open $\mathcal U=\operatorname{Spec}B\subset\mathcal X$, the
-construction is concrete. A point has center in $\mathcal U$ precisely
-when $|f(x)|\leq1$ for every $f\in B$; its center then corresponds to
+construction is concrete. For a point whose support lies in
+$\mathcal U_K$, the center belongs to $\mathcal U$ precisely when
+$|f(x)|\leq1$ for every $f\in B$; its center then corresponds to
 \[
                    \{f\in B:|f(x)|<1\}.
 \]
@@ -746,9 +748,10 @@ This description also shows the characteristic reversal of topologies.
 
 \begin{proposition}
 \label{prop:berk-reduction-anticontinuous}
-The reduction map is anticontinuous: inverse images of Zariski open subsets
-are closed, and inverse images of Zariski closed subsets are open, relative
-to the appropriate formal generic fiber.
+The reduction map $X^{\mathrm{an}}\to\mathcal X_s$ is anticontinuous:
+inverse images of Zariski open subsets are closed, and inverse images of
+Zariski closed subsets are open. Both assertions also hold relative to each
+affine chart region $X^{\mathrm{an}}_{\mathcal U}$ defined below.
 \end{proposition}
 
 \begin{proof}
@@ -759,7 +762,9 @@ Let $\mathcal U=\Spec B\subset\mathcal X$ be an affine open, and set
  =\{x\in X^{\mathrm{an}}:
    c_{\mathcal X}(x)\in\mathcal U_s\},
 \]
-the generic fiber of the formal completion of $\mathcal U$.  We claim
+which, when $K$ is nontrivially valued, is the generic fiber of the formal
+completion of $\mathcal U$. The point-set description below also applies
+over a trivially valued $K$. We claim
 \[
  X^{\mathrm{an}}_{\mathcal U}
  =\{x\in X^{\mathrm{an}}:\rho_X(x)\in\mathcal U_K
@@ -828,21 +833,24 @@ $X^{\mathrm{an}}$.
 \end{proof}
 
 Assume now that $K$ is discretely valued, choose a uniformizer $\pi$, and
-normalize $v(\pi)=1$. Let $\mathcal X$ be normal and write
+put $\ell_\pi=v(\pi)>0$. Let $X$ be integral and $\mathcal X$ a normal
+proper flat model, and write
 \[
                         \mathcal X_s=\sum_E b_EE.
 \]
 At the generic point of $E$, the local ring is a discrete valuation ring
 and $\operatorname{ord}_E(\pi)=b_E$. Hence
 \[
-                  v_E=\frac{1}{b_E}\operatorname{ord}_E
+                  v_E=\frac{\ell_\pi}{b_E}\operatorname{ord}_E
 \]
 extends $v$ on $K$. It defines a point $x_E\in X^{\mathrm{an}}$, called
 the \emph{divisorial point} associated to $E$. Its reduction is the
 generic point of $E$. Normality implies that it is the unique analytic
 point reducing to that generic point.  Because the model Monge--Amp\`ere
 measures of \cref{chap:metrics} are supported at divisorial points, this
-uniqueness deserves a complete proof.
+uniqueness deserves a complete proof. Rescaling the absolute value so that
+$\ell_\pi=1$ recovers the convention of \cref{chap:models}; keeping the
+factor explicit also allows the usual $p$-adic absolute value below.
 
 \begin{proposition}
 \label{prop:berk-divisorial-fibre}
@@ -857,8 +865,9 @@ $\xi_E$,
 
 \begin{proof}
 That $\operatorname{red}_{\mathcal X}(x_E)=\xi_E$ is
-\Cref{prop:component-valuation}: the valuation ring of $v_E$ dominates
-the local ring at $\xi_E$.
+\Cref{prop:component-valuation}: its component valuation, multiplied by
+the positive factor $\ell_\pi$, has the same valuation ring, which
+dominates the local ring at $\xi_E$.
 
 Conversely, let $x\in X^{\mathrm{an}}$ with
 $\operatorname{red}_{\mathcal X}(x)=\xi_E$, and write
@@ -902,7 +911,8 @@ ideal, so $R_x\neq K(X)$; hence $R_x=\mathcal O$.
 Equality of valuation rings inside $K(X)$ with value groups in
 $\mathbf R$ means $v_x=c\operatorname{ord}_E$ for some $c>0$.
 Evaluating at $\pi$ gives
-$1=v_x(\pi)=c\operatorname{ord}_E(\pi)=cb_E$, so $c=b_E^{-1}$ and
+$\ell_\pi=v_x(\pi)=c\operatorname{ord}_E(\pi)=cb_E$, so
+$c=\ell_\pi/b_E$ and
 $v_x=v_E$, that is, $x=x_E$.
 \end{proof}
 
@@ -920,7 +930,7 @@ so the deep input is quarantined in this remark.
 
 Divisorial points will support the model Monge--Amp\`ere measures of
 \cref{chap:metrics}. The passage from a component to $x_E$ explains the factor
-$b_E^{-1}$ in the valuation and the factor $b_E$ in the corresponding
+$\ell_\pi/b_E$ in the valuation and the factor $b_E$ in the corresponding
 measure.  We close the section with two fully computed reduction maps;
 the second also previews the skeleta of \cref{chap:skeleta}.
 
@@ -958,9 +968,12 @@ the center is the prime $\{f\in\mathbf Z_p[T]:|f(x)|<1\}$.
   of $f$ vanishes at $\tilde\alpha=0$; the center is
   $\tilde 0$.  Closed points of higher residue degree occur as well:
   if $q\in\mathbf Z_p[T]$ is monic with irreducible reduction
-  $\tilde q$ of degree $d\ge2$, the evaluation points at the roots
-  of $q$ reduce to the degree-$d$ closed point $\{\tilde q=0\}$
-  of $\mathbf A^1_{\mathbf F_p}$.
+  $\tilde q$ of degree $d\ge2$, evaluation at any root of $q$ defines
+  the same seminorm on $\mathbf Q_p[T]$, by uniqueness of the absolute
+  value on a finite extension of the complete field $\mathbf Q_p$
+  (\cref{thm:complete-field-extension}). This point reduces to the
+  degree-$d$ closed point $\{\tilde q=0\}$ of
+  $\mathbf A^1_{\mathbf F_p}$.
 \end{enumerate}
 \emph{Points with $|T(x)|>1$} have center in the second chart at the
 point $\widetilde\infty$, since $|T^{-1}(x)|<1$.
@@ -1012,8 +1025,9 @@ along $E$ one has $\operatorname{ord}_E(T)=1$ and
 $\operatorname{ord}_E(t)=1$, so $x_E=\zeta_{0,|t|}$ is the Gauss
 point of the disc of radius $|t|=\rme^{-1}$.
 
-The reduction map on the region $|t|\leq|T(x)|\leq1$ is now completely
-described by the chart criterion of
+The chart criterion describes the new reduction fibers created by the
+blowup as follows; away from the blown-up origin the original reduction
+map is unchanged. We use
 \Cref{prop:berk-reduction-anticontinuous}:
 \begin{enumerate}
 \item $\operatorname{red}^{-1}(\text{generic point of }\widetilde E)
@@ -1118,9 +1132,13 @@ by (4)
 \[
  \max\{|a-b|,r\}=|(T-b)(\zeta_{a,r})|\leq|(T-b)(\zeta_{b,s})|=s,
 \]
-which gives both inequalities.  The inclusion
-$D(a,r)\subseteq D(b,s)$ is equivalent to the same two inequalities by
-(1) and (2).  For the final statement, equality of seminorms gives
+which gives both inequalities. Conversely, suppose
+$D(a,r)\subseteq D(b,s)$. Since $a\in D(a,r)$, one has $|a-b|\leq s$.
+If $r>s$, density of $|K^\times|$ supplies $c\in K$ with
+$s<|c-a|\leq r$. Then $c\in D(a,r)$, but
+$|c-b|=|c-a|>s$ by \cref{lem:strong-triangle-equality}, contradicting
+the inclusion. Thus $r\leq s$; the reverse implication follows from
+(1) and (2). For the final statement, equality of seminorms gives
 mutual inclusion of discs by the above; conversely equal discs have
 equal Gauss seminorms by (3) applied twice.
 \end{proof}
@@ -1138,8 +1156,9 @@ the following four types.
       intersection.
 \end{enumerate}
 Type IV points occur only when $K$ is not spherically complete. They are
-not an artificial addition: without them the space need not be complete or
-compact in the relevant topology.  We now prove the classification in
+not an artificial addition: they record limits of nested classical closed
+discs with no common $K$-point, as compactness of the containing analytic
+closed disc requires. We now prove the classification in
 full; it is the pedagogical cornerstone of this chapter.  The hypotheses
 in force are: $K$ complete, algebraically closed, and nontrivially
 valued.  Completeness enters only once, algebraic closedness enters
@@ -1358,8 +1377,9 @@ Then $c\in U$.
 The four types can be told apart by intrinsic invariants of the
 completed residue field, without reference to a family of discs.  The
 statement uses the Abhyankar inequality in a version with a valued
-ground field; the proof is the same independence argument as in
-\Cref{thm:abhyankar-inequality}, and we spell it out.
+ground field. We apply the relative inequality already proved in
+\Cref{thm:abhyankar-relative}; passage to the completion is checked
+separately in the type-invariant proof below.
 
 \begin{lemma}
 \label{lem:berk-abhyankar-valued}
@@ -1379,42 +1399,12 @@ $w$.
 \end{lemma}
 
 \begin{proof}
-Choose $f_1,\ldots,f_r\in F^\times$ whose values
-$\gamma_i=w(f_i)$ are $\mathbf Q$-linearly independent modulo
-$\Gamma_K\otimes\mathbf Q$, and units $g_1,\ldots,g_s\in R_w^\times$
-whose residues are algebraically independent over $\widetilde K$.  It
-suffices to show that $f_1,\ldots,f_r,g_1,\ldots,g_s$ are
-algebraically independent over $K$; the claim then follows by taking
-families of maximal size, since
-$\operatorname{trdeg}_KF=n$.
-
-Suppose there is a nonzero polynomial relation.  Group its monomials
-according to the exponents of the $f_i$:
-\[
- \sum_{\alpha\in\mathbf N^r}f^\alpha P_\alpha(g)=0,
-\]
-with finitely many nonzero $P_\alpha\in K[T_1,\ldots,T_s]$.  Fix
-$\alpha$ with $P_\alpha\neq0$, and factor out a coefficient
-$c_\alpha\in K^\times$ of maximal absolute value:
-$P_\alpha=c_\alpha Q_\alpha$, where $Q_\alpha$ has coefficients in
-$K^\circ$, at least one of absolute value $1$.  The reduction
-$\widetilde Q_\alpha\in\widetilde K[T]$ is nonzero, and the residues
-$\tilde g_j$ are algebraically independent, so
-$\widetilde Q_\alpha(\tilde g)\neq0$; hence
-$w(Q_\alpha(g))=0$ and
-\[
- w\bigl(f^\alpha P_\alpha(g)\bigr)
- =\langle\alpha,\gamma\rangle+v(c_\alpha).
-\]
-For $\alpha\neq\alpha'$, equality of these values would give
-$\langle\alpha-\alpha',\gamma\rangle=v(c_{\alpha'})-v(c_\alpha)
-\in\Gamma_K$, contradicting the independence of the $\gamma_i$
-modulo $\Gamma_K\otimes\mathbf Q$.  The finitely many nonzero
-summands therefore have pairwise distinct values, and each is a nonzero
-element of the field $F$, of finite value.  A finite sum with a
-unique term of strictly minimal value cannot vanish, by
-\cref{lem:strong-triangle-equality}.  This contradiction proves the
-independence.
+Apply \cref{thm:abhyankar-relative} to $F/K$ and $w$. Its restriction
+to $K$ is $v$, whose residue field is $\widetilde K$ and whose value
+group is $\Gamma_K$. Thus the two terms in that theorem are exactly
+the two terms displayed here. The inequality concerns the finitely
+generated valued field $F$ before completion; it imposes no finite-generation
+hypothesis on its completion.
 \end{proof}
 
 \begin{proposition}
@@ -1778,12 +1768,12 @@ $D(a,m)\subseteq D(a,w)=D(c,w)$ and
 $\zeta_{a,m}\leq\zeta_{c,w}$.
 \end{proof}
 
-Two points have a least common
+Two distinct affine points have a least common
 disc above them, and the chains between points supply
 $\mathbf P^{1,\mathrm{an}}_K$ with the structure of a topological tree.
 The projective line is obtained by adding the classical point at infinity;
 it is compact and uniquely path connected.  The passage from the
-order-theoretic description above to the topological real-tree structure is
+order-theoretic description above to this topological tree structure is
 worked out in \cite[Chapter~2]{BakerRumely2010}. This tree is the
 one-dimensional prototype for the skeleta of \cref{chap:skeleta}.  A small
 portion of the tree, including the passage from affine to projective space,
@@ -1844,9 +1834,10 @@ the seminorms
  =\max_i |a_i|\rme^{-it},\qquad 0\leq t\leq1,
 \]
 form a closed interval. The coordinate $t=v_t(T)$ is affine along it.
-The annulus retracts onto this interval; open discs are attached along its
-points. The local model $xy=\pi$ identifies $t=v(x)$ and
-$1-t=v(y)$.
+The annulus retracts onto this interval. After passing to a completed
+algebraic closure, the complement of the interval in the annulus consists
+of open-disc branches attached to it. The local model $xy=\pi$ identifies $t=v(x)$
+and $1-t=v(y)$. The retraction is treated in \cref{chap:skeleta}.
 \end{example}
 
 \section{Functoriality, base change, and GAGA}
@@ -1895,6 +1886,186 @@ analytifications.  These are the proper GAGA statements of
 \cite[\S\S3.4--3.5]{Berk12}, summarized as
 \cite[Facts~5.1.2.1--5.1.2.4]{Temkin2015Berkovich}; the metric
 constructions of \cref{chap:metrics} use them implicitly.
+
+\subsection{The tensor norm and its spectral seminorm}
+\label{subsec:berk-tensor-spectral}
+
+The norm in the fiber formula is part of the construction. For normed
+$K$-vector spaces $V$ and $W$, the projective tensor seminorm\index{tensor seminorm} is
+\[
+ \alpha(z)=\inf_{z=\sum_{i=1}^m v_i\otimes w_i}
+                 \max_{1\leq i\leq m}\|v_i\|\,\|w_i\|.
+\]
+The infimum runs over all finite presentations. One first divides by
+its zero seminorm subspace and then completes to obtain
+$V\widehat\otimes_K W$. Completeness of the factors alone does not
+allow us to omit this construction or to assume that the displayed
+infimum is attained. An isometric embedding of normed vector spaces
+over the complete field $K$ remains isometric under this tensor
+seminorm and its separated completion
+\cite[Lemma~3.1, pp.~277--278]{Poi13Angelic}.
+
+For a commutative normed algebra with submultiplicative norm $\alpha$,
+three properties should be kept distinct:\index{multiplicative norm}
+\index{power-multiplicative norm}\index{spectrally multiplicative norm}
+\[
+\begin{array}{ll}
+\text{multiplicativity:}&\alpha(fg)=\alpha(f)\alpha(g),\\
+\text{power multiplicativity:}&\alpha(f^m)=\alpha(f)^m\quad(m\geq1),\\
+\text{spectral multiplicativity:}&
+ \rho_\alpha(fg)=\rho_\alpha(f)\rho_\alpha(g).
+\end{array}
+\]
+Here the spectral seminorm is
+\[
+             \rho_\alpha(f)=\lim_{m\to\infty}\alpha(f^m)^{1/m}.
+\]
+Multiplicativity implies both other properties. Power multiplicativity
+means that $\alpha=\rho_\alpha$; it implies multiplicativity only if
+spectral multiplicativity is also known. The terminology in
+\cite[\S\S1.1--1.2]{TZ26GeometricNorms} calls a power-multiplicative
+seminorm \emph{spectral}. Geometric versions ask for the stated
+property after every ground-field extension, using the specified tensor
+seminorm. In the complete setting of this chapter, we take complete
+valued extensions and the separated completed tensor product.
+
+The direction of the spectral comparison is useful. If $\beta$ is a
+power-multiplicative seminorm with $\beta\leq\alpha$, then
+\[
+ \beta(f)=\beta(f^m)^{1/m}\leq\alpha(f^m)^{1/m}
+ \quad\Longrightarrow\quad \beta(f)\leq\rho_\alpha(f).
+\]
+Thus the spectral seminorm is the \emph{greatest} dominated
+power-multiplicative seminorm. This is the same power argument as
+\cref{lem:berk-spectral-bound}. Spectralization divides by
+$\ker\rho_\alpha$ and completes for $\rho_\alpha$. This kernel consists
+of elements with spectral radius zero; it need not be merely the
+algebraic nilradical. A multiplicative spectral seminorm therefore does
+not say that the original algebra is a field or that its original norm
+is multiplicative.
+
+These distinctions concern the actual norm, even when two norms are
+equivalent. For example, on $K\times K$ put
+\[
+ \alpha_c(a,b)=\max\{|a|,|b|,c|a-b|\},\qquad c>1.
+\]
+This is a submultiplicative norm extending the norm of diagonal scalars:
+use $aa'-bb'=a(a'-b')+b'(a-b)$. It is equivalent to the maximum norm,
+but the idempotent $(1,0)$ has $\alpha_c$-norm $c$ and all its positive
+powers are itself. Hence $\alpha_c$ is not power-multiplicative. Its
+spectral seminorm is the maximum norm, by the two-sided comparison
+with that norm and taking $m$th roots.
+
+Two finite-dimensional calculations show how these issues appear in a
+fiber. They are worked examples, not general criteria for scalar
+extension. First take $K=\mathbf F_p(\!(t)\!)$ and
+$F=\mathbf F_p(\!(u)\!)$, where $u^p=t$. Give $K$ its
+$t$-adic absolute value, with $0<|t|<1$, and $F$ the extending
+absolute value. Write $r=|u|$, so $r^p=|t|$. The elements
+$1,u,\ldots,u^{p-1}$ are an orthogonal $K$-basis of $F$: their nonzero
+terms have valuations in distinct cosets modulo $v(K^\times)$.
+Consequently
+\[
+ F\widehat\otimes_K F
+ =F[X]/(X^p-t)=F[\varepsilon]/(\varepsilon^p),
+ \qquad \varepsilon=X-u,
+\]
+with tensor norm
+\[
+ \alpha\left(\sum_{i=0}^{p-1}a_iX^i\right)
+                  =\max_{0\leq i<p}|a_i|r^i.
+\]
+The upper bound is the displayed presentation. For the lower bound,
+apply the coefficient functionals of the orthogonal basis to any
+presentation; the $i$th functional has norm $r^{-i}$.
+In particular $\alpha(\varepsilon)=r>0$ although
+$\varepsilon^p=0$, so this norm is not power-multiplicative.
+For $f=\sum_{i=0}^{p-1}b_i\varepsilon^i$, characteristic $p$ gives
+$f^p=b_0^p$, and therefore
+\[
+                         \rho_\alpha(f)=|b_0|.
+\]
+This spectral seminorm is multiplicative. Every multiplicative
+seminorm annihilates $\varepsilon$, so the spectrum has exactly one
+point, evaluation at $\varepsilon=0$. Uniqueness of that point has
+not made the positive tensor norm of $\varepsilon$ vanish. This is the
+purely inseparable obstruction highlighted in
+\cite[Remark~3.8, p.~280]{Poi13Angelic}.
+
+For the other calculation, let $K=\mathbf Q_3$ and
+$F=K(a)$ with $a^2=2$. This is an unramified quadratic extension:
+$X^2-2$ is irreducible and separable modulo $3$. The basis $1,a$ is
+orthonormal, since its reductions are linearly independent over
+$\mathbf F_3$. Over $F$ the two distinct roots $a,-a$ give
+\[
+ F\widehat\otimes_K F=F[X]/(X^2-2)\simeq F\times F,
+ \qquad A+BX\longmapsto(A+Ba,A-Ba).
+\]
+Both this matrix and its inverse have integral entries, since $2$ and
+$a$ are units. The tensor norm is therefore exactly the maximum of
+the two factor norms. It is power-multiplicative, whereas the
+complementary idempotents $(1,0)$ and $(0,1)$ each have norm one and
+product zero. Its spectral seminorm, equal to that maximum norm,
+is not multiplicative. The fiber has two points.
+
+A chosen algebraic generator also needs care. Put $K=\mathbf Q_3$,
+choose $a^3=3$, and let $b=\zeta_3a$ in an algebraic closure,
+where $\zeta_3$ is a primitive cube root of unity.
+The two fields $F=K(a)$ and $L=K(b)$ have degree three by Eisenstein.
+Write $w$ for the additive valuation normalized by $w(3)=1$.
+The equation for $\zeta_3-1$ is $Y^2+3Y+3=0$, so
+$w(\zeta_3-1)=1/2$, whereas $w(L^\times)=\tfrac13\mathbf Z$.
+Thus $\zeta_3\notin L$, and $a\notin L$. Nevertheless
+\[
+ L\widehat\otimes_K F
+       =L[X]/(X^3-3)
+       =L[X]/\bigl((X-b)(X^2+bX+b^2)\bigr)
+\]
+is not a field. It has a linear factor corresponding to the different
+conjugate $b$. The condition that the \emph{chosen} root is absent
+cannot replace a tensor-product or linear-disjointness test.
+
+\subsection{Universal points and the size of a fiber}
+\label{subsec:berk-universal-fibers}
+
+Following \cite[Definition~3.2, p.~279]{Poi13Angelic}, a point $x$ is
+\emph{universal}\index{universal point} if the actual norm of
+$\mathcal H(x)\widehat\otimes_K L$ is multiplicative for every
+complete valued extension $L/K$. This norm then defines a canonical
+point $\sigma_{L/K}(x)$ over $x$. Every other point of the fiber is
+bounded by it on each element of that Banach algebra, by
+\cref{lem:berk-spectral-bound}. This is a dominating point of the
+fiber, not a claim that the fiber consists only of that point.
+Poineau proves that every point of a Berkovich analytic space over an
+algebraically closed complete field is universal, allowing a trivial
+valuation \cite[Corollary~3.14, p.~282]{Poi13Angelic}. For a general
+complete base, actual multiplicativity after extension to its completed
+algebraic closure tests universality
+\cite[Corollary~3.16, p.~283]{Poi13Angelic}. We use these as attributed
+analytic results, with their complete-base hypotheses.
+
+Here is an explicit fiber with more than one point over an algebraically
+closed base. Let $x=\zeta_{0,1}$ be the Gauss point of the closed unit
+disc over an algebraically closed complete $K$, and take
+$L=\mathcal H(x)$. Let $a\in L$ be the image of its coordinate $T$.
+In the unit disc over $L$ consider the Gauss point $y=\zeta_{0,1}$
+and the evaluation point $q$ given by $T=a$. For $P\in K[T]$,
+\[
+                         |P|_q=|P(a)|=|P|_x=|P|_y.
+\]
+The same holds for convergent power series by polynomial approximation,
+so both points lie over $x$. They are distinct: $|T-a|_q=0$, while
+$|T-a|_y=1$. Indeed $y$ is the canonical lift. The Gauss-norm
+embedding $K\{T\}\hookrightarrow\mathcal H(x)$ is isometric;
+Poineau's tensor isometry therefore identifies the restriction of the
+canonical tensor norm to $L\{T\}$ with its Gauss norm. Universality
+selects $y$ without discarding $q$.
+
+The fiber formula is thus useful at two levels. It identifies the full
+set of possible lifts through a Banach spectrum, while universal
+multiplicativity supplies a preferred lift when its hypotheses hold.
+Inseparability, factorization and domination are separate questions;
+none should be inferred merely from the presence of a canonical point.
 
 \section{The trivially valued case}
 \label{sec:berk-trivial}
@@ -1953,7 +2124,10 @@ normalization in the Boucksom--Jonsson theory of \cref{part:bj}.
 
 \section{Dictionary established in this chapter}
 
-The following correspondences will be used without further comment:
+The following correspondences will be used without further comment.
+The first two rows are read on an affine chart; the component row assumes
+an integral generic fiber, a normal proper flat model over a discretely
+valued field, and $\ell_\pi=v(\pi)$:
 \[
 \begin{array}{ccl}
 \text{analytic point }x
@@ -1965,7 +2139,7 @@ The following correspondences will be used without further comment:
  \ker|\cdot|_x\in\operatorname{Spec}A,\\[1mm]
 \text{component }E\subset\mathcal X_s
  &\longleftrightarrow&
- x_E\text{ with }v_{x_E}=b_E^{-1}\operatorname{ord}_E,\\[1mm]
+ x_E\text{ with }v_{x_E}=(\ell_\pi/b_E)\operatorname{ord}_E,\\[1mm]
 \text{proper algebraic variety}
  &\longrightarrow&
  \text{compact Hausdorff analytic space}.
@@ -1981,7 +2155,14 @@ and GAGA are due to Berkovich; our principal reference is \cite{Berk12},
 with \cite{Temkin2015Berkovich} used for a modern construction ledger.
 Reduction maps and divisorial points in the precise model-theoretic form used
 later are reviewed in \cite[Sections~2--3]{BFJ16}. The description of
-$\mathbf P^{1,\mathrm{an}}$, including its real-tree topology, is treated
+$\mathbf P^{1,\mathrm{an}}$, including its topological tree structure, is treated
 in \cite[Chapter~2]{BakerRumely2010}. This chapter deliberately separates the elementary
 point-set construction from the deeper sheaf-theoretic results that are
 cited.
+
+The norm distinctions and scalar-extension examples in
+\cref{subsec:berk-tensor-spectral,subsec:berk-universal-fibers}
+use \cite[\S3]{Poi13Angelic} and the terminology of
+\cite[\S\S1.1--1.2]{TZ26GeometricNorms}. The finite computations
+are included in full. We do not use the latter paper's finite
+non-Galois tensor criteria as substitutes for the stated norm tests.

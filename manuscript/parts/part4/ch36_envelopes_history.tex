@@ -6,8 +6,9 @@ An upper envelope is the nonlinear closure operation that makes
 pluripotential theory work.  In the trivially valued setting its regularity
 was the principal missing foundational statement in the theory developed by
 Boucksom--Jonsson.  This chapter freezes the historical picture immediately
-before the theorem proved in
-\Crefrange{chap:bj-envelope-statement}{chap:bj-envelope-consequences}.  We
+before the general assembly in
+\Crefrange{chap:bj-envelope-statement}{chap:bj-envelope-consequences},
+which retains $\mathrm{(SD)}_k$ of \Cref{warn:ch35-siu-source-gap}. We
 establish the formal equivalences that do not depend on
 that theorem, state the cases known from Boucksom--Jonsson and their
 addendum, and isolate exactly what remained open.
@@ -34,20 +35,21 @@ functions by \emph{decreasing} approximation, and
 decreasing limits, finite maxima, and convex combinations.  It said nothing
 about suprema.
 That omission is not an oversight of the exposition: it is the precise shape
-of the conjecture left by the published theory and its addendum, and proved in
+of the conjecture left by the published theory and its addendum. Its general
+assembly is conditional on critical Siu division in
 \Crefrange{chap:bj-envelope-statement}{chap:bj-envelope-consequences}.
 
-The reason suprema matter is that essentially every existence argument in
-pluripotential theory is an envelope argument.  One writes down the family of
-all psh competitors below an obstacle, takes the supremum, and needs to know
-that the result is again psh.  Without that, the variational method has no
-output, the projection $P_\theta$ is not an operator on the psh class, and
-the metric geometry of finite energy has no maximal elements to work with.
+Envelope arguments take the supremum of psh competitors below an obstacle.
+The envelope property makes its usc regularization psh, so it can serve as a
+maximal competitor in existence and finite-energy arguments. Applications
+that use only an energy identity may work under the weaker hypothesis
+recorded at the end of this chapter; that identity alone does not give psh
+regularity of the envelope.
 
 \subsection{The three distinctions that organize this chapter}
 
-A single imprecision has caused more confusion in this subject than any
-other: treating the following three operations as interchangeable.
+The limit operations used in this chapter have different regularity
+requirements:
 
 \begin{enumerate}
 \item A \emph{decreasing net} $\phi_i\searrow\phi$.  The limit is
@@ -120,10 +122,12 @@ For $h:X^{\An}\to\mathbf R\cup\{\pm\infty\}$, define
 If there is no competitor, $P_\theta(h)\equiv-\infty$.
 \end{definition}
 
-Despite its name, the raw supremum in \eqref{eq:bj-obstacle-envelope} need
-not be upper semicontinuous or psh without an envelope theorem.  It may also
-be identically $+\infty$ when the competitors are not uniformly bounded
-above.  These are three distinct alternatives.
+The raw supremum in \eqref{eq:bj-obstacle-envelope} need not be upper
+semicontinuous or psh. An empty competitor set gives $-\infty$; a nonempty
+uniformly upper bounded set gives a bounded-above function; and an
+unbounded competitor set has regularization $+\infty$, as proved in
+\Cref{thm:general-obstacle-criterion}. These alternatives do not assert that
+the unregularized envelope is constant in the last case.
 
 \begin{lemma}\label{lem:obstacle-envelope-formal}
 For arbitrary obstacles $h,g$ and $c\in\mathbf R$:
@@ -144,9 +148,11 @@ The first three claims follow by comparing the defining competitor sets.
 For (4), monotonicity gives
 $\sup_jP_\theta(h_j)\leq P_\theta(h)$.  Let
 $\psi\in\PSH_X(\theta)$ satisfy $\psi\leq h$, and fix
-$\varepsilon>0$.  Since $\psi$ is usc, $h_j$ is lsc, and
-$X^{\An}$ is compact, the increasing-net version of Dini's covering
-argument gives $\psi<h_j+\varepsilon$ for all sufficiently large $j$.
+$\varepsilon>0$.  The increasing open sets $\{\psi<h_j+\varepsilon\}$ cover $X^{\An}$:
+at a point where $h$ is finite use $\psi\leq h$ and $h_j\uparrow h$;
+where $h=+\infty$ use the finite upper bound of $\psi$. They are open
+because $\psi$ is usc and $h_j$ is lsc and bounded below. Compactness
+and directedness give one index after which they equal $X^{\An}$.
 Thus $\psi-\varepsilon\leq P_\theta(h_j)$.  Taking the supremum over
 $\psi$, then letting $\varepsilon\downarrow0$, proves the reverse
 inequality.
@@ -238,11 +244,15 @@ $\operatorname{EP}_X(\theta)$ is equivalent to each of the following:
 \end{theorem}
 
 \begin{proof}
-Under EP, the competitors in \eqref{eq:bj-obstacle-envelope} either are
-uniformly bounded above, in which case their regularized supremum is psh, or
-their suprema tend to $+\infty$.  The Alexander--Taylor bound then forces
-the regularization to be $+\infty$ on all divisorial points and hence
-identically $+\infty$.  This proves \eqref{eq:envelope-trichotomy}.
+If there are no competitors, the raw envelope is $-\infty$. For a
+nonempty competitor family, EP gives a psh regularization when the family
+is uniformly upper bounded. Otherwise choose $\omega\in\Amp(X)$ with
+$\omega-\theta$ nef, so that all competitors are $\omega$-psh. The
+Alexander--Taylor bound at a divisorial point $v$ gives
+$\psi(v)\geq\sup\psi-T_\omega(v)$, where $T_\omega(v)<+\infty$.
+Thus $P_\theta(h)(v)=+\infty$ at every divisorial point; their density
+makes its regularization identically $+\infty$. This proves
+\eqref{eq:envelope-trichotomy}.
 
 For a PL obstacle, boundedness and the existence of one psh function rule out
 both infinite alternatives.  Since the obstacle is continuous,
@@ -261,8 +271,10 @@ majorants $h_j\searrow h$.  Then $P_\theta(h_j)$ is psh and
 Monotonicity of the obstacle envelope makes $P_\theta(h_j)$ decreasing.
 Its limit is psh or identically $-\infty$ by
 \Cref{thm:bj-basic-closure}\,(4), and the lower bound supplied by one fixed
-$\phi_i$ excludes the latter.  Passing to the limit in the displayed
-squeeze gives $P_\theta(h_j)\searrow h$, so $h$ is psh.
+$\phi_i$ excludes the latter.  For every $j$, $P_\theta(h_j)$ is usc and majorizes $\sup_i\phi_i$,
+so it also majorizes $h=(\sup_i\phi_i)^*$. Consequently the sharper
+squeeze $h\leq P_\theta(h_j)\leq h_j$ gives
+$P_\theta(h_j)\searrow h$, and $h$ is psh.
 This is the criterion of \cite[Lemma~1.3]{BJ22b}.
 \end{proof}
 
@@ -292,8 +304,10 @@ lower semicontinuous; it is therefore continuous.
 Conversely, let $(\phi_i)$ be bounded above and set
 $h=(\sup_i\phi_i)^*$.  Choose continuous majorants $h_j\searrow h$.
 By assumption, each $P_\omega(h_j)$ is continuous and psh, while
-$\sup_i\phi_i\leq P_\omega(h_j)\leq h_j$.  The same decreasing-limit
-argument as above gives $P_\omega(h_j)\searrow h$, so $h$ is psh.
+$\sup_i\phi_i\leq P_\omega(h_j)\leq h_j$.  Upper semicontinuity of $P_\omega(h_j)$ improves its lower bound to
+$h\leq P_\omega(h_j)$. The resulting squeeze and decreasing closure,
+with any one $\phi_i$ as a lower bound, give
+$P_\omega(h_j)\searrow h$, so $h$ is psh.
 This is \cite[Lemma~5.17]{BJ22}.
 \end{proof}
 
@@ -418,11 +432,14 @@ envelope property and $\omega_m>\omega$.  The birational pullback theorem
 \Cref{thm:bj-envelope-equivalences}, therefore makes
 $\nu^*:\PSH_X(\omega)\to\PSH_{X^\nu}(\nu^*\omega)$ surjective.  In
 particular, every function in
-$\cH_{\mathrm{dom}}(\nu^*\omega)$ descends to $X^{\An}$.  These
-functions span $\PL(X^\nu)$, which separates points of
-$(X^\nu)^{\An}$; hence $\nu^{\An}$ is injective.  Non-Archimedean GAGA
-then makes the finite normalization injective on scheme points.  Since it is
-surjective, it is a homeomorphism, and $X$ is unibranch.  This is
+$\cH_{\mathrm{dom}}(\nu^*\omega)$ descends to $X^{\An}$.  By \Cref{def:ch34-hdom} and the spanning assertion following it,
+these functions span $\PL(X^\nu)$ even when $\omega$ is a real class.
+PL functions separate points of $(X^\nu)^{\An}$, hence $\nu^{\An}$ is
+injective. In particular it is injective on the trivial semivaluations
+$v_{\xi,\triv}$ associated with scheme points $\xi$; their images are
+$v_{\nu(\xi),\triv}$. Thus $\nu$ is injective on scheme points. A finite
+surjective morphism is closed, so this bijection is a homeomorphism and
+$X$ is unibranch.  This is
 \cite[Theorem~5.12]{BJ22}.
 \end{proof}
 
@@ -512,10 +529,15 @@ squeeze
       -\frac{m_0}{m}\phi_{\cL}+\frac Cm.
 \tag{36.5d}\label{eq:bj22-nef-uniform-squeeze}
 \]
-Together with the superadditivity used in
-\eqref{eq:bj22-nef-base-ideal-limit},
-\eqref{eq:bj22-nef-uniform-squeeze} makes that convergence uniform.  Hence
-the envelope is continuous.  When $\operatorname{char}k>0$, the same inclusions and
+For all sufficiently large admissible $m$, the base ideal is vertical,
+so $u_{m+m_0}$ is finite and continuous. Also
+$u_{m+m_0}\leq\phi_{\cL}$. The upper bound therefore gives
+\[
+ 0\leq P_L(\phi_{\cL})-u_{m+m_0}\leq C/m.
+\]
+Here $m_0$ and the index lattice are chosen after clearing denominators.
+Thus the envelope is a uniform limit of continuous functions. Lemma~5.22
+then gives uniform convergence of the original base-ideal sequence as well.  When $\operatorname{char}k>0$, the same inclusions and
 uniform-generation estimate hold for the test ideals used in the proof of
 \cite[Theorem~5.20]{BJ22}; the precise imported test-ideal inputs are
 subadditivity and uniform generation in
@@ -572,9 +594,14 @@ $H^0(\cX,m\cL)$ if and only if
  \max_\lambda\{\log|s_\lambda|+\lambda\}
        \leq\phi_{m\cL}
 \]
-on $X^{\An}$.  Thus every GF competitor below $\phi_{\cL}$ occurs in
-one of the base-ideal stages, proving \eqref{eq:addendum-q-limit} rather
-than only one inequality.  The index set consists of sufficiently divisible
+on $X^{\An}$.  It suffices to use rational-weight GF competitors in the definition of
+$Q_L$: for every $\varepsilon>0$, approximate the finitely many real weights
+from below by rationals to obtain $\psi-\varepsilon\leq\psi_{\mathbf Q}\leq\psi$
+on all of $X^{\An}$. These inequalities remain defined at poles. After clearing denominators, their
+weights are integers and the displayed Laurent-section criterion applies.
+Each such competitor is dominated by a base-ideal stage, proving
+\eqref{eq:addendum-q-limit}. No Laurent monomial with an irrational
+exponent is used.  The index set consists of sufficiently divisible
 positive integers ordered by divisibility, not by their usual order.
 
 After resolving $\cX$, let $\mathfrak b_m$ denote the asymptotic
@@ -614,7 +641,11 @@ so
                  Q_L(\phi_{\cL})\leq\psi\leq\phi_{\cL};
 \tag{36.10}\label{eq:addendum-psi-squeeze}
 \]
-in particular, $\psi\not\equiv-\infty$.
+Since $L$ is big, a nonzero section of some $mL$, with a sufficiently
+negative constant weight, gives a GF competitor below the bounded obstacle
+$\phi_{\cL}$. Its value at $v_{\triv}$ is finite, so
+$Q_L(\phi_{\cL})(v_{\triv})>-\infty$. The squeeze therefore excludes
+$\psi\equiv-\infty$.
 
 It remains to identify the limit.  By \cite[Lemma~1.5]{BJ22b},
 $P_L(\phi_{\cL})=Q_L(\phi_{\cL})$ over the complement of the augmented
@@ -646,8 +677,10 @@ E_\omega(h)=E_\omega(P_\omega(h))
 Here $E_\omega$ is the trivially valued Boucksom--Jonsson energy of
 \cite{BJ22,BJ22b}; no discretely valued BFJ model-form pairing is being
 used.
-This does not assert that $P_\omega(h)^*$ is psh when EP fails.  Equality
-of energy is therefore strictly weaker than envelope regularity.
+This does not assert that $P_\omega(h)^*$ is psh when EP fails.  The first equality is definitional; the second is the separate content of
+the cited theorem. Equality of energy can hold when envelope regularity
+fails, for instance on a nonunibranch variety with the weak envelope
+property.
 This is \cite[Theorem~B]{BJ22b}.
 
 \section{The historical gap and the proof map ahead}
@@ -669,7 +702,8 @@ settle descent through normalization or alterations.  Divisorial equality
 alone was also insufficient: a GF function may be $-\infty$ on
 proper-support points.
 
-The next chapters prove the statement, without using it as an input.  The
+The next chapters assemble the statement under $\mathrm{(SD)}_k$, without
+using the envelope conclusion as an input. The
 dependency map is:
 \[
 \begin{array}{c|l}
@@ -690,7 +724,7 @@ The logical firewall is important: none of
 \Crefrange{thm:bj-envelope-equivalences}{thm:bj-addendum-all-classes}
 contains the later general theorem.  This chapter records the historical
 inputs; \Crefrange{chap:bj-envelope-statement}{chap:bj-envelope-consequences}
-supplies the missing descent and realization arguments.
+supplies the descent and realization arguments subject to critical division.
 
 \section{Source note}
 
@@ -705,5 +739,5 @@ energy identity are Theorems~A and~B there, while
 ideal inputs are the subadditivity statement in
 \cite[\S4, Remark~4.4(3)]{GJKM19} and uniform generation
 \cite[Theorem~4.6]{GJKM19}.  The conjecture is stated here only at its
-historical location; the complete solution is the subject of the following
-nine chapters.
+historical location; the following nine chapters give the general assembly
+subject to the unresolved critical division assertion.

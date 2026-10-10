@@ -2,8 +2,10 @@
 \index{test configuration}\index{filtration}\index{non-Archimedean norm}
 \label{chap:bj-test-configurations}
 
-Test configurations are one-parameter degenerations, but three equivalent
-encodings are useful for different purposes.  The total space is best for
+Test configurations are one-parameter degenerations.  Three related
+encodings are useful for different purposes; their equivalence requires
+the polarization and closure hypotheses stated below.  The total space is
+best for
 intersection theory, the Rees algebra is best for finite generation, and the
 induced filtration of the section ring is best for asymptotics.  This chapter
 builds the dictionary carefully and fixes its signs.
@@ -41,20 +43,25 @@ ideals.  When we later need to know that a given continuous function is
 piecewise linear, this is the language in which the check is finite.
 
 \emph{The filtration.}  Writing the degeneration as a decreasing filtration
-of the section ring $R(X,L)$ discards the model entirely and keeps only
-the weights.  This is the language in which asymptotics live: the
+of the section ring $R(X,L)$ retains its filtered subspaces and forgets
+modifications contracted by a semiample polarization.  The individual
+weight multiplicities give a further, coarser invariant.  This is the
+language in which asymptotics live: the
 Duistermaat--Heckman measure of \Cref{sec:ch33-dh} is a limit of empirical
 weight distributions, and it is defined for filtrations far more general
 than those coming from a model.  It is also the language that survives the
 passage to the complex side in \Cref{chap:rays-filtrations}.
 
-The three languages are not equivalent in the same sense.  Total spaces and
-Rees algebras are equivalent after fixing an integral-closure convention;
+The precise dictionaries involve a polarized model and its closure
+convention.  A flag ideal reconstructs its blowup, while a relatively
+globally generated vertical divisor on a higher model may contract it.
+A finitely generated section algebra reconstructs the ample model of a
+semiample polarization;
 this is \Cref{thm:ch33-flag-tc-equivalence} and
 \Cref{thm:ch33-fg-filtration-tc}.  Filtrations are strictly more general:
 \Cref{ex:ch33-harmonic-not-fg} exhibits a multiplicative
-linearly bounded filtration whose Rees algebra is not finitely generated,
-so that no test configuration produces it.  A large part of the chapter is
+linearly bounded filtration that is not of finite type, so that no
+semiample test configuration produces it.  A large part of the chapter is
 devoted to saying precisely where the equivalence stops.
 
 \subsection{What is proved here and what is deferred}
@@ -70,13 +77,14 @@ The following are proved in this chapter.
  computed on $\overline\cX$ are invariant under domination
  (\Cref{prop:ch33-directed-poset,thm:ch33-compactification,thm:ch33-intersection-invariance}).
 \item\label{itm:ch33-scope:flag}
- Flag ideals and integrally closed test configurations dominating the
- trivial one correspond to each other in both directions, the passage in
- either direction being computed by a Rees algebra
- (\Cref{thm:ch33-flag-tc-equivalence}).
+ Flag ideals produce integrally closed blowups of the trivial configuration;
+ relatively globally generated vertical divisors give flag ideals in the
+ reverse direction, with the precise domination qualifications of
+ \Cref{thm:ch33-flag-tc-equivalence}.
 \item\label{itm:ch33-scope:norm}
- A test configuration induces a multiplicative, linearly bounded,
- finitely generated filtration after the integral-closure convention below.
+ A relatively semiample test configuration with ample generic polarization
+ induces a multiplicative, linearly bounded, finitely generated filtration
+ after the integral-closure convention below.
  Conversely a finitely generated filtration produces its saturated
 integral-closure class; the exact qualification is stated in
  \Cref{thm:ch33-fg-filtration-tc}.
@@ -87,13 +95,14 @@ integral-closure class; the exact qualification is stated in
  unchanged by integral closure
  (\Cref{prop:ch33-base-ideal-flag,prop:tc-valuative-invariance}).
 \item\label{itm:ch33-scope:dh}
- The Duistermaat--Heckman measure exists for every linearly bounded
- multiplicative filtration of an ample section ring, is a probability
- measure with compact support, is the push-forward of Lebesgue measure on
+ The existence of the Duistermaat--Heckman measure is a cited foundational
+ input for every linearly bounded multiplicative filtration of an
+ ample section ring.  The resulting measure is a probability measure
+ with compact support, is the push-forward of Lebesgue measure on
  an Okounkov body by a concave transform, and transforms in the expected
  way under translation, scaling, and base change
  (\Cref{thm:dh-limit-filtration,thm:ch33-dh-concave-transform,prop:ch33-dh-transformations}).
- For a test configuration it is the asymptotic weight distribution of the
+ For a relatively ample test configuration it is the asymptotic weight distribution of the
  central-fibre representation
  (\Cref{thm:ch33-dh-weight-count}).
 \end{enumerate}
@@ -104,8 +113,8 @@ The following are \emph{not} proved here.
 \item The identification of $\PL(X)$ with the direct limit of vertical
  Cartier divisors, and of Fubini--Study functions with semiample test
  configurations, belongs to \Cref{chap:bj-fs-pl-psh}; see
- \Cref{thm:tc-pl-correspondence} there.  We use only the construction of
- the function attached to a flag ideal, which is elementary.
+ \Cref{thm:tc-pl-correspondence} there.  We construct flag-ideal functions
+ here and import the stated injectivity when comparing semiample models.
 \item The correspondence with geodesic rays in the space of positively
  curved metrics over $\mathbf C$ is stated in
  \Cref{sec:ch33-geodesic-deferred} and motivated there, but its proof
@@ -139,10 +148,13 @@ $t\cdot\varpi=t\varpi$.  When $L$ is ample of dimension $n$, we set
 \label{eq:ch33-volume}
  V:=(L^n)=\lim_{m\to\infty}\frac{n!}{m^n}\,h^0(X,mL)>0 .
 \end{equation}
-Degrees $m$ are always taken sufficiently divisible; the phrase
-\emph{along the sufficiently divisible integers} means along the directed
-set $\{m\in\mathbf Z_{>0}:mL\text{ is an honest line bundle}\}$ ordered by
-divisibility, which is cofinal in a fixed arithmetic progression.
+Fix a denominator $q$ with $qL$ an honest line bundle and retain degrees
+$m\in q\mathbf Z_{\geq0}$.  Limits $m\to\infty$ are taken through these
+degrees in the usual order, after increasing $q$ when required.
+An increasing supremum of degree-normalized functions uses instead the
+divisibility order on positive retained degrees; powers make this family
+directed.  These are two different indexing conventions, explicitly
+distinguished where they are used.
 
 \subsection{Conventions on weights and linearizations}
 \label{sec:ch33-weight-conventions}
@@ -191,8 +203,8 @@ $\mathbf G_m$-equivariant isomorphism
  \cX\setminus\cX_0\simeq X\times\mathbf G_m.
 \end{equation}
 A test configuration $(\cX,\cL)$ for $(X,L)$ additionally carries a
-$\mathbf G_m$-linearized $\mathbf Q$-line bundle whose restriction over
-$1\in\mathbf G_m$ is $L$.
+$\mathbf G_m$-linearized $\mathbf Q$-line bundle together with a fixed identification of its restriction over
+$1\in\mathbf G_m$ with $L$.
 \end{definition}
 
 Some authors package the last datum as an isomorphism
@@ -235,19 +247,19 @@ nonzerodivisor cuts out an effective Cartier divisor, whose underlying
 closed subscheme is $\pi^{-1}(0)=\cX_0$.
 
 (2)  If $Z\subset\cX$ were an irreducible component contained in
-$\cX_0$, its generic point $\xi$ would satisfy
-$(\pi^\ast\varpi)_\xi=0$ in $\cO_{\cX,\xi}$, while $\xi$ being a
-generic point makes $\cO_{\cX,\xi}$ a zero-dimensional local ring, so
-$\pi^\ast\varpi$ would be nilpotent there, hence a zerodivisor,
+$\cX_0$, then $\pi^\ast\varpi$ would belong to the maximal ideal
+of the zero-dimensional noetherian local ring $\cO_{\cX,\xi}$ at its
+generic point $\xi$.  It would therefore be nilpotent and a zerodivisor,
 contradicting (1).  Thus every component meets the open set
 $\cX\setminus\cX_0$, which is therefore dense.
 
-(3)  By \eqref{eq:tc-punctured-trivialization} the dense open subset
-$\cX\setminus\cX_0$ has dimension $\dim X+1$.  Reducedness is
-\cite[Proposition~2.6]{BHJ17}: the scheme $\cX$ is reduced because it is
-flat over $\mathbf A^1$ with reduced generic fibre and its associated
-points all lie over the generic point of $\mathbf A^1$, the latter being
-a consequence of (1) as in \cite[\S1.2]{BJ22}.
+(3)  Every component meets the punctured product, and its dimension is
+the dimension of its corresponding component of $X$ plus one.
+Thus $\dim\cX=\dim X+1$.  For reducedness, a nilpotent local function
+becomes zero after inverting $\varpi$, since the punctured product is
+reduced.  It is therefore killed by a power of $\varpi$, and flatness
+forces it to be zero.  This is also
+\cite[Proposition~2.6]{BHJ17} and \cite[\S1.2]{BJ22}.
 
 (4)  Under \eqref{eq:tc-punctured-trivialization} the subscheme
 $Y\times\mathbf G_m$ is $\mathbf G_m$-invariant, so its closure
@@ -303,8 +315,9 @@ decomposition; compatibility of $\rho$ with the module structure gives
 $A_\mu M_\lambda\subset M_{\lambda+\mu}$.  If $N\subset M$ is invariant
 then $\rho(N)\subset N\otimes k[t^{\pm1}]$, so each component
 $x_\lambda$ of $x\in N$ lies in $N$; the converse is clear.  Sheafify
-by covering with invariant affines, which exist because the action is
-locally linearizable on a quasi-projective scheme.
+on the assumed invariant affine cover.  The lemma asserts no existence
+of such a cover for an arbitrary nonnormal scheme.  The action on global
+sections, used later, has its weight decomposition directly as a comodule.
 \end{proof}
 
 \subsection{Morphisms, domination, and the directed poset}
@@ -386,7 +399,8 @@ Let $(\cX,\cL)$ be a test configuration for $(X,L)$.
  $\pi$ over $\mathbf A^1$.
 \item There is a unique $\mathbf G_m$-linearized $\mathbf Q$-line bundle
  $\overline\cL$ on $\overline\cX$ restricting to $\cL$ on $\cX$ and
- to the pullback of $L$ on $X\times(\mathbf P^1\setminus\{0\})$.
+ to the pullback of $L$ on $X\times(\mathbf P^1\setminus\{0\})$, with the fixed compatible
+ identifications on the overlap.
 \item If $\mu:\cX'\to\cX$ is a morphism of test configurations, it extends
  uniquely to $\overline\mu:\overline{\cX'}\to\overline\cX$, and
  $\overline{\mu^\ast\cL}=\overline\mu^\ast\overline\cL$.
@@ -402,9 +416,14 @@ $\mathbf P^1$ obtained by gluing $\pi$ and the second projection, which
 agree over $\mathbf G_m$.  Properness is local on the target:
 $\overline\pi$ is proper over $\mathbf A^1$ because $\pi$ is, and
 proper over $\mathbf P^1\setminus\{0\}$ because $X$ is proper.  A proper
-morphism to $\mathbf P^1$ which is projective over each member of an
-affine open cover of the base is projective, and $\mathbf P^1$ is
-projective over $k$; hence $\overline\cX$ is projective over $k$.
+morphism is projective once it has a relatively ample line bundle.
+Choose a $\mathbf G_m$-linearized $\pi$-ample bundle $\cM$, as in the
+equivariant projectivity input used in \cite[Lemma~1.8]{BJ22}.  Its
+punctured-product identification extends it by $p_1^\ast M$, where
+$M=\cM|_{\cX_1}$, to a bundle on $\overline\cX$.  This bundle is
+relatively ample on both charts, hence relatively ample over
+$\mathbf P^1$.  Thus $\overline\pi$ is projective; composing with the
+projective base gives projectivity over $k$.
 The $\mathbf G_m$-action glues because the gluing datum is equivariant
 and the action on $\mathbf P^1\setminus\{0\}$ is the one induced from
 $\mathbf A^1$ by $\varpi\mapsto\varpi^{-1}$ on the second chart.
@@ -504,8 +523,6 @@ $\varpi^{c}$, hence changes $\overline\cL$ by the divisor
 $c\,\overline\pi^\ast\{0\}$, the fibre over $0\in\mathbf P^1$.  Since
 $\overline\pi^\ast\{0\}$ is a fibre class, we have
 $(\overline\pi^\ast\{0\})^2=0$ and
-$(\overline\cL^{\,j}\cdot\overline\pi^\ast\{0\})=0$ for $j\le n-1$ by
-dimension count on the fibre, while
 $(\overline\cL^{\,n}\cdot\overline\pi^\ast\{0\})=(L^n)$ because
 $\overline\cL$ restricts to $L$ on the general fibre and intersection
 numbers are constant in a flat family.  The binomial expansion of
@@ -536,10 +553,14 @@ the identity on the punctured product.  Two test configurations for
 $(X,L)$ are \emph{equivalent} if their polarizations agree after pulling
 back to a third test configuration dominating both; this is
 \cite[Definition~6.1]{BHJ17}, and it is the equivalence relation under
-which the associated function on $X^{\An}$ is a complete invariant
-(\Cref{prop:tc-valuative-invariance}).  Pulling back by
+which the associated vertical-divisor function on $X^{\An}$ is a
+complete invariant \cite[Theorem~2.31(i)]{BJ22}.  For a semiample
+polarization this agrees with the section-supremum function, by
+\Cref{prop:tc-valuative-invariance}.  Pulling back by
 $\varpi\mapsto\varpi^d$, and then taking integral closure, is the
-degree-$d$ base change.  It rescales all weights by $d$.
+degree-$d$ base change.  The raw base change rescales weights by $d$;
+subsequent integral closure may enlarge individual filtered pieces
+(\Cref{prop:ch33-transformations}).
 
 \subsection{Integrally closed test configurations}
 \label{sec:ch33-integral-closure}
@@ -562,7 +583,7 @@ integral closure that are used below.
 \begin{proposition}\label{prop:ch33-integral-closure-exists}
 Let $\cX$ be a test configuration for $X$.
 \begin{enumerate}
-\item The integral closure of $\cO_{\cX}$ in the sheaf of rational
+\item The integral closure of $\cO_{\cX}$ inside the sheaf of regular
  functions on the generic fibre defines a finite,
  $\mathbf G_m$-equivariant morphism
  $\widetilde\cX\to\cX$ which is an isomorphism over
@@ -579,8 +600,8 @@ Let $\cX$ be a test configuration for $X$.
 
 \begin{proof}
 (1)  The scheme $\cX$ is of finite type over a field, hence Nagata and
-excellent, so the integral closure of $\cO_{\cX}$ in the total ring of
-fractions of the generic fibre is a coherent $\cO_{\cX}$-algebra, by the
+excellent, so the integral closure of $\cO_{\cX}$ inside the generic-fibre structure
+sheaf is a coherent $\cO_{\cX}$-algebra, by the
 finiteness statement recorded in \Cref{def:appA-normalized-blowup} and
 \cite[\href{https://stacks.math.columbia.edu/tag/035S}{Tag 035S}]
 {stacks-project}.  Its relative $\Spec$ is finite over $\cX$, hence
@@ -588,8 +609,11 @@ projective over $\mathbf A^1$; it is flat over $\mathbf A^1$ because it
 is a subsheaf of a sheaf of $k(\varpi)$-algebras, hence torsion free.  The
 construction is canonical, so it inherits the $\mathbf G_m$-action, and
 it is an isomorphism over $\mathbf G_m$ because $\cX$ restricted there
-is $X\times\mathbf G_m$, whose structure sheaf is already integrally
-closed in itself along the generic fibre.
+is $X\times\mathbf G_m$.  The relative integral-closure construction and its unchanged
+punctured product are the precise input of
+\cite[Definition~1.10 and the paragraph following Example~1.11]{BJ22}.
+They concern closure inside generic regular functions, and do not
+normalize a nonnormal $X$.
 
 (2)  If $\cX'\to\cX$ is finite with $\cX'$ integrally closed and an
 isomorphism on generic fibres, then $\cO_{\cX'}$ is a finite
@@ -621,7 +645,8 @@ $\operatorname{depth}\cO_{\cX,\xi}\geq\min\{2,\dim\cO_{\cX,\xi}\}$ for
 every $\xi\in\cX_0$.  Moreover $\cX$ is vertically $S_2$ if and only
 if $\cX_0$ has no embedded points, and $\cX_0$ is reduced if and only if
 $\cX$ is integrally closed with generically reduced central fibre.
-This is imported in full from \cite[Theorem~1.13]{BJ22}; no proof is
+These statements are imported from \cite[Theorem~1.13, Lemma~1.15
+and Corollary~1.16]{BJ22}; no proof is
 claimed here.  The statement is used only through its first consequence, that
 the local ring of $\cX$ at a generic point of $\cX_0$ is a discrete
 valuation ring.  That consequence is what attaches divisorial valuations to
@@ -642,7 +667,9 @@ $\ord_E$ on $k(\cX)^\times$.  Set
  w_E:=b_E^{-1}\ord_E ,
 \end{equation}
 and let $v_E\in X^{\divis}$ be the restriction of $w_E$ to
-$k(X)\subset k(X)(\varpi)=k(\cX)$.
+$k(X)\subset k(X)(\varpi)=k(\cX)$.  This may be the trivial valuation,
+which belongs to $X^{\divis}$ by the convention of
+\Cref{def:ch32-divisorial}.
 \end{definition}
 
 \begin{lemma}\label{lem:ch33-gauss-component}
@@ -691,8 +718,10 @@ $f\in\cO_{\cX,\xi}$ with $f\notin\mathfrak p_\xi$ and
 $f\mathfrak m_\xi\subset\mathfrak p_\xi$.  Then
 $f\mathfrak m_\xi\mathfrak a_\xi$ is an ideal of $\cO_{\cX,\xi}$, so it
 is contained in $\mathfrak m_\xi$ or equal to $\cO_{\cX,\xi}$.  In the
-first case the determinant trick shows that $f\mathfrak a_\xi$ is integral
-over $\cO_{\cX,\xi}$, hence contained in it by integral closedness,
+first case each element of $f\mathfrak a_\xi$ preserves the finite
+module $\mathfrak m_\xi$.  This module is faithful, since it contains
+the nonzerodivisor $\varpi$.  The determinant trick therefore makes
+each such element integral over $\cO_{\cX,\xi}$, hence contained in it by integral closedness,
 contradicting $f\notin\mathfrak p_\xi$.  In the second case
 $\mathfrak m_\xi$ is invertible and $\cO_{\cX,\xi}$ is a discrete
 valuation ring, so $\xi$ is a generic point of $\cX_0$, that is,
@@ -739,9 +768,9 @@ trivial test configuration.  If $\mathfrak a\subset\cO_X$ defines a closed
 subscheme $Z$, the blowup of
 $\mathfrak a+(\varpi)\subset\cO_{X\times\mathbf A^1}$ is the deformation to
 the normal cone of $Z$.  Its central fibre contains the strict transform of
-$X\times\{0\}$ and the exceptional divisor.  Choosing a sufficiently small
-rational multiple of the exceptional divisor produces a relatively ample
-polarization.
+$X\times\{0\}$ and the exceptional divisor.  If $L$ is ample, the pullback of $L$ minus a sufficiently small
+positive rational multiple of the exceptional divisor gives a relatively
+ample polarization.
 
 We record the standard supplement, which we use in
 \Cref{ex:ch33-dnc-p1}.  The exceptional divisor of this blowup is the
@@ -750,8 +779,9 @@ $C_{Z/X}=\Spec_Z\bigoplus_{q\geq0}\mathfrak a^q/\mathfrak a^{q+1}$, the
 strict transform of $X\times\{0\}$ is the blowup of $Z$ in $X$, and
 the central fibre is the sum of these two effective Cartier divisors
 \cite[\S1.2]{BJ22}.  When $X$ is smooth and $Z$ is a smooth point of a
-smooth curve, both components are copies of $\mathbf P^1$ meeting
-transversally.
+smooth curve, the strict transform is $X$ and the exceptional component
+is $\mathbf P^1$, meeting transversally.  Both are $\mathbf P^1$ when
+$X=\mathbf P^1$.
 \end{example}
 
 \begin{example}
@@ -835,7 +865,7 @@ $-1$, as fixed in \Cref{rem:ch33-weight-sign}.  By
 \Cref{lem:ch33-weight-decomposition}, $I$ is the direct sum of its weight
 pieces, and the piece of weight $\lambda$ has the form
 $\mathfrak a_\lambda\varpi^{-\lambda}$ for a unique $A$-submodule
-$\mathfrak a_\lambda\subset\operatorname{Frac}(A)$; it is an $A$-module
+$\mathfrak a_\lambda\subset A$; it is an $A$-module
 because $A$ has weight $0$.  Multiplication by $\varpi$ maps
 $I$ into $I$, and it shifts weights by one; concretely,
 $\varpi\cdot\mathfrak a_\lambda\varpi^{-\lambda}
@@ -879,8 +909,9 @@ generic fibre, is an integrally closed test configuration dominating the
 trivial one.  When $X$ is normal this is the usual normalized blowup.
 Conversely, an integrally closed test configuration that dominates the
 trivial one, together with a relatively semiample vertical divisor on it,
-is recovered from a flag ideal; this is the content of
-\Cref{thm:ch33-flag-tc-equivalence}.  For integral $X$, the passage from
+gives the same function as a flag ideal, and dominates the resulting
+blowup after clearing denominators; this is the content of
+\Cref{thm:ch33-flag-tc-equivalence}.  For normal integral $X$, the passage from
 the ideal to the model runs through the normalized Rees algebra
 \begin{equation}
 \label{eq:flag-rees-algebra}
@@ -896,8 +927,11 @@ integral closure, since
    =\{f\mid w(f)\geq w(\mathfrak a)
              \text{ for every centered divisorial }w\}.
 \end{equation}
-Here $w$ ranges over the divisorial valuations of $k(X)(\varpi)$
-centered on $X\times\mathbf A^1$, not merely over valuations of $k(X)$.
+In this normal integral paragraph, $w$ ranges over the divisorial
+valuations of $k(X)(\varpi)$ centered on $X\times\mathbf A^1$, not merely
+over valuations of $k(X)$.  For nonnormal $X$, use the integral closure
+of the blowup inside its unchanged generic fibre instead of the full
+normalization of its Rees algebra.
 Equation \eqref{eq:valuative-integral-closure} is
 \Cref{thm:appA-valuative-integral-closure}, applied on the excellent scheme
 $X_{\triv}$.
@@ -931,9 +965,8 @@ truncation used in the density argument of
 
 \begin{lemma}\label{lem:ch33-flag-continuity}
 For every flag ideal $\mathfrak a$, the function $\phi_{\mathfrak a}$ is
-a bounded continuous real-valued function on $X^{\An}$, homogeneous of
-degree one for the scaling action \eqref{eq:valuation-scaling} up to the
-weight shift, in the sense that
+a bounded continuous real-valued function on $X^{\An}$, with the following
+scaling formula for \eqref{eq:valuation-scaling}:
 \begin{equation}
 \label{eq:ch33-flag-scaling}
  \phi_{\mathfrak a}(tv)
@@ -944,6 +977,10 @@ in the indexing of \eqref{eq:ch33-flag-weight}.
 \end{lemma}
 
 \begin{proof}
+First multiply the fractional flag ideal by a power of $\varpi$ to
+obtain the nonnegative indexing \eqref{eq:flag-ideal}.  This adds a
+constant to its function, so it suffices to prove continuity and
+boundedness in that indexing.
 Each $v\mapsto\log|\mathfrak a_\lambda|(v)=-v(\mathfrak a_\lambda)$ is
 continuous with values in $[-\infty,0]$ by
 \eqref{eq:ideal-tropical-identities}, and the maximum in
@@ -991,7 +1028,9 @@ constructions fit together as in \cref{fig:tc-rees-geometry}.
        exceptional components lie over $0$};
 \end{tikzpicture}
 \caption{The normalized Rees construction for a flag ideal.  Integral
-closure leaves the punctured product unchanged, while relative
+closure leaves the punctured product unchanged for normal $X$;
+for nonnormal $X$ use relative integral closure in the generic fibre.
+Relative
 $\operatorname{Proj}$ records the vertical modification over $0$.  The
 diagram is scoped to the flag-ideal test configurations discussed in this
 section.}
@@ -1096,14 +1135,14 @@ Let $X$ be a projective $k$-variety.
  $\mathfrak a\cO_{\cX}=\cO_{\cX}(D)$, and
  $\phi_{\mathfrak a}=\phi_D$.
 \item\label{itm:ch33-flag-tc:bijection}
- The two constructions are mutually inverse up to integral closure: the
+ The two constructions agree at the following precise level: the
  flag ideal produced in (2) from the
  datum produced in (1) has the same integral
  closure as $\mathfrak a$, and the pair
  $(\cX_{\mathfrak a},D)$ produced in
  (1) from the datum produced in
- (2) is dominated by $\cX$
- compatibly with $D$.
+ (2) is dominated by the integral closure of $\cX$,
+ compatibly with the pullback of $D$.
 \end{enumerate}
 \end{theorem}
 
@@ -1148,16 +1187,29 @@ $\sigma(v)$ to both sides gives $\phi_{\mathfrak a}=\phi_D$, as in the
 previous paragraph.
 
 (3)
-In the first direction, $\mathfrak b:=\mu_\ast\cO(D)$ satisfies
-$\phi_{\mathfrak b}=\phi_D=\phi_{\mathfrak a}$, so
-$\overline{\mathfrak b}=\overline{\mathfrak a}$ by
+In the first direction, $\mathfrak b:=\mu_\ast\cO(D)$ contains
+$\mathfrak a$.  A centered divisorial valuation on a component of
+$X_{\triv}$ lifts to $\cX$ by properness.  Since
+$\mathfrak a\cO_{\cX}=\cO(D)$ there, every local $f\in\mathfrak b$
+has value at least that of $\mathfrak a$.  After a common
+$\varpi$-shift clears the fractional denominators,
+\Cref{thm:appA-valuative-integral-closure} applied in each minimal-prime
+quotient makes $f$ integral over the ideal on that component.
+Lift those finitely many monic integral equations to the reduced
+ambient ring and multiply them.  Their evaluations belong to the
+product of its minimal primes, hence vanish; their coefficients retain
+the required powers of the ideal.  This proves integrality in the
+ambient ring itself.  Thus
+$\overline{\mathfrak b}=\overline{\mathfrak a}$.
+For integral $X$ this also follows from
+$\phi_{\mathfrak b}=\phi_D=\phi_{\mathfrak a}$ and
 \Cref{prop:ch33-flag-faithful}.  In the second direction, $\cO_{\cX}(D)$
 is the invertible pullback of $\mathfrak a$, so the universal property of
 the blowup in \Cref{prop:appA-blowup-proj} yields a unique morphism
 $\cX\to\operatorname{Bl}_{\mathfrak a}X_{\triv}$ over $X_{\triv}$ with
-$D$ pulled back from the exceptional divisor.  Since $\cX$ is
-integrally closed in the common generic fibre, this morphism lifts uniquely
-through the finite relative integral closure by
+$D$ pulled back from the exceptional divisor.  Pass to the integral closure of $\cX$ in its generic fibre.  The resulting
+morphism lifts uniquely through the finite relative integral closure of the
+blowup, by its universal property and
 \Cref{prop:ch33-integral-closure-exists}\,(2), giving the domination.
 \end{proof}
 
@@ -1195,17 +1247,21 @@ flag ideal $\mathfrak a$ with $\Sigma\subset\Sigma_{\mathfrak a}$.
 \end{lemma}
 
 \begin{proof}
-It suffices to treat a single $v\in X^{\divis}$, since a product of flag
-ideals has the union of the Rees valuation sets among its Rees valuations
-after passing to a common determination.  By
-\Cref{lem:ch33-gauss-component} there is an integrally closed test
-configuration $\cX$ with a component $E$ of $\cX_0$ such that
-$v=v_E$.  Passing to a higher test configuration, which by
-\Cref{prop:ch33-directed-poset} may be taken to dominate $X_{\triv}$, and
-using \Cref{lem:ch33-projective-blowup-presentation} below, we may assume
-that $\cX$ is the integral closure of the blowup of a flag ideal
-$\mathfrak a$; then $v\in\Sigma_{\mathfrak a}$.  This is
-\cite[Lemma~2.12]{BJ22}.
+For each member of the finite set $\Sigma$, choose an integrally closed
+configuration with a component realizing it, by
+\Cref{lem:ch33-gauss-component}.  Choose a common domination of these
+configurations and $X_{\triv}$, and take its relative integral closure.
+Call the result $\cX$.  Every selected component has a strict transform
+on $\cX$ with the same divisorial valuation: a projective birational
+morphism to a scheme regular at a codimension-one point is an
+isomorphism near that point.  The $\mathbf G_m$-actions and punctured
+identifications preserve the normalized restrictions.
+
+By \Cref{lem:ch33-projective-blowup-presentation}, $\cX$ is the relative
+integral closure of the blowup of one flag ideal $\mathfrak a$.
+Thus $\Sigma\subset\Sigma_{\mathfrak a}$.  This is the realization
+argument of \cite[Lemma~2.12]{BJ22}; it makes no unsupported assertion
+about unions of Rees-valuation sets under products of ideals.
 \end{proof}
 
 \begin{lemma}\label{lem:ch33-projective-blowup-presentation}
@@ -1222,7 +1278,7 @@ in the common generic fibre.
 \begin{proof}
 Write $\mu:\cX\to X_{\triv}$.  By \cite[Lemma~1.8]{BJ22}, restated: since
 $\pi:\cX\to\mathbf A^1$ is projective and equivariant, there is a
-$\mathbf G_m$-linearized ample line bundle $\cM$ on $\cX$; letting
+$\mathbf G_m$-linearized $\pi$-ample line bundle $\cM$ on $\cX$; letting
 $M$ be its restriction to $\cX_1\simeq X$ and $M_{\triv}$ the pullback
 of $M$ to $X_{\triv}$, the difference
 $D:=\cM-\mu^\ast M_{\triv}$ is a vertical $\mathbf Q$-Cartier divisor
@@ -1242,7 +1298,10 @@ displayed morphism is important: $\cX$ dominates the blowup.
 \section{Graded norms and multiplicative filtrations}
 \label{sec:ch33-norms}
 
-We now pass from a degeneration to linear algebra.  A decreasing
+We now pass from a degeneration to linear algebra.  In the section-ring
+dictionary below assume $X$ integral and $L$ ample; the preceding
+test-configuration and flag-ideal constructions also apply to reduced
+projective $X$ with several components.  A decreasing
 $\mathbf R$-filtration of $R_m$ is a family
 $\mathcal F^\lambda R_m$ with
 \begin{equation}
@@ -1299,7 +1358,8 @@ Let $W$ be a finite-dimensional $k$-vector space.
 \item Conversely such a $\chi$ determines the left-continuous filtration
  $\mathcal F^\lambda W:=\{s\mid\chi(s)\geq\lambda\}$, and the two
  constructions are mutually inverse on left-continuous filtrations.
-\item The function $\lambda\mapsto\dim\mathcal F^\lambda W$ is decreasing,
+\item For the left-continuous modification in (1), the function
+ $\lambda\mapsto\dim\mathcal F^\lambda W$ is decreasing,
  left continuous, integer valued, and takes the value $\dim W$ for
  $\lambda\ll0$ and $0$ for $\lambda\gg0$.  There are exactly
  $\dim W$ jumping numbers, counted with the multiplicities
@@ -1307,7 +1367,7 @@ Let $W$ be a finite-dimensional $k$-vector space.
  $\operatorname{gr}^\lambda_{\mathcal F}W
  =\mathcal F^\lambda W/\bigcup_{\mu>\lambda}\mathcal F^\mu W$.
 \item There is a basis $e_1,\dots,e_N$ of $W$ adapted to
- $\mathcal F$, meaning that $\mathcal F^\lambda W$ is spanned by those
+ that left-continuous filtration, meaning that $\mathcal F^\lambda W$ is spanned by those
  $e_i$ with $\chi(e_i)\geq\lambda$, for every $\lambda$.  For such a
  basis, $\chi\bigl(\sum a_ie_i\bigr)=\min\{\chi(e_i)\mid a_i\ne0\}$.
 \end{enumerate}
@@ -1379,22 +1439,40 @@ Moreover, for a multiplicative filtration the limits
  \lambda_{\max}:=\lim_{m\to\infty}\frac{\lambda_{\max}(m)}{m}
  =\sup_m\frac{\lambda_{\max}(m)}{m}
 \end{equation}
-exist in $(-\infty,+\infty]$.  The limit is finite exactly when the
-filtration is linearly bounded \emph{above}; full linear boundedness also
-requires the independent uniform lower bound in
-\eqref{eq:linear-bounds-filtration}.
+exist in $(-\infty,+\infty]$, with indices restricted to nonzero
+$R_m$.  The limit is finite exactly when the filtration is linearly
+bounded above.  In this full ample section ring, a uniform lower bound
+already follows from multiplicativity and finite generation of
+$R(X,L)$, by \cite[Lemma~1.5]{BC11}.
 \end{lemma}
 
 \begin{proof}
-The equivalence of (1), (2), (3) is a restatement, since the jumping numbers
-of $R_m$ lie in $[\,mC_-,mC_+\,]$ exactly under
-\eqref{eq:linear-bounds-filtration}.  For the last assertion,
-multiplicativity gives
-$\lambda_{\max}(m+m')\geq\lambda_{\max}(m)+\lambda_{\max}(m')$, because
-the product of two sections realizing the maxima is nonzero, $R(X,L)$
-being a domain, and has weight at least the sum.  Fekete's subadditivity
-lemma applied to $-\lambda_{\max}$ gives
-\eqref{eq:ch33-fekete-limits}.
+For any fixed retained degree, (2) and (3) bound its jumping numbers
+above and below; conversely choose $C$ slightly larger than the bound
+in (2), so that the strict zero condition at the upper cutoff holds.
+If (1) is initially imposed only after a further Veronese change,
+the upper bound extends to every retained degree: a nonzero $s\in R_m$
+has $s^r\ne0$ and $\chi_{rm}(s^r)\geq r\chi_m(s)$, so a bound in degree
+$rm$ bounds $\chi_m(s)$.  For the lower bound, choose finitely many
+homogeneous algebra generators of the ample section ring.  Their finite
+weights divided by their degrees have a common lower bound, and
+multiplicativity and the ultrametric inequality extend it to every
+homogeneous polynomial in those generators.  This is the proof of
+\cite[Lemma~1.5]{BC11}.  Thus (1)--(3) are equivalent.
+
+Multiplicativity gives
+$\lambda_{\max}(m+m')\geq\lambda_{\max}(m)+\lambda_{\max}(m')$
+whenever both section spaces are nonzero.  Reindex by the fixed
+denominator $q$.  All sufficiently large reindexed spaces are nonzero,
+since $L$ is ample.  For any fixed nonzero degree $p$ write a large
+degree as $\ell p+r$, choosing $r$ in one fixed interval of $p$
+sufficiently large degrees.  Superadditivity gives
+$\lambda_{\max}(\ell p+r)\geq\ell\lambda_{\max}(p)+\lambda_{\max}(r)$.
+The finite collection of remainder weights proves that the lower
+limit of the normalized maxima is at least
+$\lambda_{\max}(p)/p$.  Taking the supremum over $p$, and using the
+opposite inequality from the definition of that supremum, proves
+\eqref{eq:ch33-fekete-limits}, including its possible infinite value.
 \end{proof}
 
 Finite generation implies linear boundedness.  The converse is false: a
@@ -1442,8 +1520,9 @@ projective and $L$ ample.
  $\chi_m$ takes integer values.
 \item The filtration is multiplicative.
 \item If $\cL$ is relatively semiample it is linearly bounded, and one may
- take
- $C_\pm$ to be the extreme weights of a finite equivariant generating set.
+ take $C_-$ at most the smallest weight-to-degree ratio of a finite
+ homogeneous generating set and $C_+$ strictly greater than its largest
+ such ratio.
 \item The filtration only depends on the equivalence class of
  $(\cX,\cL)$: it is unchanged by pullback along a morphism of test
  configurations and by passage to the integral closure.
@@ -1615,13 +1694,17 @@ character of weight $c$; analytically it adds the constant $c$.
 \begin{definition}
 \label{def:ch33-fg-filtration}
 A multiplicative filtration $\mathcal F$ of $R(X,L)$ is
-\emph{rational} if all its jumping numbers are integers, after replacing
-$L$ by a multiple, and \emph{finitely generated} if the bigraded algebra
+\emph{rational}, in the integral-weight convention of this Rees subsection,
+if all its jumping numbers are integers after restriction to a suitable
+Veronese section ring.  It is \emph{finitely generated} if the bigraded algebra
 \eqref{eq:filtration-rees} is a finitely generated $k$-algebra.
 \end{definition}
 
-Note that \eqref{eq:filtration-rees} always contains
-$k[\varpi]$ in bidegree $(0,\ast)$, and that its localization at
+We normalize degree zero by
+$\mathcal F^\lambda R_0=k$ for $\lambda\leq0$ and $0$ for $\lambda>0$;
+this is the convention used in \eqref{eq:filtration-rees}.
+Then \eqref{eq:filtration-rees} contains
+$k[\varpi]$ in bidegree $(0,\ast)$, and its localization at
 $\varpi$ is $R(X,L)\otimes_kk[\varpi^{\pm1}]$; the next theorem shows
 that finite generation upgrades these two elementary
 observations to a geometric statement.
@@ -1700,8 +1783,9 @@ original $\mathcal F$.
 \label{warn:ch33-veronese}
 The bijection of \Cref{thm:ch33-fg-filtration-tc} is stated modulo Veronese
 change, and it must be.  A finitely generated bigraded algebra need not be
-generated in degree one, and its relative $\Proj$ is computed only after a
-Veronese subalgebra has been chosen; different choices give canonically
+generated in degree one.  Its relative $\Proj$ already exists, while
+a suitable Veronese ensures that the tautological polarization is an
+honest line bundle generated in degree one.  Different choices give canonically
 isomorphic test configurations, but the polarization changes by the
 corresponding multiple.  In \Cref{chap:bj-stability} this is what allows
 norms to be identified only after passing to a common Veronese index.
@@ -1793,8 +1877,9 @@ test configuration.  For the full ample section ring with a lower linear bound, 
 Let $\mathcal F$ be a multiplicative, linearly bounded filtration of
 $R(X,L)$, with $mL$ globally generated for $m$ sufficiently
 divisible, and assume that its jumping numbers in those degrees are
-integers.  This includes every rational filtration after clearing its
-denominators.
+integers.  This includes the integral-weight rational filtrations of
+\Cref{def:ch33-fg-filtration} after their Veronese restriction.
+Rational numerical values alone do not imply this integral presentation.
 \begin{enumerate}
 \item The base ideals satisfy \eqref{eq:filtered-base-ideals}, they are
  decreasing in $\lambda$, and $\mathfrak b_{m,\lambda}=\cO_X$ for
@@ -1924,32 +2009,36 @@ The identification with a Fubini--Study function is
 \end{proof}
 
 \begin{proposition}\label{prop:tc-valuative-invariance}
-Integral closure of the Rees algebra does not change
-$\phi_\chi$.  Two integrally closed test configurations determine the same
-analytic function if and only if they are equivalent.
+For a rational finitely generated filtration, integral closure of its
+Rees algebra inside the localized generic section algebra does not change
+$\phi_\chi$.  Two relatively semiample integrally closed test configurations
+with fixed ample generic polarization determine the same function
+$\phi_\chi$ if and only if they are equivalent.
 \end{proposition}
 
 \begin{proof}
-The first assertion follows from the valuative criterion
-\eqref{eq:valuative-integral-closure} degree by degree.  The second assertion
-is made with $L$, the punctured-product trivialization, and the
-linearizations fixed, and is the injectivity in
-\cite[Theorem~2.31(i)]{BJ22}.  On a common domination, values at the
-central-fibre divisorial points recover the vertical Cartier divisor.
-Without fixing the linearization, a character twist adds a constant and the
-assertion would be false as stated.
+The first assertion is the graded integral-dependence argument in
+\Cref{lem:rf-integral-closure}.  A homogeneous integral equation compares
+the weight and valuation of a sufficiently high power of a section with
+those of sections in the original graded algebra, proving equality of
+the resulting suprema.  It does not assert that graded integral closure
+acts independently in each degree.
 
-In more detail: by
-\Cref{prop:ch33-base-ideal-flag}\,(2), the function $\phi_\chi$ in each
-degree is the function of a flag ideal, and by
-\Cref{lem:flag-semiring-identities} the latter is unchanged by integral
-closure; taking the supremum \eqref{eq:ch33-phi-sup-of-flags} gives the
-first assertion.  For the second, present both configurations on a common
-domination $\cX''$ as in
-\Cref{prop:ch33-directed-poset}\,(3); the difference of the two pullbacks is
-a vertical $\mathbf Q$-Cartier divisor $D$ with $\phi_D=0$.  Applying
-\Cref{lem:ch33-effectivity} to $D$ and to $-D$ gives $D=0$, so the two
-polarizations agree on $\cX''$ and the configurations are equivalent.
+For a relatively semiample configuration, global generation in a
+sufficiently divisible degree identifies $\phi_\chi$ with the function
+of its vertical difference divisor on a common domination of the
+product; this is \cite[Theorem~2.31(ii), proof]{BJ22}.
+Choose an integrally closed common domination of the two configurations
+and the product.  The difference of the pulled-back polarizations is
+a vertical $\mathbf Q$-Cartier divisor $D$.  Equality of their functions
+gives $\phi_D=0$.  Apply \Cref{lem:ch33-effectivity} to $D$ and $-D$:
+both are effective, so $D=0$ and the configurations are equivalent.
+The converse follows by pullback invariance.
+
+For an arbitrary polarization the vertical-divisor function still
+determines its equivalence class, by \cite[Theorem~2.31(i)]{BJ22};
+the section supremum $\phi_\chi$ need not equal that function without
+semiampleness.  This is why the second assertion has the stated scope.
 \end{proof}
 
 \subsection{A finite-generation criterion}
@@ -2016,9 +2105,11 @@ $(x,\tau)\in\operatorname{hypo}(\Psi)$ be rational.  Choose
 $M\in\mathbf Z_{>0}$ with $Mx\in\mathbf Z^{N-1}$ and
 $M\tau\in\mathbf Z$; homogeneity gives
 $M\tau\leq M\Psi(x)=\Psi(Mx)$, so $(Mx,M\tau)\in S_\Psi$ and therefore
-$(x,\tau)\in\operatorname{Cone}(S_\Psi)$.  Rational points are dense in
-$\operatorname{hypo}(\Psi)$, which is convex with nonempty interior in
-its span, so density and closedness give
+$(x,\tau)\in\operatorname{Cone}(S_\Psi)$.  Rational points are dense in $\operatorname{hypo}(\Psi)$: first
+approximate $x\in C$ by rational points of the rational cone $C$,
+and then choose rational heights strictly below their $\Psi$-values,
+approaching the desired height.  Continuity of $\Psi$ justifies this
+approximation even at the boundary of $C$.  Density and closedness give
 $\operatorname{hypo}(\Psi)\subset\operatorname{Cone}(S_\Psi)$.  Thus
 $\operatorname{hypo}(\Psi)$ is rational polyhedral; writing it as a finite
 intersection of rational half-spaces and using that it is a hypograph over
@@ -2036,16 +2127,20 @@ generated $k$-algebra.
 It is tempting to believe that a filtration fails to be finitely generated
 only because its jumping numbers are irrational.  This is false.  In
 \Cref{ex:ch33-harmonic-not-fg} every normalized jumping number is rational,
-every weight is a rational number, and yet the Rees algebra is not finitely
-generated, because the relevant hypograph is a strictly convex cone.  The
+every weight is a rational number, and yet the integer-level Rees
+algebra is not finitely
+generated, because the relevant hypograph is not polyhedral.  The
 obstruction is polyhedrality, not rationality.
 \end{warning}
 
 \section{Duistermaat--Heckman measures}
 \label{sec:ch33-dh}
 
-Assume $X$ is integral, $L$ ample, and $\mathcal F$ linearly bounded
-and multiplicative.  Let
+Assume $X$ is integral of dimension $n\geq1$, $L$ ample, and
+$\mathcal F$ linearly bounded and multiplicative.  For the omitted
+zero-dimensional case $X=\Spec k$, every retained section space has
+dimension one; Fekete's limit gives a single Dirac measure.  The
+positive-dimensional volume and $1/n$ formulas below concern $n\geq1$.  Let
 \begin{equation}
 \label{eq:jumping-numbers}
  \lambda_{m,1}\geq\cdots\geq\lambda_{m,N_m},
@@ -2280,11 +2375,24 @@ to the pair $(\Delta,G_{\mathcal F})$ and divided by
 $\vol(\Delta)$: (1) is \Cref{prop:dh-tail}, (2) is
 \Cref{prop:dh-brunn-minkowski}, (4) is \Cref{lem:dh-moments}.  For (3), the
 upper end of the support is
-$\max_\Delta G_{\mathcal F}$, which equals $\lambda_{\max}$ because
-\eqref{eq:ch33-nu-tail} shows that $\nu_m$ charges
-$[\tau,\infty)$ for some $m$ exactly when $W^{(\tau)}_m\ne0$, and the
-Fekete limit \eqref{eq:ch33-fekete-limits} is the supremum of the
-corresponding $\tau$.
+$\max_\Delta G_{\mathcal F}$, which equals $\lambda_{\max}$ as follows.  No filtered section has
+normalized weight above $\lambda_{\max}$, so the limiting support has
+that upper bound.  Conversely, fix $\tau<\lambda_{\max}$ and choose
+a section $s\in R_p$ with $\chi_p(s)>p\tau$.  Choose a positive
+integer $\ell$ and a positive retained degree $r$ with
+\[
+ \ell\chi_p(s)+rC_->(\ell p+r)\tau ;
+\]
+this is possible by making $\ell$ large for a fixed $r$.  Products
+$s^{k\ell}R_{kr}$ then lie in $W^{(\tau)}_{k(\ell p+r)}$ for all $k$.
+Multiplication is injective, since $X$ is integral, and $rL$ is ample.
+This is an ample subseries; its positive volume ensures that the
+filtered Okounkov body has positive volume.  Apply the same argument
+at a continuity level strictly between $\tau$ and $\lambda_{\max}$
+to see that the limiting measure has mass above $\tau$.
+Thus its support reaches $\lambda_{\max}$.  This is also
+\cite[Lemma~1.6]{BC11}; one isolated finite-level weight would not by
+itself prove the assertion.
 \end{proof}
 
 \Cref{cor:ch33-dh-structure}\,(2) is the statement announced in
@@ -2338,24 +2446,46 @@ $\int\lambda\,\rd\nu_m=N_m^{-1}\sum_j\lambda_{m,j}/m=w_m/(mN_m)$.
 ample $L$, giving \eqref{eq:ch33-volume}.  For $w_m$, the total weight
 of the representation on $H^0(\cX_0,m\cL_0)$ is a polynomial in $m$ of
 degree at most $n+1$ for $m\gg0$; this is the equivariant
-Riemann--Roch statement of \cite[\S3]{BHJ17}, and it is also visible from
-\eqref{eq:ch33-first-moment-intersection}, proved below.  Since all
+Riemann--Roch calculation of
+\cite[Proposition~3.12(iii), proof]{BHJ17}, recalled below.  Since all
 normalized weights lie in the fixed compact interval $I$, the function
 $\lambda\mapsto\lambda$ is bounded on the supports of all $\nu_m$ and
 of the limit, so weak convergence gives convergence of first moments; this
-is the only place where uniform compact support is used, and it is exactly
+is one use of uniform compact support, and it is exactly
 what \Cref{rem:dh-moments-not-continuous} shows cannot be dispensed with in
 general.
 
-(3)  This is \cite[Corollary~3.4]{BHJ17}, restated in the normalization of
-this book in \eqref{eq:cma-bhj-moments} and
-\eqref{eq:cma-dh-first-intersection}.  The paper \cite{BHJ17} is not
-affected by the erratum discussed in
-\Cref{thm:rf-erratum-audit}, which concerns the later
-Kähler-geometric asymptotics of a different paper; the identity
-\eqref{eq:ch33-first-moment-intersection} is purely algebraic and is proved
-there by comparing the equivariant Riemann--Roch expansion of $w_m$ with
-the intersection number on $\overline\cX$.
+(3)  The direct source is
+\cite[Proposition~3.12(iii), equation~(3.3)]{BHJ17}.  To recall its
+algebraic argument, set
+$\mathcal E_m=\overline\pi_\ast(m\overline\cL)$.
+For large divisible $m$, relative Serre vanishing makes this a vector
+bundle of rank $N_m$ with central fibre $H^0(\cX_0,m\cL_0)$.
+The fixed product trivialization near infinity gives
+\[
+ w_m=\deg\det\mathcal E_m
+     =\chi(\mathbf P^1,\mathcal E_m)-N_m
+     =\chi(\overline\cX,m\overline\cL)-N_m .
+\]
+The first equality is the weight-degree identity for the equivariant
+bundle, with the convention of \eqref{eq:ch33-h0-weight-decomposition};
+the second is Riemann--Roch on $\mathbf P^1$, and the third is Leray
+with higher direct images zero.  Asymptotic Riemann--Roch on the
+projective $(n+1)$-dimensional scheme then gives
+\[
+ w_m=\frac{(\overline\cL^{\,n+1})}{(n+1)!}\,m^{n+1}+O(m^n).
+\]
+Here $n\geq1$, so subtracting $N_m=O(m^n)$ does not change the
+leading coefficient.  Combine with (2) and multiply by $V$ to obtain
+\eqref{eq:ch33-first-moment-intersection}.
+
+Higher moments use instead the auxiliary BHJ fibrations over
+$\mathbf P^q$ associated to the polarized central fibre, as in
+\cite[Corollary~3.4]{BHJ17} and \eqref{eq:cma-bhj-moments}.
+They are not computed by replacing $n+1$ with $n+q$ on the original
+compactification.  Both algebraic results are independent of the later
+energy-asymptotics erratum discussed in \Cref{thm:rf-erratum-audit}.
+
 \end{proof}
 
 \begin{remark}
@@ -2425,7 +2555,8 @@ change, as in \Cref{ex:rf-normalization-changes-weights}.
 
 \begin{proposition}
 \label{prop:ch33-dh-continuity}
-For graded norms $\chi,\chi'$ on $R(X,L)$, set
+For multiplicative linearly bounded graded norms $\chi,\chi'$ on the
+ample section ring $R(X,L)$, set
 \begin{equation}
 \label{eq:ch33-dinfty}
  d_\infty(\chi,\chi')
@@ -2474,7 +2605,9 @@ $\lambda_{m,j}\leq\lambda'_{m,j}+\delta$, which is
  \leq\frac{\delta}{m}=\varepsilon,
 \]
 using the matching of the two decreasing lists.  Letting $m\to\infty$
-gives \eqref{eq:ch33-dh-lipschitz}, since a bounded Lipschitz function is a
+gives \eqref{eq:ch33-dh-lipschitz}: each pair of measures has uniformly
+compact support, on which the possibly unbounded Lipschitz function
+$f$ agrees with a bounded continuous extension.  That extension is a
 legitimate test function for weak convergence.  The final assertion follows
 because all the measures are then supported in one compact interval, on
 which every polynomial is Lipschitz.
@@ -2482,19 +2615,33 @@ which every polynomial is Lipschitz.
 
 \begin{warning}{No continuity for pointwise convergence}
 \label{warn:ch33-dh-no-pointwise-continuity}
-\Cref{prop:ch33-dh-continuity} is a statement about the uniform metric
-\eqref{eq:ch33-dinfty} only.  Pointwise convergence of norms, or
-convergence of the associated functions $\phi_{\chi_j}$ at each point of
-$X^{\An}$, does not imply weak convergence of the Duistermaat--Heckman
-measures: the empirical measures involve all degrees simultaneously, and a
-perturbation invisible at any fixed degree can move a positive proportion of
-the weights.  Nor does weak convergence of measures imply convergence of
-moments once uniform linear bounds are dropped;
-\Cref{rem:dh-moments-not-continuous} contains an explicit counterexample in
-which the barycenter is constant equal to $-1/2$ while the measures
-converge weakly to $\delta_0$.  The metric geometry of the space of norms,
-including the finer distances $d_p$ for which the assignment is also
-continuous, belongs to \Cref{chap:bj-stability}.
+The uniform metric in \eqref{eq:ch33-dinfty} cannot be replaced by
+pointwise convergence.  Here are two different failures on
+$(X,L)=(\mathbf P^1,\cO(1))$.
+
+First, give every nonzero section in degree $m$ the same weight
+$\chi_m^{(j)}=-\min\{m,j\}$, with degree-zero weight zero.
+These are multiplicative norms, since
+$\min\{m+m',j\}\leq\min\{m,j\}+\min\{m',j\}$, and share linear
+bounds.  For each fixed section they converge to $\chi_m=-m$.
+For fixed $j$, however, $\chi_m^{(j)}/m\to0$ as $m\to\infty$,
+so their DH measures are $\delta_0$, while the limit norm has DH
+measure $\delta_{-1}$.
+
+Second, choose pairwise distinct closed points $p_j$.  The semiample
+boundary case of \Cref{ex:ch33-dnc-p1} gives functions
+$\phi_j(v)=-\min\{v(\mathfrak m_{p_j}),1\}$.
+Each is nonconstant only on the ray through $p_j$, so
+$\phi_j(v)\to0$ for every fixed point of $(\mathbf P^1)^{\An}$.
+Every one of their DH measures is uniform on $[-1,0]$, whereas
+the zero function has measure $\delta_0$.  Thus pointwise convergence
+of the analytic functions also fails to control DH.
+
+Weak convergence alone does not control moments without uniform
+linear bounds; \Cref{rem:dh-moments-not-continuous} gives a separate
+example.  The finer distances $d_p$ belong to
+\Cref{chap:bj-stability}.
+
 \end{warning}
 
 \section{Worked examples}
@@ -2592,7 +2739,8 @@ correct and
 Since $V=1$, the probability and unnormalized measures coincide, and
 \eqref{eq:ch33-first-moment-intersection} predicts
 $(\overline\cL^{2})=2\cdot\tfrac12=1$.  This is confirmed in two
-independent ways.  First, by \Cref{ex:ch33-dnc-p1} below the configuration
+independent ways.  First, by the semiample $c=1$ boundary case of
+\Cref{ex:ch33-dnc-p1} below, the configuration
 with Fubini--Study function $\phi_{\mathfrak a}$ has
 $(\overline\cL^2)=-1$, and twisting by the character of weight $1$ adds
 $(n+1)cV=2$ by \eqref{eq:ch33-intersection-twist}, giving $-1+2=1$.
@@ -2614,7 +2762,9 @@ $\DHm(\mathcal F)=(\operatorname{id})_\ast\lambda_{[0,1]}$, which is
 \eqref{eq:ch33-p1-product-dh}.
 
 \emph{The reflection test.}  Replacing the one-parameter subgroup by its
-inverse replaces $\chi_m$ by $-\chi_m$ up to a twist, reflects
+inverse reverses the weights of each monomial in the adapted basis:
+the new norm is $\min\{-j:c_j\ne0\}$, rather than the negative of
+the old minimum.  The reflected weight list reflects
 $\DHm$, and changes the first moment from $1/2$ to $-1/2$; by
 \eqref{eq:ch33-first-moment-intersection} it changes
 $(\overline\cL^2)$ from $1$ to $-1$.  This is the unit test announced
@@ -2885,7 +3035,10 @@ filtration is monomial, so
 \]
 where $p=[0:1]$ and we used $v(x^ay^{m-a})=ta$ in the frame $y^m$; the
 supremum over all sections reduces to the supremum over monomials because
-both $\chi_m$ and $v$ are computed as minima over the monomial support.
+$\chi_m$ is a minimum over the monomial support and
+$v(s)\geq\min v(x^ay^b)$.  This inequality bounds every section's
+contribution by the largest monomial contribution; monomials themselves
+attain the reverse bound.  On this ray the valuation minimum is also exact.
 The quadratic $u\mapsto u(1-t-u)$ has its maximum on $[0,1]$ at
 $u=(1-t)/2$ when $0\leq t\leq1$, and at $u=0$ when $t\geq1$.  Hence
 \begin{equation}
@@ -2906,10 +3059,8 @@ takes the value $1/4$ at $t=0$.
 \Cref{lem:ch33-finite-type-pl}, $t\mapsto\phi_\chi(t\ord_p)$ would be
 piecewise affine on $[0,\infty)$.  But \eqref{eq:ch33-harmonic-fs} is
 strictly convex on $[0,1]$, hence affine on no subinterval.  This
-contradiction proves that $\mathcal F$ is not of finite type; a fortiori
-it is not rational and finitely generated, and by
-\Cref{thm:ch33-fg-filtration-tc} there is no test configuration inducing
-it.
+contradiction proves that $\mathcal F$ is not of finite type; in particular,
+it cannot be the filtration of a semiample test configuration.
 
 \emph{What exactly fails.}  Three separate things, and it is worth keeping
 them apart.
@@ -2918,8 +3069,13 @@ them apart.
  \Cref{prop:ch33-monomial-fg-criterion}, the relevant object is the
  hypograph of $\Psi$ inside $\mathbf R^2_{\geq0}\times\mathbf R$.  It is
  a closed convex cone, but it is not polyhedral: its boundary contains the
- strictly convex curve $\{(a,b,\Psi(a,b))\}$.  Consequently no finite set
- of monomials generates the Rees semigroup.
+ nonaffine, strictly concave profile
+ $\Psi(u,1-u)=u(1-u)$ on the degree-one slice.
+ The integer-level hypograph semigroup of
+ \Cref{prop:ch33-monomial-fg-criterion} is therefore not finitely
+ generated either.  This is an additional convex-geometric obstruction;
+ it does not identify integer-rounded weights with the original
+ rational weights.
 \item \emph{Unbounded denominators, not irrational weights.}  Every jumping
  number $a(m-a)/m$ in degree $m$ is rational, and the normalized ones
  $a(m-a)/m^2$ are rational as well.  What fails is that no single $r$
@@ -2960,13 +3116,17 @@ and $\tau\mapsto\sqrt{1-4\tau}$ is indeed concave.
 \begin{remark}
 \label{rem:ch33-harmonic-reverse}
 The measure \eqref{eq:ch33-harmonic-dh} has a continuous density that is not
-piecewise constant, whereas the Duistermaat--Heckman measure of a finite-type
-filtration on a curve is the push-forward of Lebesgue measure on an interval
-by a piecewise affine concave function, hence a finite sum of uniform
-measures and atoms.  This gives a second, independent proof that
-\Cref{ex:ch33-harmonic-not-fg} is not of finite type, and it illustrates
-that the Duistermaat--Heckman measure, although far from a complete
-invariant, does see the difference.
+piecewise constant.  By \cite[Theorem~5.10]{BHJ17}, a finitely generated
+$\mathbf Z$-filtration on a normal projective curve has piecewise constant
+density for the absolutely continuous part of its limit measure.
+Restricting the harmonic filtration to integer levels replaces its monomial
+weights by their floors.  The normalized jumping lists then differ by
+less than $1/m$, so the two filtrations have the same DH measure.
+Consequently the integer-level Rees algebra in
+\Cref{ex:ch33-harmonic-not-fg} cannot be finitely generated either.
+This gives a second proof of that algebraic assertion without extending
+the cited theorem to arbitrary real-weight filtrations.  Although far
+from a complete invariant, the DH measure detects this obstruction.
 \end{remark}
 
 \subsection{Toric test configurations}
@@ -3015,9 +3175,14 @@ Then:
  \check h_P(u)=\sup_{x\in P}\langle x,-u\rangle ;
 \end{equation}
 \item $\mathcal F$ is of finite type if and only if $g$ is affine on
- the cells of a finite rational polyhedral subdivision of $P$; it is
- rational and finitely generated if and only if, in addition, the affine
- data are rational;
+ the cells of a finite rational polyhedral subdivision of $P$.
+ Its integer-rounded filtration, with weights
+ $\widetilde\chi_m=\lfloor\chi_m\rfloor$, is finitely generated if and
+ only if, in addition, the affine data are rational.  The rounded
+ filtration has the same function $\phi_\chi$ and DH measure; it is
+ the integral-weight presentation used to produce an algebraic test
+ configuration.  The original real weights need not be integral on any
+ Veronese section ring;
 \item if $g\geq0$ is piecewise affine with rational data, then the
  unnormalized first moment is
 \begin{equation}
@@ -3080,44 +3245,64 @@ examples, the supremum in \eqref{eq:norm-fs-function} may be restricted to
 characters, because both $\chi_m$ and $v_u$ are minima over
 the character support.
 
-(4)  If $\mathcal F$ is of finite type then, by
-\Cref{lem:ch33-finite-type-pl}, $\phi_\chi$ is a finite maximum of the
-functions $v\mapsto r^{-1}(\chi_r(s_i)-v(s_i))$; on the monomial locus
-each of these is affine on every cone of the normal fan, so
-$\phi_\chi(v_u)$ is piecewise affine in $u$.  Adding the piecewise
-affine $\check h_P$, we find that
-$g^\ast(u):=\sup_{x\in P}\{g(x)-\langle x,u\rangle\}$ is piecewise affine
-and convex.  By the Fenchel--Moreau theorem
-\Cref{thm:appD-fenchel-moreau}, applied in the concave form of
-\Cref{def:appD-conjugate}, one recovers
-$g(x)=\inf_u\{g^\ast(u)+\langle x,u\rangle\}$ on $P$, which is a finite
-infimum of affine functions when $g^\ast$ is piecewise affine.  Because
-the slopes come from finitely many lattice characters, this yields a finite
-rational polyhedral subdivision of $P$.  Conversely, if $g$ is
-piecewise affine on such a subdivision with rational data, then $\Psi$ is
-a minimum of finitely many rational linear forms on
-$C$, so its hypograph is a rational polyhedral cone and
-\Cref{prop:ch33-monomial-fg-criterion} applies to the semigroup
+(4)  Suppose first that $\mathcal F$ is of finite type.
+Replace its finite generating sections by an adapted character basis
+in the same degree $r$.  This preserves generation: each old generator
+is a linear combination of characters whose weights are at least its
+weight, and expansion of products gives one inclusion; multiplicativity
+gives the reverse inclusion.  The finite-maximum formula then yields
 \[
- S=\bigl\{(u,m,\lambda)\in M\times\mathbf Z\times\mathbf Z
-   \mid u\in mP,\ \lambda\leq\Psi(u,m)\bigr\},
+ g^\ast(u):=\sup_{x\in P}\{g(x)-\langle x,u\rangle\}
+ =\max_{a\in rP\cap M}
+       \{\chi_r(\chi^a)/r-\langle a/r,u\rangle\}.
 \]
-whose semigroup algebra is exactly $\mathcal R(\mathcal F)$, the monomial
-$(u,m,\lambda)$ corresponding to $\chi^u\varpi^{-\lambda}$ in degree
-$m$.  Hence $\mathcal R(\mathcal F)$ is finitely generated.  If the
-affine data are real, choose finite Hilbert bases for the lattice semigroups
-over the cells of the rational subdivision and give each basis monomial its
-real $g$-weight.  Every lattice point then decomposes inside one cell,
-where homogeneity is additive, so these finitely many weighted monomials
-generate the filtration in the sense of \Cref{def:ch33-finite-type}.  No
-clearing of real denominators is involved.
+The concave Fenchel--Moreau formula recovers $g$ as the upper roof
+of the convex hull of the finitely many points
+$(a/r,\chi_r(\chi^a)/r)$.  The projections of its upper faces are
+convex hulls of rational points $a/r$.  They give a finite rational
+polyhedral subdivision on which $g$ is affine.  This argument uses
+characters; the valuation of an arbitrary section is a minimum of
+affine terms and need not itself be affine on a fan cone.
+
+Conversely, suppose $g$ is affine on such a subdivision.  Each cone
+over a cell has a finite Hilbert basis of its lattice semigroup.
+Assign each Hilbert-basis section its real weight $\Psi(u,m)$.
+Every lattice point decomposes in one cell, where $\Psi$ is linear,
+so its exact weight is the sum of the generator weights.  These
+finitely many weighted sections, possibly of different degrees,
+generate the filtration.  Pass to a common generating Veronese of
+the polynomial algebra on these generators: partitioning a monomial
+into the new degree-one monomials preserves its total real weight.
+Their images satisfy \Cref{def:ch33-finite-type}.  Thus the original
+real filtration is of finite type.
+
+The integer-level Rees algebra has semigroup
+\[
+ S=\{(u,m,\lambda)\in M\times\mathbf Z\times\mathbf Z:
+                 u\in mP,\ \lambda\leq\Psi(u,m)\}.
+\]
+Its finite generation is equivalent to rational polyhedrality of the
+hypograph by \Cref{prop:ch33-monomial-fg-criterion}.  This is exactly
+piecewise affinity with rational affine data.
+
+Finally, rounding down preserves multiplicativity since
+$\lfloor a\rfloor+\lfloor b\rfloor\leq\lfloor a+b\rfloor$.
+It preserves $\phi_\chi$: one inequality follows from
+$\widetilde\chi\leq\chi$, and the other follows by applying
+$\widetilde\chi_{jm}(s^j)\geq j\chi_m(s)-1$ and sending $j\to\infty$.
+The ordered jumping lists differ by at most one before normalization,
+hence by at most $1/m$ afterwards.  Their uniformly supported empirical
+measures have the same weak limit.  This justifies using the rounded
+filtration for the algebraic construction without identifying its
+individual weights with the original real ones.
 
 (5)  The first equality is \eqref{eq:ch33-toric-dh} multiplied by
 $V=n!\vol(P)$; the second is Fubini for the region under the graph of
 $g$.  The last is
-\eqref{eq:ch33-first-moment-intersection}.  The polytope $Q$ is the
-moment polytope of the compactified toric test configuration in the sense of
-\cite{Don02}.
+\eqref{eq:ch33-first-moment-intersection} for the associated
+integer-rounded toric configuration.  Thus Fubini's volume of the
+region under $g$ and the algebraic first-moment identity give the
+displayed intersection formula.
 \end{proof}
 
 \begin{example}
@@ -3207,7 +3392,8 @@ of the density open, as $W(\tau)=(1-\tau)^{1/3}$ with $n=2$ shows ---
 $W$ is concave, yet $W^2$ has density $\tfrac23(1-\tau)^{-1/3}$, which
 increases.  What forces it here is the stronger fact that
 $\vol\{g\geq\tau\}^{1/2}=2^{-1/2}(1-2\tau)$ is \emph{affine}, so that
-$\vol\{g\geq\tau\}$ is a quadratic with nonincreasing derivative.
+$\vol\{g\geq\tau\}$ is a quadratic with nondecreasing derivative, whose negative is the
+nonincreasing density.
 
 \emph{Moments and intersection numbers.}  By the layer-cake formula
 $\int_\Delta g=\int_0^c\vol\{g>\tau\}\rd\tau
@@ -3229,10 +3415,13 @@ disappears and $\DHm$ becomes $4(1-2\tau)\mathbf 1_{[0,1/2)}\rd\tau$.
 of three rational affine functions, so
 \Cref{thm:ch33-toric}\,(4) applies: $\mathcal F$ is rational and finitely
 generated, and by \Cref{thm:ch33-fg-filtration-tc} it comes from an
-integrally closed semiample test configuration, namely the one obtained by
-blowing up the flag ideal \eqref{eq:ch33-toric-flag}.  That ideal first
-produces the tautological polarization for $4L$; dividing its class by
-$4$ gives the rational polarization for $L$.  Replacing $g$ by the
+integrally closed semiample test configuration.  For $c=1/4$, a representative is obtained by blowing up
+\eqref{eq:ch33-toric-flag}.  If $\mathfrak a_{(4)}\cO_{\cX}=\cO_{\cX}(D)$,
+its polarization is
+$\cL=\mu^\ast(4L)_{\triv}+D$ divided by $4$.
+The tautological vertical divisor alone is not a polarization extending
+$4L$.  For other rational $c$, use the corresponding sufficiently
+divisible degree-specific flag ideal.  Replacing $g$ by the
 continuous nonpolyhedral concave function
 $\min\{c,\sqrt{x_1x_2}\}$ destroys finite generation for the reason
 isolated in \Cref{ex:ch33-harmonic-not-fg}; the general identities
@@ -3284,10 +3473,11 @@ constraint.
 No statement of this chapter uses, directly or transitively, any of the
 results listed in \eqref{eq:rf-quarantined-results}, nor any reformulation
 of one of them under another name; the prohibition of
-\Cref{warn:rf-no-surrogate} is in force here as well.  The only asymptotic
-identity used above is the purely algebraic moment formula
-\eqref{eq:ch33-first-moment-intersection}, which comes from
-\cite[Corollary~3.4]{BHJ17}: a different paper, concerned with
+\Cref{warn:rf-no-surrogate} is in force here as well.  The energy-related
+asymptotic identities used above are the purely algebraic moment formulas: the first-moment formula
+\eqref{eq:ch33-first-moment-intersection} comes from
+\cite[Proposition~3.12(iii)]{BHJ17}, and higher moments come from
+Corollary~3.4 there.  This is a different paper, concerned with
 Duistermaat--Heckman measures of test configurations over an arbitrary
 field, and unaffected by the erratum.  No statement of this chapter asserts
 that a complex energy slope equals a non-Archimedean energy; such
@@ -3317,18 +3507,18 @@ Compactification $\overline\cX\to\mathbf P^1$
  &$\longrightarrow$ intersection invariants
  &\Cref{thm:ch33-intersection-invariance}\\
 Flag ideal $\mathfrak a$
- &$\longleftrightarrow$ integrally closed normalized blowup
+ &$\longrightarrow$ relatively integrally closed blowup
  &\Cref{thm:ch33-flag-tc-equivalence}\\
 Globally generated vertical divisor $D$
  &$\longrightarrow$ function $\phi_D=\phi_{\mathfrak a}$
  &\Cref{thm:ch33-flag-tc-equivalence}\\
 Semiample $(\cX,\cL)$
- &$\longleftrightarrow$ saturated f.g.\ rational filtration
+ &$\longleftrightarrow$ saturated f.g.\ integral-weight filtration
  &\Cref{thm:ch33-fg-filtration-tc}\\
-Central-fibre representation
+Ample central-fibre representation, $m\gg0$
  &$\longleftrightarrow\operatorname{gr}_{\mathcal F}R_m$
  &\Cref{prop:ch33-central-fibre-weights}\\
-Base change of degree $d$
+Raw base change of degree $d$
  &$\longrightarrow\chi_m\mapsto d\chi_m$
  &\Cref{prop:ch33-transformations}\\
 Character twist
@@ -3347,10 +3537,10 @@ First moment
 \end{center}
 
 Three boundaries of the dictionary should be kept in mind.  Filtrations that
-are not of finite type have no model
-(\Cref{ex:ch33-harmonic-not-fg}); the associated function determines the
-test configuration only after the linearization and the integral closure
-have been fixed (\Cref{prop:tc-valuative-invariance}); and the
+are not of finite type have no semiample model realizing those filtered pieces
+(\Cref{ex:ch33-harmonic-not-fg}); the section-supremum function determines the equivalence class of a
+semiample test configuration with fixed generic polarization and
+linearization (\Cref{prop:tc-valuative-invariance}); and the
 Duistermaat--Heckman measure, while a genuine invariant, is far from a
 complete one, since it depends only on the jumping numbers and not on the
 position of the filtered subspaces.
@@ -3402,7 +3592,8 @@ degree-specific flag ideals used in
 Duistermaat--Heckman measure of a test
 configuration, its moments, and the intersection formula
 \eqref{eq:ch33-first-moment-intersection} are \cite[\S3]{BHJ17},
-specifically Corollary~3.4 there.  The existence of the limit for an
+specifically Proposition~3.12(iii) for the original compactification's
+first moment and Corollary~3.4 for the auxiliary fibrations' higher moments.  The existence of the limit for an
 arbitrary linearly bounded multiplicative filtration, and its description as
 the push-forward of Lebesgue measure on an Okounkov body by a concave
 transform, is \cite[Theorem~A]{BC11}; upper semicontinuity of the concave

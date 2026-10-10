@@ -1,5 +1,411 @@
 # Chapter production status
 
+## Active continuation: second reading and research
+
+On 2 October 2026 the user requested another complete reading pass from
+Chapter 1 for coherence and readability. Chapters 1--72 pass the new reading
+gates; see the [Chapter 23 audit](second_reading_ch23_audit_20261003.md) and its
+[rational-competitor follow-up](second_reading_ch23_rational_followup_audit_20261003.md).
+Chapter 17's original 4,813-line source and all seven direct inputs were
+freshly read; metric classes, residual lifting, curvature examples, formal
+comparison, polar extensions and detection scopes were repaired. All 88
+chapter physical pages and two seams passed visual review. Its seven frozen
+inputs remain byte-identical. The preceding [Chapter 16 audit](second_reading_ch16_audit_20261003.md)
+records the product-construction repairs and preserved 83 original inputs.
+The earlier real-coefficient LFS descent correction and affected Chapter 72
+scopes remain in the [3 October correction audit](ch15_lfs_descent_scope_correction_audit_20261003.md).
+Chapter 18's complete 4,527-line original source and all nine inputs were
+freshly read. Corner calculations, measure and positivity proofs, harmonic
+charts, curve tests and model comparisons were repaired at their exact source
+and field scopes. All 92 chapter physical pages and two seams passed visual
+review; the nine inputs are byte-identical. Chapter 19's complete 4,479-line
+original source and all four inputs were freshly read. Curve and toric
+interfaces, abelian harmonic products, relative fibre currents, BFJ field
+scopes and singular-potential limitations were repaired. All 74 chapter
+physical pages and both seams passed visual review; its four inputs are
+byte-identical. Chapter 20's complete 3,988-line original source was freshly
+read; there are no direct inputs. Relative and generic positivity, exactness
+and regular-model scope, real ample propagation, model envelopes and toric
+examples were repaired. All 56 chapter physical pages and both seams
+passed visual review. Chapter 21's original 3,675-line source was freshly
+read; there are no direct inputs. Skeletal reconstruction, model closedness,
+real-form metric scopes, pullback hypotheses, CLD interfaces and polar-set
+examples were repaired. All 50 chapter physical pages and both seams
+passed visual review. Chapter 22's original 3,773-line source was freshly
+read; there are no direct inputs. Normalization, simplex and slope bounds,
+nef approximation, model-tree examples and sequence/characteristic scopes
+were repaired. All 54 chapter physical pages and both seams passed visual
+review. Chapter 23's original 3,590-line source was freshly read; there are
+no direct inputs. Envelope calculus, positivity and base ideals, curve and
+toric examples, and later continuity hypotheses were repaired. All 54
+chapter physical pages and both seams passed visual review. Chapter 24's original 3,729-line source was freshly read; there are no direct inputs.
+Intersection and model construction, rational-maximum locality, energy
+normalization, examples and exact CLD comparison scopes were repaired. All
+54 chapter physical pages and both seams passed visual review, including
+the repaired equation-number collision; see the [Chapter 24 audit](second_reading_ch24_audit_20261003.md).
+Chapter 25's original 4,299-line source was freshly read; there are no direct
+inputs. Outer-capacity convergence, bounded domination, maximum locality,
+sequential regularization, graph examples and Thuillier's exact source
+scopes were repaired. All 60 chapter physical pages and both seams passed
+visual review; see the [Chapter 25 audit](second_reading_ch25_audit_20261003.md).
+Chapter 26's original 4,520-line source was freshly read; there are no direct
+inputs. The sharp mixed tail, exact unordered energy cocycle, bounded
+domination consumers, weighted curve energy, toric derivative and Thuillier
+source scopes were repaired. All 64 chapter physical pages and both seams
+passed visual review; see the [Chapter 26 audit](second_reading_ch26_audit_20261003.md).
+Chapter 27's original 4,491-line source was freshly read; there are no direct
+inputs. Finite-energy variation, convex duality, orthogonality provenances,
+continuity uses, invariant toric envelopes and graph examples were repaired.
+All 66 chapter physical pages and both seams passed visual review; see the
+[Chapter 27 audit](second_reading_ch27_audit_20261003.md).
+Chapter 28's original 3,750-line source was freshly read; there are no direct
+inputs. Quantitative duality, finite-energy existence, stability, uniqueness,
+curve examples and regularity scopes were repaired. All 56 chapter physical
+pages and both seams passed visual review; see the
+[Chapter 28 audit](second_reading_ch28_audit_20261003.md).
+Chapter 29's original 3,279-line source was freshly read; there are no direct
+inputs. Capacity iteration, fixed-support regularity, uniqueness, later source
+hypotheses and curve examples were repaired. All 48 chapter physical pages
+and both seams passed visual review; see the
+[Chapter 29 audit](second_reading_ch29_audit_20261003.md).
+Chapter 30's complete original 4,419-line source was freshly read.
+Finite and birational projection, field normalization, Galois invariant
+measure lifting, positivity descent and the Gauss intersection dictionary
+were repaired. All 66 chapter pages and both seams passed visual review;
+see the [Chapter 30 audit](second_reading_ch30_audit_20261003.md).
+Chapter 31's original 3,775-line source was freshly read. Weighted graph
+calculations, toric and abelian normalizations, finite-pole envelopes,
+published Green-function examples and all compatibility-table scopes were
+repaired. All 60 chapter pages and both seams passed visual review; see the
+[Chapter 31 audit](second_reading_ch31_audit_20261003.md).
+Chapter 32's complete original 4,124-line source was freshly read.
+Sequence and ideal-coordinate topology, support density, quasimonomial
+conventions, Gauss-transfer and complex/hybrid scopes were repaired.
+All 58 chapter pages and both seams passed visual review; see the
+[Chapter 32 audit](second_reading_ch32_audit_20261003.md).
+Chapter 33's complete original 3,431-line source was freshly read.
+Relative integral closure, flag/Rees and semiample dictionary, weight
+normalization, DH moments and toric computations were repaired.
+All 50 chapter pages and both seams passed visual review; see the
+[Chapter 33 audit](second_reading_ch33_audit_20261003.md).
+Chapter 34's complete original 2,904-line source was freshly read.
+Section/PL and positivity arguments, psh topology, regularization and pole
+boundaries were repaired. All 42 chapter pages and both seams passed
+visual review; see the [Chapter 34 audit](second_reading_ch34_audit_20261003.md).
+Chapter 35's original 4,169-line source was freshly read. Scaling,
+Legendre reconstruction, fractional ideals, Siu residuals, Cartier/Weil
+scopes and numerical approximation were repaired. All 58 chapter pages
+and both seams passed visual review; see the
+[Chapter 35 audit](second_reading_ch35_audit_20261003.md).
+Chapter 36's complete original 709-line source was freshly read. Obstacle
+regularization, infinite-family bounds, unibranch necessity, uniform-error
+and rational-weight arguments were repaired. All twelve chapter pages
+and both seams passed visual review; see the
+[Chapter 36 audit](second_reading_ch36_audit_20261003.md).
+Chapter 37's complete original 608-line source was freshly read; assembly
+interfaces, normalization scope and concrete psh sharpness examples were
+checked and repaired. All ten chapter pages and both seams passed visual
+review; see the [Chapter 37 audit](second_reading_ch37_audit_20261003.md).
+Chapter 38's complete original 3,767-line source was freshly read. The false
+unrestricted trace-nef assertion was narrowed with a computed threefold
+counterexample; base-ideal, drift and fixed-pole arguments were repaired.
+All 52 chapter pages and both seams passed visual review; see the
+[Chapter 38 audit](second_reading_ch38_audit_20261003.md).
+Chapter 39's complete original 3,653-line source was freshly read. Reflection,
+Cartier surjectivity, carrier and proper-support scope were repaired; all
+50 chapter pages and both seams passed visual review, including the descent
+pagination repair. See the [Chapter 39 audit](second_reading_ch39_audit_20261003.md).
+Chapter 40's complete original 3,535-line source was freshly read. Its
+ideal-engine, line-bundle, Gauss-discrepancy, class/value-error and comparison
+arguments were repaired; all 52 chapter pages and both seams passed visual
+review. See the [Chapter 40 audit](second_reading_ch40_audit_20261003.md).
+Chapter 41's complete original 3,832-line source was freshly read. Its
+norm, openness, flattening, weight, class and pole arguments were repaired;
+all 56 chapter pages and both seams passed visual review. See the
+[Chapter 41 audit](second_reading_ch41_audit_20261003.md).
+Chapter 41's node-example scope correction has a separate
+[follow-up](second_reading_ch41_node_scope_followup_20261003.md).
+Chapter 42's original 3,216 lines and complete diffs were freshly read;
+alteration, class, carrier, norm and scope arguments were repaired.
+All 48 chapter pages and both seams passed visual review; see the
+[Chapter 42 audit](second_reading_ch42_audit_20261003.md).
+Chapter 43's original 3,538 lines and complete diffs were freshly read;
+Frobenius, exponent, net, weight, example and attribution scopes were repaired.
+All 52 chapter physical pages and both seams passed visual review; see the
+[Chapter 43 audit](second_reading_ch43_audit_20261003.md).
+Chapter 44's original 3,931 lines and complete diffs were freshly read;
+additive-power, grading, uniformity, pole and worked-example arguments were
+repaired. All 58 chapter physical pages and both seams passed visual review;
+see the [Chapter 44 audit](second_reading_ch44_audit_20261003.md).
+Appendix A's exponent-zero terminology has a separate scoped
+[follow-up](second_reading_appA_exponent_scope_followup_20261003.md).
+Chapter 45's original 3,444 lines and complete diffs were freshly read;
+assembly, obstacle, class, endpoint, example and provenance scopes were
+repaired. All 52 chapter physical pages and both seams passed visual review;
+see the [Chapter 45 audit](second_reading_ch45_audit_20261003.md).
+Chapter 46's original 3,957 lines and complete diffs were freshly read;
+pairing, class-change, locality, weighted-limit, scaling, toric and provenance
+scopes were checked and repaired. All 56 chapter physical pages and both seams
+passed visual review; see the [Chapter 46 audit](second_reading_ch46_audit_20261003.md).
+Chapter 47's original 4,262 lines and complete diffs were freshly read;
+equilibrium-energy dependence, variational limits, closed SNC faces,
+curve contact/truncation formulas and norm-completion scopes were repaired.
+All 60 chapter physical pages and both seams passed visual review;
+see the [Chapter 47 audit](second_reading_ch47_audit_20261003.md).
+Chapter 48's original 4,153 lines and complete diffs were freshly read;
+strong convergence, class-change, capacity, quasicontinuity and relative
+polarity scopes were checked and repaired. All 58 chapter physical pages
+and both seams passed visual review; see the
+[Chapter 48 audit](second_reading_ch48_audit_20261003.md).
+Chapter 49's original 4,671 lines and complete diffs were freshly read;
+linear-growth topology, rational divisorial approximation, retraction order,
+toric signs, singular energy and Green-function source scopes were repaired.
+All 64 chapter physical pages and both seams passed visual review; see the
+[Chapter 49 audit](second_reading_ch49_audit_20261003.md).
+Chapter 50's original 5,353 lines, complete mathematical diffs and all
+follow-up deltas were freshly read; norm-completion, entropy, anticanonical
+model, Ding, threshold, toric and source scopes were repaired. All 74 chapter
+physical pages and both seams passed visual review; see the
+[Chapter 50 audit](second_reading_ch50_audit_20261003.md).
+Chapter 51's original 4,979 lines and complete diffs were freshly read;
+Lelong and ideal normalizations, envelope scope, zero-mass endpoints,
+nonpluripolar interfaces and the higher-dimensional Cantor mass were
+repaired. All 72 chapter physical pages and both seams passed visual
+review; see the [Chapter 51 audit](second_reading_ch51_audit_20261003.md).
+Chapter 52's original 1,440 lines and complete 97-line repair diff were
+freshly read. Perron boundary conditions, change-of-background positivity,
+positive filtration degree and the hyperplane projection centre were
+clarified. All 20 chapter physical pages and both seams passed visual
+review; see the [Chapter 52 audit](second_reading_ch52_audit_20261003.md).
+Chapter 53's original 1,011 lines, complete 56-line source diff and
+50-line layout delta were freshly read. The semipositive background
+comparison and zero-volume safeguard were clarified. All 14 chapter
+physical pages and both seams passed visual review; see the
+[Chapter 53 audit](second_reading_ch53_audit_20261003.md).
+Chapter 54's original 1,521 lines, complete 37-line source diff and
+34-line layout delta were freshly read. The ideal-class descent citation
+and smooth-ambient multiplier-ideal boundary were corrected. All 20 chapter
+physical pages and both seams passed visual review; see the
+[Chapter 54 audit](second_reading_ch54_audit_20261003.md).
+Chapter 55's original 2,231 lines and all source/layout diffs were freshly
+read. Its Chebyshev benchmark now retains positive ideal volume and the
+auxiliary Kähler-current potential. All 32 chapter physical pages and both
+seams passed visual review; see the
+[Chapter 55 audit](second_reading_ch55_audit_20261003.md). The restricted
+Chapter 72 and catalogue follow-up leaves all 42 active atoms unchanged.
+Chapter 56's original 1,041 lines and all source/layout diffs were freshly
+read. Its perturbation-independence proof now uses the strict-interior
+Legendre supremum and treats the terminal contribution explicitly. All
+16 chapter physical pages and both seams passed visual review; see the
+[Chapter 56 audit](second_reading_ch56_audit_20261003.md).
+Chapter 57's original 1,224 lines and all source/layout diffs were freshly
+read. The trivial-valuation proof now refers explicitly to the terminal
+contribution bound and takes the supremum over strict interior parameters.
+All 18 chapter physical pages and both seams passed visual review; see the
+[Chapter 57 audit](second_reading_ch57_audit_20261003.md).
+Chapter 58's original 1,299 lines and complete layout diff were freshly
+read. Its ideal-character, global-support, bimeromorphic and proper-GAGA
+arguments retain their hypotheses; two short definitions now stay with
+their displays. All 18 chapter physical pages and both seams passed visual
+review; see the [Chapter 58 audit](second_reading_ch58_audit_20261003.md).
+Chapter 59's original 2,114 lines and full layout diff were freshly
+read. Its relative dimension, global extraction, normalized dual-complex
+and discrepancy arguments retain their hypotheses. Two short statements
+now stay with their formulas. All 30 chapter physical pages and both seams
+passed visual review; see the [Chapter 59 audit](second_reading_ch59_audit_20261003.md).
+Chapter 60's original 2,699 lines and full layout diff were freshly
+read. Relative positivity, finite-energy pairings, radial correspondence,
+mixed slopes and reduced entropy retain their stated scopes. Eight compact
+statements and one warning now stay with their formulas. All 54 chapter
+physical pages and both seams passed visual review; see the
+[Chapter 60 audit](second_reading_ch60_audit_20261003.md).
+Chapter 61's original 1,667 lines were freshly read and remain byte
+identical. Weak compactness, strong convergence, the variational solution,
+whole-complex boundary continuity and entropy-preserving density retain
+their proof interfaces. All 26 chapter physical pages and both seams passed
+visual review; see the [Chapter 61 audit](second_reading_ch61_audit_20261004.md).
+Chapter 62's original 1,586 lines were freshly read and remain byte
+identical. Normalized model identities, fixed-measure class derivatives,
+finite weighted divisorial tests and closed-simplex contact formulas retain
+their stated domains. All 26 chapter physical pages and both seams passed
+visual review; see the [Chapter 62 audit](second_reading_ch62_audit_20261004.md).
+Chapter 63's original 1,311 lines were freshly read and remain byte
+identical. The dictionary retains each arrow's domains, valuation units,
+mass conversion, approximation procedure and named analytic inputs.
+All 22 chapter physical pages and both seams passed visual review; see the
+[Chapter 63 audit](second_reading_ch63_audit_20261004.md).
+Chapter 64's original 1,142 lines were freshly read and remain byte
+identical. Its measure comparisons retain the model multiplicities,
+common regularization, relative DH initial mass, endpoint atom and
+canonical finite-energy truncation hypotheses. All 20 chapter physical
+pages and both seams passed visual review; see the
+[Chapter 64 audit](second_reading_ch64_audit_20261004.md).
+Chapter 65's original 1,568 lines were freshly read and remain byte
+identical. Its filtration/Legendre comparison retains closed endpoints,
+birational filtered-series volume, probability DH normalization and the
+BHJ erratum boundary. All 34 chapter physical pages and both seams passed
+visual review; see the
+[Chapter 65 audit](second_reading_ch65_audit_20261004.md).
+Chapter 66's original 1,878 main-file lines and eleven direct inputs were
+freshly read and remain byte-identical. Hybrid scaling, synchronized psh
+approximation, residue coefficients and the energy/entropy boundary were
+checked; all 64 chapter physical pages and both seams passed visual review.
+Protected P18 and Banach-family proof bytes retain their historical receipts;
+see the [Chapter 66 audit](second_reading_ch66_audit_20261004.md).
+Chapter 67's original 1,138 lines were freshly read and remain byte-identical.
+Finite-map degrees and length-weighted norms, valuation dilation and the
+I-input/P-output trace interface retain their exact hypotheses. All sixteen
+chapter physical pages and both seams passed visual review; see the
+[Chapter 67 audit](second_reading_ch67_audit_20261004.md).
+Chapter 68's original 1,042 lines were freshly read and remain byte-identical.
+Entropy/ray normalizations, central-fibre corrections, the finite-automorphism
+Fano equivalence and the all-big-model cscK implication retain their scopes. All sixteen
+chapter physical pages and both seams passed visual review; see the
+[Chapter 68 audit](second_reading_ch68_audit_20261004.md).
+Chapter 69's original 1,790 lines were freshly read and remain byte-identical.
+The analytic cross, fixed-complex topology, trace, numerical-dimension and
+PL/slicing results retain their exact scopes; all five protected blocks keep
+their historical pins. All 26 chapter pages and both seams passed visual review;
+see the [Chapter 69 audit](second_reading_ch69_audit_20261004.md).
+Chapter 70's 2,268 main-source lines and all eight inputs were freshly read;
+all 4,802 expanded lines remain byte-identical. Excellent links, conductor
+descent, curve functoriality, generalized Lelong numbers, the Gauss core and
+invariant Reeb theory retain their distinct domains and historical pins.
+All 68 chapter pages and both seams passed visual review; see the
+[Chapter 70 audit](second_reading_ch70_audit_20261004.md).
+Chapter 71's original 2,639 lines were freshly read and remain byte-identical.
+The raw transform, full Kähler comparison, projective model comparison,
+filtration maximality and zero-volume boundary retain their exact domains;
+all 28 protected blocks keep their historical pins. All 36 chapter pages and
+both seams passed visual review; see the
+[Chapter 71 audit](second_reading_ch71_audit_20261004.md).
+Chapter 72's 6,550 original main-source lines and all 3,326 input lines were
+freshly read. The Bergman growth-corrected obstruction now explicitly uses
+real coefficients; its unsupported literal clause is removed and its prior
+protected payload is archived. All 42 atoms retain their statuses. All 144
+chapter pages and both seams passed visual review; see the
+[Chapter 72 audit](second_reading_ch72_audit_20261004.md).
+Appendix A's 556 original lines were freshly read. The blowup proof now
+uses invertible ideals and nonzerodivisor generators explicitly; all eight
+appendix pages and both seams passed visual review. See the
+[Appendix A audit](second_reading_appA_audit_20261004.md).
+Appendix B's 523 original lines and scoped primary interfaces were freshly
+read. The simultaneous-resolution statement now specifies nonzero ideals;
+all eight appendix pages and both seams passed visual review. See the
+[Appendix B audit](second_reading_appB_audit_20261004.md).
+Appendix C's 790 original lines and 36 selected primary-source pages were
+freshly read. Nonzero graded-sequence hypotheses and the quasi-psh reduction
+are explicit; all twelve appendix pages and both seams passed visual review.
+See the [Appendix C audit](second_reading_appC_audit_20261004.md).
+Appendix D's 936 original lines and 21 selected Berndtsson source pages were
+freshly read. Metric normalization and the scope of the Lorentzian signature
+are explicit; all fourteen appendix pages and both seams passed visual review.
+See the [Appendix D audit](second_reading_appD_audit_20261004.md).
+Appendix E's 669 source lines and its Chapter 7 measure-theory interfaces
+were freshly read. The constant-net check states Hausdorffness as sufficient;
+all ten appendix pages and both seams passed visual review.
+See the [Appendix E audit](second_reading_appE_audit_20261004.md).
+Appendix F's 669 original lines, 14 selected Dang–Favre pages and two Stacks
+main bodies were freshly read. The plane blowup center is explicitly rational;
+all ten appendix pages and both seams passed visual review.
+See the [Appendix F audit](second_reading_appF_audit_20261004.md).
+Appendix G's 767 original lines and 25 selected CLD/Mikhalkin–Rau pages were
+freshly read. The calibration proof separates integer flat and calibrated
+degrees; all twelve appendix pages and both seams passed visual review.
+See the [Appendix G audit](second_reading_appG_audit_20261004.md).
+Appendix H's 918 original lines and 22 selected complex-primary pages were
+freshly read. Pointwise quasi-psh representatives and the subgeodesic psh
+condition are explicit; all sixteen appendix pages and both seams pass.
+See the [Appendix H audit](second_reading_appH_audit_20261004.md).
+Appendix I's 817 original lines and all 78 cached dependency statement
+signatures were freshly read. Flattening has its open-set hypothesis; the
+0DSV citation boundary agrees with Chapter 17 and Appendix L. All eighteen
+appendix pages, both seams and the two changed source notes pass visual review.
+See the [Appendix I audit](second_reading_appI_audit_20261004.md).
+Appendix J's 812 original lines and its scoped normalization interfaces
+were freshly read. Pointwise psh representatives and precise Legendre
+domains agree with Chapters 51–52; all fourteen pages and both seams pass.
+See the [Appendix J audit](second_reading_appJ_audit_20261004.md).
+Appendix K's 1,036 original lines and its scoped chapter interfaces were
+freshly read. Integral local equations, real-linear extension, pointwise
+psh representatives and reflected toric subgradient containment agree with
+the closed chapter gates; all sixteen pages and both seams pass.
+See the [Appendix K audit](second_reading_appK_audit_20261004.md).
+Appendix L's 2,768 original lines and its scoped chapter interfaces were
+freshly read. Historical problem counts and residual scopes are explicitly
+dated; all 148 record titles/source anchors, forty labels, four formal
+remarks and six tagged displays are preserved. All forty-eight pages and
+both seams pass. See the [Appendix L audit](second_reading_appL_audit_20261004.md).
+Appendix M's 4,474 original main-source lines and all 104 direct inputs
+(9,331 lines) were freshly read. Chartwise scalar descent and the source
+boundary are clarified; all inputs, displays and archived receipts are
+preserved. All 190 pages and both seams pass, with the five changed pages
+reviewed again after the local assumption-marker repair. See the
+[Appendix M audit](second_reading_appM_audit_20261004.md).
+Appendix N's 83 main-source lines and all four proof inputs (1,291 lines)
+were freshly read. The curve and cubical proof scopes, six selected primary
+pages and unchanged Chapter 19 statement interfaces were checked. All
+eighteen pages and both seams pass. See the
+[Appendix N audit](second_reading_appN_audit_20261004.md).
+Chapters 1–72 and Appendices A–N now close the ordered reading gates.
+The nine front-matter files were freshly read in full (952 original,
+955 final lines); all 53 labels and mathematical displays are preserved.
+The final full-book build, reference/citation/navigation checks, complete
+contents/index/bibliography and all six part-introduction page gates pass.
+The ordered second reading is complete. See the
+[whole-book completion audit](book_second_reading_completion_audit_20261004.md)
+and [manifest](book_second_reading_completion_manifest_20261004.json).
+The continuation now explores related directions and recent arXiv papers,
+checking primary statements, proofs, versions and compatibility before
+integrating suitable material. Cloud execution and normal work-branch
+publication continue; incoming user research is checked before integration.
+The current catalogue incorporates the real-scalar Bergman correction; its
+[4 October audit](open_problem_catalogue_correction_audit_20261004.md) records
+the preserved twelve full problems, unchanged 42 statuses and fresh checks.
+The requested standalone open-problem catalogue is complete: all 42 active
+items, twelve full family statements, source-dated state of the art and
+completion criteria in an 85-page independent LaTeX document. See its
+[audit](open_problem_catalogue_audit_20261002.md),
+[source](../../output/open_problems_catalogue_2026-10-02.tex) and
+[PDF](../../output/open_problems_catalogue_2026-10-02.pdf). The latest
+steering requires cloud-only execution and suspends Xean setup. This pass is
+tracked in [the second reading and research programme](second_reading_and_research_programme_20261002.md).
+The completed second-draft status below describes its frozen edition.
+
+## Controlling status: 2 October 2026
+
+The editorial second draft is complete under
+[the chapter quality programme](chapter_quality_programme_20260926.md).
+This table supersedes the older milestone statuses retained below.
+
+| Scope | Current status |
+|---|---|
+| Part I, Chapters 1--8 | Sequential quality pass complete |
+| Part II, Chapters 9--19 | Sequential quality pass complete |
+| Part III, Chapters 20--31 | Sequential quality pass complete |
+| Part IV, Chapters 32--50 | Sequential quality pass complete |
+| Part V, Chapters 51--62 | Sequential quality pass complete |
+| Part VI, Chapters 63--72 | Sequential quality pass complete |
+| Appendices A--N | Scoped quality gates complete |
+| Preface, acknowledgements, conventions, six part introductions | Complete |
+| Final whole-book consistency, references, build, navigation, scoped rendering | Pass |
+
+The final PDF has 4,164 pages; the active closure has 425 TeX inputs and
+12,561 unique labels. The final visual scope is 380 physical pages in 95
+contact sheets. Exact checks, source preservation, reused prior proof/source
+gates, and remaining nonfatal underfull diagnostics are recorded in
+[the completion audit](book_completion_quality_audit_20261002.md),
+[manifest](book_completion_manifest_20261002.json), and
+[active-source ledger](book_completion_source_closure_20261002.sha256).
+Completion does not supply a new independent mathematical-verifier verdict.
+The 42 active research atoms in twelve Chapter 72 problem environments remain
+explicit; independent research follows the whole-book polishing pass.
+The user authorized periodic GitHub pushes and integration of their
+remote research updates on 3 October 2026; current synchronization follows
+verified milestones and preserves remote changes.
+
+## Historical vocabulary and milestone ledger
+
 Status vocabulary:
 
 - `planned`: no prose file yet;
@@ -14,7 +420,7 @@ Status vocabulary:
 |---:|---|---|---|---|
 | 1--8 | Foundations | chapter-quality pass complete | Chapters 1--8 completed the new structural and semantic pass | first-pass source record retained; exact provenance was rechecked chapter by chapter |
 | 9--19 | CLD, delta-forms, and harmonic tropicalizations | post-expansion audit in progress | besides the earlier Chapter 18 GJR gates, the pure-dimensional real-PL positive-current/residue-nef equivalence passed `20260825T080059Z_80f35689475f`; first-stage CLD collapse on tropical toric partial compactifications passed `20260825T024707Z_d1b8d7eaf79e`, and its finite ambient-induced-star extension passed the direct endpoint archived locally as `20260827T103835Z_c8131b22d800`; the real-PL zero-current theorem and curve counterexample passed `20260825T061351Z_655e7f503e5d` and `20260825T055907Z_b5c8f0719b60`; the cubical reduction and product--Gauss criterion passed `20260825T145229Z_b37e13478cc7` and `20260826T055627Z_b68659fba1be`; unrestricted continuous smooth-proper-curve ordinary-smooth psh regularization passed `20260827T090645Z_767cbf81c723`; the canonical-collar bridge, rigid-point zero-atom estimate, and arbitrary-field reduced dimension-one positive-current classification passed exact-live run `20260828T042906Z_f2a1c1b9f2a3`; the arbitrary-field nonreduced combined packet passed production run `20260828T044008Z_dfdaa04a1cea`, and its separately materialized exact-live statement/proof, SHA-256 `e7b9889f6c063d9952d61c0472290183aac07b58c8d0569cfebc5e9ea73f1a9c` / `25fe49a46b1c5cd62b0d1a5024095b47cdd49c66f594d1d86eec4f9f270c83ec`, passed HTTP-archived exact-live closure run `20260828T051601Z_db92555a72e1`; the dependency-closed componentwise rigid-exception materialization, SHA-256 `2bf673687e935bcdae91550158344647cb1ca1cd4ae0a5040109aeb5fb2f3cbc` / `a27c40fbb1328b008acab07b871f50a778c34bab2b0f1d05e3a6d9d229839716`, passed `20260829T061505Z_2bf673687e93`, item `pi_ee24d64b88f0c4e60ad1acbd`, final `correct`, zero critical errors, and zero gaps | The P06.3 proof uses Thuillier, Baker--Payne--Rabinoff, Gubler--Jell--Rabinoff, and Wanner in their exact source scopes.  The P21.3 proof uses ordinary-open nilreduction, canonical full virtual-annular collars with exact source preimages, Riemann--Roch on normal residual curves over the actual residue field, and rigid-point zero-atom arguments at the strict conductor locus and at normal rigid exceptional points.  It now covers reducible and nonreduced curves whose component-normalization non-rig-smooth loci lie in locally finite rigid sets, separates reduction-invariant ordinary CLD calculus from multiplicity-sensitive integration, and proves only continuous-pair Bedford--Taylor independence.  No novelty or priority claim is made.  The product--Gauss theorem remains a separate book-level deduction in the GK field and ordinary algebraic-chart categories |
-| 20--27 | BFJ forms, psh, envelopes, MA, capacity, energy, and differentiability | sequential chapter-quality pass in progress; Chapters 20--27 complete | Chapter 20 separates rational finite-maximum stability from real fixed-form approximation; Chapter 21 uses the multiplicity- and residue-weighted curve Laplacian and proves the regular-SNC curve retraction theorem; Chapter 22 separates fixed-skeleton estimates from global compactness and repairs the slope induction and product-limit argument; Chapter 23 distinguishes the all-psh, real-model, and rational-model envelopes; Chapter 24 separates the model, continuous, bounded, and finite-energy Monge--Amp\`ere products, strengthens the dense-test and locality proofs, and states the exact three-way BFJ--Chambert--Loir--CLD comparison locus; Chapter 25 corrects every decreasing-net quasicontinuity argument, gives extended-real capacity convergence an intrinsic metric formulation, and removes the unnecessary finite-energy forward dependency; Chapter 26 separates finite energy from full mass, repairs extended-energy and mixed-product limits, and gives a full-mass infinite-energy example; Chapter 27 separates segment, projected, and variational differentiability, repairs the finite-energy limiting argument, and makes orthogonality's dependency role explicit | Chapters 20--22 were checked directly against their BFJ and auxiliary inputs; the Chapter 23 book-local result remains separated from its published inputs and makes no global sequential claim; Chapter 24's weighted decreasing-net continuity was checked against BFJ15 Theorem 3.1, and its noncharging statement against BFJ15 Proposition 3.7; Chapter 25's use of weighted continuity was checked against BFJ15 Theorem 3.1 and Proposition 4.3, and its curve statements against Thuillier's Proposition 3.4.10 and Theorem 3.6.11; Chapter 26's bounded, finite-energy, and monotone-continuity interfaces were checked against BFJ15, while the one-dimensional measure discussion was reconciled with Thuillier's terminology and scope; Chapter 27's BFJ differentiability results and the BGGJKM volume-to-orthogonality route were checked against the primary papers, including the exact roles of BGGJKM20 Theorems 5.4.3, 6.3.2, and 6.3.3 |
+| 20--27 | BFJ forms, psh, envelopes, MA, capacity, energy, and differentiability | sequential chapter-quality pass in progress; Chapters 20--27 complete | Chapter 20 separates rational finite-maximum stability from real fixed-form approximation; Chapter 21 uses the multiplicity- and residue-weighted curve Laplacian and proves the regular-SNC curve retraction theorem; Chapter 22 separates fixed-skeleton estimates from global compactness and repairs the slope induction and product-limit argument; Chapter 23 distinguishes the all-psh, real-model, and rational-model envelopes; Chapter 24 separates the model, continuous, bounded, and finite-energy Monge--Amp\`ere products, strengthens the dense-test and locality proofs, and states the exact three-way BFJ--Chambert--Loir--CLD comparison locus; Chapter 25 corrects every decreasing-net quasicontinuity argument, gives extended-real capacity convergence an intrinsic metric formulation, and removes the unnecessary finite-energy forward dependency; Chapter 26 separates finite energy from full mass, repairs extended-energy and mixed-product limits, and gives a full-mass infinite-energy example; Chapter 27 separates segment, projected, and variational differentiability, repairs the finite-energy limiting argument, and makes orthogonality's dependency role explicit | Chapters 20--22 were checked directly against their BFJ and auxiliary inputs; the Chapter 23 book-local result remains separated from its published inputs and makes no global sequential claim; Chapter 24's weighted decreasing-net continuity was checked against BFJ15 Theorem 3.1, and its noncharging statement against BFJ15 Proposition 3.11; Chapter 25's use of weighted continuity was checked against BFJ15 Theorem 3.1 and Proposition 4.3, and its curve statements against Thuillier's Proposition 3.4.10 and Theorem 3.6.11; Chapter 26's bounded, finite-energy, and monotone-continuity interfaces were checked against BFJ15, while the one-dimensional measure discussion was reconciled with Thuillier's terminology and scope; Chapter 27's BFJ differentiability results and the BGGJKM volume-to-orthogonality route were checked against the primary papers, including the exact roles of BGGJKM20 Theorems 5.4.3, 6.3.2, and 6.3.3 |
 | 28--31 | BFJ measures, continuity, functoriality, and examples | sequential chapter-quality pass in progress; Chapters 28--30 complete; Chapter 31 next | Chapter 28 separates admissibility, attainment, solvability, and regularity and repairs the graph-energy argument; Chapter 29 separates envelope, solution, and solution-map continuity and replaces an incomplete curve reconstruction by an exact source boundary; Chapter 30 separates fixed-field morphisms, ordinary scalar extension, and the extra Gauss section, repairs the Gauss coefficient and continuity arguments, and extends finite-Galois descent to singular psh potentials at the exact model-descent scope | Chapters 28--29 were checked against their Boucksom--Jonsson, BFJ, GJKM, and Thuillier inputs; Chapter 30's BJ22 Gauss attribution and model-level BFJ/BHJ/base-change sources were checked at their stated scopes, without claiming an identification of the full trivially and nontrivially valued psh theories |
 | 32--34 | Trivially valued foundations and psh closure | first-draft-final (historical) | first-pass record; Ch. 34 closure integration awaits Rethlas review | first-pass record; primary anchors rechecked for the closure repair |
 | 35 | Homogeneity and b-divisors | post-expansion depth-audited | strict homogeneous Siu division proved internally; the critical endpoint is transparently imported, and the independent repair packet is quarantined pending Rethlas | BJ22 proof step and later post-envelope confirmation checked at their exact scopes |
@@ -5599,3 +6005,1052 @@ at full resolution, and late changes on pages 2599, 2629, and 2641 were
 re-rendered from the final PDF. No clipping, overlap, bad glyph, formula
 overflow, or hierarchy defect was found in the chapter. Generated review
 PDFs are local artifacts; frozen release artifacts are unchanged.
+
+## Chapter 46: complete chapter-quality gate, 1 October 2026
+
+Chapter 46 is complete under the sequential quality programme; Chapter 47
+is next. The whole-book completion goal continues, with independent
+Chapter 72 research paused. Mathematical, expository, primary-source, and
+rendered evidence is recorded in
+[`ch46_quality_audit_20261001.md`](ch46_quality_audit_20261001.md).
+
+All 28 formal assertions have following proofs, and all 68 reusable
+environments have semantic labels. The scoped manual review and mechanical
+scan pass, including the repeat after rendered review. The unavailable legacy
+standalone writing-audit executable's numerical warning counts are not
+asserted. The reference check passes for 425 inputs and 12,022 labels with
+zero missing inputs, duplicate labels, dangling references, or structural
+defects. All six checker regression tests pass. The inventory remains 42
+active atoms in 12 environments, tiers T1=0, T2=3, T3=7, T4=15, T5=17.
+Auxiliary exact-rational checks pass 20,184 comparisons.
+
+The full build succeeds at 4,106 pages and 19,196,260 bytes. PDF SHA-256:
+`fbcab479ea05550395e759d06b37013843b48ae777b5b7d91fc5b7677323f6e4`.
+Chapter source SHA-256:
+`fb2abf67fd3eb5beb412de446259a0be2e236425c177658c2b938c89e4297e7e`.
+There are no unresolved references or citations, missing glyphs, rerun
+requests, or fatal errors. Chapter 46 has no overfull boxes or LaTeX/package
+warnings. The full log records 23 overfull boxes outside this chapter and
+13 duplicate PDF destinations in Chapter 70.
+
+All 56 chapter pages, physical 2645--2700 (printed 2575--2630), were scanned,
+including the intentional blank verso at 2700. Nineteen mathematical and
+dictionary pages were inspected at full resolution, as were Chapter 45's
+closing pages 2643--2644 and Chapter 47's opening 2701. The final repaired
+displays were re-rendered and inspected. No clipping, overlap, bad glyph,
+formula overflow, or hierarchy defect was found in the chapter. Generated
+PDFs remain local review artifacts; frozen release artifacts are unchanged.
+This is a direct editorial/source audit, not an independent-verifier verdict.
+
+## Chapter 47: complete chapter-quality gate, 1 October 2026
+
+Chapter 47 is complete under the sequential quality programme; Chapter 48
+is next. The whole-book completion goal continues, with independent
+Chapter 72 research paused. Detailed changes and direct source interfaces
+are recorded in [`ch47_quality_audit_20261001.md`](ch47_quality_audit_20261001.md).
+
+The chapter has 40 proved formal assertions, 73 labelled reusable
+environments, and 209 semantic labels. The Bernstein concavity, sharp I/J
+examples, curve separation, differentiability, domination, general strong
+theory, toric and logarithmic examples, and Green-function provenance have
+been checked and repaired. The exact-rational supplement passes 17,317
+comparisons. Reference verification passes with 425 inputs and 12,020
+labels; all six checker tests pass, and the inventory remains 42 atoms
+in 12 environments, tiers (0,3,7,15,17). The post-render scoped scan and
+reference check pass, as does `git diff --check`.
+
+The full build gives 4,104 pages and 19,183,549 bytes, PDF SHA-256
+`8e0da4accd432fc6dcb9cbbadd17a0844aec2fc0d08d124c8796cf7b242b512a`.
+Final chapter source SHA-256:
+`5e125a4e3a5d18ada8a4bbdb93a3c231553a4ea77e6810ec1268d1cba67e26a8`.
+There are no unresolved references or citations, missing glyphs, rerun
+requests, or fatal errors. Chapter 47 has no overfull boxes or LaTeX/package
+warnings. There are 23 overfull boxes elsewhere and 13 duplicate PDF
+destinations in Chapter 70.
+
+All 60 physical chapter pages 2699--2758 (printed 2631--2690) were scanned,
+with 22 detail pages and adjoining seams inspected. The four pages changed
+by final wording and display fixes were inspected again in the final PDF.
+No chapter layout defect remains. Generated PDFs are local review artifacts;
+frozen releases and checksum ledgers are unchanged. This direct editorial
+audit does not claim an independent verifier verdict. The work is committed
+locally; remote pushes await explicit approval.
+
+
+## Chapter 48: complete chapter-quality gate, 1 October 2026
+
+Chapter 48 is complete under the sequential quality programme; Chapter 49
+is next. The whole-book completion goal continues, with independent
+Chapter 72 research paused. Detailed changes and primary-source interfaces
+are recorded in [`ch48_quality_audit_20261001.md`](ch48_quality_audit_20261001.md).
+
+The chapter has 31 proved formal assertions, 64 labelled reusable
+environments, and 192 labels. Strong completeness, capacity, outer-capacity
+limits, negligible-set nullity, obstacle contact, and curve examples have
+been checked and repaired. The auxiliary exact-rational calculation passes
+33,815 comparisons. Reference verification passes for 425 inputs and 12,025
+labels; all six checker tests pass. The inventory remains 42 atoms in 12
+environments, tiers (0,3,7,15,17). The scoped and reference checks pass again
+after rendering, as does `git diff --check`.
+
+The full build gives 4,102 pages and 19,166,119 bytes, PDF SHA-256
+`6411d69f4b53765fe84188cc3fbf05491128641b166beb12bae65f2443ffc494`.
+Final chapter source SHA-256:
+`b89b95716933d4a0851afa4afb9552974f5037f6298eb987973d915f0fed6312`.
+There are no unresolved references or citations, missing glyphs, rerun
+requests, or fatal errors. Chapter 48 has no overfull boxes or LaTeX/package
+warnings. There are 20 overfull boxes elsewhere and 13 duplicate PDF
+destinations in Chapter 70.
+
+All 58 physical chapter pages 2759--2816 (printed 2691--2748) were scanned,
+with 25 detail pages and the adjoining seams inspected. The three pages
+changed by final wording were inspected again in the final PDF. No chapter
+layout defect remains. Generated PDFs are local review artifacts; frozen
+releases and checksum ledgers are unchanged. This direct editorial/source
+audit does not claim an independent-verifier verdict. Verified work remains
+local pending explicit approval for remote pushes.
+
+
+## Chapter 49: complete chapter-quality gate, 1 October 2026
+
+Chapter 49 is complete under the sequential quality programme; Chapter 50
+is next. The whole-book goal continues, with independent Chapter 72 research
+paused. Detailed changes and source interfaces, including the Chapter 34
+dependency correction, are in
+[`ch49_quality_audit_20261001.md`](ch49_quality_audit_20261001.md).
+
+The chapter has 40 proved formal assertions, 77 labelled reusable
+environments and 247 labels. The exact-rational supplement passes 39,110
+comparisons. Reference verification passes for 425 inputs and 12,028 labels;
+all six checker tests pass. The inventory remains 42 atoms in 12 environments,
+tiers (0,3,7,15,17). Post-render scoped and reference checks pass, as does
+`git diff --check`.
+
+The full build gives 4,102 pages and 19,162,373 bytes, PDF SHA-256
+`6ae832e275e4a7778bf9e7aa9e0084f14c3c8a53f8b0ff57b3a62e1459dc9502`.
+Final chapter source SHA-256:
+`30b61901c2b7fc592440eb8b89a5c03e46f617552bde85dbf1c1e9bab53e0385`.
+There are no unresolved references or citations, missing glyphs, rerun
+requests or fatal errors. Chapter 49 has no overfull boxes or LaTeX/package
+warnings. The book retains 20 overfull boxes elsewhere and 13 duplicate PDF
+destinations in Chapter 70.
+
+All 64 physical chapter pages 2817--2880 (printed 2749--2812) were scanned,
+with 34 detail pages, three adjoining seams and three Chapter 34 dependency
+pages inspected. The one page changed by final wording was inspected again.
+No chapter layout defect remains. Frozen releases and checksum ledgers are
+unchanged. This direct editorial/source audit does not claim an independent
+verifier verdict or extend historical research receipts to the new bytes.
+Verified work remains local pending explicit approval for remote pushes.
+
+
+## Chapter 50: complete chapter-quality gate, 1 October 2026
+
+Chapter 50 completes Part IV under the sequential quality programme;
+Chapter 51 is next. The whole-book goal continues, with independent
+Chapter 72 research paused. Detailed repairs and source interfaces are in
+[`ch50_quality_audit_20261001.md`](ch50_quality_audit_20261001.md).
+
+There are 40 formal assertions with proofs or explicit source interfaces,
+99 labelled reusable environments and 352 labels. Seven primary PDFs
+and twenty rendered source pages were checked. The exact-rational/symbolic
+supplement passes 321,388 comparisons. Reference verification passes for
+425 inputs and 12,028 labels; all six checker tests pass. The research
+inventory remains 42 atoms in twelve environments, tiers (0,3,7,15,17).
+Post-render scoped and reference checks pass, as does `git diff --check`.
+
+The full build gives 4,102 pages and 19,154,421 bytes, PDF SHA-256
+`330cf8cb045079ac40ab34fdb8d8ecfd12595f7a278a7d54df6adbcd63b48851`.
+Final chapter source SHA-256:
+`2ebb217676e90ee7657506c62265c365f06b43e63c1233ea53c39147cb48de4f`.
+There are no unresolved references or citations, missing glyphs, rerun
+requests or fatal errors. Chapter 50 has no overfull boxes or LaTeX/package
+warnings. Nineteen overfull boxes elsewhere and thirteen duplicate PDF
+destinations in Chapter 70 remain recorded.
+
+All 72 physical chapter pages 2881--2952 (printed 2813--2884) were scanned
+in the final PDF, including every page reflowed by the final corrections.
+Thirty-three pre-final and eighteen final detail pages were inspected,
+covering 43 distinct chapter pages, together with adjoining pages 2880
+and 2953. No chapter layout defect remains. Frozen releases and checksum
+ledgers are unchanged. This direct editorial/source audit does not claim
+an independent verifier verdict. Verified work remains local pending
+explicit approval for remote pushes.
+
+
+## Chapter 51: complete chapter-quality gate, 1 October 2026
+
+Chapter 51 has passed the sequential quality programme; Chapter 52 is next.
+The whole-book goal continues, with independent Chapter 72 research paused.
+Detailed repairs and source interfaces are in
+[`ch51_quality_audit_20261001.md`](ch51_quality_audit_20261001.md).
+
+There are 31 formal assertions, two separately numbered foundational input
+interfaces, 84 labelled reusable environments and 260 labels. Eight primary
+PDFs and 32 rendered source pages were checked. The exact-rational/symbolic
+supplement passes 119,417 checks. Reference verification passes for 425
+inputs and 12,037 labels; all six checker tests pass. The unchanged research
+inventory has 42 atoms in twelve environments, tiers (0,3,7,15,17).
+Post-render scoped and reference checks and `git diff --check` pass.
+
+The full build gives 4,108 pages and 19,178,175 bytes, PDF SHA-256
+`9517ae756b4e52bdee198581acf5a63a7b01a8aaedc0c1580a3c9b1db7421c66`.
+Final chapter source SHA-256:
+`724b3bad739e8e843ffb4837c3ed8d4088bb6c64cb9b0d2579f8f15f49548d05`.
+There are no unresolved references or citations, missing glyphs, rerun
+requests or fatal errors. Chapter 51 has no overfull boxes or LaTeX/package
+warnings. Nineteen overfull boxes elsewhere and thirteen duplicate PDF
+destinations in Chapter 70 remain recorded.
+
+All 70 physical chapter pages 2959--3028 (printed 2891--2960) were scanned
+in the final PDF, including all reflowed pages. Thirty pre-final detail/seam
+pages and seventeen final detail pages were inspected, giving 32 distinct
+chapter detail pages and two adjoining seams across the reviews. Physical
+3028 is intentionally blank. No chapter layout defect remains. Frozen
+releases, production packets and checksum ledgers are unchanged. This is a
+direct editorial/source audit, not an independent verifier verdict.
+Verified work remains local pending explicit remote-push approval.
+
+
+## Chapter 52: complete chapter-quality gate, 1 October 2026
+
+Chapter 52 has passed the sequential quality programme; Chapter 53 is next.
+The whole-book goal continues, with independent Chapter 72 research paused.
+Detailed repairs and source interfaces are in
+[`ch52_quality_audit_20261001.md`](ch52_quality_audit_20261001.md).
+
+There are eleven formal assertions, 25 labelled reusable environments and
+70 labels. Three primary PDFs and 42 rendered source pages were checked.
+The symbolic, rational and numerical supplement passes 199,941 checks;
+floating-point comparisons are distinguished from exact calculations.
+Reference verification passes for 425 inputs and 12,045 labels; all six
+checker tests pass. The unchanged inventory has 42 atoms in twelve
+environments, tiers (0,3,7,15,17). Post-render scoped and reference checks
+and `git diff --check` pass.
+
+The full build gives 4,110 pages and 19,192,417 bytes, PDF SHA-256
+`39808bcc7dfaebe8104550debfd9d1c80edc97c59fa8845a2637f109dfd82fc5`.
+Final chapter source SHA-256:
+`4b62e042d3250af528c549ba405d5207165ff859da775c33adc9916212303a82`.
+There are no unresolved references or citations, missing glyphs, rerun
+requests or fatal errors. Chapter 52 has no overfull boxes or LaTeX/package
+warnings. Nineteen overfull boxes elsewhere and thirteen duplicate PDF
+destinations in Chapter 70 remain recorded.
+
+All twenty physical chapter pages 3029--3048 (printed 2961--2980) were
+scanned and inspected at detail size, with both adjoining seams. Physical
+3048 is intentionally blank. No chapter layout defect remains. Frozen
+releases and checksum ledgers are unchanged. This direct editorial/source
+audit does not claim an independent verifier verdict. Verified work
+remains local pending explicit remote-push approval.
+
+
+## Chapter 53: complete chapter-quality gate, 1 October 2026
+
+Chapter 53 has passed the sequential quality programme; Chapter 54 is next.
+The whole-book goal continues, with independent Chapter 72 research paused.
+Detailed repairs and source interfaces are in
+[`ch53_quality_audit_20261001.md`](ch53_quality_audit_20261001.md).
+
+There are thirteen formal assertions, 23 labelled reusable environments and
+62 labels. Three primary PDFs and 21 rendered source pages were checked.
+The symbolic/exact-rational supplement passes 2,172 checks. Reference
+verification passes for 425 inputs and 12,059 labels; all six checker tests
+pass. The inventory remains 42 atoms in twelve environments, tiers
+(0,3,7,15,17). Post-render scoped and reference checks and `git diff --check`
+pass.
+
+The full build gives 4,114 pages and 19,209,755 bytes, PDF SHA-256
+`55f5e6d99974ce8144800bf9f3f45bc253b4751bd8ac408e49ff252babeed7e7`.
+Final chapter source SHA-256:
+`2daafa04b32ef1001de6afab55d2e8483c1f83d201d4a0f92a2e8da25387da2d`.
+There are no unresolved references or citations, missing glyphs, rerun
+requests or fatal errors. Chapter 53 has no overfull boxes or LaTeX/package
+warnings. Nineteen overfull boxes elsewhere and thirteen duplicate PDF
+destinations in Chapter 70 remain recorded.
+
+All fourteen physical chapter pages 3049--3062 (printed 2981--2994) and
+both adjoining seams were inspected at detail size. Physical 3062 is
+intentionally blank. No chapter layout defect remains. Frozen releases
+and checksum ledgers are unchanged. This direct editorial/source audit
+does not claim an independent verifier verdict. Verified work remains
+local pending explicit remote-push approval.
+
+
+## Chapter 54: complete chapter-quality gate, 1 October 2026
+
+Chapter 54 has passed the sequential programme; Chapter 55 is next. The
+whole-book goal continues, with independent Chapter 72 research paused.
+Detailed repairs and exact source interfaces are in
+[`ch54_quality_audit_20261001.md`](ch54_quality_audit_20261001.md).
+
+Nine formal assertions, 28 labelled reusable environments and 92 labels were
+reviewed. Three primary PDFs and 57 rendered source pages were checked. The
+symbolic/exact-rational supplement passes 74,374 checks. References pass for
+425 inputs and 12,069 labels; all six checker tests pass. The inventory remains
+42 atoms in 12 environments, tiers (0,3,7,15,17). Post-render scoped and
+reference checks and `git diff --check` pass.
+
+The full build gives 4,114 pages and 19,213,194 bytes, PDF SHA-256
+`787504de38d41716a6937381273251e80507ef961df47adea223e52e3e41b18a`.
+Final source SHA-256:
+`88a938f762f6fa99d4a057b86ac8a86e4d670d6e5c0749806902b616a35f4edd`.
+There are no unresolved references or citations, missing glyphs, rerun
+requests or fatal errors. Chapter 54 has no overfull boxes or LaTeX/package
+warnings. Nineteen overfull boxes elsewhere and thirteen duplicate PDF
+destinations in Chapter 70 remain recorded.
+
+All twenty physical chapter pages 3063--3082 (printed 2995--3014) and both
+adjoining seams were inspected at detail size, including reinspection after
+the closing-note layout repair. Physical 3082 is intentionally blank. No
+reviewed chapter layout defect remains. Frozen releases and checksum
+ledgers are unchanged. This direct editorial/source audit does not claim an
+independent verifier verdict. Verified work remains local pending explicit
+remote-push approval.
+
+
+## Chapter 55: complete chapter-quality gate, 1 October 2026
+
+Chapter 55 has passed the sequential programme; Chapter 56 is next. The
+whole-book goal continues, with independent Chapter 72 research paused.
+Repairs and exact source interfaces are in
+[`ch55_quality_audit_20261001.md`](ch55_quality_audit_20261001.md).
+
+There are 23 formal assertions, 46 labelled reusable environments and 132
+labels. Six primary PDFs and 81 rendered source pages were checked. The
+symbolic/exact-rational supplement passes 93,604 checks. References pass for
+425 inputs and 12,099 labels; all six checker tests pass. The inventory
+remains 42 atoms in twelve environments, tiers (0,3,7,15,17). Post-render
+scoped and reference checks and `git diff --check` pass.
+
+The full build gives 4,118 pages and 19,234,722 bytes, PDF SHA-256
+`523b35438c621d5a999a492543aa1ff7f96d3f67679b04218d7d2e70919076b7`.
+Final source SHA-256:
+`6ebb7a4f4e81a11d778dadafa41425ee0db1a734ab12c6de18a87ae4c8db69d1`.
+There are no unresolved references or citations, missing glyphs, rerun
+requests or fatal errors. Chapter 55 has no overfull boxes or LaTeX/package
+warnings. Nineteen overfull boxes elsewhere and thirteen duplicate PDF
+destinations in Chapter 70 remain recorded.
+
+All 32 physical chapter pages 3083--3114 (printed 3015--3046) and both
+adjoining seams were inspected at detail size, with reinspection after the
+final locator correction. Physical 3114 is intentionally blank. No reviewed
+chapter layout defect remains. Frozen releases and checksum ledgers are
+unchanged. This direct editorial/source audit does not claim a new
+independent verifier verdict. Verified work remains local pending explicit
+remote-push approval.
+
+
+## Chapter 56: complete chapter-quality gate, 2 October 2026
+
+Chapter 56 has passed the sequential programme; Chapter 57 is next. The
+whole-book goal continues, with independent Chapter 72 research paused.
+Repairs and exact source interfaces are in
+[`ch56_quality_audit_20261002.md`](ch56_quality_audit_20261002.md).
+
+There are fourteen formal assertions, 23 labelled reusable environments and
+63 labels. Six primary PDFs and 33 rendered source pages were checked.
+The exact integer/rational supplement passes 9,228 checks. References pass
+for 425 inputs and 12,111 labels; all six checker tests pass. The inventory
+remains 42 atoms in twelve environments, tiers (0,3,7,15,17). Post-render
+scoped and reference checks and `git diff --check` pass.
+
+The full build gives 4,120 pages and 19,244,820 bytes, PDF SHA-256
+`c43b970d1ae4dd9a9226c1b50df47801cb9c9e4a561d00220efb7e82a2a0aafd`.
+Final source SHA-256:
+`29e5fe4b4754d22b7212c203f528121be1b84cec4edd6035509a39804a39b839`.
+There are no unresolved references or citations, missing glyphs, rerun
+requests or fatal errors. Chapter 56 has no overfull boxes or LaTeX/package
+warnings. Nineteen overfull boxes elsewhere and thirteen duplicate PDF
+destinations in Chapter 70 remain recorded.
+
+All fourteen physical chapter pages 3115--3128 (printed 3047--3060) and
+both adjoining seams were inspected at detail size after the final heading
+repair. No reviewed chapter layout defect remains. Frozen releases and
+checksum ledgers are unchanged. This direct editorial/source audit does
+not claim an independent verifier verdict. Verified work remains local
+pending explicit remote-push approval.
+
+
+## Chapter 57: complete chapter-quality gate, 2 October 2026
+
+Chapter 57 has passed the sequential programme; Chapter 58 is next. The
+whole-book goal continues, with independent Chapter 72 research paused.
+Repairs and exact source interfaces are in
+[`ch57_quality_audit_20261002.md`](ch57_quality_audit_20261002.md).
+
+There are eleven formal assertions, twenty labelled reusable environments
+and seventy labels. Four primary PDFs and 32 rendered source pages were
+checked. The exact integer/rational supplement passes 4,242 checks.
+References pass for 425 inputs and 12,127 labels; all six checker tests
+pass. The inventory remains 42 atoms in twelve environments, tiers
+(0,3,7,15,17). Post-render scoped and reference checks and `git diff --check`
+pass.
+
+The full build gives 4,120 pages and 19,252,179 bytes, PDF SHA-256
+`992348b58dd1369711524ac48bf3d53a042384a570f4963592b120f8aa3204e0`.
+Final source SHA-256:
+`3b5172d19feacd2b7550f0555bbd962a7d4b8ec92d3bc09deac4ae4b6c070c80`.
+There are no unresolved references or citations, missing glyphs, rerun
+requests or fatal errors. Chapter 57 has no overfull boxes or LaTeX/package
+warnings. Nineteen overfull boxes elsewhere and thirteen duplicate PDF
+destinations in Chapter 70 remain recorded.
+
+All sixteen physical chapter pages 3129--3144 (printed 3061--3076) and
+both adjoining seams were inspected at detail size after the final proof
+placement. No reviewed chapter layout defect remains. Frozen releases and
+checksum ledgers are unchanged. This direct editorial/source audit does
+not claim an independent verifier verdict. Verified work remains local
+pending explicit remote-push approval.
+
+
+## Chapter 58: complete chapter-quality gate, 2 October 2026
+
+Chapter 58 has passed the sequential programme; Chapter 59 is next. The
+whole-book goal continues, with independent Chapter 72 research paused.
+Repairs and exact source interfaces are in
+[`ch58_quality_audit_20261002.md`](ch58_quality_audit_20261002.md).
+
+There are fourteen formal assertions, 27 labelled reusable environments and
+66 labels. Two primary PDFs and thirteen rendered source pages were checked,
+along with three fresh Stacks statements and proofs. The exact supplement
+passes 1,504 checks and enumerates 5,461 candidate truncated-ring characters.
+References pass for 425 inputs and 12,142 labels; all six checker tests pass.
+The inventory remains 42 atoms in twelve environments, tiers (0,3,7,15,17).
+Post-render scoped and reference checks and `git diff --check` pass.
+
+The full build gives 4,122 pages and 19,258,283 bytes, PDF SHA-256
+`6ad5a532ba0ee01993aacb761e1f8b71b892edd51197bdf7e921d33f47a14b4f`.
+Final source SHA-256:
+`e6bed6600121e9207dc2bf612f7d89a0e91b94db2d028e1e27c8aa53635ac745`.
+There are no unresolved references or citations, missing glyphs, rerun
+requests or fatal errors. Chapter 58 has no overfull boxes or LaTeX/package
+warnings. Nineteen overfull boxes elsewhere and thirteen duplicate PDF
+destinations in Chapter 70 remain recorded.
+
+All eighteen physical chapter pages 3145--3162 (printed 3077--3094) and
+both adjoining seams were inspected at detail size after the final grammar
+repair. Physical 3162 is intentionally blank. No reviewed chapter layout
+defect remains. Frozen releases and checksum ledgers are unchanged. This
+direct editorial/source audit does not claim an independent verifier verdict.
+Verified work remains local pending explicit remote-push approval.
+
+
+## Chapter 59: complete chapter-quality gate, 2 October 2026
+
+Chapter 59 has passed the sequential programme; Chapter 60 is next. The
+whole-book goal continues, with independent Chapter 72 research paused.
+Repairs and exact source interfaces are in
+[`ch59_quality_audit_20261002.md`](ch59_quality_audit_20261002.md).
+
+There are seventeen formal assertions, 33 labelled reusable environments and
+eighty labels. Eight primary PDFs and 47 rendered source pages were checked,
+along with four fresh Stacks statements and proofs. The exact supplement
+passes 15,136 checks. References pass for 425 inputs and 12,160 labels; all
+six checker tests pass. The inventory remains 42 atoms in twelve environments,
+tiers (0,3,7,15,17). Post-render scoped and reference checks and
+`git diff --check` pass.
+
+The full build gives 4,126 pages and 19,265,823 bytes, PDF SHA-256
+`fb9997aaf563f318c5aca92eda7e24b286161057f52ebb3779c3fab8f4273cc1`.
+Final source SHA-256:
+`02a7392e365792a64a5710a39c8989ec82cb8a3614fc8e12355980012d4d3ee2`.
+There are no unresolved references or citations, missing glyphs, rerun
+requests or fatal errors. Chapter 59 has no overfull boxes or LaTeX/package
+warnings. Nineteen overfull boxes elsewhere and thirteen duplicate PDF
+destinations in Chapter 70 remain recorded.
+
+All thirty physical chapter pages 3165--3194 (printed 3095--3124) and
+both adjoining seams were inspected at detail size. Physical 3194 is
+intentionally blank. No reviewed chapter layout defect remains. Frozen
+releases and checksum ledgers are unchanged. This direct editorial/source
+audit does not claim an independent verifier verdict. Verified work remains
+local pending explicit remote-push approval.
+
+
+## Chapter 60: complete chapter-quality gate, 2 October 2026
+
+Chapter 60 has passed the sequential programme; Chapter 61 is next. The
+whole-book goal continues, with independent Chapter 72 research paused.
+Repairs and exact source interfaces are in
+[`ch60_quality_audit_20261002.md`](ch60_quality_audit_20261002.md).
+
+There are 37 formal assertions, 63 labelled reusable environments and
+152 labels. Ten primary PDFs and 64 rendered source pages were checked,
+along with a fresh Stacks statement and proof. The exact supplement
+passes 42,871 checks. References pass for 425 inputs and 12,187 labels;
+all six checker tests pass. The inventory remains 42 atoms in twelve
+environments, tiers (0,3,7,15,17). Post-render scoped and reference checks
+and `git diff --check` pass. The unavailable legacy house-audit command
+is replaced by the recorded manual and scoped structural review.
+
+The full build gives 4,128 pages and 19,271,700 bytes, PDF SHA-256
+`67fca7a82075f3846a384889ef1b3ceae48c34990beee5e97c52c1f9c407c4f3`.
+Final source SHA-256:
+`464a26e21671b6f9d1845a53ad46e21c1632f050559fbfa027f2412cc4a298eb`.
+There are no unresolved references or citations, missing glyphs, rerun
+requests or fatal errors. Chapter 60 has no overfull boxes or LaTeX/package
+warnings. Nineteen overfull boxes elsewhere and thirteen duplicate PDF
+destinations in Chapter 70 remain recorded.
+
+All 54 physical chapter pages 3195--3248 (printed 3125--3178) and both
+adjoining seams were inspected at detail size. All thirteen pages changed
+by the final layout repair were reinspected; the other final page images
+match the inspected preceding build byte for byte. Physical 3248 is
+intentionally blank. No reviewed chapter layout defect remains. Frozen
+releases and checksum ledgers are unchanged. This direct editorial/source
+audit does not claim an independent verifier verdict. Verified work remains
+local pending explicit remote-push approval.
+
+
+## Chapter 61: complete chapter-quality gate, 2 October 2026
+
+Chapter 61 has passed the sequential programme; Chapter 62 is next. The
+whole-book goal continues, with independent Chapter 72 research paused.
+Repairs and exact source interfaces are in
+[`ch61_quality_audit_20261002.md`](ch61_quality_audit_20261002.md).
+
+There are twenty formal assertions, 32 labelled reusable environments and
+98 labels. Four primary PDFs and 46 rendered source pages were checked.
+The exact supplement passes 6,374 checks across 23 families. References
+pass for 425 inputs and 12,213 labels; all six checker tests pass. The
+inventory remains 42 atoms in twelve environments, tiers (0,3,7,15,17).
+Post-render scoped and reference checks and `git diff --check` pass.
+The unavailable legacy house-audit command is replaced by the recorded
+manual and scoped review. Legacy inline delimiters are confined to the
+byte-preserved verified boundary block, whose hash is unchanged.
+
+The full build gives 4,130 pages and 19,279,694 bytes, PDF SHA-256
+`d0dac3594638a156def90702dbf62620fe8edcbe457720bcd00f1d624d5947a4`.
+Final source SHA-256:
+`9c3ed4e4b4c7813c63d728c4dfa6721dc24784323cfc91a1a78d6c28bdab0b0e`.
+There are no unresolved references or citations, missing glyphs, rerun
+requests or fatal errors. Chapter 61 has no overfull boxes or LaTeX/package
+warnings. Eighteen overfull boxes elsewhere and thirteen duplicate PDF
+destinations in Chapter 70 remain recorded.
+
+All 26 physical chapter pages 3249--3274 (printed 3179--3204) and both
+adjoining seams were inspected at detail size. All ten pages changed by
+the last layout repair were reinspected; the other final images match the
+inspected preceding build byte for byte. No reviewed chapter layout defect
+remains. Frozen releases and checksum ledgers are unchanged. This direct
+editorial/source audit does not claim a new independent verifier verdict.
+Verified work remains local pending explicit remote-push approval.
+
+
+## Chapter 62: complete chapter-quality gate, 2 October 2026
+
+Chapter 62 has passed the sequential programme. Part V is complete and
+Chapter 63 is next; the whole-book goal continues, with independent Chapter
+72 research paused. Repairs and exact source interfaces are recorded in
+[ch62_quality_audit_20261002.md](ch62_quality_audit_20261002.md).
+
+There are fourteen formal assertions, 28 labelled reusable environments
+and 99 labels. Six primary PDFs and forty rendered source pages were checked,
+with recent announcement checks explicitly limited to claims and scope.
+The exact supplement passes 11,194 checks in 41 families. References pass
+for 425 inputs and 12,241 labels; all six checker tests pass. The inventory
+remains 42 atoms in twelve environments, tiers (0,3,7,15,17). Post-render
+scoped/reference checks and git diff --check pass. The unavailable legacy
+house audit is replaced by the recorded manual and scoped review. Legacy
+inline delimiters occur only in the byte-preserved coefficient correction.
+
+The full build has 4,134 pages and 19,291,465 bytes. PDF SHA-256:
+21ab050f731bf67c05cfe8fda67f53ac1b40d614223f26f68273e5387b4d5b89.
+Final source SHA-256:
+82b7486fd410b47a2c47ecf99377920003c0110f3e2cac6ae5fd3e06ccaea358.
+No unresolved references/citations, missing glyphs, rerun requests or fatal
+errors remain. Chapter 62 has no overfull boxes or LaTeX/package warnings.
+Eighteen overfull boxes elsewhere and thirteen duplicate PDF destinations
+in Chapter 70 remain recorded.
+
+All 26 physical chapter pages 3275--3300 (printed 3205--3230) and both
+adjoining seams were inspected at detail size. The 26 images changed by the
+last repair were reinspected; the other two match their inspected preceding
+versions byte for byte. Physical 3300 is intentionally blank. No reviewed
+chapter layout defect remains. Frozen releases and checksum ledgers are
+unchanged. This direct audit does not claim an independent verifier verdict.
+Verified work remains local pending explicit remote-push approval.
+
+
+## Chapter 63: complete chapter-quality gate, 2 October 2026
+
+Chapter 63 has passed the sequential programme; Chapter 64 is next.
+The whole-book goal continues, with independent Chapter 72 research paused.
+Repairs and exact source interfaces are recorded in
+[ch63_quality_audit_20261002.md](ch63_quality_audit_20261002.md).
+
+Seven formal assertions, eighteen labelled reusable environments and
+66 labels were reviewed. Eight primary PDFs and 39 selected pages were
+checked. The exact supplement passes 17,279 checks in 24 families.
+References pass for 425 inputs and 12,262 labels; all six checker tests
+pass. The inventory remains 42 atoms in twelve environments, tiers
+(0,3,7,15,17). Post-render scoped/reference checks and git diff --check
+pass. The unavailable legacy house audit is replaced by the recorded
+manual and scoped review; there are no legacy inline delimiters.
+
+The full build has 4,138 pages and 19,302,055 bytes. PDF SHA-256:
+654c92606e7dd61620677ece169380fd98f7bad252c6c0e3da63bd9521d3b702.
+Final source SHA-256:
+c84134626d64fb0365c8726b71fbae2b19cd6ac7658c3c79578351475f52d8bb.
+No unresolved references/citations, missing glyphs, rerun requests or fatal
+errors remain. Chapter 63 has no overfull boxes or LaTeX/package warnings.
+Eighteen overfull boxes elsewhere and thirteen duplicate PDF destinations
+in Chapter 70 remain recorded.
+
+All 22 physical chapter pages 3305--3326 (printed 3235--3256) and both
+seams were inspected at detail size. All twenty final changed chapter
+images were reinspected; the other four chapter/seam images match their
+inspected preceding versions byte for byte. No reviewed layout defect
+remains. Frozen releases and checksum ledgers are unchanged. This direct
+audit does not claim a new independent verifier verdict. Verified work
+remains local pending explicit remote-push approval.
+
+
+## Chapter 64: complete chapter-quality gate, 2 October 2026
+
+Chapter 64 has passed the sequential programme; Chapter 65 is next.
+The whole-book goal continues, with independent Chapter 72 research paused.
+Repairs and exact source interfaces are recorded in
+[ch64_quality_audit_20261002.md](ch64_quality_audit_20261002.md).
+
+Twelve formal assertions, 21 labelled reusable environments and 77 labels
+were reviewed. Six primary PDFs and 35 selected pages were checked. The
+exact supplement passes 10,835 checks in 25 families. References pass for
+425 inputs and 12,275 labels; all six checker tests pass. The inventory
+remains 42 atoms in twelve environments, tiers (0,3,7,15,17). Post-render
+scoped/reference checks and git diff --check pass. The unavailable legacy
+house audit is replaced by the recorded manual and scoped review.
+
+The full build has 4,140 pages and 19,307,224 bytes. PDF SHA-256:
+a7398c0af89f1ad4e238b8c31a313f03d7d1047b3e4c46eba300697202ef25d0.
+Final source SHA-256:
+16b882eeec3371c660eee5fb22fc51c6c3b4caf13033c9fb06307a2f5a6c3159.
+No unresolved references/citations, missing glyphs, rerun requests or fatal
+errors remain. Chapter 64 has no overfull boxes or LaTeX/package warnings.
+Eighteen overfull boxes elsewhere and thirteen duplicate PDF destinations
+in Chapter 70 remain recorded.
+
+All twenty physical chapter pages 3327--3346 (printed 3257--3276) and both
+seams were visually inspected at detail size. All fourteen pages changed
+in the second build and all seven changed in the final repair were checked.
+The other fifteen final chapter/seam images match inspected preceding
+images byte for byte at the same render resolution. No reviewed layout
+defect remains. Frozen releases and checksum ledgers are unchanged. This
+direct audit does not claim a new independent verifier verdict. Verified
+work remains local pending explicit remote-push approval.
+
+
+## Chapter 65: complete chapter-quality gate, 2 October 2026
+
+Chapter 65 has passed the sequential programme; Chapter 66 is next.
+The whole-book goal continues, with independent Chapter 72 research paused.
+Repairs and exact source interfaces are recorded in
+[ch65_quality_audit_20261002.md](ch65_quality_audit_20261002.md).
+
+Seventeen formal assertions, thirty labelled reusable environments and
+108 labels were reviewed. Nine primary PDFs and 63 selected pages were
+checked. The supplement passes 81,126 exact and 312 numerical checks in
+33 families. References pass for 425 inputs and 12,295 labels; all six
+checker tests pass. The inventory remains 42 atoms in twelve environments,
+tiers (0,3,7,15,17). Post-render scoped/reference checks and git diff --check
+pass. The unavailable legacy house audit is replaced by recorded manual
+and scoped review.
+
+The full build has 4,142 pages and 19,313,995 bytes. PDF SHA-256:
+2facc7a395165016d6b06c0a0c223e8994dd6ff009652d86573363b60bd0adbd.
+Final source SHA-256:
+b64f2ba076040fe26d1b861dc2c510c05a03fcd93f7abcddfbb9b78bbc8030e4.
+No unresolved references/citations, missing glyphs, rerun requests or fatal
+errors remain. Chapter 65 has no overfull boxes or LaTeX/package warnings.
+Eighteen overfull boxes elsewhere and thirteen duplicate PDF destinations
+in Chapter 70 remain recorded.
+
+All 34 physical chapter pages 3347--3380 (printed 3277--3310) and both
+adjoining seams were visually inspected at detail size. All seventeen
+second-build and ten final changed images were reinspected. The other
+26 final images match inspected preceding versions byte for byte. Physical
+3380 is intentionally blank. No reviewed layout defect remains. Frozen
+releases, receipts and checksum ledgers are unchanged. This direct audit
+claims no new independent verifier verdict. Verified work remains local
+pending explicit remote-push approval.
+
+
+## Chapter 66: complete chapter-quality gate, 2 October 2026
+
+Chapter 66 has passed the sequential programme; Chapter 67 is next.
+The whole-book goal continues, with independent Chapter 72 research paused.
+Repairs and exact source interfaces are recorded in
+[ch66_quality_audit_20261002.md](ch66_quality_audit_20261002.md).
+
+Twenty-six formal assertions, 47 labelled reusable environments and 240
+closure labels were reviewed. Five primary PDFs and 79 selected pages were
+checked. The supplement passes 22,509 exact and 768 numerical checks in
+25 families. References pass for 425 inputs and 12,316 labels; all six
+checker tests pass. The inventory remains 42 atoms in twelve environments,
+tiers (0,3,7,15,17). Post-render scoped/reference checks and git diff --check
+pass. The unavailable legacy house audit is replaced by manual and scoped
+review. The P18 counterexample and eleven proof fragments are byte-identical;
+their preserved legacy delimiters are the only house-style exceptions.
+
+The full build has 4,146 pages and 19,333,673 bytes. PDF SHA-256:
+fc0fef5c2dcd94d4705a7715bc425addd9ebf74b22a0b37ff372d7babc0b57aa.
+Main source SHA-256:
+1732620b261bb26c259d8af5b6e0dffd3e56f60b7c504cfbde01147cf153ea90.
+No unresolved references/citations, missing glyphs, rerun requests or fatal
+errors remain. Chapter 66 has no overfull boxes or LaTeX/package warnings.
+Eighteen overfull boxes elsewhere and thirteen duplicate PDF destinations
+in Chapter 70 remain recorded.
+
+All 64 physical chapter pages 3381--3444 (printed 3311--3374) and both
+adjoining seams were visually inspected at detail size. All three final
+changed pages were reinspected; the other 63 chapter/seam images match
+inspected first-build images byte for byte. Physical 3444 is intentionally
+blank. No reviewed layout defect remains. Frozen releases, receipts and
+checksum ledgers are unchanged. This direct audit claims no new independent
+verifier verdict. Verified work remains local pending explicit remote-push
+approval.
+
+
+## Chapter 67: complete chapter-quality gate, 2 October 2026
+
+Chapter 67 has passed the sequential programme; Chapter 68 is next.
+The whole-book goal continues, with independent Chapter 72 research paused.
+Repairs and exact source interfaces are recorded in
+[ch67_quality_audit_20261002.md](ch67_quality_audit_20261002.md).
+
+Eleven formal assertions, thirty labelled reusable environments and 86
+labels were reviewed. Four primary PDFs and forty selected pages were
+checked. The supplement passes 6,021 exact and 1,518 numerical checks in
+24 families. References pass for 425 inputs and 12,333 labels; all six
+checker tests pass. The inventory remains 42 atoms in twelve environments,
+tiers (0,3,7,15,17). Post-render scoped/reference checks and git diff --check
+pass. The unavailable legacy house audit is replaced by manual and scoped
+review.
+
+The full build has 4,148 pages and 19,351,391 bytes. PDF SHA-256:
+7a5490a852a2328493dd256d37bd41d9fc88ab6b2c5350b1dedcf704f0703baf.
+Main source SHA-256:
+7c18b065bd99509c075ad2a3fe7f8e4dfeb2812cb0f05d7ae28261ee75e40e0f.
+No unresolved references/citations, missing glyphs, rerun requests or fatal
+errors remain. Chapter 67 has no overfull boxes or LaTeX/package warnings.
+Eighteen overfull boxes elsewhere and thirteen duplicate PDF destinations
+in Chapter 70 remain recorded.
+
+All sixteen physical chapter pages 3445--3460 (printed 3375--3390) and both
+adjoining seams were visually inspected. All second-build changed images
+were checked; every final changed image was reinspected or byte-matched to
+an inspected image. The other fifteen final images match inspected first
+images byte for byte. No reviewed layout defect remains. Historical releases,
+receipts and checksum ledgers are unchanged. This direct audit claims no new
+independent verifier verdict. Work remains local pending explicit remote-push
+approval.
+
+
+## Chapter 68: complete chapter-quality gate, 2 October 2026
+
+Chapter 68 has passed the sequential programme; Chapter 69 is next.
+The whole-book goal continues, with independent Chapter 72 research paused.
+Repairs and exact source interfaces are recorded in
+[ch68_quality_audit_20261002.md](ch68_quality_audit_20261002.md).
+
+Twelve formal assertions, thirty reusable environments and 75 labels were
+reviewed. Nine primary PDFs and 65 selected pages were checked. The example
+supplement passes 11,733 exact arithmetic and 58 numerical checks in
+25 families. Post-render references pass for 425 inputs and 12,349 labels;
+all six checker tests pass. The inventory remains 42 atoms in twelve
+environments, tiers (0,3,7,15,17). Scoped conventions and whitespace pass;
+the unavailable legacy house audit is replaced by manual/scoped review.
+
+Two full builds pass. The final PDF has 4,150 pages and 19,363,795 bytes.
+PDF SHA-256:
+c9b28ab75f7563846feadcc7867cb99253da9b32df8c4488786d43e3dee76364.
+Main source SHA-256:
+adec7052c146683cab293bc34b0b48aff99e55bdd0812982d386f70a235c15f4.
+No unresolved references/citations, missing glyphs, rerun requests or fatal
+errors remain. Chapter 68 has no overfull boxes or LaTeX/package warnings.
+Eighteen overfull boxes elsewhere and thirteen Chapter 70 duplicate PDF
+destinations remain recorded.
+
+All sixteen physical chapter pages 3461--3476 (printed 3391--3406) and
+both adjoining seams were visually inspected in both builds. All fifteen
+final changed images were reinspected; the other three match inspected
+first images byte for byte. Physical 3476 is intentionally blank.
+No reviewed layout defect remains. Historical releases, receipts and
+checksum ledgers are unchanged. The literature cutoff remains 22 August
+2026; no new research promotion or independent verifier verdict is claimed.
+Work remains local pending explicit remote-push approval.
+
+
+## Chapter 69: complete chapter-quality gate, 2 October 2026
+
+Chapter 69 has passed the sequential programme; Chapter 70 is next.
+The whole-book goal continues, with independent Chapter 72 research paused.
+All ten outcomes are identified. Analytic equality is distinguished from
+proper-pushforward equality, and the fixed-complex proof locates its weak
+limit. The I-input/P-output trace map and split trace use the exact Chapter
+67 reconstruction, including uniform positivity and Xia's canonical-limit
+interface. The mass-body counterexample constructs its Green potential;
+the toric volume and PL Dirac-curvature examples are explicit. Five
+receipt-linked live baseline blocks are byte-identical; historical packets
+and checksum ledgers are untouched.
+
+The audit covers seventeen formal assertions/proofs, 33 labelled reusable
+environments and 108 labels. Eight PDFs and 61 selected pages were checked
+in text and visually, with recent Xia/BEGZ text reuse identified. Twelve
+calculation families pass 11,863 exact and 90 numerical checks. Two full
+builds pass; the final PDF has 4,150 pages and 19,368,105 bytes. Main source
+SHA-256: 6f736a9ae43301ba572744a33c7009ad57fe45fee057cd8cf6810342038b312a.
+PDF SHA-256: 60922228dcf6bd2009babe5ada78bd4e50aef5aed87edb0d4502440b947b8db5.
+No unresolved references/citations, missing glyphs, rerun requests or fatal
+errors remain. Chapter 69 has zero overfull boxes or LaTeX/package warnings.
+All final physical pages 3477--3502 (printed 3407--3432), and seam pages
+3476/3503, were visually inspected. Post-render scoped review and references
+pass for 425 inputs and 12,354 labels; six checker tests, the 42-atom inventory
+and whitespace gates pass. Eighteen inherited overfull boxes and thirteen
+Chapter 70 duplicate PDF destinations remain for the final book pass.
+The direct audit claims no new independent verifier verdict.
+
+Evidence: editorial/ch69_quality_audit_20261002.md. Review PDF:
+/workspace/book-completion-drafts/Chapter_69_Final_Review_2026-10-02.pdf.
+Work remains local pending explicit remote-push approval.
+
+
+## Chapter 70: complete chapter-quality gate, 2 October 2026
+
+Chapter 70 has passed the sequential programme; Chapter 71 is next.
+The whole-book goal continues, with independent Chapter 72 research paused.
+The full affine-cone link is distinguished from its invariant retract.
+Density is proved on that retract, and a counterexample prevents its
+extension to the full link. Probability measures keep invariant support;
+the projective comparison uses invariant metrics. Excellent boundary,
+curve ideal-profile, conductor transfer and Gauss-shell statements retain
+their exact domains. Two receipt-linked live blocks and six frozen inputs
+remain byte-identical. Thirteen duplicate PDF destinations are repaired.
+
+The audit covers the entire nine-file closure: 31 formal assertions/proofs,
+one foundational source input, 54 reusable environments and 192 labels.
+Seven PDFs and 85 selected pages were checked in text and visually; nineteen
+Stacks proof interfaces were read. The supplement passes 20,915 exact and
+240 numerical checks. Two full builds pass. The final PDF has 4,152 pages
+and 19,375,484 bytes. Main source SHA-256:
+76ff372e5ff7c62af3454945d9edcabbd657ba2f10015b66702e1bbb18bc8f31.
+PDF SHA-256:
+05d7ae70087c70154ec11d013941b929c3c653ea980957eb79f2af36ae5d1298.
+No unresolved references/citations, missing glyphs, rerun requests, fatal
+errors or duplicate PDF destinations remain. Chapter overflow and warning
+counts are zero; eighteen inherited overfull boxes elsewhere remain.
+
+All physical chapter pages 3503--3570 (printed 3433--3500) and adjoining
+pages 3502/3571 were visually inspected. The final build differs at only
+physical page 3505 in a unit-scale pixel comparison; that page was separately
+rendered and visually inspected. Post-render scoped review, frozen-byte
+checks and references pass for 425 inputs and 12,371 labels. All six checker
+tests, the unchanged 42-atom inventory and whitespace gates pass. The
+unavailable legacy house audit is replaced by the manual/scoped review.
+This audit claims no new independent verifier verdict or priority.
+
+Evidence: [ch70_quality_audit_20261002.md](ch70_quality_audit_20261002.md).
+Review PDF:
+/workspace/book-completion-drafts/Chapter_70_Final_Review_2026-10-02.pdf.
+Work remains local pending explicit remote-push approval.
+
+
+## Chapter 71: complete chapter-quality gate, 2 October 2026
+
+Chapter 71 has passed the sequential programme; Chapter 72 is next.
+The whole-book goal continues, with independent Chapter 72 research paused.
+The introduction and ledger now match the proved full Kähler DXZ--MP
+comparison. Finite ideal limits cover every semivaluation in the stated
+order. Source DXZ class-normalized energy is distinguished from normalized
+relative radial energy at smaller initial mass; the initial/terminal mass
+wording is corrected. Proper-support, grid and zero-volume examples keep
+their exact domains. Twenty-eight protected live chunks remain byte-identical.
+
+The direct audit covers 23 assertions/proofs, 37 reusable environments and
+136 labels. Eleven PDFs and 87 selected pages were read and visually checked;
+four Stacks proof interfaces were read. The supplement passes 35,379 exact
+checks in sixteen families. Four full builds pass; the final PDF has 4,154
+pages and 19,381,539 bytes. All 36 final chapter pages and two seams were
+visually inspected. Post-render references pass for 425 inputs and 12,388
+labels; six checker tests, the unchanged 42-atom inventory and
+scoped/whitespace gates pass. Chapter warnings/overflows, unresolved
+references/citations, missing glyphs, rerun requests, fatal errors and
+duplicate PDF destinations are zero. Eighteen inherited overfull boxes
+elsewhere remain for the final book pass. No new verifier verdict is claimed.
+
+Evidence: editorial/ch71_quality_audit_20261002.md. Main SHA-256:
+fd2f4eca661cfc46fc3d540ef607bb9a4c59df9c45f7b2f06d96667ead89c6de.
+PDF SHA-256: 790057a461c08ea7eb3aaf010bb2ecb937e44c79980a87e99b0dd0824c700ca0.
+Review: /workspace/book-completion-drafts/Chapter_71_Final_Review_2026-10-02.pdf.
+Work remains local pending explicit remote-push approval.
+
+
+## Chapter 72: complete chapter-quality gate, 2 October 2026
+
+All 72 chapters now pass the sequential quality programme. Appendix A is
+next, followed by the other appendices, front matter and final whole-book
+checks. Independent open-problem research remains paused. Chapter 72 now
+matches twelve active groups and 42 atoms, dates historical checkpoints,
+and retires the supplied P06.1/P07.1/P08.1 answers with stable locators.
+
+The P05.3 adapted live proof required a material scope repair: its algebraic
+corollary now assumes Q is contained in the logarithmic value group, proving
+the real-PL/generated-psh bridge on strict G-covers. General-field use still
+requires the explicit abstract operator-domain hypothesis. Mixed boundary
+nullity now uses an integral sum of references. This repaired live payload
+is not claimed to have the historical accepted receipt or a new verifier
+verdict. Frozen receipts and all 36 packet inputs remain unchanged; all
+32 protected main-source objects also remain identical to the entry baseline.
+
+The forty-file review covers 51 assertions/proofs, 69 labelled reusable
+environments and 207 labels. Five PDFs and 73 source pages were checked in
+twenty contact sheets. The finite supplement passes 1,872 exact checks in
+twenty families. The full build has 4,156 pages and 19,389,423 bytes. All
+144 final chapter pages and two seams were visually inspected. Post-render
+references pass for 425 inputs and 12,411 labels; six checker tests, the
+42-atom inventory and scoped/whitespace gates pass. Chapter warnings and
+overflows, unresolved references/citations, missing glyphs, rerun requests,
+fatal errors and duplicate PDF destinations are zero. Eighteen inherited
+overfull boxes elsewhere remain for the final book pass.
+
+Evidence: [ch72_quality_audit_20261002.md](ch72_quality_audit_20261002.md).
+Main SHA-256: 4527a1f2da94b57ca7409e4cd8bc34ae0ab88430b9989155a6aa287953c95640.
+PDF SHA-256: 726374c0b2c8c3532022af678998a2a4093b342b9af62f7b68b07bfaf9d3f6ef.
+Review: /workspace/book-completion-drafts/Chapter_72_Final_Review_2026-10-02.pdf.
+Work remains local pending explicit remote-push approval.
+
+
+## Appendices A--C: complete quality gate, 2 October 2026
+
+Appendices A--C now pass the sequential programme. Appendix D is next.
+The review repairs valuation and Rees hypotheses, the line-bundle norm,
+projective alteration scope, real-exponent ideal inputs, full-support
+valuation limits and the geometric scope of test-ideal discrepancy.
+Appendix C adds the one-pole and supported-semivaluation examples and a
+complete real-exponent Frobenius-root Skoda calculation.
+
+All three complete sources were read: 37 assertions, 38 proofs, 81 labelled
+reusable environments, 33 labelled headings and 162 labels. Eleven primary
+PDFs and 49 selected pages were read and visually reviewed; ten cited Stacks
+tags were read in full. The finite supplement passes 29,513 exact checks in
+seven families. All 119 other appendix-closure files remain unchanged.
+The full build has 4,158 pages and 19,399,397 bytes. All 28 appendix pages,
+two seams and two bibliography pages were visually inspected. Post-render
+references pass for 425 inputs and 12,427 labels. Six checker tests, the
+42-atom inventory, scoped review and whitespace checks pass. No appendix
+overflow or reviewed layout defect remains. The inherited class-path
+warning and eighteen overfull boxes elsewhere remain for the final pass.
+
+Evidence: [appendices_ABC_quality_audit_20261002.md](appendices_ABC_quality_audit_20261002.md).
+PDF SHA-256: 34ae55e3300413bbf8419c0ab132717d10ea1ec48fe652518bd8dcfda1bbdcae.
+Review: /workspace/book-completion-drafts/Appendices_ABC_Final_Review_2026-10-02.pdf.
+This is a direct editorial/source audit, without a new independent verifier
+verdict. Work remains local pending explicit remote-push approval.
+
+
+## Appendices D--F: complete quality gate, 2 October 2026
+
+Appendices D--F now pass the sequential programme. G--I are next. The pass
+repairs convex separation and dual lattices, distinguishes two current
+dilations, gives the triangle mass check, clarifies sequential topology
+and Choquet selection, and repairs projection and non-Cartier b-divisor
+arguments at their exact domains.
+
+All three complete sources were read: 40 assertions/proofs, 74 labelled
+reusable environments, 35 labelled headings and 169 labels. Two primary
+PDFs and 35 pages were read and visually reviewed in ten sheets, and two
+precise Stacks lemmas were read. Eight calculation families pass 18,225
+exact checks. The other 119 appendix-closure files are preserved. The final
+full build has 4,160 pages and 19,407,769 bytes. All 34 appendix pages and
+two seams were visually inspected in nine sheets. Post-render references
+pass for 425 inputs and 12,445 labels. Six checker tests, the unchanged
+42-atom research inventory, scoped review and whitespace checks pass.
+No scoped overflow or reviewed layout defect remains. The inherited
+class-path warning and eighteen overfull boxes elsewhere remain for the
+whole-book pass.
+
+Evidence: [appendices_DEF_quality_audit_20261002.md](appendices_DEF_quality_audit_20261002.md).
+PDF SHA-256: f5fb5cc118b48afd5d86229756963870d386e012fe62f20ee6e9ddcdb3d08ede.
+Review: /workspace/book-completion-drafts/Appendices_DEF_Final_Review_2026-10-02.pdf.
+This is a direct editorial/source audit, without a new independent verifier
+verdict. Work remains local pending explicit remote-push approval.
+
+
+## Appendices G--I: complete quality gate, 2 October 2026
+
+Appendices A--I now pass the sequential programme. The pass repairs
+tropical cancellation and calibration scope, exact complex relative-energy
+and singularity interfaces, and the compiled-source Stacks dependency map.
+All three complete sources were read: 13 assertion/proof pairs, 51 reusable
+environments, 61 headings and 138 labels. Seven primary PDFs and 41 pages
+were read and viewed in fourteen sheets. The 21 principal and 57
+supplemental Stacks statements were checked; 0DSV is recorded as a rejected
+citation, and two numerical false matches are excluded. Twelve finite
+calculation families pass 118,721 example checks. The other 119 appendix
+files, including all 108 frozen input fragments, are preserved.
+
+The final full build has 4,164 pages and 19,445,205 bytes. All 46 appendix
+pages and two seams were visually inspected in twelve sheets. Post-render
+references pass for 425 inputs and 12,488 labels. Six checker tests, the
+unchanged 42-atom inventory, scoped review and whitespace checks pass. No
+scoped overflow remains. Eighteen inherited overfull boxes elsewhere and
+the class-path warning remain for the whole-book pass.
+
+Evidence: [appendices_GHI_quality_audit_20261002.md](appendices_GHI_quality_audit_20261002.md).
+PDF SHA-256: 2d7bc147fb4d435c0834613e25f60659213228633e48514edc8db82af30fdd3d.
+Review: /workspace/book-completion-drafts/Appendices_GHI_Final_Review_2026-10-02.pdf.
+This is a direct editorial/source audit without a new independent verifier
+verdict. J--N and front matter are next. Work remains local pending
+explicit remote-push approval.
+
+
+## Appendices J--L: complete quality gate, 2 October 2026
+
+Appendices A--L now pass the sequential programme. All three complete
+reference sources were read: 4,614 lines, 122 labels, 64 labelled headings
+and seven labelled reusable environments. The pass repairs calibrated
+orientation, typed model and energy mass conventions, ray-transform order
+and current-versus-historical source status. Six finite example families
+pass 3,298 checks. Precise imports reuse the completed chapter and A--I
+source gates; no fresh external PDF or independent verifier verdict is
+claimed. The other 119 appendix files, 108 frozen input fragments and
+archival hash fragments remain unchanged.
+
+The final full build has 4,166 pages and 19,452,255 bytes. All 78 appendix
+pages and two seams were visually inspected in twenty sheets. Post-render
+references pass for 425 inputs and 12,508 labels. Six checker tests, the
+unchanged 42-atom inventory, scope and whitespace checks pass. No scoped
+overflow remains. Eighteen inherited overfull boxes elsewhere and the
+class-path warning remain for the whole-book pass.
+
+Evidence: [appendices_JKL_quality_audit_20261002.md](appendices_JKL_quality_audit_20261002.md).
+PDF SHA-256: 20a9bc09018991cac0c2f9f7435f53b4db1b795f0e9fd90d7e8bb62216baef40.
+Review: /workspace/book-completion-drafts/Appendices_JKL_Final_Review_2026-10-02.pdf.
+M--N and front matter are next. Work remains local pending explicit
+remote-push approval.
+
+
+## Appendices M--N: complete quality gate, 2 October 2026
+
+All Chapters 1--72 and Appendices A--N pass the sequential programme. Both
+appendix roots were read in full; N's four archived proof files received a
+fresh complete proof review, while M's 104 unchanged fragments reuse the
+completed Chapter 18 gate. The pass corrects current pluriharmonic scope,
+retains the continuous zero-current residual and makes comparison-proof
+and historical-receipt boundaries explicit. All 108 included fragments,
+120 other appendix files and historical hash fragments remain unchanged.
+
+The full build has 4,166 pages and 19,454,939 bytes. All 208 appendix pages
+and two seams were visually inspected in 53 sheets. Post-render references
+pass for 425 inputs and 12,514 labels. Six checker tests, the unchanged
+42-atom inventory, scope, semantic-label, delimiter and whitespace checks
+pass. No scoped overflow remains. Eighteen inherited overfull boxes and
+the class-path warning remain for the final whole-book pass.
+
+Evidence: [appendices_MN_quality_audit_20261002.md](appendices_MN_quality_audit_20261002.md).
+PDF SHA-256: 0e3ee8af63008b85d11e0582a10448ec1ea9a27d77fd67e489209101006ce51c.
+Review: /workspace/book-completion-drafts/Appendices_MN_Final_Review_2026-10-02.pdf.
+No new independent verifier verdict is claimed. Front matter and final
+whole-book checks are next. Work remains local pending explicit remote-push
+approval; the completion goal continues.

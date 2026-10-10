@@ -49,6 +49,7 @@ A nonpluripolar product, never an ordinary parenthesis.
 \end{description}
 
 \begin{remark}[Decorations are not optional]
+\label{rem:appK-decorations}
 The objects \(X\), \(X^{\An}\), and \(X^{\bethan}\) are different.  Likewise,
 \(\cL\) is normally a line bundle on a model, while \(L\) is its generic
 fibre.  Removing a decoration can turn a true pullback statement into an
@@ -83,8 +84,8 @@ a ray.  These three uses cannot be interchanged.
 Symbol & Meaning \\
 \midrule
 \(K\)
-  & a complete non-Archimedean field unless a chapter explicitly declares
-    the absolute value trivial \\
+  & a complete non-Archimedean field; nontriviality or discreteness is
+    stated where required, and trivial absolute values are allowed \\
 \(K^\circ\), \(K^{\circ\circ}\)
   & the valuation ring and its maximal ideal \\
 \(\widetilde K\)
@@ -165,7 +166,8 @@ Symbol & Meaning \\
 \(\ord_E\)
   & the integral divisorial valuation defined by a prime divisor \(E\) \\
 \(b_E\)
-  & the multiplicity \(\ord_E(\pi)\) of \(E\) in a special fibre \\
+  & over a discretely valued ground field, the multiplicity
+    \(\ord_E(\pi)\) of \(E\) in the special fibre \\
 \(x_E\)
   & the normalized divisorial point \(b_E^{-1}\ord_E\) in the
     nontrivially valued setting \\
@@ -232,8 +234,8 @@ Symbol & Meaning \\
   & a real vertical Cartier divisor when so declared, with \(E\) running
     over vertical prime divisors \\
 \(\phi_D\), \(\varphi_D\)
-  & the model function \(v_x(f_D)\) associated to \(D\); \cref{part:bfj}
-    writes \(\varphi_D\) \\
+  & the model function associated to \(D\), extended to real Cartier
+    coefficients by linearity; \cref{part:bfj} writes \(\varphi_D\) \\
 \(\Delta_\cX\)
   & the dual complex of an SNC or suitable dlt model \\
 \(\operatorname{Sk}(\cX)\)
@@ -252,10 +254,12 @@ Symbol & Meaning \\
 \end{tabular}
 \end{center}
 
-For a local equation \(f_D\) of \(D\),
+For an integral vertical Cartier divisor \(D\) with local equation \(f_D\),
 \[
  \phi_D=-\log|f_D|=v_x(f_D).
 \]
+Real Cartier coefficients are handled by linearity, as in
+\Cref{eq:ch20-sign}, without taking real powers of local equations.
 Thus \(D\geq0\) gives \(\phi_D\geq0\), and
 \(\phi_{\cX_s}=1\) under \(v_K(\pi)=1\).
 These are notation tests as well as sign tests.
@@ -421,7 +425,8 @@ zero, in the original BFJ scope.
 Psh metrics on the trivially valued analytification, generated from
 generically finite Fubini--Study functions by decreasing regularization.
 \item[Complex: \(\PSH(X,\theta)\).]
-Upper-semicontinuous \(\varphi\) with \(\theta+\ddc\varphi\geq0\).
+A locally integrable quasi-psh \(\varphi\), taken with its pointwise
+representative, with \(\theta+\ddc\varphi\geq0\) as a current.
 \item[Transcendental NA: \(\PSH^{\NA}(X,\theta)\).]
 DXZ/Xia inverse systems of test-curve data attached to a complex
 pseudoeffective class, with positive- and zero-volume cases separated.
@@ -484,8 +489,11 @@ Symbol & Meaning \\
 \end{center}
 
 There is no theory-independent default hidden in the symbol \(\MA\).
-Model, Chambert--Loir, BFJ, and complex nonpluripolar measures are written
-with mass \(V\) unless a local normalization says otherwise.
+Model and Chambert--Loir measures have their generic-fibre intersection
+mass; positive-volume BFJ full-mass measures have mass \(V\). Complex
+nonpluripolar measures use their raw mass, which can be less than
+\(\vol(\theta)\); a relative full-mass class has the mass of its specified
+reference potential, not automatically the volume of the ambient class.
 \Cref{chap:bj-energy} writes BJ's probability measure as \(\MA_\omega\) and its
 mass-\(V\) version as \(\MA^{\mathrm u}_\omega\); \cref{chap:mp-psh} likewise uses
 a probability normalization for the MP measure.
@@ -670,8 +678,9 @@ The filtration index is decreasing:
  \mathcal F^{\lambda'}R_m\subseteq\mathcal F^\lambda R_m.
 \]
 The test-curve parameter is concave, while a geodesic ray is convex in the
-time variable in the appropriate weak sense.  Legendre transforms reverse
-one of these orders.  The exact sign convention is stated before each
+time variable in the appropriate weak sense.  The ray--test-curve transforms in \Cref{thm:appH-rwn} preserve
+pointwise order in both directions. Concavity in the level parameter and
+convexity in time are separate properties, not reversed orders on families.  The exact sign convention is stated before each
 transform and tested on a product \(\mathbf G_m\)-action.
 
 \section[b-divisors, traces, and intersections]{\texorpdfstring{\(b\)-divisors}{b-divisors}, traces, and intersection notation}
@@ -749,8 +758,10 @@ Characters are \(\chi^m\), \(m\in M\), and the tropical coordinate is
  \langle m,u\rangle=-\log|\chi^m|\qquad(m\in M).
 \]
 If \(P\subset M_{\mathbf R}\) is the moment polytope, the reference support
-function in this book has recession \(h_P(-u)\).  Consequently the
-subgradient image is \(-P\).  Symbols such as
+function in this book is \(h_P(-u)\), whose subgradient image is \(-P\).
+For a convex toric weight with bounded difference from that function, the
+subgradient image is contained in \(-P\), as in \Cref{lem:toric-real-total-mass}.
+Symbols such as
 \(\partial g\), \(g^*\), and \(\MA_{\mathbf R}(g)\) denote the convex
 subdifferential, Legendre--Fenchel transform, and real Alexandrov
 Monge--Amp\`ere measure.
@@ -774,7 +785,7 @@ another chapter without checking its declaration.
 \index{nonpluripolar mass}
 \index{complex Monge--Ampere normalization}
 
-On a compact complex space, \(\theta\) is a smooth closed real
+On the compact complex manifold used in the pluripotential chapters, \(\theta\) is a smooth closed real
 \((1,1)\)-form and
 \[
  \theta_\varphi=\theta+\ddc\varphi,
@@ -793,7 +804,8 @@ Symbol & Meaning \\
 \(\nu(\varphi,E)\)
   & generic divisorial Lelong number along \(E\) \\
 \(\cI(\varphi)\)
-  & multiplier ideal, defined by local integrability of \(\rme^{-\varphi}\) \\
+  & the ideal of holomorphic germs \(f\) such that
+    \(|f|^2\rme^{-\varphi}\) is locally integrable \\
 \(\cI(k\varphi)\)
   & the multiplier ideal at tensor level \(k\) \\
 \(V_\theta\)
@@ -876,7 +888,9 @@ subject.  The following rules resolve the ambiguity.
   matching notation.  Use the maps in \cref{chap:master-dictionary}.
 
 \item \(\MA\) is not automatically a probability measure.  Divide by
-  \(V\) only when \(V>0\) and the statement calls for normalization.
+  the actual total mass only when it is positive and the measure is
+  positive. Division by \(V\) gives probability mass only on the stated
+  full-mass locus.
 
 \item \(P\) can denote a psh envelope or a polytope.  An argument in
   parentheses, such as \(P_\theta(f)\), indicates the envelope; a set

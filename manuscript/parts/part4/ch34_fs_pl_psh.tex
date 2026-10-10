@@ -56,9 +56,13 @@ reach proper support, but in a precise way: for an ordinary valuation $v$,
 the limit $\lim_{t\to+\infty}tv$ is the trivial semivaluation of the
 closure of its center (\Cref{thm:bj-basic-closure}\,(8)).  Thus scaling
 reaches the trivial semivaluations with proper support, not every
-proper-support semivaluation.  These endpoints already carry the whole
-Zariski topology of $X$ inside $X^{\An}$, and they are the points at
-which the envelope theorem of \Cref{chap:bj-envelope-statement} is hardest
+proper-support semivaluation.  These endpoints record the irreducible subvarieties and their
+specialization relations.  Their induced subspace topology is the
+constructible topology of the scheme point set, rather than its Zariski
+topology: an ideal takes only the values $0$ and $+\infty$ there, so its
+zero-locus condition is both open and closed on the trivial locus.
+Compare \Cref{thm:ch32-trivial-locus}.
+They are also points at which the envelope theorem of \Cref{chap:bj-envelope-statement} is hardest
 to state correctly.
 Every definition below is therefore formulated for functions with values in
 $\mathbf R\cup\{-\infty\}$, and every operation is checked against the
@@ -84,11 +88,11 @@ $\PL(X)$
 $\cH_\Lambda(L)$
  & base-point-free weighted section systems
  & real, bounded, continuous
- & sums across classes, same-class $\max$, constants\\
+ & sums across classes, same-class $\max$, $\mathbf Q\Lambda$ constants\\
 $\cH^{\mathrm{gf}}_\Lambda(L)$
  & arbitrary weighted section systems, generically finite
  & $\mathbf R\cup\{-\infty\}$; poles on proper support
- & sums across classes, same-class $\max$, constants\\
+ & sums across classes, same-class $\max$, $\mathbf Q\Lambda$ constants\\
 $\PSH_X(\theta)$
  & decreasing nets of the previous class, with varying classes
  & $\mathbf R\cup\{-\infty\}$; finite on $X^{\lin}$
@@ -178,15 +182,15 @@ lie in $[-\infty,0]$.
 and how it is handled}
 \label{sec:ch34-minus-infinity}
 
-It is worth stating at the outset exactly which operations of this chapter
-can produce an infinite value, and which ledger entry of
-\Cref{sec:extended-arithmetic} legitimizes each one.  The list is short, and
-it is complete: no other extended-real operation occurs in the chapter.
+The following operations explain how infinite values enter the
+construction, and which entries of
+\Cref{sec:extended-arithmetic} make them legitimate.
 
 \begin{enumerate}
 \item \emph{Evaluation of a section.}  $\log|s|(v)=-v(s)$ equals
   $-\infty$ exactly when $s$ vanishes identically along $s(v)$.  This
-  is the only source of infinite values; everything else propagates it.
+  supplies the polar values of a finite presentation.  Decreasing limits
+  can create further poles even when every approximant is finite valued.
 \item \emph{Finite maxima.}  $\max$ is computed in the complete lattice
   $\Rbar$, ledger entry~(1).  No hypothesis is needed, and a term equal to
   $-\infty$ simply never realizes the maximum unless all terms do.
@@ -203,12 +207,13 @@ it is complete: no other extended-real operation occurs in the chapter.
   definition of a psh function excludes exactly the case in which this
   happens identically on a component.
 \item \emph{Suprema and regularization.}  $\sup_i\varphi_i$ and
-  $(\sup_i\varphi_i)^*$ are defined for every family, using ledger
-  entry~(5) for the empty family and \eqref{eq:usc-regularization} for the
-  star.
+  $(\sup_i\varphi_i)^*$ are defined as extended-real functions, using
+  ledger entry~(5) for the empty family and \eqref{eq:usc-regularization}
+  for the star.  The upper envelopes considered later are bounded above;
+  without that hypothesis a supremum can take the value $+\infty$.
 \end{enumerate}
 
-Two operations are \emph{never} performed: no difference of two functions
+Two operations on extended-real functions are \emph{never} performed: no difference of two functions
 that may both equal $-\infty$ is formed, and no quotient or product with a
 possibly vanishing factor is formed.  Comparisons are therefore always
 written in the relative form $\varphi\le\psi+C$ rather than
@@ -329,12 +334,12 @@ continuity, and on that subset $v(f_i)=v(s)$ by
 
 \begin{remark}
 \label{rem:ch34-finite-cover}
-The finiteness of the cover is used twice: to know that a closed cover
-detects continuity, and to know that $c^{-1}(U_i)$ is closed rather than
-merely constructible.  Both are available because $X$ is a scheme of
-finite type; no properness is needed for this lemma, although properness is
-what guarantees the existence of the center in the first place
-\eqref{eq:triv-full-support-locus}.
+Finiteness is needed for the closed-cover pasting argument.
+Closedness of each $c^{-1}(U_i)$ follows separately from
+\Cref{lem:ch34-center-anticontinuous}, without a finiteness condition
+on a family of opens.  Finite type supplies a finite trivializing cover.
+Properness supplies the center of every analytic point by the valuative
+criterion, as recalled in \Cref{chap:trivial-analytification}.
 \end{remark}
 
 \subsection{Polar loci, monotonicity, and homogeneity}
@@ -385,13 +390,13 @@ $v(f+f')\ge\min\{v(f),v(f')\}$ after negation.
 
 \emph{(4).}  If $v\le w$ then
 $v(\mathfrak a)\le w(\mathfrak a)$ for every coherent ideal.  The
-principal ideal generated by $f$ near the common center gives
-$v(s)\le w(s)$, whence the claim.  (Comparable semivaluations need \emph{not} have the same centre ---
-$v_{X,\triv}\leq\ord_p$ on $\mathbf P^1$ have centres $\eta$ and $p$
---- but by \Cref{thm:ch32-order-centers}, $v\leq w$ puts $c(w)$ in
-$\overline{\{c(v)\}}$, so $c(v)$ is a generization of $c(w)$ and every
-open trivializing neighbourhood of $c(w)$ contains $c(v)$; the same frame
-may therefore be used for both.)
+coherent image ideal of the map $\cO_X(-mL)\to\cO_X$ defined by $s$
+has value $v(s)$ at $v$ and $w(s)$ at $w$.  Applying the order to that
+global ideal gives $v(s)\le w(s)$, whence the claim.
+Comparable semivaluations need not have the same center: the centers of
+$v_{X,\triv}\leq\ord_p$ on $\mathbf P^1$ are $\eta$ and $p$.
+By \Cref{thm:ch32-order-centers}, $c(v)$ is a generization of $c(w)$;
+thus a trivializing neighbourhood of $c(w)$ contains both centers.
 
 \emph{(5).}  Immediate from
 $(\lambda v)(f)=\lambda v(f)$, which is
@@ -495,8 +500,11 @@ $\{s_p=0\}^{\An}=\{v_{p,\triv}\}$, a single point.
 \label{ex:ch34-log-s-p2}
 Let $X=\mathbf P^2_k$ with coordinates $[x_0:x_1:x_2]$, $L=\cO(1)$,
 and $s=x_0$, so that $\{s=0\}=H$ is a line.  Then
-$\{\log|x_0|=-\infty\}=H^{\An}$ is one-dimensional in the Zariski sense
-and contains uncountably many points of $X^{\An}$, among them
+$\{\log|x_0|=-\infty\}=H^{\An}$ is the analytification of the
+positive-dimensional line $H$.  It contains uncountably many points,
+even when $k$ is countable, since each closed point of $H$ gives a
+ray of real multiples of its order valuation on $H$.
+Among its points are
 $v_{H,\triv}$ and $v_{q,\triv}$ for every closed point $q\in H$.
 Concretely, fix $q=[0:0:1]$ and the local coordinates
 $u=x_0/x_2$, $w=x_1/x_2$ at $q$.  For
@@ -507,8 +515,9 @@ $v_\alpha(u)=\alpha_1$, $v_\alpha(w)=\alpha_2$.  Then
  \log|x_0|(v_\alpha)=-\alpha_1 .
 \]
 Thus $\log|x_0|$ is finite, and linear, on the whole two-dimensional
-quasimonomial cone at $q$, and tends to $-\infty$ exactly along the
-directions with $\alpha_1>0$.  Its restriction to the divisorial ray
+quasimonomial cone at $q$.  Along a fixed scaling direction
+$r\alpha$, $r\to+\infty$, its value tends to $-\infty$ exactly when
+$\alpha_1>0$.  Its restriction to the divisorial ray
 $t\ord_H$, $t\ge0$, is $-t$; and
 $\lim_{t\to+\infty}t\ord_H=v_{H,\triv}$, where the value is $-\infty$.
 This is the smallest example in which the polar locus of a Fubini--Study
@@ -697,7 +706,8 @@ $U:=X\setminus\bigcup_j\{s_j=0\}$ is a nonempty Zariski open set, and
 \end{equation}
 In general, the same holds componentwise after discarding from the
 presentation those $s_j$ that vanish identically on the component
-considered.
+considered; the resulting constant is the supremum on that component,
+which need not equal the supremum on all of $X^{\An}$.
 \end{lemma}
 
 \begin{proof}
@@ -1085,10 +1095,13 @@ $\chi\in\cH^{\mathrm{gf}}_\Lambda(L)$.
 
 \begin{proposition}
 \label{prop:ch34-division}
-Assume $X$ integral and normal.  Let $L\in\Pic(X)_{\mathbf Q}$, let
-$E$ be an effective $\mathbf Q$-Cartier divisor on $X$ with canonical
-section $s_E$, and let $\phi\in\cH^{\mathrm{gf}}_\Lambda(L)$.  The
-following are equivalent:
+Assume $X$ integral and normal.  Let $L\in\Pic(X)_{\mathbf Q}$,
+let $E$ be an effective $\mathbf Q$-Cartier divisor on $X$, and let
+$\phi\in\cH^{\mathrm{gf}}_\Lambda(L)$.  Write
+$\log|s_E|:=q^{-1}\log|s_{qE}|$ for a positive integer $q$ such that
+$qE$ is Cartier, with $s_{qE}$ its canonical section.  Taking powers
+shows that this function is independent of $q$; no literal section of
+the $\mathbf Q$-line bundle $E$ is required.  The following are equivalent:
 \begin{enumerate}
 \item there is $C\in\mathbf R$ with $\phi\le\log|s_E|+C$ on
   $X^{\An}$;
@@ -1115,12 +1128,12 @@ that is,
 \begin{equation}
 \label{eq:ch34-division-inequality}
  v(s_i)\ \ge\ v(s_{mE})-mC+\lambda_i
- \qquad\text{in }[0,+\infty].
+ \qquad\text{in }\mathbf R\cup\{+\infty\}.
 \end{equation}
-Both sides of \eqref{eq:ch34-division-inequality} are read in
-$[0,+\infty]$; the inequality is trivially true where the left side is
-$+\infty$, and no subtraction of infinite quantities occurs, the constant
-$mC-\lambda_i$ being real.
+The shifted right side can be negative.  Both sides are read in
+$\mathbf R\cup\{+\infty\}$; the inequality holds where the left side is
+$+\infty$, and no subtraction of infinite quantities occurs, since
+$mC-\lambda_i$ is real.
 
 Replace $v$ by $tv$ for $t>0$.  Homogeneity
 (\Cref{lem:ch34-log-s-properties}\,\cref{itm:ch34-logs:homogeneous}) turns
@@ -1143,8 +1156,9 @@ and this is effective: at a prime divisor $F$ in the support of $E$ the
 inequality just proved applies, while at any other prime divisor $G$ one
 has $\ord_G(s_i)\ge0=\ord_G(mE)$.  On a normal variety a rational section
 of a line bundle with effective associated Weil divisor is regular, because
-$\cO_X=\bigcap_{F}\cO_{X,F}$ inside $k(X)$, the intersection running
-over the prime divisors.  Hence
+on each affine open $U=\Spec A$ one has
+$A=\bigcap_{\operatorname{ht}\mathfrak p=1}A_{\mathfrak p}$ inside $k(X)$.
+Apply this to the coefficient of the rational section in a local frame.  Hence
 $\sigma_i\in H^0\bigl(X,m(L-E)\bigr)$ and $s_i=\sigma_is_{mE}$.
 
 Therefore, using
@@ -1245,16 +1259,19 @@ identity of \eqref{eq:flag-semiring} applied $m'$ times, together with
  \end{aligned}
 \]
 For $c=p/q\in\mathbf Q_{>0}$, $c\,m^{-1}\phi_{\mathfrak a}
-=(qm)^{-1}\phi_{\mathfrak a^{p}}$.  The constant $c\in\mathbf Q$ is
-$\phi_{\varpi^{-c}}$ after clearing denominators, the flag ideal being the
-fractional ideal generated by $\varpi^{-qc}$ with $m=q$.  Stability
-under the scaling action follows from \eqref{eq:ch34-flag-weight-form}: by
-\Cref{prop:ch34-fs-operations}\,\cref{itm:ch34-ops:scaling} applied to each
-term, $t\cdot\phi_{\mathfrak a}
-=\max_\lambda\{\log|\mathfrak a_\lambda|+t\lambda\}$, and for
-$t\in\mathbf Q_{>0}$ with $mt\in\mathbf Z$ this is
-$m^{-1}\phi_{\mathfrak a'}$ for the flag ideal
-$\mathfrak a'=\sum_\lambda\mathfrak a_\lambda^{m}\varpi^{-mt\lambda}$.
+=(qm)^{-1}\phi_{\mathfrak a^{p}}$.  For $c\in\mathbf Q$ choose $q>0$ with $qc\in\mathbf Z$.
+Then $c=q^{-1}\phi_{(\varpi^{-qc})}$, using a fractional flag ideal.
+For scaling, homogeneity of each ideal evaluation gives directly
+$t\cdot\phi_{\mathfrak a}
+=\max_\lambda\{\log|\mathfrak a_\lambda|+t\lambda\}$.
+Choose a finite interval of integer levels representing this maximum,
+including a level with $\mathfrak a_\lambda=\cO_X$.
+If $t\in\mathbf Q_{>0}$ and $mt\in\mathbf Z$, let $\mathfrak a'$
+be the ideal generated by the finitely many homogeneous terms
+$\mathfrak a_\lambda^m\varpi^{-mt\lambda}$ from that interval.
+It is a flag ideal, and its function divided by $m$ is the required
+scaled function.  Multiplication of a generator by $\varpi$ only
+lowers its weight, so it adds no larger term to that maximum.
 
 \emph{\cref{itm:ch34-pl:difference}.}  The inclusion $\supset$ is clear.
 Conversely a general element of $\PL(X)$ is a $\mathbf Q$-linear
@@ -1278,12 +1295,18 @@ $\log|\mathfrak a_\lambda|(t\ord_E)=-t\ord_E(\mathfrak a_\lambda)$ being
 rational for $t\in\mathbf Q_{>0}$.
 
 \emph{\cref{itm:ch34-pl:realnotlattice}.}  This is
-\cite[Remark~2.4]{BJ22}.  The obstruction is that taking a maximum after
-forming arbitrary real linear combinations can create an irrational wall
-that is not induced by any rational model subdivision.  No purported
-one-dimensional example is used here: the tempting expression
-$\max\{0,\sqrt2\log|\mathfrak b|\}$ does not exhibit such a wall and is
-not a counterexample.
+\cite[Remark~2.4]{BJ22}.  A bounded example on $\mathbf P^1$ makes the
+obstruction explicit.  Fix a closed point $p$ and put
+$h=\max\{\log|\mathfrak m_p|,-1\}\in\PL(X)$.
+Both $\sqrt2h$ and the constant $-1$ belong to $\PL_{\mathbf R}(X)$,
+but on the ray $t\ord_p$ their maximum is
+$\max\{-\sqrt2t,-1\}$, with a corner at $t=1/\sqrt2$.
+Every flag function on that ray has rational corner coordinates:
+its defining terms have integer slopes and integer intercepts.
+A finite real linear combination of such functions can have corners
+only in the union of those finitely many rational corner sets.
+The displayed irrational corner therefore excludes the maximum from
+$\PL_{\mathbf R}(X)$.
 \end{proof}
 
 \begin{example}
@@ -1312,7 +1335,8 @@ coordinates of \Cref{ex:ch34-log-s-p1}.
 The space $\PL(X)$ is uniformly dense in $C^0(X^{\An})$:
 \begin{equation}
 \label{eq:pl-stone-weierstrass}
- \overline{\PL_{\mathbf R}(X)}^{\,\|\cdot\|_\infty}
+ \overline{\PL(X)}^{\,\|\cdot\|_\infty}
+ =\overline{\PL_{\mathbf R}(X)}^{\,\|\cdot\|_\infty}
  =C^0(X^{\An}).
 \end{equation}
 \end{theorem}
@@ -1323,8 +1347,10 @@ Hausdorff, so the lattice form of the Stone--Weierstrass theorem applies: a
 sublattice of $C^0(X^{\An})$ containing the constants and separating
 points is uniformly dense.  By
 \Cref{lem:ch34-pl-lattice}\,\cref{itm:ch34-pl:lattice}, $\PL(X)$ is a
-sublattice containing the rational constants, whose uniform closure
-contains all real constants.
+sublattice containing the rational constants.  Its uniform closure
+is a real vector sublattice: approximate each real scalar by rational
+ones and use continuity of addition and of finite maxima.
+That closure contains all real constants.
 
 It remains to separate points.  Let $v\ne w$ in $X^{\An}$.  The topology
 of $X^{\An}$ is generated by the ideal evaluations
@@ -1345,9 +1371,10 @@ $X^{\divis}$.
 
 \begin{remark}
 \label{rem:ch34-truncation}
-The unbounded function $\log|\mathfrak b|$ itself is \emph{not} in
-$\PL(X)$: it takes the value $-\infty$ on $V(\mathfrak b)^{\An}$,
-whereas $\PL(X)$ consists of bounded continuous real-valued functions.
+If $V(\mathfrak b)$ is nonempty, $\log|\mathfrak b|$ itself is
+\emph{not} in $\PL(X)$: it takes the value $-\infty$ on
+$V(\mathfrak b)^{\An}$, whereas $\PL(X)$ consists of bounded
+continuous real-valued functions.  For the unit ideal it is simply zero.
 The truncation $\max\{\log|\mathfrak b|,-m\}$ is what enters
 \Cref{thm:ch34-pl-density}, and the two are related by the scaling action
 of \Cref{ex:ch34-pl-subscheme}.  The homogeneous unbounded objects are
@@ -1370,12 +1397,17 @@ and a flag ideal $\mathfrak a$ on $X\times\mathbf A^1$ such that
  mL_{\mathrm{triv}}\otimes\mathfrak a\ \text{is globally generated}.
 \end{equation}
 The second condition is equivalent to global generation of
-$mL\otimes\mathfrak a_\lambda$ for every $\lambda$.
+$mL\otimes\mathfrak a_\lambda$ for every $\lambda$: the evaluation
+map decomposes into homogeneous weight pieces, and multiplication
+by $\varpi$ maps a piece into the next lower-weight piece.
 \end{proposition}
 
 \begin{proof}
-Suppose first that \eqref{eq:ch34-fs-flag-ideal} holds.  For each
-$\lambda$, choose sections $s_{\lambda,1},\ldots,s_{\lambda,r_\lambda}$
+Suppose first that \eqref{eq:ch34-fs-flag-ideal} holds.
+Retain the finitely many integer levels between a level where
+$\mathfrak a_\lambda=\cO_X$ and the last nonzero level.
+Lower levels contribute smaller terms and higher levels contribute
+$-\infty$.  For each retained $\lambda$, choose sections $s_{\lambda,1},\ldots,s_{\lambda,r_\lambda}$
 of $H^0(X,mL\otimes\mathfrak a_\lambda)\subset H^0(X,mL)$ generating
 $mL\otimes\mathfrak a_\lambda$.  For $v\in X^{\An}$, computing in a
 frame of $mL$ at $c(v)$, these germs generate
@@ -1447,7 +1479,11 @@ graph and flattening, with no resolution hypothesis.  Then
  D:=\mu^*\cL-\rho^*L_{\mathrm{triv}}
 \]
 is a vertical $\mathbf Q$-Cartier divisor class on $\cX'$, because the
-two polarizations agree over $\mathbf G_m$.  Set
+two polarizations agree over $\mathbf G_m$ with their fixed
+trivializations.  These identifications determine an actual vertical
+divisor, rather than just a line-bundle class.  Replace $\cX'$ by its
+integral closure in the unchanged generic fibre when using effectivity
+or pushforward criteria below.  Set
 $\phi_{\cL}:=\phi_D$, the function $v\mapsto\sigma(v)(D)$ of
 \Cref{chap:bj-test-configurations}, where $\sigma$ is the Gauss section
 \eqref{eq:triv-gauss-section}.  Pullback invariance
@@ -1474,10 +1510,13 @@ $\mu_*\cO_{\cX}(mD)$.  Together with
 image $\PL(X)$.
 
 \emph{Step 3: semiample test configurations give Fubini--Study functions.}
-Let $(\cX,\cL)$ be semiample.  After replacing $\cL$ by a multiple and
-passing to a higher test configuration we may assume that $\cL$ is a
-globally generated honest line bundle and that $\cX$ dominates the trivial
-test configuration via $\mu$.  Put $D=\cL-\mu^*L_{\mathrm{triv}}$, so
+Let $(\cX,\cL)$ be semiample.  Choose a positive integer $r$ for
+which $r\cL$ is a globally generated honest line bundle, pass to a common
+higher model dominating the trivial configuration, and take its relative
+integral closure.  In this paragraph rename $r\cL$ and $rL$ as $\cL$
+and $L$; at the end both the function and the polarization are divided
+by $r$.  Thus $\cX$ is integrally closed and dominates the trivial
+configuration via $\mu$.  Put $D=\cL-\mu^*L_{\mathrm{triv}}$, so
 that $\phi_{\cL}=\phi_D$.  Global generation of $\cL$ makes
 $\cO_{\cX}(D)$ relatively globally generated, so
 $\mathfrak a:=\mu_*\cO_{\cX}(D)$ is a flag ideal with
@@ -1490,7 +1529,9 @@ $\mathfrak a_0\cdot\cO_{\cX}=\cO_{\cX}(D)=\mathfrak a\cdot\cO_{\cX}$,
 whence $\phi_{\mathfrak a_0}=\phi_{\cL}$.  By construction
 $L_{\mathrm{triv}}\otimes\mathfrak a_0$ is globally generated, and
 \Cref{prop:ch34-fs-flag-ideal} then gives
-$\phi_{\cL}\in\cH(L)$.
+$\phi_{\cL}\in\cH(L)$ for the renamed bundles.
+By \Cref{prop:ch34-fs-operations}\,\cref{itm:ch34-ops:rational},
+dividing by $r$ gives membership in $\cH(L)$ for the original bundle.
 
 \emph{Step 4: the converse and the ample statement.}  Conversely, let
 $\phi\in\cH(L)$.  By \Cref{prop:ch34-fs-flag-ideal} we may write
@@ -1550,8 +1591,11 @@ sentence.  The last assertion follows from
 \label{rem:ch34-tc-scope}
 Three cautions.  First, the correspondence of
 \Cref{thm:tc-pl-correspondence} is between \emph{equivalence classes} of
-test configurations and PL functions; forgetting either the integral closure
-or the linearization destroys injectivity, as recorded in
+test configurations and PL functions.  Raw models can differ while
+representing the same class; relative integral closure and semiample
+contraction account for such differences.  The linearization and generic
+identification remain part of the polarized data.  For the section-norm
+version of faithfulness, retain the semiample hypotheses of
 \Cref{prop:tc-valuative-invariance}.  Second, $\cH(L)$ corresponds to
 \emph{semiample} test configurations, not to nef ones: a relatively nef
 polarization need not be relatively semiample, so the class
@@ -1591,7 +1635,10 @@ $\Spec R\to\mathbf A^1$.
 
 Base change to $R$ does not change the special fibre, so $\cX_R$ is an
 SNC model of $X_K$ in the sense of \Cref{sec:skeleton-snc}, and
-\Cref{chap:skeleta} applies verbatim to it.  If $\operatorname{char}k=0$,
+\Cref{chap:skeleta} applies verbatim to it.  Such a regular total space
+requires $X$ smooth, since its restriction over $\mathbf G_m$ is
+$X\times\mathbf G_m$ and $k$ is perfect.  If $X$ is smooth and
+$\operatorname{char}k=0$,
 SNC test configurations dominating $X\times\mathbf A^1$ are cofinal among
 all test configurations, by equivariant resolution of singularities
 (\Cref{app:birational-geometry}) applied to a $\mathbf G_m$-equivariant
@@ -1714,7 +1761,10 @@ $\sigma(v)$ on $\cX$, let $J(\xi)=\{j\mid\xi\in E_j\}$, let
 $S(\xi)$ be the connected component of $E_{J(\xi)}$ containing
 $\xi$, and let $\alpha_j=\sigma(v)(z_j)$ for local equations $z_j$ of
 $E_j$ at $\xi$; then
-$r_{\cX}(v)=\sigma^{-1}(w_{S(\xi),\alpha})$.  Moreover:
+$r_{\cX}(v)=\sigma^{-1}(w_{S(\xi),\alpha})$.
+For an ideal $\mathfrak a$ on $\cX$, the notation
+$\log|\mathfrak a|$ below means the function
+$v\mapsto-\sigma(v)(\mathfrak a)$ on $X^{\An}$.  Moreover:
 \begin{enumerate}
 \item\label{itm:ch34-retr:divisor}
   $\phi_D=\phi_D\circ r_{\cX}$ for every vertical $\mathbf R$-divisor
@@ -1747,19 +1797,27 @@ which gives $\varphi_D=\varphi_D\circ r$ on $X_K^{\An}$; composing with
 $\sigma$ and using $\phi_D=\varphi_D\circ\sigma$ gives the statement.
 Assertion \cref{itm:ch34-retr:ideal} is
 \Cref{cor:retraction-ideal-monotone}, transported in the same way.
-Assertion \cref{itm:ch34-retr:pl} is \Cref{prop:skeleton-model-pa} combined
-with \Cref{thm:tc-pl-correspondence}: a real PL function is
-$\phi_{D'}$ for a vertical $\mathbf R$-divisor on some test
-configuration, and passing to a common SNC domination makes it affine on
-the faces of a subdivision of $\Delta_{\cX}$.
+For \cref{itm:ch34-retr:pl}, use the flag-ideal definition
+\Cref{def:bj-pl-function}.  Pulling a flag ideal back along
+$\cX\to X\times\mathbf A^1$ gives a coherent vertical fractional ideal.
+Its logarithmic norm on $\Delta_{\cX_R}$ is rational piecewise affine by
+\Cref{lem:vertical-ideal-convex}; transported through $\sigma$, it is the
+restriction of $\phi_{\mathfrak a}$.  Finite real linear combinations
+are real piecewise affine on a common subdivision.  This argument uses
+the given SNC model and needs no resolution in positive characteristic.
+When $\psi$ is determined by a vertical real divisor on $\cX$,
+\Cref{prop:ch34-affine-on-faces} gives the final affine assertion directly.
 \end{proof}
 
 \begin{remark}
 \label{rem:ch34-dual-complex-scope}
 \Cref{prop:ch34-retraction} is an \emph{interpretation} of PL functions, not
-their definition.  Three limitations should be kept in mind.  Existence of
-SNC test configurations requires resolution of singularities, hence
-characteristic zero.  Even then, a single PL function is affine on the faces
+their definition.  Three limitations should be kept in mind.
+Cofinality of SNC test configurations is used for smooth $X$ in
+characteristic zero, where equivariant resolution supplies them.
+For singular $X$, resolution passes to a smooth birational model;
+it cannot give a regular test configuration whose generic fibre is
+still the singular variety.  For smooth $X$, a single PL function is affine on the faces
 of $\Delta_{\cX}$ only after passing to a model on which its divisor is
 determined, so ``piecewise'' cannot be dropped from the name.  Each real PL
 function is affine on a rational model subdivision; the failure of
@@ -1933,9 +1991,11 @@ so that $2\phi_D=\phi_{\mathfrak a}$ for the flag ideal
  \mathfrak a=\mathfrak m_p^4+\mathfrak m_p^2\varpi
  +\mathfrak m_p^2\varpi^2+\varpi^3 .
 \end{equation}
-Its Rees valuations, in the sense of \Cref{chap:bj-test-configurations}, are
-$\tfrac12\ord_p$ and $\ord_p$, the two nontrivial vertices, as they must
-be.
+Its Rees-valuation set, with the convention of
+\Cref{chap:bj-test-configurations}, consists of
+$v_{X,\triv}$, $\tfrac12\ord_p$ and $\ord_p$.
+The first comes from the strict central component; the other two are
+the nontrivial vertices where the slopes change.
 
 \emph{Fubini--Study data.}  Put $L=\cO_{\mathbf P^1}(2)$ and $m=2$, so
 that $mL=\cO(4)$.  With $s_p,s_q\in H^0(X,\cO(1))$ as before,
@@ -2006,17 +2066,21 @@ Let $\mu:\cX'\to\cX$ be a morphism of test configurations.  Then
  \theta_{\cX'}+\mu^*D=\mu^*(\theta_{\cX}+D).
 \]
 If the right-hand class is nef, so is its pullback.  Conversely, suppose
-$\mu^*(\theta_{\cX}+D)$ is nef and let $C\subset\cX_0$ be an integral
-curve.  Since $\mu$ is proper, surjective and an isomorphism over
-$\mathbf G_m$, there is an integral curve $C'\subset\cX'_0$ with
-$\mu(C')=C$; the projection formula gives
+$\mu^*(\theta_{\cX}+D)$ is nef and let $C$ be an integral curve
+in any fibre of $\cX\to\mathbf A^1$.  The projective surjection
+$\mu^{-1}(C)\to C$ has a curve $C'$ dominating $C$:
+take a component dominating $C$ and cut its positive-dimensional
+generic fibre by sufficiently general hyperplanes.
+The resulting closed curve maps generically finitely onto $C$ and
+lies in the same base fibre.  The projection formula gives
 $(\theta_{\cX}+D)\cdot C=\deg(C'/C)^{-1}
 \bigl(\mu^*(\theta_{\cX}+D)\cdot C'\bigr)\ge0$.  Hence
 \eqref{eq:pl-relative-nefness} is insensitive to passing to a higher test
 configuration; and two determinations of the same PL function agree after
 pullback to a common domination, by
 \Cref{thm:tc-pl-correspondence}\ and the injectivity established in its
-proof.
+proof.  For real PL functions use the real-linear extension of
+the rational vertical-divisor dictionary on a common model.
 
 For the last assertion, restrict \eqref{eq:pl-relative-nefness} to a general
 fibre $\cX_t\cong X$, $t\ne0$, on which $D$ is trivial: nefness is
@@ -2092,8 +2156,14 @@ $\cX_d\to\cX$, $\varpi\mapsto\varpi^d$; this is
 \cite[Lemma~2.34]{BJ22}.  A class on $\cX$ is relatively nef if and only
 if its pullback to $\cX_d$ is, by the argument of
 \Cref{lem:ch34-pl-positivity-well-posed} applied to the finite surjective
-morphism $\cX_d\to\cX$.  Hence $d\cdot\phi$ is $\theta$-psh, and
-applying the same with $d^{-1}$ gives the general rational case.
+morphism $\cX_d\to\cX$.  By independence of the determining model,
+this proves the equivalence
+$\phi\text{ is }\theta\text{-psh}\Longleftrightarrow
+d\cdot\phi\text{ is }\theta\text{-psh}$.
+For the reciprocal action, apply that equivalence to
+$\psi=d^{-1}\cdot\phi\in\PL_{\mathbf R}(X)$; then $d\cdot\psi=\phi$.
+Composition gives the general rational case.  No quotient-model
+construction is needed for this reverse implication.
 
 \emph{\cref{itm:ch34-plop:max}.}  Assume $\theta=\theta'$ and
 $\phi,\phi'\in\PL(X)$.  Fix an ample $\mathbf Q$-line bundle $L$ with
@@ -2174,10 +2244,17 @@ $\phi_j\to\phi$ uniformly on $X^{\An}$.
 \begin{proof}
 Determine $\phi=\phi_D$ on a test configuration $\cX$ dominating
 $X\times\mathbf A^1$, with $D\in\operatorname{VCar}(\cX)_{\mathbf R}$ and
-$\theta_{\cX}+D$ relatively nef.  The relatively ample cone is open in
-$N^1(\cX/\mathbf A^1)$ and its closure is the relatively nef cone, so we
-may choose $\mathbf Q$-line bundles $L_j$ on $X$ and
-$D_j\in\operatorname{VCar}(\cX)_{\mathbf Q}$ with
+$\theta_{\cX}+D$ relatively nef.
+Fix an ample $\mathbf Q$-line bundle $A$.  By
+\cite[Lemma~2.33]{BJ22}, the same model carries a relatively ample
+polarization $A_{\cX}+H$ with
+$H\in\operatorname{VCar}(\cX)_{\mathbf Q}$.
+Thus $(\theta+\varepsilon c_1(A))_{\cX}+D+\varepsilon H$ is
+relatively ample for every $\varepsilon>0$.
+Approximate these pairs, with $\varepsilon\downarrow0$, by rational
+horizontal classes and rational vertical coefficients inside the open
+relative ample cone.  This supplies $\mathbf Q$-line bundles $L_j$ on
+$X$ and $D_j\in\operatorname{VCar}(\cX)_{\mathbf Q}$ with
 $c_1(L_j)\to\theta$ in $N^1(X)$, $D_j\to D$ in
 $\operatorname{VCar}(\cX)_{\mathbf R}$, and
 $(c_1(L_j))_{\cX}+D_j$ relatively ample.  Then
@@ -2207,9 +2284,23 @@ cone, $\mathbf Q_{>0}\cH_{\mathrm{dom}}(\omega)=\PL^+(X)$, so
 $\cH_{\mathrm{dom}}(\omega)$ spans $\PL(X)$.  Moreover every
 $\phi\in\PL_{\mathbf R}(X)\cap\PSH_X(\omega)$ is a uniform limit of
 elements of $\cH_{\mathrm{dom}}(\omega)$; this is
-\cite[Proposition~3.10]{BJ22}, whose proof is the argument of
-\Cref{lem:ch34-pl-fs-approximation} with the class $\omega$ held fixed and
-the perturbation absorbed into a relatively ample auxiliary divisor.
+\cite[Proposition~3.10]{BJ22}.
+To keep the horizontal class fixed, determine $\phi=\phi_D$ on a model
+where $\omega_{\cX}+H$ is relatively ample with $H$ rational vertical;
+such a model exists by \cite[Lemma~3.11]{BJ22}.
+For $0<\varepsilon<1$,
+\[
+ \omega_{\cX}+(1-\varepsilon)D+\varepsilon H
+ =(1-\varepsilon)(\omega_{\cX}+D)
+   +\varepsilon(\omega_{\cX}+H)
+\]
+is relatively ample.  Rational vertical divisors sufficiently close to
+$(1-\varepsilon)D+\varepsilon H$ remain in that open cone, and their
+functions converge uniformly to $\phi_D$.
+This convex combination retains $\omega$; merely adding
+$\varepsilon H$ to $D$ would not justify positivity at a boundary
+point.  For irrational $\omega$ only the vertical divisors are made
+rational; no line bundle is asserted to have numerical class $\omega$.
 
 \begin{warning}{Nef is not semiample}
 The condition \eqref{eq:pl-relative-nefness} is genuinely weaker than
@@ -2228,10 +2319,10 @@ of \emph{varying} classes $L_j$ rather than a single one.
 \label{ex:ch34-psh-check}
 We check \eqref{eq:pl-relative-nefness} for the functions computed in
 \Cref{ex:ch34-normal-cone-segment,ex:ch34-two-corner}.  Throughout
-$X=\mathbf P^1$ and $\theta=c_1(\cO(d))$, so that $\theta$ is
-determined by the integer $d=\deg\theta$; on a test configuration $\cY$
-the class $\theta_{\cY}$ is the pullback of $\cO(d)$ under
-$\cY\to\mathbf P^1$.
+$X=\mathbf P^1$ and $\theta=d\,c_1(\cO(1))$ with
+$d=\deg\theta\in\mathbf R$; on a test configuration $\cY$,
+$\theta_{\cY}$ is $d$ times the pullback of $c_1(\cO(1))$.
+When $d$ is an integer this is the class of the pullback of $\cO(d)$.
 
 \emph{The two-vertex case.}  On the smooth surface
 $\cY=\operatorname{Bl}_{(p,0)}(\mathbf P^1\times\mathbf A^1)$ the relevant
@@ -2314,12 +2405,19 @@ that is: one global inequality involving the degree of the class, and one
 convexity inequality at each corner.  The same reformulation applies in the
 two-vertex case, where \eqref{eq:ch34-segment-psh-range} says
 $d+c\ge0$ and $c\le0$.  These are instances of the general criterion for
-smooth projective curves, \cite[Example~4.13]{BJ22}: a function
-$\phi:X^{\An}\to\mathbf R\cup\{-\infty\}$ is $\theta$-psh if and only if
-$t\mapsto\phi(t\ord_q)$ is convex on $[0,+\infty)$ for every closed
-point $q$, and
-$\deg\theta+\sum_{q}\phi'_q(0^+)\ge0$, the sum having only countably many
-nonzero terms.
+smooth projective curves, \cite[Example~4.13]{BJ22}.
+State it for an upper semicontinuous function
+$\phi:X^{\An}\to\mathbf R\cup\{-\infty\}$ that is finite at
+$v_{X,\triv}$ and has the endpoint values
+$\phi(v_{q,\triv})=\lim_{t\to+\infty}\phi(t\ord_q)$.
+Then $\phi$ is $\theta$-psh exactly when each radial profile is
+convex on $[0,+\infty)$ and
+$\deg\theta+\sum_q\phi'_q(0^+)\ge0$.
+Upper boundedness makes these profiles decreasing; the slope inequality
+allows only countably many nonzero terms.
+The endpoint condition is essential: increasing the value at a closed
+endpoint while keeping all finite-radius profiles fixed would satisfy
+the two displayed numerical tests but violate psh monotonicity.
 \end{example}
 
 \section{The class \texorpdfstring{$\PSH_X(\theta)$}{PSH(theta)}}
@@ -2349,12 +2447,14 @@ The set of $\theta$-psh functions is denoted $\PSH_X(\theta)$.
 Four points of the definition deserve comment before anything is proved
 with it.
 
-First, condition~(3) uses a \emph{net}, not a sequence.  This is not
-pedantry: $X^{\An}$ is compact but not metrizable in general, the index
-set of the natural approximating family is the set of test configurations
-ordered by domination, and that set is directed but not countable.  The
-places where a sequence \emph{may} legitimately be extracted are recorded in
-\Cref{chap:bj-linear-growth}; none of them is available here.
+First, condition~(3) uses a \emph{net}.
+The space $X^{\An}$ need not be metrizable, and model domination
+does not supply a countable cofinal set for an approximating family.
+This is a reason to retain nets in the construction, not an
+impossibility theorem for sequential regularization.
+The later energy argument of \cite[Corollary~12.18]{BJ22} does give
+decreasing sequences, including for varying numerical classes.
+It does not make a chosen net's index set countably cofinal.
 
 Second, the limit in~(3) is a decreasing limit, so it exists in
 $\Rbar$ at every point without hypothesis, by ledger entry~(1), and the
@@ -2401,8 +2501,9 @@ $\mathbf R\subset\PSH_X(\theta)$ if and only if $\theta\in\Nef(X)$.
 \begin{proof}
 Suppose $\PSH_X(\theta)\ne\emptyset$ and let $(\phi_i)$ be as in
 \Cref{def:bj-psh}(3).  Each $\cH^{\mathrm{gf}}_{\mathbf R}(L_i)$ is
-nonempty, so $L_i$ admits a nonzero section after clearing denominators
-and is therefore effective; hence $c_1(L_i)\in\operatorname{Psef}(X)$.  The
+nonempty, so $L_i$ admits a regular section after clearing denominators
+by \Cref{lem:ch34-regular-section,prop:ch34-fs-operations}.
+Such a section is nonzero on every component; hence $c_1(L_i)\in\operatorname{Psef}(X)$.  The
 pseudoeffective cone is closed, and $c_1(L_i)\to\theta$, so
 $\theta\in\operatorname{Psef}(X)$.
 
@@ -2453,12 +2554,40 @@ level in the sense of \Cref{def:positive-pl-function}.
 \end{proposition}
 
 \begin{proof}
-This is exactly \cite[Lemma~4.3]{BJ22}.  Its proof there derives both
-directions from \cite[Lemmas~3.5 and~3.7 and Corollary~3.22]{BJ22}: PL
-positivity is transported between a fixed model and nearby rational
-classes, and the PL-positive cone is closed in the finite-dimensional
-direct-limit topology.  No envelope theorem, and in particular no result
-from \S5 of \cite{BJ22}, enters this comparison.
+This is \cite[Lemma~4.3]{BJ22}.  We explain the topology and
+class bookkeeping behind its cited inputs.
+
+Suppose first that $\phi$ is positive at PL level.
+\Cref{lem:ch34-pl-fs-approximation} supplies rational Fubini--Study
+functions $h_j\to\phi$ uniformly, with their classes tending to $\theta$.
+Choose this approximation with
+$\|h_j-\phi\|_\infty\leq\delta_j$, where $\delta_j=4^{-j}$, and set
+$g_j=h_j+3\delta_j$.
+Then $\phi+2\delta_j\leq g_j\leq\phi+4\delta_j$,
+so $g_{j+1}\leq g_j$ and $g_j\downarrow\phi$.
+The translated weights remain rational and the classes still converge
+to $\theta$.  Thus \Cref{def:bj-psh} applies.
+
+Conversely, assume $\phi\in\PSH_X(\theta)\cap\PL_{\mathbf R}(X)$.
+Every defining GF approximant dominates the bounded function $\phi$,
+so each is finite valued and has a base-point-free presentation.
+Refine the index set to its directed product with $\mathbf Z_{>0}$.
+At index $(i,j)$ round the real weights upwards to rational weights
+with normalized error at most $1/j$.  The resulting functions
+$h_{i,j}\in\cH(L_i)$ still converge pointwise to $\phi$ on
+$X^{\divis}$; decreasingness of this rounded family is not needed here.
+Fix an ample class $a=c_1(A)$ and $\varepsilon>0$.
+For all sufficiently late indices,
+$\theta+\varepsilon a-c_1(L_i)$ is ample.  Adding its nef pullback
+shows that $h_{i,j}$ is $(\theta+\varepsilon a)$-psh at PL level.
+By \cite[Corollary~3.22]{BJ22}, that cone is closed \emph{in
+$\PL_{\mathbf R}(X)$} for pointwise convergence on $X^{\divis}$.
+Hence $\phi$ is $(\theta+\varepsilon a)$-psh at PL level.
+Let $\varepsilon\downarrow0$ and apply
+\Cref{lem:ch34-pl-limit-classes} with the fixed function $\phi$.
+This yields $\theta$-positivity.
+No finite-dimensional common-model claim is made for the entire
+approximating family, and no envelope theorem is used.
 \end{proof}
 
 \begin{remark}
@@ -2466,11 +2595,13 @@ from \S5 of \cite{BJ22}, enters this comparison.
 The reader should notice what \Cref{prop:ch34-pl-consistency} does
 \emph{not} say.  It compares two notions on the set of PL functions.  It
 does not say that a decreasing limit of PL $\theta$-psh functions is PL,
-which is false already on $\mathbf P^1$, nor that every $\theta$-psh
-function is a decreasing limit of a \emph{sequence}, which is exactly the
-point at which nets cannot be dispensed with.
+which is false already on $\mathbf P^1$, nor does this comparison itself extract a decreasing sequence.
+Sequential regularization is a separate result of the later energy
+theory, \cite[Corollary~12.18]{BJ22}; it is compatible with index sets
+having no countable cofinal subset.
 \end{remark}
 
+\newpage
 \section{Basic closure properties}
 \label{sec:ch34-closure}
 
@@ -2483,6 +2614,19 @@ found no exact-current Rethlas receipt for this repaired block.  Accordingly
 none of its clauses is presented as newly machine-verified mathematics, and
 no extension beyond the cited clauses may be inferred without a separate
 source proof or an exact-current receipt.
+In particular the diagonal closure is used directly as the named
+input \cite[Theorem~4.5]{BJ22}.  Ordering arbitrary inner nets and
+adding a positive constant does not by itself prove directedness at
+common $-\infty$ points, where that shift leaves the value unchanged.
+In the printed proof of \cite[Lemma~4.6]{BJ22}, the strict comparison
+in equation~(4.5) therefore fails when the reference minimum is
+$-\infty$.  The subsequent exponential difference can have limit zero
+there, so its strictly negative open sets need not cover the compact
+space.  Theorem~4.5 remains a separately identified source input here;
+this chapter does not supply an independent repair of that unrestricted
+abstract argument.
+Later source imports that invoke this diagonal step retain the same
+proof boundary.
 \end{warning}
 
 \begin{theorem}
@@ -2536,7 +2680,8 @@ is asserted to exist, which is nowhere in this theorem.
       \]
       For every $v\in X^{\An}$, the function
       $t\mapsto\phi(tv)$ is convex and decreasing on
-      $[0,+\infty)$, and
+      $[0,+\infty)$, with its value at $t=0$ defined to be
+      $\phi(v_{s(v),\triv})$, and
       \[
        \phi(tv)\searrow\phi(v_{Z,\triv})
        \quad\text{as }t\to+\infty,
@@ -2584,8 +2729,8 @@ assertion this proves the stated positive-linear-combination rule.  This is
 \cite[Theorem~4.7\,(i)--(ii)]{BJ22}.
 
 (5) This is precisely property \emph{(PSH2)} of
-\cite[Theorem~4.5]{BJ22}.  We spell out the diagonal issue that its proof
-resolves.  Apply \cite[Lemma~4.6]{BJ22} with
+\cite[Theorem~4.5]{BJ22}.  Its published proof uses
+\cite[Lemma~4.6]{BJ22} with
 \[
  \begin{aligned}
   K&=X^{\An},& S&=\Pic(X)_{\mathbf Q},
@@ -2595,15 +2740,17 @@ resolves.  Apply \cite[Lemma~4.6]{BJ22} with
 \]
 Here $K$ is compact, $T$ is finite dimensional and hence metrizable,
 and every $F_L$ is stable under addition of a real constant by
-\Cref{lem:gf-fs-operations}\,(3).  The lemma constructs the diagonal on
-triples $(j,i,\varepsilon)$, ordered simultaneously by the outer index,
-the pointwise order of the shifted approximants, and the class error.  That
-preorder is directed by the compactness argument in the lemma and produces
-one decreasing GF net whose classes converge to $\theta$ and whose
-pointwise limit is $\psi$.  This is the required condition in
-\Cref{def:bj-psh}(3).  In particular, merely ordering the disjoint union of
-the inner index sets does \emph{not} prove directedness.  The closedness
-assertion is the special case in which $\psi_j=\psi$ for all $j$.
+\Cref{lem:gf-fs-operations}\,(3).
+The required diagonal-closure conclusion is imported from
+\cite[Theorem~4.5]{BJ22}.  The published argument through
+\cite[Lemma~4.6]{BJ22} has the strict-comparison gap at common poles
+described in the preceding warning.  We do not infer the required
+directedness for arbitrary extended-real families from that comparison
+or claim an independent repair for the algebraic GF specialization.
+The conclusion supplies one decreasing GF net with classes tending to
+$\theta$ and pointwise limit $\psi$, as required in
+\Cref{def:bj-psh}(3).  The closedness assertion is the special case
+where $\psi_j=\psi$ for every $j$.
 
 (4) is the fixed-class special case of~(5).
 
@@ -2626,10 +2773,17 @@ definition.  This is \cite[Theorem~4.7\,(iii)--(iv)]{BJ22}.
 convex along scaling rays by
 \Cref{prop:ch34-generic-finiteness}\,\cref{itm:ch34-gf:decreasing,itm:ch34-gf:convex}.
 Pointwise decreasing limits preserve both properties.  The maximum
-principle and the endpoint formula then follow from the order-and-scaling
-description of trivial semivaluations in
-\Cref{chap:trivial-analytification}.  This is
-\cite[Proposition~4.12]{BJ22}.
+principle follows from the order comparison with $v_{Y,\triv}$.
+For the endpoint formula put $Z=\overline{\{c(v)\}}$.
+The scaling description in \Cref{chap:trivial-analytification} gives
+$tv\to v_{Z,\triv}$ and $tv\leq v_{Z,\triv}$.
+Decreasingness therefore gives
+$\phi(tv)\geq\phi(v_{Z,\triv})$, while upper semicontinuity gives
+$\limsup_{t\to+\infty}\phi(tv)\leq\phi(v_{Z,\triv})$.
+Both inequalities are valid also when the endpoint value is $-\infty$.
+This proves the endpoint equality without assuming continuity of $\phi$.
+The convention at $t=0$ agrees with that of each finite presentation.
+This is \cite[Proposition~4.12]{BJ22}.
 \end{proof}
 
 \begin{warning}{Suprema are not yet available}
@@ -2640,20 +2794,22 @@ family $(\phi_\alpha)\subset\PSH_X(\theta)$ that is bounded above, the
 regularized supremum $(\sup_\alpha\phi_\alpha)^*$ need not be visibly
 $\theta$-psh: the definition supplies decreasing nets, and there is no
 formal manoeuvre converting an increasing family into one.  That
-$(\sup_\alpha\phi_\alpha)^*$ is nevertheless $\theta$-psh, for $X$
-integral and unibranch, is the envelope theorem, stated and proved in
-\Cref{chap:bj-envelope-statement}.  Until then, no argument in this book
-uses closure under suprema, and the reader should treat every appeal to an
-upper envelope before that chapter as a forward reference to be discharged
-there.
+$(\sup_\alpha\phi_\alpha)^*$ is $\theta$-psh for integral unibranch $X$
+is the conclusion of the conditional assembly in
+\Cref{chap:bj-envelope-statement}. Its additional input is
+$\mathrm{(SD)}_k$ of \Cref{warn:ch35-siu-source-gap}. Every appeal to
+closure under suprema must retain that input or an independently established
+envelope property; a forward reference alone does not supply either.
 \end{warning}
 
 \section{Regularization and compactness}
 \label{sec:ch34-compactness}
 
-\Cref{def:bj-psh} approximates by PL functions.  For many purposes one wants
-the approximants to be Fubini--Study, which is a genuinely stronger
-statement because it produces sections rather than divisors.
+\Cref{def:bj-psh} already approximates by GF Fubini--Study functions
+with real weights; those functions may have poles and need not be
+ordinary PL functions.  Regularization improves the presentations to
+rational weights and controls the direction of the class drift.
+For nef classes it further supplies finite-valued approximants.
 
 \begin{theorem}
 \label{thm:ch34-fs-regularization}
@@ -2684,15 +2840,18 @@ The three direct assertions are precisely
 \cite[Theorem~4.15\,(i)--(iii)]{BJ22}.  That proof combines the rational PL
 approximation of \cite[Lemma~3.7]{BJ22}, the ample domination construction
 of \cite[Proposition~3.10]{BJ22}, and the diagonal-net lemma
-\cite[Lemma~4.6]{BJ22}.  The converse is the defining decreasing-closure
+\cite[Lemma~4.6]{BJ22}, subject to the proof boundary in
+\Cref{sec:ch34-closure}.  The converse is the defining decreasing-closure
 property \cite[Definition~4.1 and Theorem~4.5]{BJ22}.  No envelope theorem
 is used; \cite[Theorem~5.20]{BJ22} concerns the envelope property and is not
 a regularization result.
 \end{proof}
 
 The class drift in \eqref{eq:bj-psh-regularization} is essential for a
-general numerical class: the approximants live in nearby ample rational
-classes.  Ampleness is the exception.  For every real
+general numerical class: the rational classes of the approximants
+approach $\theta$ from its ample side, meaning
+$c_1(L_i)-\theta\in\Amp(X)$.  The classes $c_1(L_i)$ themselves are
+ample when $\theta$ is nef, as in the second clause.  Ampleness is the exception.  For every real
 $\omega\in\Amp(X)$, the third clause removes the drift without any
 unibranch or envelope hypothesis, by using PL functions in
 $\cH_{\mathrm{dom}}(\omega)$.  If $\omega$ is irrational these PL
@@ -2744,10 +2903,12 @@ The correct statement is conditional:
 $\PSH_X^{\sup}(\theta)$ is compact for the topology of pointwise
 convergence on $X^{\divis}$}; this is
 \Cref{thm:bj-envelope-equivalences}, and for $X$ integral projective
-unibranch the hypothesis is supplied by the envelope theorem,
-\Cref{thm:bj-final-envelope}.  Because Chapters
-\cref{chap:bj-cartier-realization}--\cref{chap:bj-subintegral-normalization}
-prove that theorem, they may not use compactness in this form; each states
+unibranch the hypothesis is supplied by
+\Cref{thm:bj-final-envelope} only under its additional assertion
+$\mathrm{(SD)}_k$. Because the chapters from
+\cref{chap:bj-cartier-realization} to \cref{chap:bj-subintegral-normalization}
+assemble that conditional theorem, they may not use compactness in this form
+as an input to establish its missing division assertion; each states
 the prohibition explicitly, and the present chapter records it here so that
 the unconditional version is never available to be misused.
 \end{warning}
@@ -2755,12 +2916,15 @@ the unconditional version is never available to be misused.
 \section{Proper support and the value \texorpdfstring{$-\infty$}{-infinity}}
 \label{sec:ch34-proper-support}
 
-The class $\PSH_X(\theta)$ contains functions taking the value
-$-\infty$, and the locus where this happens is governed entirely by
-supports.  We record the mechanism, because it is the source of every
-extended-real subtlety in Part~IV.
+For a finite GF Fubini--Study presentation, its poles are governed by
+the supports and the common zero locus of its sections.  For a general
+psh limit, \Cref{thm:bj-basic-closure}\,(7) guarantees finiteness on
+$X^{\lin}$, rather than on all of $X^{\val}$.
+The finite-presentation support criterion must therefore not be
+extended to every psh function.  The following examples isolate the
+elementary pole mechanism.
 
-Let $0\ne s\in H^0(X,mL)$.  By \eqref{eq:ch34-log-ideal} applied to the
+Let $s\in H^0(X,mL)$ be regular, meaning nonzero on every component.  By \eqref{eq:ch34-log-ideal} applied to the
 ideal generated by $s$,
 \begin{equation}
 \label{eq:divisor-section-pole}
@@ -2817,8 +2981,10 @@ The sequence is decreasing, and
 Thus a decreasing sequence of \emph{finite-valued} Fubini--Study functions
 converges to a function with a pole, and the pole appears only in the limit.
 This is the elementary mechanism by which $-\infty$ enters
-$\PSH_X(\theta)$, and it shows that no bound on the approximants can
-prevent it.
+$\PSH_X(\theta)$.  Individual boundedness of the approximants, and their
+common upper bound zero, do not prevent a pole in the limit.
+A common finite lower bound would prevent it; this sequence has no
+such bound.
 \end{example}
 
 We close with the smallest example in which the numerical constraint on a
@@ -2869,7 +3035,9 @@ against which the energy formulae of \Cref{chap:bj-energy} are checked.
 
 The definition of $\PSH_X(\theta)$ and its varying-class decreasing
 closure are \cite[Definition~4.1 and Theorem~4.5]{BJ22}; the diagonal
-mechanism is \cite[Lemma~4.6]{BJ22}.  Constants, finite maxima, sums,
+mechanism in the published proof is \cite[Lemma~4.6]{BJ22}, subject to
+the proof boundary recorded in \Cref{sec:ch34-closure}.
+Constants, finite maxima, sums,
 strictly positive scalar multiplication, pullback, and restriction to
 components are \cite[Theorem~4.7]{BJ22}.  Notice that the scalar in the
 source is strictly positive; no zero multiple of an extended-real function

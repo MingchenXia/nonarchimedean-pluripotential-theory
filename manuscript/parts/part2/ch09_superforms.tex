@@ -66,7 +66,7 @@ By the end of the chapter the reader should be able to
 \begin{enumerate}
 \item compute $\dprime$, $\ddprime$, and $\dprimeddprime$ with all signs;
 \item pull superforms back under affine maps and explain why nonlinear maps
-  fall outside the functorial category;
+  need not commute with the differential calculus;
 \item recognize positivity in bidegree $(1,1)$ as positive semidefiniteness;
 \item translate the Hessian test for convexity into positivity of
   $\dprimeddprime f$.
@@ -103,10 +103,10 @@ kind that this chapter exists to pin down.
 \Cref{sec:ch09-pullback} proves that the whole structure is functorial for
 affine maps: pullback commutes with the wedge product, with $J$, and with
 both differentials, whence the calculus is independent of the affine
-coordinates used to define it.  The same computation shows why nonlinear maps
-must be excluded, and this is the algebraic reason that the transition maps
-of a tropical chart in \Cref{chap:tropical-spaces} are required to be
-integral affine.
+coordinates used to define it.  The same computation explains why the
+differential calculus uses affine transition maps.  The additional
+integrality in \Cref{chap:tropical-spaces} comes from the lattices of the
+tropical charts.
 
 \Cref{sec:ch09-symmetry} sets up the dictionary between symmetric
 $(p,p)$-forms and symmetric matrices indexed by $p$-element subsets, and
@@ -145,9 +145,11 @@ $\tau_n$ and nothing more.
 There is no sheaf theory and no cohomology.  Everything here happens on a
 single open subset of a single real vector space.
 
-There is no notion of a superform with singular coefficients.  The
-coefficients are $C^\infty$ throughout, with the single exception of the
-distributional statement in \Cref{sec:ch09-regularization}, where the object
+There is no notion of a superform with singular coefficients in the basic form algebra.  The
+basic form spaces have $C^\infty$ coefficients.  For a $C^2$ potential its
+Hessian has continuous coefficients, and the same wedge and pointwise
+positivity tests apply without requiring those coefficients to be smooth.
+In the distributional statement in \Cref{sec:ch09-regularization}, the object
 being differentiated is a function and the derivatives are taken in the sense
 of distributions on an open subset of $\mathbf R^n$.  Currents proper---the
 objects that make $\dprimeddprime\max\{0,x\}$ legitimate---are constructed in
@@ -222,7 +224,8 @@ Third, the constant-coefficient fibre is finite-dimensional:
 Thus its total dimension is $2^{2n}$, the dimension of the exterior algebra
 of a $2n$-dimensional vector space.  That is not a coincidence, and it is the
 cleanest way to organize the sign rules.  The space $A^{p,q}(U)$ of smooth
-sections is, of course, infinite-dimensional whenever $U$ is nonempty.
+sections is infinite-dimensional whenever $n\geq1$ and $U$ is nonempty.
+For $n=0$ a nonempty $U$ is a point and only the scalar piece remains.
 
 \begin{lemma}
 \label{lem:ch09-exterior-of-double}
@@ -411,8 +414,8 @@ $a=p$ and $b=n-p$ it reads
 \begin{example}[Superforms in one variable]
 \label{ex:ch09-line}
 Let $V=\mathbf R$ with coordinate $x$ and let $U\subset\mathbf R$ be open.
-There are exactly four spaces of superforms, of total dimension
-$4=4^1$:
+There are four nonzero bidegrees, each a free module of rank one over
+$C^\infty(U)$.  Their total rank is $4=4^1$:
 \[
  \begin{array}{llll}
  A^{0,0}(U)=C^\infty(U), &
@@ -437,10 +440,10 @@ must restrict to it.
 
 \begin{example}[Superforms in two variables]
 \label{ex:ch09-plane}
-Let $V=\mathbf R^2$ with coordinates $x_1,x_2$.  The bigraded pieces have
-dimensions $\binom2p\binom2q$, displayed as the matrix
+Let $V=\mathbf R^2$ with coordinates $x_1,x_2$.  The constant-coefficient
+bigraded pieces have dimensions $\binom2p\binom2q$, displayed as the matrix
 \[
- \bigl(\dim A^{p,q}\bigr)_{0\le p,q\le2}
+ \bigl(\dim A_{\mathrm{const}}^{p,q}(V)\bigr)_{0\le p,q\le2}
  =\begin{pmatrix}1&2&1\\2&4&2\\1&2&1\end{pmatrix},
  \qquad\text{total }16=4^2 .
 \]
@@ -1242,9 +1245,9 @@ induced on $\bigwedge^\bullet$ by
 $\overrightarrow F{}^*\oplus\overrightarrow F{}^*:V'^*\oplus V'^*\to
 V^*\oplus V^*$, so it is well defined and multiplicative before any
 coordinate is chosen.  In particular $F^*$ does not depend on the coordinate
-description, and it preserves bidegrees --- a point on which the whole
-formalism turns, since an arbitrary smooth map would not preserve them in any
-useful sense.
+description, and it preserves bidegrees.  The analogous algebraic pullback
+by a smooth map also preserves bidegrees, but its nonconstant derivative
+can obstruct commutation with $\dprime$ and $\ddprime$.
 
 Write $F(x)=Bx+b$ in affine coordinates.  If
 \[
@@ -1681,15 +1684,17 @@ while interchanging the two blocks costs $(-1)^{p(n-p)}$.  Therefore
 \]
 \end{proof}
 
-\begin{warning}{The pairing is sign-free only with the normalization $c_p$}
-If the factor $c_p$ is dropped from
-\Cref{def:ch09-coefficient-matrix}, the pairing formula acquires the sign
-$c_pc_{n-p}(-1)^{p(n-p)}c_n$, which equals $1$ only by the identity of
-\Cref{lem:ch09-interlaced}.  This is the sole reason for the constants
-$c_p$ recorded as \eqref{eq:appJ-cp} in \Cref{sec:appJ-cld}.  In particular a
-strongly positive generator carries a single factor $c_p$ in total, not one
-factor per rank-one term; inserting one per term would double the sign in
-even bidegree and reverse the inclusions between the positivity cones.
+\begin{warning}{The normalization in the complementary pairing}
+If the factors $c_p$ and $c_{n-p}$ are dropped from the coefficient
+expansions, the complementary pairing acquires the sign
+$(-1)^{p(n-p)}c_n=c_pc_{n-p}$.  It can be negative, for example when
+$n=3$ and $p=1$.  With the normalized expansions its prefactor is
+$c_pc_{n-p}(-1)^{p(n-p)}c_n=1$, by
+\Cref{lem:ch09-interlaced}.  This explains the constants recorded as
+\eqref{eq:appJ-cp}.  A strongly positive generator has the grouped form
+$c_p\eta\wedge J\eta$ with decomposable $\eta$; in a sum of rank-one
+generators this factor belongs to each term, equivalently to the whole sum.
+It must not be inserted a second time.
 \end{warning}
 
 We record the vectorial form of $\star$, which is what the positivity
@@ -2010,8 +2015,10 @@ $F^*\dprime y_K=\sum_IC_{I,K}\dprime x_I$ gives
  M(F^*\alpha)=C\,M(\alpha)\,C^{\mathsf T},
 \]
 exactly as in \Cref{lem:ch09-pullback-eleven}, of which this is the case
-$p=1$.  Now $C^{\mathsf T}$ maps $\Gamma_p(V)$ into $\Gamma_p(V')$, being the
-matrix of $\bigwedge^pB$ in the corresponding bases and hence sending
+$p=1$.  The same Pl\"ucker equations describe decomposable coefficient arrays
+for $p$-vectors in $V$ and for $p$-covectors in $V^*$.  On the test arrays,
+$C^{\mathsf T}$ is the matrix of $\bigwedge^pB$ in the corresponding
+vector bases, sending
 $v_1\wedge\cdots\wedge v_p$ to $Bv_1\wedge\cdots\wedge Bv_p$.  Therefore, for
 $w\in\Gamma_p(V)$,
 \[
@@ -2095,11 +2102,13 @@ strongly positive factors first.
 Assertion (3) of \Cref{prop:ch09-positivity-products} is sharp: the product of
 two weakly positive forms need not be weakly positive, and the product of two
 positive forms is positive but need not be strongly positive.  The reason is
-visible in the proof: only the strongly positive factor can be moved across
-the pairing.  In the applications this is the reason that mixed
-Monge--Amp\`ere products are formed with at most one factor of doubtful
-positivity, and it is one of the sources of the hypotheses in
-\Cref{chap:cld-bedford-taylor}.
+visible in the proof: the strongly positive factor, together with a
+strongly positive test form, remains a permitted test for the weakly
+positive factor.  In bidegree $(1,1)$ all three cones agree, so smooth
+positive Hessian factors can all be wedged.  Constructing products of
+currents additionally requires the analytic hypotheses of
+\Cref{chap:cld-bedford-taylor}; the pointwise cone calculation alone does
+not define those products.
 \end{warning}
 
 \begin{theorem}
@@ -2411,11 +2420,11 @@ computation.  These examples establish the first nontrivial case; no
 higher-dimensional strictness assertion is needed in this book.
 
 A last remark on terminology, since it is a standing source of confusion.
-In complex geometry, as in \cite[Chapter~III]{DemBook}, only two of the
-three cones are named: \emph{strongly positive} means the same there as
-here, and the cone called \emph{weakly positive} here is called simply
-\emph{positive} there.  The middle cone has no standard name in the complex
-literature, as the dictionary below records.  It is emphatically \emph{not}
+In the convention of \cite[Chapter~III]{DemBook}, \emph{strongly positive}
+is the analogue of the decomposable-generator cone used here, and the cone
+called \emph{weakly positive} here is called simply \emph{positive} there.
+The middle cone is described here by its positive semidefinite coefficient
+matrix, as the dictionary below records.  It is emphatically \emph{not}
 the complex \emph{strongly positive} cone: the middle cone is generated by
 the forms $c_p\eta\wedge J\eta$ with $\eta\in A^{p,0}$ \emph{arbitrary},
 whereas the strongly positive cone is generated by the same expressions with
@@ -2441,15 +2450,17 @@ explicitly.
 
 \begin{example}[Rank and vanishing of top powers]
 \label{ex:ch09-rank-one}
-For a linear functional $\ell$ and a one-variable function $g$,
+For a linear functional $\ell$ and a smooth one-variable function $g$,
 \Cref{lem:superform-composition} gives
 \[
  \dprimeddprime(g\circ\ell)=g''(\ell)\,
                  \dprime\ell\wedge\ddprime\ell.
 \]
 Its matrix has rank at most one, so its square vanishes.  When $g''\geq0$
-the form is positive.  This elementary rank calculation is the local model
-for Monge--Amp\`ere measures supported on lower-dimensional tropical strata.
+the form is positive.  In dimension at least two its top power vanishes:
+smooth Hessians of rank less than the dimension contribute no top-degree
+density.  A claim about mass on singular tropical strata requires the
+current or Alexandrov theory, as the example below illustrates.
 \end{example}
 
 \section{Convexity as local plurisubharmonicity}
@@ -2530,18 +2541,19 @@ compares values at pairs of points, and it is meaningful only when the domain
 contains the segment joining them.  On a convex domain the two agree.  On a
 general domain the correct statement is that positivity of
 $\dprimeddprime f$ is equivalent to \emph{local convexity}, that is, to
-convexity in a neighbourhood of each point.  The passage from local to global
-is exactly the content of the maximum principles of
-\Cref{chap:cld-bedford-taylor}, and it is not automatic; on a tropical space
-with nontrivial topology it can fail.
+convexity in a neighbourhood of each point.  On a convex open subset of
+$\mathbf R^n$, restricting to each segment gives global convexity.
+On a general tropical space one must state the appropriate chart and
+gluing conditions; a maximum principle by itself does not supply a global
+convex coordinate description.
 
 \begin{warning}{Convexity is not preserved by nonaffine coordinate changes}
 Positivity of $\dprimeddprime f$ is preserved by affine pullback, by
 \Cref{prop:ch09-positivity-inclusions} and
-\Cref{prop:ch09-pullback-functorial}, and by nothing more.  If
-$F:\mathbf R\to\mathbf R$ is a nonaffine diffeomorphism, then $f\circ F$
+\Cref{prop:ch09-pullback-functorial}.  There is no such general invariance
+under nonaffine diffeomorphisms: $f\circ F$
 need not be convex when $f$ is: take $f(x)=x$, which is convex, and
-$F(x)=-x^2$ on $x>0$, so that $f\circ F=-x^2$ is concave.  This is not a
+$F:(0,\infty)\to(-\infty,0)$, $F(x)=-x^2$, so that $f\circ F=-x^2$ is concave.  This is not a
 defect of the calculus; it is the reason that the transition maps of the
 tropical charts in \Cref{chap:tropical-spaces} are required to be integral
 affine, and the reason that a psh function on a Berkovich space cannot be
@@ -2582,8 +2594,9 @@ positive semidefinite.  Moreover,
  \leq\max_k\ell_k+\varepsilon\log N.
 \]
 Thus maxima of finitely many affine functions admit explicit smooth convex
-approximants.  The same regularization is used later to pass from real PL psh
-functions to smooth CLD-psh functions.
+approximants.  This gives a local ingredient for smoothing convex PL
+potentials in a fixed affine tropical chart; extensions across charts
+require their own compatibility argument.
 \end{example}
 
 \subsection{The Monge--Amp\`ere form in coordinates}
@@ -2742,12 +2755,11 @@ construction.  Also, the Euclidean norm used for convolution is auxiliary;
 the limiting notion of convexity and the superform calculus are affine
 invariant.
 
-The additional construction is not elaborate: it is enough to choose the
-kernel radial.  The resulting statement is used so often in
-\Cref{chap:cld-bedford-taylor} and in \Cref{part:bj} --- every time a
-Bedford--Taylor product is defined by regularization, and every time a
-monotone family is needed to justify an interchange of limits --- that it is
-worth proving here once, with all four assertions.
+A radial kernel supplies a convenient monotone approximation.  More
+generally, zero barycentre suffices, as explained after the proposition.
+This is a local Euclidean construction used in
+\Cref{chap:cld-bedford-taylor}; global model approximation in
+\Cref{part:bfj,part:bj} requires additional geometric inputs.
 
 \begin{proposition}
 \label{prop:ch09-radial-mollification}
@@ -2816,9 +2828,9 @@ uniformly; a decreasing family converging in any sense to $f$ converges to
 $f$ pointwise.
 \end{proof}
 
-\begin{example}[Both extra conclusions fail for a general kernel]
+\begin{example}[Both extra conclusions fail for an uncentred kernel]
 \label{ex:ch09-nonradial-kernel}
-Radiality is not a convenience.  Take $n=1$, let $\rho\geq0$ be smooth with
+Take $n=1$, let $\rho\geq0$ be smooth with
 integral one and support contained in the interval $(0,1)$, and put
 $m=\int y\rho(y)\rd y\in(0,1)$.  For the affine, hence convex, function
 $f(x)=x$ one computes
@@ -2828,12 +2840,15 @@ $f(x)=x$ one computes
 Thus $f_\varepsilon<f$ everywhere, so (2) of
 \Cref{prop:ch09-radial-mollification} fails, and
 $\varepsilon\mapsto f_\varepsilon$ is strictly \emph{decreasing}, so (3)
-fails as well.  Inspecting the proof shows exactly which hypothesis is
-responsible for which conclusion: the domination $f_\varepsilon\geq f$ needs
-only that the kernel have barycentre $0$, that is
-$\int y\rho(y)\rd y=0$, which is Jensen's inequality; the monotonicity in
-$\varepsilon$ needs the evenness $\rho(-y)=\rho(y)$.  A radial kernel has
-both properties, and this is the only reason to insist on one.
+fails as well.  Radiality is sufficient for both conclusions, but is not
+necessary.  If the kernel has barycentre zero, Jensen's inequality gives
+$g_x(t)=\int f(x-ty)\rho(y)\rd y\geq f(x)=g_x(0)$.  The function $g_x$ is
+convex in $t$, so a minimum at $0$ makes it nondecreasing for $t\geq0$:
+for $0\leq s<t$, convexity gives
+$g_x(s)\leq(1-s/t)g_x(0)+(s/t)g_x(t)\leq g_x(t)$.
+Thus zero barycentre already supplies domination and monotonicity.
+Conversely, applying domination to all affine functions forces the
+barycentre to vanish.  The radial kernel chosen above has this property.
 \end{example}
 
 \subsection{The distributional statement}
@@ -2952,11 +2967,13 @@ $[-\infty,+\infty)$ for every $x\in U$, the family being nonincreasing as
 $\varepsilon\downarrow0$ and defined for all small $\varepsilon$.  Being a
 pointwise decreasing limit of convex functions, $\tilde u$ satisfies the
 convexity inequality
-$\tilde u((1-s)x_0+sx_1)\leq(1-s)\tilde u(x_0)+s\tilde u(x_1)$, all terms
+$\tilde u((1-s)x_0+sx_1)\leq(1-s)\tilde u(x_0)+s\tilde u(x_1)$ for
+$0<s<1$, all terms
 being limits of decreasing real sequences and hence well defined in
 $[-\infty,+\infty)$.  Here the inequality is first applied for
 $\varepsilon$ small enough that the compact segment $[x_0,x_1]$ lies in
-$U_\varepsilon$, and then passed to the limit.
+$U_\varepsilon$, and then passed to the limit.  For $s=0,1$ the assertion
+is equality, without forming a zero coefficient times $-\infty$.
 
 We claim $\tilde u$ is finite.  Since $u_\varepsilon\to u$ in
 $L^1_{\loc}$, choose a compact exhaustion $K_k$ of $U$ and a sequence
@@ -2996,8 +3013,9 @@ each defined on $U_\varepsilon$, such that
  \qquad
  \dprimeddprime u_\varepsilon\geq0 .
 \]
-In particular every convex function on a convex open subset of $V$ is a
-decreasing limit of smooth functions with positive $\dprimeddprime$.
+In particular every convex function on a convex open subset of $V$ is,
+locally on the domains $U_\varepsilon$, a decreasing limit of smooth
+functions with positive $\dprimeddprime$.
 \end{corollary}
 
 \begin{proof}
@@ -3006,24 +3024,24 @@ Take $u_\varepsilon=u*\rho_\varepsilon$ with $\rho$ radial and apply
 \Cref{thm:convex-ddc-positive}.
 \end{proof}
 
-\Cref{cor:ch09-monotone-smooth-approximation} is the local prototype of every
-approximation theorem in this book.  It should be compared with the two
-places where the analogous statement is hard or false.  On a Berkovich space
-the psh functions of \Cref{chap:cld-bedford-taylor} are \emph{defined} by an
-approximation property, precisely because no convolution is available;
-and in the global theories of \Cref{part:bfj,part:bj} the approximating
-objects are model functions, whose existence is a theorem about models rather
-than an integral formula.  What survives from the present section is the
-shape of the statement: a decreasing family of regular objects, converging
-locally uniformly, each of which is positive.
+\Cref{cor:ch09-monotone-smooth-approximation} is a local prototype for later
+approximation results.  On a Berkovich space there is no general convolution
+formula.  The generated psh sheaf and first-stage smooth approachability
+are distinguished in \Cref{sec:ch16-hierarchy}; their equality requires the
+stated hypotheses and results.  In the global theories of
+\Cref{part:bfj,part:bj}, approximation by model metrics is a geometric
+theorem.  Locally uniform convergence is appropriate for continuous
+potentials.  Singular and finite-energy approximation requires its stated
+convergence conditions; decreasing convergence alone does not imply locally
+uniform convergence.
 
 \begin{remark}[The boundary of the smooth category]
 \label{rem:ch09-smooth-boundary}
 The function $\max\{0,x\}$ is convex but not smooth; its second derivative is
 a Dirac mass. Hence curvature of a piecewise affine model metric is generally
 not a smooth superform. \Cref{chap:cld-currents} treats it as a current, while
-\Cref{chap:delta-forms} introduces delta-forms, where such polyhedral
-curvature can be multiplied.
+\Cref{chap:delta-forms} introduces delta-forms and their polyhedral
+curvature products under the stated product hypotheses.
 Harmonic tropicalizations enlarge the chart category for a different reason:
 they repair cohomological limitations of the original smooth sheaf. These two
 extensions solve different problems and will not be conflated.
@@ -3052,7 +3070,7 @@ $\dprime,\ \ddprime$
   &one and the same real derivative, twice labelled\\
 $J$, $J^2=\operatorname{id}$
   &complex conjugation
-  &transposition of the coefficient array\\
+  &signed transposition, $(-1)^{pq}$\\
 $\dprimeddprime u$
   &$\ddc u$, up to \Cref{app:normalizations}
   &the Hessian $\operatorname{Hess}u$\\
@@ -3063,7 +3081,7 @@ strongly positive
   &strongly positive
   &$\sum_sa_sv_sv_s^{\mathsf T}$, $v_s$ decomposable\\
 positive
-  &self-dual cone, no standard name
+  &positive semidefinite coefficient cone
   &$M$ positive semidefinite\\
 weakly positive
   &positive, in \cite[Ch.~III]{DemBook}
@@ -3073,13 +3091,13 @@ $\tau_n$ positive
   &nonnegative density\\
 $\dprimeddprime u\geq0$
   &$u$ plurisubharmonic
-  &$u$ convex\\
+  &$u$ locally convex; globally on convex $U$\\
 $\tfrac1{n!}(\dprimeddprime u)^n$
   &Monge--Amp\`ere measure
   &$\det(D^2u)\,\rd x$, the Alexandrov measure\\
 $F^*$ for $F$ affine
   &pullback by a holomorphic map
-  &affine change of variables\\
+  &affine pullback; a change of variables if invertible\\
 $\iota'_v,\ \iota''_v$
   &contraction by a $(1,0)$- or $(0,1)$-vector
   &directional derivative after
@@ -3172,7 +3190,7 @@ their first use.
 Superforms were introduced by Lagerberg \cite{Lag12Super}.  After the
 involution translation explained in \Cref{rem:ch09-two-involutions}, our
 differential signs and positivity cones agree with the 2025 revision of
-Chambert--Loir--Ducros \cite[\S\S1--2]{CLD25}.  The presentation begins with
+Chambert--Loir--Ducros \cite[\S\S1--2]{CLD25}.  The opening motivation is
 the Hessian test because this is the portion used most frequently in
 pluripotential theory.
 
@@ -3244,7 +3262,9 @@ define superforms with coefficients in a subsheaf, a refinement that
 \cite{CLD25} uses systematically and that is needed for piecewise linear and
 $G$-rational structures; that material is developed where it is used, in
 \Cref{chap:tropical-spaces} and \Cref{app:tropical-algebra}.  It does not
-treat integration, currents, or any singular object.  And it does not assert
+treat integration or construct the general theory of currents and their
+singular products.  The distributional Hessian criterion is the limited
+exception explained above.  And it does not assert
 that a pointwise conic decomposition of a smooth positive form can be chosen
 smoothly; the pointwise convention adopted in
 \Cref{sec:ch09-positivity} is the one used throughout the book, and no

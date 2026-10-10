@@ -2,6 +2,15 @@
 \index{determinant norm}\index{finite descent!envelope theorem}
 \label{chap:bj-finite-descent}
 
+\begin{warning}{Critical Siu division remains an additional input}
+\label{warn:ch41-siu-dependency}
+The determinant constructions below are separated from their analytic
+realization and reflection inputs. Finite envelope descent through the
+latter interfaces inherits the additional assertion $\mathrm{(SD)}_k$
+of \Cref{warn:ch35-siu-source-gap}. An envelope hypothesis on the source
+does not by itself repair the critical Siu step on a normal target.
+\end{warning}
+
 \section{Orientation}
 \label{sec:ch41-orientation}
 
@@ -31,13 +40,15 @@ before any construction.  \emph{Going up} is free.  Pullback along
 $h^{\An}$ sends a Fubini--Study presentation to a Fubini--Study
 presentation and a decreasing net to a decreasing net, so it maps
 $\PSH_X(\theta)$ into $\PSH_T(h^*\theta)$; this is
-\Cref{prop:ch41-finite-pullback}, and it is proved in three lines from
+\Cref{prop:ch41-finite-pullback}, and follows by checking the section presentation, class convergence and
+nontriviality in
 \Cref{def:bj-psh}.  \emph{Coming down} is not free.  An
 $h^*\theta$-psh function on $T$ is a limit of sections of line bundles
 on $T$, and there is no reason at all for those sections to descend: the
-pullback map $H^0(X,mL)\to H^0(T,mh^*L)$ is very far from surjective, and
-its cokernel is exactly the room in which a function on $T$ can fail to be
-pulled back from $X$.
+pullback map $H^0(X,mL)\to H^0(T,mh^*L)$ need not be surjective.
+This explains the obstruction to descending a chosen section
+presentation; descent of the resulting function also requires constancy
+on analytic fibres and cannot be characterized by that cokernel alone.
 
 What the chapter constructs is not a section-by-section descent but an
 \emph{averaging} operator.  Given a weighted system of sections upstairs,
@@ -52,7 +63,8 @@ function is the multiplicity-weighted fibre average
 of the given function $\varphi$ upstairs.  The averaging is performed by a
 \emph{determinant norm}: the coefficients of the determinant of
 multiplication by a universal linear combination $\sum_jT_js_j$ on the
-finite algebra $h_*\cO_T$ are the sections one needs.  When $\varphi$ is
+flattened finite locally free algebra $q_*\cO_W$ are the sections one needs.
+The original finite map $h$ need not be flat.  When $\varphi$ is
 already pulled back from $X$, the fibre average returns the function it
 was pulled back from, and the operator becomes a descent.
 
@@ -64,38 +76,33 @@ serves.
 dimensions of the local Artinian factors of the fibre algebra over the
 completed residue field, equivalently sums of their geometric Artin lengths
 after an isometric extension to an algebraically closed field.  In positive
-characteristic they absorb inseparability and possible defect; over a point
-with nonreduced fibre they absorb nilpotents.  A count of geometric points
-would give the wrong total in both cases, and the identity
-$\sum_we(w/z)=d$, on which every class computation below rests, would
-fail.
+characteristic they retain the full field degree, including inseparability
+and possible defect; over a point with nonreduced fibre they retain
+nilpotents.  Counting analytic lifts alone omits their field degrees.
+After algebraic closure, counting distinct geometric points without their
+Artin lengths omits nonreduced structure.  Neither count supplies the
+unconditional identity $\sum_we(w/z)=d$ needed below.
 
 \emph{The construction must survive at points of proper support.}  The
-family whose supremum is being regularized is bounded above but need not be
-bounded below, so its members take the value $-\infty$, and by
-\Cref{prop:ch34-generic-finiteness}\,\cref{itm:ch34-gf:polar} they do so
-exactly on the analytification of a Zariski closed set.  On the other hand
-\Cref{sec:ch34-proper-support} shows that the points where a fibre algebra
-is genuinely nonreduced are, typically, precisely the points of proper
-support: over a semivaluation whose support is the generic point, the fibre
-algebra of a generically étale cover is a product of fields, whereas over
-the trivial semivaluation of a closed point it is the scheme-theoretic fibre
-with all its nilpotents.  The two phenomena that the plan for this chapter
-insists on --- nonreduced fibres, and honest treatment of $-\infty$ ---
-are therefore not two independent nuisances; they meet at the same points,
-and \Cref{ex:ch41-nonreduced-fibre} exhibits them meeting.
+family is bounded above but its members may take the value $-\infty$.
+For a single Fubini--Study stage, the polar locus is the analytification
+of a common zero locus, by
+\Cref{prop:ch34-generic-finiteness}\,\cref{itm:ch34-gf:polar};
+this does not imply the same description for an arbitrary psh limit.
+The scheme-theoretic fibre at a proper-support point may also contain
+nilpotents.  \Cref{ex:ch41-nonreduced-fibre} exhibits both phenomena in
+one calculation.  Neither phenomenon is confined to proper support in
+general: inseparable extensions may acquire nilpotents after completion,
+and a general psh polar locus need not be algebraic.
 
-\subsection{Why the trace, the Reynolds operator, and the sheet product all
-fail}
+\subsection{Why linear averages and unweighted sheet products do not suffice}
 \label{sec:ch41-naive}
 
 Since the goal is an average, it is natural to look first for an averaging
-operator on sections.  There are three classical candidates, and each fails
-for a different reason.  Recording the three failures is not an exercise in
-negative rhetoric: each of them fails on an example that occurs inside the
-proof of \Cref{thm:bj-final-envelope}, and the determinant construction of
-\Cref{sec:ch41-determinant} is designed precisely to have none of the three
-weaknesses.
+operator on sections.  The trace and the Reynolds operator do not supply the required
+construction.  A product over embeddings is a valid separable-field norm,
+but a fibrewise count without multiplicities does not cover all fibres.
+The determinant construction treats these cases uniformly.
 
 \emph{(i) The trace.}  For $q:W\to Z$ finite locally free of rank $d$
 there is a trace map $\Tr_q:q_*\cO_W\to\cO_Z$, and one might hope that
@@ -110,8 +117,8 @@ $k$ has characteristic $p$ and $F:\mathbf P^1\to\mathbf P^1$ is the
 $p$-th power map, then in the basis $1,u,\ldots,u^{p-1}$ of
 $k[u]$ over $k[u^p]$ every element $u^i$ with $0\le i\le p-1$ has
 trace $0$: for $i=0$ because $\Tr(1)=p=0$, and for $1\le i\le p-1$
-because the characteristic polynomial of multiplication by $u$ is
-$T^p-x$, whose sub-leading coefficient vanishes.  The trace map is the
+because multiplication by $u^i$ shifts the basis indices modulo $p$
+and has no diagonal entry when $1\le i<p$.  The trace map is the
 zero map.  This is computed in full in \Cref{ex:ch41-frobenius-average}.
 
 \emph{(ii) The Reynolds operator.}  If the cover is Galois with group
@@ -124,16 +131,15 @@ of a Stein factorization of an alteration, over a field of arbitrary
 characteristic, with no control on the Galois group or on the degree modulo
 $p$.
 
-\emph{(iii) The product over sheets.}  For a separable cover one may set
-$\mathrm N(s):=\prod_\sigma\sigma(s)$, the product over the $d$ distinct
-embeddings of $K(W)$ into a separable closure over $K(Z)$.  This is the
-right idea, and over the étale locus it agrees with the determinant norm.
-But the formula presupposes $d$ distinct sheets.  Over an inseparable
-point the sheets collapse; over a point with nonreduced fibre the "sheets''
-are not points of a scheme at all; and in both cases the expression
-$\prod_\sigma\sigma(s)$ either is undefined or has the wrong degree.
-Worse, a definition that begins by choosing an ordering or a labelling of
-sheets does not glue: the coefficients it produces are sections of nothing.
+\emph{(iii) The product over sheets.}  For a separable field extension,
+the symmetric product over all embeddings is the field norm; it needs
+no ordering and is invariant under relabelling.  It can also extend
+over a normal target.  The limitation is a different one: counting
+only distinct points of an arbitrary fibre omits inseparability and
+Artin lengths.  At a nonreduced fibre the underlying points still exist,
+but they do not record the full algebra.  The finite locally free
+determinant supplies both those multiplicities and arbitrary
+base-change compatibility.
 
 The determinant has none of these defects.  It is defined for an arbitrary
 finite locally free algebra, of arbitrary rank, in arbitrary
@@ -183,9 +189,8 @@ Nothing in \Cref{chap:bj-finite-descent} may use, directly or transitively:
       any variety --- with the single exception of
       \Cref{thm:bj-smooth-envelope} on a smooth source, and then only
       inside illustrative examples such as \Cref{ex:ch41-descent-cone};
-      below it otherwise occurs only as a hypothesis, displayed in the
-      statement of every result that carries it, and always on the
-      \emph{source} of a morphism;
+      the descent proof otherwise consumes EP only as a displayed
+      hypothesis on the source; EP on the target is its conclusion;
 \item closure of $\PSH_X(\theta)$ or of $\PSH_T(h^*\theta)$ under
       suprema, regularized or not;
 \item the obstacle envelope $P_\theta$ of
@@ -200,8 +205,8 @@ Nothing in \Cref{chap:bj-finite-descent} may use, directly or transitively:
 Every limit taken below is a decreasing limit.  Every supremum
 \emph{constructed} below is a supremum over a \emph{finite} index set ---
 the finitely many multi-indices $I$ with $|I|=d$, or the finitely many
-weights $\lambda_j$ of a Fubini--Study presentation.  Exactly two suprema
-over arbitrary families occur, and both are handled under the assumed
+weights $\lambda_j$ of a Fubini--Study presentation.  The two regularized family suprema consumed by the descent proof
+are both handled under the assumed
 $\operatorname{EP}_T(h^*\theta)$: the given family of
 \Cref{def:bj-envelope-property}, pulled back in Step~0 of the proof of
 \Cref{thm:bj-finite-normal-descent}, and the canonical carrier
@@ -211,16 +216,14 @@ $\operatorname{EP}_T(h^*\theta)$: the given family of
 
 \begin{remark}[Why the firewall is not vacuous here]
 \label{rem:ch41-firewall-not-vacuous}
-Three steps of \Cref{sec:ch41-descent} would become trivial, and circular,
-if the envelope theorem were available.  Step~0 would not need
-\Cref{prop:ch41-finite-pullback}: one could define $u_T$ as a regularized
-supremum upstairs and quote closure.  Step~2 would not need the canonical
-carrier at all, since carrier reflection could be replaced by unconditional
-reflection.  Step~3 would not need
-\Cref{prop:ch39-determination-package}: equality of two psh functions on
-$X^{\divis}$ could be promoted by quoting a theorem that itself rests on
-the envelope property in \Cref{chap:bj-envelope-consequences}.  We use none
-of these shortcuts, and each of the three places is flagged in the proof.
+The conclusion is precisely the envelope property downstairs, so
+invoking it in advance would bypass the work.  Step~0 instead uses only
+the assumed envelope property on $T$ and analytic openness.  Step~2
+uses that same source hypothesis to obtain a nonempty canonical carrier.
+Step~3 applies the already established carrier reflection and identifies
+functions by analytic surjectivity.  It does not invoke the later
+envelope theorem or a divisorial comparison with an uncertified psh
+function.
 \end{remark}
 
 \subsection{The six tasks, and where each is discharged}
@@ -291,8 +294,10 @@ $X$ are integral and $h$ is finite and dominant, $d$ is finite and
 positive, and $h$ is surjective as a map of schemes.
 
 Analytifications are those of \Cref{def:trivial-analytification}: a point of
-$X^{\An}$ is a semivaluation $v:\cO_X\to[0,+\infty]$ trivial on $k$,
-equivalently, by \Cref{lem:ch41-point-pair}, a pair consisting of a scheme
+$X^{\An}$ is given on affine charts by a semivaluation with values
+in $\mathbf R\cup\{+\infty\}$, trivial on $k$; it is nonnegative on
+the local ring of its centre.
+Equivalently, by \Cref{lem:ch41-point-pair}, it is a pair consisting of a scheme
 point $\xi\in X$ and a real valuation of $\kappa(\xi)$ trivial on $k$.
 We write $s(v)$ for the support, $c(v)$ for the centre,
 $X^{\divis}$ for the divisorial points and $v_{Y,\triv}$ for the trivial
@@ -306,9 +311,9 @@ $\cH^{\mathrm{gf}}_\Lambda(L)$ are those of
 \Cref{def:gf-fs-functions}, and $\PSH_X(\theta)$ is
 \Cref{def:bj-psh}, in its corrected form in which the approximating
 classes are allowed to vary.  We record once and for all that this
-correction is used below: the numerical classes of the averaged stages
+correction is used below: the numerical classes of the averaged presentations
 constructed in \Cref{prop:bj-weighted-coefficient-norm} converge to
-$\beta^*\theta$ but are not equal to it at any finite stage, and
+$\beta^*\theta$, without being required to equal it at finite stages, and
 \Cref{thm:bj-basic-closure}\,(5) is the statement that permits the passage
 to the limit.  Neither $\theta$ nor $h^*\theta$ is assumed nef, big, or
 even pseudoeffective; by \Cref{lem:ch34-psh-nonempty} the statements are
@@ -369,8 +374,9 @@ following equivalent presentation, as a scheme point together with a genuine
 valuation of its residue field, is the one to use.  It is nothing more than
 a change of packaging, but the packaging matters: the naive habit of
 identifying $X^{\An}$ with the space of valuations of the function field
-$K(X)$ discards exactly the points where the fibre algebras become
-nonreduced, and would make \Cref{lem:bj-finite-normal-open} false as stated.
+$K(X)$ discards all proper-support points.  This would leave the
+all-point openness and fibre statements unproved, regardless of where
+nonreduced fibres occur.
 
 \begin{lemma}
 \label{lem:ch41-point-pair}
@@ -396,19 +402,16 @@ $|\cdot|_v$ is trivial.
 \end{lemma}
 
 \begin{proof}
-A point of $X^{\An}$ is a semivaluation $v$ on the structure sheaf,
-that is, a map to $[0,+\infty]$ satisfying the axioms recalled in the
-convention sheet.  Its support $\mathfrak p_v=\{f:v(f)=+\infty\}$ is a
-prime ideal, hence corresponds to a scheme point $\xi_v$, and by
-multiplicativity $v$ factors through the domain
-$\cO_{X,\xi_v}/\mathfrak p_v$ and then through its fraction field
-$\kappa(\xi_v)$; the induced map is a valuation, so
-$|\cdot|_v:=\rme^{-v(\cdot)}$ is an absolute value on $\kappa(\xi_v)$.
-It is trivial on $k$ because $v$ is.  Conversely a pair
-$(\xi,|\cdot|)$ determines the semivaluation
-$f\mapsto-\log|f(\xi)|$, with the convention that this is $+\infty$
-when $f$ vanishes at $\xi$.  The two constructions are mutually
-inverse.
+On an affine chart $U=\Spec A$, an analytic point is a multiplicative
+seminorm, or equivalently a semivaluation
+$v:A\to\mathbf R\cup\{+\infty\}$ trivial on $k$.
+Its kernel $\mathfrak p_v=\{f:v(f)=+\infty\}$ is prime.
+The induced valuation on $A/\mathfrak p_v$ extends to
+$\operatorname{Frac}(A/\mathfrak p_v)=\kappa(\xi_v)$.
+Conversely an absolute value on $\kappa(\xi)$ gives the seminorm
+$f\mapsto|f(\xi)|$ on every affine neighbourhood of $\xi$.
+These constructions are inverse and agree on overlaps.  Nonnegativity
+is a centre condition; it is not imposed on every affine chart.
 
 The statement about supports is the definition of $\xi_v$.  The statement
 about $U^{\An}$ is
@@ -427,11 +430,14 @@ space of $k$-trivial absolute values on $\kappa(\xi)$.  The fibre over
 the generic point is the space of valuations of $K(X)$, which is what a
 purely birational treatment would retain; every other fibre lies in the
 proper-support locus of \Cref{def:ch32-proper-support}.  Both matter here.
-The proper-support locus is where a psh function may equal $-\infty$,
-where the fibre algebras of $h$ acquire nilpotents, and, by
-\Cref{prop:ch32-proper-support-dense}, it is dense; a claim proved only on
-$X^{\val}$ is not a claim about $X^{\An}$, and upper-semicontinuous
-regularization is computed with neighbourhoods that meet both loci.
+Proper-support points may be poles of psh functions and may have
+nonreduced fibre algebras.  These phenomena also have broader scopes,
+as noted in \Cref{sec:ch41-what}.  The proper-support locus is dense
+under the dimension hypotheses of
+\Cref{prop:ch32-proper-support-dense}; it is not dense on a projective
+curve.  In all dimensions, a claim established only on $X^{\val}$
+does not by itself establish the required neighbourhood statement at
+every analytic point.
 \end{remark}
 
 The next two lemmas record how the two structural maps of
@@ -467,22 +473,26 @@ $\kappa(\xi_z)\subseteq\kappa(\xi_w)$ is finite because $g$ is finite:
 the fibre of $g$ over $\xi_z$ is the spectrum of a finite
 $\kappa(\xi_z)$-algebra, of which $\kappa(\xi_w)$ is a residue field.
 
-\cref{itm:ch41-sc:centre}  Both centres exist and are unique by
-\Cref{prop:centers-proper-separated}, the varieties being proper and
-separated.  Let $\cO_w\subseteq\kappa(\xi_w)$ be the valuation ring of
-$|\cdot|_w$; by definition of the centre it dominates
-$\cO_{W,c(w)}$.  Put $p:=g(c(w))$.  Since $g$ is a morphism of
-schemes, $\cO_{Z,p}\to\cO_{W,c(w)}$ is a local homomorphism, and by
-\cref{itm:ch41-sc:supp} the valuation ring of $|\cdot|_z$ is
-$\cO_w\cap\kappa(\xi_z)$.  Consequently
-$\cO_{Z,p}\subseteq\cO_w\cap\kappa(\xi_z)$ and the maximal ideal of
-$\cO_{Z,p}$ is the contraction of that of $\cO_w$.  Thus
-$\cO_w\cap\kappa(\xi_z)$ dominates $\cO_{Z,p}$, and uniqueness of the
-centre gives $c(z)=p$.
+\cref{itm:ch41-sc:centre}  Let $R_w$ be the valuation ring in
+$\kappa(\xi_w)$.  The centre is the image of the closed point under
+the unique extension $\Spec R_w\to W$ of $\Spec\kappa(\xi_w)\to W$.
+Composing with $g$ gives a map to $Z$.  Put
+$R_z=R_w\cap\kappa(\xi_z)$.  The inclusion $R_z\subset R_w$ is
+local.  Composing $\Spec R_w\to\Spec R_z$ with the centre map to $Z$
+has the same generic-point map as the preceding composite, so
+separatedness identifies them.  Their closed-point images give
+$c(z)=g(c(w))$.  This argument uses maps of local rings; it does not
+inject a local ring with a nonzero support kernel into a field.
 
 \cref{itm:ch41-sc:sections}  By \cref{itm:ch41-sc:centre} the centre $c(w)$
 lies in $g^{-1}(c(z))$, and by \Cref{lem:ch34-frame-independence} the
 value $\log|s|(w)$ is computed from any frame of $M$ near $c(w)$.
+A frame on a neighbourhood of the whole finite fibre can be chosen:
+$M$ is free over the finite algebra over the local ring at $c(z)$,
+which is semilocal, and that generator spreads to a neighbourhood of
+the fibre.  Closedness of $g$ allows the base to be shrunk so that its
+full preimage lies in this neighbourhood.  This uses finiteness,
+not flatness.
 \end{proof}
 
 \begin{lemma}
@@ -529,7 +539,7 @@ $Z^{\An}$, together with injectivity of $g^*$ on functions.  What it
 does \emph{not} give is the interchange
 \eqref{eq:bj-finite-open-usc} of pullback with upper-semicontinuous
 regularization.  That interchange needs $g^{\An}$ to be \emph{open}, and
-openness is where normality of the two varieties enters.
+openness is where normality of the target enters.
 \Cref{ex:ch41-node-not-open} shows a finite surjective morphism onto a
 non-normal curve whose analytification is not open, so the hypothesis is not
 decorative.
@@ -586,9 +596,12 @@ $\mathfrak m_{\cO_0}=\mathfrak m_{\cO_0}\cap C^G$, so by
 \cite[\href{https://stacks.math.columbia.edu/tag/0BRI}{Tag 0BRI}]
 {stacks-project}, applied to the action of the finite group $G$ on the
 ring $C$ with $C^G=\cO_0$, there is $\sigma\in G$ with
-$\sigma(P_1)=P_2$.  Then $\sigma(\cO_1)=\cO_2$, which is the assertion
-$|\cdot|_2=|\cdot|_1\circ\sigma$ after passing from valuation rings to
-absolute values.
+$\sigma(P_1)=P_2$.  Then $\sigma(\cO_1)=\cO_2$, so
+$|\cdot|_2=|\cdot|_1\circ\sigma^{-1}$.
+The normalization is fixed by the restriction to $F$: if that absolute
+value is nontrivial, an equivalent real valuation cannot be rescaled;
+if it is trivial, every algebraic extension is also trivial.
+Replacing $\sigma$ by its inverse gives the stated formula.
 
 Finiteness of the set of extensions follows, the set being a quotient of the
 finite group $G$.
@@ -646,10 +659,11 @@ homeomorphism; in particular it is radicial.
 The argument for \Cref{lem:ch41-radicial-homeo} uses normality of $Z$
 only in the final paragraph, to convert a purely inseparable extension of
 function fields into a scheme-theoretic universal homeomorphism.  Without
-normality the conclusion can fail already for the inclusion of the cuspidal
-cubic in its normalization, which is a universal homeomorphism, and for the
-inclusion of a nodal curve, which is not; the distinction is exactly the
-unibranch condition studied in
+target normality, equality of function fields need not imply a universal
+homeomorphism: the normalization map of a nodal curve is a counterexample.
+The normalization of a cuspidal cubic is a universal homeomorphism and
+therefore illustrates the positive case.  This distinction is related to
+the unibranch condition studied in
 \Cref{chap:bj-subintegral-normalization}, and the analytic consequences are
 drawn there, not here.
 \end{remark}
@@ -695,9 +709,11 @@ closure $M/K(X)$, let $S\to X$ be the normalization in $M$, and put
 \[
                          G:=\operatorname{Gal}(M/K(X)).
 \]
-The normalization is finite by
-\cite[\href{https://stacks.math.columbia.edu/tag/035S}{Tag 035S}]
-{stacks-project}, so $S$ is a normal integral projective variety, finite
+The integral closure in the finite extension $M/K(X)$ is finite
+because finite-type schemes over a field are Nagata
+(\Cref{sec:stacks-flattening}); Tag 035S records the corresponding
+finiteness statement for normalization in the function field.
+Thus $S$ is a normal integral projective variety, finite
 and surjective over $X$, and the tautological action of $G$ on $M$
 extends uniquely to an action on $S$ by $X$-automorphisms, by
 functoriality of the relative normalization.
@@ -810,9 +826,8 @@ $\pi$, but is not needed and is not used.
 For a general finite extension, take the maximal separable intermediate
 field $K_s$, so that $K(X)\subseteq K_s\subseteq K(T)$ with
 $K_s/K(X)$ separable and $K(T)/K_s$ purely inseparable.  Let $X_s$ be
-the normalization of $X$ in $K_s$; by
-\cite[\href{https://stacks.math.columbia.edu/tag/035S}{Tag 035S}]
-{stacks-project} it is finite over $X$, hence a normal integral
+the normalization of $X$ in $K_s$.  The same Nagata property makes
+this relative normalization finite over $X$, hence a normal integral
 projective variety, and $h$ factors as
 \[
  T\xrightarrow{\ h_2\ }X_s\xrightarrow{\ h_1\ }X .
@@ -863,26 +878,25 @@ surjective, this is \eqref{eq:bj-finite-open-usc}.
 
 \begin{remark}[Openness is a statement about all of $T^{\An}$]
 \label{rem:ch41-openness-scope}
-It is worth isolating what Step~1 actually proves, because a shorter and
-more familiar argument proves something weaker.  Restricted to the loci of
-full support, $h^{\An}$ is the map induced on spaces of valuations by the
-finite field extension $K(X)\subseteq K(T)$, and transitivity of the
-Galois action there is the classical extension theorem.  That statement
-alone does not give openness of $h^{\An}$, because an open subset of
-$T^{\An}$ is not determined by its intersection with $T^{\val}$ --- the
-proper-support locus is dense, by
-\Cref{prop:ch32-proper-support-dense}, but it is not \emph{contained} in the
-closure of any single fibre of the support map, and the regularization
-\eqref{eq:bj-finite-open-usc} is evaluated at proper-support points as well.
-The proof above therefore begins with an arbitrary support prime
-$\mathfrak p$ and its residue field, and applies the transitivity lemma to
-$\kappa(\mathfrak q)/\kappa(\mathfrak p)$, not to $M/K(X)$.
+Step~1 checks both support primes and residue absolute values,
+so it proves the quotient description at every analytic point.
+A proof confined to valuations of the function field would cover only
+full support and would not establish openness at the remaining points.
+
+Normality of the source is unnecessary for this analytic assertion.
+For a finite dominant map from an integral projective $T$ to a normal
+$X$, normalize $T$ to $\widetilde T$; this is finite.  The composite
+$\widetilde T\to X$ has open analytification by the proved case.
+If $V\subset T^{\An}$ is open, its image in $X^{\An}$ equals the
+image of the open inverse image of $V$ in $\widetilde T^{\An}$,
+because normalization is analytically surjective.  Thus the image is
+open.  The descent theorem below retains normality of $T$ for its
+source psh and carrier inputs.
 \end{remark}
 
-\begin{warning}{Openness needs normality of both varieties}
+\begin{warning}{Target normality in the openness argument}
 \label{warn:ch41-openness-normality}
-\Cref{lem:bj-finite-normal-open} is false without normality.  The
-hypothesis enters twice: in Step~1, to know $B^G=A$, which is what makes
+\Cref{lem:bj-finite-normal-open} is false without normality.  Target normality enters in the quotient and radicial arguments: in Step~1, to know $B^G=A$, which is what makes
 $X^{\An}$ the orbit space rather than merely a continuous image; and in
 Step~2, to know that the purely inseparable part is a universal
 homeomorphism.  \Cref{ex:ch41-node-not-open} gives a finite surjective
@@ -960,9 +974,9 @@ functions $g^*u_i$ lie in $\cH^{\mathrm{gf}}_{\mathbf R}(g^*L_i)$; the
 net $(g^*u_i)$ is decreasing and converges pointwise to $g^*u$; and
 $g^*c_1(L_i)\to g^*\eta$ because
 $g^*:N^1(Z)_{\mathbf R}\to N^1(W)_{\mathbf R}$ is linear on a
-finite-dimensional space.  Generic finiteness of $g^*u$ follows from
-\cref{itm:ch41-pb:sup} together with
-\Cref{prop:ch32-maximum-principle}\,\cref{itm:ch32-mp:gf}.  Hence
+finite-dimensional space.  Nontriviality of $g^*u$ follows directly from
+$g^*u(v_{W,\triv})=u(v_{Z,\triv})>-\infty$, by
+\cref{itm:ch41-pb:sup}.  Hence
 \Cref{def:bj-psh} applies with the class $g^*\eta$.  Homogeneity is
 preserved by \cref{itm:ch41-pb:ops}.
 
@@ -1068,9 +1082,11 @@ $v_{q_1,\triv}$ and $v_{T,\triv}$, again by
 \Cref{prop:ch32-scaling-limits}, and does not contain $v_{q_2,\triv}$.
 Therefore $(\nu^*a)^*(v_{q_2,\triv})=0$, while
 $\nu^*(a^*)(v_{q_2,\triv})=a^*(v_{p,\triv})=1$.  Hence
-$(\nu^*a)^*\ne\nu^*(a^*)$.  This example is the analytic shadow of the
-fact that the envelope property fails on a nodal curve, discussed in
-\Cref{sec:ch37-node-cusp}.
+$(\nu^*a)^*\ne\nu^*(a^*)$.
+This is a bounded-function example of failure to commute with
+regularization.  It does not exhibit a psh-family counterexample to
+the envelope property.  The branch-asymmetric normalization example
+in \Cref{sec:ch37-node-cusp} has the same proof-scope distinction.
 \end{example}
 
 \section{Flattening the finite algebra}
@@ -1143,10 +1159,10 @@ $M$, and with it $k[s,t]=R\oplus M$, is not free at $\mathfrak m$; a
 finite module over a noetherian local ring is flat if and only if it is
 free, so $h$ is not flat at $o$.
 
-The class-group description makes the same point conceptually: $M$
-represents the nontrivial element of $\operatorname{Cl}(R)\cong\mathbf
-Z/2$, and a finite module of rank one over a normal domain is free at a
-point exactly when its class is trivial there.  The flat locus of $h$ is
+The class-group description makes the same point conceptually:
+the rank-one reflexive module $M$ represents the nontrivial element of $\operatorname{Cl}(R)\cong\mathbf
+Z/2$, and a rank-one reflexive module over a normal domain is free at a
+point exactly when its local divisor class is trivial.  The flat locus of $h$ is
 therefore exactly $X\setminus\{o\}$, a dense open set, as the general
 theory predicts.
 \end{example}
@@ -1159,12 +1175,14 @@ locally free module, the rank must be constant for the polynomial law to be
 homogeneous of a fixed degree, and the norm line
 \eqref{eq:bj-determinant-norm-line} is formed from determinants of
 locally free sheaves.  \Cref{ex:ch41-nonflat-cone} shows that these are not
-available for $h$ itself.  There are two possible responses.  One could
-work with the finite algebra $\mathcal A$ directly and take determinants
-only over the flat locus, hoping to extend the resulting sections across the
-non-flat locus; this fails, because the sections one produces are sections
-of a sheaf that has not been defined there, and the extension problem is
-exactly as hard as the original one.  The response adopted here, and the one
+available for $h$ itself.  A generic field norm may still exist on a normal target even when
+the finite algebra is not locally free:
+\cite[\href{https://stacks.math.columbia.edu/tag/0BD3}{Tag 0BD3}]
+{stacks-project}.  Norms of units can then glue a line-bundle norm
+using frames on full finite preimages.  This observation does not
+supply the arbitrary-base-change determinant package or a fibre
+algebra of constant dimension $d$.
+The response adopted here, and the one
 the plan prescribes, is to change the base: flatten $\mathcal A$ by a
 birational modification of $X$, perform the determinant construction on
 the flattened algebra, and return to $X$ at the very end by birational
@@ -1270,7 +1288,7 @@ rank being preserved by the base change $\nu$.
 
 \emph{Step 3: $W$ is integral with function field $K(T)$.}
 Let $V=\Spec R\subseteq Z$ be a nonempty affine open, and let
-$B:=(\nu^*\mathcal A_0)(V)$, a free $R$-module of rank $d$ and an
+$B:=(\nu^*\mathcal A_0)(V)$, a finite locally free $R$-module of rank $d$ and an
 $R$-algebra.  Flatness of $B$ over the domain $R$ makes $B$
 torsion free, so $B$ injects into
 $B\otimes_R\operatorname{Frac}R=B\otimes_R K(X)$.  The latter is the
@@ -1278,10 +1296,10 @@ generic fibre of the algebra, which over $U$ is $\mathcal A|_U$; by
 construction the strict transform agrees with the pullback over $U$, and
 the generic fibre of $\mathcal A$ is $K(T)$, the function field of
 $T$, because $h$ is finite and $T$ is integral.  Hence
-$B\hookrightarrow K(T)$ is a subring of a field, therefore a domain.  As
-this holds for every affine chart and $W$ is connected --- being finite
-faithfully flat over the connected $Z$ with irreducible generic fibre
-$\Spec K(T)$ --- the scheme $W$ is integral with $K(W)=K(T)$.
+$B\hookrightarrow K(T)$ is a subring of a field, therefore a domain.  The point represented by the generic field is dense in every such
+affine inverse image.  These inverse images cover $W$, so the same point
+is dense in $W$, and the domain computations show that $W$ is reduced.
+Thus $W$ is integral with $K(W)=K(T)$.
 
 \emph{Step 4: the horizontal maps and the class identity.}
 The quotient
@@ -1310,7 +1328,7 @@ common composite $W\to X$.
 The flattening square does not make $h$ flat.  It replaces $h$ by the
 finite flat map $q$ after simultaneous birational changes.  Nor does the
 construction make $W$ normal; the later argument uses only
-Fubini--Study data on $W$, not a psh theory there.
+Fubini--Study data on $W$ and no psh closure theorem there.
 \end{remark}
 
 \begin{warning}{Three things the flattening square does not provide}
@@ -1336,15 +1354,18 @@ fixed once at the beginning of the proof of
 \subsection{Ranks, pushforward, and the projection formula}
 \label{sec:ch41-projection}
 
-The class bookkeeping of \Cref{sec:ch41-descent} rests on one projection
-identity.  We isolate it together with the divisor identity for the norm:
-the former only uses the generic degree, while the latter is where finite
-local freeness and its constant rank enter.
+The class bookkeeping of \Cref{sec:ch41-descent} uses a pushforward
+on numerical Cartier classes induced by the constant-rank norm.
+We prove that this map is well defined and satisfies the projection
+identity, and record its compatibility with divisor-cycle pushforward.
+The cycle identity $q_*[W]=d[Z]$ alone would not define a pushforward
+on numerical Cartier classes.
 
 \begin{lemma}
 \label{lem:ch41-projection-formula}
 Let $q:W\to Z$ be finite faithfully flat of constant rank $d$ between
-integral projective varieties.  Then $q_*:N^1(W)_{\mathbf R}\to
+integral projective varieties, with $Z$ normal.  Define $q_*$
+on line-bundle classes by the determinant norm.  Then $q_*:N^1(W)_{\mathbf R}\to
 N^1(Z)_{\mathbf R}$ is well defined, and
 \[
  q_*q^*\eta=d\,\eta
@@ -1362,21 +1383,36 @@ where $\mathrm N_q$ is the determinant norm of
 \end{lemma}
 
 \begin{proof}
-Proper pushforward of cycles and the projection formula
-$q_*(q^*\eta\cdot\gamma)=\eta\cdot q_*\gamma$ are
-\cite[Propositions~1.4 and~2.3]{Ful}; they descend to numerical
-classes because numerical equivalence is preserved by proper pushforward,
-which is the content of \Cref{app:intersection-bdivisors}.  For
-\eqref{eq:ch41-projection-formula}, apply the projection formula with
-$\gamma=[W]$ and use $q_*[W]=d\,[Z]$, which holds for any proper
-surjective generically finite $q$ of degree $d$ between integral
-varieties, flat or not; it is the identity used for the non-flat $h$ in
-\Cref{lem:ch42-class-ledger}\,\cref{itm:ch42-cl:degree}.  Constancy of the
-rank is \emph{not} needed here.  Where it is needed is the divisor identity
-below: the norm $\mathrm N_q$ is formed from determinants of
-multiplication and requires a locally free algebra of constant rank, as
-\Cref{rem:ch41-why-flat} explains.  The divisor identity is
-\eqref{eq:bj-norm-divisor}, proved in
+The norm is multiplicative, so it defines an additive map on Picard
+groups.  To descend it to numerical classes, take an integral curve
+$C\subset Z$ and normalize it.  Base change of the norm gives
+\[
+ \deg_C\mathrm N_q(M)
+ =\chi(W_C,M|_{W_C})-\chi(W_C,\cO_{W_C})
+ =\sum_\Gamma \ell_\Gamma\,\deg_\Gamma M,
+\]
+where $W_C=W\times_Z C^\nu$, and the sum is over its integral
+one-dimensional components with their generic lengths.  Each
+component $\Gamma$ maps finitely onto an integral curve $\Gamma'$
+in $W$, and its degree term is
+$[K(\Gamma):K(\Gamma')]\deg_{\Gamma'}M$.
+The first equality is the determinant degree formula on the smooth
+curve $C^\nu$, since $q_C$ is finite locally free.  The second is the
+degree formula for a line bundle on a projective curve, including a
+nonreduced curve, or equivalently its intersection with the fundamental
+one-cycle \cite{Ful}.  Zero-dimensional contributions cancel.
+If $M$ is numerically trivial on $W$, every term is zero.
+Thus $\mathrm N_q(M)$ is numerically trivial on $Z$, and this
+defines the linear map $q_*$ on $N^1$.
+
+For a line bundle $L$ on $Z$,
+$\mathrm N_q(q^*L)=L^{\otimes d}$ by
+\Cref{prop:ch41-norm-line-properties}\,\cref{itm:ch41-nl:pullback}.
+This proves \eqref{eq:ch41-projection-formula} and extends by
+linearity to real classes.  It uses the constant-rank norm functor;
+no general pushforward of Cartier numerical classes for arbitrary
+proper maps is asserted.  On the present normal target its compatibility
+with divisor-cycle pushforward is the final assertion, proved in
 \Cref{prop:ch41-norm-line-properties}\,\cref{itm:ch41-nl:divisor}.
 \end{proof}
 
@@ -1454,11 +1490,12 @@ proof of \Cref{lem:bj-finite-flatification}.
 
 Throughout this section $q:W\to Z$ is a finite locally free morphism of
 schemes of constant rank $d\ge1$, and $A\to B$ denotes the corresponding
-map of rings on an affine open over which $q_*\cO_W$ is free.  Nothing in
-the section uses that $W$ or $Z$ is a variety, that $k$ is
-algebraically closed, or that any characteristic hypothesis holds; this is
-deliberate, and it is the reason the construction can be applied in
+map of rings on an affine open over which $q_*\cO_W$ is free.
+The element, polynomial-law and line-bundle constructions require no
+variety, algebraic-closure or characteristic hypothesis, so they apply in
 \Cref{sec:ch41-averaging} after an arbitrary isometric field extension.
+The separate divisor assertion in
+\cref{itm:ch41-nl:divisor} assumes integral schemes and a normal target.
 
 \subsection{Norms of elements}
 \label{sec:ch41-element-norm}
@@ -1542,9 +1579,10 @@ exponent $d$ in $\bar b^{\,d}$ is what becomes the weight $e(w/z)$ in
 \subsection{Polynomial laws}
 \label{sec:ch41-polynomial-laws}
 
-The norm is not a homomorphism of $A$-modules, and it is not a polynomial
-function in any basis-free sense either, since a basis-free description must
-be stable under base change.  The correct notion is due to Roby, and we use
+The norm is multiplicative and generally not additive.
+In a local basis it is a homogeneous polynomial; the polynomial-law
+formulation records its naturality under all base changes without choosing
+that basis as part of the definition.  The correct notion is due to Roby, and we use
 it in the following form.
 
 \begin{definition}[Polynomial law]
@@ -1650,10 +1688,10 @@ the polynomial algebra, not to the value on $B$ itself, and the
 distinction is real.  Over $A=\mathbf F_p$ and $B=A$, the two
 polynomial laws $x\mapsto x$ and $x\mapsto x^p$ agree on
 $B\otimes_AA=\mathbf F_p$, where $x^p=x$, and differ on
-$B\otimes_AA[T]$.  Any argument that identifies a norm by checking it on
-elements of $B$, or on closed points, is therefore incomplete in positive
-characteristic; this is a small instance of the same phenomenon that makes
-the trace useless in \Cref{ex:ch41-frobenius-average}.
+$B\otimes_AA[T]$.  Thus values on the original module do not determine an arbitrary
+polynomial law over every base.  This does not invalidate pointwise
+determination when additional hypotheses provide enough test values;
+the universal-value proof works without such hypotheses. It is distinct from the trace degeneracy in \Cref{ex:ch41-frobenius-average}.
 \end{warning}
 
 \begin{remark}[Where the polynomial-law formulation is doing work]
@@ -1683,9 +1721,11 @@ homogeneity.
 \emph{(c) Base change must be arbitrary, not just flat or finite.}  The base
 changes used below are $A\to\kappa(\xi)\to\mathcal H(z)\to\Omega$: a
 residue field, a completion, and an algebraically closed isometric
-extension.  Only the first is even of finite type.  A base-change statement
-proved only for flat or finite morphisms would not cover the completion
-step, and the entire fibrewise computation of
+extension.  The field-extension steps are flat, while the residue-field map need
+not be flat.  The completion and algebraic closure need not be finite
+or of finite type; a trivial completion can of course be the original
+field.  Arbitrary base-change compatibility covers the whole chain.
+The fibrewise computation of
 \Cref{lem:ch41-fibre-decomposition} takes place after it.
 \end{remark}
 
@@ -1740,8 +1780,8 @@ is inseparable or nonreduced: it uses a determinant, not an average over two
 geometric points and not division by two.  It is the rank-two local model
 for the polynomial law in \Cref{prop:bj-weighted-coefficient-norm}.
 
-It is worth reading off the three regimes from the single formula
-$T_0^2-aT_1^2$.  If $2$ is invertible and $a$ is a unit which is not a
+For the following three field regimes, assume that $A$ is a field.
+They can all be read from $T_0^2-aT_1^2$.  If $2$ is invertible and $a$ is a unit which is not a
 square, the algebra is a separable field extension and the polynomial
 factors over a quadratic extension as
 $(T_0-\sqrt aT_1)(T_0+\sqrt aT_1)$: two sheets, weights $1,1$.  If
@@ -1781,7 +1821,7 @@ algebra $q_*\cO_W$.
 For functions this is the canonical norm of
 \cite[\href{https://stacks.math.columbia.edu/tag/0BD2}{Tag 0BD2}]
 {stacks-project}; the line-bundle formulation used here is the determinant
-norm functor of \cite{FerrandNorm}.
+norm functor of \cite[Proposition~3.3]{FerrandNorm}.
 \end{definition}
 
 Definition \eqref{eq:bj-determinant-norm-line} is a definition of a line
@@ -1813,7 +1853,8 @@ line bundles on $W$.
       $s=f\tau$ with $f\in B$ one has
       $\mathrm N_q(s)=\mathrm N_{B/A}(f)\cdot\mathrm N_q(\tau)$.
 \item\label{itm:ch41-nl:divisor}
-      For a nonzero rational section $s$ of $M$ on an integral $W$,
+      If $W,Z$ are integral and $Z$ is normal, then for a nonzero
+      rational section $s$ of $M$,
       \[
        \operatorname{div}\mathrm N_q(s)=q_*\operatorname{div}(s),
        \qquad
@@ -1835,7 +1876,7 @@ line bundles on $W$.
 other, and from $\mathrm N_{B/A}(1)=\det(\operatorname{id})=1$.
 
 \cref{itm:ch41-nl:mult}  This is the multiplicativity of Ferrand's norm
-functor \cite{FerrandNorm}.  It is not formal from
+functor \cite[Proposition~3.3]{FerrandNorm}.  It is not formal from
 \eqref{eq:bj-determinant-norm-line}, because $q_*(M\otimes M')$ is not
 $q_*M\otimes q_*M'$; the isomorphism is constructed by descent from the
 local case, where after trivializing $M$ and $M'$ both sides become
@@ -1861,17 +1902,24 @@ determinant is $\mathrm N_{B/A}(f)$; this is the local description in
 \Cref{def:ch41-norm-line} and the formula asserted.  Independence of the
 choice of $\tau$ is \cref{itm:ch41-nl:mult} applied to a unit.
 
-\cref{itm:ch41-nl:divisor}  Both sides are computed on an open cover as in
-\cref{itm:ch41-nl:frame}.  Locally $\operatorname{div}\mathrm N_q(s)$ is
-the divisor of $\mathrm N_{B/A}(f)\in A$, and the identity
-$\operatorname{div}_A\mathrm N_{B/A}(f)=q_*\operatorname{div}_B(f)$ is the
-standard determinant computation of the norm of a principal divisor under a
-finite flat map, \cite[Proposition~1.4]{Ful}: for a prime
-divisor $P$ on $Z$ with local ring $\cO_{Z,P}$, the multiplicity of
-$\mathrm N_{B/A}(f)$ along $P$ is the length of
-$B_P/fB_P$ over $\cO_{Z,P}$, which is
-$\sum_{Q\mapsto P}[\kappa(Q):\kappa(P)]\operatorname{ord}_Q(f)$.  Taking
-first Chern classes gives the second identity.
+\cref{itm:ch41-nl:divisor}  At a prime divisor $P$ of the normal
+target, $\cO_{Z,P}$ is a DVR.  Choose a full-preimage frame as in
+\Cref{lem:ch41-local-frame}.  For a regular nonzero coefficient $f$,
+Smith normal form over this DVR identifies the order of $\det(m_f)$
+with the length of $B_P/fB_P$.  Decomposing that finite-length module
+at the primes $Q$ over $P$ gives
+\[
+ \operatorname{ord}_P\mathrm N(f)
+ =\sum_{Q\mapsto P}[\kappa(Q):\kappa(P)]
+       \ell_{\cO_{W,Q}}(\cO_{W,Q}/f\cO_{W,Q}).
+\]
+The length is the coefficient of the Cartier divisor of $f$ on the
+possibly nonnormal integral source.  For a rational coefficient, write
+it as a quotient of two regular nonzero coefficients and subtract
+these finite integer orders.  This proves the divisor identity.
+The numerical identity uses the norm-induced map proved in
+\Cref{lem:ch41-projection-formula}, rather than an unrestricted
+proper pushforward on $N^1$.
 
 \cref{itm:ch41-nl:bc}  Finite local freeness, pushforward along an affine
 morphism, and formation of determinants of locally free modules all commute
@@ -1880,6 +1928,14 @@ with arbitrary base change; hence so does
 cover as in \cref{itm:ch41-nl:frame}, where they reduce to the base-change
 statement of \Cref{prop:ch41-norm-law}.
 \end{proof}
+
+Multiplicativity extends the norm to $\mathbf Q$-line bundles:
+if $M$ denotes a rational tensor class and $rM$ is an honest line
+bundle, put $\mathrm N_q(M)=\frac1r\mathrm N_q(rM)$ in
+$\operatorname{Pic}(Z)\otimes\mathbf Q$.  Clearing two denominators
+and using \cref{itm:ch41-nl:mult} proves independence of $r$.
+Section presentations below are likewise made after clearing
+denominators; no actual root of a line bundle is asserted.
 
 \subsection{Base change}
 \label{sec:ch41-base-change}
@@ -1940,7 +1996,7 @@ change $A\to A'$.  Since $\mathrm N_{q'}(\pi_W^*\tau)$ corresponds to
 $\pi^*\mathrm N_q(\tau)$ under the canonical isomorphism of
 \Cref{prop:ch41-norm-line-properties}\,\cref{itm:ch41-nl:bc}, the identity
 \eqref{eq:ch41-base-change-coefficients} follows.  The statement is
-independent of the choices because two frames differ by a unit, whose norm
+independent of the choices because two full-preimage frames differ by a unit, whose norm
 is a unit by \Cref{lem:ch41-element-norm}\,\cref{itm:ch41-en:unit}, and both
 sides of \eqref{eq:ch41-base-change-coefficients} are multiplied by the same
 unit.
@@ -2011,14 +2067,13 @@ conditions hold.
 \label{rem:ch41-frame-side}
 The frame produced by \Cref{lem:ch41-local-frame} lives upstairs, on
 $q^{-1}(U)$, and this is essential: the sections $s_j$ are sections of a
-bundle on $W$, and the norm of a section is defined only after $M$ has
-been trivialized on a full preimage.  A frame chosen only near one of the
-points $\eta_i$ would produce a determinant that is not a section of
-anything on $Z$.  This is the precise technical reason why
+bundle on $W$, and the local element-norm formula requires a trivialization of $M$ on
+a full preimage.  The determinant section itself is globally defined
+before choosing any frame.  A frame near only one point $\eta_i$ does not trivialize the full
+finite algebra needed for this local calculation.  This is the precise technical reason why
 \Cref{lem:ch41-local-frame} has to invoke the semilocal ring at the whole
-fibre rather than a local ring at one point, and it is the algebraic
-counterpart of the remark in \Cref{sec:ch41-naive} that a construction which
-labels sheets does not glue.
+fibre rather than a local ring at one point, and it is the local preparation for the symmetric, globally defined norm of
+\Cref{sec:ch41-naive}.
 \end{remark}
 
 \subsection{Two explicit norm polynomials}
@@ -2035,20 +2090,18 @@ $T^p-x$ and
  \mathrm N_{B/A}(u)=(-1)^p\cdot(-x)=x
 \]
 in every characteristic $p$, the two signs cancelling for odd $p$ and
-being irrelevant for $p=2$.  More generally, since
-$B=A[u]/(u^p-x)$ and $(a_0+a_1u)^p=a_0^p+a_1^pu^p=a_0^p+a_1^px$ for
-$a_i\in A$, the element $a_0+a_1u$ satisfies the equation
-$T^p-(a_0^p+a_1^px)=0$, whence
+being irrelevant for $p=2$.  For the universal linear form, its $p$-th power is
+$T_0^p+xT_1^p$.  Over the generic field, multiplication by that form
+has characteristic polynomial
+$T^p-(T_0^p+xT_1^p)$; its determinant is therefore
 \[
- \mathrm N_{B/A}(T_0+T_1u)=T_0^p+(-1)^{p+1}xT_1^p
- =T_0^p-(-1)^{p}xT_1^p .
+ \mathrm N_{B/A}(T_0+T_1u)=T_0^p+xT_1^p .
 \]
-For $p=2$ this is $T_0^2+xT_1^2$; for odd $p$ it is
-$T_0^p+xT_1^p$ up to the sign just displayed.  The essential point is the
-same in all cases: \emph{every mixed coefficient vanishes}.  The trace, which
-is the coefficient of $T_0^{p-1}T_1$ up to sign, is $0$; so is every
-other polarization.  Only the two extreme coefficients $1$ and $\pm x$
-survive, and they suffice.
+The identity extends to $A[\mathbf T]$ because both sides are
+polynomials over the domain $A$.  Every mixed coefficient vanishes.
+In particular the coefficient of $T_0^{p-1}T_1$, which is
+$\Tr(u)$, is zero.  The surviving extreme coefficients are exactly
+$1$ and $x$, with no sign ambiguity in characteristic $p$.
 
 The geometric reading is that $\Spec B\to\Spec A$ is a homeomorphism ---
 it is the relative Frobenius --- so every fibre has a single point, of
@@ -2131,8 +2184,9 @@ Both are finite of dimension $d$ over their base fields.
 
 Note that $|\cdot|_z$ is allowed to be trivial, in which case
 $\mathcal H(z)=\kappa(\xi)$; a trivially valued field is complete.  The
-algebra $B_z$ is the scheme-theoretic fibre with all its nilpotents; it is
-reduced only exceptionally.
+algebra $B_z$ is the scheme-theoretic fibre with all its nilpotents.
+It is reduced on the étale locus.  Completion may acquire nilpotents
+in an inseparable extension, so full support does not rule them out.
 
 \begin{lemma}
 \label{lem:ch41-fibre-decomposition}
@@ -2186,20 +2240,19 @@ $|\cdot|_z$ on $\kappa(\xi)$, that is, a point $w_i\in W^{\An}$ with
 $q^{\An}(w_i)=z$ by
 \Cref{lem:ch41-support-centre-finite}\,\cref{itm:ch41-sc:supp}.
 
-\cref{itm:ch41-fd:onto}  Let $w=(\eta,|\cdot|_w)$ lie over $z$.  Then
-$\eta$ lies in the fibre of $q$ over $\xi$, so $\kappa(\eta)$ is a
-quotient of the Artinian algebra $B_z$, whence
-$\kappa(\eta)\otimes_{\kappa(\xi)}\mathcal H(z)$ is a quotient of
-$B_z^{\wedge}$.  The finite $\mathcal H(z)$-algebra
-$\kappa(\eta)\otimes_{\kappa(\xi)}\mathcal H(z)$ decomposes into local
-factors whose residue fields are the completions of $\kappa(\eta)$ with
-respect to the various extensions of $|\cdot|_z$ to $\kappa(\eta)$; this
-is the standard description of the completion of a finite extension, and it
-shows that $|\cdot|_w$ is realized by one of the factors.  That factor is
-a quotient of some $C_i$, and by \cref{itm:ch41-fd:unique} the associated
-point is $w_i=w$.  Nonemptiness is
-\Cref{lem:ch41-finite-surjective}, or directly the fact that
-$B_z^{\wedge}\ne0$.
+\cref{itm:ch41-fd:onto}  Let $w=(\eta,|\cdot|_w)$ lie over $z$.
+The inclusion $\kappa(\xi)\to\kappa(\eta)$ is isometric, hence
+extends to $\mathcal H(z)\to\mathcal H(w)$.
+There is a map
+$B_z^\wedge\to\mathcal H(w)$ induced by evaluation at $w$.
+Its image is a finite-dimensional domain over $\mathcal H(z)$,
+so it is a field.  This field is complete, as a finite extension
+of a complete valued field, and contains the dense image of
+$\kappa(\eta)$ in $\mathcal H(w)$.  Therefore its image is all
+of $\mathcal H(w)$.  Its kernel is a maximal ideal belonging to
+one factor $C_i$, whose residue field is thus $\mathcal H(w)$.
+Uniqueness of the extended absolute value gives $w_i=w$.
+Nonemptiness follows from $B_z^\wedge\ne0$.
 
 Finally \eqref{eq:ch41-weights} follows: the weights $e(w/z)$ are positive
 because each $C_i$ has positive dimension, and their sum is
@@ -2223,13 +2276,14 @@ product of its ramification index and residue degree.  In general a defect
 factor remains, and it must not be suppressed.  Thus the weight records the
 Artin length, the full valued-field degree---including ramification, residue
 degree, inseparability and possible defect---and any coincidence of local
-factors that induce the same analytic lift.  A count of geometric points of
-the fibre sees none of these.  In the running examples:
+factors that induce the same analytic lift.  An unweighted count of
+analytic lifts loses field degrees, while an unweighted count after
+algebraic closure loses Artin lengths whenever the fibre is nonreduced.  In the running examples:
 \Cref{ex:ch41-frobenius-average} has
 length $1$ and purely inseparable \emph{ramification} of index $p$ at
 divisorial points --- there $e=p$ and $f=1$, the value group being
 divided by $p$ while the residue field does not grow --- and length
-$p$ at trivially valued points;
+$p$ at trivially valued closed points;
 \Cref{ex:ch41-nonreduced-fibre} has a factor of length $2$ over a
 trivially valued point and a ramification index $2$ over a divisorial
 point.  In both cases the total is $d$.
@@ -2237,16 +2291,17 @@ point.  In both cases the total is $d$.
 
 \begin{warning}{The weights are not locally constant in $z$}
 \label{warn:ch41-weights-not-constant}
-The function $z\mapsto\bigl(e(w/z)\bigr)_{w\mid z}$ jumps.  In
-\Cref{ex:ch41-nonreduced-fibre} the point $t\ord_{x=0}$ has two lifts,
-with weights $2$ and $1$, while the nearby point $t\ord_{x=a}$ with
-$a\ne0$ generic has three lifts, each of weight $1$.  Only the
-\emph{sum} is constant.  Consequently \eqref{eq:bj-finite-flat-average} may
-not be differentiated in $z$, and no continuity of the individual terms
-may be assumed; continuity of the total is a consequence of the left-hand
-side being a Fubini--Study function, not of any property of the right-hand
-side.  This is one of the reasons the operator is defined by the
-coefficients and only afterwards computed by the fibre formula.
+The multiset of fibre weights need not be locally constant.
+In \Cref{ex:ch41-nonreduced-fibre}, choose a finite $a$ outside the
+branch values.  The points $z_t=t\ord_{x=a}$ have three lifts of
+weight $1$, and approach $v_{Z,\triv}$ as $t\downarrow0$.
+At that trivial generic point there is one lift, of weight $3$.
+The point $t\ord_{x=0}$ instead has weights $2,1$; it is not
+approached by the other rays at a fixed positive parameter.
+Only the total degree is constant.  The extended-real continuity of
+an averaged FS stage follows from its coefficient presentation and
+\Cref{prop:ch34-generic-finiteness}\,\cref{itm:ch34-gf:cont},
+not from a continuous labelling of individual lifts.
 \end{warning}
 
 \subsection{Gauss norms}
@@ -2308,7 +2363,7 @@ variables, and it explains why the weights $\lambda_j$ enter as radii.
 
 \begin{proposition}\label{prop:bj-weighted-coefficient-norm}
 Assume that $q:W\to Z$ is finite faithfully flat of rank $d$, with
-$W$ integral and $W,Z$ projective.  Let $M$ be a line bundle on
+$W$ integral and $W,Z$ projective, and with $Z$ normal.  Let $M$ be a line bundle on
 $W$, and let
 \[
  \varphi=\frac1m\max_j\{\log|s_j|+\lambda_j\},
@@ -2346,14 +2401,15 @@ for every $z\in Z^{\An}$,
 \tag{41.26}\label{eq:bj-finite-flat-average}
 \]
 The positive integers $e(w/z)$ include residue, inseparability, and local
-Artin-length multiplicities.  The numerical class is
+Artin-length multiplicities.  The numerical class of this presentation is
 \[
  [\operatorname{Av}_q(\varphi)]
    =\frac1d c_1(\mathrm N_qM)
    =\frac1d q_*c_1(M).
 \tag{41.27}\label{eq:bj-norm-class}
 \]
-The operation preserves order, commutes with homogeneous scaling, and
+The operation preserves order, commutes with homogeneous scaling whenever the weights stay in the
+specified group, and
 sends decreasing GF nets to decreasing GF nets.  These statements remain
 valid for inseparable and nonreduced fibres and at points where the value
 is $-\infty$.
@@ -2382,10 +2438,9 @@ $f_j\in B$ and applying
 with $n_I\in A$ given by \Cref{lem:ch41-universal-polynomial} and
 $\mathrm N_q(\tau)$ a frame of $\mathrm N_q(M^{\otimes m})$ on $U$.
 Setting $c_I:=n_I\,\mathrm N_q(\tau)$ on $U$, two such descriptions
-agree on overlaps: a change of frame multiplies $\tau$ by a unit
-$\upsilon\in B^\times$, hence multiplies each $n_I$ by
-$\mathrm N_{B/A}(\upsilon)$ and $\mathrm N_q(\tau)$ by
-$\mathrm N_{B/A}(\upsilon)^{-1}$, by
+agree on overlaps: if $\tau'=\upsilon\tau$ with $\upsilon\in B^\times$, then
+$f_j'=\upsilon^{-1}f_j$.  Thus $n_I'=\mathrm N_{B/A}(\upsilon)^{-1}n_I$
+and $\mathrm N_q(\tau')=\mathrm N_{B/A}(\upsilon)\mathrm N_q(\tau)$, by
 \Cref{prop:appA-norm-identities} and
 \Cref{lem:ch41-element-norm}\,\cref{itm:ch41-en:unit}.  Therefore the
 $c_I$ are well defined global sections of
@@ -2450,8 +2505,11 @@ $D_{il}$ local Artinian with residue field $\Omega$, $\Omega$ being
 algebraically closed.  By
 \Cref{lem:ch41-element-norm}\,\cref{itm:ch41-en:product} the determinant is
 the product of the block determinants, and
-by \Cref{lem:ch41-element-norm}\,\cref{itm:ch41-en:zero} the block
-determinant on $D_{il}$ of multiplication by $\sum_jT_jf_j$ is
+a composition filtration of $D_{il}$ has
+$\dim_\Omega D_{il}$ quotients isomorphic to $\Omega$.
+Tensoring it with $\Omega[\mathbf T]$, multiplication by
+$\sum_jT_jf_j$ acts on every quotient by the same residue linear form.
+The resulting block-triangular determinant is therefore
 \[
  \Bigl(\sum_jT_j\,\varepsilon_{il}(f_j)\Bigr)^{\dim_\Omega D_{il}},
 \]
@@ -2463,8 +2521,10 @@ residue map.  Thus in $\Omega[\mathbf T]$
  \Bigl(\sum_jT_j\,\varepsilon_{il}(f_j)\Bigr)^{\dim_\Omega D_{il}} .
 \tag{41.30}\label{eq:ch41-norm-factorization}
 \]
-The residue map $\varepsilon_{il}$ restricts on $K_i$ to an embedding
-$K_i\hookrightarrow\Omega$ over $\mathcal H(z)$.  Since $K_i$ carries
+The residue map induced on $C_i$ factors through its residue
+field $K_i$ and an embedding $K_i\hookrightarrow\Omega$
+over $\mathcal H(z)$.  No coefficient-field inclusion
+$K_i\subset C_i$ is being chosen.  Since $K_i$ carries
 a \emph{unique} absolute value extending that of $\mathcal H(z)$, by
 \Cref{lem:ch41-fibre-decomposition}\,\cref{itm:ch41-fd:unique}, every such
 embedding is isometric; consequently
@@ -2599,8 +2659,17 @@ weights.  With the action on functions normalized as in
  =t\,\operatorname{Av}_q(\varphi)(t^{-1}z)
  =\bigl(t\cdot\operatorname{Av}_q(\varphi)\bigr)(z),
 \]
-which is the asserted equivariance.
+which is
+the asserted equivariance.  For rational-weight FS data this stays
+within the domain for positive rational $t$.  The real-weight extension
+in \Cref{cor:ch41-real-weights} permits all $t>0$.
 \end{proof}
+
+For any function $f:W^{\An}\to\mathbf R\cup\{-\infty\}$, the finite
+fibre formula also defines $\operatorname{Av}_q(f)$.
+This extension is an operation on functions; it asserts no FS or psh
+membership without the hypotheses above.  It lets us use the same
+notation for the limits and pullback identities below.
 
 \begin{corollary}
 \label{cor:ch41-average-pullback}
@@ -2638,15 +2707,16 @@ rank, is what makes the numerical class of the averaged function equal to
 $\frac1dq_*c_1(M)$ and therefore what makes
 \eqref{eq:ch41-projection-formula} applicable in
 \Cref{sec:ch41-descent}.  If the weights were taken to be numbers of
-geometric points, both uses would fail: the first because a ramified or
-inseparable point would be undercounted, the second because the class
-identity would acquire an error term supported on the branch locus.
+distinct points without their required degrees and lengths, neither use
+would be justified in general.  The total could differ from $d$, and
+the resulting unweighted formula would no longer be the coefficient-norm
+construction that supplies the stated presentation class.
 \end{remark}
 
 \begin{corollary}\label{cor:bj-coefficient-norm-limit}
 In the setting of \Cref{prop:bj-weighted-coefficient-norm}, let
-$\varphi_j\downarrow\varphi$ be a decreasing net of rational generically
-finite GF functions on $W$, and assume
+$\varphi_j\downarrow\varphi$ be a decreasing net of generically
+finite GF functions with real weights on $W$, and assume
 \[
              \frac1dq_*[\varphi_j]\longrightarrow
              \eta\in N^1(Z)_{\mathbf R}.
@@ -2664,19 +2734,21 @@ and is automatically nontrivial.
 \end{corollary}
 
 \begin{proof}
-\Cref{prop:bj-weighted-coefficient-norm} gives decreasing rational GF
-functions $\operatorname{Av}_q(\varphi_j)$ of the classes in
-\eqref{eq:bj-norm-limit-classes}.  Its fibre formula and finite monotone
-convergence identify the pointwise limit with
-\eqref{eq:bj-norm-limit-function}.  PSH2 proves the assertion.
+\Cref{prop:bj-weighted-coefficient-norm} and
+\Cref{cor:ch41-real-weights} give decreasing GF functions
+$\operatorname{Av}_q(\varphi_j)$ with real weights and the classes in
+\eqref{eq:bj-norm-limit-classes}.  The fibre formula and finite monotone
+convergence identify their pointwise limit with
+\eqref{eq:bj-norm-limit-function}.  The varying-class definition
+\Cref{def:bj-psh} proves the assertion.
 
 We spell out the four verifications required by \Cref{def:bj-psh}.
 
-\emph{The stages are admissible.}  Each $\varphi_j$ is rational
-generically finite Fubini--Study data for some $\mathbf Q$-line bundle
+\emph{The stages are admissible.}  Each $\varphi_j$ is
+generically finite Fubini--Study data with real weights for some $\mathbf Q$-line bundle
 $M_j$ on $W$, and \Cref{prop:bj-weighted-coefficient-norm}, Step~2 and
 Step~5, produces
-$\operatorname{Av}_q(\varphi_j)\in\cH^{\mathrm{gf}}_{\mathbf Q}(L'_j)$
+$\operatorname{Av}_q(\varphi_j)\in\cH^{\mathrm{gf}}_{\mathbf R}(L'_j)$
 with $L'_j=\frac1d\mathrm N_q(M_j)$ and
 $c_1(L'_j)=\frac1dq_*[\varphi_j]$.
 
@@ -2720,16 +2792,16 @@ $-\infty$.
 
 \begin{remark}[Why the corollary is stated with varying classes]
 \label{rem:ch41-varying-classes-needed}
-The classes $\frac1dq_*[\varphi_j]$ of the averaged stages are not equal
-to $\eta$; they only converge to it, and there is no way to correct them
-at finite stage without destroying monotonicity.  This is precisely the
-situation for which \Cref{def:bj-psh} was formulated with varying classes,
-and for which \Cref{thm:bj-basic-closure}\,(5) was proved.  A version of
-\Cref{def:bj-psh} demanding these particular approximants to stay in a
-fixed class would not justify this passage; and a convention restricted to
-bounded PL approximants in a fixed class would force $\eta$ to be nef by
-\Cref{lem:ch34-psh-nonempty}.  The classes arising in
-\Cref{sec:ch41-descent} are pullbacks of arbitrary real classes on $X$.
+The presented classes $\frac1dq_*[\varphi_j]$ need only converge
+to $\eta$; they may already equal it in particular cases.
+Here $[\varphi_j]$ denotes the class of the chosen line-bundle
+presentation, not a uniquely determined class of the function.
+Moving-class \Cref{def:bj-psh} directly justifies the passage without
+asserting that finite-stage correction is impossible.
+A convention restricted to bounded PL approximants in a fixed class
+would instead require that class to be nef by
+\Cref{lem:ch34-psh-nonempty}.  The descent argument concerns arbitrary
+real classes, with the necessary nontriviality checked separately.
 \end{remark}
 
 \subsection{Real weights}
@@ -2743,7 +2815,9 @@ $\Lambda\subseteq\mathbf R$; the conclusion is then
 $\operatorname{Av}_q(\varphi)\in\cH^{\mathrm{gf}}_\Lambda
 \bigl(\tfrac1d\mathrm N_q(M)\bigr)$, and
 \eqref{eq:bj-finite-flat-average}, \eqref{eq:bj-norm-class} and the order,
-scaling and net properties are unchanged.  In particular the case
+net properties are unchanged.  Scaling preserves the subgroup
+domain whenever $t\Lambda\subseteq\Lambda$; for $\Lambda=\mathbf R$
+all positive real $t$ are allowed.  In particular the case
 $\Lambda=\mathbf R$ holds.
 \end{corollary}
 
@@ -2767,8 +2841,9 @@ The following three examples carry
 finite morphisms of smooth projective curves, so $q=h$ is already flat by
 miracle flatness and no flattening is needed; the point is to exhibit the
 weights.  In each case $X=T=\mathbf P^1$, the affine coordinate
-downstairs is $x$ and upstairs is $u$, and we use the Fubini--Study
-data
+downstairs is $x$ and upstairs is $u$, and we use the global weighted system of the two sections of
+$\cO(1)$ vanishing at infinity and at zero.  At points whose centre
+lies in the finite affine chart, its expression is
 \[
  \varphi:=\max\{\lambda_0,\ \log|u|+\lambda_1\},
  \qquad
@@ -2777,9 +2852,13 @@ data
 \]
 which is \eqref{eq:bj-weighted-fs-upstairs} with $m=1$, $M=\cO(1)$,
 $s_0$ the section cutting out the point at infinity and $s_1$ the
-section cutting out $\{u=0\}$; in the affine chart both are units except
-for the vanishing of $s_1$ at $u=0$, so $\log|s_0|=0$ and
-$\log|s_1|=\log|u|$ there.
+section cutting out $\{u=0\}$; the section $s_0$ is a frame on that chart, so
+$\log|s_0|=0$ and $\log|s_1|=\log|u|$ at centres there.
+All subsequent formulas using the rational coordinates $u$ and $x$
+are evaluated at points whose centres lie in the finite affine chart
+downstairs; their lifts have centres in the finite chart upstairs.
+At other centres the global norm-section presentation must be used:
+the rational function $\log|u|$ alone is not the section value.
 
 \begin{example}[A separable double cover: the average, checked]
 \label{ex:ch41-separable-average}
@@ -2849,7 +2928,7 @@ carries no information whatsoever.
 
 \emph{The norm.}  By \Cref{ex:ch41-cyclic-degree-p},
 \[
- \mathrm N_{B/A}(T_0+T_1u)=T_0^p\pm xT_1^p ,
+ \mathrm N_{B/A}(T_0+T_1u)=T_0^p+xT_1^p ,
 \]
 with all mixed coefficients zero.  Take \eqref{eq:ch41-example-data}, so
 that
@@ -2867,7 +2946,7 @@ that
  \end{aligned}
 \]
 since all the intermediate coefficients vanish and contribute
-$-\infty$, while $|{\pm}1|=1$.
+$-\infty$, while the nonzero extreme coefficients have the indicated values.
 
 \emph{The check.}  Let $z=t\ord_{x=0}$ with $t>0$.  Its unique lift is
 $w=\frac tp\ord_{u=0}$, because $p\,\ord_{u=0}(u)=\ord_{u=0}(u^p)$, and
@@ -2977,8 +3056,10 @@ Three features of this last computation deserve emphasis.  First, the
 nonreduced factor occurs at a point of \emph{proper support}, illustrating
 the claim made in \Cref{sec:ch41-what}: nonreducedness of fibres and the
 value $-\infty$ are met at the same points, and a treatment that
-restricted attention to $X^{\val}$ would encounter neither and would
-prove nothing about either.  Second, the length $2$ of the nonreduced
+restricted attention to $X^{\val}$ would omit this proper-support
+calculation.  This does not assert that every inseparable completed
+fibre at full support is reduced, or that every psh function is finite
+at all full-support points.  Second, the length $2$ of the nonreduced
 factor is not visible in the set of geometric points of the fibre, which has
 only two elements; it is visible in the exponent of the linear factor in
 \eqref{eq:ch41-norm-factorization}.  Third, the identity holds with
@@ -3054,6 +3135,7 @@ integral.  The homogeneous case is the case $\Lambda=0$.
 \label{sec:ch41-descent-theorem}
 
 \begin{theorem}\label{thm:bj-finite-normal-descent}
+Assume $\mathrm{(SD)}_k$ of \Cref{warn:ch35-siu-source-gap}.
 Let $h:T\to X$ be finite surjective between normal integral projective
 varieties, and let $\theta\in N^1(X)_{\mathbf R}$.  Then
 \[
@@ -3113,14 +3195,19 @@ $u_X\ge\varphi_{i_0}$ for any fixed $i_0$, so
  =\sup_{X^{\An}}u_X<+\infty,
 \tag{41.40}\label{eq:ch41-uX-finite-at-triv}
 \]
-by \Cref{prop:ch32-maximum-principle}\,\cref{itm:ch32-mp:sup} and the
-generic finiteness clause of \Cref{def:bj-psh}.
+because, with $C=\sup_i\varphi_i(v_{X,\triv})$, each member of
+the family is at most $C$ by the maximum principle.
+Thus its raw supremum is bounded by $C$ and equals $C$ at
+$v_{X,\triv}$; upper-semicontinuous regularization remains at most
+$C$ and majorizes the raw supremum.  This proves the displayed equality
+without applying a psh theorem to the uncertified $u_X$.
+The lower bound uses \Cref{def:bj-psh}.
 
 \medskip
 \noindent\emph{Step 1: descend the psh function to the birational model.}
 Choose the square \eqref{eq:bj-flatification-square}.  Let
-$(\phi_j)$ be a decreasing rational GF regularization of $u_T$, with
-rational classes
+$(\phi_j)$ be a decreasing GF regularization of $u_T$ with real weights
+and presented rational line-bundle classes
 \[
                               \eta_j\longrightarrow h^*\theta.
 \]
@@ -3194,7 +3281,7 @@ Precisely, $\beta^*u_X(v_{Z,\triv})=u_X(v_{X,\triv})$, which is finite by
 \]
 Only GF pullback and coefficient norms were used on the possibly nonnormal
 scheme $W$.  This is worth restating as a warning to the reader: at no
-point is a psh theory on $W$ invoked, and none is available, since
+point is a psh theory on $W$ invoked, and no closure theorem on $W$ is imported here:
 \Cref{def:bj-psh} and every closure statement of
 \Cref{chap:bj-fs-pl-psh} are set up for the varieties of
 \eqref{eq:ch35-standing}, while the results of
@@ -3217,10 +3304,8 @@ satisfies
                               u_T\le P_T+C
 \tag{41.45}\label{eq:bj-uT-carrier}
 \]
-for a finite $C$, for example $C=\sup u_T$.  This is the second and
-last use of the assumed envelope property, and the second of the two
-suprema over an infinite family in this chapter, the first being the
-pullback of the given family in Step~0; the family in
+for a finite $C$, for example $C=\sup u_T$.  This is the second use of the assumed envelope property in the main
+descent proof, alongside the regularized family supremum in Step~0; the family in
 \eqref{eq:bj-finite-source-carrier} is nonempty because
 $u_T-\sup u_T$ belongs to it, and it is bounded above by $0$.
 
@@ -3301,20 +3386,17 @@ norm directly to the generally nonflat morphism $h$.
 
 \begin{remark}[Where each hypothesis of the theorem is used]
 \label{rem:ch41-descent-hypothesis-map}
-Normality of $X$ is used twice: in
-\Cref{lem:bj-finite-normal-open}, through the identity $B^G=A$, and in
-\Cref{thm:bj-carrier-reflection}, whose standing hypotheses require it.
-Normality of $T$ is used in \Cref{lem:bj-finite-normal-open} and in
-\Cref{lem:bj-canonical-carrier}, and nowhere else; in particular the
-averaging machinery is indifferent to it.  Surjectivity of $h$ is
-automatic from finiteness and dominance, and is used through
-\Cref{lem:ch41-finite-surjective}.  Projectivity is used for compactness of
-the analytifications, for the existence of centres, and for the flattening
-construction.  No positivity of $\theta$ is used anywhere: if $\theta$
-is not pseudoeffective then $\PSH_X(\theta)=\varnothing$ by
-\Cref{lem:ch34-psh-nonempty} and the conclusion is vacuous, and if
-$\theta$ is pseudoeffective but not nef the proof runs unchanged, the
-approximating classes being allowed to vary.
+Normality of $X$ supplies the analytic quotient/radicial argument
+and the target hypothesis of carrier reflection.  Normality of $T$
+is retained for the source psh, regularization and carrier inputs;
+it is not needed for the analytic openness assertion, as
+\Cref{rem:ch41-openness-scope} explains.  Flattening gives a normal
+$Z$ but leaves $W$ integral, which suffices for the FS pullback and
+norm computations.  Projectivity supplies compact analytifications,
+centres, numerical classes and projective modifications.
+If $\theta$ is not pseudoeffective, $\PSH_X(\theta)$ is empty and EP
+is vacuous.  No nefness hypothesis is imposed on the class; moving
+classes and the nontrivial limit conditions are checked explicitly.
 \end{remark}
 
 \begin{warning}{The implication is one-way as proved}
@@ -3325,11 +3407,11 @@ and says nothing about the converse.  The converse is in fact true once the
 full envelope theorem is available, since $T$ is then also normal
 integral projective and unibranch; but that deduction belongs to
 \Cref{chap:bj-envelope-consequences} and may not be used here, by
-\Cref{warn:ch41-firewall}.  A reader tempted to shorten the proof by
-descending along $h$ in the other direction should observe that
-\Cref{cor:ch41-average-pullback} has no analogue upwards: there is no
-operator sending a psh function on $X$ to one on $T$ other than
-pullback, and pullback is what Step~0 already uses.
+\Cref{warn:ch41-firewall}.  The identity
+$\operatorname{Av}_q\circ q^*=\operatorname{id}$ is a left-inverse
+identity; it does not make every upstairs function a pullback.
+Fibrewise constancy is still required, as the cone example below
+illustrates.
 \end{warning}
 
 \subsection{Consequences}
@@ -3422,9 +3504,11 @@ form.  On the split étale locus, a point $y\in X^{\An}$ has two lifts
 $t_1,t_2\in T^{\An}$ of weight $1$, interchanged by $\iota$, so the
 fibre average of $\varphi''$ over $y$ is
 \[
+ \begin{aligned}
  \tfrac12\bigl(\log|u-w|(t_1)+\log|u-w|(t_2)\bigr)
- =\tfrac12\bigl(\log|u-w|+\log|u+w|\bigr)(t_1)
- =\tfrac12\log\bigl|u^2-w^2\bigr|(t_1),
+ &=\tfrac12\bigl(\log|u-w|+\log|u+w|\bigr)(t_1)\\
+ &=\tfrac12\log\bigl|u^2-w^2\bigr|(t_1),
+ \end{aligned}
 \]
 because $\iota^*(u-w)=u+w$ and $\log|\cdot|$ is multiplicative by
 \Cref{lem:ch34-log-s-properties}\,\cref{itm:ch34-logs:product}.  Since
@@ -3433,23 +3517,41 @@ $\tfrac12\log|a^2-z|(y)$.  This split calculation is only a check, not a
 proof at an arbitrary analytic point: away from the branch divisor an
 analytic fibre may still consist of one nonsplit point of weight $2$.
 
-The global identity instead comes directly from the determinant norm.  On
-the common function field of the flattening square,
+For the global identity, first identify the norm line bundle by its
+divisor.  Put $M=\alpha^*\cO(1)$.  The divisor $C$ of $\alpha^*w$
+is the strict transform of $\{w=0\}$, which avoids the blowup centre.
+The involution fixes $C$ pointwise, and $q$ maps it isomorphically
+onto the divisor $B=\{z=0\}$ on $Z$.  The blowup $\beta$ is an
+isomorphism along $B$, since the vertex has $z\ne0$.  Hence
+\cref{itm:ch41-nl:divisor} gives
 \[
- N_{K(T)/K(X)}(u-w)=(u-w)(u+w)=u^2-w^2=h^*(a^2-z).
+ \operatorname{div}\mathrm N_q(\alpha^*w)
+ =q_*C=B=\operatorname{div}(\beta^*z).
 \]
-In this explicit quotient, the quotient coordinates identify
-$\mathrm N_q(\alpha^*\cO(1))$ with $\beta^*H$ and carry the norm section
-of $u-w$ to $\beta^*(a^2-z)$.  Indeed the displayed identity verifies the
-claim on the dense generic locus, hence everywhere because $Z$ is integral.
-Therefore
+Since $Z$ is normal, these equal Cartier divisors identify
+$\mathrm N_q(M)$ with $\beta^*H$, carrying
+$\mathrm N_q(\alpha^*w)$ to $\beta^*z$.  This also rules out an
+unaccounted exceptional divisor in the identification.
+
+Now work in the rational frame $w$ of $\cO(1)$ and put $s=u/w$.
+The involution sends $s$ to $-s$, so the field norm of the coefficient
+of $u-w$ is
+\[
+ N_{K(T)/K(X)}(s-1)
+ =(s-1)(-s-1)=1-s^2=\frac{z-a^2}{z}.
+\]
+Under the established line-bundle identification the norm section is
+therefore $\beta^*(z-a^2)$.  Multiplication by the unit $-1$
+does not affect section log values.  The all-point norm formula,
+including nonsplit and nonreduced fibres, now yields
 \[
  \operatorname{Av}_q(\alpha^*\varphi'')
  =\tfrac12\,\beta^*\log\bigl|a^2-z\bigr| .
 \]
-The computation is exactly the statement that the determinant norm of
-$u-w$ for the degree-two algebra is $(u-w)(u+w)$; it is the case
-$a=x$, $b=u-w$ of \Cref{ex:ch41-rank-two}.
+This is the degree-two determinant calculation of
+\Cref{ex:ch41-rank-two}, applied to the coefficient in an actual
+rational frame; homogeneous coordinates themselves are sections,
+not elements of the function field.
 
 The classes match, as they must.  On one side,
 \eqref{eq:bj-norm-class} gives
@@ -3477,11 +3579,10 @@ numerical class is $\frac1dq_*$, not the naive pullback-inverse.
 
 The book plan lists ``values at proper-support semivaluations'' and ``every
 use of subtraction involving an infinite value'' among the points to be
-audited in the envelope proof.  This chapter is one of the two places where
-they interact --- the other being
-\Cref{chap:bj-reflection} --- and we record the audit explicitly.
+audited in the envelope proof.  They interact in the norm calculation and carrier reflection, so
+we record five checkpoints.
 
-There are exactly five places where a proper-support point could have been
+The following are five places where a proper-support point could have been
 mishandled.
 
 \emph{(1) The description of analytic points.}
@@ -3501,8 +3602,9 @@ without a separate density argument.
 \emph{(2) The fibre algebra.}
 Over a proper-support point the fibre algebra $B_z$ of
 \Cref{def:ch41-fibre-algebra} is the scheme-theoretic fibre, with all its
-nilpotents; over a full-support point in the generically étale case it is a
-product of fields.  This is the precise sense in which nonreduced fibres and
+nilpotents; over a full-support point the scheme fibre is the function field
+of $W$, and in the generically étale case its completed algebra is
+a product of fields.  This is the precise sense in which nonreduced fibres and
 proper support meet, and it is exhibited in
 \Cref{ex:ch41-nonreduced-fibre}.
 
@@ -3526,23 +3628,29 @@ Step~3 of the proof concludes $v=u_X$ from $\beta^*v=\beta^*u_X$ and
 surjectivity of $\beta^{\An}$.  This is an equality of functions on all of
 $X^{\An}$, including proper support, and it does not pass through
 $X^{\divis}$; in particular it does not use
-\Cref{prop:ch39-determination-package}, whose promotion from divisorial
-equality would require both functions to be known psh in advance.
+\Cref{prop:ch39-determination-package}.  A divisorial equality with
+an uncertified psh function would not by itself establish equality
+at every point.
 
 \begin{warning}{Two identities that must not be written}
 \label{warn:ch41-forbidden-identities}
-The following two manipulations are never performed below, and each is
-false in general.
+The following manipulations are not justified in the required
+extended-real domain.
 
 First, $\operatorname{Av}_q(\varphi)-\operatorname{Av}_q(\psi)
-=\operatorname{Av}_q(\varphi-\psi)$.  The right-hand side is undefined
-wherever both are $-\infty$, which by
-\Cref{prop:ch34-generic-finiteness}\,\cref{itm:ch34-gf:polar} happens on a
-Zariski closed analytic set that is generally nonempty.  What is used
-instead is the order-preservation of $\operatorname{Av}_q$ and the
+=\operatorname{Av}_q(\varphi-\psi)$.  Upstairs the difference is
+undefined where both functions are $-\infty$; for FS stages these
+are their common polar points, described by
+\Cref{prop:ch34-generic-finiteness}\,\cref{itm:ch34-gf:polar}.
+Downstairs the two averages can both be $-\infty$ even when the
+upstairs poles occur at different lifts of the same point.
+Thus neither side is an unrestricted identity in the extended-real
+domain.  What is used instead is order-preservation and the
 identity $\operatorname{Av}_q(\varphi+C)=\operatorname{Av}_q(\varphi)+C$
-for a real constant $C$, which is the content of the derivation of
-\eqref{eq:bj-uZ-carrier}.
+for a real constant $C$, as in \eqref{eq:bj-uZ-carrier}.
+For finite-valued arbitrary functions the fibre average is linear;
+the problem here is that differences at common poles are undefined,
+and a difference of FS functions need not be FS data.
 
 Second, $\log\bigl|\sum_jc_j\bigr|=\max_j\log|c_j|$.  Only $\le$ holds,
 by \Cref{lem:ch34-log-s-properties}\,\cref{itm:ch34-logs:sum}, and equality
@@ -3554,37 +3662,26 @@ the Gauss norm, \Cref{lem:ch41-gauss-multiplicative}, which is an equality.
 \subsection{What fails if a safeguard is dropped}
 \label{sec:ch41-safeguard-failures}
 
-\emph{Drop the flattening.}  Suppose one attempts to define
-$\operatorname{Av}_h$ directly from $h$ in
-\Cref{ex:ch41-nonflat-cone}.  The module $h_*\cO_T$ is not locally free at
-the vertex $o$, so there is no determinant of multiplication there, and
-the coefficient ``sections'' $c_I$ are defined only on
-$X\setminus\{o\}$.  One might hope to extend them by normality of $X$,
-since $X\setminus\{o\}$ has complement of codimension two; and indeed each
-individual $c_I$, being a section of a reflexive sheaf, does extend.  What
-does not extend is the \emph{bundle}: $\mathrm N_h(M)$ would have to be a
-line bundle on $X$ restricting to the given one, and the obstruction is
-exactly the nontrivial class in the \emph{local} class group at the vertex,
-$\operatorname{Cl}(\cO_{X,o})\cong\operatorname{Cl}(R)\cong\mathbf Z/2$,
-computed in \Cref{ex:ch41-nonflat-cone}.  Globally
-$\operatorname{Cl}(X)=\mathbf Z\cdot\cO_X(1)$ and
-$\Pic(X)=\mathbf Z\cdot H$ with $H=\cO_X(2)$, so it is the quotient
-$\operatorname{Cl}(X)/\Pic(X)\cong\mathbf Z/2$ that records the failure of
-invertibility.  Without a line bundle there is no
-numerical class \eqref{eq:bj-norm-class} and no Fubini--Study function.
+\emph{Drop the flattening.}  In the quadric-cone example, the finite
+algebra at the vertex has generic rank $2$, but its fibre is
+$k[s,t]/(s^2,st,t^2)$ of dimension $3$.
+The generic field norm of a scalar is its square, while the determinant
+on this fibre algebra is its cube.  Thus the rank-two determinant
+package cannot be transported to this fibre by arbitrary base change.
+A generic norm on the normal target can exist, and the norm of
+$\cO_{\mathbf P^2}(1)$ in this example even extends as $H$.
+There is no claimed line-bundle obstruction from the local class group.
+Flattening supplies the constant-rank, base-change-compatible package
+actually used in this proof.
 
-\emph{Drop the local Artin lengths.}  Replace $e(w/z)$ in
-\eqref{eq:bj-finite-flat-average} by the number of geometric points of the
-fibre over $z$, suitably normalized.  In
-\Cref{ex:ch41-frobenius-average} the fibre has one geometric point, so the
-normalization would have to be $1$ rather than $p$, and the identity
-would read $\operatorname{Av}_q(\varphi)(z)=\frac1p\varphi(w)$.  Taking
-$\lambda_0=0,\lambda_1=1,t=0$ --- that is, $z$ the trivial valuation of
-$K(X)$ --- the left side is $\max\{0,1\}=1$ while the proposed right
-side is $\frac1p$, so the identity fails for $p\ge2$.  The
-consequence is not merely a wrong constant: the class identity
-\eqref{eq:bj-norm-class} would also fail, and the classes of the averaged
-stages would no longer converge to $\beta^*\theta$.
+\emph{Drop the local Artin lengths.}  At the proper-support point
+$z=v_{\{x=0\},\triv}$ of the cubic example, the two lifts have weights
+$2,1$.  With $\lambda_0=0,\lambda_1=1$, their function values are
+$0,1$, so the actual average is $1/3$.
+An average over the two distinct points normalized by $2$ gives $1/2$.
+If one keeps the denominator $d=3$ but assigns weight $1$ to each point,
+even constants are not preserved.  Both attempts lose the Artin lengths
+that the determinant exponent records.
 
 \emph{Drop the openness of $h^{\An}$.}  Then Step~0 of the proof of
 \Cref{thm:bj-finite-normal-descent} breaks: one still knows
@@ -3594,25 +3691,24 @@ in fact differ by more than a null set.  Everything after Step~0 would then
 prove a statement about a function on $T$ that is not the pullback of the
 object under study.
 
-\emph{Drop the carrier.}  Then \Cref{thm:bj-carrier-reflection} is not
-applicable in Step~3, and one would be tempted to use unconditional
-reflection.  Unconditional reflection is available only for
-\emph{homogeneous} psh functions, \Cref{thm:bj-homogeneous-reflection}, and
-$u_Z$ is not homogeneous; the inhomogeneous unconditional statement is
-false, as \Cref{ex:ch39-not-fibre-constant} shows in the analogous
-birational situation.  The role of Step~2 is exactly to manufacture the
-missing hypothesis, and it is the only step that consumes the assumed
-envelope property a second time.
+\emph{Drop the carrier.}  The established
+\Cref{thm:bj-carrier-reflection} then cannot be applied in Step~3.
+The unconditional homogeneous reflection theorem does not address a
+function $u_Z$ that is not assumed homogeneous.
+This identifies a missing hypothesis of the available proof; it does
+not disprove a stronger reflection theorem.
+In particular an example of a function that is not fibrewise constant
+cannot refute descent for fibrewise constant functions.
+Step~2 constructs the carrier needed here from source EP.
 
-\emph{Drop normality of $X$.}  Then \Cref{lem:bj-finite-normal-open}
-fails, by \Cref{ex:ch41-node-not-open}, and so does the conclusion: the
-envelope property fails on a nodal curve while holding on its
-normalization, which is $\mathbf P^1$.  This is not a defect of the proof
-but a theorem, discussed in \Cref{sec:ch37-node-cusp}; the unibranch
-hypothesis of \Cref{thm:bj-final-envelope} is what repairs it, and the
-repair is carried out in
-\Cref{chap:bj-universal-homeomorphisms,chap:bj-subintegral-normalization},
-not here.
+\emph{Drop normality of $X$.}  Analytic openness and commutation
+with regularization can fail, by \Cref{ex:ch41-node-not-open},
+so the present proof no longer applies.  That bounded-function
+example does not by itself disprove EP;
+\Cref{sec:ch37-node-cusp} likewise distinguishes a normalization
+reflection obstruction from a converse envelope theorem.
+The extension to unibranch nonnormal targets is proved in
+\Cref{chap:bj-universal-homeomorphisms,chap:bj-subintegral-normalization}.
 
 \subsection{Checkpoints}
 \label{sec:ch41-checkpoints}
@@ -3698,8 +3794,9 @@ Five separations should be carried forward.
 
 \emph{Weight versus number of sheets.}  The integer $e(w/z)$ is a
 dimension of a local factor of a fibre algebra over a complete valued
-field.  It coincides with a count of geometric points only when the fibre
-algebra is étale over the completed residue field.  In
+field.  It coincides with a sum of geometric Artin lengths after algebraic closure.
+When the resulting fibre is reduced, these lengths are all one;
+several geometric points can still determine one analytic lift.  In
 \Cref{ex:ch41-frobenius-average} it is $p$ with a single sheet; in
 \Cref{ex:ch41-nonreduced-fibre} it is $2$ at a nonreduced factor and
 $1$ at a reduced one.  The invariant identity is
@@ -3723,15 +3820,16 @@ a birational square, not by an isomorphism
 
 \emph{Polynomial law versus polynomial function.}  The norm is a natural
 transformation of functors of $A$-algebras
-(\Cref{def:ch41-polynomial-law}), not a map $B\to A$ given by a formula in
-a basis.  The distinction is what makes the coefficients $c_I$ glue, what
+(\Cref{def:ch41-polynomial-law}), whose local basis formulas agree under changes of basis and
+under all base changes.  The distinction is what makes the coefficients $c_I$ glue, what
 makes the degree exactly $d$, and what makes the fibrewise computation
-legitimate after the non-flat, non-finite base change
-$A\to\mathcal H(z)\to\Omega$ (\Cref{rem:ch41-law-work}).
+legitimate after the composite
+$A\to\kappa(\xi)\to\mathcal H(z)\to\Omega$;
+the residue-field step need not be flat, while the field extensions are
+flat and need not be finite (\Cref{rem:ch41-law-work}).
 
-\emph{Envelope property as hypothesis versus as theorem.}  Every occurrence
-of $\operatorname{EP}$ in this chapter is on the source $T$ of the
-morphism and is a displayed hypothesis.  The conclusion carries no
+\emph{Envelope property as hypothesis versus as theorem.}  The descent proof consumes EP on the source $T$ as a displayed
+hypothesis and proves it on $X$ as its conclusion.  The conclusion carries no
 hypothesis on $X$ beyond normality and projectivity.  Reading
 \Cref{thm:bj-final-envelope} back into Step~0 or Step~2 would make
 \Crefrange{chap:bj-cartier-realization}{chap:bj-subintegral-normalization}
@@ -3741,7 +3839,9 @@ circular (\Cref{warn:ch41-firewall}).
 \label{sec:ch41-source-note}
 
 The openness, determinant-norm, flattening, and finite-descent arguments
-follow the corresponding section of the supplied envelope manuscript.
+follow the corresponding section of the supplied unpublished envelope
+manuscript, with the provenance boundary recorded in
+\Cref{sec:appL-envelope}.
 The algebraic normalization and flattening facts are cited there by stable
 Stacks Project tags under \cite{stacks-project}; the determinant norm is
 also treated by \cite{FerrandNorm}.  The presentation here keeps the
@@ -3775,11 +3875,18 @@ classical valuation-theoretic facts --- existence of an extension of an
 absolute value to an algebraic extension, uniqueness over a complete field,
 and the structure of the integral closure of a valuation ring --- are
 \cite[Chapter~VI]{ZariskiSamuelII}.  The determinant norm of a line bundle
-and its multiplicativity are Ferrand's norm functor \cite{FerrandNorm}; the
+and its multiplicativity are Ferrand's norm functor
+\cite[Proposition~3.3]{FerrandNorm}; the
 norm of a function is
 \cite[\href{https://stacks.math.columbia.edu/tag/0BD2}{Tag 0BD2}]
-{stacks-project}.  Miracle flatness, used only inside the worked example
-\Cref{ex:ch41-flatten-cone}, is \cite[Theorem~23.1]{Mat89}; the projection
+{stacks-project}.  The distinct existence theorem for a norm under a
+finite surjective morphism to a normal integral target is
+\cite[\href{https://stacks.math.columbia.edu/tag/0BD3}{Tag 0BD3}]
+{stacks-project}; this explains why lack of flatness alone is not a
+line-bundle obstruction, while it does obstruct the constant-rank
+base-change argument used here.
+Miracle flatness, used in \Cref{ex:ch41-flatten-cone} and in the
+smooth curve covers of \Cref{sec:ch41-averaging-examples}, is \cite[Theorem~23.1]{Mat89}; the projection
 formula for proper pushforward is \cite[Propositions~1.4 and~2.3]{Ful}.  The
 psh formalism, the regularization statements, and the Legendre and carrier
 technology are those of \cite{BJ22}, proved in
@@ -3800,8 +3907,7 @@ is recorded solely for provenance.  Ferrand \cite{FerrandNorm}, who develops
 the norm functor in this language, gives the corresponding exposition for
 determinant norms.
 
-Six things in this chapter are not in the sources in this form and are
-supplied here.  The presentation of an analytic point as a pair,
+Six aspects of the argument are isolated here.  The presentation of an analytic point as a pair,
 \Cref{lem:ch41-point-pair}, and the compatibility of supports and centres
 with a finite morphism, \Cref{lem:ch41-support-centre-finite}, are isolated
 so that every later fibre computation can begin at an arbitrary support
@@ -3822,7 +3928,7 @@ item on universal properties of determinant norms.  Finally the worked
 computations \Cref{ex:ch41-nonflat-cone}, \Cref{ex:ch41-flatten-cone},
 \Cref{ex:ch41-separable-average}, \Cref{ex:ch41-frobenius-average},
 \Cref{ex:ch41-cubic-norm}, \Cref{ex:ch41-nonreduced-fibre} and
-\Cref{ex:ch41-node-not-open} are new.  They are included because the two
+\Cref{ex:ch41-node-not-open} are included as worked checks because the two
 generality claims that this chapter exists to establish --- no separability,
 no reducedness --- are exactly the claims that a plausible argument can
 appear to establish without doing so, and because a reader who has verified
